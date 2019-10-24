@@ -1,0 +1,179 @@
+\section{Classical Field Theory}
+Analogy between classical field theory and the system of finite particles
+\subsection{The System of finite particles}
+\[
+  S=\int \mathrm{d}t \sum_{a}L\left( q_a,\dot{q}_a \right)  
+.\]
+\[
+  \frac{\delta S}{\delta q_a\left( t \right) }=0		
+.\]
+
+\[
+  \frac{\delta L}{\delta q_a}-\frac{\mathrm{d}}{\mathrm{d}t}\frac{\partial L}{\partial \dot{q}_a}=0
+.\] 
+The generalized momentum is
+\[
+  p^{a}=\frac{\partial L}{\partial \dot{q}_a}
+.\] 
+Then the Hamiltonian is
+\[
+  H=p^a\dot{q}_a-L
+.\] 
+We use the Einstein summation convention here and later on.
+
+\subsection{Classical Field}
+Here the generalized coordinate is changed to $\varphi\left( x \right) $, $t$ and $\vec{x}$ are parameters,
+ \[
+   \varphi\left( x \right) =\varphi\left( t,\vec{x} \right) 
+.\]
+\[
+  \int \mathrm{d}t\int \mathrm{d}^3x\mathcal{L}\left( \varphi\left( x \right) ,\partial_\mu\varphi\left( x \right)  \right) 
+.\]  
+\[
+  \frac{\delta S}{\delta \varphi\left( x \right) }=0
+.\] 
+\[
+  \frac{\partial \mathcal{L}}{\partial \varphi}-\frac{\mathrm{d}}{\mathrm{d}t} \frac{\partial \mathcal{L}}{\partial\left( \partial_\mu\varphi \right) }=0
+.\]
+The generalized momentum is
+\[
+  \pi(x)=\frac{\partial \mathcal{L}}{\partial \dot{\varphi}}
+.\] 
+The Hamiltonian is
+\[
+  H=\int \mathrm{d}^3x\mathcal{H}=\int \mathrm{d}^3x\left[ \pi(x)\dot{\varphi}(x)-\mathcal{L}(x) \right] 
+.\]
+\subsection{Klein-Gordon Theory}
+\[
+\mathcal{L}=\frac{1}{2}\partial_\mu\partial^\mu\varphi -\frac{1}{2}m^2\varphi^2
+.\]
+  
+\[
+  \pi=\dot{\varphi}
+.\] 
+\[
+  \mathcal{H}=\frac{1}{2}\pi^2+\frac{1}{2}(\nabla \varphi)^2+\frac{1}{2}m^2\varphi^2
+.\]
+
+\[
+  \frac{\partial \mathcal{L}}{\partial(\partial_\mu\varphi)}=-m^2\varphi^2-\partial_\mu\partial^\mu\varphi=0
+.\]
+i.e.,
+\[
+  (\partial^2+m^2)\varphi=0
+.\]
+This is the Klein-Gordon equation.
+
+\subsubsection{Noether's Theorem}
+\begin{itemize}
+  \item continuous symmetry $\to $ conserved current $j^\mu$ $\partial_\mu j^\mu=0$
+  \item conserved current $\to $ conserved charge $Q=\int_{\R^3}\mathrm{d}^3xj^{0}$
+\end{itemize}
+\begin{align*}
+  \frac{\mathrm{d}Q}{\mathrm{d}t}=&\int_{\R^3 }\mathrm{d}^3x \frac{\partial j^{0}}{\partial t} \\
+  =& -\int_{\R^3}\mathrm{d}^3x\nabla \cdot \mathbf{j}\\
+  =&-\int_{\partial\R^3}\mathbf{j}\cdot \mathrm{d}\mathbf{s}\\
+  =&\text{ (If $\mathbf{j}\to 0$ quickly enough as  $\left| \mathbf{x} \right| \to \infty$) }
+.\end{align*}
+Let $\delta\varphi=Y(\varphi)$ is a symmetry if 
+\begin{align*} 
+  \delta \mathcal{L}=&\frac{\partial \mathcal{L}}{\partial \varphi} \delta\varphi+\frac{\partial \mathcal{L}}{\partial \partial_\mu\varphi} \partial_\mu(\delta\varphi)\\
+  =&\left( \frac{\partial \mathcal{L}}{\partial \varphi} -\partial_\mu \frac{\partial \mathcal{L}}{\partial (\partial_\mu\varphi)} \right)\delta\varphi+\partial_\mu\left( \frac{\partial \mathcal{L}}{\partial (\partial_\mu\varphi)} \delta \varphi \right)  
+.\end{align*} 
+The first term is $0$ if the equation of motion is satisfied.
+\[
+  \delta\mathcal{L}=\partial_\mu\left(\frac{\partial \mathcal{L}}{\partial (\partial_\mu\varphi} Y\left( \varphi \right)  \right)=\partial_\mu F^{\mu}\left( \varphi \right)  
+.\] 
+Then we have  \[
+\partial_\mu j^\mu=0
+\]
+where $j^\mu=\frac{\partial \mathcal{L}}{\partial \left( \partial_\mu\varphi \right) } $.
+\subsubsection*{Translations}
+\[
+  x^{\nu}\to x^{\nu}-\epsilon^{\nu}
+.\] 
+\[
+  \varphi(x)\to \varphi(x)+\epsilon^\nu\partial_\nu\varphi(x)
+.\] 
+\[
+\mathcal{L}(x)\to \mathcal{L}(x)+\epsilon^\nu\partial_\nu\mathcal{L}
+.\]
+\[
+  \tensor{\mathbf{j}}{^\mu_\nu} =\frac{\partial \mathcal{L}}{\partial (\partial_\mu\varphi)}\partial_\nu\varphi-\tensor{\delta}{^\mu_\nu} \mathcal{L}\equiv \tensor{T}{^\mu_\nu}  
+.\]
+This is called stress-energy tensor. The $4$-momentum is \[
+P^{\mu}=\int \mathrm{d}^3xT^{0\mu}
+.\]
+\subsubsection*{$U(1)$ symmetry}
+Consider complex scalar field $\Phi(x)$
+\[
+  \mathcal{L}=\partial_\mu\Phi^{*}\partial^{\mu}\Phi-V(\left| \Phi^2 \right|)  
+.\] 
+\begin{align*}
+  \Phi\to & e^{i\theta}\Phi\\
+  \Phi^{*}\to & e^{-i\theta}\Phi^{*}
+.\end{align*}
+
+\[
+\delta\Phi=i\theta\Phi
+\] 
+\[
+\delta\Phi^{*}=-i\theta\Phi^{*}
+.\] 
+\[
+\delta \mathcal{L}=0
+.\] 
+\[
+  j^{\mu}=\frac{\partial \mathcal{L}}{\partial (\partial_\mu\Phi)}\delta\Phi+\frac{\partial \mathcal{L}}{\partial (\partial_\mu\Phi^{*})} \delta\Phi^{*} 
+.\]
+Drop the $\theta$ term and rewrite it as
+\[
+j^{\mu}=\Phi\partial^{\mu}\Phi^{*}-\Phi^{*}\partial^{\mu}\Phi
+.\]
+The charge is the  electric charge or the particle number.
+
+\subsection{Solution of the  Klein-Gordon Equation}
+\[
+  \varphi(t,\mathbf{x})=\int \frac{\mathrm{d}^3k}{(2\pi)^3}e^{i \mathbf{k}\cdot \mathbf{x}}\tilde{\varphi}(t,\mathbf{k})
+.\]
+\[
+  \dot{\varphi}^2-(\nabla \varphi)^2+m^2\varphi^2=0		
+.\]
+\[
+  \dot{\tilde{\varphi}}^2+(\mathbf{k}^2+m^2)\tilde{\varphi}=0
+.\] 
+\[
+  \tilde{\varphi}(t,\mathbf{k})=A(\mathbf{k})e^{-iE_{\mathbf{k}t}}+B(\mathbf{k})e^{iE_{\mathbf{k}}t}
+\] 
+where $E_{\mathbf{k}}=\sqrt{\mathbf{k}^2+m^2} $.
+
+Klein-Gordon field is a real field hence $\varphi=\varphi^{*}$, 
+\[
+  \varphi^*(t,\mathbf{x})=\int \frac{\mathrm{d}^3k}{(2\pi)^3}e^{-i\mathbf{k}\cdot \mathbf{x}}\tilde{\varphi}^*(t,\mathbf{k})
+\]
+\[
+  =\int \frac{\mathrm{d}^3k}{(2\pi)^3}e^{i\mathbf{k}\cdot \mathbf{x}}\tilde{\varphi}^{*}(t,-\mathbf{k})
+.\] 
+\[
+  \tilde{\varphi}(t,kve)=\tilde{\varphi}^{*}(t,-\mathbf{k})
+.\] 
+i.e.,
+\[
+  B(\mathbf{k})=A^{*}(t,-\mathbf{k})
+.\] 
+\[
+  \varphi(t,\mathbf{x})=\int \frac{\mathrm{d}^3k}{(2\pi)^3}\left[ A(\mathbf{k})e^{-iE_{\mathbf{k}}t+i\mathbf{k}\cdot \mathbf{x}}+A^{*}(-\mathbf{k})e^{iE_{\mathbf{k}}t+i\mathbf{k}\cdot \mathbf{x}} \right] 
+.\]
+Rewrite it as 
+\[
+  \varphi(x)=\int \frac{\mathrm{d}^3k}{(2\pi)^3}\left[ A(\mathbf{k})e^{-ik\cdot x}+A^{*}(\mathbf{k})e^{ik\cdot x} \right] 
+.\] 
+Lorentz invariant term:
+\[
+  \int\frac{\mathrm{d}^3k}{(2\pi)^32E_{\mathbf{k}}}=\int \frac{\mathrm{d}^{4}k}{(2\pi)^{4}}2\pi\delta(k^2-m^2)\Theta(k^0)
+\]
+where $\Theta\left( x \right) $ is Heaviside function and invariant under orthochronous Lorentz transformations.
+Rewrite the general solution as following:
+ \[
+   \varphi(x)=\int \frac{\mathrm{d}^3k}{(2\pi)^3 2E_{\mathbf{k}}}\left[ a(\mathbf{k})e^{-ik\cdot x}+a^{*}(\mathbf{k})e^{ik\cdot x} \right] 
+.\] 

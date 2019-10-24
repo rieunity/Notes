@@ -1,0 +1,57 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[english]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{mathtools}
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+\newcommand{\incfig}[1]{%
+  \def\svgwidth{\columnwidth}
+  \import{./figures/}{#1.pdf_tex}
+}
+
+\pdfsuppresswarningpagegroup=1
+
+
+% Some shortcuts
+\newcommand\N{\ensuremath{\mathbb{N}}}
+\newcommand\R{\ensuremath{\mathbb{R}}}
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+\renewcommand\O{\ensuremath{\emptyset}}
+\newcommand\Q{\ensuremath{\mathbb{Q}}}
+\newcommand\C{\ensuremath{\mathbb{C}}}
+
+% Some theorem environment settings
+\usepackage{ntheorem}
+\newtheorem{theorem}{Theorem}
+\newtheorem*{rmk}{Remark}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proof}{Proof}[section]
+
+
+% Tensor
+\usepackage{tensor}
+
+% bracket notations 
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
+
+% Normal ordering
+\newcommand{\normord}[1]{:\mathrel{#1}:}
+
+% 中文支持
+%\usepackage{ctex}
+
+\begin{document}
+
+%\include{lecture01}
+\include{lecture02}
+\end{document}

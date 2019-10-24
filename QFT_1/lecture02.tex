@@ -1,0 +1,177 @@
+\section{Canonical Quantization of the Klein-Gordon Field}
+\subsection{Quantization}
+In quantum mechanics
+\[
+\left[ q_a,p_b \right] =i\delta_{ab}
+.\] 
+\[
+\left[ q_a,q_b \right] =0
+.\] 
+\[
+\left[ p_a,p_b \right] =0
+.\]
+Similarly, quantize the Klein-Gordon field as following
+\[
+  \left[ \varphi(\mathbf{x},\pi(\mathbf{y}) \right] =i\delta(\mathbf{x}-\mathbf{y})
+\] 
+\[
+  \left[ \varphi(\mathbf{x},\varphi(\mathbf{y} \right]=0 
+\]
+\[
+  \left[ \pi(\mathbf{x}),\pi(\mathbf{y}) \right] =0
+.\] 
+
+In classical field theory, the coefficients $a(\mathbf{k})$ and $a^*(\mathbf{k})$ are numbers, after quantization, they are changed into operators
+\begin{align*}
+  a(\mathbf{k})\to &a_{\mathbf{k}}\\
+  a^*(\mathbf{k})\to &a^\dagger_{\mathbf{k}}
+.\end{align*}
+\[
+  \varphi(\mathbf{x})=\int \frac{\mathrm{d}^3k}{(2\pi)^32E_{\mathbf{k}}}\left[ a_{\mathbf{k}}e^{i\mathbf{k}\cdot \mathbf{x}}+a^\dagger_{\mathbf{k}}e^{-i\mathbf{k}\cdot \mathbf{x}} \right] 
+.\] 
+\[
+  \left[ a_{\mathbf{k}},a_{\mathbf{p}}^\dagger \right] =(2\pi)^32E_{\mathbf{k}}\delta^{(3)}(\mathbf{k}-\mathbf{p})
+\]
+\[
+  \left[ a_{\mathbf{k}},a_{\mathbf{p}} \right] =0
+\]
+\[
+  \left[ a_{\mathbf{k}}^{\dagger},a_{\mathbf{p}}^{\dagger} \right] =0.
+\]
+The Hamiltonian is 
+\[
+  H=\frac{1}{2}\int \frac{\mathrm{d}^3k}{(2\pi)^32E_{\mathbf{k}}}E_{\mathbf{k}}\left( a_{\mathbf{k}}^{\dagger}a_{\mathbf{k}}+a_{\mathbf{k}}a_{\mathbf{k}}^{\dagger} \right) 
+\]
+
+\[
+  H=\frac{1}{4}\int \frac{\mathrm{d}^3k}{(2\pi)^3}\left( a_{\mathbf{k}}^{\dagger}a_{\mathbf{k}}+a_{\mathbf{k}}a_{\mathbf{k}}^{\dagger} \right) 
+.\] 
+\subsection{States}
+Vacuum state $\ket{0}$
+\[
+a_{\mathbf{k}}\ket{0}=0
+\] 
+\[
+\braket{0}{0}=1
+.\] 
+\begin{align*}
+  H\ket{0}=&E_0\ket{0}\\
+  =&\frac{1}{4}\int \frac{\mathrm{d}^{3}k}{(2\pi)^3}a_{\mathbf{k}}a_{\mathbf{k}}^{\dagger}\ket{0}\\
+  =&\frac{1}{2}\int \mathrm{d}^3kE_{\mathbf{k}}\delta^{(3)}(\mathbf{k}-\mathbf{k})\ket{0}\\
+  =&\infty\ket{0}
+.\end{align*}
+The vacuum energy is infinite.
+
+\subsection{IR-regulate}
+IR-regulate by  putting theory in a box of size $L$.
+\begin{align*}
+  (2\pi)^3\delta^{(3)}(\mathbf{0})=&\lim_{L \to \infty} \int_{-\frac{L}{2}}^{\frac{L}{2}}\mathrm{d}^{3}xe^{-i\mathbf{p}\cdot \mathbf{x}}\bigg\lvert_{\mathbf{p}=0}\\
+  =& \lim_{L \to \infty} \int_{-\frac{L}{2}}^{\frac{L}{2}}\mathrm{d}^3x\\
+  =& \lim_{L \to \infty} V
+.\end{align*}
+
+\[
+  \rho_0=\frac{E_0}{V}=\int \frac{\mathrm{d}^3k}{(2\pi)^3}\frac{1}{2}E_{\mathbf{k}}
+.\]
+Total energy  diverges if $V$ diverges unless $\rho_0=0$. This is a UV divergence.
+
+Normal Hamiltonian is 
+\[
+  \normord{H}=\int \frac{\mathrm{d}^3k}{(2\pi)^32E_{\mathbf{k}}}E_{\mathbf{k}}a_{\mathbf{k}}^{\dagger}a_{\mathbf{k}}
+.\] 
+
+\subsection{One Particle States}
+Let
+\[
+  \ket{\mathbf{k}}=a_{\mathbf{k}}^{\dagger}\ket{0}
+.\] 
+$\ket{\mathbf{k}}$ has definite momentum and energy, sometimes also be denoted by $\ket{k}$.
+\begin{align*}
+  \braket{\mathbf{p}}{\mathbf{k}}=&\bra{0}a_{\mathbf{p}}a_{\mathbf{k}}^{\dagger}\ket{0}\\
+  =& (2\pi)^32E_{\mathbf{k}}\delta^{(3)}(\mathbf{p}-\mathbf{k})
+.\end{align*}
+This is Lorentz invariant.
+
+$\varphi(\mathbf{x})\ket{0}$ is an one-particle state localized at $\mathbf{x}$.
+\[
+  N=\int \frac{\mathrm{d}^3k}{(2\pi^3)2E_{\mathbf{k}}}a_{\mathbf{k}}^{\dagger}a_{\mathbf{k}}
+\] 
+\[
+Na_{\mathbf{p}}^{\dagger}\ket{0}=a_{p}^{\dagger}\ket{0}
+\] 
+\[
+  N\varphi(\mathbf{x})\ket{0}=\varphi(\mathbf{x})\ket{0}
+\] 
+\[
+  \bra{\mathbf{k}}\varphi(\mathbf{x})\ket{0}=e^{-i\mathbf{k}\cdot \mathbf{x}}
+.\] 
+This formula is similar to $\braket{\mathbf{k}}{\mathbf{x}}=e^{-i\mathbf{k}\cdot \mathbf{x}}$ in quantum mechanics.
+\subsection{Multiparticle States}
+\[
+\ket{\mathbf{k}_1,\mathbf{k}_2,\cdots,\mathbf{k}_n }=a_{\mathbf{k}_1}^{\dagger}a_{\mathbf{k}_2}^{\dagger}\cdots a_{\mathbf{k}_n}\ket{0} 
+\] 
+The operators in the right hand are commutative $\to $ bosons.
+\[
+\left[ \normord{H},N \right] =0
+.\] 
+The state space is Fock space $\mathcal{F}=\oplus_{n=0}^{\infty}\mathcal{H}_n$.
+\subsection{Heisenberg Picture}
+\[
+  \mathcal{O}(t)=e^{iHt}\mathcal{O}e^{-iHt}
+.\]
+\[
+  a_{\mathbf{p}}(t)=e^{iHt}a_{\mathbf{p}}e^{-iHt}.
+\] 
+Using $e^{A}Be^{-A}=B+\left[ A,B \right] +\frac{1}{2}\left[ A,\left[ A,B \right]  \right]+\cdots $ we get 
+\[
+\left[ H,a_{\mathbf{p}} \right] =-E_{\mathbf{p}}a_{\mathbf{p}}
+\] 
+and
+\[
+  a_{\mathbf{p}}(t)=e^{-iE_{\mathbf{p}}t}a_{\mathbf{p}}
+\] 
+\[
+  a_{\mathbf{p}}^{\dagger}\left( t \right) =e^{iE_{\mathbf{p}}t}a_{\mathbf{p}}^{\dagger}.
+\]
+\[
+  \varphi(t,\mathbf{x})=\int \frac{\mathrm{d}^3k}{(2\pi)^32E_{\mathbf{k}}}\left[ a_{\mathbf{k}}e^{-ik\cdot x}+a_{\mathbf{k}}^{\dagger}e^{ik\cdot x} \right] 
+.\]
+\begin{align*}
+  \left[ \normord{H},\varphi \right] =& \int \frac{\mathrm{d}^3k}{(2\pi)^32E_{\mathbf{k}}}\int\frac{\mathrm{d}^3p}{(2\pi)^32E_{p}}\left[ E_{\mathbf{k}}a_{\mathbf{k}}^{\dagger}a_{\mathbf{k}},a_{\mathbf{p}}e^{-ip\cdot x}+a_{\mathbf{p}}^{\dagger}e^{ip*x} \right] \\
+  =& \int \frac{\mathrm{d}^3k}{(2\pi)^32E_{\mathbf{k}}}\left( -E_{\mathbf{k}}a_{\mathbf{k}}e^{-ik\cdot x}+E_{\mathbf{k}}a_{k}^{\dagger}e^{ik\cdot x} \right) \\
+  =& -i\partial_t\varphi(t,\mathbf{x})
+.\end{align*}
+
+The interaction field can be written as
+\[
+  \Phi(t,\mathbf{x})=\int \frac{\mathrm{d}^3p}{(2\pi)^32E_{\mathbf{p}}}\left[ b_{\mathbf{p}}(t)e^{-ip\cdot x}+b_{\mathbf{p}}^{\dagger}(t)e^{ip\cdot x} \right] 
+.\]
+At any fixed time $b_{\mathbf{p}}^{\dagger}(t)$ and $b_{\mathbf{p}}(t)$ satisfy the same algebra as free theory.
+\subsubsection*{Propagator}
+\begin{align*}
+  D(x-y)=&\bra{0}\varphi(x)\varphi(y)\ket{0}\\
+  =&\int \frac{\mathrm{d}^3p}{(2\pi)^32E_{\mathbf{p}}}\frac{\mathrm{d}^{3}k}{2E_{\mathbf{k}}}e^{-ip\cdot x+ip\cdot y}\bra{0}a_{\mathbf{p}}a_{\mathbf{k}}^{\dagger}\ket{0}\\
+  =&\int \frac{\mathrm{d}^3p}{(2\pi)^32E_{\mathbf{p}}}e^{-ip\cdot (x-y)}
+.\end{align*}
+
+Space like: $x^{0}=y^{0},\mathbf{x}-\mathbf{y}=\mathbf{r}\neq 0$
+\begin{align*}
+  D(x-y)=&\int \frac{\mathrm{d}^3p}{(2\pi)^32E_{\mathbf{p}}}e^{i\mathbf{p}\cdot r\mathbf{p}}\\
+  \sim& e^{-mr}\neq 0
+.\end{align*}
+
+If $\Delta(x,y)=\left[ \varphi(x),\varphi(y) \right]=0 $, then the measurement at $x$ cannot affect $y$.
+\[
+  \left[ \varphi(x),\varphi(y) \right] = D(x-y)-D(y-x)=\bra{0}\left[ \varphi(x),\varphi(y) \right] \ket{0}	 
+.\] 
+These two amplitude eliminate with each other when $(x-y)^{2}<0$.
+
+For time like separation, assume $x^0>y^0$
+\begin{align*}
+  \Delta(x,y)=&\int \frac{\mathrm{d}^3p}{(2\pi)^3E_{\mathbf{p}}}\left( e^{-ip\cdot (x-y)}-e^{ip\cdot (x-y)} \right) \\
+  =& \int \frac{\mathrm{d}^3p}{2E_{\mathbf{p}}}\left( \frac{1}{2E_{\mathbf{p}}}e^{-ip\cdot (x-y)}\bigg\lvert_{p^{0}=E_{\mathbf{p}}}+\frac{1}{2E_{\mathbf{p}}}e^{-ip\cdot x-y}\bigg\lvert_{p^{0}=-E_{\mathbf{p}}} \right)\\
+      =& \int \frac{\mathrm{d}^3p}{(2\pi)^{3}}\int_{C_R} \frac{\mathrm{d}p^{0}}{2\pi i}\frac{-1}{p^2-m^2}e^{-ip\cdot (x-y)}
+.\end{align*}
+\[
+  \Delta_R(x-y)=\Theta(x^{0}-y^{0})\bra{0}\left[ \varphi(x),\varphi(y) \right] \ket{0}= \int_{C_R'} \frac{\mathrm{d}^{4}p}{(2\pi)^{4}}\frac{i}{p^{2}-m^2}e^{-ip\cdot (x-y)}
+.\]

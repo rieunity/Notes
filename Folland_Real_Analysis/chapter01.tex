@@ -1,0 +1,315 @@
+\chapter{Measures}
+\begin{exe}
+  A family of sets $\mathcal{R}\subset\mathcal{P}(X)$ is called a ring if it is closed under finite unions and differences (i.e., if $E_1,E_2,\cdots,E_n\in\mathcal{R}$, then $\bigcup_{1}^{n}E_j\in \mathcal{R}$, and if $E,F\in\mathcal{R}$, then $E\backslash F \in \mathcal{R}$). A ring that is closed under countable unions is called a $\sigma$-ring.
+\begin{enumerate}
+  \item Rings (resp. $\sigma$-rings) are closed under finite (resp. countable) intersections.
+  \item If $\mathcal{R}$ is a ring (resp. $\sigma$-ring), then $R$ is an algebra (resp. $\sigma$-algebra) iff $X\in\mathcal{R}$.
+  \item If $R$ is a $\sigma$-ring, then $\left\{ E\subset X:E\in \mathcal{R} \text{ or } E^{c}\in R \right\} $ is a $\sigma$-algebra.
+  \item If $\mathcal{R}$ is a $\sigma$-ring, then $\left\{ E\subset X:E\cap F\in \mathcal{R}\text{ for all } F\in \mathcal{R}   \right\} $ is a  $\sigma$-algebra.
+\end{enumerate}
+\end{exe}
+\begin{sol}
+  \begin{enumerate}
+    \item $E\cap F=E\backslash\left( E\backslash F \right) $.
+    \item This is obvious.
+    \item Let 
+      \[
+	\mathcal{G}=\left\{ E\subset X:E\in \mathcal{R}\text{ or } E^{c}\in \mathcal{R} \right\} 
+      .\] 
+      Choose a set  $E\in \mathcal{G}$, then $X=E\cup E^{c}\in \mathcal{G}$. Let $E_1,E_2,\cdots,E_n,\cdots \in \mathcal{G}$. Then $E_i\in \mathcal{R}$ or $E_i^{c} \in \mathcal{R}$ for every $i\in \N$. Assume $E_i\in\mathcal{R}$ for $i\in I$ and $E_i^{c}\in \mathcal{R}$ for $i\in\N\backslash I$. Then $\bigcup_{i\in \N} E_i=A\backslash B\in \mathcal{R}\subset \mathcal{G}$ since $A=\bigcup_{i \in  I} E_i\in \mathcal{R}$ and $B=\bigcup_{i \in \N\backslash I} E_i\in \mathcal{R}$. It is easy to verify  $E-F\in \mathcal{G}$ for $E,F\in \mathcal{G}$.
+    \item Let \[
+	\mathcal{G}=\left\{ E\subset X:E\cap F\in \mathcal{R} \text{ for all } F\in \mathcal{R} \right\} 
+    .\] 
+    Obviously, $X\in \mathcal{G}$. Let $E_i\in \mathcal{G}$,$i\in \N$, then $E_i\cap F\in \mathcal{R}$ for all $F\in \mathcal{R}$. $\left(\bigcup_{i=1}^{\infty}E_i\right) \cap F=\bigcup_{i=1}^{\infty}\left( E_i\cap F \right)\in \mathcal{R}  $ 
+    since $E_{i}\cap F\in \mathcal{R}$ for all $F\in \mathcal{R}$. Hence $\bigcup_{i=1}^{\infty}E_i\in \mathcal{G}$. Let $A,B\in \mathcal{G}$, $\left(A\backslash B\right)\cap F=\left( A\cap F \right)\backslash \left( B\cap F \right) \in \mathcal{R} $ for all $F\in \mathcal{R}$ since $A\cap F\in \mathcal{R}$,$B\cap F\in \mathcal{R}$ and  $\mathcal{R}$ is a $\sigma$-ring. 
+\end{enumerate}
+
+\end{sol}
+
+
+\begin{exe}
+  Complete the proof of Proposition 1.2.
+\end{exe}
+
+\begin{sol}
+  \begin{enumerate}
+    \item From the definition of the $\mathcal{B}_{\R}$ directly.
+    \item $\left( a,b \right) =\bigcup_{n=1} ^{\infty}\left[ a+\frac{1}{n},b-\frac{1}{n} \right]  $.
+  \item $\left( a,b \right) =\bigcup_{n=1} ^{\infty}\left(a,b-\frac{1}{n}\right]=\bigcup_{n=1} ^{\infty}\left[a+\frac{1}{n},b\right)$.
+  \item If $\left( a,\infty \right) \in \mathcal{M}\left( \mathcal{E}_5 \right) $, then $\left(-\infty,a\right]\in \mathcal{M}\left( \mathcal{E}_5 \right) $. Hence $\left(a,b  \right]=\left(a,\infty\right)\cap \left(-\infty,b\right]\in \mathcal{M}\left( \mathcal{E}_5 \right)  $. We can get $\mathcal{B}_{\R}=\mathcal{M}\left( \mathcal{R}_{5} \right) $ by c. The other one is similar.
+  \item Same as d.
+  \end{enumerate}
+\end{sol}
+\begin{exe}
+  Let $\mathcal{M}$ be an infinite $\sigma$-algebra.
+  \begin{enumerate}
+    \item $\mathcal{M}$ contains an infinite sequence of disjoint sets.
+    \item $\text{card}\left( \mathcal{M} \right) \ge \mathfrak{c}$.
+  \end{enumerate}
+\end{exe}
+\begin{sol}
+  \begin{enumerate}
+    \item  Since $\mathcal{M}$ is a $\sigma$-algebra, $X\in \mathcal{M}$. Let $E_1=X$. Since $\mathcal{M}$ is infinite, $\mathcal{M}\backslash \left\{ X \right\} $ is not empty. There is a nonempty set $A_2\subsetneq E_1=X$. Consider $A_2\cap \mathcal{M}$ and $A_2^{c}\cap \mathcal{M}$, at least one of them is an infinite $\sigma$-algebra. Let $E_2$ be the set whose intersection with  $\mathcal{M}$ is an infinite $\sigma$-algebra. Repeat this step, we can get an infinite sequence of sets  $\cdots\subsetneq E_3\subsetneq E_2\subsetneq E_1$. Let  $F_k=E_k\backslash E_{k+1}$, we get an infinite sequence of disjoint sets  $\left\{ F_k \right\}_{k=1}^{\infty}$.
+    \item $\text{card}\left( \N \right) =\text{card}\left( \left\{ F_k \right\}_{k=1}^{\infty} \right)\to \mathfrak{c}=\text{card}\left( \R \right)\leq \text{card}\left( \mathcal{M} \right) $.  
+  \end{enumerate}
+\end{sol}
+\begin{exe}
+  An algebra $\mathcal{A}$ is a $\sigma$-algebra iff $\mathcal{A}$ is closed under countable increasing unions (i.e., if $\left\{ E_j \right\}_{1}^{\infty}\subset \mathcal{A}$ and $E_1\subset E_2\subset \cdots$, then $\bigcup_{1} ^{\infty}E_j\in \mathcal{A}$ ).
+\end{exe}
+\begin{sol}
+  If $\mathcal{A}$ is a $\sigma$-algebra, then $\mathcal{A}$ is closed under countable increasing unions. If $\mathcal{A}$ is closed under countable increasing unions, we need to prove that $\bigcup_{1} ^{\infty}E_j\in \mathcal{A}$ for arbitrary sequence $\left\{ E_j \right\}_{1}^{\infty}$ contained in $\mathcal{A}$. Let $F_k=\bigcup_{j=1} ^{k}E_{j}$, then $F_k\in \mathcal{A}$ since $\mathcal{A}$ is an algebra. Since $\mathcal{A}$ is closed under countable unions, we have $\bigcup_{k=1} ^{\infty}F_k\in \mathcal{A}$. Hence $\bigcup_{i=1} ^{\infty}E_i=\bigcup_{k=1} ^{\infty}F_k\in \mathcal{A}$. This implies $\mathcal{A}$ is a $\sigma$-algebra.
+\end{sol}
+\begin{exe}
+  If $\mathcal{M}$ is the $\sigma$-algebra generated by $\mathcal{E}$, then $\mathcal{M}$ is the union of the $\sigma$-algebras generated by $\mathcal{F}$ as $\mathcal{F}$ ranges over all countable subsets of $\mathcal{E}$. (Hint: Show that the latter object is a $\sigma$-algebra.)
+\end{exe}
+\begin{sol}
+  We need to prove \[
+    \mathcal{M}\left( E \right) =\bigcup_{\mathcal{F}: \text{ countable subsets of } \mathcal{E}}\mathcal{M}\left( \mathcal{F} \right)
+  .\] 
+  Obviously, we have
+  \[
+    \mathcal{M}\left( \mathcal{E} \right) \supset \bigcup_{\mathcal{F}: \text{ countable subsets of } \mathcal{E}} \mathcal{M}\left( \mathcal{F} \right)
+  .\]
+  The converse inclusion is right only if  we can show the latter object is a $\sigma$-algebra. Let  $\left\{ E_i \right\}_{i=1}^{\infty}$ is a sequnce of the latter  object. There is a countable subset of $\mathcal{E}$ $\mathcal{F}_i$ such that $E_i\in \mathcal{F}_i$. Hence $E_i=\bigcup_{j=1} ^{\infty}F_{ij}$ where $F_{ij}\in \mathcal{F}_i$. $\bigcup_{i=1} ^{\infty}E_i=\bigcup_{i=1,j=1} ^{\infty}F_{ij}\in \mathcal{F}_{\omega}$ where $\mathcal{F}_{\omega}$ is a $\sigma$-algebra generated by $F_{ij}$, hence $\bigcup_{i=1} ^{\infty}$ is in the latter object. The closed property of the difference is obvious.
+\end{sol}
+\begin{exe}
+  Complete the proof of Theorem 1.9.	
+\end{exe}
+\begin{sol}
+  If there is another measure $\nu$ on $\overline{\mathcal{M}}$ that extends $\mu$. Let $E\in \mathcal{M}$ and $F\subset N$ for some $N\in \mathcal{N}$. Then
+  \[
+    \nu\left( E\cup F \right)\le \nu\left( E\cup N \right) =\mu\left( E\cup N \right)=\mu\left( E \right)=\nu\left( E \right)  
+  .\]
+  But $\nu\left( E \right) \le \nu\left( E\cup F \right) $. Hence we get 
+   \[
+     \nu\left( E\cup F \right) =\mu(E)=\overline{\mu}\left( E\cup F \right). 
+  .\]
+This means $\nu$ is exactly the same as  $\overline{\mu}$.
+\end{sol}
+\begin{exe}
+  If $\mu_1,\mu_2,\cdots,\mu_n$ are measures on $\left( X,\mathcal{M} \right) $ and $a_1,a_2,\cdots,a_n\in [0,\infty)$, then $\sum_{1}^{n} a_j\mu_j$ is a meaure on $(X,\mathcal{M})$.
+\end{exe}
+\begin{sol}
+  \[
+    \mu(\O)=\sum_1^na_j\mu_j(\O)=0
+  .\]
+  Let $E_i$ be disjoint subets of  $X$,
+
+  \begin{align*}
+    \mu\left( \bigcup_{i=1} ^{\infty}E_i \right) =&\sum_{j=1}^{n} a_j\mu_j\left( \bigcup_{i=1} ^{\infty}E_i \right) \\
+    =& \sum_{j=1}^{n}a_j\left( \sum_{i=1}^{\infty}\mu_j\left( E_i \right)  \right)\\
+    =& \sum_{i=1}^{\infty}\left( \sum_{j=1}^{n}a_j\mu_j\left( E_i \right)  \right) \\
+    =&\sum_{i=1}^{\infty}\mu\left( E_{i} \right)  
+  .\end{align*}
+\end{sol}
+\begin{exe}
+  If $\left( X,\mathcal{M},\mu \right) $ is a measure space and $\left\{ E_{j} \right\}_1^{\infty} \subset \mathcal{M}$, then $\mu\left( \lim \inf E_j \right)\le \lim \inf \mu(E_j) $. Also, $\mu\left( \lim\sup  E_j \right)\ge \lim\sup\mu\left( E_j \right)  $ provided that $\mu\left( \bigcup_{1} ^{\infty}E_j \right) <\infty$.
+\end{exe}
+\begin{sol}
+  \[
+ \lim\inf E_{j}=\bigcup_{n=1} ^{\infty}\bigcap_{k\ge n} E_{k}
+  .\] 
+  Let $F_n=\bigcap_{k\ge n} E_k$, then it is an increasing sequnece, by continuity from below we get
+  \begin{align*}
+    \mu\left( \lim\inf E_j \right) =& \mu\left( \bigcup_{n=1} ^{\infty}\bigcap_{k\ge n} E_k \right) \\
+    =&\mu\left( \bigcup_{n=1} ^{\infty}F_n \right) \\
+    =& \lim_{n\to \infty}\mu\left( F_n \right)
+  .\end{align*}
+  Since $F_n\subset E_{k}$ for all $k\in \N$ and $k\ge n$, $\mu\left( F_n \right) \le \mu\left( E_k \right) $ for all $k\in\N$ and $k\ge n$. Hence $\mu\left( F_n \right) =\inf_{k\ge n}\mu\left( E_k \right) $. Combine these two formulas we get
+  \[
+    \mu\left( \lim\inf E_j \right) \le \lim _{n\to \infty}\inf_{k\ge n}\mu\left( E_k \right) =\lim\inf \mu\left( E_j \right) 
+  .\]
+
+  \[
+  \lim\sup E_j=\bigcap_{n=1} ^{\infty}\bigcup_{k\ge n} E_k
+  .\] 
+  Let $G_n=\bigcup_{k\ge n} E_k$, then it is an decreasing sequence, and $\mu\left( G_1 \right)<\infty $ by the condition. By continuity from above we get
+  \begin{align*}
+    \mu\left( \lim\sup E_j \right) =& \mu\left( \bigcap_{n=1} ^{\infty}\bigcup_{k\ge n} E_k \right) \\
+    =&\mu\left( \bigcap_{n=1} ^{\infty}G_n \right) \\
+    =&\lim_{n\to \infty}\mu\left( G_n \right) 
+  .\end{align*}
+  Since $G_n\supset E_{k} $ for all $k\in \N$ and $k\ge n$, $\mu\left( G_n \right) \ge \mu\left( E_k \right) $ for all $k\in \N$ and $k\ge n$. Hence $\mu\left( G_n \right) \ge \sup_{k\ge n}\mu\left( E_k \right) $. Combine these two formulas we get
+  \[
+    \mu\left( \lim\sup E_j \right) \ge \lim_{n\to \infty}\sup_{k\ge n}\mu\left( E_k \right) =\lim\sup\mu\left( E_j \right) 
+  .\] 
+\end{sol}
+\begin{exe}
+  If $(X,\mathcal{M},\mu)$ is a measure space and $E,F\in \mathcal{M}$, then $\mu(E)+\mu(F)=\mu(E\cup F)+\mu(E\cap F)$.
+\end{exe}
+\begin{sol}
+  \[
+    \mu\left( E \right) =\mu\left( E\backslash F \right) +\mu\left( E\cap F \right) 
+  .\] 
+  \[
+    \mu\left( F \right) =\mu\left( F\backslash E \right) +\mu\left( E\cap F \right) 
+  .\] 
+  \[
+    \mu\left( E\cup F \right) =\mu\left( E\backslash F \right) +\mu\left( F\backslash E \right) +\mu\left( E\cap F \right) 
+  .\]
+  Then we can get 
+  \[
+    \mu\left( E \right) +\mu\left( F \right) =\mu\left( E\cup F \right) +\mu\left( E\cap F \right) 
+  .\] 
+\end{sol}
+
+\begin{exe}
+  Given a measure space $\left( X,\mathcal{M},\mu \right) $ and $E\in \mathcal{M}$, define $\mu_E\left( A \right) =\mu\left( A\cap E \right) $ for $A\in \mathcal{M} $. Then $\mu_E$ is a measure.
+\end{exe}
+\begin{sol}
+  Let $\left\{ E_i \right\} _{i=1}^{\infty}$ be a sequence of disjoint sets in $\mathcal{M}$.
+  \begin{align*}
+    \mu_E\left( \bigcup_{i=1} ^{\infty}E_i \right) = & \mu\left( \left(\bigcup_{i=1} ^{\infty}E_i\right)\cap E \right) \\
+    = & \mu\left( \bigcup_{i=1} ^{\infty}\left( E_i\cap E \right)  \right) \\
+    = & \sum_{i=1}^{\infty}\mu\left(E_i\cap E  \right)\\
+    = & \sum_{i=1}^{\infty}\mu_E\left( E_i \right) 
+  .\end{align*}
+\end{sol}
+\begin{exe}
+  A finitely additive measure $\mu$ is a measure iff it is continuous from below as in Theorem 1.8c. If $\mu\left( X \right) <\infty$, $\mu$ is a measure iff it is continuous from above as in Theorem 1.8d.
+\end{exe}
+\begin{sol}
+  Let $\{E_i\} _{i=1}^{\infty}$ be a sequence of disjoint sets in $\mathcal{M}$. If $\mu$ is continuous from below, we set $F_k=\bigcup_{i=1} ^{k}E_i$. By continuity from below, we have
+\begin{align*}
+  \mu\left( \bigcup_{i=1} ^{\infty}E_i \right) =&\mu\left( \bigcup_{k=1} ^{\infty}F_k \right)\\ 
+  =&\lim_{k\to\infty}\mu\left( F_k \right) \\
+  =& \lim_{k\to \infty}\sum_{i=1}^{k}\mu\left( E_i \right) \\
+  =&\sum_{i=1}^{\infty}\mu\left( E_i \right) 
+.\end{align*}
+The converse is obvious. The second condition can be proven the same way.
+\end{sol}
+\begin{exe}
+  Let $\left( X,\mathcal{M},\mu \right)$ be a finite measure space.
+  \begin{enumerate}
+    \item If $E,F\in \mathcal{M}$ and $\mu\left( E\Delta F \right) =0$, then $\mu\left( E \right) =\mu\left( F \right) $.
+    \item Say that $E\sim F$ if $\mu\left( E\Delta F \right) =0$ ; then $\sim$ is an equivalence relation on $\mathcal{M}$.
+    \item For $E,F\in \mathcal{M}$, define $\rho\left( E,F \right) =\mu\left( E\Delta F \right) $. Then $\rho\left( E,G \right) \le \rho\left( E,F \right) +\rho\left( F,G \right) $, and hence $\rho$ defines a metric on the space $\mathcal{M}\slash\sim$ of equivalence classes. 
+  \end{enumerate}
+\end{exe}
+\begin{sol}
+  \begin{enumerate}
+    \item Since $E\backslash F,F\backslash E\subset E\Delta F$, we have $\mu\left( E\backslash F \right)=\mu\left( F\backslash E \right) \le \mu\left( E\Delta F \right) =0 $. Hence
+      \[
+      \mu\left( E \right) =\mu\left( E\cap F \right) +\mu\left( E\backslash F \right) =\mu\left( E\cap F \right) +\mu\left( F\backslash E \right) =\mu\left( F \right) 
+      .\]
+    \item Let $E\sim F$ and $F\sim G$, what we need to prove is $E\sim G$. Since $E\backslash G=\left(\left( E\cap F \right) \backslash  G\right)\cup \left( \left( E\backslash F \right) \backslash G \right) $, we have
+      \[
+      \mu\left( E\backslash G \right) =\mu\left( \left( E\cap F \right) \backslash G \right) +\mu\left( \left( E\backslash F \right) \backslash G \right) 
+      .\]
+      There are relations
+      \[
+      \left( \left( E\cap F \right) \backslash G \right) \subset  F\backslash G 
+      \]
+      and
+      \[
+      \left( \left( E\backslash F \right) \backslash G \right) \subset E\backslash F
+      .\]
+      Hence 
+       \[
+      \mu\left( \left( E\cap F \right) \backslash G \right) =\mu\left( \left( E\backslash F \right)\backslash  G \right) =0
+      .\] This implies
+      \[
+      \mu\left( E\backslash G \right) =0
+      .\] 
+      We can also deompose $G\backslash E$ into two disjoint parts $\left( G\cap F \right) \backslash E$ and $\left( G\backslash F \right) \backslash E$ and get $\mu\left( G\backslash E \right) =0$ the same way. Then
+      \[
+      \mu\left( E\Delta G \right) =\mu\left( E\backslash G \right) +\mu\left( G\backslash E \right) =0
+      .\]
+    \item 
+      \begin{align*}
+	\mu\left( E\Delta G \right) = & \mu\left( E\backslash G \right) +\mu\left( G\backslash E \right) \\
+	\le & \mu\left( F\backslash G \right) +\mu\left( E\backslash F \right) \\
+	+&\mu\left( F\backslash E \right)+\mu\left( G\backslash F \right)\\
+	=& \mu\left( E\Delta F \right) +\mu\left( F\Delta G \right) 
+      .\end{align*}
+  \end{enumerate}
+  The second line uses the conclusion of item b.
+\end{sol}
+\begin{exe}
+  Every $\sigma$-finite measure is semifinite.
+\end{exe}
+\begin{sol}
+  By definition,  $\mu$ is called semifinite if for each $E\in \mathcal{M}$ with $\mu\left( E \right) =\infty$ there exists $F\in \mathcal{M}$ with $F\subset E$ and $0<\mu\left( F \right) <\infty$. Let $X=\bigcup_{i=1} ^{\infty}E_i$ with $\mu\left( E_i \right)<\infty $, $\{E_i\} _{i=1}^{\infty}$ is a sequence of disjoint sets. Then $E=X\cap E=\bigcup_{i=1} ^{\infty}\left( E_i\cap E \right) $. Since $\mu\left( E \right) \neq 0$, $\mu\left( E_i\cap E \right) $ cannot be $0$ simultaneously. Hence ther exists  $i$ such that $0<\mu\left( E_i\cap E \right) \le \mu\left( E_i \right) <\infty$. Let $F=E_{i}\cap F$ and we complete the proof.
+\end{sol}
+\begin{exe}
+  If $\mu$ is a semifinite measure and $\mu\left( E \right) =\infty$, for any $C>0$ there exists $F\subset E$ with $C<\mu\left( F \right) <\infty$.
+\end{exe}
+\begin{sol}
+  If not, there exists a constant $C_0>0$, for any  $F\subset E$  either  $\mu\left( F \right) \le C_0$ or $\mu\left( F \right) =\infty$. Let
+  \[
+  \mathcal{G}=\left\{ F\subset E:\mu\left( F \right) \leq C_0 \right\} 
+  .\]
+  Let $C_1=\sup_{F\in \mathcal{G}}\mu\left( F \right) $. Since $\mu$ is semifinite, there is always a set $F_1\subset \mathcal{G}$ such that $\mu\left( F_1 \right)>0 $. This implies $C_1>0$. Now we prove that there exists a set  $F_0\in \mathcal{G}$ such that $\mu\left( F_0 \right)=C_0 $. We can choose a sequence $\{E_i\} _{i=1}^{\infty}$ such that $\mu\left( E_i \right) \to C_0$. Let $F_k=\bigcup_{i=1} ^{k}E_i$. Then $\mu\left( F_k \right) \le C_0$ since $F_k\subset E$ and 
+  \[
+  \mu\left( F_k \right) \le \sum_{i=1}^{k}\mu\left( E_i \right) <\infty
+  .\] 
+  Let $F=\lim_{k\to \infty}F_k=\bigcup_{i=1} ^{\infty}E_i$, then $\mu\left( F \right)\le C_0 $. On the other hand
+  \[
+  \mu\left( F \right)\ge \mu\left( F_k \right)\ge \mu\left( E_k \right)   
+  .\] 
+  Taking $k\to \infty$ we get $\mu\left( F \right) \ge C_0$. Hence $\mu\left( F \right) =C_0$.
+  Since  $\mu\left( E \right) =\infty$ we get $\mu\left( E-F \right) =\infty$. Since $\mu$ is semifinite we must have a subset $W\subset E $ and $0<\mu\left( W \right) <\infty$. But this implies
+  \[
+  0<\mu\left( F\cup W \right) =C_0+\mu\left( W \right) <\infty
+  .\] 
+  This contradicts the assumption.
+\end{sol}
+\begin{exe}
+  Given a measure $\mu$ on $\left( X,\mathcal{M} \right) $, define $\mu_0$ on $\mathcal{M}$ by $\mu_0=\sup \{\mu\left( F \right) :F\subset E \text{ and }\mu\left( F \right) <\infty\} $.
+  \begin{enumerate}
+    \item $\mu_0$ is a semifinite measure. It is called the \textbf{semifinite part} of $\mu$.
+    \item If $\mu$ is semifinite, then $\mu=\mu_0$. (Use Exercise 14.)
+    \item There is a measure $\nu$ on $\mathcal{M}$ (in general, not unique) which assumes only the values $0$ and $\infty$ such that $\mu=\mu_0+\nu$
+  \end{enumerate}
+\end{exe}
+\begin{sol}
+  \begin{enumerate}
+    \item If $\mu_0\left( E \right) =\infty$, there must exists $F$ such that $F\subset E$ and $\mu\left( F \right) <\infty$ by definition of  $\mu_0$. Hence $\mu_0$ must be a semifinite measure if $\mu_0$ is a measure. What we need to do now is to check the countable additivity of $\mu_0$.
+     
+      Before the check, it is useful to notice that $\mu_0\left( E \right)\le \mu\left( E \right)  $ for all $E\in \mathcal{M}$ and  $\mu_0\left( E \right) =\mu\left( E \right) $ if $\mu\left( E \right) <\infty$. We can also find easily that $\mu_0\left( E \right) \le \mu_0\left( F \right) $ if $E\subset F$. 
+      
+      Let $\{E_i\} _{i=1}^{\infty}$ be a sequence of disjoint sets. If one of them, lets say, $E_i$, has  $\mu_0\left( E_i \right)=\infty $, then the countable additivity is obvious 
+       \[
+	 \mu_{0}\left( \bigcup_{i=1} ^{\infty}E_i \right) =\sum_{i=1}^{\infty}\mu_{0}\left( E_i \right) 
+      .\]
+      Now assume $\mu_0\left( E_i \right) <\infty$ for all  $i\in \N$.  
+      There exist $F_i$ such that $\mu_0\left( E_i \right)<\mu\left( F_i \right) +\frac{\epsilon}{2^i} $ for any $\epsilon >0$. Then we get
+      \[
+	\sum_{i=1}^{n}\mu_0\left( E_i \right) < \sum_{i=1}^{n}\mu\left( F_i \right)+\epsilon =  \mu\left( \bigcup_{i=1} ^{n}F_i \right) +\epsilon \leq \mu_0\left( \bigcup_{i=1} ^{\infty}E_i \right) +\epsilon  
+      .\]
+      We get the third inequality because $\mu\left( \bigcup_{i=1} ^{n}F_i \right) <\infty$ and $\bigcup_{i=1} ^{n}F_i\subset \bigcup_{i=1} ^{\infty}E_i$.
+      Since $n$ and $\epsilon $ is arbitrary, we get 
+      \[
+	\sum_{i=1}^{\infty}\mu_{0}\left( E_i \right) \le \mu_0\left( \bigcup_{i=1}^{\infty}E_i \right) 
+      .\]
+      Next we prove that the converse of the inequality also holds. If $\sum_{i=1}^{\infty}\mu_0\left( E_i \right) =\infty$, by the previous inequality we get 
+\[
+	\sum_{i=1}^{\infty}\mu_{0}\left( E_i \right) = \mu_0\left( \bigcup_{i=1}^{\infty}E_i \right) 
+\] 
+      directly. Now consider $\sum_{i=1}^{\infty}\mu_0\left( E_i \right) <\infty$. Let $F$ be any subset of  $\bigcup_{i=1} ^{\infty}E_i$ and $\mu\left( F \right) <\infty$. Let $F_i=E_i\cap F$. It is easy to verify that $F_i\subset E_i$ and $\mu\left( F_i \right) <\infty$.
+      Then we have
+      \[
+      \sum_{i=1}^{\infty}\mu_0\left( E_i \right) \ge \sum_{i=1}^{\infty}\mu\left( F_i \right) =\mu\left( \bigcup_{i=1} ^{\infty}F_i \right) 
+      .\]
+      By definition $\bigcup_{i=1} ^{\infty}F_i=\bigcup_{i=1} ^{\infty}\left( E_i\cap F  \right) =\bigcup_{i=1} ^{\infty}F$. Hence 
+      \[
+      \sum_{i=1}^{\infty}\mu_0\left( E_i \right) \ge \mu\left( F \right) 
+      .\]
+      Since $ F\subset \bigcup_{i=1} ^{\infty}E_i$ and $\mu\left( F \right)<\infty $, we get
+      \[
+      \sum_{i=1}^{\infty}\mu\left( E_i \right) \ge \mu_0\left( \bigcup_{i=1} ^{\infty}E_i \right) 
+      .\]
+    \item Let $E\in \mathcal{M}$, $\mu\left( E \right) =\mu_0\left( E \right) $ occurs only if $\mu\left( E \right)=\infty $. But $\mu$ is semifinite, for any $C>0$ we can choose a set $F$ such that $C<\mu\left( F \right)<\infty $ by using Exercise 14. This means $\mu_0\left( E \right)=\infty $. Hence $\mu=\mu_0$.
+    \item Define $\nu=\mu-\mu_0$ and we are done.
+  \end{enumerate}
+
+\end{sol}
+
+\begin{exe}
+  Let $\left( X,\mathcal{M},\mu \right) $ be a measure space. A set $E\subset X$ is called \textbf{locally measurable} if $E\cap A\in \mathcal{M}$ for all $A\in \mathcal{M}$ such that $\mu\left( A \right) <\infty$. Let $\tilde{\mathcal{M}}$ be the collection of all locally measurable sets. Clearly $\mathcal{M}\subset \tilde{\mathcal{M}}$; if $\mathcal{M}=\tilde{\mathcal{M}}$, then $\mu$ is called \textbf{saturated}.
+  \begin{enumerate}
+    \item If $\mu$ is $\sigma$-finite, then $\mu$ is saturated.
+    \item $\tilde{\mathcal{M}}$ is a $\sigma$-algebra.
+    \item Define $\tilde{\mu}$ on $\tilde{\mathcal{M}}$ by $\tilde{\mu}\left( E \right) =\mu\left( E \right) $ if $E\in \mathcal{M}$ and $\tilde{\mathcal{M}}\left( E \right) =\infty$ otherwise. Then $\tilde{\mu}$ is a saturated measure on  $\tilde{\mathcal{M}}$, called the \textbf{saturation} of $\mu$.
+  \end{enumerate}
+\end{exe}

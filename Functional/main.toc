@@ -1,0 +1,16 @@
+\contentsline {section}{\numberline {1}2019-09-03}{2}{section.1}% 
+\contentsline {section}{\numberline {2}2019-09-05}{2}{section.2}% 
+\contentsline {section}{\numberline {3}2019-09-10}{3}{section.3}% 
+\contentsline {section}{\numberline {4}2019-09-12}{4}{section.4}% 
+\contentsline {section}{\numberline {5}2019-09-17}{5}{section.5}% 
+\contentsline {section}{\numberline {6}2019-09-19}{5}{section.6}% 
+\contentsline {section}{\numberline {7}2019-09-24}{5}{section.7}% 
+\contentsline {section}{\numberline {8}2019-09-26}{6}{section.8}% 
+\contentsline {section}{\numberline {9}2019-10-08}{7}{section.9}% 
+\contentsline {section}{\numberline {10}2019-10-10}{8}{section.10}% 
+\contentsline {section}{\numberline {11}2019-10-15}{9}{section.11}% 
+\contentsline {section}{\numberline {12}2019-10-17}{9}{section.12}% 
+\contentsline {section}{\numberline {13}2019-10-22}{10}{section.13}% 
+\contentsline {section}{\numberline {14}2019-10-24}{11}{section.14}% 
+\contentsline {section}{\numberline {15}2019-10-29}{11}{section.15}% 
+\contentsline {section}{\numberline {16}2019-10-31}{12}{section.16}% 

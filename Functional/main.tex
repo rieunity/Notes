@@ -1,0 +1,573 @@
+%! TEX program = xelatex
+\documentclass[a4paper]{article}
+%\usepackage{ctex}
+ \usepackage[colorlinks,
+           linkcolor=red,
+           anchorcolor=blue,
+           citecolor=green
+           ]{hyperref} 
+\usepackage{xeCJK}
+\usepackage[center]{titlesec}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+%\usepackage[english]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{mathtools}
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\newcommand{\incfig}[1]{%
+  \def\svgwidth{\columnwidth}
+  \import{./figures/}{#1.pdf_tex}
+}
+
+
+
+% Some shortcuts
+\newcommand\N{\ensuremath{\mathbb{N}}}
+\newcommand\R{\ensuremath{\mathbb{R}}}
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+\renewcommand\O{\ensuremath{\emptyset}}
+\newcommand\Q{\ensuremath{\mathbb{Q}}}
+%\newcommand\C{\ensuremath{\mathbb{C}}}
+
+% Some theorem environment settings
+\usepackage{ntheorem}
+\newtheorem{theorem}{Theorem}
+\newtheorem*{rmk}{Remark}
+\newtheorem{lemma}{Lemma}
+\newtheorem*{exe}{Exercise}
+%\newtheorem*{sol}{Solution}
+\newenvironment{sol}{{\noindent\bfseries Solution}:}{\hfill $\square$\par}
+
+% Enumerate Style
+\renewcommand{\labelenumi}{{\normalfont\alph{enumi}. }}
+
+% Tensor
+\usepackage{tensor}
+
+% bracket notations 
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
+
+% Normal ordering
+\newcommand{\normord}[1]{:\mathrel{#1}:}
+
+
+\begin{document}
+\title{泛函分析习题参考答案}
+\maketitle
+{一共是18次作业,这里缺最后两次作业,因为没有检查过,所以可能会有一些错误,可以参考一下}
+\tableofcontents
+\section{2019-09-03}
+\begin{exe}
+  p63 8(a)
+\end{exe}
+\begin{sol}
+   仅验证三角不等式
+  \begin{align*}
+    \rho(x,y)=&\sum_{j=0}^{k} \max_{a\le t\le b}\left| x^{(j)}-y^{(j)} \right| \\
+    \le & \sum_{j=0}^{k} \left(\left|\max_{a\le t\le b}x^{(j)}-z^{(j)}\right|+\left| z^{(j)}-y^{(j)} \right| \right)\\
+    \le & \sum_{j=0}^{k} \left( \max_{a\le t\le b}\left| x^{(j)}-z^{(j)} \right| +\max_{a\le t\le b}\left| z^{(j)}-y^{(j)} \right|  \right) \\
+    =& \rho(x,z)+\rho(z,y)
+  .\end{align*}
+\end{sol}
+\begin{exe}
+  p64 10(a)
+\end{exe}
+\begin{sol}
+ 仅验证三角不等式
+\begin{align*}
+  \overline{\rho}(x,y)=&\frac{\rho(x,y)}{1+\rho(x,y)}\\
+  =&1-\frac{1}{1+\rho(x,y)}\\
+  \le &1-\frac{1}{1+\rho(x,z)+\rho(z,y)}\\
+  =& \frac{\rho(x,z)+\rho(z,y)}{1+\rho(x,y)+\rho(z,y)}\\
+  =&\frac{\rho(x,z)}{1+\rho(x,z)+\rho(z,y)}+\frac{\rho(z,y)}{1+\rho(x,z)+\rho(z,y)}\\
+  \le&  \frac{\rho(x,z)}{1+\rho(x,z)}+\frac{\rho(z,y)}{1+\rho(z,y)}\\
+  =&\overline{\rho}(x,z)+\overline{\rho}(z,y)
+.\end{align*}
+\end{sol}
+\section{2019-09-05}
+\begin{exe}
+  构造无穷多个开区间使得它们的交为$(0,1]$.
+\end{exe}
+\begin{sol}
+  $\mathcal{O}_n=\left( 0,1+\frac{1}{n} \right) $,$n=1,2,\cdots.$
+\end{sol}
+\begin{exe}
+  利用p18三个等价命题的语言改写结论：有理多项式在$(a,b)$ 上稠密.
+\end{exe}
+\begin{sol}
+  \begin{enumerate}
+    \item 对于任给的$f(x)\in C[a,b]$以及任给的$\epsilon >0$,存在有理多项式 $p(x)$ 使$\max_{a\le x\le b}\left| f(x)-p(x) \right|<\epsilon  $.
+    \item 对于任给的$\epsilon >0$,以每个有理多项式为中心,以$\epsilon $ 为半径的全部开球的并包含$C[a,b]$.
+    \item 对于任给的$f(x)\in C[a,b]$,存在 有理多项式序列$p_n(x)$ 收敛于$f(x)$.
+  \end{enumerate}
+\end{sol}
+\section{2019-09-10}
+\begin{exe}
+  p63 4	
+\end{exe}
+\begin{sol}
+ $\forall \epsilon >0, \exists x',y'\in F$ s.t.
+ \[
+   \left| f(x)-\rho\left( x,x' \right)  \right| < \frac{\epsilon }{4}
+ \]
+ \[
+   \left| f(y)-\rho(y,y') \right| <\frac{\epsilon }{4}
+ .\]
+ 由定义知,
+ \[
+   \rho(y,y')-\frac{\epsilon }{4}<f(y) \le \rho(y,x')\le \rho(x,x')+\rho(x,y)
+ .\] 
+则有
+\[
+  \rho(y,y')-\rho(x,x')<\frac{\epsilon }{4}+\rho(x,y)
+.\] 
+由$x$ 和$y$ 的对称性同理可得
+\[
+  \rho(x,x')-\rho(y,y')<\frac{\epsilon }{4}+\rho(x,y)
+.\] 
+综合上面两个式子可得
+\[
+  \left| \rho(x,x')-\rho(y,y') \right| <\frac{\epsilon }{4}+\rho(x,y)
+.\] 
+取$\delta=\frac{\epsilon }{4}$,当$\rho(x,y)<\delta$ 时,有
+\[
+  \left| \rho(x,x')-\rho(y,y') \right| <\frac{\epsilon }{2}
+.\] 
+所以
+\[
+  \left| f(x)-f(y) \right| \le \left| f(x)-\rho(x,x') \right| +\left| \rho(x,x')-\rho(y,y') \right| +\left| \rho(y,y')-f(y) \right| <\epsilon 
+.\] 
+\end{sol}
+\begin{exe}
+  p63 7
+\end{exe}
+\begin{sol}
+  任取一个$y\in T(x)$,因为$A$ 在$X$ 中稠密,所以存在序列$\left\{ x_n \right\} $ 使得$\lim_{n \to \infty}x_n=x $.由$T$ 的连续性可得$\lim_{n \to \infty}T(x_n)=T(\lim_{n \to \infty}x_n)=T(x)=y  $,所以在$T(A)$中有序列 $\left\{ T(x_n) \right\} $ 收敛到$y$,由 $y$ 的任意性可知$T(A)$ 在$T(X)$中稠密.
+\end{sol}
+\begin{exe}
+  p65 16
+\end{exe}
+\begin{sol}
+  \begin{enumerate}
+    \item 设$x$为 $A$ 的一个聚点,则存在$A$ 中的一个点列$\left\{ x_n \right\} $ 使得
+      \[
+      \lim_{n \to \infty} x_n=x
+      .\] 
+      因为$A$ 完备,所以$x\in A$.也就是说$A$ 中的聚点包含于$A$,即$A$ 为闭集.
+    \item 设$\left\{ x_n \right\} $ 为$A$ 中的柯西列,因为$X$ 完备,所以存在$x\in X$ 使得
+      \[
+      \lim_{n \to \infty} x_n=x
+      .\] 
+      又因为$A$ 是闭集,所以$x\in A$.所以$A$ 按照$X$ 的距离定义下是完备的距离空间.
+  \end{enumerate}
+\end{sol}
+\section{2019-09-12}
+\begin{exe}
+  p65 18	
+\end{exe}
+\begin{sol}
+  \begin{enumerate}
+    \item   若$B$ 是第一类型的集,则存在可数稀疏集合序列$\left\{ B_n \right\} $ 使得 
+  \[
+  B=\bigcup_{n=1}^{\infty}B_n
+  .\] 
+  则
+   \[
+     A=A\cap B=\bigcup_{n=1} ^{\infty}\left( B_n \cap A \right) 
+  .\] 
+  $\left\{ B_n\cap A \right\} $ 也是稀疏集,所以$A$ 可以写成可数稀疏集的并,自然也是稀疏集.
+   \item 这是上面的逆否命题,所以和前面等价.
+   \end{enumerate}
+\end{sol}
+\begin{exe}
+  p65 23
+\end{exe}
+\begin{sol}
+  设$A$为准紧集, $\overline{A}$ 为相应的闭包.我们需要证明任给一个$\overline{A}$ 中的点列$\left\{ x_n \right\} $ 都存在子列收敛于$\overline{A}$ 中.对每一个点$x_n$,都可以在$A$中找到一个点 $y_n$使得 $\rho(x_n,y_n)<\frac{1}{n}$.因为$\left\{ y_n \right\} $是准紧急$A$ 中的点列,所以$\left\{ y_n \right\} $ 中有子序列$\left\{ y_{k_n} \right\} $ 收敛到全空间$X$中的一个点,记为 $x_0$.因为$\overline{A}$ 是$A$ 的闭包,所以$x_0\in \overline{A}$.因此任给$\epsilon >0$,存在正整数$N_1$,当 $k_n\ge N_1$ 时
+  \[
+    \rho(y_{k_n},x_0)<\frac{\epsilon }{2}
+  .\] 
+  另一方面,当$k_n\ge n>N_2=\left\lceil \frac{2}{\epsilon } \right\rceil $时,有
+   \[
+     \rho(y_{k,n},x_{k_n})<\frac{\epsilon }{2}
+  .\] 
+  综上所述,当$k_n\ge \max\left\{ N_1,N_2 \right\} $时,有
+   \[
+     \rho(x_{k_n},x_0)\le \rho(x_{k_n},y_{k_n})+\rho(y_{k_n},x_0)<\epsilon 
+  .\] 
+  即子列 $\left\{ x_{k_n} \right\} $收敛到$\overline{A}$中的点$x_0$.
+\end{sol}
+\section{2019-09-17}
+\begin{exe}
+  p66 25
+\end{exe}
+\begin{sol}
+  若$\bigcap_{n=1} ^{\infty}=\emptyset$,则$X=\bigcup_{n=1} ^{\infty}\left( X\backslash F_n \right) $,由有限覆盖定理知存在$\left\{ X\backslash F_{n_k} \right\}_{k=1}^{l} $ 使得$X=\bigcup_{k=1} ^{l}\left( X\backslash F_{n_k} \right) $,则 $\bigcap_{k=1} ^{l}F_{n_k}=\O$.而由条件可知$\bigcap_{k=1} ^{l}F_{n_k}=F_{n_l}\neq \O$,矛盾.
+\end{sol}
+\begin{exe}
+  p66 27	
+\end{exe}
+\begin{sol}
+  由$\rho(F_1,F_2)=0$ 知存在序列$\left\{ x_n,y_n \right\} $ 使得
+   \[
+     \lim_{n \to \infty} \rho(x_n,y_n)=0
+  .\] 
+  不妨设$F_1$为闭集, $F_2$ 为紧集,则$\left\{ y_n \right\} $中有收敛的子序列,不妨设收敛的子序列是$\left\{ y_{k_n} \right\} $,收敛到的点设为$y_0$.由
+  \[
+    \rho(x_{k_n},y_0)\le \rho(x_{k_n},y_{k_n})+\rho(y_{k_n},y_0)
+  \]
+  可知$\lim_{n \to \infty}\rho(x_{k_n},y_0)=0 $.因为$F_1$ 是闭集,所以$y_0\in F_1$.综上所述,我们得到了点$y_0\in F_1\cap F_2$,即$F_1\cap F_2\neq \O$.
+\end{sol}
+\section{2019-09-19}
+\begin{exe}
+  p66 26
+\end{exe}
+\begin{sol}
+  由定义可以知道存在序列$\left\{ (x_n,y_n \right\} $ 使得$\lim_{n \to \infty} \rho(x_n,y_n)=\rho(F_1,F_2)$.因为$F_1$ 是紧的,所以$\left\{ x_n \right\} $中有收敛的子列$\left\{ x_{n}' \right\} $ 收敛到某个点$x_0\in F_1$.因为$F_2$是紧的,所以 $\left\{ y_n' \right\} $ 中有收敛的子列$\left\{ y_n'' \right\} $ 收敛到某个点$y_0\in F_2$.通过上述过程以及$\rho(x,y)$的连续性可知
+   \[
+     \lim_{n \to \infty} \rho(x_{n}'',y_n'')=\rho(x_0,y_0)
+  .\] 
+\end{sol}
+\begin{exe}
+  p66 32
+\end{exe}
+\begin{sol}
+  不妨设$\left\{ f_n \right\} $ 为单调增序列,即$f_1\le f_2\le \cdots\le  f_n\le \cdots $.对任给的$\epsilon >0$,定义集合
+   \[
+     \mathcal{O}_{n,\epsilon }=\left\{ x:f(x)-f_n(x)<\epsilon  \right\} 
+  .\] 
+  由逐点收敛的条件可知$X=\bigcup_{n=1} ^{\infty}\mathcal{O}_{n,\epsilon }$,其中$\mathcal{O}_{1,\epsilon }\subset \mathcal{O}_{2,\epsilon }\subset \cdots\subset \mathcal{O}_{n,\epsilon }\subset \cdots$.由$X$ 紧知存在有限个集合族$\left\{ \mathcal{O}_{n_k,\epsilon } \right\}_{k=1}^{l} $ 使得$X=\bigcup_{k=1} ^{l}\mathcal{O}_{n_k,\epsilon }=\mathcal{O}_{n_l,\epsilon }$.即任给$\epsilon >0$,存在与$x$无关的正整数$n_l$,当$n\ge n_l$时,有$f(x)-f_n(x)<\epsilon $.
+\end{sol}
+\section{2019-09-24}
+\begin{exe}
+  p66 28	
+\end{exe}
+\begin{sol}
+  因为$l^{p}$ 是完备的度量空间,所以准紧性与全有界性等价(本章定理4.2).所以下面都是证明全有界性和两个条件的等价关系.
+
+  充分性:设$(a)$, $(b)$成立,由 $(b)$知,任给 $\epsilon >0$存在$N>0$,当$m>N$时,对一切 $x\in A$都有
+  \[
+    \sum_{n=m}^{\infty} \left| \xi_n \right|^{p} <\frac{\epsilon}{2} 
+  .\]
+  固定$N$,设集合 $B$ 是$A$中的元素在 $N$处截断后的集合,也就是把$A$中元素 $x=\left( \xi_1,\xi_2,\cdots,\xi_N,\xi_{N+1},\cdots \right) $ 变为$\left( \xi_1,\xi_2,\cdots,\xi_N,0,0,\cdots \right) $.这样得到的$B$ 由$(a)$知有界,但是 $R^{N}$ 中的有界集一定是准紧集,所以$B$存在一个 $\frac{\epsilon }{2}$-网,设该$\frac{\epsilon }{2}$-网为$C=\left\{ x^{(1)},x^{(2)},\cdots,x^{(l)} \right\} $.则对任给$\epsilon >0$,以及人给的$x\in A$,存在$N$以及 $x^{(i)}\in C$使得
+  \[
+  \sum_{n=1}^{\infty} \left| \xi_n-x^{(i)}_n \right| ^{p}=\sum_{n=1}^{N} \left| \xi_n-x^{(i)}_n \right| ^{p}+\sum_{n=N+1}^{\infty} \left| \xi_n -0\right|^{p}<\epsilon  
+  .\]
+  所以$C$是 $A$的一个 $\epsilon $-网,即$A$ 全有界.
+
+  必要性:由$A$ 准紧知任给$\epsilon >0$,存在$\frac{\epsilon }{2} $-网$C=\left\{ x^{(1)},x^{(2)},\cdots,x^{(l)} \right\} $.因为$C$中只有有限个元素,所以存在正整数 $N$,使得对任意$x^{(i)}\in C$ 都有
+  \[
+  \sum_{n=N+1}^{\infty} \left| x_{n}^{(i)} \right| ^{p}<\epsilon /2
+  .\] 
+  则任给$x=\left( \xi_1,\xi_2,\cdots,\xi_n,\cdots \right)\in A $,在$\frac{\epsilon }{2}$-网中选取某个$x^{(i)}$,对$m>N$ 有
+  \[
+  \sum_{n=m}^{\infty} \left| \xi_n \right| ^{p}\le \sum_{n=N+1}^{\infty} \left| \xi_n \right| ^{p}\le \sum_{n=N+1}^{\infty} \left| \xi-x^{(i)}_n \right|^{p} +\sum_{n=N+1}^{\infty} \left| x^{(i)}_n \right|^{p} <\epsilon 
+  .\]
+  这样我们就证明了$(b)$, $(a)$对于全有界集是显然的.
+\end{sol}
+\begin{exe}
+  设$0<\alpha\le 1$,定义集合$A$为
+  \[
+    A=\left\{ x\in C[a,b]:\max_{a\le t\le b}\left| x(t) \right| +max_{t'\neq t''}\frac{\left| x(t')-x(t'') \right| }{\left| t'-t'' \right| ^{\alpha}}\le M \right\} 
+  .\]
+  证明$A$在 $C[a,b]$中准紧.
+\end{exe}
+\begin{sol}
+  设$\left\{ x_n \right\} $ 为$A$ 中的一个函数序列,由$A$的定义可知 $\left\{ x_n \right\} $ 有界.又由定义可知对任意$A$中的函数都有$\left| x(t')-x(t'') \right| \le M\left| t'-t'' \right| ^{\alpha}$,所以$\left\{ x_n \right\} $ 等度连续,所以由定理5.1知$A$准紧.
+\end{sol}
+\section{2019-09-26}
+\begin{exe}
+  p67 33
+\end{exe}
+\begin{sol}
+  参见54页例2,这是例2中$K(t,s)=1$的特殊情形.
+\end{sol}
+\begin{exe}
+  p67 36
+\end{exe}
+\begin{sol}
+  对$Ax=b$变形可得 $b-(A-I)x=x$,令 $T(x)=b-(A-I)x$,则问题变为证明$T$有唯一的不动点.
+  \begin{align*}
+    \|T(x)-T(y)\|=&\|(A-I)(x-y)\|\\
+    =& \sqrt{ \sum_{i=1}^{n} \left| \sum_{j=1}^{n}\left( a_{ij}-\delta_{ij} \right) (x_j-y_j) \right|^{2}}\\
+    \le & \sqrt{ \sum_{i,j=1}^{n} \left| a_{ij}-\delta_{ij} \right| ^{2}}\sqrt{\sum_{j=1}^{n}\left| x_j-y_j \right|^2 }\\ 
+    = & \sqrt{ \sum_{i,j=1}^{n} \left| a_{ij}-\delta_{ij} \right| ^{2}}\|x-y\|
+  .\end{align*}
+其中第三行用到了Cauchy-Schwartz不等式.由条件知系数小于1,所以$T$是欧式空间到自身的压缩变换,再用不动点定理即可得到结论.
+\end{sol}
+\section{2019-10-08}
+\begin{exe}
+  p120 2	
+\end{exe}
+\begin{sol}
+  要证明其为完备的巴拿赫空间,就是要证明该范数下空间是完备的.设$\{x_n\}$为该范数下的基本列,则由该范数的定义易得 $\left\{ x_n(a) \right\} $ 为$\R$ 上的基本列,所以存在极限$x_a$.还可以从该范数定义中得到 $x_n'(t)$ 在$L^1[a,b]$中也是基本列,所以由$L^1[a,b]$空间的完备性可知存在 $y(t)\in L^1[a,b]$使得
+  \[
+    \int_a^b \left| x_n'(t)-y(t) \right| \mathrm{d}t\to 0\quad n\to \infty
+  .\] 
+  令$x(t)=x_a+\int_a^t y(s)\mathrm{d}s$,则
+  \[
+    \|x(t)-x_n(t)\|_{L^1}= \left| x_a-x_n(a) \right| +\int_a^b\left| x'_n(t)-y(t) \right|\mathrm{d}t\to 0\quad n\to \infty 
+  .\] 
+  完备性得证.
+
+  下证可分性.设$A_0$为 $A$中 $x(a)=0$ 的所有元素构成的集合,则
+  \[
+    A=\overline{\bigcup_{r\in \Q}\left( r+A_0 \right)}  
+  .\]
+
+所以我们仅仅需要证明$A_0$可分即可.作映射 $f:x\mapsto x'$,该映射是$A_0$到 $L^1[a,b]$的单射且保范,所以由$L^1[a,b]$的可分性立即得到 $A_0$可分.
+\end{sol}
+\begin{exe}
+  p121 7
+\end{exe}
+\begin{sol}
+  设$\left\{ x_n \right\} $ 为$c_0$ 中的基本列,则任给 $\epsilon >0$,存在正整数$N$,当 $n,m>N$时,有
+   \[
+  \|x_n-x_m\|=\sup_{k\ge 1}\left| \xi^{(m)}_k-\xi^{(n)}_k \right|<\epsilon  
+  .\] 
+  由此可得对任意的正整数$k$都有 $\left| \xi^{(m)}_k-\xi^{(n)}_{n} \right| <\epsilon $,所以对每一个固定的$k$, $\left\{ \xi^{(n)}_k \right\}_{n=1}^{\infty} $ 是基本列,设其收敛到$\xi_k^{(0)}$.则对任给的$\epsilon >0$,对上个式子中的$m$取极限可得
+   \[
+  \left| \xi_k^{(n)}-\xi_k^{(0)} \right| \le \epsilon 
+  .\]
+  接下来我们说明$x^{(0)}=\left( \xi^{(0)}_1,\xi^{(0)}_2,\cdots,\xi^{(0)}_k,\cdots \right) $ 是属于$c_0$的.固定$n$,以及给定的$\epsilon $,由$x^{(n)}\in c_0$ 知存在正整数 $M$,$k>M$时满足$\left| \xi_k^{(n)} \right| <\epsilon $.则
+  \[
+  \left| \xi^{(0)}_k \right| \le \left| \xi^{(0)}_k-\xi^{(n)}_k \right| +\left| \xi^{(n)}_k \right| <2\epsilon 
+  .\] 
+  所以$x^{(0)}\in c_0$.即$c_0$为巴拿赫空间.
+  
+  下证可分性.令$\eta^{(n)}=\left( 0,\cdots,1\text{(第n个分量)},\cdots,0,\cdots \right) $,则$\left\{ \eta \right\} $ 构成一个完备正交基且可列,所以$c_0$可分.
+\end{sol}
+\section{2019-10-10}
+\begin{exe}
+  p121 11
+\end{exe}
+\begin{sol}
+  由$\text{dist}(x,K)$的定义可以知道存在序列 $\left\{ y_n \right\}\subset K $ 使得
+  \[
+    \text{dist}(x,K)=\lim_{n \to \infty} \rho(x,y_n)=\lim_{n \to \infty} \|x-y_n\| 
+  .\] 
+  因为$K$ 是紧集,所以$\left\{ y_n \right\} $ 中有收敛到$K$ 中点的子序列$\left\{ y_{k_n} \right\} $,设收敛点为$y_0$,则 $\|y_{k_n}-y_0\|\to 0$.由此可得
+  \[
+    \text{dist}(x,K)=\lim_{n \to \infty} \|x-y_{k_n}\|= \|x-y_0\|
+  .\] 
+\end{sol}
+\begin{exe}
+  p121 13
+\end{exe}
+\begin{sol}
+  令$\alpha_n=\sum_{k=1}^{n} x_k$,则
+  \[
+  \|\alpha_{n+p}-\alpha_n\|=\|\sum_{k=n+1}^{n+p} x_k\|\le \sum_{k=n+1}^{n+p} \|x_k\|
+  .\] 
+  因为$\sum_{n=1}^{\infty} \|x_n\|$ 收敛,所以当$n\to \infty$ 时,上式右边趋于0.也就是对任给$\epsilon >0$,存在正整数$N$,当$n>N$,$p$ 为任意正整数时,有$\|\alpha_{n+p}-\alpha_{n}\|=\sum_{k=n+1}^{n+p} \|x_k\|<\epsilon $.所以$\left\{ \alpha_n \right\} $ 为基本列,由空间完备性知存在$x\in E$ 使得
+  \[
+  x=\lim_{n \to \infty} \alpha_n=\sum_{n=1}^{\infty} x_n
+  .\] 
+  再由范数的连续性和$\|\alpha_n\|\le \sum_{n=1}^{\infty} \|x_n\|=M$ 可得
+  \[
+ \|x\|=\lim_{n \to \infty} \|\alpha_n\|\le M
+  .\] 
+\end{sol}
+\section{2019-10-15}
+\begin{exe}
+  p122 20	
+\end{exe}
+\begin{sol}
+  容易验证$H$ 是一个线性空间,并且$\|x\|_H$ 是该线性空间的一个范数.
+
+  由定理3.1知,要证明给出的范数可以定义内积,只要验证下述等式成立
+   \[
+  \|x+y\|^2+\|x-y\|^2=2\|x\|^2+2\|y\|^2
+  .\] 
+  其中$x,y\in H$.可以通过令$x\sim \frac{a_0}{2}+\sum_{n=1}^{\infty} \left( a_n\cos nt +b_n\sin nt \right) $和$y\sim\frac{\alpha_0}{2}+\sum_{n=1}^{\infty} \left( \alpha_n\cos nt+\beta_n\sin nt \right) $,代入上面等式验证即可.
+
+  本题的关键是要证明$H$ 在范数$\|\cdot \|_H$ 下的完备性.设$\left\{ x_n \right\} $ 为$H$ 中的一个基本列,设
+  \[
+    x_n\sim\frac{a_{0,n}}{2}+\sum_{k=1}^{\infty} \left( a_{k,n}\cos kt +b_{k,n}\sin kt \right) 
+  .\] 
+  我们可以作空间$H$ 到$L^2[0,2\pi]$ 的保范映射$f:x\mapsto x'$,其中$x'\sim \frac{a_0}{2}+\sum_{n=1}^{\infty} \left( a_n'\cos nt+b_n'\sin nt \right) $,$a_n'=\sqrt{n} a_n,b_n'=\sin\sqrt{n} b_n$.
+  因为
+  \[
+    \sum_{n=1}^{\infty} n\left( a_n^2+b_n^2 \right) <\infty
+  .\] 
+  所以
+   \[
+     \sum_{n=1}^{\infty} \left( a_n'^2+b_n'^2 \right) <\infty
+  .\] 
+  也就是说我们定义的映射确实是落在了$L^2[0,2\pi]$ 中,并且是保范的.另一方面,对于$L^2[a,b]$中的每个函数$x'$我们都可以通过上述过程的逆过程找到一个$H$中的函数$x$使得它的像是$x'$.这说明 $H$与 $L^2[0,2\pi]$同构,而 $L^2[0,2\pi]$完备,所以$H$ 完备.
+\end{sol}
+\begin{exe}
+  p122 21
+\end{exe}
+\begin{sol}
+  若$\left(\alpha_{ij}\right)$ 是正定矩阵,则正定二次型$(x,x)=0$当且仅当 $x=0$,内积的其它性质可由二次型的双线性性得到.
+
+  反之,若 $(x,y)=\sum_{i,j=1}^{n} \alpha_{ij}x_iy_j$ 是一个内积,那么可知$(x,x)\ge 0$ 且$(x,x)=0$ 当且仅当$x=0$,这说明$\left( \alpha_{ij} \right) $ 是一个正定矩阵.
+\end{sol}
+\section{2019-10-17}
+\begin{exe}
+  p123 23
+\end{exe}
+\begin{sol}
+  必要性,$\|x+\alpha y\|^2=(x+\alpha y,x+\alpha y)=\|x\|^2+\|y\|^2\ge \|x\|^2$.
+  
+  充分性,若$y=0$,显然.下设 $y\neq 0$.平方条件可得
+   \[
+     \overline{\alpha}(x,y)+\alpha(y,x)+\left| \alpha \right| ^2\|y\|^2\ge 0
+   .\] 
+   令$\alpha=-\frac{\overline{(y,x)}}{\|y\|^2}$,代入上式可得
+   \[
+     -\frac{(x,y)\overline{(x,y)}}{\|y\|^2}\ge 0\Rightarrow (x,y)=0
+   .\] 
+\end{sol}
+\begin{exe}
+  p123 24
+\end{exe}
+\begin{sol}
+  必要性显然,只证充分性.条件平方展开可得
+  \[
+    \|x\|^2+\overline{\alpha}(x,y)+\alpha(y,x)+\left| \alpha \right| ^2\|y\|^2=\|x\|^2-\overline{\alpha}(x,y)-\alpha(y,x)+\left| \alpha \right| ^2\|y\|^2
+  \] 
+  \[
+    \overline{\alpha}(x,y)+\alpha(y,x)=0
+  .\] 
+  令$\alpha=(x,y)$即可.
+\end{sol}
+\begin{exe}
+  p123 28
+\end{exe}
+\begin{sol}
+  假设存在一个规范正交系不是线性无关的,那么该规范正交系中存在$\left\{ e_1,e_2,\cdots,e_n \right\} $线性相关.也就是说,存在不全为零的系数$\left\{ \lambda_1,\lambda_2,\cdots,\lambda_n \right\} $ 使得
+  \[
+  \sum_{i=1}^{n} \lambda_ie_i=0
+  .\] 
+  由规范正交系的的定义可知对任意的$j=1,2,\cdots,n$,有$(\sum_{i=1}^{n} \lambda_ie_i,e_j)=\lambda_j$,从而结合上式可得$\lambda_j=0$,由 $j$的任意性知所有系数等于零,这与假设矛盾.
+\end{sol}
+\section{2019-10-22}
+\begin{exe}
+  p218 1
+\end{exe}
+\begin{sol}
+  充分性:
+  \[
+    \|Tx\|=\max_{a\le t\le b}\left| \alpha(t)x(t) \right| \le \max_{a\le t\le b}\left| \alpha(t) \right| \max_{a\le t\le b}\left| x(t) \right| = \|\alpha\|\|x\|
+  .\]
+
+  必要性:令$x(t)=1$,则 $(Tx)(t)=\alpha(t)\in C[a,b]$.
+\end{sol}
+\begin{exe}
+  p219 5
+\end{exe}
+\begin{sol}
+  因为
+  \[
+  \|T\|=\sup_{\|\xi\|=1}\left| \alpha_n\xi_n \right| \le \sup_{n\ge 1}\left| \alpha_n \right| 
+  .\] 
+  所以$T$是有界算子.令 $x=\left( 1,1,\cdots,1,\cdots \right) $,则$\|x\|=1$,从而
+  \[
+  \|T\|>\|Tx\|=\sup_{n\ge 1}\left| \alpha_n \right| 
+  .\] 
+  综合两个不等式可得
+  \[
+  \|T\|=\sup_{n\ge 1}\left| \alpha_n \right| 
+  .\] 
+\end{sol}
+\section{2019-10-24}
+\begin{exe}
+  p219 7
+\end{exe}
+\begin{sol}
+  \begin{align*}
+    \|S_nT_n-ST\|\le & \|S_n(T_n-T)\|+\|(S_n-S)T\|\\
+    \le & \|S_n\| \|T_n-T\|+\|S_n-S\| \|T\|\\
+    \to & 0 \quad \left( n\to\infty \right) 
+  .\end{align*}
+\end{sol}
+\begin{exe}
+  p219 8	
+\end{exe}
+\begin{sol}
+  \begin{align*}
+    \|T_nx_n-Tx\|\le & \|T_n(x_n-x)\|+\|(T_n-T)x\|\\
+    \le & \|T_n\|\|x_n-x\|+\|T_n-T\|\|x\|\\
+    \to & 0\quad \left( n\to \infty \right) 
+  \end{align*}
+\end{sol}
+\begin{exe}
+  p220 15
+\end{exe}
+\begin{sol}
+  任给$y\in E_1$,由$T$是满映射可知存在 $x\in E$使得 $T(x)=y$,因为$D$在 $E$中稠密,存在 $\left\{ x_n \right\} \subset E$使得$\lim_{n \to \infty}x_n=x $,又由$T$的连续性得 $ y=T(x)=T\left( \lim_{n \to \infty} x_n \right)=\lim_{n\to \infty}T(x_n) $,而$\left\{ T(x_n) \right\}\subset T(D) $,所以由$y$的任意性知 $T(D)$在 $E_1$中稠密.
+\end{sol}
+\section{2019-10-29}
+\begin{exe}
+  p220 13(a)
+\end{exe}
+\begin{sol}
+  一方面,
+  \[
+    \sup_{t\in [0,1]}\left| (Tx)(t) \right|\le \sup_{t\in [0,1]}x(t)\int_0^1\left| \sin\pi(t-s) \right|\mathrm{d}s=\frac{2}{\pi}\sup_{t\in [0,1]}\left| x(t) \right|   
+  .\]
+  另一方面,令$x(t)=1$,
+   \[
+     \sup_{t\in [0,1]}\left| (Tx)(t) \right| \ge \left| T(x)(0) \right| =\left| \int_0^1\sin\pi s \mathrm{d}s \right|=\frac{2}{\pi} 
+  .\] 
+  综上$\|T\|=\frac{2}{\pi}$.
+\end{sol}
+\begin{exe}
+  p220 17
+\end{exe}
+\begin{sol}
+  由定理3.2可知,存在正实数$M$使得 $T_n,S_n,T,S$的范数都不超过 $M$.对任意给定的 $x\in E$,有
+  \begin{align*}
+    \|S_nT_nx-STx\|\le &\|S_nT_nx-S_nTx\|+\|S_nTx-STx\|\\
+    \le &\|S_n\|\|T_nx-Tx\|+\|S_n(Tx)-S(Tx)\|\\
+    \to & 0 \quad \left( n\to \infty \right)  
+  .\end{align*}
+\end{sol}
+\section{2019-10-31}
+\begin{exe}
+  p220 20
+\end{exe}
+\begin{sol}
+  取函数$g_n=[g]_n$,这里 $[g]_n$表示当 $ \left| x \right| >n$或者$\left| g(x) \right|>n $ 时取函数值为零,显然$g_n$逐点收敛到 $g$.定义 $L^p$上的线性泛函
+   \[
+  T_nf=\int_F g_n f
+  .\] 
+  其中$f\in L^p$.由赫尔德不等式
+  \[
+  \left| T_nf \right| \le \|g_n\|_q \|f\|_p
+ . \] 
+ 也就是说$\|T_n\|\le \|g_n\|_q$
+ 另一方面令$f=\text{sgn}\frac{(g_n)|g_n|^{q-1}}{\|g_n\|_q^{q-1}}$,容易验证$f\in L^p$并且$\|f\|_p=1$,此时
+ \[
+ \|T_n\|\ge \left| T_nf \right| =\|g_n\|_q
+ .\] 
+ 所以$\|T_n\|=\|g_n\|_q$.另一方面,对每个固定的$x$都有
+ \[
+ \left| T_nf \right| \le \int_F \left| gf \right| 
+ .\] 
+ (这里用到了可积性在函数与其取绝对值的函数之间是等价的) 从而由共鸣定理可知$\left\{ \|T_n\| \right\} $一致有界.再由控制收敛定理得
+ \[
+ \int \left| g \right| ^q=\lim_{n \to \infty} \|g_n\|^q<\infty
+ .\]
+
+\end{sol}
+ \begin{exe}
+   p220 23
+ \end{exe}
+ \begin{sol}
+   令$\eta_j=\left( \eta_1,\eta_2,\cdots,\eta_j,0,\cdots \right) $.定义算子$T_j=\\sum_{n=1}^{j} \eta_n\xi_n$.对任意$x\in l$,以及$j$,都有
+    \[
+   \left| T_jx \right| \le \left| Tx \right| <\infty
+   .\] 
+   从而由共鸣定理得$\left\{ \|T_j\| \right\} $ 一致有界.又因为$\|T_j\|=\sup_{1\le i\le j}\left| \eta_i \right| $,所以$\left\{ \eta_n \right\} $ 有界.
+ \end{sol}
+\end{document}
+

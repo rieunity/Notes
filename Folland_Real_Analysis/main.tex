@@ -1,4 +1,4 @@
-\documentclass[a4paper]{article}
+\documentclass[a4paper]{book}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
@@ -33,8 +33,12 @@
 \newtheorem{theorem}{Theorem}
 \newtheorem*{rmk}{Remark}
 \newtheorem{lemma}{Lemma}
-\newtheorem{proof}{Proof}[section]
+\newtheorem{exe}{Exercise}[chapter]
+%\newtheorem*{sol}{Solution}
+\newenvironment{sol}{{\noindent\bfseries Solution}:}{\hfill $\square$\par}
 
+% Enumerate Style
+\renewcommand{\labelenumi}{{\normalfont\alph{enumi}. }}
 
 % Tensor
 \usepackage{tensor}
@@ -49,7 +53,5 @@
 
 
 \begin{document}
-
-%\include{lecture01}
-\include{lecture02}
+\include{chapter01}
 \end{document}

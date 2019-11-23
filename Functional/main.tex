@@ -148,7 +148,7 @@
   p63 7
 \end{exe}
 \begin{sol}
-  任取一个$y\in T(x)$,因为$A$ 在$X$ 中稠密,所以存在序列$\left\{ x_n \right\} $ 使得$\lim_{n \to \infty}x_n=x $.由$T$ 的连续性可得$\lim_{n \to \infty}T(x_n)=T(\lim_{n \to \infty}x_n)=T(x)=y  $,所以在$T(A)$中有序列 $\left\{ T(x_n) \right\} $ 收敛到$y$,由 $y$ 的任意性可知$T(A)$ 在$T(X)$中稠密.
+  任取一个$y= T(x)$,因为$A$ 在$X$ 中稠密,所以存在序列$\left\{ x_n \right\} $ 使得$\lim_{n \to \infty}x_n=x $.由$T$ 的连续性可得$\lim_{n \to \infty}T(x_n)=T(\lim_{n \to \infty}x_n)=T(x)=y  $,所以在$T(A)$中有序列 $\left\{ T(x_n) \right\} $ 收敛到$y$,由 $y$ 的任意性可知$T(A)$ 在$T(X)$中稠密.
 \end{sol}
 \begin{exe}
   p65 16
@@ -195,7 +195,7 @@
   .\] 
   另一方面,当$k_n\ge n>N_2=\left\lceil \frac{2}{\epsilon } \right\rceil $时,有
    \[
-     \rho(y_{k,n},x_{k_n})<\frac{\epsilon }{2}
+     \rho(y_{k_n},x_{k_n})<\frac{\epsilon }{2}
   .\] 
   综上所述,当$k_n\ge \max\left\{ N_1,N_2 \right\} $时,有
    \[
@@ -208,7 +208,7 @@
   p66 25
 \end{exe}
 \begin{sol}
-  若$\bigcap_{n=1} ^{\infty}=\emptyset$,则$X=\bigcup_{n=1} ^{\infty}\left( X\backslash F_n \right) $,由有限覆盖定理知存在$\left\{ X\backslash F_{n_k} \right\}_{k=1}^{l} $ 使得$X=\bigcup_{k=1} ^{l}\left( X\backslash F_{n_k} \right) $,则 $\bigcap_{k=1} ^{l}F_{n_k}=\O$.而由条件可知$\bigcap_{k=1} ^{l}F_{n_k}=F_{n_l}\neq \O$,矛盾.
+  若$\bigcap_{n=1} ^{\infty}F_n=\emptyset$,则$X=\bigcup_{n=1} ^{\infty}\left( X\backslash F_n \right) $,由有限覆盖定理知存在$\left\{ X\backslash F_{n_k} \right\}_{k=1}^{l} $ 使得$X=\bigcup_{k=1} ^{l}\left( X\backslash F_{n_k} \right) $,则 $\bigcap_{k=1} ^{l}F_{n_k}=\O$.而由条件可知$\bigcap_{k=1} ^{l}F_{n_k}=F_{n_l}\neq \O$,矛盾.
 \end{sol}
 \begin{exe}
   p66 27	
@@ -318,10 +318,10 @@
 
   下证可分性.设$A_0$为 $A$中 $x(a)=0$ 的所有元素构成的集合,则
   \[
-    A=\overline{\bigcup_{r\in \Q}\left( r+A_0 \right)}  
+    A=\R\times A_0  
   .\]
 
-所以我们仅仅需要证明$A_0$可分即可.作映射 $f:x\mapsto x'$,该映射是$A_0$到 $L^1[a,b]$的单射且保范,所以由$L^1[a,b]$的可分性立即得到 $A_0$可分.
+若$A_0$可分,则 $A_0$中存在可数稠密子集 $S$,从而$\Q\times S$也可数,则有$A=\overline{\Q\times S}$是可数稠密集合的并.所以我们仅仅需要证明$A_0$可分即可.作映射 $f:x\mapsto x'$,该映射是$A_0$到 $L^1[a,b]$的单射且保范,所以由$L^1[a,b]$的可分性立即得到 $A_0$可分.
 \end{sol}
 \begin{exe}
   p121 7
@@ -545,7 +545,7 @@
   \left| T_nf \right| \le \|g_n\|_q \|f\|_p
  . \] 
  也就是说$\|T_n\|\le \|g_n\|_q$
- 另一方面令$f=\text{sgn}\frac{(g_n)|g_n|^{q-1}}{\|g_n\|_q^{q-1}}$,容易验证$f\in L^p$并且$\|f\|_p=1$,此时
+ 另一方面令$f=\text{sgn}\left( g_n \right) \frac{|g_n|^{q-1}}{\|g_n\|_q^{q-1}}$,容易验证$f\in L^p$并且$\|f\|_p=1$,此时
  \[
  \|T_n\|\ge \left| T_nf \right| =\|g_n\|_q
  .\] 

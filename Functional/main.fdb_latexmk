@@ -1,9 +1,9 @@
 # Fdb version 3
-["xdvipdfmx"] 1574414885 "main.xdv" "main.pdf" "main" 1574414887
-  "main.xdv" 1574414884 85116 403e3578f4554eae895af07fa2e7aa38 "xelatex"
+["xdvipdfmx"] 1574433395 "main.xdv" "main.pdf" "main" 1574433396
+  "main.xdv" 1574433395 85728 77ae345d1eea57c61a271fb707cd6ae7 "xelatex"
   (generated)
   "main.pdf"
-["xelatex"] 1574414883 "main.tex" "main.xdv" "main" 1574414887
+["xelatex"] 1574433394 "main.tex" "main.xdv" "main" 1574433396
   "/dev/null" 1574367293 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/home/rieunity/texmf/tex/latex/tensor/tensor.sty" 1571488674 4258 177d16e71f50eb48389533ac9bd9cd26 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
@@ -105,14 +105,14 @@
   "/usr/local/texlive/2019/texmf-dist/web2c/texmf.cnf" 1570742662 39452 758acee3f2beaeeedff570c5f5d76d98 ""
   "/usr/local/texlive/2019/texmf-var/web2c/xetex/xelatex.fmt" 1571853579 3765666 62de793a3e398af58254cb198b8b0b2d ""
   "/usr/local/texlive/2019/texmf.cnf" 1571853555 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "main.aux" 1574414884 5536 2b2cd96901d6fea00514e523618a83e0 "xelatex"
-  "main.out" 1574414884 734 6912e61d17c36bdf236c98e95e3e3b76 "xelatex"
-  "main.tex" 1574414882 23461 80225a7690084996df18f972e2ad8198 ""
-  "main.toc" 1574414884 1090 760a72e4c96e52abd767d792fbc7a6f7 "xelatex"
+  "main.aux" 1574433395 5536 2b2cd96901d6fea00514e523618a83e0 "xelatex"
+  "main.out" 1574433395 734 6912e61d17c36bdf236c98e95e3e3b76 "xelatex"
+  "main.tex" 1574433394 23583 1083e33752087b53ba932ca0dd79b7d5 ""
+  "main.toc" 1574433395 1090 760a72e4c96e52abd767d792fbc7a6f7 "xelatex"
   (generated)
+  "main.thm"
   "main.log"
   "main.toc"
-  "main.thm"
+  "main.aux"
   "main.out"
   "main.xdv"
-  "main.aux"

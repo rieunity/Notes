@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.10.24)  22 NOV 2019 17:28
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.10.24)  22 NOV 2019 22:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -819,11 +819,6 @@ Package hyperref Info: bookmark level for unknown exe defaults to 0 on input lin
  [1
 
 ] [2] [3] [4]
-Overfull \hbox (16.25952pt too wide) in paragraph at lines 210--212
-[][]$ \TU/FandolSong-Regular(0)/m/n/10 使 得 $\OML/cmm/m/it/10 X \OT1/cmr/m/n/10 = [][] []$\T1/lmr/m/n/10 , \TU/FandolSong-Regular(0)/m/n/10 则 $[][] \OML/cmm/m/it/10 F[] \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 ;$\T1/lmr/m/n/10 . \TU/FandolSong-Regular(0)/m/n/10 而 由 条 件 可 知 $[][] \OML/cmm/m/it/10 F[] \OT1/cmr/m/n/10 =
- []
-
-
 Overfull \hbox (10.87762pt too wide) in paragraph at lines 231--233
 \T1/lmr/bx/n/10 Solution\T1/lmr/m/n/10 : \TU/FandolSong-Regular(0)/m/n/10 由 定 义 可 以 知 道 存 在 序 列 $[]$ 使 得 $[][] \OML/cmm/m/it/10 ^^Z\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]; y[]\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 ^^Z\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 F[]; F[]\OT1/cmr/m/n/10 )$\T1/lmr/m/n/10 .
  []
@@ -851,4 +846,4 @@ Here is how much of TeX's memory you used:
  1348 hyphenation exceptions out of 8191
  46i,11n,64p,461b,456s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.xdv (12 pages, 85116 bytes).
+Output written on main.xdv (12 pages, 85728 bytes).

@@ -1,12 +1,12 @@
 %! TEX program = xelatex
 \documentclass[a4paper]{article}
-%\usepackage{ctex}
+\usepackage{ctex}
  \usepackage[colorlinks,
            linkcolor=red,
            anchorcolor=blue,
            citecolor=green
            ]{hyperref} 
-\usepackage{xeCJK}
+%\usepackage{xeCJK}
 \usepackage[center]{titlesec}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -38,9 +38,9 @@
 \newtheorem{theorem}{Theorem}
 \newtheorem*{rmk}{Remark}
 \newtheorem{lemma}{Lemma}
-\newtheorem*{exe}{Exercise}
+\newtheorem*{exe}{习题}
 %\newtheorem*{sol}{Solution}
-\newenvironment{sol}{{\noindent\bfseries Solution}:}{\hfill $\square$\par}
+\newenvironment{sol}{{\noindent\bfseries 解}:}{\hfill $\square$\par}
 
 % Enumerate Style
 \renewcommand{\labelenumi}{{\normalfont\alph{enumi}. }}
@@ -569,5 +569,70 @@
    .\] 
    从而由共鸣定理得$\left\{ \|T_j\| \right\} $ 一致有界.又因为$\|T_j\|=\sup_{1\le i\le j}\left| \eta_i \right| $,所以$\left\{ \eta_n \right\} $ 有界.
  \end{sol}
+\section{2019-11-05}
+\begin{exe}
+  p221 26(b)
+\end{exe} 
+\begin{sol}
+  \begin{align*}
+    \left| f(x) \right| =\left| \int_0^{1}x(t)\text{sgn}(t-\frac{1}{2})\mathrm{d}t \right|\\
+    \le & \int_0^{1}\left| x(t)\mathrm{d}t \right| \\
+    \le & \max_{0\le t\le 1}\left| x(t) \right| 
+  .\end{align*}
+  所以$\|f\|\le 1$.
+
+  另一方面,令函数
+  \[
+    x_n(t)=\left\{\begin{array}{lcr}
+	-1 & & {0\le x<\frac{1}{2}-\frac{1}{n}}\\
+	n(x-\frac{1}{2}) & &  \frac{1}{2}-\frac{1}{n}<x<\frac{1}{2}+\frac{1}{n}\\
+	1 & &  \frac{1}{2}+\frac{1}{n}\le x\le 1
+      \end{array}\right.
+  .\]
+  则$\|x_n\|=\max_{0\le t\le 1}\left| x_n(t) \right| =1$.那么我们就有
+  \begin{align*}
+    \|f\|\ge & \left| f(x_n) \right|\\
+    = & \left| \left( \int_{0}^{\frac{1}{2}-\frac{1}{n}}+\int_{\frac{1}{2}-\frac{1}{n}}^{\frac{1}{2}+\frac{1}{n}}+\int_{\frac{1}{2}+\frac{1}{n}}^{1} \right)x(t)\text{sgn}(t-\frac{1}{2})\mathrm{d}t\right|\\
+    \ge & \left| \int_{0}^{\frac{1}{2}-\frac{1}{n}}x(t)\text{sgn}(t-\frac{1}{2})\mathrm{d}t+\int_{\frac{1}{2}+\frac{1}{n}}^{1}x(t)\text{sgn}(t-\frac{1}{2})\mathrm{d}t \right|\\
+    - & \left| \int_{\frac{1}{2}-\frac{1}{n}}^{\frac{1}{2}+\frac{1}{n}}x(t)\text{sgn}(t-\frac{1}{2)}\mathrm{d}t \right|\\ 
+    \ge & 1-\frac{2}{n}-\frac{2}{n}\to 1 
+  .\end{align*}
+  所以$\|f\|=1$.
+\end{sol}
+\begin{exe}
+  p223 37	
+\end{exe}
+\begin{sol}
+  \[
+    \left| f(x) \right| =\left| x'(t_0) \right| \le \max_{a\le t\le b}\left| x'(t) \right| \le \max\left| x(t) \right|+\max_{a\le t\le b}\left| x'(t) \right| =\|x\| 
+  .\] 
+\end{sol}
+\section{2019-11-07}
+\begin{exe}
+  p224 54(a)(d)
+\end{exe}
+\begin{sol}
+  \begin{enumerate}
+    \item[a.] 由条件知$T:L^2[0,1]\to L^2[0,1]$,$T$ 的伴随算子则是$T^*:\left( L^2[0,1] \right)^*\to \left( L^2[0,1] \right)^* $.设$f\in \left( L^2[0,1] \right) ^*$.对任意的$x(t)\in L^2[0,1]$,我们可以将$f$ 的具体表示形式写为
+       \[
+	 f(x)=\int_0^1y(t)x(t)\mathrm{d}t
+       .\] 
+       根据伴随算子的定义,$(T^*f)(x)=f(Tx)$,所以
+        \begin{align*}
+	  (T^*f)(x)=&f(Tx)=f\left( \int_0^tx(s)\mathrm{d}s \right) \\
+	  =&\int_0^1y(t)\left( \int_0^tx(s)\mathrm{d}s \right) \mathrm{d}t\\
+	  =& \int_0^1x(s)\left( \int_s^1y(t)\mathrm{d}t \right)\mathrm{d}s\quad\text{(互换积分顺序)}\\
+	  =&\int_0^1x(t)\left( \int_t^1y(s)\mathrm{d}s \right) \mathrm{d}t\quad\text{(对调积分变量符)}
+       .\end{align*}
+       因为$f$可以和 $y$ 视为同一(他们是一一对应的),所以也可以写成$(T^*y)(t)=\int_t^1y(s)\mathrm{d}s$.
+     \item[d.] 同样地,设$f(x)=\int_0^1y(t)x(t)\mathrm{d}t\in \left( L^2[0,1 \right) ^*$.则
+       \begin{align*}
+	 \left( T^*f \right) (x)= & f(Tx)=f\left( \alpha(t)x(t) \right) \\
+	 = & \int_0^1y(t)\alpha(t)x(t)\mathrm{d}t\\
+	 = & \int_0^1x(t)\left( \alpha(t)y(t) \right) \mathrm{d}t
+       .\end{align*}
+       这也就是说$(T^*y)(t)=\alpha(t)y(t)$.
+  \end{enumerate}
+\end{sol}
 \end{document}
 

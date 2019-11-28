@@ -1,0 +1,2 @@
+\contentsline {chapter}{\numberline {1}统计基础}{5}{chapter.1}% 
+\contentsline {section}{\numberline {1.1}波尔兹曼分布}{5}{section.1.1}% 

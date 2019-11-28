@@ -1,2 +1,3 @@
 # Notes
-My lerning notes
+My learning notes 
+我的学习笔记

@@ -1,4 +1,4 @@
-PWD /home/rieunity/Documents/Notes/Functional
+PWD /home/rieunity/Documents/Notes/Exe/d23-12-19
 INPUT /usr/local/texlive/2019/texmf.cnf
 INPUT /usr/local/texlive/2019/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2019/texmf-var/web2c/xetex/xelatex.fmt
@@ -226,13 +226,8 @@ INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
-INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/lm/ec-lmbx10.tfm
-INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm
-INPUT main.toc
-INPUT main.toc
-OUTPUT main.xdv
-OUTPUT main.toc
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/lm/ec-lmri10.tfm
+INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/lm/ec-lmbx10.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
@@ -245,6 +240,7 @@ INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm1
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
+OUTPUT main.xdv
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/lm/ec-lmr7.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/lm/ec-lmr5.tfm
 OUTPUT main.thm

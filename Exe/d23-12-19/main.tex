@@ -1,0 +1,236 @@
+%TEX program = xelatex
+\documentclass[a4paper]{article}
+\usepackage{ctex}
+ \usepackage[colorlinks,
+           linkcolor=red,
+           anchorcolor=blue,
+           citecolor=green
+           ]{hyperref} 
+%\usepackage{xeCJK}
+\usepackage[center]{titlesec}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+%\usepackage[english]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{mathtools}
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\newcommand{\incfig}[1]{%
+  \def\svgwidth{\columnwidth}
+  \import{./figures/}{#1.pdf_tex}
+}
+
+
+
+% Some shortcuts
+\newcommand\N{\ensuremath{\mathbb{N}}}
+\newcommand\R{\ensuremath{\mathbb{R}}}
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+\renewcommand\O{\ensuremath{\emptyset}}
+\newcommand\Q{\ensuremath{\mathbb{Q}}}
+%\newcommand\C{\ensuremath{\mathbb{C}}}
+
+% Some theorem environment settings
+\usepackage{ntheorem}
+\newtheorem{theorem}{Theorem}
+\newtheorem*{rmk}{Remark}
+\newtheorem{lemma}{Lemma}
+\newtheorem*{exe}{习题}
+%\newtheorem*{sol}{Solution}
+\newenvironment{sol}{{\noindent\bfseries 解}:}{\hfill $\square$\par}
+\newenvironment{pro}{{\noindent\bfseries 证明}:}{\hfill $\square$\par}
+% Enumerate Style
+\renewcommand{\labelenumi}{{\normalfont\alph{enumi}. }}
+
+% Tensor
+\usepackage{tensor}
+
+% bracket notations 
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
+
+% Normal ordering
+\newcommand{\normord}[1]{:\mathrel{#1}:}
+
+
+\begin{document}
+\title{习题解答}
+\author{89hao}
+\maketitle
+%{文档说明}
+%\tableofcontents
+\begin{exe}
+  证明定解问题
+  \begin{equation}
+ \left\{\begin{array}{lcr}
+   u_{tt}-4u_{xx}=0 & & t>0,x\in \R\\
+   u(x,0)=0, u_{t}(x,0)=x& & x\in \R
+ \end{array}\right.\label{1} 
+ \end{equation}
+ 的解存在唯一,并说明解对初值的稳定性.
+\end{exe}
+\begin{pro}
+  先对(\ref{1})中的方程进行因式分解
+  \begin{equation}
+    \left( \frac{\partial}{\partial t}+2\frac{\partial}{\partial x} \right) \left( \frac{\partial}{\partial t}-2\frac{\partial}{\partial x} \right)u=u_{tt}-4u_{xx}=0.\label{2} 
+  \end{equation}
+  令
+  \begin{equation}
+    v(x,t)=\left( \frac{\partial}{\partial t}-2\frac{\partial}{\partial x} \right) u.\label{3}
+  \end{equation}
+  由(\ref{2})得
+  \begin{equation*}
+    v_t(x,t)+2v_x(x,t)=0, x\in \R,t>0.
+  \end{equation*}
+  这是一维传输方程,由(\ref{1})中的初始条件和(\ref{3})知$v$ 满足初始条件
+  \[
+    v(x,0)=x
+  .\] 
+  于是,由传输方程的解可知
+  \[
+    v(x,t)=x-2t
+  .\]
+  把$v$代入(\ref{3})得
+   \begin{equation*}
+     u_t(x,t)-2u_x(x,t)=x-2t,
+  \end{equation*}
+  其中$(x,t)\in \R\times (0,\infty)$.\\
+  这是一个非齐次传输方程,已知$u(x,0)=0$,用非齐次传输方程的解公式可得
+  \begin{align}
+    u(x,t)&=\int_0^t \left[ x-2(s-t)-2s\right]\mathrm{d}s\notag\\
+    &=\int_0^{t}\left( x-4s+2t \right) \mathrm{d}s\notag\\
+    &=xt
+  .\end{align}
+代入原方程验证可知这是它的一个解,另一方面由求解过程的每一步的唯一性知解一定唯一.
+
+实际上如果把(\ref{1})换成更加一般的
+\begin{equation}
+\left\{\begin{array}{lcr}
+    u_{tt}-a^2u_{xx}=0& &t>0,x\in \R\\
+    u(x,0)=\varphi(x), u_t(x,0)=\psi(x)&& x\in R.
+  \end{array}\right.
+\end{equation}
+  那么同样按照前面的求解方法可得到一般情况的解
+  \begin{equation}
+    u(x,t)=\frac{1}{2}\left[ \varphi(x+at)+\varphi(x-at) \right]+\frac{1}{2a}\int_{x-at}^{x+at}\psi(y)\mathrm{d}y 
+  \end{equation}
+  该式子称为d'Alembert(达朗贝尔)公式.下面考虑解对初值的稳定性问题,设有下面两个初值问题
+\begin{equation*}
+\left\{\begin{array}{lcr}
+    u_{1,tt}-a^2u_{1,xx}=0& &t>0,x\in \R,\\
+    u_1(x,0)=\varphi_1(x), u_{1,t}(x,0)=\psi_1(x)&& x\in R,
+  \end{array}\right.
+\end{equation*}
+\begin{equation*}
+\left\{\begin{array}{lcr}
+    u_{2,tt}-a^2u_{2,xx}=0& &t>0,x\in \R,\\
+    u_2(x,0)=\varphi_2(x), u_{2,t}(x,0)=\psi_2(x)&& x\in R.
+  \end{array}\right.
+\end{equation*}
+令$w=u_1-u_2$,则 $w(x,t)$满足问题
+\begin{equation}
+\left\{\begin{array}{lcr}
+    w_{tt}-a^2u_{xx}=0& &t>0,x\in \R,\\
+    w(x,0)=\varphi_1(x)-\varphi_2(x), w_t(x,0)=\psi_1(x)-\psi_2(x)&& x\in R.
+  \end{array}\right.
+\end{equation}
+那么由达朗贝尔公式可以得到$w(x,t)$的解,进而得到解在$x\in R$和$t\in  \left[ 0,T \right] $估计式
+ \[
+   \sup_{x,t}\left| w(x,t) \right|\le \sup_{x}\left| \varphi_1(x)-\varphi_2(x) \right| +T\sup_{x}\left| \psi_1(x)-\psi_2(x) \right|  
+.\]
+所以,在连续函数空间的范数意义下,若初值变化很小,相应的解变化也很小,即解是稳定的.
+\end{pro}
+
+\begin{exe}
+  1.利用Green函数表示
+  \begin{equation}
+    \left\{\begin{array}{lcr}
+      \Delta u=0, && x\in  B_1\subset \R^n, n>2\\
+      u\lvert_{\partial B_1}=f(x)
+    \end{array}\right.
+  \end{equation}
+  的解.\\
+  2.若$f\in C(\partial B_1)$.证明1中表示的解是古典解.
+\end{exe}
+\begin{sol}
+  1.若已知单位球面上的格林函数$G(x,y)$,则由格林函数的定义可知问题的形式解为
+   \begin{equation}
+     u(y)=\int_{\partial B_1}u(x) \frac{\partial G}{\partial \mathbf{\nu}}\mathrm{d}S_x=\int_{\partial B_1} f(x) \frac{\partial G}{\partial\mathbf{\nu}}\mathrm{d}S_x.\label{4}
+  \end{equation}
+  把单位球面的格林函数代入上式化简后对换$x$和 $y$得到
+  \begin{equation}
+    u(x)=\frac{1-\left| x \right|^2 }{n\omega_n}\int_{\partial B_1}\frac{f(y)}{\left| x-y \right| ^n}\mathrm{d}S_y.\label{5}
+  \end{equation}
+  2.定义函数
+  \begin{equation}
+    P(x,y)=\frac{1-\left| x \right| ^2}{n\omega_n\left| x-y \right| ^n}.
+  \end{equation}
+  上式称为单位球面上的Poisson核.它满足性质
+  \begin{equation}
+    \int_{\partial B_1}P(x,y)\mathrm{d}S_y=1, x\in B_{1}.\label{poisson}
+  \end{equation}
+  (\ref{5})可以写成
+  \begin{equation}
+    u(x)=\int_{\partial B_1}P(x,y)\mathrm{d}S_y.\label{integral}
+  \end{equation}
+  对固定的$x\in B_1$, $P(x,y)$ 是关于$y$ 的有界函数,而$f\in C\left( \partial B_1 \right) $,所以$u(x)$ 是有确切定义的.因为$P(x,y)$是关于$x$的调和函数,函数$f(y)\Delta_x P(x,y)$可积且关于$x$连续,所以
+  \begin{equation}
+    \Delta u(x)=\int_{\partial_1}f(y)\Delta_x P(x,y)\mathrm{d}S_y=0,x\in  B_1.
+  \end{equation}
+  即$u$在 $B_1$内调和.\\
+  下面我们证明$u$可以连续地取到边值.因为 $f$ 在$\partial B_1$ 上连续,所以一定有界,即存在常数$M>0$ 使得$\left| f(y) \right| \le M, \forall y\in \partial B_1$.利用Poisson核的性质(\ref{poisson}),可得
+  \begin{align*}
+    \left| u(x)-f(x_0) \right| &\le \int_{\partial B_1}P(x,y)\left| f(y)-f(x_0) \right| \mathrm{d}S_y\\
+    &=\int_{\left| y-x_0 \right| <\delta}P(x,y)\left| f(y)-f(x_0) \right| \mathrm{d}S_y\\
+    &+\int_{\left| y-x_0 \right| >\delta}P(x,y)|f(y)-f(x_0)|\mathrm{d}S_y\\
+    &<\varepsilon +2M \frac{1-\left| x \right| ^2}{n\omega_n\left( \delta\slash 2\right)^n }\cdot n\omega_n\\ 
+    &=\varepsilon+\frac{2M\left( 1-\left| x \right| ^2 \right) }{\left( \delta\slash 2 \right)^n }<2\varepsilon,\text{当}\left| x-x_0 \right| \text{充分小}.
+  .\end{align*}
+\end{sol}
+由$\varepsilon$的任意性可知$\left| u(x)\to f(x_0) \right| $,当$x\to x_0$, $x\in  B_1$.即$u\in C^2\left( B_1 \right)\cap C\left( \overline{B}_1 \right)  $.
+\begin{exe}
+  $P(x,y)$同上式定义, $x\in B_1,y\in \partial B_1$.证明
+  \[
+    \lim_{r\to 1^-}\int_{\partial B_1\backslash V_0}P(ry_0,y)\mathrm{d}S_y=0
+  .\] 
+  这里$V_0$为 $y_0\in \partial B_1$ 的邻域. 
+\end{exe}
+\begin{pro}
+  取$V_0=B\left( y_0,\delta \right) $,则对于$y\in \partial B_1\backslash V_0$有$\left| y-y_0 \right|\ge \delta $,从而
+  \begin{align*}
+    \int_{\partial B_1\backslash V_0}P(ry_0,y)\mathrm{d}S_y&=\int_{\partial B_1\backslash V_0} \frac{1-r^2}{n\omega_n\left| ry_0-y \right| ^{n}}\mathrm{d}S_y\\
+    &\le \int_{\partial B_1\backslash V_0} \frac{1-r^2}{n\omega_n\delta^n}\mathrm{d}S_y\\ 
+    &\le \int_{\partial B_1} \frac{1-r^2}{n\omega_n\delta^n}\mathrm{d}S_y\\
+    &=\frac{1-r^2}{\delta^n}
+  .\end{align*}
+\end{pro}
+当$r\to 1^-$时上式趋于 $0$.
+\begin{exe}
+  设$u(x)$ 在$B_R\backslash \left\{ 0 \right\} $ 中调和,其中$B_R$为 $n$维空间中以 $0$为心 $R$为半径的开球,在零点附近满足
+   \[
+     \lim_{x\to 0}\left| x \right| ^{n-2}u(x)=0
+  .\] 
+  则可定义$u(0)$使得 $U$在 $B_R$上调和.
+\end{exe}
+\begin{pro}
+  取开球$B_r$使得 $r<R$,可用前面得到的积分公式(\ref{integral})制作一个在$\partial B_r$ 上等于$u$且在 $B_r$内部调和的函数 $v(x)$,我们只要证明在 $B_r\backslash\left\{ 0 \right\} $ 中$u=v$就可以了.因为这时可以定义 $u(0)=v(0)$,于是这个函数 $u$在 $B_R$中是调和的.\\
+  对任给的 $\varepsilon>0$以及某 $\delta$, $0<\delta<r$,考虑函数
+   \[
+     w_{\varepsilon}=\varepsilon \left( \left| x \right| ^{2-n}-r^{2-n} \right) 
+  .\] 
+  此函数在$B_r\backslash \overline{B_{\delta}}$ 中是调和的,在$\partial B_r$ 上等于$0$.由已知条件,存在足够小的正数 $\delta$使得在 $\partial B_\delta$上成立
+   \[
+  \left| u-v \right| \le w_{\varepsilon }
+  .\] 
+  因此由最大最小值原理可得,在$B_{r}\backslash \overline{B_\delta}$ 中
+  \[
+  \left| u-v \right| \le w_{\varepsilon }
+  .\] 
+  固定$\varepsilon $,令$\delta\to 0$ 便得$\left| u-v \right| \le w_{\varepsilon}$ 在$B_r\backslash \left\{ 0 \right\}  $ 中成立,$\varepsilon $可以任意小,所以$u=v$在 $B_r\backslash \left\{ 0 \right\} $ 中成立.
+\end{pro}
+\end{document}
+

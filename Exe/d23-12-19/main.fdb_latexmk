@@ -1,10 +1,10 @@
 # Fdb version 3
-["xdvipdfmx"] 1575787630 "main.xdv" "main.pdf" "main" 1575787630
-  "main.xdv" 1575787630 102172 cf6d6ede2b6b005c1d4a2b88414fc49d "xelatex"
+["xdvipdfmx"] 1577098337 "main.xdv" "main.pdf" "main" 1577098337
+  "main.xdv" 1577098337 29256 52cdfc0d0abfc970266f913ea1980c9b "xelatex"
   (generated)
   "main.pdf"
-["xelatex"] 1575787628 "main.tex" "main.xdv" "main" 1575787630
-  "/dev/null" 1575816005 0 d41d8cd98f00b204e9800998ecf8427e ""
+["xelatex"] 1577098336 "main.tex" "main.xdv" "main" 1577098337
+  "/dev/null" 1577109244 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/home/rieunity/texmf/tex/latex/tensor/tensor.sty" 1571488674 4258 177d16e71f50eb48389533ac9bd9cd26 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -30,7 +30,6 @@
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1136768653 1120 8b7d695260f3cff42e636090a8002094 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/latex-fonts/lasy6.tfm" 1136768653 520 4889cce2180234b97cad636b6039c722 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/lm/ec-lmbx10.tfm" 1254269338 12076 b54175e02101bea1addf6b2d0197ed12 ""
-  "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/lm/ec-lmbx12.tfm" 1254269338 12088 d750ac78274fa7c9f73ba09914c04f8a ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/lm/ec-lmr10.tfm" 1254269338 12056 7e13df7fe4cbce21b072ba7c4f4deb6e ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/lm/ec-lmr12.tfm" 1254269338 12092 7b1546e2d096cfd5dcbd4049b0b1ec2e ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/lm/ec-lmr17.tfm" 1254269338 12156 ca1ae6a3c8564e89597f1f993fba1608 ""
@@ -123,14 +122,12 @@
   "/usr/local/texlive/2019/texmf-dist/web2c/texmf.cnf" 1570742662 39452 758acee3f2beaeeedff570c5f5d76d98 ""
   "/usr/local/texlive/2019/texmf-var/web2c/xetex/xelatex.fmt" 1571853579 3765666 62de793a3e398af58254cb198b8b0b2d ""
   "/usr/local/texlive/2019/texmf.cnf" 1571853555 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "main.aux" 1575787630 5961 83ad2799714c1339270532eed0ea918f "xelatex"
-  "main.out" 1575787630 1692 4a9eb94557ec5d1d013924b8b1c2b30b "xelatex"
-  "main.tex" 1575787628 26624 9e8708d98932154d767f2fc0f068256e ""
-  "main.toc" 1575787630 1232 9c36b009ae6f930a4f5f541ecee295c5 "xelatex"
+  "main.aux" 1577098337 1268 d340169e53b9b368e0467ace5310d427 "xelatex"
+  "main.out" 1577098337 0 d41d8cd98f00b204e9800998ecf8427e "xelatex"
+  "main.tex" 1577098334 9521 eecd2d8cdfd5292e72b0e74d0ab7850e ""
   (generated)
-  "main.aux"
-  "main.out"
-  "main.toc"
   "main.xdv"
-  "main.thm"
+  "main.out"
   "main.log"
+  "main.thm"
+  "main.aux"

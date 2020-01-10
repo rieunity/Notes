@@ -1,9 +1,8 @@
 # Notes
-My learning notes 
-
+My learning notes  
 我的学习笔记
 
-|Folder | Sub Folder | Content |
+|Directory | Subdirectory | Content |
 |-----|-------|-----|
 |Daily | CA    |Commutative Algebra|
 |     |EXE    |Solutions|

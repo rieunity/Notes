@@ -1,0 +1,153 @@
+
+
+<p>
+
+<b>1. Second-order Elliptic Equations </b>
+
+<p>
+
+ Define the partial differential operator ${L}$ to be <p align=center>$ Lu=-\sum_{i,j=1}^{n}a^{ij}(x)u_{x_ix_j}+\sum_{i=1}^{n} b^{i}(x)u_{x_i}+c(x)u. \ \ \ \ \ (1)$</p>
+ 
+<blockquote><b>Definition 1</b> <em> We say ${L}$ is (uniformly) elliptic if there exists a constant ${\theta&gt;0}$ such that <a name="uec"><p align=center>$ \sum_{i,j=1}^{n}a^{ij}(x)\xi_i\xi_j\ge \theta \left| \xi \right|^2  \ \ \ \ \ (2)$</p>
+</a> for a.e. ${x\in U}$ and all ${\xi \in {\mathbb R}^{n}}$. </em></blockquote>
+
+<p>
+
+ 
+
+<p>
+
+<b>2. Maximum Principle </b>
+
+<p>
+
+ 
+
+<p>
+
+<b>  2.1. Weak Maximum Principle </b>
+
+<p>
+
+ In this case, we assume that ${a^{ij},b^{i},c}$ are bounded, continuous and the uniform ellipticity condition (<a href="#uec">2</a>) holds. 
+<p>
+The maximum principle we talk about here is the classical condition. 
+<blockquote><b>Theorem 2 (Weak maximum principle)</b> <em> Assume ${u\in C^2(U)\cap C(\overline{U})}$ and <p align=center>$ c\equiv 0 \text{ in } U $</p>
+ 
+
+<ol> <li> If <a name="3"><p align=center>$ 	Lu\le 0 \text{ in }U, \ \ \ \ \ (3)$</p>
+</a> then <p align=center>$ \max_{\overline{U}}u=\max_{\partial U}u. $</p>
+ <li> If <p align=center>$ Lu\ge 0 \text{ in }U, \ \ \ \ \ (4)$</p>
+ then <p align=center>$ \min_{\overline{U}}u=\min_{\partial U}u. $</p>
+ 
+</ol>
+
+<a name="theorem1"></a> </em></blockquote>
+
+<p>
+
+ <em>Proof:</em>  1. Suppose we have the strict inequality <p align=center>$ Lu&lt;0 \text{ in }U, $</p>
+ and there is a point ${x_0\in U}$ such that <p align=center>$ u(x_0)=\max_{\overline{U}}u. \ \ \ \ \ (5)$</p>
+ At this maximum point ${x_0}$, we have <a name="7"><p align=center>$ Du(x_0)=0 \ \ \ \ \ (6)$</p>
+</a> and <a name="less"><p align=center>$ D^2u(x_0)\le 0. \ \ \ \ \ (7)$</p>
+</a> Since the matrix ${A=\left( a^{ij}(x_0) \right) }$ is symmetric and positive definite, there exists an orthognal matrix ${O=\left( o_{ij} \right) }$ so that <p align=center>$ OAO^{T}=\text{diag}\left( d_1,\cdots,d_n \right) , \quad O O^{T}=1, \ \ \ \ \ (8)$</p>
+ with ${d_k&gt;0}$ ${\left( k=1,\cdots,n \right) }$. Write ${y=x_0+O(x-x_0)}$. Then ${x-x_0=O^{T}(y-x_0)}$, and so <p align=center>$ u_{x_i}=\sum_{k=1}^{n} u_{y_k}O_{ki}, u_{x_ix_j}=\sum_{k,l=1}^{n}u_{y_ky_l}O_{ki}O_{lj}\quad \left( i,j=1,\cdots,n \right). $</p>
+ Hence at the point ${x_0}$,  \sum_{i,j=1}^{n}a^{ij}u_{x_ix_j}=&\sum_{k,l=1}^{n} \sum_{i,j=1}^{n} a^{ij}u_{y_ky_l}o_{ki}o_{lj}\notag<br/>
+ =& \sum_{k=1}^{n} d_ku_{y_ky_k}\le 0 \quad\text{ by (<a href="#less">7</a>)}<a name="10"></a> . Thus at ${x_0}$ <p align=center>$ Lu=-\sum_{i,j=1}^{n} a^{ij}u_{x_ix_j}+\sum_{i=1}^{n} b^{i}u_{x_i}\ge 0 $</p>
+ in light of (<a href="#7">6</a>) and (<a href="#10">2</a>). So we have a contradiction. 2. In general case that (ref{3}) holds, write <p align=center>$ u^{\epsilon}(x):=u(x)+\epsilon e^{\lambda x_1} (x\in U), $</p>
+ where ${\lambda&gt;0}$ will be selected below and ${\epsilon&gt;0}$. The uniform condition implies ${a^{ii}(x)\ge \theta}$ ${i=1,\cdots,n,x\in U}$. Therefore \begin{align*} Lu^{\epsilon }=&Lu+\epsilon L\left( e^{\lambda x_1} \right) <br/>
+ \le & \epsilon e^{\lambda x_1}\left( -\lambda^2a^{11}+\lambda b^{1} \right) <br/>
+ \le& \epsilon e^{\lambda x_1}\left( -\lambda^2\theta+\|\mathbf{b}\|_{L^{\infty}}\lambda \right)<br/>
+ <&0\quad \text{ in }U, .\end{align*} provided we choose ${\lambda&gt;0}$ sufficiently large. Then according step 1 above and let ${\epsilon \rightarrow 0}$ we get ${\max_{\overline{U}}u=\max_{\partial U}u}$. $latex \Box&fg=000000$
+
+ 
+<blockquote><b>Theorem 3 (Weak maximum principle for ${c\ge 0}$)</b> <em> Assume ${u\in C^2(U)\cap C(\overline{U})}$ and <p align=center>$ c\ge 0 \text{ in }U. $</p>
+ 
+
+<ol> <li> If <p align=center>$ Lu\le 0 \text{ in }U, $</p>
+ then <a name="11"><p align=center>$ 	\max_{\overline{U}}\le \max_{\partial U}u^{+}. \ \ \ \ \ (9)$</p>
+</a> <li> Likewise, if <p align=center>$ Lu\ge 0 \text{ in }U, $</p>
+ then <p align=center>$ \min_{\overline{U}}\ge -\max_{\partial U}u^-. \ \ \ \ \ (10)$</p>
+ 
+</ol>
+
+<a name="theorem2"></a> </em></blockquote>
+
+<p>
+
+ <em>Proof:</em>  1. Let ${u}$ ve a subsolution and set ${V:=\left\{ x\in U \lvert u(x)&gt;0 \right\} }$. Then <p align=center>$ Ku:=Lu-cu\le -cu\le 0 \quad \text{ in }V. $</p>
+ The operator ${K}$ has no zeroth=order term and consequently Theorem <a href="#theorem1">2</a> implies ${\max_{\overline{V}}u=\max_{\partial V}u=\max_{\partial U}u^+}$. This gives (<a href="#11">9</a>) in the case that ${V\neq \empty}$. Otherwise ${u\le 0}$ everywhere in ${U}$,and (<a href="#11">9</a>) likewise follows.
+<p>
+ 2. Assertion b follows from a applied to ${-u}$, once we observe that ${\left( -u \right) ^+=u^-}$. $latex \Box&fg=000000$
+
+ 
+
+<p>
+
+<b>  2.2. Strong Maximum Principle </b>
+
+<p>
+
+ 
+<blockquote><b>Lemma 4 (Hopf's Lemma)</b> <em> Assume ${u\in C^{2}(U)\cap C^1(\overline{U})}$ and <p align=center>$ c\equiv 0 \text{ in } U. $</p>
+ Suppose further <p align=center>$ Lu\le 0 \text{ in }U $</p>
+ and there exists a point ${x^{0}\in \partial U}$ such that <p align=center>$ u(x^0)&gt;u(x)\text{ for all }x\in U. \ \ \ \ \ (11)$</p>
+ Assume finially that ${U}$ satisfies the interior ball condition at ${x^{0}}$ ; that is, there exists an open ball ${B\subset U}$ with ${x^{0}\in \partial B}$. 
+
+<ol> <li> Then <p align=center>$ 	\frac{\partial u}{\partial \nu} (x^{0})&gt;0, $</p>
+ where ${\nu}$ is the outer unit normal to ${B}$ at ${x^{0}}$. <li> If <p align=center>$ c\ge 0 \text{ in }U $</p>
+ the same conclusion holds provided <p align=center>$ 	u(x^{0})\ge 0. $</p>
+ 
+</ol>
+
+ </em></blockquote>
+
+<p>
+
+ <em>Proof:</em>   \centering \incfig{interior-ball-condition} \caption{Interior ball condition} <a name="figinterior-ball-condition"></a>  1. Assume ${c\ge 0}$ and ${B=B^{0}(0,r)}$ for some radius ${r&gt;0}$. Define <p align=center>$ v(x):=e^{-\lambda\left| x \right| ^{2}}-e^{-\lambda r^{2}}\quad \left( x\in B\left( 0,r \right) \right) $</p>
+ for ${\lambda&gt;0}$ as selected below. Then using the uniform condition, we compute \begin{align*} Lv=&-\sum_{i,j=1}^{n} a^{ij}v_{x_ix_j}+\sum_{i=1}^{n} b^iv_{x_i}=cv<br/>
+ =& e^{-\lambda \left| x \right| ^{2}}\sum_{i,j=1}^{n} a^{ij}\left( -4\lambda^{2}x_ix_j+2\lambda \delta_{ij} \right) <br/>
+ -& e^{-\lambda \left| x \right| ^2}\sum_{i=1}^{n} b^{i}2\lambda x_i +c\left( e^{-\lambda \left| x \right| ^{2}}-e^{-\lambda r^{2}} \right) <br/>
+ \le & e^{-\lambda \left| x \right| ^{2}}\left( -4\theta \lambda^2\left| x \right| ^2+2\lambda \text{tr}A+2\lambda \left| b \right| \left| x \right| +c \right) , \end{align*} for ${A=\left( a_{ij} \right) }$, ${b=\left( b^{1},\cdots,b^{n} \right) }$. Consider next the open annular region ${R:=B^{0}\left( 0,r \right) -B\left( 0,\frac{r}{2} \right) }$. We have <a name="15"><p align=center>$ Lv\le 0 \ \ \ \ \ (12)$</p>
+</a> in ${R}$, provided ${\lambda}$ is large enough. 2. In view of ${u(x^{0})&gt;u(x)}$ for all ${x\in U}$, there exists a constant ${\epsilon &gt;0}$ so small that <a name="16"><p align=center>$ u(x^{0})\ge u(x)+\epsilon v(x)\quad \left( x\in \partial B(0,\frac{r}{2} \right) . \ \ \ \ \ (13)$</p>
+</a> In addition note <a name="17"><p align=center>$ u(x^{0})\ge u(x)+\epsilon v(x)\quad\left( x\in \partial B(0,r) \right) , \ \ \ \ \ (14)$</p>
+</a> since ${v\equiv 0}$ on ${\partial B(0,r)}$.
+<p>
+3. From (<a href="#15">12</a>) we see <p align=center>$ L\left( u+\epsilon v-u(x^{0}) \right) \le -cu(x^{0})\le 0 \quad \text{ in }R, $</p>
+ and from (<a href="#16">13</a>), (<a href="#17">14</a>) we observe <p align=center>$ u+\epsilon v-u(x^{0})\le 0\quad \text{ in }\partial R, $</p>
+ In view of the weak maximum principle, Theorem <a href="#theorem2">3</a>, we get ${u+\epsilon v-u(x^{0})\le 0}$ in ${R}$. But ${u(x^{0})+\epsilon v(x^{0})-u(x^{0})=0}$, and so <p align=center>$ \frac{\partial u}{\partial \nu} (x^{0})+\epsilon \frac{\partial v}{\partial \nu} (x^{0})\ge 0. $</p>
+ Consequently <p align=center>$ \frac{\partial u}{\partial \nu} \left( x^{0} \right) \ge -\epsilon \frac{\partial v}{\partial \nu} \left( x^{0} \right) =-\frac{\epsilon }{r}Dv(x^{0})\cdot x^{0}=2\lambda \epsilon re^{-\lambda r^{2}}&gt;0, $</p>
+ as required. $latex \Box&fg=000000$
+
+ 
+<blockquote><b>Theorem 5 (Strong maximum principle)</b> <em> Assume ${u\in C^2\left( U \right) \cap C\left( \overline{U} \right) }$ and <p align=center>$ c\equiv 0 \quad \text {in }U. $</p>
+ Suppose also ${U}$ is connected, open and bounded. 
+
+<ol> <li> If <p align=center>$ Lu\le 0 \quad \text{ in }U $</p>
+ and ${u}$ attains its minimum over ${\overline{U}}$ at an interior point, thenm ${u}$ is constant within ${U}$. <li> Similarly, if <p align=center>$ Lu\ge 0\quad \text{ in }U $</p>
+ and ${u}$ attains its minimum over ${\overline{U}}$ at an interior point, then ${u}$ is constant within ${U}$. 
+</ol>
+
+ </em></blockquote>
+
+<p>
+
+ <em>Proof:</em>  Write ${M:=\max_{\overline{U}}u}$ and ${C:=\left\{ x\in U\lvert u(x)=M \right\} }$. Then if ${u\not\equiv M}$, set <p align=center>$ V:=\left\{ x\in U\lvert u(x)&lt;M \right\} . $</p>
+ Choose a point ${y\in V}$ satisfying ${\text{dist}\left( y,C \right) &lt;\text{dist}\left( y,\partial U \right) }$, and let ${B}$ denote the largest ball with center ${y}$ whose interior lies in ${V}$. Then there exists some point ${x^{0}\in C}$, with ${x^{0}\in \partial B}$. Clearly ${V}$ satisfies the interior ball condition at ${x^{0}}$, whence Hopf's Lemma (a) implies <p align=center>$ \frac{\partial u}{\partial \nu} \left( x^{0} \right) &gt;0. $</p>
+ But this is a contradiction: since ${u}$ attains its maximum at ${x^{0}\in U}$, we have ${Du(x^{0})=0}$. $latex \Box&fg=000000$
+
+ Similarly, we have the ${c\ge 0}$ version of the strong maximum principle, and the proof is like the above. 
+<blockquote><b>Theorem 6 (Strong maximum principle with ${c\ge 0}$)</b> <em> Assume ${u\in C^{2}\left( U \right) \cap C\left( \overline{U} \right) }$ and <p align=center>$ c\ge 0 \quad \text{ in } U. $</p>
+ Suppose also ${U}$ is connect. 
+
+<ol> <li> If <p align=center>$ Lu\le 0 \quad \text{ in }U $</p>
+ and ${u}$ attains a nonnegative maximum over ${\overline{U}}$ at an interior point, then u is constant with ${U}$. <li> Similarly, if <p align=center>$ Lu\ge 0\quad \text{ in }U $</p>
+ and ${u}$ attains a nonpositive minimum over ${\overline{U}}$ at an interior point, then ${u}$ is constant within ${U}$. 
+</ol>
+
+ </em></blockquote>
+
+<p>
+
+
+<p>

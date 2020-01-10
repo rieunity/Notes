@@ -1,0 +1,174 @@
+The main task of this note is to prove the following theorem:
+\begin{theorem}
+ Suppose $a_{ij}\in L^{\infty}(B_1)$ and $c\in L^{q}(B_1)$ for some $q>\frac{n}{2}$ satisfy the following assumptions
+  \[
+    a_{ij}(x)\xi_i\xi_j\ge \lambda \left| \xi \right| ^{2}\text{ for any }x\in B_1 \text{ and }\left| a_{ij} \right| _{L^{\infty}}+\|c\|_{L^{q}}\le \Lambda
+  \] 
+  for some positive constants $\lambda$ and $\Lambda$. Suppose that  $u\in H^{1}(B_1)$ is a subsolution in the following sense
+  \[
+    \int_{B_1}a_{ij}D_iuD_j\varphi+cu\varphi\le \int_{B_1}f\varphi \text{ for any }\varphi \in H_0^{1}(B_1) \text{ and } \varphi\ge 0 \text{ in }B_1.
+  \] 
+  If $f\in L^{q}(B_1)$, then $u^{+}\in L_{\mathrm{loc}}^{\infty}(B_1)$. Moreover, there holds for any $\theta \in  (0,1)$ and any $p>0$ 
+  \[
+    \sup_{B_{\theta}}u^{+}\le C\left\lbrace \frac{1}{(1-\theta)^{\frac{n}{p}}}\|u^{+}\|_{L^{p}(B_1)}+\|f\|_{L^{q}(B_1)}  \right\rbrace
+  \]
+  where $C=C(n,\lambda,\Lambda,p,q)$ is a positive constant.
+\end{theorem}
+We present two methods here.
+\section{Moser's Method}
+Think about the following undergraduate level question:\\
+{\textbf{Question}} Let $f\in C[0,1]$, then what is the value of 
+  \[
+    \lim_{\gamma \to \infty}\left|\int_0^1 \left| f(x) \right|^{\gamma}\mathrm{d}x\right|^{\frac{1}{\gamma}}=?
+  \]
+  The answer is $\sup_{0\le x\le 1}\left| f(x) \right|=\|f\|_{L^{\infty}}$.
+This is exatly the way we transform  $\|u^{+}\|_{L^{p}}$ to  $\sup u^{+}$ in the proof of the  above theorem. To make things more understanding, we assume $f=0$. In this simplified version, We first establish the inequality
+   \[
+     \left( \int_{B_r}\left| u^{+} \right| ^{\gamma\chi} \right)^{\frac{1}{\chi}}\le C\int_{B_R}\left| u^{+} \right|^{\gamma},  
+   \]  
+   where $\chi>1$ and $\gamma\ge 2$, $r<R$. Then we use this inequality to iterate, the iterating step makes  $\chi\to \infty$, then the left side would be more and more likely to the suprimum norm of $u^{+}$ just as the question. Hence we can get the following inequality by doing this iteration:
+   \[
+     \sup_{B_{\frac{1}{2}}}u^{+}\le C \|u^{+}\|_{L^{2}(B_1)} .
+   \] 
+Thus the case $f=0$ and $p=2$ can be proved. The proof under the  condition of $f\neq 0$ needs to be modified slightly.
+Then the general case that $p= 2$ can be proved easily by using the above special case.\\
+According to the above discussion, we want to establish the inequality like this: 
+\[
+  \|u^{+}\|_{L^{\gamma\chi}(B_r)}\le C\|u^{+}\|_{L^{\gamma}(B_R)}
+\] 
+for some constant $C$ and $r<R$. This inequality estimate the  $L^{\gamma\chi}$-norm by the weaker $L^{\gamma}$-norm. As a trade-off, we have to make $r<R$, via certain test function. 
+
+For some $k>0$ and $m>0$, set $\overline{u}=u^{+}+k$ and 
+\begin{equation*}
+  \overline{u}_m=\left\{
+    \begin{aligned}
+      \overline{u}& & \text{ if }u\le m\\
+      k+m & & \text{ if }u\ge m
+    \end{aligned}\right.
+\end{equation*}
+The point is that $\overline{u}_m$ is still an element of  $H^{1}\left( B_1 \right) $,but bounded below by $k$ and from above by $\left( k+m \right) $. Then we have $D \overline{u}_m=0$ whenever $u<0$ or $u>m$ and $\overline{u}_m\le \overline{u}$.
+Set the test function 
+\[
+  \phi=\eta^{2}\left( \overline{u}_m^{\beta}\overline{u}-k^{\beta+1} \right) \in H_0^{1}(B_1)
+\] 
+for some $\beta\ge 0$ and some nonnegative function $\eta \in C_0^{1}(B_1)$. The function $\eta$ is a cut-off function to be chosen later on (remember the trade-off $r<R$?). $\phi$ is an element of $H_0^{1}(B_1)$ because $\overline{u}_m$ is bounded. Direct calculation yields
+\begin{align*}
+  D \phi = & \beta \eta^2\overline{u}_m^{\beta-1}D \overline{u}_m \overline{u}+D \overline{u}\eta^2\overline{u}_m^{\beta}+2\eta D\eta\left( \overline{u}_m^{\beta}-k^{\beta+1} \right)\\
+  =& \eta^2\overline{u}_m^{\beta}\left( \beta D\overline{u}_m+D\overline{u} \right) +2\eta D \eta\left( \overline{u}_m^{\beta}\overline{u}-k^{\beta+1} \right) 
+.\end{align*}
+where we used the fact that $\overline{u}=\overline{u}_m$ whenever $D \overline{u}_m\neq 0$.
+Then we have 
+\begin{align*}
+  \int a_{ij}D_iuD_j\phi=&\int a_{ij}D_i \overline{u}\left( \beta D_j\overline{u}_m+D_j\overline{u} \right) \eta^{2}\overline{u}_m^{\beta}+2\int a_{ij}D_i\overline{u}D_j\eta\left( \overline{u}_m^{\beta}\overline{u}-k^{\beta+1} \right)\\
+  \ge &\lambda\beta \int\eta^{2}\overline{u}^{\beta}_m\left| D\overline{u}_m \right|^{2}+\lambda\int\eta^2\overline{u}_m^{\beta}\left| D\overline{u} \right| ^2-\Lambda\int\left| D\overline{u} \right| \left| D\eta \right| \overline{u}_m^{\beta}\overline{u}\eta\\
+  \ge & \lambda\beta \int\eta^2\overline{u}_m^{\beta}\left| D\overline{u}_m \right| ^2+\frac{\lambda}{2}\int\eta^2\overline{u}_m^{\beta}\left| D\overline{u} \right| ^2-\frac{2\Lambda^2}{\lambda}\int \left| D\eta \right| ^2\overline{u}_m^{\beta}\overline{u}^2
+.\end{align*}
+Hence we obtain by noting $\overline{u}\ge k$
+\begin{align*}
+  &\beta\int \eta^2\overline{u}_m^{\beta}\left| D\overline{u}_m \right| ^2+\int\eta^2\overline{u}_m^{\beta}\left| D\overline{u} \right| ^2\\
+  \le & C\left\{ \int\left| D\eta \right| ^2\overline{u}_m^{\beta}\overline{u}^2+\int\left( \left| c \right| \eta^2\overline{u}_m^{\beta}\overline{u}^2+\left| f \right| \eta^2\overline{u}_m^{\beta}\overline{u} \right)  \right\}\\
+  \le & C\left\{ \int\left| D\eta \right| ^2\overline{u}_m^{\beta}\overline{u}^2+\int c_0\eta^2\overline{u}_m^{\beta}\overline{u}^2 \right\} 
+\end{align*}
+where $c_0$ is defined as 
+\[
+  c_0=\left| c \right| +\frac{\left| f \right| }{k}.
+\] 
+Choose $k=\|f\|_{L^{q}}$ if $f$ is not identically zero. Otherwise choose arbitrary $k>0$ and eventually let $k\to 0^{+}$. 
+By assumption we have 
+\[
+\|c_0\|_{L^{q}}\le \Lambda +1.
+\] 
+Set $w=\overline{u}_m^{\frac{\beta}{2}}\overline{u}$. Then 
+\[
+  \left| Dw \right| =\overline{u}_m^{\frac{\beta}{2}}\left( \frac{\beta}{2}\cdot D\overline{u}_m+D\overline{u} \right) ,
+\] 
+therefore
+\begin{align*}
+  \left| Dw \right| ^2=&\overline{u}_m^{\beta}\left| \frac{\beta}{2}D\overline{u}_m+D\overline{u} \right| ^2\\
+  =& \overline{u}_m^{\beta}\left( \frac{\beta^2}{4}\left| D\overline{u}_m \right| ^2+\beta D\overline{u}_mD\overline{u}+\left| D\overline{u} \right| ^2 \right) \\
+  =& \overline{u}_m^{\beta}\left( \beta\left( \frac{\beta}{4}+1 \right) \left| D\overline{u}_m \right| ^2+\left| D\overline{u} \right| ^2 \right) \\
+  \le & \overline{u}_m^{\beta}\left( \beta+1 \right) \left( \beta \left| D\overline{u}_m \right| ^2+\left| D\overline{u} \right| ^2 \right) 
+.\end{align*}
+Therefore we have 
+\[
+  \int\left| Dw \right| ^2\eta^2\le  C\left( (1+\beta)\int w^2\left| D\eta \right| ^2+(1+\beta)\int c_0w^2\eta^2 \right) 
+\] 
+and so
+\begin{align*}
+  \int \left| D(w\eta) \right| ^2\le & 2\int\left( \left| D\eta \right| ^2w^2+\left| Dw \right| ^2\eta^2 \right) \\
+  \le  & C \left( (1+\beta)\int w^2 \left| D\eta \right| ^2+\left( 1+\beta \right) \int c_0w^2\eta^2 \right) .
+\end{align*}
+ $C$ in different lines may not identical. H\"{o}lder inequality implies 
+ \[
+   \int c_0 w^2\eta^2\le \left( \int c_0^{q} \right) ^{\frac{1}{q}}\left( \int \left( \eta w \right) ^{\frac{2q}{q-1}} \right) ^{1-\frac{1}{q}}\le \left( \Lambda+1 \right) \left( \int (\eta w)^{\frac{2q}{q-1}} \right) ^{1-\frac{1}{q}}.
+ \] 
+ By interpolation inequality and  Sobolev inequality and Sobolev's inequality with $2^{\ast}=\frac{2n}{n-2}>\frac{2q}{q-1}>2$ if $q>\frac{n}{2}$, we have
+ \begin{align*}
+   \|\eta w\|_{L^{\frac{2q}{q-1}}}\le & \varepsilon  \|\eta w\|_{L^{2^{\ast}}}+C(n,q)\varepsilon ^{-\frac{n}{2q-n}}\|\eta w\|_{L^2}\\
+   \le &\varepsilon  \|D(\eta w)\|_{L^2}+C(n,q)\varepsilon ^{-\frac{n}{2q-n}}\|\eta w\|_{L^2}
+ \end{align*}
+ for any small $\varepsilon >0$. (What we do in this inequality is to split $c_0$ and $w^2\eta^2$.If $c=f=0$, then the operation here would not be needed and the proof can be simpler.)
+ Therefore we obtain
+ \[
+   \int \left| D(w\eta) \right| ^2\le C\left( (1+\beta)\int w^2\left| D\eta \right| ^2+(1+\beta)^{\frac{2q}{2q-n}}\int w^2\eta^2 \right) 
+ \] 
+ and in particular
+ \[
+   \int \left| D(w\eta) \right| ^2\le C(1+\beta)^{\alpha}\int \left( \left| D\eta \right| ^2+\eta^2 \right) w^2
+ \] 
+ where $\alpha$ is a positive number depending only on $n$ and $q$. 
+ From the Sobolev inequality, with $\chi=n\slash(n-2)>1$ for  $n>2$ and any fixed  $\chi >2$ for $n=2$, we get
+ \[
+   \left( \int\left| \eta w \right| ^{2\chi} \right) ^{\frac{1}{chi}}\le C(1+\beta)^{\alpha}\int \left( \left| D \eta \right| ^2+\eta^2 \right) w^2.
+ \] 
+ Choose the cut-off function $\eta$ as follows. For any $0<r<R\le 1$ set $\eta \in C_0^{1}(B_R)$ with the property
+ \[
+ \eta\equiv 1 \text{ in }B_r \text{and} \left| D\eta \right| \le \frac{2}{R-r}.
+ \] 
+ Then we obtain 
+ \[
+   \left( \int_{B_r}w^{2\chi} \right) ^{\frac{1}{\chi}}\le \frac{(1+\beta)^{\alpha}}{(R-r)^2}\int_{B_R}w^2.
+ \] 
+ Since by definition of $w=\overline{u}_m^{\beta}\overline{u} $, we have
+ \[
+   \left( \int_{B_r}\overline{u}^{2\chi}\overline{u}_m^{\beta\chi} \right) ^{\frac{1}{\chi}}\le C \frac{(1+\beta)^{\alpha}}{(R-r)^2}\int_{B_R}\overline{u}^2\overline{u}_m^{\beta}.
+ \] 
+ Set $\gamma=\beta+2\ge 2$. Then we obtain
+ \[
+   \left( \int_{B_r}\overline{u}_m^{\gamma\chi} \right) ^{\frac{1}{\chi}}\le C \frac{(\gamma-1)^{\alpha}}{(R-r)^2}\int_{B_R}\overline{u}^{\gamma}
+ \] 
+ provided the integral in the right-hand side is bounded. By letting $m\to \infty$ we obtain
+ \[
+   \|\overline{u}\|_{L^{\gamma\chi}(B_r)}\le \left( C \frac{(\gamma-1)^{\alpha}}{(R-r)^{2}} \right) ^{\frac{1}{\gamma}}\|\overline{u}\|_{L^{\gamma}(B_R)}
+ \] provided $\|\overline{u}\|_{L^{\gamma}(B_R)}<\infty$, where $C=C(n,q,\lambda,\Lambda)$ is a positive constant independent of $\gamma$. 
+
+ Then we do the iteration, taking successively the values $\gamma=2,2\chi,2\chi^2,\cdots$. Define, for all $i=1,2,\cdots$,
+ \[
+ \gamma_i=2\chi^{i}\text{ and }r_i=2+\frac{1}{2^{i-1}}.
+ \]
+ For any $i\ge 0$, $\gamma_{i+1}=\chi\gamma_i$, $r_{i}-r_{i+1}=\frac{1}{2^{i+2}}$, we have
+ \[
+   \|\overline{u}\|_{L^{\gamma_{i+1}}(B_{r_{i+1}})}\le C\left( n,q,\lambda,\Lambda \right) ^{\frac{1}{\gamma_i}}\|\overline{u}\|_{L^{\gamma_i}\left( B_{r_i} \right) },
+ \] 
+ that is,
+ \[
+   \|\overline{u}\|_{L^{\gamma_{i+1}}(B_{r_{i+1}})}\le  C^{\frac{i}{\chi^{i}}}\|\overline{u}\|_{L^{\gamma_i}(B_{r_i})}.
+ \] 
+Hence by iteration we obtain 
+\[
+  \|\overline{u}\|_{L^{\gamma_{i+1}}\left( B_{r_{i+1}} \right) }\le C^{\sum_{j=1}^{i}\frac{j}{\chi^{j}}}\|\overline{u}\|_{L^{2}\left( B_1 \right) }
+\] 
+in particular
+\[
+  \|\overline{u}\|_{L^{\gamma_{i+1}}\left( B_{\frac{1}{2}} \right) }\le C^{\sum_{j=1}^{i}\frac{j}{\chi^{j}}}\|\overline{u}\|_{L^{2}\left( B_1 \right) }
+\] 
+Letting $i\to \infty$ and using Fatou's Lemma we get 
+\[
+  \sup_{B_{\frac{1}{2}}}\overline{u}\le C\|\overline{u}\|_{L^2\left( B_1 \right) },
+\] 
+hence
+\[
+  \sup_{B_{\frac{1}{2}}}u^{+}\le C\left( \|u^{+}\|_{L^2\left( B_1 \right) }+k \right). 
+\] 
+Since $k=\|f\|_{L^{q}}$, we finish the proof for $p=2$.
+\section{De Giorgi's Method}

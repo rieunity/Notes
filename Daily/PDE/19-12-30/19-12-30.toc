@@ -1,0 +1,4 @@
+\contentsline {section}{\numberline {1}Second-order Elliptic Equations}{2}{section.1}% 
+\contentsline {section}{\numberline {2}Maximum Principle}{2}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}Weak Maximum Principle}{2}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.2}Strong Maximum Principle}{4}{subsection.2.2}% 

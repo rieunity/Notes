@@ -1,0 +1,92 @@
+%TEX program = xelatex
+\documentclass[a4paper]{article}
+%\usepackage{geometry}
+%\geometry{a4paper,scale=0.8}
+\usepackage{ctex}
+ \usepackage[colorlinks,
+           linkcolor=red,
+           anchorcolor=blue,
+           citecolor=green
+           ]{hyperref} 
+%少量中文时使用
+%\usepackage{xeCJK}
+\usepackage[center]{titlesec}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+%\usepackage[english]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{mathtools}
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\newcommand{\incfig}[1]{%
+  \def\svgwidth{\columnwidth}
+  \import{./figures/}{#1.pdf_tex}
+}
+
+
+
+% Some shortcuts
+\newcommand\N{\ensuremath{\mathbb{N}}}
+\newcommand\R{\ensuremath{\mathbb{R}}}
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+\renewcommand\O{\ensuremath{\emptyset}}
+\newcommand\Q{\ensuremath{\mathbb{Q}}}
+%\newcommand\C{\ensuremath{\mathbb{C}}}
+
+% Some theorem environment settings
+\usepackage{ntheorem}
+\newtheorem{theorem}{定理}
+\newtheorem*{rmk}{Remark}
+\newtheorem{lemma}{引理}
+\newtheorem{definition}{定义}
+\newtheorem{corollary}{推论}
+\newtheorem*{exe}{Exercise}
+\newtheorem*{sol}{Solution}
+\newtheorem{example}{例}
+\newenvironment{proof}{{\noindent\bfseries 证明}:}{\hfill $\square$\par}
+%\theorembodyfont{\upshape}
+% Enumerate Style
+\renewcommand{\labelenumi}{{\normalfont\alph{enumi}. }}
+
+% Tensor
+\usepackage{tensor}
+
+% bracket notations 
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
+
+% Normal ordering
+\newcommand{\normord}[1]{:\mathrel{#1}:}
+
+
+\newcommand{\enabstractname}{Abstract}
+\newenvironment{enabstract}{%
+    \par\small
+    \noindent\mbox{}\hfill{\bfseries \enabstractname}\hfill\mbox{}\par
+    \vskip 2.5ex}{\par\vskip 2.5ex}
+\newcommand{\zhabstractname}{摘要}
+\newenvironment{zhabstract}{%
+    \par\small
+    \noindent\mbox{}\hfill{\bfseries \zhabstractname}\hfill\mbox{}\par
+    \vskip 2.5ex}{\par\vskip 2.5ex}
+\begin{document}
+\title{中心流形定理}
+\author{王允磊}
+\maketitle
+\begin{enabstract}
+  In nearly the end of the semester, the course of qualitative methods of differential equations mentioned the application of the Center Manifold Theorem in  ordinary differential equations. In order to understand the theorem better, this paper introduces the motivation and the proof of the Center Manifold Theorem. The most important reference book about the proof of the theorem is \cite{bressan2007hyperbolic}. First by cutting off the nonlinear part, we may prove the existence of the global central manifold, then the local central manifold is obtained by the property that the truncation function is locally equal to the nonlinear part.
+\end{enabstract}
+\begin{zhabstract}
+  在学期将近尾声时,微分方程定性理论的课程提及中心流形定理在常微分方程中的应用.为了更好地掌握中心流形定理,理解其来龙去脉,本文以中心流形定理为核心,详细地介绍了中心流形定理提出的动机以及证明.关于中心流形定理的证明,本文最主要的参考书是\cite{bressan2007hyperbolic}.首先通过对非线性部分的截断,先求出截断后全局中心流形的的存在性,再由截断函数局部上和非线性部分相等的性质得到局部中心流形.
+\end{zhabstract}
+\newpage
+\tableofcontents
+\include{body}
+\bibliographystyle{plain}
+\bibliography{mybib}
+
+\end{document}

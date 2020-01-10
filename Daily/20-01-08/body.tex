@@ -1,0 +1,436 @@
+\section{引言}
+考虑如下的常微分方程组
+\begin{equation}
+  \dot{x}=f(x)=Ax+g(x),\label{1}
+\end{equation}
+其中$x\in \R^{n}$,$f:\R^{n}\to \R^{n}$是$C^{k}$ 函数($k\ge 1$).这里的函数$f$ 还满足条件$f(0)=0,A=Df(0)\in \mathcal{L}\left( \R^{n} \right) $,从而也有$g(0)=0$ 和$Dg(0)=0$ 成立.对于任意一个$x\in \R^{n}$,我们用$t\mapsto \tilde{x}(t;x)$来表示(\ref{1})中满足初始条件$x(0)=x$的唯一极大解,其的存在区间用$J(x)$ 来表示.
+
+研究(\ref{1})在$x=0$ 附近的流的第一步是先研究其线性部分,也就是考虑下面的线性微分方程组
+\begin{equation}
+  \dot{x}=Ax.\label{2}
+\end{equation}
+它的解可以写成$\tilde{x}_0(t;x)=e^{At}x$ 的形式,其在$x=0$ 附近的行为完全由矩阵$A$ 的谱决定(即矩阵的特征值集合).因为矩阵的谱将会在后面扮演非常重要的角色,我们这里引入一些相关记号:用$\sigma =\sigma(A)\subset \mathbb{C}$ 表示包含$A$ 的所有特征值的集合,用稳定谱$\sigma_s$,中心谱$\sigma_c$ 和不稳定谱 $\sigma_u$ 分别表示
+\begin{equation}
+  \begin{aligned}
+    \sigma_s:= & \left\{ \lambda \in \sigma\lvert \text{Re}\lambda<0 \right\} \\
+    \sigma_c:= & \left\{ \lambda \in \sigma\lvert \text{Re}\lambda=0 \right\} \\
+    \sigma_u:= & \left\{ \lambda \in \sigma\lvert \text{Re}\lambda>0 \right\} 
+  \end{aligned}
+\end{equation}
+用$V^{s}$ 表示所有$\lambda \in \sigma_s$ 的根子空间的直和,也就是这些特征根的广义特征向量空间,同样地我们可以定义其余两个空间$V^{c}$ 和$V^{u}$.显然我们有
+ \begin{equation}
+  \R^{n}=V^{s}\oplus V^{c}\oplus V^{u}.
+\end{equation}
+记相应的投影算子为
+\[
+\pi_s:\R^{n}\to V^{s},\quad \pi_c:\R^{n}\to V^{c},\quad \pi_u:\R^{n}\to V^{u}.
+\] 
+显然它们满足
+\[
+x=\pi_sx+\pi_cx+\pi_ux.
+\] 
+这些投影算子和$A$交换所以也和 $e^{At}$ 交换:
+\begin{equation}
+  \pi_s e^{At}=e^{At}\pi_s, \pi_u e^{At}=e^{At}\pi_u, \pi_c e^{At}=e^{At}\pi_c.\label{comm}
+\end{equation}
+定义矩阵$A$的谱间隙为
+\begin{equation}
+  \beta=\min\left\{ \left| \text{Re}\lambda \right| \lvert \lambda \text{是一个有非零实部的特征值} \right\}. \label{gap}
+\end{equation}
+下面我们介绍一个重要的估计:对任意的一个$\varepsilon \in ]0,\beta[$,存在一个常数$C_\varepsilon $ 使得
+\begin{equation}
+  \begin{aligned}
+    \|e^{At}\pi_s\|\le & C_\varepsilon  e^{-(\beta-\varepsilon )t} & t\ge 0,\\
+    \|e^{At}\pi_u\|\le & C_\varepsilon  e^{(\beta-\varepsilon )t} & t\le 0,\\
+    \|e^{At}\pi_c\| & C_\varepsilon  e^{\varepsilon \left| t \right| } & t \in \R.
+  \end{aligned}\label{asym}
+\end{equation}
+
+一个自然而然的问题就是方程组(\ref{1})和(\ref{2})的解之间有着什么样的关系,或者更加精确地说,它们的解在 $x=0$ 附近的局部流是不是拓扑等价的?对于$\sigma_c=\emptyset$ 的双曲情况,回答是肯定的: Hartman-Grobman定理\cite{chow2012methods}就证明了$x=0$ 附近两个问题的局部流是拓扑等价的.但是$\sigma_c\neq\emptyset$ 的情况则变得更加复杂些,中心流形定理就是为了说明这种等价性可以应用到$\sigma_c\neq\emptyset$ 的情形.
+
+\section{中心流形定理}
+\subsection{局部流定义}
+这里不再回顾关于流形的基本定义,但是由于局部流在定理中的重要地位,在这里我们陈述一下局部流的基本定义\cite{loring2008introduction}.
+\begin{definition}
+设$\mathcal{M}$ 为一个$C^{k}$ 流形,这里$k\ge 1$.对于任意给定的流形上的点$p \in \mathcal{M}$,$p$ 附近的一个开区域$U$ 上的局部流是一个满足一些性质的$C^{k}$ 函数:
+\begin{equation}
+  F:]-\varepsilon ,\varepsilon [\times W\to U,
+\end{equation}
+其中$\varepsilon $ 是一个正实数,$W$ 是$p$的一个包含在 $U$中的邻域.若记$F_t(q):=F(t,q)$,则 $F$需要满足的性质有
+\begin{enumerate}
+  \item 对任意$q\in W$都有$F_0(q)=q$,
+  \item $F_t(F_s(q))=F_{t+s}(q)$ 在两边都有定义时一定成立.
+\end{enumerate}
+\end{definition}
+我们称$F(t,q)$ 是在$U$上的向量函数$X$ 的局部流,如果其满足
+\begin{equation}
+  F(0,q)=q \quad \frac{\partial F}{\partial t}(0,q)=X_{F(0,q)}=X_q.
+\end{equation}
+由上面的描述可以看出局部流和微分方程的解息息相关.
+\subsection{定理的描述}
+\begin{theorem}[中心流形定理]
+  设$f:\R^{n}\to\R^{n}$是$C^{k+1}$ 向量函数(这里$k\ge 1$),$f(0)=0$.设矩阵 $A=Df(0)$,并设$V^{s}$,$V^{u}$,$V^{c}$ 分别是相应的稳定,非稳定,中心子空间.那么就存在一个$\delta>0$ 和一个局部中心流形$\mathcal{M}$ 满足以下的性质:
+  \begin{enumerate}
+    \item 存在一个$C^{k}$ 函数$\phi:V^{c}\to \R^{n}$ 使得$\pi_c\phi(x_c)=x_c$ 使得
+      \begin{equation}
+	\mathcal{M}=\left\{ \phi(x_c)\lvert x_c\in V^{c},\left| x_c \right| <\delta \right\} .
+      \end{equation}
+    \item 流形 $\mathcal{M}$ 对于方程组(\ref{1})的流是局部不变的,也就是说, 对任意$x\in \mathcal{M}$,都存在充分小的$\left| t \right| $使得 $\tilde{x}(t,x)\in \mathcal{M}$.
+    \item $\mathcal{M}$ 在原点处与$V^{c}$ 相切.
+    \item 存在一个适当大小的原点附近的邻域,其中的任何一个全局有界轨道都完全包含在$\mathcal{M}$中.
+    \item 给定任意一个满足$x(t)\to 0\left( t\to +\infty \right) $ 的轨迹,则存在一个$\eta>0$ 和一个在$\mathcal{M}$ 上的轨迹$t\mapsto y(t)$ 使得
+      \begin{equation}
+	e^{\eta t}\left| x(t)-y(t) \right| \to 0\quad \text{ as } t\to +\infty.\label{25}
+      \end{equation}
+  \end{enumerate}
+\end{theorem}
+\begin{figure}[ht]
+    \centering
+    \incfig{定理示意图}
+    \caption{定理示意图}
+    \label{fig:定理示意图}
+\end{figure}
+定理中的a说明中心流形可以通过$V^{c}$ 中的点作参数表示出来,即通过$V^{c}$ 对$\mathcal{M}$ 参数化.(b)说明向量函数$f$ 在$\mathcal{M}$上的每一点都和流形相切. e说明每一个在$t\to+\infty$ 时趋近于$0$ 的解都可以被看成$\mathcal{M}$ 上一个解的指数型微小扰动.
+
+\section{中心流形的构造}
+这里主要参考的是\cite{carr2006center}中的证明,为了让证明更加清晰,将其分成几个步骤.本节主要是说明中心流形的构造方法.
+\subsection{约化成紧微扰的情形}
+设$g(x)=f(x)-Ax$.第一步我们先用一个截断函数把$g(x)$ 变成一个具有紧支集的函数,并且该函数的$C^{1}$ 范数可以随参数的选取而变得任意小.下面我们就来说明这是可以实现的.
+
+设$\rho:\R\to [0,1]$ 是如下所示的光滑偶函数
+\begin{equation}
+  \rho(\zeta)=\left\{\begin{aligned}
+      1 & &  \left| \zeta \right| \le 1,\\
+      0 & &  \left| \zeta \right| \ge 2.
+  \end{aligned}\right.
+\end{equation}
+对于$\varepsilon >0$,定义截断函数
+\[
+  g_{\varepsilon }(x)=\rho(\left| x \right| /\varepsilon )g(x).
+\] 
+易知
+\[
+  \left| g(x) \right| =\mathcal{O}(1)\cdot \left| x \right| ^{2}
+\] 
+\[
+  \left| Dg(x) \right| =\mathcal{O}(1)\cdot \left| x \right| .
+\] 
+由上面两个可得
+\begin{align*}
+  \|g_\varepsilon \|_{C^{1}}\le & \sup_{\left| x \right| <2\varepsilon }\left( \left| g_\varepsilon (x) \right| +\left| Dg_\varepsilon (x) \right|  \right) \\
+  \le  & \sup_{\left| x \right| <2\varepsilon }\left( \left| g(x) \right| +\varepsilon ^{-1}\left| \rho'(\left| x \right| /\varepsilon ) \right| \left| g(x) \right| +\left| Dg(x) \right|  \right) \\
+  =& \mathcal{O}(1)\cdot \varepsilon 
+.\end{align*}
+通过$g_{\varepsilon }$ 代替$g$,我们可以假设$g\in C_c^{k+1}$ 以及$\|g\|_{C^{1}}$ 充分小. 在这个假定下我们可以证明相应的全局中心流形的存在性:
+\begin{equation}
+  \mathcal{M}=\left\{ \phi(x_c)\lvert x_c \in V^{c} \right\}. \label{31}
+\end{equation}
+这里的全局是就是指$x_c\in V^{c}$没有任何大小上的限制.
+
+对于一般情形,定理中相应的5条局部性质可以由全局中心流形的存在性简单推出,因为在局部范围$\left| x \right| \le \varepsilon $内有$g_\varepsilon =g$.
+\subsection{全局中心流形的特性}
+设$\beta>0$是(\ref{gap})中定义的矩阵$A$的谱间隙,固定任意的$\eta \in  ]0,\beta[$ 并且定义一个"增长缓慢"的函数空间如下
+\[
+Y_{\eta}:=\left\{ y:\R\to \R^{n}\left| \|y(\cdot )\|_{\eta}:=\sup_{t}e^{-\eta\left| t \right|  }\left| y(t) \right|<\infty \right. \right\} 
+.\] 
+显然由该空间的定义可知,任何该空间中的函数都满足
+\begin{equation}
+  \left| y(t) \right| \le e^{\eta\left| t \right| }\|y\|_{\eta}.\label{2asym}
+\end{equation}
+对任意的$x_c\in V^{c}$ 我们想要寻找一个轨迹$y(\cdot )\in  Y_\eta$ 使得它满足$\pi_cy(0)=x_c$.后面我们将用基于压缩映射原理的方法来证明满足该条件轨迹的存在性和唯一性.在证明满足上面条件的解存在性和唯一性之前,先假设它存在.方程组(\ref{1})的任意一个解$t\mapsto y(t)$都可以通过常数变易法表示成如下形式
+\begin{equation}
+  y(t)=e^{A(t-t_0)}y(t_0)+\int_{t_0}^{t}e^{A(t-\tau)}g(y(\tau))\mathrm{d}\tau.\label{repre}
+\end{equation}
+我们可以把式(\ref{repre})分解成中心,稳定和非稳定三个部分的和的形式:
+\begin{equation}
+  \begin{aligned}
+    y(t)=& \pi_c\left( e^{A(t-t_c)}y(t_c)+\int_{t_c}^{t}e^{A(t-\tau)}g(y(\tau))\mathrm{d}\tau \right)\\
+    +& \pi_s\left( e^{A(t-t_s)}y(t_s)+\int_{t_s}^{t}e^{A(t-\tau)}g(y(\tau))\mathrm{d}\tau \right) \\
+    +& \pi_u\left( e^{A(t-t_u)}y(t_u)+\int_{t_u}^{t}e^{A(t-\tau)}g(y(\tau))\mathrm{d}\tau \right).
+  \end{aligned}\label{solu}
+\end{equation}
+因为解的初始点$t_0$可以任意选定,所以我们在上式中用了三个不同的初始时间 $t_c,t_s,t_u$.
+现在令$t_c=0$,$t_s\to -\infty$ 并且$t_u\to +\infty$.利用式(\ref{comm})中的可交换性和假设$\pi_cy(0)=x_c,y(\cdot )\in Y_\eta$可得
+\begin{equation}
+  \begin{aligned}
+    y(t) = & e^{At}x_c+\int_0^{t}e^{A(t-\tau)}\pi_c g(y(\tau))\mathrm{d}\tau\\
+    +& \int_{-\infty}^{t}e^{A(t-\tau)}\pi_s g(y(\tau))\mathrm{d}\tau-\int_{t}^{\infty}e^{A(t-\tau)}\pi_ug(y\tau))\mathrm{d}\tau.
+  \end{aligned}\label{35}
+\end{equation}
+实际上,对于固定的$t$,当 $t_u\to \infty$ 时,由估计式(\ref{asym})和(\ref{2asym})可得
+\begin{equation}
+  \lim_{t_u\to \infty}\left| e^{A(t-t_u)}\pi_uy(t_u) \right| \le \lim_{t_u\to \infty}C_\varepsilon e^{(\beta-\varepsilon )(t-t_u)}e^{\eta\left| t_u \right| }\|y\|_{\eta}=0.
+\end{equation}
+类似地,当$t_s\to -\infty$时有
+\begin{equation}
+  \lim_{t_s\to -\infty}\left| e^{A(t-t_s)}\pi_uy(t_s) \right| \le \lim_{t_s\to -\infty}C_\varepsilon e^{-(\beta-\varepsilon )(t-t_s)}e^{\eta\left| t_s \right| }\|y\|_{\eta}=0. 
+\end{equation}
+由上面这两个式子便可得到式(\ref{35}).
+\subsection{全局中心流形的构造}
+对每个$x_c\in V^{c}$,我们将通过压缩映射原理来得到满足$\pi_c y(0)=x_c$且$y(\cdot )\in Y_{\eta}$ 的唯一解.定义映射
+$\Gamma\left( \cdot ,\cdot  \right) : V^{c}\times Y_\eta\to Y_\eta$:
+ \begin{equation}
+   \begin{aligned}
+     \Gamma(x_c,y)(t)= & e^{At}x_c+\int_0^{t}e^{A(t-\tau)}\pi_cg(y(\tau))\mathrm{d}\tau\\
+     +&\int_{-\infty}^{t}e^{A(t-\tau)}\pi_sg(y(\tau))\mathrm{d}\tau-\int_t ^{\infty}e^{A(t-\tau)}\pi_ug(y(\tau))\mathrm{d}\tau.
+   \end{aligned}\label{36}
+ \end{equation}
+ 为了说明$\Gamma(x_c,y)\in Y_\eta$ 我们利用估计式(\ref{asym}),取$\varepsilon =\eta$ 来估计中心部分以及取$\varepsilon =\beta-\eta$ 来估计稳定和非稳定部分.
+ \begin{equation}
+   \begin{aligned}
+     \left| \Gamma(x_c,y)(t) \right| \le & C_\eta e^{\eta\left| t \right| }\left| x_c \right| +\int_0^{t}e^{A(t-\tau)}\|g\|_{C^{0}}\mathrm{d}\tau\\
+     + & \int_{-\infty}^{t}C_{\beta-\eta}e^{-\eta(t-\tau)}\|g\|_{C^{0}}\mathrm{d}\tau+ \int_t ^{\infty}C_{\beta-\eta}e^{\eta(t-\tau)}\|g\|_{C^{0}}\mathrm{d}\tau\\
+     =& C\|g\|_{C^{0}}e^{\eta\left| t \right| }
+   \end{aligned}
+ \end{equation}
+ 上式对某个常数$C$成立.下面我们说明,对于任意一个固定的 $x_c$, 映射 $y\mapsto \Gamma(x_c,y)$ 是一个严格的压缩映射.实际上,定义$\delta_0=\|y_1-y_2\|_{\eta}$,由式(\ref{2asym})可知
+ \[
+   \left| y_1(t)-y_2(t) \right| \le \delta_0e^{\eta\left| t \right| }
+ \] 
+ \[
+   \left| g(y_1(t))-g(y_2(t)) \right| \le \delta_0e^{\eta\left| t \right|}\|g\|_{C^{1}}
+ \] 
+ 对所有$t\in \R$ 都成立,所以
+\begin{equation}
+  \begin{aligned}
+   & \left| \Gamma(x_c,y_1)(t)-\Gamma(x_c,y_2)(t) \right|\\
+    \le & \int_0^{t}C_\varepsilon e^{\varepsilon \left| t-\tau \right| }\delta_0e^{\eta\left| \tau \right| }\|g\|_{C^{1}}\mathrm{d}\tau+\int_{-\infty}^{t}C_\varepsilon e^{-(\beta-\varepsilon )(t-\tau)}\delta_{0}e^{\eta\left| \tau \right| }\|g\|_{C^{1}}\mathrm{d}\tau\\
+    +& \int_t ^{\infty}C_\varepsilon  e^{(\beta-\varepsilon )(t-\tau)}\delta_0e^{\eta\left| \tau \right| }\|g\|_{C^{1}}\mathrm{d}\tau\le C'\cdot \delta_0 \|g\|_{C^{1}}e^{\eta\left| t \right| }
+  \end{aligned}
+\end{equation} 
+对某个不依赖于$y_1,y_2$ 的常数$C'$ 成立.假设$\|g\|_{C^{1}}\le \frac{1}{2}C'$ 则我们有
+\begin{equation}
+  \|\Gamma(x_c,y_1)-\Gamma(x_c,y_2)\|_{\eta}\le \frac{1}{2}\|y_1-y_2\|_{\eta}.\label{37}
+\end{equation}
+对每个$x_c\in V^{c}$利用压缩映射原理可得:对映射$y\mapsto \Gamma(x_c,y)$ 存在唯一一个不动点$y^{x_c}\in Y_{\eta}$,亦即找到了式(\ref{35})的一个解.又因为$\Gamma$ 显然是关于$x_c$ Lipschitz连续的,所以映射$x_c\mapsto y^{x_c}$也是Lipschitz连续的.
+
+现在,对于任意的$x_c\in V^{c}$,我们定义映射$\phi$ 如下
+\begin{equation}
+  \phi(x_c):=y^{x_c}(0)
+\end{equation}
+并通过式(\ref{31})定义流形$\mathcal{M}$. 根据之前映射$x_c\mapsto y^{x_c}$的Lipschitz连续性可知,映射 $\phi:V^{c}\mapsto \R^{n}$ 也是Lipschitz连续的.由式(\ref{35})易知 $\pi_c\phi(x_c)=\pi_cy^{x_c}(0)=x_c$.
+\section{定理的证明I}
+\subsection{性质b的证明}
+对于任意一个固定的点$x_0\in \mathcal{M}$,根据我们的构造,以$x_0$ 处为起点的轨迹$t\mapsto \tilde{x}(t,x_0)$ 在$Y_\eta$中.固定任意时间 $t_1$.为了证明 $x_1=\tilde{x}(t_1,x_0)$ 也在$\mathcal{M}$ 中我们需要说明$t\mapsto \tilde{x}(t,x_1)$ 在$Y_\eta$ 中.但这是显然的,因为
+\[
+  \left| \tilde{x}(t,x_1) \right| =\left| \tilde{x}(t+t_1,x_0) \right| \le Ce^{\eta\left| t+t_1 \right| }\le \left( Ce^{\eta\left| t_1 \right| } \right) e^{\eta\left| t \right| }.
+\] 
+\subsection{性质d的证明}
+根据构造,每一个在$\pm \infty$处"缓慢增长"的轨迹,亦即$y\in  Y_\eta$,都完全在中心流形$\mathcal{M}$ 中.这显然适用于所有全局有界轨迹.
+\subsection{性质c的证明}
+因为$g(0)=0$,函数$y(t)\equiv 0$ 是一个平凡的全局有界解.因此由性质d可知流形$\mathcal{M}$ 包含了原点.
+
+为了证明$\mathcal{M}$ 在原点处和$V^{c}$ 相切,考虑函数$y(t)=e^{At}x_c,\forall x_c\in V^{c}$.因为$g\neq 0$,我们并不指望它是(\ref{1})的一个解,但是通过压缩性质(\ref{37})可知, $y$和不动点 $y^{x_c}$ 的距离有以下估计:
+\begin{equation}
+  \begin{aligned}
+    \|y-y^{x_c}\|_{\eta}\le &\|y-\Gamma(x_c,y)\|_\eta+\|\Gamma(x_c,y)-\Gamma(x_c,y^{x_c})\|_{\eta}\\
+    \le  & \|y-\Gamma(x_c,y)\|_\eta+\frac{1}{2}\|y-y^{x_c}\|_\eta.
+  \end{aligned}
+\end{equation}
+即
+\begin{equation}
+  \|y-y^{x_c}\|_\eta\le 2\|y-\Gamma(x_c,y)\|_\eta.
+\end{equation}
+另外根据估计式(\ref{asym})可得
+\[
+  \left| g(y(\tau)) \right| \le \left| y(\tau) \right| ^{2}\|g\|_{C^{2}}\le \left( C_\varepsilon e^{\varepsilon \left| \tau \right| }\left| x_c \right|  \right) ^2\|g\|_{C^{2}}.
+\] 
+由$\Gamma$ 的定义可得
+\begin{equation}
+  \begin{aligned}
+    \left| y(t)-\Gamma(x_c,y)(t) \right| \le & \int_0^{t}C_\varepsilon e^{ep\left| t-\tau \right| }\left( C_\varepsilon e^{\varepsilon \left| \tau \right| }\left| x_c \right|  \right) ^2\|g\|_{C^2}\mathrm{d}\tau\\
+    +& \int_{-\infty}^{t}C_\varepsilon  e^{-(\beta-\varepsilon)(t-\tau) }\left( C_\varepsilon e^{\varepsilon \left| \tau \right| }\left| x_c \right|  \right) ^2\|g\|_{C^{2}}\mathrm{d}\tau\\
+    +& \int_t ^{\infty}C_\varepsilon e^{(\beta-\varepsilon )(t-\tau)}\left( C_\varepsilon e^{\varepsilon \left| \tau \right| }\left| x_c \right|  \right) ^2\|g\|_{C^{2}}\mathrm{d}\tau\\
+    \le &C\left| x_c \right| ^2e^{\eta\left| t \right| }
+  \end{aligned}
+\end{equation}
+所以
+\begin{equation}
+  \left| y(0)-y^{x_c}(0) \right| \le \|y-y^{x_c}\|_{\eta}\le 2\|y-\Gamma(x_c,y)\|_{\eta}\le 2C\left| x_c \right| ^2.\label{310}
+\end{equation}
+根据我们之前的定义$y(0)=x_c$ 和$y^{x_c}=\phi(x_c)$,由(\ref{310})可得
+\[
+  \lim_{x_c \to 0} \frac{\left| \phi(x_c)-x_c \right| }{\left| x_c \right| }=0.
+\] 
+因此流形$\mathcal{M}$ 在原点处与$V^{c}$ 相切.
+\subsection{性质e的证明}
+设$x:[0,+\infty[\to \R^{n}$方程(\ref{1})的解,并且在$t\to +\infty$ 时有$x\to 0$.我们把 $x(\cdot )$ 延拓成如下定义在整个实数轴上的的有界函数$x^{\ast}$:
+\begin{equation*}
+  x^{*}(t)=\left\{\begin{aligned}
+      x(t) & & \text{ if } t\ge 0,\\
+      x(0) & & \text{ if } t<0.
+    \end{aligned}\right.
+\end{equation*}
+注意到$x^{\ast}$ 提供了如下方程的一个全局有界解
+\begin{equation*}
+  \dot{x}^{\ast}(t)=Ax^{\ast}+g(x^{\ast})+\varphi(t)\quad \varphi(t)=\left\{
+    \begin{aligned}
+    0 & & \text{ if }t>0,\\
+    -Ax(0)-g(x(0)) & & \text{ if }t<0.
+  \end{aligned}
+  \right.
+\end{equation*}
+$x^{\ast}$ 可以通过常数变易法表示为
+\begin{equation}
+  \begin{aligned}
+    x^{\ast}(t) = & e^{A(t-t_0)}\pi_s x^{\ast}(t_0)+\int_{t_0}^{t}e^{A(t-\tau)}\pi_sg(x^{\ast}(\tau))\mathrm{d}\tau+\int_{t_0}^{t}e^{A(t-\tau)}\pi_s\varphi(\tau)\mathrm{d}\tau\\
+    + & e^{A(t-t_1)}\pi_{cu}x^{\ast}(t_1)+\int_{t_1}^{t}e^{A(t-\tau)}\pi_{cu}g(x^{\ast}(\tau))\mathrm{d}\tau+\int_{t_1}^{t}e^{A(t-\tau)}\pi_{cu}\varphi(\tau)\mathrm{d}\tau.
+  \end{aligned}\label{311}
+\end{equation}
+这里我们用到了记号$\pi_{cu}:=\pi_c+\pi_u$,并继续在后面的公式中使用.
+
+现在我们考虑如下的函数空间
+\begin{equation}
+Z_\eta := \left\{ z:\R\to \R^{n}\left\| \|z(\cdot )\|_{\eta}:=\sup_{t}e^{\eta t}\left| z(t) \right| <\infty  \right. \right\} .
+\end{equation}
+我们想找到一个$z\in Z_\eta$ 使得 $y=x^{\ast}+z\in Y_\eta$是(\ref{1})的包含在流形中的全局解.假设我们找到了这样的$z(\cdot )$,则利用式(\ref{311}),对于任意的$t_0$ 和$t_1$, 这样的函数$z(\cdot )$应该满足下述方程
+\begin{align*}
+  z(t)=& -\pi_s x^{\ast}(t)+e^{A(t-t_0)}\pi_s(x^{\ast}(t_0)+z(t_0))\\
+  +& \int_{t_0}^{t}e^{A(t-\tau)}\pi_sg\left(x^{\ast}(\tau)+z(\tau)\right)\mathrm{d}\tau\\
+  -& \pi_{cu}x^{\ast}(t)+e^{A(t-t_1)}\pi_{cu}\left( x^{\ast}(t_1)+z(t_1) \right)\\
+  + & \int_{t_1}^{t}e^{A(t-\tau)}\pi_{cu}g\left( x^{\ast}(\tau)+z(\tau) \right) \mathrm{d}\tau\\
+  =& e^{A(t-t_0)}\pi_sz(t_0)+\int_{t_0}^{t}e^{A(t-\tau)}\pi_s\left[ g\left( x^{\ast}(\tau)+z(\tau) \right) -g\left( x^{\ast}(\tau) \right)  \right] \mathrm{d}\tau\\
+  -& \int_{t_0}^{t}e^{A(t-\tau)}\pi_s\varphi(\tau)\mathrm{d}\tau+e^{A(t-t_1)}\pi_{cu}z(t_1)\\
+  + & \int_{t_1}^{t}e^{A(t-\tau)}\pi_{cu}\left[ g\left( x^{\ast}(\tau)+z(\tau) \right) -g\left( x^{\ast}(\tau) \right)  \right] \mathrm{d}\tau\\
+  -& \int_{t_1}^{t}e^{A(t-\tau)}\pi_{cu}\varphi(\tau)\mathrm{d}\tau
+.\end{align*}
+令$t_0\to-\infty$ 以及$t_1\to +\infty$ 可得
+\begin{equation}
+  \begin{aligned}
+    z(t)=& \int_{-\infty}^{t}e^{A(t-\tau)}\pi_s\left[ g\left( x^{\ast}(\tau)+z(\tau) \right) -g\left( x^{\ast}(\tau) \right)  \right] \mathrm{d}\tau\\
+    -& \int_{-\infty}^{t}e^{A(t-\tau)}\pi_s\varphi(\tau)\mathrm{d}\tau\\
+    -& \int_{t}^{\infty}e^{A(t-\tau)}\pi_{cu}\left[ g\left( x^{\ast}(\tau)+z(\tau) \right) -g\left( x^{\ast}(\tau) \right)  \right] \mathrm{d}\tau\\
+    +& \int_{t}^{\infty}e^{A(t-\tau)}\pi_{cu}\varphi(\tau)\mathrm{d}\tau\\
+    :=&\Lambda(z)(t)
+  \end{aligned}\label{312}
+\end{equation}
+因为当$\tau>0$时$\varphi(\tau)=0$,利用估计式(\ref{asym})可知,当$\|g\|_{C^{1}}$ 足够小时,映射$\Lambda:Z_{\eta}\to Z_{\eta}$ 是一个严格的压缩映射.因此$\Lambda$ 由一个唯一不动点$z\in Z_\eta$满足式(\ref{312}).因为$x^{\ast}$ 是全局有界的并且$z\in Z_\eta\subset Y_{\eta}$,从而$y:=x^{\ast}+z\in Y_{\eta}$,它是一个包含在中心流形中的轨迹.对于所有的$t>0$,我们有
+ \[
+   \left| x(t)-y(t) \right| =\left| z(t) \right| \le e^{-\eta t}\|z\|_{\eta}.
+\]
+这就意味着式(\ref{25})对任意小的 $\eta$ 都成立.
+
+\section{定理的证明II}
+为了完成中心流形定理的证明,还需要说明$x_c\mapsto \phi(x_c)$ 是$k$ 阶连续可微的.如果$\Gamma:V^{c}\times Y_{\eta}\to Y_\eta$ 是一个$C^{k}$映射,那么$\phi$ 的$k$ 阶连续性可以由隐函数定理直接得到.不幸的是$\Gamma$ 不一定是$C^{k}$ 的.事实上,对任意的非平凡函数$g\in C_c^{\infty}$,通过
+\begin{equation}
+  G(y)(t):=g\left( y(t) \right) \label{313}
+\end{equation}
+定义的替换算子$y\mapsto G(y)$都不是$Y_\eta$到自身可微的.
+\begin{example}
+  设$g:\R\to \R$ 是一个具有紧支集的光滑函数并且满足
+  \[
+    g(x)=x^{2}\quad \left| x \right| \le \varepsilon .
+  \] 
+  如果映射$G:Y_\eta\to Y_\eta$ 在$0\in Y_\eta$ 处可微,那么它的微分只能是零映射.但是,考虑下述函数序列
+  \begin{equation*}
+    y_n(t):=\left\{\begin{aligned}
+	\varepsilon  & & t \in [n,n+1],\\
+	0 & & \text{其它}.
+    \end{aligned}\right.
+  \end{equation*}
+  它被映射到函数序列
+  \begin{equation*}
+    G\left( y_n \right) (t)=\left\{
+    \begin{aligned}
+      \varepsilon ^2 & & t  \in [n,n+1],\\
+      0 & & \text{其它}.
+    \end{aligned}\right.
+  \end{equation*}
+  当$n\to \infty$ 时有
+  \[
+    \|y_n\|_\eta=\sup_t e^{-\eta\left| t \right| }y_n(t)=\varepsilon e^{-\eta n}\to 0.
+  \] 
+  从而我们有
+  \[
+    \lim_{n \to \infty} \frac{\|G(y_n)\|_\eta}{\|y_n\|_\eta}=\lim_{n \to \infty} \frac{\varepsilon ^2e^{-\eta n}}{\varepsilon e^{-\eta n}}=\varepsilon \neq 0.
+  \] 
+  这说明零线性映射不可能是$G$ 在原点处的微分.
+\end{example}
+\subsection{构造新的可微映射}
+为了克服前面指出的困难,我们可以通过将$G$的定义域限制在一个更小的空间 $Y_{\eta'}$ 上,这样改变定义域后的$G$可以是$k$ 次可微的. 中心流形$\mathcal{M}$ 的正则性(亦即$\phi(\cdot )$ 的$k$ 次可微性)依赖于这个结果的正确性.
+\begin{lemma}
+  设$g\in C^{k+1}$,假设$0<\eta'<(k+1)\eta'\le \eta$.那么式(\ref{313})中的替换算子$G$是从$Y_{\eta'}$ 到$Y_\eta$ 的 $k$ 次可微映射.
+\end{lemma}
+\begin{proof}
+对$g$用泰勒公式得
+\[
+  g(y+z)=T_kg(y,z)+R_k(y,z),
+\] 
+其中
+\[
+  T_kg(y,z):=\sum_{j=0}^{k} \frac{D^{j}g(y)}{j!}z^{[j]},
+\] 
+以及
+\[
+  R_k(y,z)=\left( \int_0^{1} \frac{(1-\xi)^{k}}{k!}D^{k+1}g(y+\xi z \mathrm{d}\xi\right)z^{[k+1].} 
+\] 
+函数的第 $j$ 次导在这里写成了多重对称算子的形式,其中$z^{[j]}=z\otimes \cdots\otimes z$ 表示 $j$个相同的 $z$的张量积. 为了证明映射 $y\mapsto G(y)$ 属于$C^{k}\left(Y_{\eta'},Y_\eta\right)$,我们需要验证
+\[
+  \|G(y+z)-\mathcal{T}_k G(y,z)\|_{\eta}=\sup_{t}e^{-\eta\left| t \right| }\left| g\left( y(t)+z(t) \right) -T_k g\left( y(t),z(t) \right)  \right| =\mathcal{O}(1)\cdot \|z\|_{\eta'}^{k+1}.
+\] 
+而在$(k+1)\eta'\le \eta$ 的时候我们有
+\begin{align*}
+  &e^{-\eta\left| t \right| }\left| R_{k}\left( y(t),z(t) \right)  \right| \le e^{-\eta\left| t \right| }\cdot  \frac{1}{k!}\|g\|_{C^{k+1}}\|z(t)\|^{k+1}\\
+  \le  & e^{-\eta\left| t \right| }\cdot  \frac{1}{k!}\|g\|_{C^{k+1}}e^{(k+1)\eta'\left| t \right| }\|z\|_{\eta'}^{k+1}\le \frac{1}{k!}\|g\|_{C^{k+1}}\|z\|^{k+1}_{\eta'}.
+\end{align*}
+\end{proof}
+所以$y\mapsto G(y)$确实属于 $C^{k}\left( Y_{\eta'},Y_\eta \right) $.
+\begin{corollary}
+  设$2l \eta'\le \eta$,则式(\ref{36})定义的$\Gamma$ 都是一个从$V^{c}\times Y_{\eta'}$到$Y_\eta$ 的$C^{l}$ 映射.
+\end{corollary}
+\begin{proof}
+  实际上,$\Gamma$ 可以写成
+  \begin{equation}
+    \Gamma(x,y):=Sx+K\circ G(y),\label{314}
+  \end{equation}
+  其中
+   \begin{equation}
+     (Sx)(t):=e^{At}x,
+  \end{equation}
+  \begin{equation}
+    (Kv)(t):=\int_0^{t}e^{A(t-\tau)}\pi_cv(\tau)\mathrm{d}\tau+\int_{-\infty}^{t}e^{A(t-\tau)}\pi_sv(\tau)\mathrm{d}\tau-\int_{t}^{\infty}e^{A(t-\tau)}\pi_u v(\tau)\mathrm{d}\tau.
+  \end{equation}
+  因为$S:V^{c}\to Y_\eta$ 和$K:Y_\eta\to Y_\eta$ 都是连续线性映射,由前面的引理可得当$(l+1)\eta'\le \eta$ 时 $\Gamma$ 是一个$V^{c}\times Y_{\eta'}$ 到$Y_{\eta}$ 的$C^{l}$ 映射.
+\end{proof}
+\subsection{中心流形的光滑性}
+现在我们回到中心流形定理上,完成中心流形定理中光滑性质的证明.定义映射序列 $y_\nu:V^{c}\to Y_\eta$满足条件
+\[
+  y_0(x)\equiv 0 \quad y_\nu := \Gamma (x,y_{\nu-1})\quad \nu\ge 1.		
+\] 
+从而显然有
+\[
+  y_0(x)(t)=0 \quad y_1(x)(t):=e^{At}x.	
+\] 
+由式(\ref{37})我们可以知道序列 $y_\nu$ 逐点收敛到函数$x_c\mapsto y^{x_c}$ 并且在有界集上的$x_c\in V^{c}$ 的收敛性是一致的.我们下面要说明这样的收敛性对于所有阶数小于等于$k$的导数都是成立的,然后由 $\phi$的定义式$\phi(x_c):=y^{x_c}(0)$ 可知$\phi \in  C^{k}$,这样就完成了证明.
+
+固定 $\eta \in ]0,\beta[$,考虑$0<\eta_0<\eta_1<\cdots<\eta_k=\eta<\beta$,这个序列由下述规则定义
+\[
+\eta_j:=e^{2j-2k}\eta\quad j=0,1,\cdots,k.
+\] 
+根据前面的推论, $\Gamma$ 是一个从$V^{c}\times Y_{\eta_i}$ 到$Y_{\eta_j}$ 的$C^{l}$ 映射,其中$i+l\le j$.
+
+当$\nu\to oo$ 时,序列$D^{j}y_{\nu}$ 的收敛性将用对$j$ 的归纳法证明.假设对于所有的$i=0,1,\cdots,j-1$,导函数序列
+\[
+  x\mapsto D^{i}y_{\nu}(x)
+\] 在有界集上一致收敛.下面根据这个归纳假设证明$j$ 阶导函数的收敛性.对式(\ref{314})进行求导可得
+ \[
+   \frac{\mathrm{d}}{\mathrm{d}x}\Gamma(x,y(x))=S+K\circ DG Dy,
+\] 
+\[
+  \frac{\mathrm{d}^{2}}{\mathrm{d}x^{[2]}} \Gamma(x,y(x))=K\circ \left( DG D^2y+D^2G(Dy\otimes Dy) \right),
+\]
+\[
+  \frac{\mathrm{d}^3}{\mathrm{d}x^{[3]}}\Gamma(x,y(x))=K\circ \left( DG D^3y+3D^2G\left( Dy\otimes D^2y \right) +D^3G\left( Dy\otimes Dy\otimes Dy \right)  \right) .
+\] 
+由数学归纳法可得一般的$j$ 阶导函数公式可写成
+\[
+  \frac{\mathrm{d}^{j}}{\mathrm{d}x^{[j]}}\Gamma(x,y(x))=K\circ \left( DG D^{j}y+\Phi_j\left( y,Dy,\cdots,D^{j-1}y \right)  \right) ,
+\] 
+其中$\Phi_j$ 只包含低阶的导函数.归纳假设保证了映射序列
+\[
+  x\mapsto \Phi_j\left( y_\nu(x),Dy_\nu(x),\cdots,D^{j-1}y_\nu(x) \right) 
+\] 对所有的$x\in V^{c}$ 收敛并且在有界集上一致收敛.另一方面,如果$\|g\|_{C^{1}}$ 足够小,那么对任意的$y\in Y_{\eta}$,算子
+\[
+  \psi\mapsto [K\circ DG(y)]\psi
+\] 
+是严格压缩的.利用压缩映射原理可得$D^{j}y_{\nu}$在有界集上一致收敛.这样我们就完成了定理的证明.

@@ -1,18 +1,18 @@
 # Fdb version 3
-["bibtex centre-manifold"] 0 "centre-manifold.aux" "centre-manifold.bbl" "centre-manifold" 1578641351
+["bibtex centre-manifold"] 1578644333 "centre-manifold.aux" "centre-manifold.bbl" "centre-manifold" 1578664872
   "/usr/local/texlive/2019/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "body.aux" 1578641302 4656 1504f9eed77bdf5725eb351efa59458b "xelatex"
-  "centre-manifold.aux" 1578641302 873 95e93333df88975ead8cfad104cb44ff "xelatex"
+  "body.aux" 1578664872 4656 1504f9eed77bdf5725eb351efa59458b "xelatex"
+  "centre-manifold.aux" 1578664872 873 95e93333df88975ead8cfad104cb44ff "xelatex"
   "mybib.bib" 1578577386 777 5e485078e1307482d2eaed95d13606ef ""
   (generated)
   "centre-manifold.blg"
   "centre-manifold.bbl"
-["xdvipdfmx"] 1578641302 "centre-manifold.xdv" "centre-manifold.pdf" "centre-manifold" 1578641351
-  "centre-manifold.xdv" 1578641302 119460 f82e82e15f0bdd1a8fbfebfedf2de0eb "xelatex"
+["xdvipdfmx"] 1578664872 "centre-manifold.xdv" "centre-manifold.pdf" "centre-manifold" 1578664872
+  "centre-manifold.xdv" 1578664872 119460 25737ef75c469b219274d629a80809b3 "xelatex"
   (generated)
   "centre-manifold.pdf"
-["xelatex"] 1578641300 "centre-manifold.tex" "centre-manifold.xdv" "centre-manifold" 1578641351
-  "/dev/null" 1578632588 0 d41d8cd98f00b204e9800998ecf8427e ""
+["xelatex"] 1578664870 "centre-manifold.tex" "centre-manifold.xdv" "centre-manifold" 1578664872
+  "/dev/null" 1578689882 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/home/rieunity/texmf/tex/latex/tensor/tensor.sty" 1571488674 4258 177d16e71f50eb48389533ac9bd9cd26 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -134,20 +134,20 @@
   "/usr/local/texlive/2019/texmf-dist/web2c/texmf.cnf" 1570742662 39452 758acee3f2beaeeedff570c5f5d76d98 ""
   "/usr/local/texlive/2019/texmf-var/web2c/xetex/xelatex.fmt" 1571853579 3765666 62de793a3e398af58254cb198b8b0b2d ""
   "/usr/local/texlive/2019/texmf.cnf" 1571853555 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "body.aux" 1578641302 4656 1504f9eed77bdf5725eb351efa59458b "xelatex"
-  "body.tex" 1578641230 26668 83268d2e1f878d0a312d9955c8f997d2 ""
-  "centre-manifold.aux" 1578641302 873 95e93333df88975ead8cfad104cb44ff "xelatex"
-  "centre-manifold.bbl" 1578638661 679 5a2e9450d09d6526e341c6f39edbfb1c "bibtex centre-manifold"
-  "centre-manifold.out" 1578641302 1668 efe8a530c80f5f0c2b735021809f9488 "xelatex"
-  "centre-manifold.tex" 1578589121 3461 3bce60b1c5c9cbd1d237728842abd4cb ""
-  "centre-manifold.toc" 1578641302 1327 116188297f33ee5b94daaddcf4d688fa "xelatex"
+  "body.aux" 1578664872 4656 1504f9eed77bdf5725eb351efa59458b "xelatex"
+  "body.tex" 1578664869 26667 549d07abf66ae4b91ac49b096da349b5 ""
+  "centre-manifold.aux" 1578664872 873 95e93333df88975ead8cfad104cb44ff "xelatex"
+  "centre-manifold.bbl" 1578644333 679 5a2e9450d09d6526e341c6f39edbfb1c "bibtex centre-manifold"
+  "centre-manifold.out" 1578664872 1668 efe8a530c80f5f0c2b735021809f9488 "xelatex"
+  "centre-manifold.tex" 1578644505 3462 a7452d4fa4bd4077b16a7131ad494b83 ""
+  "centre-manifold.toc" 1578664872 1327 116188297f33ee5b94daaddcf4d688fa "xelatex"
   "figures/定理示意图.pdf" 1578641299 1772 5021d5cf5cc02d64d0208f6e5ba410c8 ""
   "figures/定理示意图.pdf_tex" 1578641299 2895 ea1dfe8b760a2758943909e3d1f94bb3 ""
   (generated)
-  "centre-manifold.aux"
   "centre-manifold.toc"
-  "centre-manifold.xdv"
-  "centre-manifold.out"
   "centre-manifold.thm"
-  "centre-manifold.log"
   "body.aux"
+  "centre-manifold.out"
+  "centre-manifold.xdv"
+  "centre-manifold.log"
+  "centre-manifold.aux"

@@ -1,9 +1,9 @@
 # Fdb version 3
-["xdvipdfmx"] 1578471232 "degiorgi-nash-moser.xdv" "degiorgi-nash-moser.pdf" "degiorgi-nash-moser" 1578471232
-  "degiorgi-nash-moser.xdv" 1578471232 24060 f8b7a048c5da3c5e22c06be8424708e3 "xelatex"
+["xdvipdfmx"] 1578644574 "degiorgi-nash-moser.xdv" "degiorgi-nash-moser.pdf" "degiorgi-nash-moser" 1578644574
+  "degiorgi-nash-moser.xdv" 1578644573 23788 d0067282797ec29e1f02ca995adb4a37 "xelatex"
   (generated)
   "degiorgi-nash-moser.pdf"
-["xelatex"] 1578471231 "degiorgi-nash-moser.tex" "degiorgi-nash-moser.xdv" "degiorgi-nash-moser" 1578471232
+["xelatex"] 1578644573 "degiorgi-nash-moser.tex" "degiorgi-nash-moser.xdv" "degiorgi-nash-moser" 1578644574
   "/home/rieunity/texmf/tex/latex/tensor/tensor.sty" 1571488674 4258 177d16e71f50eb48389533ac9bd9cd26 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -91,13 +91,13 @@
   "/usr/local/texlive/2019/texmf-dist/web2c/texmf.cnf" 1570742662 39452 758acee3f2beaeeedff570c5f5d76d98 ""
   "/usr/local/texlive/2019/texmf-var/web2c/xetex/xelatex.fmt" 1571853579 3765666 62de793a3e398af58254cb198b8b0b2d ""
   "/usr/local/texlive/2019/texmf.cnf" 1571853555 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "body.tex" 1578471230 10923 2d591c97dfbaba7e6a65af07cff78f6f ""
-  "degiorgi-nash-moser.aux" 1578471232 950 e8266312f064d555b43e14673904b05b "xelatex"
-  "degiorgi-nash-moser.out" 1578471232 111 73ac1211fc5fb29898de016b0baefa3d "xelatex"
+  "body.tex" 1578644573 10865 2ddf7adccb3789c19591f4a4c9b2ad94 ""
+  "degiorgi-nash-moser.aux" 1578644573 835 20340d6fdcb900c2502fdae612d25c3c "xelatex"
+  "degiorgi-nash-moser.out" 1578644573 52 61209d7143ff550b647a02a0b2049401 "xelatex"
   "degiorgi-nash-moser.tex" 1578404941 1880 5a75f5ea45dac68c0efa7a623874f50a ""
   (generated)
+  "degiorgi-nash-moser.aux"
   "degiorgi-nash-moser.out"
   "degiorgi-nash-moser.xdv"
-  "degiorgi-nash-moser.aux"
-  "degiorgi-nash-moser.log"
   "degiorgi-nash-moser.thm"
+  "degiorgi-nash-moser.log"

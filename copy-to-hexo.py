@@ -16,5 +16,4 @@ def copy_pdf(from_path, to_path, filetype):
                 dest_path  = os.path.join(to_path,relative_path[1:]) 
                 copyfile(from_path, dest_path)
 copy_pdf(from_path, to_path, filetype)
-copy_pdf(from_path, to_path, '.md')
 print("All the files in " + from_path + " has been copied successfully!")

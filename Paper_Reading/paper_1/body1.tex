@@ -1,0 +1,391 @@
+\begin{definition}
+  An exponential polynomial is
+  \[
+    p(t)=\sum_{k=1}^{n} c_k e^{\lambda_kt}\quad \left( c_k \in \mathbb{C},\lambda_k \in \mathbb{C} \right) .
+  \]
+\end{definition}
+The main purpose of the first part of the paper is to establish the following inequality
+\begin{equation}
+  \sup_{t\in I}\left| p\left( t \right)  \right| \le \left( \frac{A\mu(I)}{\mu(E)} \right) ^{n-1}\sup_{t\in E}\left| p(t) \right| ,\label{main}
+\end{equation}
+where $I\subset \R$ is an interval, $E\subset I$ is a measurable set of positive Lebesgue measure and $A$ is an  absolute constant.
+\section{The Turan lemma: original form}
+The following lemma was derived by Turan (see \cite{turan1953neue}).
+\begin{theorem}\label{theorem-1}
+  Let $z_1,\cdots,z_n$ be complex numbers, $\left| z_j \right| \ge 1$,$j=1,\cdots,n$. Let
+  \begin{equation*}
+    b_1,\cdots,b_n\in \mathbb{C}, \quad S_m\overset{\mathrm{def}}{=}\sum_{k=1}^{n} b_kz_k^{m}\quad (m\in \Z).
+  \end{equation*}
+  Then
+  \begin{equation}
+    \left| S_0 \right|\le n\left( \frac{2e(m+n-1)}{n}^{n-1} \right) \max_{k=m+1}^{m+n}\left| S_k \right| \le \left( \frac{4e(m+n-1)}{n} \right) ^{n-1}\max_{k=m+1}^{m+n}\left| S_k \right| 	 \label{1}
+  \end{equation}
+  for all $m\in \Z_{+}$.
+
+\end{theorem}
+\begin{proof}
+  To prove the lemma, we need to construct a polynomial $q(z)=1+\sum_{k=1}^{n}\gamma_kz^{m+k}$ such that 
+   \begin{itemize}
+     \item [(1)] $q(z_j)=0$ for each $=1,\cdots,n$ and
+     \item [(2)] $\sum_{k=1}^{n} \left| \gamma_k \right| \le n\left( \frac{2e(m+n-1)}{n} \right) ^{n-1}.$
+  \end{itemize}
+  Let 
+  \[
+    q(z)=\prod_{k=1}^{n}\left( 1-\frac{z}{z_k} \right) \sigma_m(z),
+  \] 
+  where $\sigma_m\left( z \right) $ is the $m$-th partial sum of the series $\prod_{k=1}^{n}\left( 1-\frac{z}{z_k} \right)^{-1} =\sum_{k=0}^{\infty}\beta_kz^{k}$, i.e. 
+  \[
+    \sigma_m(z)=\sum_{k=1}^{m} \beta_k z^{k}.
+  \] 
+  By definition, we have
+  \[
+    1=\prod_{k=1}^{n}\left( 1-\frac{z}{z_k} \right)\sum_{k=0}^{\infty}\beta_kz^{k}.
+  \] 
+  This identity implies that the $s$-th coefficient in the expansion of the right side depends only on $\beta_{s-n},\cdots,\beta_s$. Hence the coefficients at the powers $z,z^2,\cdots,z^{m}$ of $q(z)=\prod_{k=1}^{n}\left(1-\frac{z}{z_k}\right)\sigma_m(z)$ all vanish (since they only depend on $\sigma_m(z)$). Recalling the Taylor expansion
+  \[
+    \left( 1-z \right) ^{-n}=\sum_{k=0}^{\infty} \frac{(k+n-1)!}{k!(n-1)!}z^{k},
+  \] 
+  hence we have ( by using the condition $\left| z_j \right| \ge 1$ and assuming $\left| z \right| <1$)
+ \[
+   \left| \prod_{k=1}^{n}\left( 1-\frac{z}{z_k} \right)^{-1}  \right| \le \left( 1-\left|z\right| \right) ^{-n} =\sum_{k=0}^{\infty} \frac{(k+n-1)!}{k!(n-1)!}|z|^{k}.
+ \] 
+ Thus, all coefficients of $\sigma_m(z)$ do not exceed\footnote{ Here needs some estimates:
+ we need to prove 
+ \[
+   \binom{n}{k}\le \left( \frac{en}{k+1} \right) ^{k}.
+ \] 
+ This inequality can be proved by induction.
+ } 
+\[
+  \frac{(m+n-1)!}{m!(n-1)!}\le  \left( \frac{e(m+n-1)}{n} \right) ^{n-1}.
+\]
+Then we get the extimates
+\[
+  \left| \gamma_k \right| \le \left( \frac{e(m+n-1)}{n} \right)^{n-1}\sum_{s=k}^{n}\binom{n}{s} 
+\] 
+and 
+\[
+  \sum_{k=1}^{n}\left| \gamma_k \right| =\frac{1}{2}\sum_{k=1}^{n}\left( \left| \gamma_k \right| +\left| \gamma_{n+1-k} \right|  \right) \le 2^{n-1}n\left(  \frac{e(m+n-1)}{n} \right) ^{n-1}.
+\]
+Now we've constructed the desired polynomial $q(z)$.
+
+Since
+\begin{equation}
+\begin{aligned}
+  S_0 = & b_1+b_2+\cdots+b_n\\
+  = & \sum_{j=1}^{n}b_j\cdot 1\\
+  = & \sum_{j=1}^{n} \left( -\sum_{k=1}^{n} \gamma_k z_j^{m+k} \right)\\
+  = & -\sum_{k=1}^{n} \gamma_k S_{m+k}
+.\label{2}\end{aligned}
+\end{equation}
+Hence the estimates above and (\ref{2}) complete the proof.
+\end{proof}
+
+Recalling the definition of an exponential polynomial
+\[
+  p(t)=\sum_{k=1}^{n} c_k e^{i\lambda_k t},
+\] 
+now let $t_k=t_0+k\delta$, we have 
+\[
+  p(t_k)=\sum_{j=1}^{n} c_j e^{i\lambda_j (t_0+k\delta)}=\sum_{j=1}^{n} b_j \left(e^{i\lambda_j\delta}\right)^{k}=\sum_{j=1}^{n} b_j z_j^{k},
+\] 
+where $z_j=e^{i\lambda_k\delta}$ and $b_j=c_j e^{i\lambda_j t_0}$.
+Then we can use the lemmma directly and get 
+\begin{equation}
+  \left| p(t_0) \right| \le \left\{  \frac{4e(m+n-1)}{n} \right\}^{n-1}\max_{k=m+1}^{m+n}\left| p(t_k) \right| . \label{poly-1}
+\end{equation}
+
+Now the inequality (\ref{main}) for the case where $E$ is an interval can be derived in an almost immediate way (with the constant A=4e).
+
+Using the same idea in 
+\begin{theorem}\label{theorem-2}
+  Let $I$ be an interval, let $E\subset I$ be a measurable set of positive Lebesgue measure. Then
+  \begin{equation}
+    \max_{t\in I}\left| p(t) \right| \le 2^{n}\left( \frac{\mu(I)}{\mu(E)} \right) ^{2n^2}\max_{t\in E}\left| p(t) \right| .
+  \end{equation}
+\end{theorem}
+\begin{proof}
+  By (\ref{poly-1}), the following inequality
+  \begin{equation}
+    \max_{t\in I}\left| p(t) \right| \le 2^{n}\max_{t\in E}\left| p(t) \right| 
+  \end{equation}
+  holds if $t_0$ is the first term of the arithmetic progression $t_k=t_0+k\delta \left( k=0,\cdots,n \right) $ with all other terms belonging to $E$. The point of the proof is to find a set $E_1$ that is "close" to $E$ and we can choose a $\delta$ such that all $t_k$'s belongs to  $E$.
+ 
+  \textbf{ Step 1}.Let $J \subset I$ is an open interval and
+  \[
+    \mu\left( E\cap J  \right) >\left( 1-\frac{1}{2n} \right) \mu(J).
+  \] 
+  Let $t_0\in J$ be any fixed point. Such a point $t_0$ splits the interval  $J$ into two subintervals $J_{-}$ and $J_{+}$. At least one of them, let's say $J_{+}$ has the property
+  \[
+    \mu\left( E\cap J_{+} \right) >\left( 1-\frac{1}{2n} \right) \mu(J).
+  \] 
+  Let $\varphi(t)=\chi\left( t \right) $ be the characteristic function of $J_{+}\setminus E$, then by applying the lattice averaging lemma we see that the average number of points  $t_k=t_0+k\delta (k\in \N)$ belonging to $J_{+}\backslash E$ as $\delta$ runs over the interval $\left( \frac{\mu(J_{+})}{2n}, \frac{\mu(J_{+})}{n} \right)  $ is (here we write $\frac{\mu(J_{+})}{2n}$ as $s$)
+  \begin{equation}
+    \begin{aligned}
+      \frac{\int_{s}^{2s} \sum_{k\in \Z\setminus \{0\} }\varphi\left( k\delta \right) \mathrm{d}\delta}{\int_{s}^{2s}\mathrm{d}\delta}= & \frac{1}{s}\int_{1}^{2}\sum_{k\in Z\setminus \{0\} }\varphi(ks\frac{\delta}{s})s\mathrm{d}\left( \frac{\delta}{s} \right)\\
+      = & \int_1^{2}\sum_{k\in \Z\setminus \{0\} }\varphi(ksv)\mathrm{d}v\\
+      \le  & \frac{1}{s}\int_{\R}\varphi(t)\mathrm{d}t\\
+      = & \frac{2n}{\mu(J_{+})}\mu\left( J_{+}\setminus E \right)\\
+      < & 1.
+    \end{aligned}
+  \end{equation}
+  Hence  there exists a positive $\delta< \frac{\mu(J_{+})}{n}$ such that none of the points $t_1,\cdots,t_n$ belongs to $J_{+}\setminus E$. Since $k \delta< \frac{k\mu(J_{+})}{n}\le 1$ and $t_0$ is the endpoint of $J_{+}$, all these points lie in $J_{+}$ and, consequently, in $E$. Since the choise of $t_0\in  J$ is arbitrary, any points in $J$ have the property that $t_k\in E $ for each $k=1,\cdots,n$.
+
+  \textbf{Step 2}. Let  $E_{1}=\bigcup \left\{ J: J\subset I \text{ is open}, \mu(E\cap J)>\left( 1-\frac{1}{2n} \right) \mu(J) \right\}  $. Since $E_1$ is the union of open sets,  $E_1$ itself is also open, hence, the union of disjoint open intervals. Let $Q$ be one constituent interval of $E_1$, if 
+  \[
+    \mu\left( E\cap Q \right) >\left( 1-\frac{1}{2n} \right) \mu(Q)
+  \] 
+  holds, then we can find a larger open interval $Q'$ such that $Q'\subset Q\subset E_1$, this contradicts the chosen of $Q$. Hence all the cons constituent intervals of $E_1$ satisfy the  relation
+  \[
+    \mu(E\cap Q)\le \left( 1-\frac{1}{2n} \right) \mu (Q).
+  \] 
+  Thus, the set $E_1$ has the following two properties
+   \begin{equation}
+     \sup_{t\in E_1}\left| p(t) \right| \le 2^{n}\sup_{t\in E}\left| p(t) \right| ,
+  \end{equation}
+  \begin{equation}
+    \mu(E_1)\ge  \left( 1-\frac{1}{2n} \right)^{-1}\mu(E)\ge e^{\frac{1}{2n}}\mu(E) \text{ or }E_1=I.\footnote{Here we use the inequality $\frac{1}{e}\ge \left( 1-\frac{1}{2n} \right) ^{2n}$.}
+  \end{equation}
+
+  \textbf{Step 3}. Iterating this procedure we obtain a sequence of sets $E_1,E_2,\cdots$ such that 
+  \begin{equation}
+    \sup_{t\in E_k}\left| p(t) \right| \le 2^{nk}\sup_{t\in E}\left| p(t) \right| ,
+  \end{equation}
+  \begin{equation}
+    \mu\left( E_k \right) \ge e^{\frac{k}{2n}}\mu(E) \text{ or } E_k=I.\label{restrict}
+  \end{equation}
+  If $k>2n\log \frac{\mu(I)}{\mu(E)}$, then the first case of (\ref{restrict}) cannot occur. Therefore we obtain
+   \[
+     E_{\left[ 2n \log \frac{\mu(I)}{\mu(E)}+1 \right] }=I,
+  \] 
+  whence
+  \[
+    \sup_{t\in I}\left| p(t) \right| \le 2^{\left( 2n\log \frac{\mu(I)}{\mu(E)}+1 \right)n }\sup_{t\in E}\left| p(t) \right| \le 2^{n}\left( \frac{\mu(I)}{\mu(E)} \right) ^{2n^2}\sup_{t\in E}\left| p(t) \right| .
+  \] 
+\end{proof}
+\begin{remark}
+  The proof of Theorem \ref{theorem-2} is based on Theorem \ref{theorem-1}. We can regard Theorem \ref{theorem-1} is a discrete version of Theorem \ref{theorem-2}. From the discrete version to Lebesgue measurable sets, the simplest thought is to find the discrete points  which  Theorem \ref{theorem-1} can be used to. If there exists, then our problem can be solved easily. But unfortunately the arithmetic progression $t_k$ may not exists in $E$ for any point in  $I$. To overcome this difficulty, we need to find an interval close to $E$ (here the sense of "close" has exact meaning in the proof), and any point fixed $t_0$ in this interval satisfy the condition $t_k\in E$ for each $k=1,\cdots,n$. Finally, by iterating the procedure, the chosen set becomes strictly larger, and finaly equals to $I$.
+\end{remark}
+\section{Two Usefull Lemmas}
+\begin{lemma}\label{lemma-1}
+  If $P(z)$ is an algebraic polynomial of degree $n$, then 
+  \[
+    \mu \left( \left\{ x\in \R:\left| \frac{\mathrm{d}}{\mathrm{d}x}\log P(x) \right| >y \right\}  \right) \le \frac{8n}{y}
+  \] and
+  \[
+    \mu \left( \left\{ z\in \mathbb{T}:\left| \frac{\mathrm{d}}{\mathrm{d}z}\log P(z) \right| >y \right\}  \right) \le \frac{8n}{\pi y}.
+  \] 
+\end{lemma}
+\begin{lemma}[Langer Lemma]\label{lemma-2}
+  Let $p(z)=\sum_{k=1}^{n} c_k e^{i\lambda_k z} (0=\lambda_1<\lambda_2<\cdots<\lambda_n=\lambda)$ be an exponential polynomial not vanishing identically. Then the number of complex zeros of $p(z)$ in an open vertical strip $x_0<\text{Re}z<x_0+\Delta $ of width $\Delta$ does not exceed $(n-1)+ \frac{\lambda \Delta}{2\pi}$.
+\end{lemma}
+\section{The Turan lemma for polynomials on the unit circumference}
+Here we shall prove inequality (\ref{main}) for the case of a  $1$-periordic exponential polynomial  $p(t)=\sum_{k=1}^{n} c_k e^{2\pi im_k t},$ where $c_k\in \mathbb{C}$, $m_1<\cdots m_n \in \Z$, and for the segment $I=[0,1]$.
+\begin{theorem}
+  Let $p(z)=\sum_{k=1}^{n} c_k z^{m_k} \left(c_k \in \mathbb{C}, m_1<\cdots m_n \in \Z  \right) $ be a trignometric plynomial on the unit circumference $T$, and let $E$ be a measurable subset of $\mathbb{T}$. Then 
+  \begin{equation}
+    \|p\|_{W}\overset{\mathrm{def}}{=}\sum_{k=1}^{n} \left| c_k \right| \le \left( \frac{16e}{\pi} \frac{1}{\mu(E)} \right) ^{n-1}\sup_{z\in E}\left| p(z) \right| \le \left( \frac{14}{\mu(E)} \right) ^{n-1}\sup_{z\in E}\left| p(z) \right| .\label{eqn}
+  \end{equation}
+\end{theorem}
+\begin{proof}
+ 
+  \textbf{Step 1}. We shall construct by induction a sequence of polynonials $p_n,p_{n-1},\cdots,p_1$ such that
+  \begin{itemize}
+    \item [(1)] $p_n=p$;
+    \item [(2)]  $\order p_k=k$ $ (k=1,\cdots,n)$ ;
+    \item [(3)] $\|p_{k-1}\|_{W}\ge \frac{\pi}{16}\|p_k\|_{W}$ ;
+    \item [(4)] the ratio $\varphi_k\overset{\mathrm{def}}{=}\left| \frac{p_{k-1}}{p_k} \right| $ admits the weak type estimate $\mu\left( \{z\in \mathbb{T}:\varphi_k(z)>t\} \le \frac{1}{t} \right) $ for all $t>0$.
+  \end{itemize}
+  The construction is as follows. Let $p_n=p$. The polynomial $p_k(z)=\sum_{s=1}^{k}d_sz^{r_s}$ $(r_1<r_2<\cdots<r_k\in \Z$ being chosen, we introduce two polynomials
+  \[
+    \underline{q}\overset{\mathrm{def}}{=} \frac{\mathrm{d}}{\mathrm{d}z}\left( z^{-r_1}p_k(z) \right) 		  
+  \] 
+  and
+  \[
+    \overline{q}\overset{\mathrm{def}}{=} \frac{\mathrm{d}}{\mathrm{d}z}\left( z^{-r_k}p_k(z) \right). 
+  \] 
+  Obviously, $\order \underline{q}=\order \overline{q}=k-1$. We have 
+  \[
+    \|\underline{q}\|_{W}=\sum_{s=1}^{k} \left| d_s \right| \left( r_s-r_1 \right) ,\quad \|\overline{q}\|_{W}=\sum_{s=1}^{k} \left| d_s \right| \left( r_k-r_s \right), 
+  \] 
+  whence
+  \[
+    \|\underline{q}\|_{W}+\|\overline{q}\|_{W}=\left( r_k-r_1 \right) \sum_{s=1}^{k} \left| d_s \right| =r\|p_k\|_{W},
+  \] 
+  where $r\overset{\mathrm{def}}{=}r_k-r_1$. Hence at least one of the norms larger than or equal to $\frac{r}{2}\|p_k\|_{W}$. We assume $\|\overline{q}\|_{W}\ge \frac{r}{2}\|p_k\|_{W}$ (the other case is similar). Put $p_{k-1}(z)=\frac{\pi}{8r}\overline{q}(z)$, then conditions (2) and (3) are satisfied. It remains to check condition (4). Since $r_1<r_2<\cdots<r_k\in \Z$, let $g(\frac{1}{z})=z^{-r_k}p_k(z)$, then $g(z)$ is an algebraic polynomial of degree $r$. Then
+   \[
+     \overline{q}(z)= \frac{\mathrm{d}}{\mathrm{d}z}\left( z^{-r_k}p_k(z) \right) = \frac{\mathrm{d}}{\mathrm{d}z}\left( g\left( \frac{1}{z} \right)  \right)=-\frac{1}{z^2}g'\left( \frac{1}{z} \right).	
+\] 
+Since $g\left( \frac{1}{z} \right) $ is an algebrail polynomial of degree $r$, we can use  Lemma \ref{lemma-1} and get \footnote{In Lemma \ref{lemma-1}, the term $\left| \frac{P'(z)}{P(z)} \right|$ can be changed into $\left| \frac{P'(1 /z)}{P(1 /z)} \right| $ since the substitution $z\mapsto 1 /z$ preserves Lebesgue measure on the unit circumference.  }
+\begin{equation*}
+    \mu \left( \{z\in \mathbb{T}:\varphi_{k}(z)>t\}  \right) = \mu \left( \{z\in \mathbb{T}:\left| \frac{g'(1 /z)}{g(1 /z)} \right| >\frac{8r}{\pi}t\}  \right) \le \frac{1}{t} 
+\end{equation*} 
+since 
+$$\left|\frac{p_{k-1}}{p_k}=\frac{\pi}{8r} \frac{\overline{q}(z)}{p_k}\right|=\left|\frac{\pi}{8r} \frac{g'(1 /z)(-1 /z^2)}{g(1 /z)z^{r_k}}\right|=\frac{\pi}{8r}\left| \frac{g'(1 /z)}{g(1 /z)} \right|. 
+$$
+The above inequality also explains how the weird coefficient $\frac{\pi}{16}$ of condition (3) chooses.
+
+\textbf{Step 2}. Before proving the theorem, we first illustrate what the step 2 does. By step 1, we have constructed a sequence of polynomials and they have the relation
+\[
+\|p_{k-1}\|_{W}\ge \frac{\pi}{16}\|p_k\|_{W}
+.\]
+Hence we can get 
+ \[
+   \left( \frac{\pi}{16} \right) ^{n-1}\|p\|_W\le \|p_1\|_W.
+\] 
+Since $\order p_1=1$, the norm of $p_1$ is equivalent to any $\left| p_1(z) \right| $. We want to get the inequality (\ref{eqn}), that means we may need to establish the inequality between $|p_1(z)|$ and  $|p(z)|$ for $z\in E$. More precisely, we want to find some point $z_0\in E$
+such that
+\begin{equation} 
+  \left| \frac{p_1(z_0)}{p(z_0)} \right|< \text{ some large number} \label{condition}.
+\end{equation} 
+The constant can be chosen large enough so that the measure of points which don't satisfy condition (\ref{condition}) is less than $\mu(E)$, hence cannot cover all points of $E$, i.e., the point $z_0\in E$ satisfies the condition exists.
+
+Now we estimate the measure of the set of all points $z\in \mathbb{T}$ for which $\left| p_1(z) \right| $ is essentially greater than $\left| p_n(z) \right| =\left| p(z) \right| $ (the meaning of "essentially greater" would be clear later). We have
+\[
+  \left| \frac{p_1(z)}{p_n(z)} \right| = \prod_{k=2}^{n}\varphi_k(z)\le \exp\left( \sum_{k=2}^{n}\psi_k(z) \right), 
+\] 
+where $\psi_k(z) \overset{\mathrm{def}}{=}\log_{+}\varphi_k(z)$ ($\log_{+}x$ means $\log_{+} x=0$ if $\log x <0$). The weak type esimate of $\varphi_k$ gives the inequality 
+\[
+  \mu \left( \psi_k>t \right)  \le e^{-t}
+\] for all $t>0$.
+Let $\alpha >0$, we decompose  $\psi_k(z)$ into the sum of $\eta_k(z)\overset{\mathrm{def}}{=}\min\left( \psi_k(z),\alpha \right) $ and $\omega_k(z)\overset{\mathrm{def}}{=}\psi_k(z)-\eta_k(z)$.
+Then $\sum_{k=2}^{n}\eta_k(z)\le \alpha(n-1)$ for all $z\in \mathbb{T}$. Since for a nonnegative measurable function in measure space $ \left( X,\mathcal{M},\mu \right) $ we have $\int f(x)\mathrm{d}\mu(x)=\int_0^{\infty}\mu(f(x)>t)\mathrm{d}t$, we obtain 
+\[
+  \int_{\mathbb{T}}\omega_k(z)\mathrm{d}\mu(z)=\int_{\alpha}^{\infty}\mu(\psi_k>t)\mathrm{d}t\le \int_{\alpha}^{\infty}e^{-t}\mathrm{d}t=e^{-\alpha}.
+\] 
+Therefore,
+\begin{equation}
+  \int_{\mathbb{T}}\left( \sum_{k=2}^{n} \omega_k(z) \right) \mathrm{d}\mu(z)\le e^{-\alpha}(n-1)\label{omega}.
+\end{equation}
+Since 
+\[
+  \sum_{k=2}^{n} \omega_k(z)=\sum_{k=2}^{n} \psi_k(z)-\sum_{k=2}^{n} \eta_k(z)
+\]
+and $\sum_{k=2}^{n} \eta_k(z)\le \alpha(n-1)$, we have
+\begin{equation*}
+    \mu\left( \left\{z\in \mathbb{T}:\sum_{k=2}^{n}\psi_k(z)>(\alpha+1)(n-1)\right\} \right) \le \mu\left( \left\{z\in \mathbb{T}: \sum_{k=2}^{n} \omega_{k}(z)>n-1\right\} \right). 
+\end{equation*} 
+Let $F\overset{\mathrm{def}}{=} \{z\in \mathbb{T}: \sum_{k=2}^{n} \omega_k(z)>n-1\} $, then we have
+\[
+  \mu\left( F \right) < \frac{1}{n-1}\int_{F}\sum_{k=2}^{n} \omega_k(z)\mathrm{d}\mu(z)\le e^{-\alpha}
+\] 
+by using (\ref{omega}). Hence
+\begin{equation}
+  \mu\left( \left\{z\in \mathbb{T}:\sum_{k=2}^{n} \psi_k(z)>(\alpha+1)(n-1)\right\}  \right) <e^{-\alpha}.\label{exists}
+\end{equation}
+Let $\alpha = \log \frac{1}{\mu(E)}$, then $e^{-\alpha}=\mu(E)$. Substitute this into (ref{exists}) then this inequality implies that there exists a point $z_0\in E$ for which $\sum_{k=2}^{n} \psi_k(z_0)\le \left( \alpha+1 \right) (n-1)$. Now we have
+\begin{equation*}
+  \begin{aligned}
+    \left( \frac{\pi}{16} \right) ^{n-1}\|p\|_{W}\le & \|p_1\|_{W}\overset{(\order p_1=1 !)}{=}\|p_1(z_0)\|\\
+    \le & \exp\left( \left( 1+\log \frac{1}{\mu(E)} \right) (n-1) \right) \left| p(z_0) \right| \\
+    = & \left( \frac{e}{\mu(E)} \right) ^{n-1}\left| p(z_0) \right| \\
+    \le  & \left( \frac{e}{\mu(E)} \right) ^{n-1}\sup_{z\in E}\left| p(z) \right|,
+  \end{aligned}
+\end{equation*}
+and the theorem is proved.
+\end{proof}
+\begin{remark}
+  We first construct the polynomial sequence $p_n=p,p_{n-1},\cdots,p_2,p_1$, and they satisfy $\|p_{k-1}\|_{W}\ge  \frac{\pi}{16}\|p_k\|_W$, $\order p_k=k$ and so on. Then we can get 
+  \[
+    \left( \frac{\pi}{16} \right) ^{n-1}\|p\|_{W}\le \|p_1\|_{W}.
+  \] 
+  This means we transform the question into the proof of the certain inequality between $\|p_1\|_W=|p_1(z)| \forall z\in \mathbb{T}$ and $p=p_n$. Then we need to find a point  $z_0 \in \mathbb{T}$ such that $\left| p_1(z_0) \right|\le \exp\left( \left(1+\log \frac{1}{\mu(E)}\right)(n-1) \right) \left| p(z_0) \right|  $, this step needs to estimate the amount or measure of the points that have large function values. If the measure of these points are smaller tham $\mu(E)$, then we can get a point  $z_0 \in E$ that satisfies the condition.
+\end{remark}
+\section{The Turan lemma in general form}
+\begin{theorem}\label{thm-4}
+   Let $p(t)=\sum_{k=1}^{n} c_k e^{i\lambda_kt}$ where $c_k\in \mathbb{C}$ and $\lambda_1<\cdots\lambda_n \in \mathbb{R}$. If $E $ is a measurable subset of the segment $I=\left[ -\frac{1}{2},\frac{1}{2} \right] $, then
+   \[
+     \sup_{t\in I}\left| p(t) \right| \le \left( \frac{316}{\mu(E)} \right) ^{n-1}\sup_{t\in E}\left| p(t) \right| .
+   \] 
+ \end{theorem} 
+
+ \begin{lemma}\label{lemma-3}
+   Let $g(t)=\sum_{k=1}^{n} c_k e^{i\lambda_kt}$, $(c_k\in \mathbb{C}$, $0=\lambda_1<\lambda_2<\cdots<\lambda_n=\lambda)$. If $\lambda \ge n-1$, then 
+   \[
+     \mu\left( \left\{ t\in \left[ -\frac{1}{2},\frac{1}{2} \right] :\left|  \frac{\mathrm{d}}{\mathrm{d}t}\log g(t) \right| >y \right\}  \right) \le \frac{29\lambda}{y}
+   \] 
+   for all $y>0$.
+\end{lemma}
+\begin{proof}
+  We procedd like we did in Case $1$.
+\end{proof}
+{\itshape Proof of Theorem \ref{thm-4}}. Let $\lambda  \overset{\mathrm{def}}{=}\lambda_n-\lambda_1$, we prove the theorem separately in two cases.
+
+\textbf{Case $\lambda \le  n-1$}. If $n=1$, the statement is obvious. Let $n>1$, without loss of generality, we assume that $0=\lambda_1<\cdots\lambda_n=\lambda_n=\lambda\le n-1$. By virtue of the Langer lemma, complex zeros of the exponential polynomial $p(z)$ are well separated, i.e., each verical strip of width $\Delta$ contains at most $ \frac{\Delta\lambda}{2\pi}+(n-1)\le \left( 1+ \frac{\Delta}{2\pi} \right) (n-1)$ zeros. 
+
+Lets enumerate $z_j$ in the order of increase of $\left| \text{Re}z_j \right| $. For every $j \in \N$, the inequality $\left| \text{Re}z_j \right| \ge \pi \frac{j-(n-1)}{(n-1)}$ holds.
+
+\textbf{Case $\lambda > n-1$}. We shall reduce this case to Case 1 in the same way as in Section 3. This is why we need Lemma \ref{lemma-3}. We can finish the proof by constructing a sequence of exponential polynomials $p_n,p_{n-1},\cdots,p_s(s\ge 1)$ such that 
+\begin{itemize}
+  \item [(1)] $p_n=p$ ;
+  \item [(2)]  $\order p_k=k$ $(k=s,\cdots,n)$ ;
+  \item [(3)] $\|p_{k-1}\|_{\infty}\ge \frac{1}{58}\|p_k\|_{\infty}$ $(k=s+1,\cdots,n)$ ;
+  \item [(4)] the ratio $\varphi_k \overset{\mathrm{def}}{=}\left| \frac{p_{k-1}}{p_k} \right| $ satisfies the weak type estimate $\mu\left( \left\{ x\in \left[ -\frac{1}{2},\frac{1}{2}:\varphi_k(x)>t \right]  \right\}  \right) \le \frac{1}{t}$ for $t>0$ ;
+  \item [(5)] the difference between the greatest and the smallest exponent of $p_s$ does not exceed $s-1$ (i.e., $p_s$ meets the condition of Case 1 investigated above).
+\end{itemize}
+The construction is almost the same as in Section 3. The difference is that, firstly, we make use of the identity $\underline{q}(t)-\overline{q}(t)=i\left( \rho_k-\rho_1 \right) p_k(t)$, where 
+    \[
+      p_k(t)\overset{\mathrm{def}}{=}\sum_{m=1}^{k} d_m e^{i\rho_m t}\quad \left( \rho_1<\cdots\rho_k\in \R \right), 
+    \] 
+    \[
+      \underline{q}(t)\overset{\mathrm{def}}{=}e^{i\rho_1t} \frac{\mathrm{d}}{\mathrm{d}t}\left( e^{-i\rho_1t}p_k(t) \right) ,
+    \] 
+    \[
+      \overline{q}(t)\overset{\mathrm{def}}{=}e^{i\rho_kt} \frac{\mathrm{d}}{\mathrm{d}t}\left( e^{-i\rho_kt}p_k(t) \right) 
+    \] 
+    to estimate the sum of norms $\|\underline{q}\|_{\infty}+\|\overline{q}\|_{\infty}$ from below, and, secondly, we stop the sequence at the polynomial $p_s$ satisfying the condition of Case 1, i.e., at that very moment when we cannot apply Lemma \ref{lemma-3} to estimate $\varphi_s$ once more.
+
+    Since $\|p_{k-1}\|_{\infty}\ge \left( \frac{1}{58} \right) \|p_{k}\|_{\infty}$, we obtain
+    \begin{equation}
+      \left( \frac{1}{58} \right) ^{n-s}\|p\|_{\infty}\le \|p_s\|_{\infty}.\label{G}
+    \end{equation}
+    By the  construction procedure, $p_s$ satisfies the condition of Case 1, hance for a measurable set  $F$ we have
+     \begin{equation}
+       \|p_s\|_{\infty}\le \left( \frac{154}{\mu(F)} \right) ^{s-1}\sup_{t\in F}\left| p_s(t) \right|.\label{F} 
+    \end{equation}
+    Now we use the same reasoning as in Section 3 to establish $\left| \frac{p_s(t)}{p_n(t)} \right| \le \left( \frac{2e}{\mu(E)} \right) ^{n-s}$ outside an exceptional set $E'$ of measure $\mu(E')\le \mu\left( E \right) /2$. We have
+    \[
+      \left| \frac{p_s(x)}{p_n(x)} \right| =\prod_{k=s+1}^{n}\varphi_k(z)\le \exp\left( \sum_{k=s+1}^{n} \psi_k(x) \right) ,
+    \] where $\psi_k(x) \overset{\mathrm{def}}{=}\log_{+}\varphi_k(x)$. The weak type estimate of $\varphi_k$ gives the inequality $\mu \left( \psi_k>t \right) \le e^{-t}$ for all $t>0$. Let  $\alpha>0$, we decompose $\psi_k(x)$ into the sum of $\eta_k(x)\overset{\mathrm{def}}{=}\min \left( \psi_k(x),\alpha \right) $ and $\omega_k(x)\overset{\mathrm{def}}{=}\psi_k(x)-\eta_k(x)$. Then $\sum_{k=s+1}^{n}\eta_k(x)\le \alpha (n-s)$ for all $x \in \left[ -\frac{1}{2},\frac{1}{2} \right] $. We also have 
+    \[
+      \int_{-\frac{1}{2}}^{\frac{1}{2}}\omega_k(x)\mathrm{d}x=\int_\alpha ^{\infty}\mu\left( \psi_k>t \right) \mathrm{d}t\le \int_{\alpha}^{\infty}e^{-t}\mathrm{d}t=e^{-\alpha}.
+    \] Therefore,
+    \[
+      \int_{-\frac{1}{2}}^{\frac{1}{2}}\left( \sum_{k=s+1}^{n} \omega_k(z) \right) \mathrm{d}\mu(z)\le e^{-\alpha}(n-s).
+    \] 
+    Since  
+     \[
+       \sum_{k=s+1}^{n} \omega_k(x)=\sum_{k=s+1}^{n} \psi_k(x)-\sum_{k=s+1}^{n} \eta_k(x)
+     \] 
+     and $\sum_{k=s+1}^{n} \eta_k(x)\le \alpha(n-s)$, we have
+     \begin{align*}
+      & \mu\left( \left\{ x\in \left[ -\frac{1}{2},\frac{1}{2} \right] : \sum_{k=s+1}^{n}\psi_k(x)>(\alpha+1)(n-s)  \right\}  \right) \\
+       \le & \mu \left( \left\{ x\in \left[ -\frac{1}{2},\frac{1}{2} \right] : \sum_{k=s+1}^{n} \omega_k(x)>n-s \right\}  \right)<e^{-\alpha} . 
+     \end{align*}
+     Let $\alpha =\log \left( \frac{2}{\mu(E)} \right) $, then we have
+      \[
+	\mu\left(\left\{ x\in \left[ -\frac{1}{2},\frac{1}{2} \right] : \sum_{k=s+1}^{n} \psi_k(x)>(\alpha+1)(n-s)\right\} \right)< \frac{\mu(E)}{2}. 
+     \]
+     Thus the measure of the set $E' = \left\{ x \in \left[ -\frac{1}{2},\frac{1}{2} \right] :\left| \frac{p_s(x)}{p_n(x)}\right|> \left( \frac{2e}{\mu(E)} \right)^{n-s}  \right\} $ satisfies
+     \[
+       \mu(E')< \frac{\mu(E)}{2}
+     \] 
+     and hence
+     \begin{equation}
+       \mu(E\backslash E')\ge  \frac{\mu(E)}{2}.\label{half}
+     \end{equation}
+     By definition of the set $E'$, we know $\left| \frac{p_s(x)}{p_n(x)} \right| \le \left( \frac{2e}{\mu(E)} \right) ^{n-s}$ for each $x\in E\backslash E'$.
+     By using (\ref{F}) (let $F=E\backslash E'$), (\ref{G}) and (\ref{half}) we obtain
+     \begin{equation*}
+       \begin{aligned}
+	 \left( \frac{1}{58} \right) ^{n-s}\|p\|_{\infty}\le & \|p_s\|_{\infty}\le \left( \frac{154}{\mu\left( E\backslash E' \right) } \right)^{s-1} \sup_{t\in E\backslash E'}\left| p_s(t) \right|\\
+	 \le  & \left( \frac{308}{\mu(E)} \right) ^{s-1}\left( \frac{2e}{\mu(E)} \right) ^{n-s}\sup_{t\in E}\left| p(t) \right| .
+       \end{aligned}
+     \end{equation*}
+     Now Theorem (\ref{thm-4}) easily follows if we take into account the inequality $116e<316$.\hfill $\square$\par
+
+ \section{Summary: Two important techniques used}
+ \begin{enumerate}
+   \item Construct a sequence of polynomials like $p_k,p_{k-1},\cdots,p_1$ to decrease the order of $p_k$. In this note, the order is the  $\order p_k$ of exponential polynomials, it may have different meaning when we solve other problems. 
+   \item Weak type estiamtes allow us to get an upper bound of a measure of a set $A$ that satisfies some property $P$, then compaire it  to the measure of a given set $B$ . If the latter is strictly larger than  the former, then there must be some point in  $B$ which does not  meet the property $P$.
+ \end{enumerate}

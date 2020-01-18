@@ -1,15 +1,15 @@
 # Fdb version 3
-["biber paper_1"] 1579250793 "paper_1.bcf" "paper_1.bbl" "paper_1" 1579323349
+["biber paper_1"] 1579250793 "paper_1.bcf" "paper_1.bbl" "paper_1" 1579328107
   "mybib.bib" 1579171610 873 decfb56a1be52b8923b95758d70f61f7 ""
-  "paper_1.bcf" 1579323348 99565 d1943f2bee721ad2651440b00101adde "xelatex"
+  "paper_1.bcf" 1579328106 99565 d1943f2bee721ad2651440b00101adde "xelatex"
   (generated)
   "paper_1.blg"
   "paper_1.bbl"
-["xdvipdfmx"] 1579323348 "paper_1.xdv" "paper_1.pdf" "paper_1" 1579323349
-  "paper_1.xdv" 1579323348 122940 01229b719673de0f2ff7e6166a342141 "xelatex"
+["xdvipdfmx"] 1579328106 "paper_1.xdv" "paper_1.pdf" "paper_1" 1579328107
+  "paper_1.xdv" 1579328106 122940 c59d537680c4c2e28b061b76703471be "xelatex"
   (generated)
   "paper_1.pdf"
-["xelatex"] 1579323347 "paper_1.tex" "paper_1.xdv" "paper_1" 1579323349
+["xelatex"] 1579328105 "paper_1.tex" "paper_1.xdv" "paper_1" 1579328107
   "/home/rieunity/texmf/tex/latex/tensor/tensor.sty" 1571488674 4258 177d16e71f50eb48389533ac9bd9cd26 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -114,27 +114,27 @@
   "/usr/local/texlive/2019/texmf-dist/web2c/texmf.cnf" 1570742662 39452 758acee3f2beaeeedff570c5f5d76d98 ""
   "/usr/local/texlive/2019/texmf-var/web2c/xetex/xelatex.fmt" 1571853579 3765666 62de793a3e398af58254cb198b8b0b2d ""
   "/usr/local/texlive/2019/texmf.cnf" 1571853555 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "body1.tex" 1579323057 54414 a6e92a6b79aec283305a1bfe041340f7 ""
+  "body1.tex" 1579328104 54414 80772f45ad96cdd5d2cdb6a427febfa7 ""
   "figures/argument-of-p.pdf" 1579247269 2678 a725672eb660d2174c8c37fe390e6ab3 ""
   "figures/argument-of-p.pdf_tex" 1579247269 2706 c5d9b42c29d8db9e647c1c0c163f404f ""
   "figures/harmonic-funcion.pdf" 1579173369 1156 775fbbb8b80c5dc4ec1265abc47d44ea ""
   "figures/harmonic-funcion.pdf_tex" 1579173369 2607 d0ce08e4ba3945c4c87166a13eb72c51 ""
   "figures/harmonic-function-2.pdf" 1579174733 1930 fb544211109003c0fd2bd7bf3442dfd4 ""
   "figures/harmonic-function-2.pdf_tex" 1579174733 3293 5dea93c0047ec95da61aa103ace71f78 ""
-  "figures/harmonic-function-3.pdf" 1579280446 4286 469b904d5d779a1404fc9af6a98d6973 ""
-  "figures/harmonic-function-3.pdf_tex" 1579280446 3551 56a336741e9942e7a13505c302e3f36b ""
-  "paper_1.aux" 1579323348 6717 36fed2723197973d8b8d9f0f2b7a976e "xelatex"
+  "figures/harmonic-function-3.pdf" 1579355914 4286 4c0917a4706bb98a78f50b28e85d7ee7 ""
+  "figures/harmonic-function-3.pdf_tex" 1579355914 3551 5f18a712f2c32b7a15b16555df40bf4f ""
+  "paper_1.aux" 1579328106 6717 36fed2723197973d8b8d9f0f2b7a976e "xelatex"
   "paper_1.bbl" 1579250794 3998 5cf36a444364cd1bfbacdf9efc91a043 "biber paper_1"
-  "paper_1.out" 1579323348 487 b791df3c107bc40e37841fb783d12872 "xelatex"
-  "paper_1.run.xml" 1579323348 2356 2d4c965039383989817828dae92cbdf3 "xelatex"
-  "paper_1.tex" 1579323345 2278 95c929deaee3b8e283afe1afbee48eca ""
-  "paper_1.toc" 1579323348 862 d2c89340eb0d21c3cfe9d04969a6e752 "xelatex"
+  "paper_1.out" 1579328106 487 b791df3c107bc40e37841fb783d12872 "xelatex"
+  "paper_1.run.xml" 1579328106 2356 2d4c965039383989817828dae92cbdf3 "xelatex"
+  "paper_1.tex" 1579323358 2278 95c929deaee3b8e283afe1afbee48eca ""
+  "paper_1.toc" 1579328106 862 d2c89340eb0d21c3cfe9d04969a6e752 "xelatex"
   (generated)
-  "paper_1.thm"
-  "paper_1.aux"
-  "paper_1.toc"
-  "paper_1.log"
   "paper_1.out"
-  "paper_1.run.xml"
+  "paper_1.thm"
   "paper_1.bcf"
   "paper_1.xdv"
+  "paper_1.toc"
+  "paper_1.aux"
+  "paper_1.log"
+  "paper_1.run.xml"

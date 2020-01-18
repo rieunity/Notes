@@ -200,7 +200,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.99437388"
-     inkscape:cx="442.66739"
+     inkscape:cx="284.77909"
      inkscape:cy="297.44493"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -442,6 +442,6 @@
          id="tspan1040"
          x="42.30677"
          y="183.91586"
-         style="stroke-width:0.26458332">$\arcsin\left(\frac{n_2}{y}\right)$</tspan></text>
+         style="stroke-width:0.26458332">$\arccos\left(\frac{n_2}{y}\right)$</tspan></text>
   </g>
 </svg>

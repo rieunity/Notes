@@ -1,5 +1,13 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1}The Turan lemma: original form}{2}{section.1}% 
-\contentsline {section}{\numberline {2}Two Usefull Lemmas}{5}{section.2}% 
-\contentsline {section}{\numberline {3}The Turan lemma for polynomials on the unit circumference}{6}{section.3}% 
-\contentsline {section}{\numberline {4}The Turan lemma in general form}{9}{section.4}% 
-\contentsline {section}{\numberline {5}Summary: Two important techniques used}{11}{section.5}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2}Two usefull lemmas}{6}{section.2}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3}The Turan lemma for polynomials on the unit circumference}{11}{section.3}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4}The Turan lemma in general form}{15}{section.4}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5}Summary: Two important techniques used}{24}{section.5}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Appendix \numberline {A}Harmonic measure}{25}{Appendix.1.A}% 

@@ -1,46 +1,17 @@
-This is BibTeX, Version 0.99d (TeX Live 2019)
-Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
-The top-level auxiliary file: paper_1.aux
-The style file: plain.bst
-Database file #1: mybib.bib
-You've used 2 entries,
-            2118 wiz_defined-function locations,
-            510 strings with 4344 characters,
-and the built_in function-call counts, 532 in all, are:
-= -- 51
-> -- 14
-< -- 0
-+ -- 6
-- -- 4
-* -- 32
-:= -- 96
-add.period$ -- 6
-call.type$ -- 2
-change.case$ -- 7
-chr.to.int$ -- 0
-cite$ -- 2
-duplicate$ -- 23
-empty$ -- 50
-format.name$ -- 4
-if$ -- 108
-int.to.chr$ -- 0
-int.to.str$ -- 2
-missing$ -- 3
-newline$ -- 13
-num.names$ -- 4
-pop$ -- 10
-preamble$ -- 1
-purify$ -- 6
-quote$ -- 0
-skip$ -- 13
-stack$ -- 0
-substring$ -- 35
-swap$ -- 2
-text.length$ -- 0
-text.prefix$ -- 0
-top$ -- 0
-type$ -- 6
-warning$ -- 0
-while$ -- 6
-width$ -- 3
-write$ -- 23
+[0] Config.pm:304> INFO - This is Biber 2.13
+[0] Config.pm:307> INFO - Logfile is 'paper_1.blg'
+[25] biber:315> INFO - === Fri Jan 17, 2020, 16:46:33
+[39] Biber.pm:375> INFO - Reading 'paper_1.bcf'
+[102] Biber.pm:905> INFO - Found 3 citekeys in bib section 0
+[115] Biber.pm:4196> INFO - Processing section 0
+[116] Utils.pm:75> INFO - Globbing data source 'mybib.bib'
+[116] Utils.pm:91> INFO - Globbed data source 'mybib.bib' to mybib.bib
+[125] Biber.pm:4373> INFO - Looking for bibtex format file 'mybib.bib' for section 0
+[125] bibtex.pm:1462> INFO - LaTeX decoding ...
+[130] bibtex.pm:1281> INFO - Found BibTeX data source 'mybib.bib'
+[152] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[152] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[152] Biber.pm:4024> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[153] Biber.pm:4030> INFO - No sort tailoring available for locale 'en-US'
+[156] bbl.pm:648> INFO - Writing 'paper_1.bbl' with encoding 'UTF-8'
+[158] bbl.pm:751> INFO - Output to paper_1.bbl

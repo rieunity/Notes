@@ -1,6 +1,6 @@
 %% Creator: Inkscape inkscape 0.92.3, www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
-%% Accompanies image file '$\eta_k$-and-$\omega_k$.pdf' (pdf, eps, ps)
+%% Accompanies image file 'harmonic-function-2.pdf' (pdf, eps, ps)
 %%
 %% To include the image in your LaTeX document, write
 %%   \input{<filename>.pdf_tex}
@@ -53,8 +53,15 @@
   \begin{picture}(1,0.5)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
-    \put(0,0){\includegraphics[width=\unitlength,page=1]{$\eta_k$-and-$\omega_k$.pdf}}%
-    \put(0.02549937,0.1385835){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\alpha$\end{tabular}}}}%
-    \put(0.65522277,0.27273235){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\psi(z)$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{harmonic-function-2.pdf}}%
+    \put(0.68515682,0.3813818){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\theta_1$\end{tabular}}}}%
+    \put(0.84480508,0.38027318){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\theta_2$\end{tabular}}}}%
+    \put(0.28049304,0.11419284){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$-y$\end{tabular}}}}%
+    \put(0.68515682,0.11308416){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$y$\end{tabular}}}}%
+    \put(0.313753,0.08980217){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\theta = \theta_1+\theta_2$\end{tabular}}}}%
+    \put(0.3292744,0.05875931){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$h(\xi)=\frac{\theta}{\pi}$\end{tabular}}}}%
+    \put(0.77606761,0.4368152){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\xi$\end{tabular}}}}%
+    \put(0.69977036,0.96097918){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\begin{minipage}{0.43578517\unitlength}\raggedright \end{minipage}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{harmonic-function-2.pdf}}%
   \end{picture}%
 \endgroup%

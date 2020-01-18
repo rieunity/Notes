@@ -166,7 +166,7 @@ Using the same idea in
 \begin{remark}
   The proof of Theorem \ref{theorem-2} is based on Theorem \ref{theorem-1}. We can regard Theorem \ref{theorem-1} is a discrete version of Theorem \ref{theorem-2}. From the discrete version to Lebesgue measurable sets, the simplest thought is to find the discrete points  which  Theorem \ref{theorem-1} can be used to. If there exists, then our problem can be solved easily. But unfortunately the arithmetic progression $t_k$ may not exists in $E$ for any point in  $I$. To overcome this difficulty, we need to find an interval close to $E$ (here the sense of "close" has exact meaning in the proof), and any point fixed $t_0$ in this interval satisfy the condition $t_k\in E$ for each $k=1,\cdots,n$. Finally, by iterating the procedure, the chosen set becomes strictly larger, and finaly equals to $I$.
 \end{remark}
-\section{Two Usefull Lemmas}
+\section{Two usefull lemmas}
 \begin{lemma}\label{lemma-1}
   If $P(z)$ is an algebraic polynomial of degree $n$, then 
   \[
@@ -176,9 +176,131 @@ Using the same idea in
     \mu \left( \left\{ z\in \mathbb{T}:\left| \frac{\mathrm{d}}{\mathrm{d}z}\log P(z) \right| >y \right\}  \right) \le \frac{8n}{\pi y}.
   \] 
 \end{lemma}
+
+\begin{proof}
+  First we shall prove the inequality for the real line. Let $z_1,\cdots,z_{n_1}$ and $\zeta_1,\cdots,\zeta_{n_2}$ $\left( n_1+n_2=n \right) $ be complex zeros of the polynomial $P$ enumerated in such a way that $\mathrm{Im}z_j\le 0$ $\left( j=1,\cdots, n_1 \right) $ and $\mathrm{Im}\zeta_j>0$ $\left( j=1,\cdots,n_2 \right) $. We have 
+  \[
+    \frac{\mathrm{d}}{\mathrm{d}z}\log P(z)= \sum_{j=1}^{n_1} \frac{1}{z-z_j}+\sum_{j=1}^{n_2} \frac{1}{z-\zeta_j}=\sum_1(z)+\sum_2(z).
+  \] 
+  The function $\sum_1(z)$ is analytic in the upper half-plane $\mathbb{H}$, and 
+   \[
+     \mathrm{Im}\sum_1(z)=\sum_{j=1}^{n_1} \frac{\mathrm{Im}z_j-\mathrm{Im}z}{\left| z-z_j \right| ^2}<0
+  \] 
+  for all $z\in \mathbb{H}$.
+
+  Let $h(\xi)$ be the harmonic measure of the set $\R \backslash \left[ -y,y \right] $ with respect to the upper-half plane and a point $\xi \in \mathbb{H}$. We put $u(z) \overset{\mathrm{def}}{=}h\left( -\sum_{1}^{} (z) \right) $, it is harmonic in $\mathbb{H}$.
+
+\begin{figure}[ht]
+    \centering
+    \incfig{harmonic-function-2}
+    \caption{Harmonic function $h(\xi)$}
+    \label{fig:harmonic-function-2}
+\end{figure}
+If $t\to +\infty$, then $-\sum_{1}^{} (it)\to i0^{+} $ and $u(it)\to 0$. If  $\left| \sum_{1}(z) \right| \ge y$, then $u(z)\ge \frac{1}{2}$.
+
+Hence, we have 
+\[
+  \lim_{t\to +\infty}\pi tu(it)=\int_{\R}u(x)\mathrm{d}x\ge \frac{1}{2}\mu\left( \left\{ x\in \R:\left| \sum_{1}^{} (x) \right| >y \right\}  \right) .
+\] 
+On the other hand, 
+\begin{equation*}
+  \begin{aligned}
+    \lim_{t\to +\infty}\pi t u(it) = & \lim_{t\to +\infty}\pi t h\left( \frac{i n_1}{t}+\mathcal{O}\left( \frac{1}{t^2} \right)  \right) \\
+    = & \lim_{t\to +\infty}\pi t \left(2\arctan\left( \frac{n_1}{ty} \right) / \pi\right) \\
+    = & \frac{2n_1}{y}.
+  \end{aligned}
+\end{equation*}
+Hence 
+\[
+  \mu\left(\left\{ x\in \R: \left| \sum_{1}^{} (x) \right| >y \right\}\right) \le \frac{4n_1}{y}.
+\] 
+Similarly
+\[
+  \mu\left( \left\{ x\in \R: \left| \sum_{2}^{} (x) \right| >y \right\}  \right) \le \frac{4n_2}{y}.
+\] 
+Combining these estimates, we obtain 
+\begin{equation*}
+  \begin{aligned}
+    \mu\left( \left\{ x\in \R:\left| \sum_{}^{} (x) \right| >  y \right\}  \right) \le & \mu\left( \left\{ x\in R:\left| \sum_1 \right| >\frac{n_1}{n}y \right\}  \right) \\
+    + & \mu\left( \left\{ x\in \R:\left| \sum_1 \right| >\frac{n_2}{n}y \right\}  \right) \\
+  \le &  \frac{8n}{y}.
+\end{aligned}
+\end{equation*}
+
+Now we pass to the case of the circumference. As above, we split the zeros of $P(z)$ into two groups $z_1,\cdots,z_{n_1}\in \mathbb{D}$ and $\zeta_1,\cdots,\zeta_{n_2}\in \C \backslash \mathbb{D}$. Then 
+\[
+  \frac{\mathrm{d}}{\mathrm{d}z}\log P(z) = \frac{1}{z}\left( \sum_{j=1}^{n_1} \frac{z}{z-z_j}+\sum_{j=1}^{n_2} \frac{z}{z-\zeta_j} \right) =\frac{1}{z}\left( \sum_1(z)+\sum_2(z) \right) .
+\] 
+The factor $\frac{1}{z}$ can be disregarded since its absolute value is equal to $1$. The estimate for $\sum_1 (z)$ is essentially the same as above: having established the inequality 
+\[
+  \mathrm{Re} \sum_{1}^{} (z)=\sum_{j=1}^{n_1} \frac{\left| z \right| ^2-\mathrm{Re}z \overline{z}_j}{\left| z-z_j \right| ^2}\ge 0
+\] 
+for $z\in \C\backslash \mathbb{D}$, we consider the function $u(z)\overset{\mathrm{def}}{=} h\left( i\sum_1(z) \right) $, which is harmonic outside the unit disk, and derive the estimate
+\[
+  u(\infty)= \frac{2\arctan \frac{n_1}{y}}{\pi}=\int_{\mathbb{T}}u(z)\mathrm{d}\mu(z)\ge \frac{1}{2}\mu\left( \left\{ z\in \mathbb{T}:\left| \sum_1(z) \right| >y \right\}  \right) ,
+\] 
+which implies 
+\[
+  \mu\left( \left\{ \left| \sum_1(z) \right| >y \right\}  \right) \le \frac{4}{\pi}\arctan \frac{n_1}{y}\le \frac{4}{\pi} \frac{n_1}{y}.
+\] 
+The function $\mathrm{Re} \sum_2(z)$ may change sign. Therefore we use another inequality
+\[
+  \mathrm{Re} \sum_{2}(z)= \sum_{j}^{n_2} \frac{\mathrm{Re}z(\overline{z}-\overline{\zeta}_j)}{\left| z-\zeta_j \right| ^2} =n_2-\sum_{j=1}^{n_2} \frac{\left| \zeta_j \right| ^2-\mathrm{Re}z \overline{\zeta}_j}{\left| z-\zeta_j \right| ^2}\le  n_2\qquad (z\in \mathbb{D}).
+\] 
+This time we choose the function $h$ to be harmonic in $\mathbb{H}-in_2$. In order to obtain the estimate $\mu\left( \left| \sum_2 \right| >y \right) \le \frac{4}{\pi}\frac{n_1}{y}$, we can restrict ourselves to values $y>n_2$. Let $h(\xi)$ be harmonic measure of $\left( \R-in_2 \right) \backslash I$ (where $I$ is the interval cut off from the line $\R-in_2$ by the circle centered at $0$ and of radius $y$ ) with respct to the half-plane $\mathbb{H}-in_2$ and the point $\xi \in  \mathbb{H}-in_2$.
+\begin{figure}[ht]
+    \centering
+    \incfig{harmonic-function-3}
+    \caption{Domain of the harmonic function}
+    \label{fig:harmonic-function-3}
+\end{figure}
+One can easily check that the function $u(z)\overset{\mathrm{def}}{=}h\left( -i\sum_2(z) \right) $ is harmonic in $\mathbb{D}$,  $u(z)> \frac{\pi-\arccos \frac{n_2}{y}}{\pi}$ if $\left| \sum_{2}(z) \right| >y$, and $u(0)=h(0)= \frac{2\arcsin \frac{n_2}{y}}{\pi}$. Therefore
+\[
+  \mu\left( \left\{ \left| \sum_2 \right| >y \right\}  \right) \le \frac{2\arcsin \frac{n_2}{y}}{\pi-\arccos \frac{n_2}{y}}= \frac{2\arcsin \frac{n_2}{y}}{\frac{\pi}{2} +\arcsin \frac{n_2}{y}}.
+\] 
+Now, to get the desired estimate it suffices to verify that $\frac{2\theta}{\pi /2 +\theta}\le \frac{4}{\pi}\sin\theta$ for each $\theta \in \left[ 0, \frac{\pi}{2} \right] $. The last inequality is equivalent to $\frac{\sin\theta}{\theta}+\frac{2}{\pi}\sin\theta\ge 1$. Taking into account that $\sin\theta\ge \theta-\frac{1}{6}\theta^3$ for every $\theta>0$ and $\sin\theta\ge  \frac{2}{\pi}\theta$ for every $\theta \in \left[ 0,\frac{\pi}{2} \right] $, we have 
+\[
+  \frac{\sin\theta}{\theta}+ \frac{2}{\pi}\sin\theta\ge 1-\frac{1}{6}\theta^2+\frac{4}{\pi^2}\theta=1+\theta\left( \frac{4}{\pi^2}-\frac{1}{6}\theta \right) \ge 1+\theta\left( \frac{4}{\pi^2}-\frac{\pi}{12} \right) 
+\] 
+and it remains to notice that $\pi^3\le 48$.
+
+As above, the estimat of $\sum(z)$ results from the estimates of $\sum_1(z)$ and $\sum_2(z)$. Lemma \ref{lemma-1} is proved.
+\end{proof}
 \begin{lemma}[Langer Lemma]\label{lemma-2}
   Let $p(z)=\sum_{k=1}^{n} c_k e^{i\lambda_k z} (0=\lambda_1<\lambda_2<\cdots<\lambda_n=\lambda)$ be an exponential polynomial not vanishing identically. Then the number of complex zeros of $p(z)$ in an open vertical strip $x_0<\text{Re}z<x_0+\Delta $ of width $\Delta$ does not exceed $(n-1)+ \frac{\lambda \Delta}{2\pi}$.
 \end{lemma}
+
+\begin{proof}
+  Without loss of generality we assume that the coefficients $c_1$ and $c_2$ do not vanish and the boundary of the strip $x_0<\mathrm{Re}z<x_0+\Delta$ is free of zeros of the exponential polynomial $p(z)$. We make use of the argument principle to estimate the number of zeros of $p(z)$ in the rectangle $Q=\left\{ z:x_0<\mathrm{Re}z<x_0+\Delta, \left| \mathrm{Im}z \right| \le y \right\} $, as $y\to +\infty$.
+
+  On the upper edge of $Q$ we have $p(z)=c_1+\mathcal{O}\left( e^{-\lambda_2y} \right) $ (recall  $\lambda_1=0$ and $\lambda_i<\lambda_{i+1}$). Therefore, the argument increment along this edge tends to $0$ as $y\to+\infty$. Similarly, the representation $p(z)=c_ne^{i\lambda z}\left( 1+\mathcal{O}\left( e^{-(\lambda-\lambda_{n-1})y}\right)\right) $, which is valid on the lower edge of $Q$, implies that the argument increment along the lower edge tends to $\lambda \Delta$ as $y\to +\infty$.
+
+  We show that the argument increment along any vertical segment
+  $$\left\{ z=x+it:t\in \left[ \alpha,\beta \right]  \right\} $$
+  free of zeros of $p(z)$ does not exceed $\pi(n-1)$. 
+  
+
+  Here we construct a real exponential polynomial out of $p(z)$. Let
+  $$\xi\overset{\mathrm{def}}{=}e^{i\arg p(x_0+i\alpha)}.$$ 
+  The function 
+  \[
+    q(t)\overset{\mathrm{def}}{=}\mathrm{Im} \left(\overline{\xi}p(x_0+it)\right)=\sum_{k=1}^{n} a_k e^{-\lambda_kt}\qquad \left( a_k=\mathrm{Im} \left( \overline{\xi}c_k e^{i\lambda_kx_0}\in \R \right)  \right) 
+  \] 
+  is a real exponential polynomial. Actually, $xi$ is used to rotate  $p(x_0+it)$ to make the imaginary part of $p(x_0+i\alpha)$ be $0$, i.e.,  $q(\alpha)=0$. 
+
+  Since we have assumed that there are no zeros of $p(x+it)$ among $t\in [\alpha,\beta]$, $p(x+it)$ cannot pass through $0$. If $q\equiv 0$, along with $p(x+i\alpha)\in \R$ and  $ \overline{\xi}p(x+i\alpha)>0$ by definition, then all values $p(x_0+it$ for $t\in [\alpha,\beta]$ lie on the ray $\left\{ \xi y: y>0 \right\} $.
+  Therefore $\Delta_{[\alpha,\beta]}\arg p(x_0+it)=0$. Otherwise, real zeros of $q(t)$ split the segment $\left[ \alpha,\beta \right] $ into at most $n-1$ intervals $I_{j}$ (it is well known that a real exponential polynomial of order $n$ has at most $n-1$ zeros). Within each of intervals $I_j$ ($q(\alpha)=0$, hence there are $n-1$ intervals not $n$ intervals), the values $p(x_0+it)$ lie in one of the two half-planes generated by the line $\left\{ \xi y :y \in \R \right\} $, whence $\left| \Delta_{I_j}\arg p(x_0+it) \right| \le \pi$. 
+
+
+\begin{figure}[ht]
+    \centering
+    \incfig{argument-of-p}
+    \caption{Argument of $p(x+it)$}
+    \label{fig:argument-of-p}
+\end{figure}
+
+  Adding these inequalities, we obtain argument increment along each of the lateral edges of $Q$ does not exceed $\pi(n-1)$. So the total argument increment of $p(z)$ along the boundary of $Q$ traced counter clockwise can be estimated from above by a quantity tending to $2\pi\left( \frac{\Delta\lambda}{2\pi}+(n-1) \right)$ as $y\to +\infty$, whence Lemma \ref{lemma-2} follows. 
+\end{proof}
 \section{The Turan lemma for polynomials on the unit circumference}
 Here we shall prove inequality (\ref{main}) for the case of a  $1$-periordic exponential polynomial  $p(t)=\sum_{k=1}^{n} c_k e^{2\pi im_k t},$ where $c_k\in \mathbb{C}$, $m_1<\cdots m_n \in \Z$, and for the segment $I=[0,1]$.
 \begin{theorem}
@@ -189,12 +311,12 @@ Here we shall prove inequality (\ref{main}) for the case of a  $1$-periordic exp
 \end{theorem}
 \begin{proof}
  
-  \textbf{Step 1}. We shall construct by induction a sequence of polynonials $p_n,p_{n-1},\cdots,p_1$ such that
+  \textbf{Step 1}. We shall construct by induction a sequence of polynonials $p_n,\cdots,p_1$ such that
   \begin{itemize}
     \item [(1)] $p_n=p$;
     \item [(2)]  $\order p_k=k$ $ (k=1,\cdots,n)$ ;
     \item [(3)] $\|p_{k-1}\|_{W}\ge \frac{\pi}{16}\|p_k\|_{W}$ ;
-    \item [(4)] the ratio $\varphi_k\overset{\mathrm{def}}{=}\left| \frac{p_{k-1}}{p_k} \right| $ admits the weak type estimate $\mu\left( \{z\in \mathbb{T}:\varphi_k(z)>t\} \le \frac{1}{t} \right) $ for all $t>0$.
+    \item [(4)] the ratio $\varphi_k\overset{\mathrm{def}}{=}\left| \frac{p_{k-1}}{p_k} \right| $ admits the weak type estimate $$\mu\left( \left\{z\in \mathbb{T}:\varphi_k(z)>t\right\} \right)\le \frac{1}{t} $$ for all $t>0$.
   \end{itemize}
   The construction is as follows. Let $p_n=p$. The polynomial $p_k(z)=\sum_{s=1}^{k}d_sz^{r_s}$ $(r_1<r_2<\cdots<r_k\in \Z$ being chosen, we introduce two polynomials
   \[
@@ -249,7 +371,7 @@ where $\psi_k(z) \overset{\mathrm{def}}{=}\log_{+}\varphi_k(z)$ ($\log_{+}x$ mea
   \mu \left( \psi_k>t \right)  \le e^{-t}
 \] for all $t>0$.
 Let $\alpha >0$, we decompose  $\psi_k(z)$ into the sum of $\eta_k(z)\overset{\mathrm{def}}{=}\min\left( \psi_k(z),\alpha \right) $ and $\omega_k(z)\overset{\mathrm{def}}{=}\psi_k(z)-\eta_k(z)$.
-Then $\sum_{k=2}^{n}\eta_k(z)\le \alpha(n-1)$ for all $z\in \mathbb{T}$. Since for a nonnegative measurable function in measure space $ \left( X,\mathcal{M},\mu \right) $ we have $\int f(x)\mathrm{d}\mu(x)=\int_0^{\infty}\mu(f(x)>t)\mathrm{d}t$, we obtain 
+Then $\sum_{k=2}^{n}\eta_k(z)\le \alpha(n-1)$ for all $z\in \mathbb{T}$. Since for a nonnegative measurable function in measure space $ \left( X,\mathcal{M},\mu \right) $ we have $$\int f(x)\mathrm{d}\mu(x)=\int_0^{\infty}\mu(f(x)>t)\mathrm{d}t,$$ we obtain 
 \[
   \int_{\mathbb{T}}\omega_k(z)\mathrm{d}\mu(z)=\int_{\alpha}^{\infty}\mu(\psi_k>t)\mathrm{d}t\le \int_{\alpha}^{\infty}e^{-t}\mathrm{d}t=e^{-\alpha}.
 \] 
@@ -298,7 +420,7 @@ and the theorem is proved.
      \sup_{t\in I}\left| p(t) \right| \le \left( \frac{316}{\mu(E)} \right) ^{n-1}\sup_{t\in E}\left| p(t) \right| .
    \] 
  \end{theorem} 
-
+ Before proving Theorem \ref{thm-4}, we first introduce a weak type estimate:
  \begin{lemma}\label{lemma-3}
    Let $g(t)=\sum_{k=1}^{n} c_k e^{i\lambda_kt}$, $(c_k\in \mathbb{C}$, $0=\lambda_1<\lambda_2<\cdots<\lambda_n=\lambda)$. If $\lambda \ge n-1$, then 
    \[
@@ -307,20 +429,198 @@ and the theorem is proved.
    for all $y>0$.
 \end{lemma}
 \begin{proof}
-  We procedd like we did in Case $1$.
+  Let  $z_j$ be the complex zeros of $g(z)$ enumerated in the order of increase of $\left| \mathrm{Re}z_j \right| $. The Langer lemma yields $\left| \mathrm{Re}z_j \right| \ge  \pi \frac{j-(n-1)}{(n-1)}\ge \frac{\pi}{\lambda}\left( j-(n-1) \right) $ (otherwise,  there are $j$ zeros in the strip of width $\Delta <  2\pi \frac{j-(n-1)}{(n-1)}$, but by Langer lemma the number of zero points in the strip is less than $\frac{\lambda\Delta}{2\pi}+n-1< \frac{\lambda (j-(n-1))}{(n-1)}+(n-1)=  \left( \frac{j}{n-1}-1 \right)  \lambda+(n-1)\le \left( \frac{j}{n-1}-1 \right) (n-1)+(n-1)=j $). We write the Hadamard factorization 
+  \[
+    g(z)=ce^{az}\prod_{j\le 2\lambda}(z-z_j)\prod_{j>2\lambda}\left( 1- \frac{z}{z_j} \right) e^{\frac{z}{z_j}}\overset{\mathrm{def}}{=}ce^{az}Q(z)R(z).
+\] 
+
+\textit{The estimate for $\left| \frac{\mathrm{d}}{\mathrm{d}z}\log R(z) \right| $}
+
+Notice that $\left| \mathrm{Re} z_j \right| \ge \pi$ if $j>2\lambda$. Let $\left| \mathrm{Re}z \right| <\frac{\pi}{2}$, then
+  \begin{equation*}
+    \begin{aligned}
+      \left| \frac{\mathrm{d}}{\mathrm{d}z}\log R(z) \right| \le  & \left| z \right| \sum_{j>2\lambda} \frac{1}{\left| \mathrm{Re}z_j \right| \left( \left| \mathrm{Re}z_j \right| -\pi /2 \right) }\\
+      \le  & 2\left| z \right| \sum_{j>2\lambda} \frac{1}{|\mathrm{Re}z_j|^2}\\
+      \le &  2\left| z \right| \sum_{j>2\lambda} \frac{\lambda^2}{\pi^2} \frac{1}{(j-(n-1))^2}\\
+      \le  & 2 \frac{\lambda^2}{\pi^2}\left| z \right| \sum_{j>2\lambda}\int_{j-(n-1)-1 /2}^{j-(n-1)+1 /2} \frac{\mathrm{d}t}{t^2}.
+    \end{aligned}
+  \end{equation*} 
+  But if $j>2\lambda>2(n-1)$, then $j\ge 2n-1$, and $j-(n-1)-1 /2\ge j /2\ge \lambda$. Therefore
+  \[
+    \sum_{j>2\lambda}\int_{j-(n-1)-1 /2}^{j-(n-1)+1 /2} \frac{\mathrm{d}t}{t^2}\le  \int_{\lambda}^{\infty} \frac{\mathrm{d}t}{t^2}=\frac{1}{\lambda}
+  \] 
+  and $\left|  \frac{\mathrm{d}}{\mathrm{d}z}\log R(z) \right| \le  \frac{2\left| z \right| \lambda}{\pi^2}$ if $\left| \mathrm{Re}z \right| <\pi /2$. In particular, $\left| \frac{\mathrm{d}}{\mathrm{d}z}\log R(z) \right| \le  \frac{\lambda}{\pi^2}$ on the interval $\left[ -\frac{1}{2},\frac{1}{2} \right] $.
+
+  \textit{The estimate for $\left| a \right| $}
+
+  It can be estimated by considering the argument increment of $g(z)$ along segment $\left[ -i\omega \frac{\overline{a}}{|a|},i\omega \frac{\overline{a}}{|a|} \right] $, similar to the proof of Case 1 Theorem \ref{thm-4} below. Here we use another approach. Consider an exponential polynomial $\tilde{g}(t)\overset{\mathrm{def}}{=}e^{\lambda t}g\left( - \frac{\overline{a}}{\left| a \right| }t \right) $ on the interval $t\in \left[ -\frac{3}{2},\frac{3}{2} \right] $, then
+  \[
+    \tilde{g}(t)=e^{\lambda t}\sum_{k=1}^{n}c_k e^{-i\lambda_k \frac{\overline{a}}{\left| a \right| }t}=\sum_{k=1}^{n}c_k e^{\left( \lambda - i\lambda_k \frac{\overline{a}}{|a|} \right)t }.
+  \] 
+  Its remarkable property is that the real parts of exponent in its terms are nonnegative ($\mathrm{Re} \left( \lambda - i\lambda_k \frac{\overline{a}}{|a|} \right) \ge 0$, then it satisfies the condition $\left| z_j \right| \ge 1$ of Theorem \ref{theorem-1}). The reasoning of the first half of Section 1 ensures the estimate
+  \[
+    \sup_{t\in \left[ -\frac{3}{2},-\frac{1}{2} \right] }\left| \tilde{g}(t) \right| \le \sup_{t\in \left[ -\frac{3}{2},\frac{3}{2} \right] }\left| \tilde{g}(t) \right| \le \left( 12e \right) ^{n-1}\sup_{t\in \left[ \frac{1}{2},\frac{3}{2} \right] }\left| \tilde{g}(t) \right| \le  \left( 12e \right) ^{\lambda}\sup_{t\in \left[ \frac{1}{2},\frac{3}{2} \right] }\left| \tilde{g}(t) \right| .
+  \] 
+  The function $Q\left( -\frac{\overline{a}}{\left| a \right| }t \right) $ is an algebraic polynomial of degree at most $2\lambda$, consequently, it is a limit of exponential polynomials of order at most $2\lambda+1$ with purely imaginary exponents\footnote{Consider $g_{\lambda}(x)= \frac{e^{\lambda x}}{\lambda}-1$, it is easy to check that  
+ \[
+   \sup_{x\in [0,1]}\left| g_{\lambda}-x \right|\le  \frac{1}{2}\lambda. 
+ \] 
+  }. Applying the Turan lemma again, we obtain the inequalities
+  \begin{equation*}
+    \begin{aligned}
+      \sup_{t\in \left[ -\frac{3}{2},-\frac{1}{2} \right] }\left| Q\left( -\frac{\overline{a}}{\left| a \right| }t \right)  \right| \ge & \left( 12e \right) ^{-2\lambda}\sup_{t\in \left[ -\frac{3}{2},\frac{3}{2} \right] }\left| Q\left( - \frac{\overline{a}}{\left| a \right| }t \right)  \right|\\
+      \ge & \left( 12e \right) ^{-2\lambda}\sup_{t\in \left[ \frac{1}{2},\frac{3}{2} \right] }\left| Q\left( - \frac{\overline{a}}{|a|}t \right)  \right| 
+  \end{aligned}
+  \end{equation*}
+  and 
+  \begin{equation*}
+    \begin{aligned}
+     & \inf_{t\in \left[ -\frac{3}{2},-\frac{1}{2} \right] }\left| R\left( -\frac{\overline{a}}{\left| a \right| }t \right)  \right|\\
+    \ge  & \exp \left( -\int_{-3 /2}^{3 /2}\left| \frac{\mathrm{d}}{\mathrm{d}t}\log R\left( - \frac{\overline{a}}{\left| a \right| }t \right)  \right| \mathrm{d}t \right) \sup_{t\in \left[ -\frac{3}{2},\frac{3}{2} \right] }\left| R\left( - \frac{\overline{a}}{\left| a \right| }t \right)  \right| \\
+    \ge & e^{-\lambda /2}\sup_{t\in \left[ \frac{1}{2},\frac{3}{2} \right] }\left| R\left( - \frac{\overline{a}}{\left| a \right| }t \right)  \right| .
+  \end{aligned}
+  \end{equation*}
+  If $\left| a \right| >\lambda$, then $\inf_{t\in \left[ -\frac{3}{2},-\frac{1}{2} \right] }\left| ce^{\left( \lambda-\left| a \right|  \right) t} \right| \ge  e^{\left| a \right| -\lambda}\sup_{t\in \left[ \frac{1}{2},\frac{3}{2} \right] }\left| ce^{\left( \lambda-\left| a \right|  \right) t} \right| $. Since 
+  \[
+    \tilde{g}(t)=ce^{\left( \lambda-|a| \right) t}Q\left( - \frac{\overline{a}}{|a|}t \right)R\left( - \frac{\overline{a}}{|a|}t \right) , 
+  \]
+  we have 
+  \begin{equation*}
+      \sup_{t\in\left[-\frac{3}{2},-\frac{1}{2}\right]}\left|\tilde{g}(t)\right| \ge   \sup_{t\in \left[ -\frac{3}{2},-\frac{1}{2} \right] }\left| Q\left( - \frac{\overline{a}}{\left| a \right| }t \right)  \right| \inf_{t\in \left[ -\frac{3}{2},-\frac{1}{2} \right] }\left| R\left( - \frac{\overline{a}}{|a|}t \right)  \right| \inf_{t\in \left[ -\frac{3}{2},-\frac{1}{2} \right] }\left| ce^{\left( \lambda -|a| \right) t} \right|. 
+  \end{equation*}
+  These inequalities may hold simultaneously only if $\left| a \right| \le \lambda \left( 3\log (12e)+1 /2+1 \right) \le \frac{25}{2}\lambda$.
+
+  \textit{The polynomial $Q(z)$}
+
+  By Lemma \ref{lemma-1}, the polynomial $Q(z)$ satisfies the weak type estimate 
+  \[
+    \mu\left( \left\{ t\in \left[ -\frac{1}{2},\frac{1}{2} \right] :\left| \frac{\mathrm{d}}{\mathrm{d}t}\log Q(t) \right| >y \right\}  \right) \le \frac{16\lambda}{y}
+  \] on the segment $\left[ -\frac{1}{2},\frac{1}{2} \right] $.
+
+  Combine all the above estimates and make use of the inequality $\left| \frac{\mathrm{d}}{\mathrm{d}t}\log g(t) \right| \le \left| a \right| + \left| \frac{\mathrm{d}}{\mathrm{d}t}\log R(t) \right| +\left| \frac{\mathrm{d}}{\mathrm{d}t}\log Q(t) \right| $, we obtain
+  \begin{equation*}
+    \begin{aligned}
+       & \mu\left(\left\{ t\in \left[ -\frac{1}{2},\frac{1}{2} \right] :\left| \frac{\mathrm{d}}{\mathrm{d}t}\log g(t) \right| >y\right\} \right)\\
+       \le & \mu\left( \left\{ t\in \left[ -\frac{1}{2},\frac{1}{2} \right] :\left| \frac{\mathrm{d}}{\mathrm{d}t}\log Q(t) \right| >y-13\lambda \right\} \right) \\
+       \le & \frac{16\lambda}{y-13\lambda}\le \frac{29\lambda}{y}
+    \end{aligned}
+  \end{equation*}
+  for $y\ge  29\lambda$. But if $y<29\lambda$, then the corresponding estimate becomes trivial because $\frac{29\lambda}{y}\ge 1=\mu \left( \left[ -\frac{1}{2},\frac{1}{2} \right]  \right) $. Lemma \ref{lemma-2} is proved.
 \end{proof}
+
+
+Now we go back to the proof of Theorem \ref{thm-4}.\\
 {\itshape Proof of Theorem \ref{thm-4}}. Let $\lambda  \overset{\mathrm{def}}{=}\lambda_n-\lambda_1$, we prove the theorem separately in two cases.
 
 \textbf{Case $\lambda \le  n-1$}. If $n=1$, the statement is obvious. Let $n>1$, without loss of generality, we assume that $0=\lambda_1<\cdots\lambda_n=\lambda_n=\lambda\le n-1$. By virtue of the Langer lemma, complex zeros of the exponential polynomial $p(z)$ are well separated, i.e., each verical strip of width $\Delta$ contains at most $ \frac{\Delta\lambda}{2\pi}+(n-1)\le \left( 1+ \frac{\Delta}{2\pi} \right) (n-1)$ zeros. 
 
-Lets enumerate $z_j$ in the order of increase of $\left| \text{Re}z_j \right| $. For every $j \in \N$, the inequality $\left| \text{Re}z_j \right| \ge \pi \frac{j-(n-1)}{(n-1)}$ holds.
+Lets enumerate $z_j$ in the order of increase of $\left| \text{Re}z_j \right| $. For every $j \in \N$, the inequality $\left| \text{Re}z_j \right| \ge \pi \frac{j-(n-1)}{(n-1)}$ holds (otherwise the zeross $z_1,\cdots,z_j$ would lie in a vertical strip of width $\Delta <2\pi \frac{j-(n-1)}{(n-1)}$, but this strip can contain at most $\left( 1+ \frac{\Delta}{2\pi} \right) (n-1)<j$ zeros). Now we write the Hadamard factorization of $p(z)$ :
+\[
+  p(z)=ce^{az}\prod_{j=1}^{2(n-1)}\left( z-z_j \right) \prod_{j>2(n-1)}\left( 1-\frac{z}{z_j} \right) e^{z /z_j}\overset{\mathrm{def}}{=}ce^{az}Q(z)R(z).
+\] 
+We shall examine the behavior of each of the above three factors separately.
+
+\textit{The canonical product $R(z)=\prod_{j>2(n-1)}\left( 1- \frac{z}{z_j} \right) e^{z /z_j}$}
+
+First of all, we notice that $\left| \mathrm{Re}z_j \right| \ge \pi$ if $j>2(n-1)$ (since $\left| \mathrm{Re} z_j \right|\ge \pi \frac{j-(n-1)}{(n-1)}> \pi $). We have (since $\left| \mathrm{Re} z\right|\le 1 /2<\pi $):
+\begin{equation*}
+  \begin{aligned}
+    \left| \frac{\mathrm{d}}{\mathrm{d}z}\log R(z) \right| = & \left| \sum_{j>2(n-1)} \left( \frac{1}{z_j}+\frac{1}{z-z_j} \right)  \right| \le \left| z \right| \sum_{j>2(n-1)} \frac{1}{\left| z_j \right| \left| z-z_j \right| }\\
+    \le  & \left| z \right| \sum_{j>2(n-1)}^{} \frac{1}{\left| \mathrm{Re}z_j \right| \left( \left| \mathrm{Re}z_j \right| -\left| \mathrm{Re}z \right|  \right) }.
+  \end{aligned}
+\end{equation*}
+whence it follows, since $z\in \left[ -\frac{1}{2},\frac{1}{2} \right] $, that 
+\begin{equation*}
+  \begin{aligned}
+    \left| \frac{\mathrm{d}}{\mathrm{d}z}\log R(z) \right| \le &\left| z \right| \sum_{j>2(n-1)}^{} \frac{1}{\left| \mathrm{Re}z_j \right| \left( \left| \mathrm{Re}z_j-\frac{1}{2} \right|  \right) }\\
+    \le & 2\left| z \right| \sum_{j=1}^{\infty} \frac{1}{\left| \mathrm{Re} z_{2(n-1)+j} \right|^2 }\\
+    \le & 2 \left| z \right| \sum_{j=1}^{\infty} \frac{1}{\left( \pi+ \frac{\pi j}{n-1} \right) ^2}\\
+    \le  & \frac{2(n-1)}{\pi}\left| z \right| \int_{\pi}^{\infty} \frac{\mathrm{d}t}{t^2}\\
+    =\frac{2\left| z \right| }{\pi^2}(n-1).
+  \end{aligned}
+\end{equation*}
+Now,
+\[
+  \int_{-\frac{1}{2}}^{\frac{1}{2}}\left| \frac{\mathrm{d}}{\mathrm{d}z}\log R(z)\right| \mathrm{d}z\le  \frac{2(n-1)}{\pi^2}\int_{-\frac{1}{2}}^{\frac{1}{2}}\left| z \right| \mathrm{d}z=\frac{n-1}{2\pi^2},
+\] 
+and, therefore
+\[
+  \max_{z\in \left[ -\frac{1}{2},\frac{1}{2} \right] }\left| R(z) \right| \le \exp\left( \frac{n-1}{2\pi^2} \right) \min_{z\in \left[ -\frac{1}{2},\frac{1}{2} \right] }\left| R(z) \right| .
+\] 
+
+\textit{The factor $ce^{az}$} 
+
+The simplest way to estimate $\left| \mathrm{Re}a \right| $ is to consider the argument increment of $p(z)$ along a segment $\left[ -i\omega,i\omega \right] (\omega>0)$. It follows from the proof of the Langer lemma that $\left| \Delta_{\left[ -i\omega,i\omega \right] }\mathrm{arg} p \right| \le \pi(n-1)$. The argument increment brought in by each of the zeros of $Q(z)$ does not exceed $\pi$. So, we have 
+\[
+  \left| \Delta_{\left[ -i\omega,i\omega \right]}\mathrm{arg}Q \right| \le 2\pi(n-1),
+\] 
+\[
+  \left| \Delta_{\left[ -i\omega,i\omega \right] }\mathrm{arg}R \right| \le \int_{\omega}^{\omega}\left|  \frac{\mathrm{d}}{\mathrm{d}z}\log R(it) \right| \mathrm{d}t\le  \frac{n-1}{\pi^2}\int_{-\omega}^{\omega}\left| t \right| \mathrm{d}t= \frac{n-1}{\pi^2}\omega^2,
+\] 
+and
+\[
+  \Delta_{\left[ -i\omega,i\omega \right]} \mathrm{arg}(ce^{az})=2\omega \mathrm{Re}a.
+\] 
+The identity 
+\[
+  \Delta_{\left[ -i\omega,i\omega \right]} \mathrm{arg}=2\omega \mathrm{Re}a+\Delta_{\left[ -i\omega,i\omega \right]} \mathrm{arg}Q+\Delta_{\left[ -i\omega,i\omega \right]}\mathrm{arg}R
+\] 
+implies
+\[
+  \left| \mathrm{Re}a \right| \le \min_{\omega>0}\left( \frac{3\pi}{2\omega}+\frac{\omega}{2\pi^2} \right) (n-1)=\sqrt{\frac{3}{\pi}} (n-1).
+\] 
+It remains to examine
+
+\textit{The behavior of the polynomial $Q(z)$}. 
+
+Let $0<h<\frac{1}{8}$. We shall carry out the Cartan lemma construction. Let $n_1$ be the maximal integer for which there exists a disk $D_1$ of radius $ \frac{n_1}{n-1}h$ containing at least $n_1$ zeros of the polynomial $Q$. It is clear that $D_1$ contains exactly $n_1$ zeros of $Q$ because otherwise $n_1$ could be enlarged (the strip of width $\frac{h}{n-1}$ contains at most $1$ point according to Langer lemma).
+Let $n_2$ be the maximal integer for which there exists a disk $D_2$ of radius $\frac{n_2}{n-1}h$ containing at least $n_2$ zeros of $Q$ among those not lying in $D_1$, and so on, till all the zeros of $Q$ are covered. Putting $D_k'=2D_k$ (i.e., the disk centered at the same point and of double radius), we obtain the corresponding sequence of integers $n_1\ge \cdots\ge n_s$ with the sum $n_1+\cdots n_s=2(n-1)$ and the corresponding sequencedisks $D'_1,\cdots,D'_s$ with the sum of radii equal to $4h$. We fix a point 
+\[
+z\in \left[ -\frac{1}{2},\frac{1}{2} \right] \backslash \bigcup_{k=1} ^{s}D'_k
+\] and enumerate the zeros of $Q$ in the order of increase of $\left| z-z_j \right| $. Following Cartan, we shall show that $\left| z-z_j \right| \ge \frac{j}{n-1}h$. 
+Indeed, if this is not the case, then the disk $D$ centered at $z$ and of radius $\frac{j}{n-1}h$ contains at least $j$ zeros of $Q$. Choose an $m\in \left\{ 1,\cdots,s \right\} $ such that $n_1\ge \cdots \ge n_m\ge j>n_{m+1}\ge \cdots n_s$. For every $z\not\in  \bigcup_{k=1} ^{s}D'_k$ and $k\le m$, we have  $z_j\not\in D'_{n_k}$, hence the distance between $z$ and the center of $D_k$ is at least
+\[
+  \frac{2n_k}{n-1}h\ge  \frac{n_k}{n-1}h+\frac{j}{n-1}h.
+\]
+Hence $D$ does not intersect any of the disks $D_1,\cdots,D_m$. But if this were true, the disk $D$ (or a disk with larger number of zeros) would have been taken instead of $D_{m+1}$ at the $m+1$-th step. This contradiction proves the claim.
+
+Besides, the Langer lemma implies the inequality $\left| z-z_j \right| \ge \pi \frac{j-(n-1)}{(n-1)}$ (otherwise the zeros $z_1,\cdots,z_j$ would lie in a disk of radius strictly less than $\pi \frac{j-(n-1)}{(n-1)}$, and, consequently, in the strip of width $\Delta<2\pi \frac{j-(n-1)}{(n-1)}$ ). Thus, we have
+\begin{equation*}
+  \begin{aligned}
+    \frac{\left| Q(z) \right| }{\max\left\{ \left| Q(t) \right| :t\in \left[ -\frac{1}{2},\frac{1}{2} \right]  \right\} }\ge  & \prod_{j=1}^{2(n-1)} \frac{\left| z-z_j \right| }{\max\left\{ \left| t-z_j \right| :t\in \left[ -\frac{1}{2},\frac{1}{2} \right]  \right\} }\\
+    \ge  & \prod_{j=1}^{2(n-1)} \frac{\left| z-z_j \right| }{1+\left| z-z_j \right| }\\
+    = & \prod_{j=1}^{n-1} \frac{\left| z-z_j \right| }{1+\left| z-z_j \right| }\times \prod_{j=1}^{n-1} \frac{\left| z-z_{n-1+j} \right| }{1+\left| z-z_{n-1+j} \right| }\\
+    \ge  & \prod_{j=1}^{n-1} \frac{\frac{j}{n-1}h}{1+\frac{j}{n-1}h}\times \prod_{j=1}^{n-1} \frac{ \frac{\pi j}{n-1}}{1+ \frac{\pi j}{n-1}}\\ 
+    \ge  & \prod_{j=1}^{n-1} \frac{\frac{j}{n-1}h}{1+\frac{j}{n-1} \frac{1}{8}}\times \prod_{j=1}^{n-1} \frac{ \frac{\pi j}{n-1}}{1+ \frac{\pi j}{n-1}}\\
+    \ge   & (8h)^{n-1} \times \prod_{j=1}^{n-1} \frac{\frac{j}{n-1} \frac{1}{8}}{1+\frac{j}{n-1} \frac{1}{8}}\times \prod_{j=1}^{n-1} \frac{ \frac{3 j}{n-1}}{1+ \frac{3 j}{n-1}}.
+  \end{aligned}
+\end{equation*}
+But for each $\theta>0$ we have 
+\[
+  \prod_{j=1}^{n-1} \frac{\frac{j}{n-1}\theta}{1+ \frac{j}{n-1}\theta}\ge  \exp\left( (n-1)\int_0^{1}\log \frac{\theta t}{1+\theta t}\mathrm{d}t \right) =\left( \frac{\theta}{(1+\theta)^{1+\frac{1}{\theta}}} \right) ^{n-1},
+\] 
+whence it follows that 
+\[
+  \frac{\left| Q(z) \right| }{\max\left\{ \left| Q(t) \right| :t\in \left[ -\frac{1}{2},\frac{1}{2} \right]  \right\} }\ge  (8h)^{n-1}\left( 8\times \left( \frac{9}{8} \right) ^{9}\times \frac{4\sqrt[3]{4} }{3} \right) ^{-(n-1)}\ge \left( \frac{8h}{32\sqrt[3]{4} } \right)^{n-1}. 
+\]
+Observe that the measure of the exceptional set $\left[ -\frac{1}{2},\frac{1}{2} \right] \cap \left( \bigcup_{k=1} ^{s}D'_k \right) $ is at most $8h$, we can set $z\in  E$ if $h= \mu(E) /8$. Combining all these estimates, we find
+\begin{equation*}
+  \begin{aligned}
+    \sup_{t\in I}\left| p(t) \right|\le & \sup_{t\in I}\left| ce^{at} \right|\times  \sup_{t\in I}\left| R(t) \right|\times \sup_{t\in I}\left| Q(t) \right|  \\
+    \le  & \left| c\exp\left( \sqrt{\frac{3}{\pi}} (n-1) \right)  \right| \times \exp\left( \frac{n-1}{2\pi^2} \right) \min_{t\in I}\left| R(t) \right| \times \sup_{t\in I}\left| Q(t) \right|\\
+    \le  & \left| c \right| \times \exp\left( \left( \sqrt{\frac{3}{\pi}} +\frac{1}{2\pi^2} \right) (n-1) \right) \min_{t\in I}\left| R(t) \right| \times \sup_{t\in I}\left| Q(t) \right|\\
+    \le & \left| c \right| 3^{n-1} \min_{t\in I}\left| R(t) \right| \times \left( \frac{32\sqrt[3]{4} }{8h} \right) ^{n-1}\left| Q(z) \right|   \\
+    \le  & \left( \frac{154}{\mu(E)} \right)^{n-1}\sup_{t\in E}\left| p(t) \right| . 
+  \end{aligned}
+\end{equation*}
 
 \textbf{Case $\lambda > n-1$}. We shall reduce this case to Case 1 in the same way as in Section 3. This is why we need Lemma \ref{lemma-3}. We can finish the proof by constructing a sequence of exponential polynomials $p_n,p_{n-1},\cdots,p_s(s\ge 1)$ such that 
 \begin{itemize}
   \item [(1)] $p_n=p$ ;
   \item [(2)]  $\order p_k=k$ $(k=s,\cdots,n)$ ;
   \item [(3)] $\|p_{k-1}\|_{\infty}\ge \frac{1}{58}\|p_k\|_{\infty}$ $(k=s+1,\cdots,n)$ ;
-  \item [(4)] the ratio $\varphi_k \overset{\mathrm{def}}{=}\left| \frac{p_{k-1}}{p_k} \right| $ satisfies the weak type estimate $\mu\left( \left\{ x\in \left[ -\frac{1}{2},\frac{1}{2}:\varphi_k(x)>t \right]  \right\}  \right) \le \frac{1}{t}$ for $t>0$ ;
+  \item [(4)] the ratio $\varphi_k \overset{\mathrm{def}}{=}\left| \frac{p_{k-1}}{p_k} \right| $ satisfies the weak type estimate 
+    $$\mu\left( \left\{ x\in \left[ -\frac{1}{2},\frac{1}{2}:\varphi_k(x)>t \right]  \right\}  \right) \le \frac{1}{t}$$ for $t>0$ ;
   \item [(5)] the difference between the greatest and the smallest exponent of $p_s$ does not exceed $s-1$ (i.e., $p_s$ meets the condition of Case 1 investigated above).
 \end{itemize}
 The construction is almost the same as in Section 3. The difference is that, firstly, we make use of the identity $\underline{q}(t)-\overline{q}(t)=i\left( \rho_k-\rho_1 \right) p_k(t)$, where 
@@ -389,3 +689,58 @@ The construction is almost the same as in Section 3. The difference is that, fir
    \item Construct a sequence of polynomials like $p_k,p_{k-1},\cdots,p_1$ to decrease the order of $p_k$. In this note, the order is the  $\order p_k$ of exponential polynomials, it may have different meaning when we solve other problems. 
    \item Weak type estiamtes allow us to get an upper bound of a measure of a set $A$ that satisfies some property $P$, then compaire it  to the measure of a given set $B$ . If the latter is strictly larger than  the former, then there must be some point in  $B$ which does not  meet the property $P$.
  \end{enumerate}
+
+\begin{appendices}
+\section{Harmonic measure}
+Let $\mathbb{H}$ be the upper half-plane. Suppose $a<b$ are real. Then the function 
+\[
+  \theta=\theta(z)=\arg \left( \frac{z-b}{z-a} \right) = \mathrm{Im} \log\left( \frac{z-b}{z-a} \right) 
+\] is harmonic on $\mathbb{H}$, and  $\theta=\pi$ on $(a,b)$ and $\theta=0$ on $\R\backslash[a,b]$.
+
+\begin{figure}[ht]
+    \centering
+    \incfig{harmonic-funcion}
+    \caption{Harmonic funcion $\theta(z)$}
+    \label{fig:harmonic-funcion}
+\end{figure}
+
+Viewed geometrically, $\theta (z)=\mathrm{Re} \varphi(z)$ where $\varphi(z)$ is any conformal mapping from $\mathbb{H}$ to the strip $\left\{ 0<\mathrm{Re}z<\pi \right\} $ which maps $(a,b)$ onto $\left\{ z:\mathrm{Re}z=\pi \right\} $ and $\R \backslash [a,b]$ into $\left\{ z:\mathrm{Re}z=0 \right\} $. 
+\begin{definition}
+Let $E\subset \R$ be a finite union of open intervals and write $E=\bigcup_{j=1}^{n}(a_j,b_j)$ with $b_{j-1}<a_j<b_j$. Set 
+\[
+  \theta_j = \theta_j(z)=\arg \left( \frac{z-b_j}{z-a_j} \right). 
+\] 
+Then the harmonic measure of $E$ at $z\in \mathbb{H}$ is
+\begin{equation}
+  \omega(z,E,\mathbb{H})\overset{\mathrm{def}}{=} \sum_{j=1}^{n} \frac{\theta_j}{\pi}.
+\end{equation}
+It satisfies the following properties:
+\begin{enumerate}
+  \item $0<\omega(z,E,\mathbb{H})<1$ for $z\in \mathbb{H}$,
+  \item $\omega(z,E,\mathbb{H})\to 1$ as $z\to E$, and 
+  \item $\omega(z,E,\mathbb{H})\to 0$ as $z\to \mathbb{R}\backslash \overline{E}$.
+\end{enumerate}
+\end{definition}
+The function $\omega(z,E,\mathbb{H})$ is the unique harmonic function on $\mathbb{H}$ that satisfies a,b and c. The uniqueness of $\omega(z,E,\mathbb{H})$ is a consequence of Lindel\"{o}f's maximum principle (see \cite[2]{garnett2005harmonic}). 
+\iffalse  \section{Cartan lemma}
+This lemma isn't used in the paper, but its method of proof is used, hence we present the proof here. It follows \cite[76-78]{levin1996lectures}.
+\begin{theorem}
+  Let 
+  \[
+    u(z)=\int\int_{\mathbb{C}}\log \left| z-\zeta \right| \mathrm{d}\mu(\zeta)
+  \] 
+  where $\mu$ is Borel measure, $\mu(\mathbb{C}=n<\infty$. Given $H$, $0<H<1$, there exists a system of disks in the complex plane such that 
+  \[
+  \sum_{}^{} r_j\le 5H,
+  \] 
+  where $r_j$ are raddi of these disks and 
+  \[
+    u(z)\ge n \log \frac{H}{e}
+  \] everywhere outside these disks.
+\end{theorem}
+\begin{proof}
+  Fuck
+\end{proof}
+\fi
+\end{appendices}
+

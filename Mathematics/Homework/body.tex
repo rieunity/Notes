@@ -1,0 +1,42 @@
+\section{Sobolev空间}
+\begin{exercise}
+  若$1<p,q<\infty$,$\frac{1}{p}+\frac{1}{q}=1$,证明H\"{o}lder不等式:
+  \[
+  \|fg\|_{L^{1}}\le \|f\|_{L^{p}}\|g\|_{L^{q}}.
+  \] 
+\end{exercise}
+\begin{proof}
+  由不等式的齐次对称性,不妨令$\|f\|_{L^{p}}=\|g\|_{L^{q}}=1$.
+  设$\theta = \frac{1}{p}$, 则$1-\theta = \frac{1}{q}$. 令 $F=|f|^{p},G=|g|^{q}$. 则需要被证明的不等式转化为
+  \begin{equation}
+    \int_{X}F^{\theta}G^{1-\theta}\mathrm{d}\mu\le 1.\label{1}
+\end{equation}
+  由$\ln x$ 函数的凸性可得
+  \[
+    F^{\theta}(x)G^{1-\theta}(x)\le \theta F(x) +(1-\theta) G(x).
+  \] 
+  对上式积分便得到(\ref{1})式.
+\end{proof}
+\begin{exercise}
+  若$f\in L^2(\R^{n})$, 证明$e^{-|x|^2}*f\in L^{p}(\R^{n}),2\le p\le \infty$.
+\end{exercise}
+\begin{proof}
+  令 $q$满足
+   \[
+  1+\frac{1}{p}=\frac{1}{2}+\frac{1}{q},
+  \]
+  其中$1\le q\le 2$.
+  则由Young不等式可得
+  \begin{equation}
+    \begin{aligned}
+      \|e^{-|x|^2}*f\|_{L^{p}(\R^{n})}\le & \|e^{-|x|^2}\|_{L^{q}(\R^{n})}\|f\|_{L^{2}(\R^{n})}.
+    \end{aligned}
+  \end{equation}
+  而
+  \begin{equation*}
+    \begin{aligned}
+      \|e^{-|x|^2}\|_{L^{q}(\R^{n})}^{q} = & \int_{\R^{n}}e^{-q|x|^2}\mathrm{d}x<\infty,
+    \end{aligned}
+  \end{equation*}
+  且$f\in L^2(\R^{n})$,所以 $e^{-|x|^2}*f \in L^{p}(\R^{n})$.
+\end{proof}

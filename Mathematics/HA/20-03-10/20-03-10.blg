@@ -1,0 +1,9 @@
+[0] Config.pm:304> INFO - This is Biber 2.13
+[0] Config.pm:307> INFO - Logfile is '20-03-10.blg'
+[23] biber:315> INFO - === Mon Mar 16, 2020, 20:01:23
+[36] Biber.pm:375> INFO - Reading '20-03-10.bcf'
+[88] Biber.pm:905> INFO - Found 0 citekeys in bib section 0
+[92] Utils.pm:300> WARN - The file '20-03-10.bcf' does not contain any citations!
+[98] bbl.pm:648> INFO - Writing '20-03-10.bbl' with encoding 'UTF-8'
+[98] bbl.pm:751> INFO - Output to 20-03-10.bbl
+[98] Biber.pm:110> INFO - WARNINGS: 1

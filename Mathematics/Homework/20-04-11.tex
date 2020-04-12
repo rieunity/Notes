@@ -1,0 +1,89 @@
+%TEX program = xelatex
+\documentclass[a4paper,12pt]{article}
+\usepackage{geometry}
+\geometry{a4paper,scale=0.7}
+\usepackage{ctex}
+ \usepackage[colorlinks,
+           linkcolor=red,
+           anchorcolor=blue,
+           citecolor=green
+           ]{hyperref} 
+%少量中文时使用
+%\usepackage{xeCJK}
+\usepackage[center]{titlesec}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+%\usepackage[english]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{mathtools}
+
+%appendices
+\usepackage[titletoc]{appendix}
+
+%cite
+\usepackage{biblatex}
+\addbibresource{mybib.bib}
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\newcommand{\incfig}[1]{%
+  \def\svgwidth{\columnwidth}
+  \import{./figures/}{#1.pdf_tex}
+}
+
+
+
+% Some shortcuts
+\newcommand\N{\ensuremath{\mathbb{N}}}
+\newcommand\R{\ensuremath{\mathbb{R}}}
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+\renewcommand\O{\ensuremath{\emptyset}}
+\newcommand\Q{\ensuremath{\mathbb{Q}}}
+\renewcommand\C{\ensuremath{\mathbb{C}}}
+
+% Some theorem environment settings
+\usepackage{ntheorem}
+\theoremseparator{.}
+\newtheorem{theorem}{Theorem}[section]
+\newenvironment{proof}{{\noindent\textbf{证明}}: }{\hfill $\square$\par}
+\theorembodyfont{\upshape}
+\newtheorem*{remark}{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{exercise}{习题}
+\newtheorem{sol}{解:}
+% Enumerate Style
+\renewcommand{\labelenumi}{{\normalfont\alph{enumi}. }}
+
+% Tensor
+\usepackage{tensor}
+
+\DeclareMathOperator{\order}{ord}
+% bracket notations 
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
+
+% Normal ordering
+\newcommand{\normord}[1]{:\mathrel{#1}:}
+
+
+\begin{document}
+\title{偏微分方程理论作业\\
+}
+\author{\large 王允磊}
+  
+\maketitle
+%\begin{abstract}
+%\end{abstract}
+\tableofcontents
+\input{body}
+
+%\bibliographystyle{plain}
+%\bibliography{mybib}
+%\printbibliography
+
+\end{document}

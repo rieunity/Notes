@@ -1,0 +1,192 @@
+\section{$L^{p}$ Spaces and Interpolation}
+\subsection{$L^{p}$ and Weak  $L^{p}$}
+\begin{definition}
+  For $f$ a measurable function  on $X$, the \textit{distribution function} of $f$ is the function $d_f$ defined on $[0,\infty)$ as follows:
+  \[
+    d_f(\alpha)=\mu\left( \left\{ x\in X:|f(x)|>\alpha \right\}  \right). 
+  \] 
+\end{definition}
+\begin{proposition}
+  Let $(X,\mu)$ be a $\sigma$-finite measure space. Then for $f$ in $L^{p}(X,\mu)$, $0<p<\infty$, we have
+\begin{equation}
+  \|f\|_{L^{p}}^{p}=p \int_0^{\infty}\alpha ^{p-1}d_{f}(\alpha)\mathrm{d}\alpha.
+\end{equation} 
+Moreover, for any increasing continuously differentiable function $\varphi$ on $[0,\infty)$ with
+$\varphi(0)=0$ and every measurable function $f$ on $X$ with $\varphi(|f|)$ integrable on $X$, we have
+\begin{equation}
+  \int_{X}\varphi(|f|)\mathrm{d}\mu=\int_{0}^{\infty}\varphi'(\alpha)d_f(\alpha)\mathrm{d}\alpha.
+\end{equation}
+\end{proposition}
+\begin{proof}
+  \begin{equation*}
+    \begin{aligned}
+      p \int_0^{\infty}\alpha ^{p-1}d_f(\alpha)\mathrm{d}\alpha=& p \int_0^{\infty}\alpha ^{p-1}\int_{X}\chi_{\left\{ x:|f(x)|>\alpha \right\} }\mathrm{d}\mu(x)\mathrm{d}\alpha\\
+      =& \int_{X}\int_{0}^{|f(x)|}p\alpha ^{p-1}\mathrm{d}\alpha \mathrm{d}\mu(x)\\
+      =& \int_{X}|f(x)|^{p}\mathrm{d}\mu(x)\\
+      =& \|f\|_{L^{p}}^{p}.
+    \end{aligned}
+  \end{equation*}
+  \begin{equation*}
+    \begin{aligned}
+      \int_{0}^{\infty}\varphi'(\alpha)d_f(\alpha)\mathrm{d}\alpha=& \int_{0}^{\infty}\varphi'(\alpha)\int_{X}\chi_{\left\{ x:|f(x)|>\alpha \right\} }\mathrm{d}\mu(x)\mathrm{d}\alpha\\
+      =& \int_{X}\int_0^{|f(x)|}\varphi'(\alpha)\mathrm{d}\alpha \mathrm{d}\mu(x)\\
+      =& \int_{X}\varphi(|f|)\mathrm{d}\mu. 
+    \end{aligned}
+  \end{equation*}
+\end{proof}
+\begin{definition}
+  For $0<p<\infty$, the space \textit{weak} $L^{p}(X,\mu)$ is defined as the set of all $\mu$-measurable functions $f$ such that
+  \begin{equation*}
+    \begin{aligned}
+      \|f\|_{L^{p,\infty}}=&\inf \left\{ C>0:d_f(\alpha)\le \frac{C^{p}}{\alpha ^{p}} \text{ for all }\alpha>0 \right\} \\
+      =&\sup\left\{ \gamma d_f(\gamma)^{1 /p}:\gamma>0 \right\} 
+    \end{aligned}
+  \end{equation*}
+  is finite. The space \textit{weak} $L^{\infty}(X,\mu)$ is by definition $L^{\infty}(X,\mu)$.
+\end{definition}
+
+\begin{proposition}
+  Since 
+  \[
+    \alpha ^{p}d_f(\alpha)\le \int_{\left\{ x:|f(x)|>\alpha \right\} }|f(x)|^{p}\mathrm{d}\mu(x)\le \|f\|^{p}_{L^{p}},
+  \] 
+  we get
+  \[
+  \|f\|_{L^{p,\infty}}\le \|f\|_{L^{p}}
+  \] 
+  for any $f$ in $L^{p(X,\mu)}$. Hence the embedding $L^{p}(X,\mu)\subset L^{p,\infty}(X,\mu)$ holds.
+\end{proposition}
+\subsection{Convergence in Measure}
+\begin{definition}
+  Let  $f,f_n,n=1,2,\cdots,$ be measurable functions on the measure space $(X,\mu)$. The sequence $f_n$ is said to \textit{converge in measure} to $f$ if for all $\varepsilon >0$ there exists an $n_0\in \Z^{+}$ such that
+  \begin{equation}\label{1}
+    n>n_0\Longrightarrow \mu\left( \left\{ x\in X:|f_n(x)-f(x)|>\varepsilon  \right\}  \right) <\varepsilon .
+  \end{equation}
+\end{definition}
+\begin{proposition}
+The preceding definition is equivalent to the following statement:
+\begin{equation}\label{2}
+  \text{For all }\varepsilon >0 \quad \lim_{n \to \infty} \mu\left( \left\{ x\in X:|f_n(x)-f(x)|>\varepsilon  \right\}  \right) =0.
+\end{equation}
+\end{proposition}
+\begin{proof}
+  Clearly (\ref{2}) implies (\ref{1}). To see the converse, given $\varepsilon >0$, pick $0<\delta<\varepsilon $ and apply (\ref{1}) for this $\delta$. 
+\end{proof}
+
+\begin{proposition}
+  Let $0<p<\infty$ and $f_n,f$ be in $L^{p,\infty}(X,\mu)$.
+  \begin{enumerate}
+    \item If $f_n,f$ are in $L^{p}$ and $f_n\to f$ in $L^{p}$, then $f_n\to f$ in $L^{p,\infty}$.
+    \item If $f_n\to f $ in $L^{p,\infty}$, then $f_n$ converges to $f$ in measure.
+  \end{enumerate}
+\end{proposition}
+\begin{theorem}\label{thm-8}
+  Let $f_n$ and $f$ be complex-valued measurable functions on a measure space $(X,\mu)$ and suppose that $f_n$ converges to $f$ in measure. Then some subsequence of $f_n$ converges to $f$ $\mu$-a.e.
+\end{theorem}
+\begin{proof}
+  For all $k=1,2,\cdots,$ choose inductively $n_k$ such that 
+  \begin{equation}
+    \mu\left( \left\{ x\in X:|f_{n_k}(x)-f(x)|>2^{-k} \right\}  \right) <2^{-k}
+  \end{equation}
+  and such that $n_1<n_2<\cdots<n_k<\cdots$. Define the sets
+  \begin{equation}
+    A_k=\left\{ x\in X:|f_{n_k}(x)-f(x)|>2^{-k} \right\} .
+  \end{equation}
+  The left work is to prove 
+  \begin{equation}
+    \mu\left( \bigcap_{m=1} ^{\infty}\bigcup_{k=m} ^{\infty}A_k \right) =0
+  \end{equation}
+\end{proof}
+\begin{definition}
+  We say that a sequence of measurable functions $\left\{ f_n \right\} $ on the measure space $\left( X,\mu \right) $ is \textit{Cauchy in measure} if for every $\varepsilon >0$, there exists an $n_0\in \Z^{+}$ such that for $n,m>n_0$ we have
+  \[
+    \mu\left( \left\{ x\in X:|f_{m}(x)-f_n(x)|>\varepsilon  \right\}  \right) <\varepsilon .
+  \] 
+\end{definition}
+\begin{theorem}
+  Let $f_n$ be a complex-valued sequence that is Cauchy in measure. Then some subsequence of $f_n$ converges $\mu$-a.e.
+\end{theorem}
+\begin{proof}
+  The proof is similar to Theorem \ref{thm-8}. 
+\end{proof}
+\subsection{A First Glimpse at Interpolation}
+\begin{proposition}
+  Let $0<p<q\le \infty$ and let $f$ in $L^{p,\infty}(X,\mu)\cap L^{q,\infty}(X,\mu)$, where $X$ is a $\sigma$-finite measure space. Then $f$ is in $L^{r}(X,\mu)$ for all $p<r<q$ and
+  \begin{equation}
+    \|f\|_{L^{r}}\le \left( \frac{r}{r-p}+\frac{r}{q-r} \right) ^{\frac{1}{r}}\|f\|_{L^{p,\infty}}^{\frac{\frac{1}{r}-\frac{1}{q}}{\frac{1}{p}-\frac{1}{q}}}\|f\|_{L^{q,\infty}}^{\frac{\frac{1}{p}-\frac{1}{r}}{\frac{1}{p}-\frac{1}{q}}},
+  \end{equation}
+  with the interpretation that $\frac{1}{\infty}=0$.
+\end{proposition}
+\begin{proof}
+  First assume $q<\infty$. We know that 
+  \begin{equation}
+    d_f(\alpha)\le \min\left( \frac{\|f\|_{L^{p,\infty}}}{\alpha ^{p}},\frac{\|f\|_{L^{q,\infty}}^{q}}{\alpha ^{q}} \right) .
+  \end{equation}
+  Set 
+  \begin{equation}
+    B=\left( \frac{\|f\|_{L^{q,\infty}}^{q}}{\|f\|_{L^{p,\infty}}^{p}} \right) ^{\frac{1}{q-p}}.
+  \end{equation}
+  We now estimate the $L^{r}$ norm of $f$. 
+  \begin{equation*}
+    \begin{aligned}
+      \|f\|_{L^{r}(X,\mu)}^{r}= & r\int_0^{\infty}\alpha ^{r-1}d_f(\alpha)\mathrm{d}\alpha\\
+      \le &r\int_0^{\infty}\alpha ^{r-1}\min\left(  \frac{\|f\|_{L^{p,\infty}}^{p}}{\alpha ^{p}},\frac{\|f\|_{L^{q,\infty}}^{q}}{\alpha ^{q}} \right) \mathrm{d}\alpha\\
+      =&r \int_0^{B}\alpha ^{r-1-p}\|f\|_{L^{p,\infty}}^{p}\mathrm{d}\alpha+r\int_B^{\infty}\alpha ^{r-1-q}\|f\|_{L^{q,\infty}}^{q}\mathrm{d}\alpha\\
+      =&\frac{r}{r-p}\|f\|^{p}_{L^{p,\infty}}B^{r-p}+\frac{r}{q-r}\|f\|_{L^{q,\infty}}^{q}B^{r-q}\\
+      =& \left( \frac{r}{r-p}+\frac{r}{q-r} \right) \left( \|f\|_{L^{p,\infty}}^{p} \right) ^{\frac{q_-r}{q-p}}\left( \|f\|_{L^{q,\infty}}^{q} \right) ^{\frac{r-p}{q-p}}. 
+    \end{aligned}
+  \end{equation*}
+  The case $q=\infty$ is easier and the consequence is 
+  \[
+  \|f\|_{L^{r}}^{r}\le \frac{r}{r-p}\|f\|_{L^{p,\infty}}^{p}\|f\|_{L^{\infty}}^{r-p}.
+  \] 
+\end{proof}
+\begin{definition}
+  For $0<p<\infty$, the space $L_{\mathrm{loc}}^{p}(\R^{n},|\cdot |)$ or simply $L_{\mathrm{loc}}^{p}(\R^{n})$ is the set of all Lebesgue-measurable functions $f$ on $\R^{n}$ that satisfy
+  \begin{equation}\label{11}
+    \int_{K}|f(x)|^{p}\mathrm{d}x<\infty
+  \end{equation}
+  for any compact subset $K$ of $\R^{n}$. Functions that satisfy (\ref{11}) with $p=1$ are called \textit{locally integrable} functions on $\R^{n}$.
+\end{definition}
+\section{Convolution an Approximate Identities}
+\subsection{Convolutin}
+\begin{definition}
+  Let $f,g$ be in $L^{1}(G)$. Define the \textit{convolution} $f\cdot g$ by 
+  \begin{equation}\label{11}
+    (f\cdot g)(x)=\int_{G}f(y)g(y^{-1}x)\mathrm{d}\lambda(y).
+  \end{equation}
+  For instance, if $G=\R^{n}$ with the usual additive structure, then $y^{-1}=-y$ and the integral in (\ref{11}) is written as 
+  \[
+    (f\cdot g)(x)=\int_{\R^{n}}f(y)g(x-y)\mathrm{d}y.
+  \] 
+\end{definition}
+The right-hand side of (\ref{11}) is defined a.e., since the following double integral converge absolutely:
+\begin{equation}
+  \begin{aligned}
+    \int_{G}\int_{G}|f(y) \mid g(y^{-1}x)|\mathrm{d}\mathrm{d}\lambda(y)\mathrm{d}\lambda(x) = & \int_G\int_G |f(y) \mid g(y^{-1}x)|\mathrm{d}\lambda(x)\mathrm{d}\lambda(y)\\
+    = & \int |f(y)|\int_G |g(y^{-1}x)|\mathrm{d}\lambda(x)\mathrm{d}\lambda(y)\\
+    = & \int_{G}|f(y)|\int_G|g(x)|\mathrm{d}\lambda(x)\mathrm{d}\lambda(y)\\
+    = & \|f\|_{L^{1}(G)}\|g\|_{L^{1}(G)}<+\infty.
+  \end{aligned}
+\end{equation}
+The change of variables $z=x^{-1}y$ yields that (\ref{11}) is in fact equal to 
+\begin{equation}
+  (f*g)(x)=\int_{G}f(xz)g(z^{-1})\mathrm{d}\lambda(z)
+\end{equation}
+where the substitution of $\mathrm{d}\lambda(y)$ by $\mathrm{d}\lambda(z)$ is justified by left invariance.
+
+\begin{proposition}
+  For all $f,g,h$ in $L^{1}(G)$, the following properties are valid:
+  \begin{enumerate}
+    \item $f*(g* h)=(f* g)* h$ (associativity),
+    \item $f* (g+h)=f* g+f*h$ and $(f+g)*h=f*h+g*h$ (distributivity).
+  \end{enumerate}
+These imply that $L^{1}(G)$ is a (not necessarily commutative) Banach algebra under the convolution product.
+\end{proposition}
+\subsection{Basic Convolution Inequalities}
+\begin{theorem}[Minkowski's inequality]
+  Let $1\le p\le \infty$, $f\in L^{p}(G), g\in L^{1}(G) $, we have that $g*f$ exists $\lambda$-a.e. and satisfies
+  \begin{equation}
+    \|g*f\|_{L^{p}(G)}\le \|g\|_{L^{1}}(G)\|f\|_{L^{p}(G)}.
+  \end{equation}
+\end{theorem}

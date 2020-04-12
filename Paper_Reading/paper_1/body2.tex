@@ -1,0 +1,210 @@
+\section{Random periodization technique and the Morgan theorem}
+\begin{lemma}[the lattice averaging lemma]
+  Let $\varphi:\R\to \R_{+}$ be a positive summable function, and let $\varepsilon >0$ be fixed. Then 
+  \[
+    \int_1^{2}\sum_{k\in \Z\backslash \{0\} }^{} \varphi(k\varepsilon v)\mathrm{d}v\le  \frac{1}{\varepsilon }\int_{\R}\varphi(t)\mathrm{d}t
+  \] 
+  and \[
+    \int_1^{2}\sum_{k\in \Z\backslash \{0\} }^{} \varphi\left( \frac{k}{\varepsilon v} \right) \mathrm{d}v\le 4\varepsilon \int_{\R}\varphi(t)\mathrm{d}t.
+  \] 
+\end{lemma}
+\begin{definition}
+Let $E\subset \R$ be a measurable set of finite measure. Consider an arbitrary function $f\in L^{2}\left( \R \right) $ supported on E and fix a positive number $\varepsilon $. Define the random periodization $g$ of the function $f$ by
+\[
+  g(t)=g(\varepsilon ,v\lvert t)\overset{\mathrm{def}}{=} \frac{1}{\sqrt{\varepsilon v} }\sum_{k\in \Z}^{} f\left( \frac{k+t}{\varepsilon v} \right) .
+\] 
+Here $v$ is a random variable equidistributed on the interval $(1,2)$. The series in the definition of $g$ converges in $L^1_{\mathrm{loc}}\left( \R \right) $ since the measure of the support of $f$ is finite, and is a $1$-periodic function. 
+\end{definition}
+\begin{definition}
+  We denote by $\hat{f}$ the Fourier transform of a function $f\in L^2\left( \R \right) $ understood in the sense of the Plancherel theorem, i.e., as a limit in $L^2\left( \R \right) $ of the functions
+  \[
+    \hat{f_n}(\lambda)\overset{\mathrm{def}}{=}\int_{-n}^{n}f(x)e^{-2\pi i \lambda x}\mathrm{d}x.
+  \] 
+\end{definition}
+By definition, we compute the Fourier coefficients of $g$
+\begin{equation*}
+  \begin{aligned}
+    \hat{g}_m & =  \lim_{n\to \infty}\int_{-n}^{n}g(t)e^{-2\pi i m t }\mathrm{d}t\\
+    & = \lim_{n \to \infty} \int_{-n}^{n}\frac{1}{\sqrt{\varepsilon v} }\sum_{k\in \Z}^{} f\left( \frac{k+t}{\varepsilon  v} \right) e^{-2\pi i m t}\mathrm{d}t.\\
+    & \overset{t=\varepsilon v\lambda}{=} \lim_{n\to \infty}\sqrt{\varepsilon  v} \sum_{k\in \Z}^{} \int_{-n / (\varepsilon v)}^{n / (\varepsilon v)} f\left( \frac{k}{\varepsilon v}+\lambda \right) e^{-2\pi i m \varepsilon v\lambda}\mathrm{d}\lambda\\
+    & = \lim_{n \to \infty} \sqrt{\varepsilon v} \sum_{k\in \Z}^{} \int_{(-n+k) / (\varepsilon v)}^{(n+k) / (\varepsilon  v)} f\left( \lambda \right) e^{-2\pi i m\varepsilon  v\lambda}\mathrm{d}\lambda\\
+    & = \sqrt{\varepsilon v} \hat{f}\left( m\varepsilon v \right) .
+  \end{aligned}
+\end{equation*}
+\begin{proposition}
+  \begin{enumerate}
+    \item []
+    \item [(a)] $\mu\left( \left\{ t\in (0,1):g(t)\neq 0 \right\}  \right) \le 2\varepsilon \mu(E)$;
+    \item [(b)] $\mathbf{E}\|g\|^2_{L^2(0,1)}\le 2\varepsilon | \hat{f}(0) |^2+2\|f\|^2_{L^2(\R)}\le 2\left( \varepsilon \mu(E)+1 \right) \|f\|^2_{L^2(\R)}$. 
+    \item [] Let $\Sigma \subset \R$ be measurable, $0\in \Sigma$. We consider a random lattice $\Lambda=\Lambda(\varepsilon ,v)\overset{\mathrm{def}}{=}\left\{ s\varepsilon v:s\in \Z \right\} $ and denote $\mathfrak{M}=\left\{ s\in \Z: s\varepsilon v\in \Sigma \right\} $.
+    \item [(c)]$\mathbf{E}\left( \mathrm{card}\mathfrak{M}-1 \right)\le  \frac{\mu\left( \Sigma \right) }{\varepsilon } $;
+    \item [(d)] $\mathbf{E}\Sigma_{m\in \Z\backslash \mathfrak{M}}\left| \hat{g}_m \right| ^2\le 2\int_{\R\backslash \Sigma}|\hat{f} | ^2$.
+  \end{enumerate}
+\end{proposition}
+\begin{proof}
+  \begin{enumerate}
+    \item []
+    \item [(a)] The measure of the set of all points $t\in (0,1)$ for which the summand $f\left( \frac{k+t}{\varepsilon v} \right) $ in the series defining $g$ does not vanish is equal to $\mu\left( \varepsilon  v E  \cap (k,k+1)\right)$. Therefore,
+    \[
+      \mu\left( \left\{ t\in (0,1):g(t)\neq 0 \right\}  \right) \le \sum_{k\in \Z}^{} \mu\left( \left\{ \varepsilon vE\cap (k,k+1) \right\}  \right) =\mu\left( \varepsilon vE \right) \le 2\varepsilon \mu\left( E \right) .\footnote{Remember that $v$ is a random variable equidistributed on the interval $(1,2)$.}
+    \] 
+  \item [(b)]  \[
+      \mathbf{E}\|g\|^2_{L^2(0,1)}=\mathbf{E}\sum_{k\in \Z}^{} |\hat{g}_k|^2=\mathbf{E}|\hat{g}_0|^2+\mathbf{E}\sum_{k\in \Z\backslash \{0\} }^{} |\hat{g}_k|^2. 
+  \] 
+  But $|\hat{g}_0|^2=\varepsilon v|\hat{f}(0)|^2\le 2\varepsilon |\hat{f}(0)|^2$, and 
+  \begin{equation*}
+    \begin{aligned}
+      \mathbf{E} \sum_{k\in \Z\backslash \left\{ 0 \right\} }^{} |\hat{g}_k|^2= & \int_{1}^2\left( \sum_{k\in \Z\backslash \left\{ 0 \right\} }^{} \varepsilon v|\hat{f}(k\varepsilon v)|^2 \right) \mathrm{d}v\\
+      \le  & 2\varepsilon \int_1^2\left( \sum_{k\in \Z\backslash \{0\} }^{} |\hat{f}(k\varepsilon v)|^2 \right) \mathrm{d}v\\
+      \le & 2\int_{\R}|\hat{f}|^2=2\|f\|^2_{L^2(\R)}.
+    \end{aligned}
+  \end{equation*}
+  It remains to notice that 
+  \[
+    |\hat{f}(0)|^2=|\int_E f|^2\le \mu(E)\int_E|f|^2=\mu(E)\|f\|^2_{L^2(\R)}.
+  \]
+\item  [(c)] Since $\mathrm{card}\mathfrak{M}=1+\sum_{k\in \Z\backslash \{0\} }^{} \chi_{\Sigma}(k\varepsilon v)$, we have
+  \[
+    \mathbf{E}(\mathrm{card}\mathfrak{M}-1)=\int_1^2 \sum_{k\in \Z\backslash \left\{ 0 \right\} }^{} \chi_{\Sigma}(k\varepsilon v)\mathrm{d}v\le  \frac{1}{\varepsilon }\int_{\R}\chi_{\Sigma}=\frac{\mu(\Sigma)}{\varepsilon }.
+  \] 
+\item [(d)]
+  \begin{equation*}
+    \begin{aligned}
+      \mathbf{E}\sum_{m\in \Z\backslash \mathfrak{M}}^{} |\hat{g}_m|^2 = & \int_1^2\left( \sum_{k\in \Z\backslash \{0\} }^{} \varepsilon v|\hat{f}(k\varepsilon v)|^2\chi_{\R\backslash \Sigma}(k\varepsilon v) \right)\mathrm{d}v\\
+      \le & 2\varepsilon  \int_1^2 \left( \sum_{k\in \Z\backslash \{0\} }^{} \left( |\hat{f}(k\varepsilon v)|^2\chi_{\R\backslash \Sigma} \right) (k\varepsilon v) \right) \mathrm{d}v\\
+      \le & 2\int_{\R}|\hat{f}|^2\chi_{\R\backslash \Sigma}=2\int_{\R\backslash \Sigma}|\hat{f}|^2.
+    \end{aligned}
+  \end{equation*}
+  \end{enumerate}
+\end{proof}
+
+Let $E$ and $\Sigma$ be two measurable subsets of $\R$. Borrrowing the terminology from J\"{o}ricke and Havin, we say that $E$ and $\Sigma$ annihilate if for every  function $f\in L^2(\R)$ the conditions $\mathrm{supp}f\subset E$, $\mathrm{spec}f\subset \Sigma$ imply that $f$ vanishes identically. We say that $E$ and $\Sigma$ strongly annihilate if there exists a constant $C>0$ such that the inequality
+
+\begin{equation*}
+  \begin{aligned}
+    (*)  & &  \|f\|^2_{L^2(\R)}\le C\left( \int_{\R\backslash E}|f|^2+\int_{\R\backslash \Sigma}|\hat{f}|^2 \right) 
+  \end{aligned}
+\end{equation*}
+holds for every function $f\in L^2(\R)$. The strong annihilation condition can be written in a form which is less symmetric but more convenient to verify: $E$ and $\Sigma$ strongly annihilate if and only if 
+  \begin{equation*}
+    \begin{aligned}
+      (**) & & \int_{\Sigma}|\hat{f}|^2\le C'\int_{\R\backslash \Sigma}|\hat{f}|^2
+    \end{aligned}
+  \end{equation*}
+  for every $f\in L^2(\R)$ supported on $E$.
+
+  There is a relationship between the best possible constants  $C$ and $C'$ :
+  \[
+    C'=\mathrm{ctg}^2\alpha, \qquad C=\frac{1}{2\sin^2 \frac{\alpha}{2}}=\frac{1}{1-\cos\alpha},
+  \] 
+  where $\alpha$ is the angle between the subspaces $L^2(E)\overset{\mathrm{def}}{=}\left\{ f\in L^2(\R):\mathrm{supp}f \subset  E \right\} $ and $L^2\left( \hat{\Sigma} \right) \overset{\mathrm{def}}{=}\left\{ f\in L^2(\R):\mathrm{spec}f\subset \Sigma \right\} $ of the Hilbert space $L^2(\R)$. The proof of this statement is a simple exercise in geometry. Denote g by $P_{E}$ and $P_{\hat{\Sigma}}$ the orthogonal projection onto $L^2(E)$ and $L^2(\hat{\Sigma})$, repectively, we have:
+  \begin{equation*}
+    \begin{aligned}
+      \cos \alpha = & \sup\left\{ |(f,g)|:f\in L^2(E),g\in L^2\left( \hat{\Sigma} \right), \|f\|^2_{L^2(\R)}=\|g\|^2_{L^2(\R)}=1  \right\}\\
+      = & \sup\left\{ |\left( P_{\hat{\Sigma}}f,g \right) |:\cdots \right\} \\
+      = & \sup\left\{ \|P_{\hat{\Sigma}}f\|_{L^2(\R)}:f\in L^2(E),\|f\|^2_{L^2(\R)}=1 \right\}, 
+    \end{aligned}
+  \end{equation*}
+  and
+  \begin{equation*}
+    \begin{aligned}
+      C' = & \sup\left\{ \frac{\int_{\Sigma}|\hat{f}|^2}{\int_{\R\backslash \Sigma}|\hat{f}|^2}:f\in L^2(E),\|f\|^2_{L^2(\R)}=1 \right\} \\
+      = & \sup \left\{ \frac{\|P_{\hat{\Sigma}}f\|^2_{L^2(\R)}}{1-\|P_{\hat{\Sigma}}f\|^2_{L^2(R)}}:f\in L^2(E), \|f\|^2_{L^2(\R)}=1 \right\} \\
+      = & \frac{\cos^2\alpha}{1-\cos^2\alpha}\\
+      = & \mathrm{ctg}^2\alpha.
+    \end{aligned}
+  \end{equation*}
+  The computation of the constant $C$ is slightly more complicated. Denote by $\beta$ and $\gamma$ the angles between $f$ and the subspaces $L^2(E)$ and $L^2\left( \hat{\Sigma} \right) $, respectively. It is clear that $0<\beta,\gamma<\frac{\pi}{2},\beta+\gamma\ge \alpha$. Since 
+  \begin{equation*}
+    \begin{aligned}
+      \int_{\R\backslash E}|f|^2+\int_{\R\backslash \Sigma}|\hat{f}|^2= & \|f-P_Ef\|^2_{L^2(\R)}+\|f-P_{\hat{\Sigma}}f\|^2_{L^2(\R)}\\
+      = & \|f\|^2-2(P_Ef,f)+\|P_Ef\|^2+\|f\|^2-2(P_{\hat{\Sigma}}f,f)+\|P_{\hat{\Sigma}}f\|^2\\
+      = & \left( \sin^2\beta+\sin^2\gamma \right) \|f\|^2_{L^2(\R)} \ge 2\sin^2 \frac{\alpha}{2}\|f\|^2_{L^2(\R)},
+    \end{aligned}
+  \end{equation*}
+  we have $C\le \frac{1}{2\sin^2 \frac{\alpha}{2}}$. To verify the reverse inequality, it suffices to exhibit a function $f$ for which the angles $\beta$ and $\gamma$ are close to $\frac{\alpha}{2}$. This can be done as follows. One can choose $g\in L^2(E)$ and $h\in L^2(\hat{\Sigma})$ so that $\|g\|_{L^2(\R)}=\|h\|_{L^2(\R)}=1$ and $\mathrm{Re}(h,g)\approx \cos\alpha$, and then put $f\overset{\mathrm{def}}{=}\frac{1}{2}(g+h)$.
+
+  It should be noted that, proceeding in the same way, one can describe the image of the unit ball of $L^2(\R)$ under the mapping
+  \[
+    L^2(\R)\ni f\to \left( \int_{\R\backslash E}|f|^2,\int_{\R\backslash \Sigma}|\hat{f}|^2 \right) \in \R^2_{+}
+  \] 
+  provided that each of the subspaces $L^2(E)$ and $L^2(\hat{\Sigma})$ contains a vector making an angle arbitrarily close to $\frac{\pi}{2}$ with the other subspace (this condition is certainly satisfied if both $E$ and $\Sigma$ have zero density at infinity, i.e., if $\lim_{A \to +\infty}  \frac{\mu(E\cap [-A,A]}{A}=\lim_{A \to +\infty} \frac{\mu(\Sigma\cap [-A,A]}{A}=0$; the corresponding vectors can be chosen among those of the form $fe^{i\lambda t}$ and $\tau_{\lambda}g$, where $f\in L^2(E)$, $g\in L^2(\hat{\Sigma})$ and $\lambda$ is a suitable number from a sufficiently large interval centered at $0$ ). This image turns out to be the square $[0,1]^2$ with the upper-right angle cut off along the curve $\mathrm{arccos}\sqrt{x} +\mathrm{arccos}\sqrt{y} =\alpha$.
+
+  Excluding $\alpha$ from the formulas for $C$ and $C'$, we get 
+  \[
+    C=C'+1+\sqrt{C'(C'+1)} \le 2C'+\frac{3}{2}.
+  \] 
+Now we state the main theorem of this section.
+
+  \begin{theorem}
+    For every two sets $E$ and $\Sigma$ of finite measure and every function $f\in L^2(\R)$, the following inequality holds:
+    \[
+      \|f\|^2_{L^2(\R)}\le 130e^{66\mu(E)\mu(\Sigma)}\left( \int_{\R\backslash E}|f|^2+\int_{\R\backslash \Sigma}|\hat{f}|^2 \right) .
+    \] 
+  \end{theorem}
+  \begin{proof}
+    As it was shown above, it suffices to prove that 
+    \[
+      \int_{\Sigma}|\hat{f}|^2\le 64e^{\mu(E)\mu(\Sigma)}\int_{\R\backslash \Sigma}|\hat{f}|^2
+    \] 
+    for every function $f\in L^2(E)$. We set $\varepsilon =\frac{1}{4\mu(E)}$ and introduce the random periodiztion $g$ of the function $f$. By (a), 
+    \[
+      \mu\left( \left\{ t\in (0,1):g(t)=0 \right\}  \right) \overset{\mathrm{def}}{=}\mu(F)\ge 1-2\varepsilon \mu(E)=\frac{1}{2}.
+    \] 
+    We decompose $g$ into a sum $p+q$, where
+    \[
+      p(t)\overset{\mathrm{def}}{=}\sum_{m:m\varepsilon v\in \Sigma\cup \{0\} }^{} \hat{g}_me^{2\pi imt}\overset{\mathrm{def}}{=}\sum_{m\in\mathfrak{M} }^{} \hat{g}_me^{2\pi imt}
+    \] 
+    and 
+     \[
+       q(t)\overset{\mathrm{def}}{=}\sum_{m\in \Z\backslash \mathfrak{M}}^{} \hat{g}_me^{2\pi i mt}. 
+    \] 
+    We have 
+    \[
+      \mathbf{E}\|q\|^2_{L^2(0,1)}=\mathbf{E}\sum_{m\in \Z\backslash \mathfrak{M}}^{} |\hat{g}_m|^2\overset{\mathrm{(d)}}{\le }2\int_{\R\backslash \Sigma}|\hat{f}|^2,
+    \] 
+    whence
+    \[
+      \mathbf{P}\left( \left\{ \|q\|^2_{L^2(0,1)}>4\int_{\R\backslash \Sigma}|\hat{f}|^2 \right\}  \right) <\frac{1}{2}. 
+    \] 
+    Next, 
+    \[
+      \mathbf{E}(\order p -1)=\mathbf{E}(\mathrm{card}-1)\overset{\mathrm{(c)}}{\le } \frac{\mu(\Sigma)}{\varepsilon }=4\mu(E)\mu(\Sigma).
+    \] 
+    Consequently, 
+    \[
+      \mathbf{P}\left( \order p>1+8\mu(E)\mu(\Sigma)  \right) <\frac{1}{2}.
+    \] 
+    We see that, with positive probability, the following $4$ events take place simultaneously:
+    \begin{enumerate}
+      \item [(a)] $\mu(F)\ge \frac{1}{2}$ ;
+      \item [(b)] $\|q\|^2_{L^2(0,1)}\le 4\int_{\R\backslash \Sigma}|\hat{f}|^2$;
+      \item [(c)] $\order p\le 1+8\mu(E)\mu(\Sigma)$ ;
+      \item [(d)] $\varepsilon |\hat{f}(0)|^2=\frac{1}{4\mu(E)}|\hat{f}(0)|^2\le |\hat{p}_0|^2=|\hat{g}_0|^2$.
+    \end{enumerate}
+    Indeed, (a) and (d) always hold, while each of (b) and (c) does not hold with probability less than $\frac{1}{2}$. Since $g\lvert_{F}\equiv 0 $, we have $p\lvert_{F}=q\lvert_{F}$ and $\int_{F}|p|^2=\int_{F}|q|^2$. Hence 
+    \[
+      \mu\left( \left\{ t\in F:|p(t)|^2\ge 16\int_{\R\backslash \Sigma}|\hat{f}|^2 \right\}  \right) \le \frac{1}{4},\footnote{Indeed, if $\mu\left( \left\{ t\in F:|p(t)|^2\ge 16\int_{\R\backslash \Sigma}|\hat{f}|^2 \right\}  \right) >\frac{1}{4}$, we would obtain $\|q\|^2_{L^2(0,1)}>4\int_{\R\backslash \Sigma}|\hat{f}|^2$, this contradicts the event (b).}
+    \] 
+    and, since $\mu(F)\ge \frac{1}{2}$, we get
+    \[
+      \mu\left( \left\{ t\in (0,1):|p(t)|\le 4\left( \int_{\R\backslash \Sigma}|\hat{f}|^2 \right) ^{1 /2} \right\}  \right) \ge \frac{1}{4}.
+    \] 
+    Now a special case of the Turan lemma (Theorem 3 in Part I) implies
+     \begin{equation*}
+       \begin{aligned}
+	 \frac{1}{4\mu(E)}|\hat{f}(0)|^2\le  & |\hat{p}_0|^2\le \left( \sum_{k}^{} |\hat{p}_k| \right) ^2\le \left( \left( \frac{14}{1 /4} \right) ^{\order p-1}4\left( \int_{\R\backslash \Sigma}|\hat{f}|^2 \right) ^{1 /2} \right) ^2\\
+	 \le & 16\times 56 ^{16\mu(E)\mu(\Sigma)}\int_{\R\backslash \Sigma}|\hat{f}|^2,
+       \end{aligned}	
+     \end{equation*}
+     whence
+     \[
+       |\hat{f}(0)|^2\le 64\mu(E)e^{16\log 56\mu(E)\mu(\Sigma)}\int_{\R\backslash \Sigma}|\hat{f}|^2.
+     \] 
+     If we take the function $f_1(x)\overset{\mathrm{def}}{=}f(x)e^{-2\pi ixy}$ instead of $f(x)$ and the set $\Sigma - y$ instead of $\Sigma$, we arrive at the same estimate for $|\hat{f}(y)|$.
+     Integrating this estimate over $\Sigma$, we get the inequality
+     \[
+       \int_{\Sigma}|\hat{f}|^2\le 64\mu(E)\mu(\Sigma)e^{16 \log 56\mu(E)\mu(\Sigma)}\int_{\R\backslash \Sigma}|\hat{f}|^2\le 64e^{66\mu(E)\mu(\Sigma)}\int_{\R\backslash \Sigma}|\hat{f}|^2,
+     \] 
+     which proves the theorem.
+  \end{proof}

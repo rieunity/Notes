@@ -1,0 +1,98 @@
+\begin{definition}
+  Let $\mu$ and $\nu$ be outer measures on the non-empty sets $X$ and $Y$ respectively. We define the product measure of  $\mu$ and $\nu$ on the product set $X\times Y$ as, for $E\subset X\times Y$,
+  \begin{equation*}
+    \begin{aligned}
+     & (\mu\times \nu)(E)\\
+      =& \inf \left\{ \sum_{j=1}^{\infty} \mu(A_j)\nu(B_j):E\subset \bigcup_{j=1} ^{\infty}A_j\times B_j, A_j \text{ }\mu\text{-measurable}, B_j\text{ } \nu\text{-measurable} \right\} .
+    \end{aligned}
+  \end{equation*}
+\end{definition}
+
+To evaluate $\mu\times \nu$ in terms of $\mu$ and $\nu$, we introduce the following notations:
+\begin{align*}
+  \mathcal{P}_0&=\left\{ A\times B:A\text{ } \mu\text{-measurable} \text{ and } B\text{ } \nu\text{-measurable} \right\} \\
+  \mathcal{P}_1&=\left\{ R:R=\bigcup_{j=1} ^{n}A_j\times B_j, 1\le n\le \infty,A_j\times B_j\in \mathcal{P}_0 \right\} \\
+  \mathcal{P}_2&= \left\{ R:R=\bigcap_{j=1} ^{n}R_j,1\le n\le \infty,R_j \in \mathcal{P}_1 \right\} 
+.\end{align*}
+Elements in $\mathcal{P}_0$ are called measurable rectangles. We also set
+\begin{equation*}
+  \begin{aligned}
+    \mathcal{F}= & \left\{ R:\text{ For }\nu\text{-a.e. }y, x\mapsto \chi_{R}(x,y) \text{ is } \mu\text{-measurable and } \right. \\  
+  &\left.  y \mapsto \int \chi_{R}(x,y)\mathrm{d}\mu(x) \text{ is } \nu\text{-measurable}\right\}
+  \end{aligned}
+\end{equation*}
+Note that the map 
+\[
+  y\mapsto \int\chi_{R}(x,y)\mathrm{d}\mu(x)
+\] 
+is defined almost everywhere in $Y$.
+
+For $R\in \mathcal{F}$, we can define 
+\[
+  \rho(R)=\int_{Y}\left( \int_{X}\chi_{R}(x,y)\mathrm{d}\mu(x) \right) \mathrm{d}\nu(y).
+\] 
+The following lemmas show that  $\mathcal{P}_0,\mathcal{P}_1$ and $\mathcal{P}_2\subset \mathcal{F}$ and they are $\mu\times \nu$-measurable. Moreover,
+\[
+  (\mu\times \nu)(R)=\rho(R),
+\] 
+for $R\in \mathcal{P}_1$ or $R\in \mathcal{P}_2$ provided in the latter $R$ satisfies $\rho(R)<\infty$.
+
+\begin{lemma}
+  Y$\mathcal{P}_0\subset \mathcal{F}$ and 
+  \[
+    \rho(A\times B)=\mu(A)\nu(B), A\times B\in \mathcal{P}_0.
+  \] 
+\end{lemma}
+\begin{lemma}
+  $\mathcal{P}_1\subset \mathcal{F}$ and 
+  \[
+    \rho(R)=\sum_{1}^{\infty} \mu(A_j)\nu(B_j), \text{ whenever } R=\overset{\circ}{\bigcup}A_j\times B_j, A_j\times B_j\in \mathcal{P}_0. 
+  \] 
+  We have put a circle on top of the union sign to indicate that this is a union of pairwise disjoint sets.
+\end{lemma}
+\begin{lemma}
+  For $E\subset X\times Y$,
+  \[
+    (\mu\times \nu)(E)=\inf\left\{ \rho(R):E\subset R,R\in \mathcal{P}_1 \right\} .
+  \] 
+  In particular, for $A\times B\in \mathcal{P}_0$,
+  \[
+    (\mu\times \nu)(A\times B)=\mu(A)\nu(B)=\rho(A\times B).
+  \] 
+\end{lemma}
+
+\begin{lemma}
+  $\mathcal{P}_1$ and $\mathcal{P}_2$ consist of $\mu\times\nu$-measurable sets. For $R\in \mathcal{P}_1$,
+  \[
+    (\mu\times\nu)(R)=\sum_{j}^{} \mu(A_j)\nu(B_j)=\rho(R).
+  \] 
+\end{lemma}
+
+\begin{lemma}
+  Let $R\in \mathcal{P}_2$. Suppose that $R=\bigcap_{j=1} ^{\infty}R_j$, $R_j\in \mathcal{P}_1$, and $\rho(R_1)<\infty$. Then $R\in \mathcal{F}$ and 
+  \[
+    (\mu\times\nu)(R)=\rho(R).
+  \] 
+\end{lemma}
+
+\begin{lemma}
+  For $E\subset  X\times Y$, $\exists R  \in \mathcal{P}_2, E\subset R$ such that 
+  \[
+    (\mu\times\nu)(E)=(\mu\times\nu)(R).
+  \] 
+\end{lemma}
+
+\begin{theorem}[Fubini's Theorem]
+  Let $\mu$ and $\nu$ be $\sigma$-finite outer measures on $X$ and $Y$ respectively.
+  \begin{enumerate}
+    \item For any non-negative $\mu\times\nu$-measurable function $f$,
+    \item [] $x\mapsto f(x,y)$ is $\mu$-measurable for $\nu$-a.e. y, and
+    \item [] $y\mapsto \int_X f(x,y)\mathrm{d}\mu(x)$ is $\nu$-measurable.
+    \item [] Moreover,
+      \[
+	\int_{X\times Y}f(x,y)\mathrm{d}(\mu\times \nu)=\int_{Y}\left( \int_X f(x,y)\mathrm{d}\mu(x) \right) \mathrm{d}\nu(y).
+      \] 
+    \item  $\mathrm{(a)}$ holds for $f\in L^{1}(\mu\times\nu)$.
+  \end{enumerate}
+\end{theorem}
+Part (b) was first formulated by Tobelli and is also called Tonelli's theorem.

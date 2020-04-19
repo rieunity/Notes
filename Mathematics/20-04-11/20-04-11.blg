@@ -1,9 +1,9 @@
 [0] Config.pm:304> INFO - This is Biber 2.13
 [0] Config.pm:307> INFO - Logfile is '20-04-11.blg'
-[20] biber:315> INFO - === Sat Apr 11, 2020, 22:26:26
-[32] Biber.pm:375> INFO - Reading '20-04-11.bcf'
-[81] Biber.pm:905> INFO - Found 0 citekeys in bib section 0
-[85] Utils.pm:300> WARN - The file '20-04-11.bcf' does not contain any citations!
-[91] bbl.pm:648> INFO - Writing '20-04-11.bbl' with encoding 'UTF-8'
-[91] bbl.pm:751> INFO - Output to 20-04-11.bbl
+[19] biber:315> INFO - === Fri Apr 17, 2020, 20:25:18
+[31] Biber.pm:375> INFO - Reading '20-04-11.bcf'
+[80] Biber.pm:905> INFO - Found 0 citekeys in bib section 0
+[84] Utils.pm:300> WARN - The file '20-04-11.bcf' does not contain any citations!
+[90] bbl.pm:648> INFO - Writing '20-04-11.bbl' with encoding 'UTF-8'
+[90] bbl.pm:751> INFO - Output to 20-04-11.bbl
 [91] Biber.pm:110> INFO - WARNINGS: 1

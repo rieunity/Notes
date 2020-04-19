@@ -40,3 +40,114 @@
   \end{equation*}
   且$f\in L^2(\R^{n})$,所以 $e^{-|x|^2}*f \in L^{p}(\R^{n})$.
 \end{proof}
+\begin{exercise}
+  设
+  \begin{equation*}
+    \phi(x)=\left\{ \begin{aligned}
+      & e^{- \frac{1}{1-x^2}}, & -1<x<1,\\
+      & 0, & |x|\ge 1.
+    \end{aligned}\right.
+  \end{equation*}
+  求证: $\phi \in C_0^{\infty}(\R)$.
+\end{exercise}
+\begin{proof}
+  设
+  \begin{equation*}
+    f(x)=\left\{
+      \begin{aligned}
+	& e^{-\frac{1}{x}}, & x>0,\\
+	& 0, & x=0.
+      \end{aligned}\right.
+  \end{equation*}
+当$x>0$ 时,求导得
+\begin{align*}
+  f'(x)= & \frac{1}{x^2}f(x)\\
+  f''(x)= & \left(\frac{1}{x^4}-\frac{2}{x^3}\right)f(x)\\
+  f'''(x) = & \left( \frac{1}{x^{6}}-\frac{6}{x^{5}}+\frac{6}{x^{4}} \right) f(x)\\
+  & \ldots
+.\end{align*}
+从上述几个导数易知可以归纳证明得到当$x>0$ 时有
+\[
+  f^{(k)}(x)=P_{2k}(x^{-1})f(x),
+\] 
+其中$P_{2k}$ 是次数为$2k$ 的多项式.由多项式和$e$ 指数的增长速率关系可得
+\[
+  \lim_{x\to 0^{+}}f^{(k)}(x)=\lim_{x\to+\infty}P_{2k}(x)e^{-x}=0.
+\] 
+所以对任意的$n>0$,都有$\lim_{x\to 0^{+}}f^{(n)}(x)=0$.
+再利用分析学中的一个定理:
+\begin{framed}
+  \noindent \textbf{定理. } 设$f$ 是在$x=a$ 处连续的函数,$f'(x)$ 在$x=a$ 的一个去心领域上处处存在且
+  \[
+    \lim_{x\to a}f'(x)
+  \] 
+  存在,则$f'(a)$ 存在且
+  \[
+    f'(a)=\lim_{x\to a}f'(x).
+  \] 
+  \begin{proof}
+    根据导数定义 
+    \[
+      f'(a)=\lim_{x\to a}\frac{f(x)-f(a)}{x-a}.
+    \] 
+    由中值定理$\frac{f(x)-f(a)}{x-a}=f'(\xi_x)$,$a<\xi_x<x$.所以
+    \[
+      f'(a)=\lim_{x\to a}f'(\xi_x)=\lim_{x\to a}f'(x).
+    \] 
+  \end{proof}
+\end{framed}
+把该定理用到上面定义的函数上就得到函数$f$在$x=0$处任意阶右导数都存在且
+\[
+  f^{(n)}_{+}(0)=0,\quad n\in \N.
+\] 
+而当$|x|\le 1$时,由
+\begin{align*}
+  \phi(x)=&f(1-x^2)\\
+  \phi'(x)=&-2xf'(1-x^2)\\
+  \phi''(x)=& -2f'(1-x^2)+4x^2f''(1-x^2)\\
+	    &\ldots
+\end{align*}
+知
+\[
+  \phi^{(n)}_{-}(1)=0, \quad n\in \N.
+\] 
+另一方面,由$|x|\ge 1$时$\phi(x)=0$知
+\[
+  \phi^{(n)}_{+}(1)=0, \quad n\in \N.
+\] 
+所以$x=1$ 时
+\[
+  \phi^{(n)}(1)=0,\quad n\in \N.
+\] 
+$x=-1$时同理.
+
+\end{proof}
+\begin{exercise}
+  若$1\le q\le 2$,证明对任意$u\in C^{1}_0(\R^2)$ 
+  \[
+    \|u\|_{L^{q}(\R^2)}\le \|u\|_{W^{1,1}(\R^2)}.
+  \] 
+\end{exercise}
+\begin{proof}
+  设$x=(x_1,x_2)$.因为$u\in C^{1}_0(\R^2)$,所以$u$ 可以写成
+  \[
+    u(x)=\int_{-\infty}^{x_1}\partial_1 u(t,x_2)\mathrm{d}t=\int_{-\infty}^{x_2}u(x_1,t)\mathrm{d}t.
+  \] 
+  进而有
+  \[
+    |u(x)|\le \int_{-\infty}^{x_i}|\partial_{i}u|\mathrm{d}x_i\le \int_{\R}|\partial_i u|\mathrm{d}x_i, x\in \R^2
+  .\]
+  那么
+  \begin{align*}
+    \int_{\R^2}|u(x)|^2\mathrm{d}x\le& \int_{\R^2}\mathrm{d}x\int_{\R}|\partial_1 u(x)|\mathrm{d}x_1\int_\R |\partial_2u(x)|\mathrm{d}x_2\\
+    =&\int_{\R^2}|\partial_1 u(x)|\mathrm{d}x \int_{\R^2}|\partial_2 u(x)|\mathrm{d}x
+  .\end{align*}
+  利用平均不等式可得
+  \begin{align*}
+    \|u\|_{L^2(\R^2)}=&\left( \int_{\R^{n}}|u(x)|^2\mathrm{d}x \right) ^{\frac{1}{2}}\\
+    \le& \left( \int_{\R^2}|\partial_1 u(x)|\mathrm{d}x \int_{\R^2}|\partial_2u(x)|\mathrm{d}x \right) ^{\frac{1}{2}}\\
+    \le&\frac{1}{2}\left( \int_{\R^2}|\partial_1u(x)|\mathrm{d}x+\int_{\R^2}|\partial_2u(x)|\mathrm{d}x \right)\\
+    \le &\frac{1}{2}\left( \|\partial_1u\|_{L^{1}(\R^2)}+\|\partial_2 u\|_{L^{1}(\R^2)}\right)\\
+    \le  & \|\nabla  u\|_{L^{1}(\R^2)}\le \|u\|_{W^{1,1}(\R^2)}
+  .\end{align*}
+\end{proof}

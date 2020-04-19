@@ -1,2 +1,367 @@
 \section{Lecture Notes 1 FOR 247A}
+\subsection{什么是调和分析}
+第一份讲义介绍了这份讲义(总共6个note)讲述的内容:
+\begin{framed}
+\begin{center}
+  \textit{实变量调和分析理论(theory of real-variable harmonic analysis)以及研究该理论的基本工具}
+\end{center}
+\end{framed}
+\begin{enumerate}
+  \item 什么是调和分析?
+  \item [] 关于某个定义域或者类似对象(测度,分布,定义域的子集,或者从一个定义域到另一个定义域的映射)上的函数的定量(quantitative)研究.
+  \item 典型的例子?
+  \item [] 例如一个从某个Banach函数空间$V$到另一个空间$W$的算子 $T$,这个算子并非定义在全空间 $V$ 上而是定义在它的一个稠密子集上.考虑这样一个定性(qualitative)问题:能否将$T$连续拓展到整个空间 $V$ 上?实际上若$T$是线性的,如果我们能够建立
+    \[
+    \|Tf\|_{W}\le C\|f\|_{V}
+    \] 
+    这样一种定量关系,那么就可以作一个唯一连续延拓.这里就是把一个定性问题转化成了一个定量问题来研究,这个定量问题就是调和分析中的一个典型问题.
+\end{enumerate}
+
+从这个典型的例子可以知道:不等式在调和分析中有着非常重要的地位,甚至是核心的地位(就我目前读这个讲义的感觉).在介绍一些不等式的建立时,Tao在脚注中说了一句非常经典的话,来自于他自身的经验:
+\begin{framed}
+\begin{center}
+  \textit{Algebra draws its power from modularity, abstraction and identities; analysis draws its power from robustness, physical intuition and estimates.}
+\end{center}
+\end{framed}
+
+\subsection{建立不等式的方法}
+
+对于$1\le p\le \infty$,有下述三角不等式成立
+\begin{framed}
+  \noindent\textbf{Triangle inequality}
+  \begin{equation}
+  \|f+g\|_{p}\le \|f\|_{p}+\|g\|_{p}.
+\end{equation}
+\end{framed}
+证明这个不等式的时候,我们会用到一些处理不等式的一般技巧.
+\begin{enumerate}
+  \item 根据$f$ 和$g$在不等式两边的齐次性(对称性的一种),可以设$\|f\|_{p}=1-\theta$,$\|g\|_{p}=\theta$, $0< \theta< 1$($\theta=$0和1的情形是平凡的).
+  \item  再将$f$和 $g$ 的范数归一化,设$F=\frac{f}{1-\theta}$,$G=\frac{g}{\theta}$.则不等式转化为
+    \[
+      \|(1-\theta)F+\theta G\|_{p}\le 1,
+    \] 
+    其中$\|F\|_p=1, \|G\|_{p}=1$.
+  \item 根据 $z\mapsto |z|^{p}$ 在$p\ge 1$时的凸性可知
+    \[
+      \left| (1-\theta)F(x)+\theta G(x) \right| ^{p}\le (1-\theta)|F(x)|^{p}+\theta |G(x)|^{p}.
+    \] 
+    对上式积分即可.
+\end{enumerate}
+概括起来就是,根据不等式的对称性,把不等式的选取范围缩小,限定在尽可能小的子集内,实际就是空间中的商作用.如有必要,对函数进行归一化.简化后的不等式往往更容易处理,在几何上有一些直观的特性(在这里就是凸性).
+\begin{framed}
+  \noindent \textbf{H\"{o}lder's inequality}
+  \begin{equation}
+    \|fg\|_{r}\le \|f\|_p \|g\|_q,
+  \end{equation}
+  其中$0<p,q,r\le \infty$,$\frac{1}{r}=\frac{1}{p}+\frac{1}{q}$.
+\end{framed}
+这里除了总的齐次性之外,每个函数各自单独也有齐次性(separate homogeneity symmetry),所以可以直接设$\|f\|_{p}=\|g\|_{q}=1$.令$F:=|f|^{p},G:=|g|^{q},\theta = \frac{r}{q}$,则原不等式化为
+\[
+\int_{X}F^{1-\theta}G^{\theta}\le 1, \text{ 其中 } \int_{X}F=\int_{X}G=1.
+\] 
+这里再次利用 $\ln x$ 的凸性可得逐点估计:
+\[
+  F^{1-\theta}G^{\theta}\le (1-\theta)F(x)+\theta G(x).
+\] 
+对上式进行积分即可.
+\begin{framed}
+  \noindent\textbf{Log-convexity of $L^{p}$ norms}
+  \begin{equation}
+    \|f\|_{r}\le \|f\|_{p}^{1-\theta}\|f\|_{q}^{\theta},
+  \end{equation}
+  其中$0<p<q<\infty,0<\theta<1,\frac{1}{r}=\frac{1-\theta}{p}+\frac{\theta}{q}$.
+\end{framed}
+用类似的方法证明这个不等式的时候,需要注意到该不等式有关于$f$ 和$\mu$ 的齐次对称性,从而可以设
+$\|f\|_p=\|f\|_q=1$.当然这个不等式可以由H\"{o}lder不等式简单推导得到(实际上这两个不等式是等价的).
+
+讲义还给出了log-convexity的一个不常见的证明,这个证明没有用到任何的逐点凸性估计(pointwise convexity estimate),而是用到了``分治-合并''策略(``divide and conquer'' strategy)以及非常优雅(并且相当无赖)的``张量幂技巧''(``tensor power trick'').仍然假设$\|f\|_p=\|f\|_q=1$,我们将函数$f$ 分成宽广平坦函数和窄高函数
+\[
+f=f 1_{|f|\le 1}+f 1_{|f|>1}.
+\] 
+进而
+\[
+\|f\|_r^{r}=\int_{|f|\le 1}|f|^{r}+\int_{|f|>1}|f|^{r}.
+\] 
+当$|f|\le 1$ 的时候,由$r>p$ 可得$|f|^{r}\le |f|^{p}$;当$|f|>1$ 的时候,由$r<q$可得 $|f|^{r}\le |f|^{q}$.从而
+\[
+\|f\|_r^{r}\le \int_X |f|^{p}+\int_{X}|f|^{q}=2.
+\] 
+下面就是张量幂技巧的使用:设$M$ 为一个正整数,用测度空间$(X^{M},\mathcal{B}^{\oplus M},\mu^{\oplus M})$ 代替$(X,\mathcal{B},\mu)$,用函数$f^{\oplus M}:X^{M}\to \C$代替函数$f$,其中
+ \[
+   f^{\oplus M}(x_1,x_2,\cdots,x_M):=f(x_1)f(x_2)\cdots f(x_M).
+\] 
+易知
+\begin{equation*}
+  \begin{aligned}
+    \|f^{\oplus M}\|_{L^{p}(X^{M})}&=\|f\|^{M}_{L^{p}(X)}=1;\\
+    \|f^{\oplus M}\|_{L^{q}(X^{M})}&=\|f\|^{M}_{L^{q}(X)}=1;\\
+    \|f^{\oplus M}\|_{L^{r}(X^{M})}&=\|f\|_{L^{r}(X)}^{M}.
+  \end{aligned}
+\end{equation*}
+再次利用前面的论证,这次是应用到函数$f^{\oplus M}$ 上,得到
+\[
+  \|f^{\oplus M}\|^{r}_{L^{r}(X^{M}}\le 2.
+\] 
+进而
+\[
+  \|f\|^{r}_{L^{r}(X)}\le 2^{1 /M}.
+\] 
+令$M\to \infty$,我们就得到了$\|f\|_r\le 1$.
+\subsection{一些简单但是重要的结论}
+ \begin{framed}
+      \noindent 1. 设$\mu\left( X \right)<\infty $,$f$ 是$X$上的函数,则更高的$L^{p}$ 范数控制更低的范数:
+      \begin{equation}
+	\|f\|_p\le \|f\|_q\mu(X)^{\frac{1}{p}-\frac{1}{q}},
+      \end{equation}
+      其中$0<p\le q\le \infty$.
+
+     \noindent 2. $l^{p}$ 和与$L^{p}$ 和的可交换性:
+     \begin{equation}
+       \|\left( \sum_{n}^{} |f_n|^{p} \right) ^{1 /p}\|=\left( \sum_{n}^{} \|f\|_{L^{p}}^{p} \right) ^{1 /p}.
+     \end{equation}
+
+     \noindent 3. 对任意$0<p,q<\infty$:
+     \begin{equation}
+       \| |f|^{p}\|_{L^{q}}=\| f\|^{p}_{L^{pq}}.
+     \end{equation}
+\end{framed}
+
+\subsection{Lorentz Spaces}
+考虑weak $L^{p}$和$\|\cdot \|_{L^{p}}$ :
+\begin{equation*}
+  \begin{aligned}
+    \|f\|_{L^{p,\infty}} & = \|\lambda \mu\left( \left\{ |f|\ge \lambda \right\}  \right) ^{1 /p}\|_{L^{\infty}(\R^{+},\frac{\mathrm{d}\lambda}{\lambda})}\\
+    \|f\|_{L^{p}} & = p^{1 /p}\|\lambda\mu\left( \left\{ |f|\ge \lambda \right\}  \right) ^{1 /p}\|_{L^{p}(\R^{+}, \frac{\mathrm{d}\lambda}{\lambda})}.
+  \end{aligned}
+\end{equation*}
+由这两个式子可以让我们推广出一个新的拟范数 Lorentz norm $L^{p,q}(X,\mu)$,$0<p<\infty,0<q\le \infty$:
+\[
+  \|f\|_{L^{p,q}(X,\mu)}:=p^{1 /q}\|\lambda \mu\left( \left\{ |f|\ge \lambda \right\}  \right) ^{1 /p}\|_{L^{q}(\R^{+}, \frac{\mathrm{d}\lambda}{\lambda})}.
+\]
+
+除了$L^{\infty,\infty}=L^{\infty}$ 这一特殊情况, Lorentz norms中$p$ 都不会取$\infty$.对于$q$ 来说,按照重要程度依次递减,只会用到$q=p,q=\infty,q=1,q=2$.
+可以通过简单的计算知对于一个高$H$ 宽$W$ 的函数,它的$L^{p,q}$ norm是 $(p /q)^{\frac{1}{q}}HW^{\frac{1}{p}}$,其中$0<p<\infty,0<q\le \infty$.
+
+\begin{definition}
+  \begin{enumerate}
+    \item []
+    \item  如果一个支撑为$E$的函数$f$,几乎处处满足$|f(x)|\le H$并且$\mu(E)\le W$,则称$f$ 是一个高$H$ 宽$W$ 的\textit{ sub-step function}.(因此 $|f|\le H 1_{E}$.)
+    \item 如果函数$f$ 满足几乎处处$|f(x)|\sim H$,以及$\mu(E)\sim W$,则称 $f$ 是一个高$H$ 宽$W$ 的 \textit{quasi-step function} .(因此 $|f|\sim H 1_E$.)
+  \end{enumerate}
+\end{definition}
+
+一个高$1$宽 $W$的 sub-step function 按照二进制展开,总能分解成真正的 step functions 的和:
+\[
+f=\sum_{k=1}^{\infty} 2^{-k}f_k,
+\] 
+其中$f_k$是高 $1$宽 $H$的 step functions.
+因此, 上述定义的两个函数类型都可以由 step function 逼近.
+
+\begin{theorem}[Characterisation of $L^{p,q}$]
+  设$f$ 为一个函数,$0<p<\infty,1\le q\le \infty$,设$0<A<\infty$.那么下述5个在相差一个常数的情况下是等价的:
+  \begin{enumerate}
+    \item  $\|f\|_{L^{p,q}}\lesssim_{p,q}A$.
+    \item  存在一个分解 $f=\sum_{m\in \Z}^{} f_m$,其中$f_m$ 是支撑互不相交,高$2^{m}$ 宽$0<W_m<\infty$ 的 quasi-step function,并且
+      \begin{equation}
+	\|2^{m}W^{1 /p}_m\|_{l^{q}_m(\Z)}\lesssim_{p,q}A.
+      \end{equation}
+      这里$l^{q}_m$ 中的下标$m$ 是表示$l^{q}$ norm 针对的变量.
+    \item 存在一个逐点界 $|f|\le \sum_{m\in \Z}^{} 2^{m} 1_{E_m}$, $E_m$ 满足
+      \begin{equation}
+	\|2^{m}\mu(E_m)^{1 /p}\|_{l^{q}_m(\Z)}\lesssim_{p,q}A.
+      \end{equation}
+    \item 存在一个分解$f=\sum_{n \in \Z}^{} f_{n}$,其中$f_n$ 是支撑互不相交,高$0<H_n<\infty$ 宽 $2^{n}$ 的 quasi-step function,$H_n$ 关于$n$单调不增, 在$f_n$ 的支撑上有$H_{n+1}\le |f_n|\le H_n$,以及
+      \begin{equation}\label{1-2}
+	\|H_n 2^{n /p}\|_{l^{q}_n(\Z)}\lesssim_{p,q}A.
+      \end{equation}
+  \item 一个逐点界 $|f|\le \sum_{n\in \Z}^{} H_n 1_{E_n}$, $E_n$满足 $\mu(E_n)\lesssim_{p,q}2^{n}$ 并且{\normalfont (\ref{1-2})}式成立.
+  \end{enumerate}
+\end{theorem}
+\begin{proof}
+ 由齐次对称性可设$A=1$.$(b)\Rightarrow (c)$和 $(d)\Rightarrow (e)$ 式显然的.下面说明$(a)\Rightarrow(b)$.
+
+ 设
+ \[
+ f_m:=f 1_{2^{m-1}<|f|\le 2^{m}},
+ \] 
+  \[
+    W_m:=\mu\left( \left\{ 2^{m-1}<|f|\le 2^{m} \right\}  \right) .
+  \]
+  这种分解方式被称为``vertically dyadic layer cake decomposition''.可以验证
+  \[
+    2^{m}W_m^{1 /p}\lesssim_{p,q} \|\lambda \mu\left( \left\{ |f|>\lambda \right\}  \right) ^{1 /p}\|_{L^{q}\left( [2^{m-2},2^{m-1}], \frac{\mathrm{d}\lambda}{\lambda} \right) }
+  \]
+  然后再对上式进行$l^{q}$ 求和即可.
+
+  类似地,为了得到$(a)\Rightarrow (d)$,定义
+  \[
+    H_n:=\inf \left\{ \lambda:\mu\left( \left\{ |f|>\lambda \right\}  \right) \le 2^{n-1} \right\} ,
+  \] 
+  注意到这是一个关于$n$ 的单调不增序列,当$n\to \infty$ 时会趋于$0$.再定义
+  \[
+  f_n:=f 1_{H_n\ge |f|>H_{n+1}}.
+  \] 
+  该分解被称为``horizontally dyadic layer cake decomposition''.唯一需要验证的就是(\ref{1-2})式.下述的估计方式被称为``telescoping estimate'':
+  \begin{equation*}
+    \begin{aligned}
+      H_n 2^{n /p} = & (H_n^{q}2^{nq /p})^{1 /q}\\
+      = & \left( \sum_{k=0}^{\infty} \left( H^{q}_{n+k}-H^{q}_{n+k+1} \right) 2^{ nq /p} \right)^{1 /q}\\
+      \lesssim_{p,q} & \left( \sum_{k=0}^{\infty} 2^{-kq /p}\|\lambda 2^{(n+k) /p}\|^{q}_{L^{q}([H_{n+k+1},H_{n+k}], \frac{\mathrm{d}\lambda}{\lambda})} \right)^{1 /q}\\
+      \lesssim_{p,q} & \left( \sum_{k=0}^{\infty} 2^{-kq /p}\|\lambda \mu\left( \left\{ |f|\ge \lambda \right\}  \right) ^{1 /p}\|^{q}_{L^{q}([H_{n+k+1},H_{n+k}])} \right) ^{1 /q}.
+    \end{aligned}
+  \end{equation*}
+  同样对上式进行$l^{q}$ 求和即可(这里处理的是$q<\infty$ 的情形,对于$q=\infty$ 的情形可以用类似的处理方法).
+
+  为了完成等价性的证明,还要验证$(c)\Rightarrow (a)$ 和$(d)\Rightarrow (a)$.首先假设$(c)$ 成立,易知
+  \[
+    \mu\left( \left\{ |f|>2^{m} \right\}  \right) \le \sum_{k=0}^{\infty} \mu\left( E_{m+k} \right) 
+  \] 从而有
+  \[
+    \|\lambda \mu \left( \left\{ |f|\ge \lambda \right\}  \right) ^{1 /p}\|_{L^{q}((2^{m},2^{m+1}], \frac{\mathrm{d}\lambda}{\lambda}}\lesssim_{p,q} 2^{m}\left( \sum_{k=0}^{\infty} \mu\left( E_{m+k} \right)  \right) ^{1 /p}.
+  \] 
+  对上式进行$l^{q}$ 求和之后,我们只需要证明
+  \[
+    \|2^{m}\left( \sum_{k=0}^{\infty} \mu\left( E_{m+k} \right)  \right) ^{1 /p}\|_{l^{q /p}_m}\lesssim_{p,q}1.
+  \] 
+  上式可改写为
+  \[
+    \|\sum_{k=0}^{\infty} 2^{pm}\mu\left( E_{m+k}  \right) \|_{l^{q /p}_m}\lesssim_{p,q}1.
+  \]
+  但是依据假设我们有
+  \[
+    \|2^{pm}\mu\left( E_m \right) \|_{l^{q /p}_m}\lesssim_{p,q}1
+  \] 
+  所以通过对$m$ 平移$k$ 可得
+  \[
+    \|2^{pm}\mu\left( E_{m+k} \right) \|_{l^{q /p}_{m}}\lesssim_{p,q}2^{-kp}.
+  \] 
+  再进行求和以及三角不等式即可.
+
+  现在假设$(d)$ 成立.对于任意的$\lambda >0$ 我们有
+  \[
+  \mu\left( \left\{ |f|>\lambda \right\}  \right) \lesssim_{p,q}\sup \left\{ 2^{n}:H_n'\ge \lambda \right\} 
+  \] 
+  其中$H_n'$ 是
+  \[
+  H'_n:=\sum_{k=0}^{\infty} H_{n+k}.
+  \]
+  实际上,如果对某个$n$有$\mu\left( \left\{ |f|>\lambda \right\}  \right) >2^{n-1}$,那么易知$H_n\ge \lambda$ 从而$H'_n\ge \lambda$.
+  通过对下标$n$ 的平移和三角不等式可得$H'_n$ 有着和(\ref{12})式中$H_n$ 一样的限制,因此
+  \[
+    \| H'_n 2^{n /p}\|_{l^{q}_{n}(\Z)}\lesssim_{p,q} 1.
+  \] 
+  这里以$q<\infty$ 的情形为例:
+  \begin{equation*}
+    \begin{aligned}
+      \|\lambda \mu\left( \left\{ |f|\ge \lambda \right\}  \right) ^{1 /p}\|^{q}_{L^{q}(\R^{+}, \frac{\mathrm{d}\lambda}{\lambda}} & \lesssim_{p,q} \int_{0}^{\infty}\lambda^{q-1}\sup \left\{ 2^{nq /p}:H'_n\ge \lambda \right\} \mathrm{d}\lambda\\
+     & \lesssim_{p,q} \sum_{n}^{} \int_0^{\infty}\lambda^{q-1}2^{nq /p} 1_{H'_n\ge \lambda}\mathrm{d}\lambda\\
+     & \sim_{p,q}  \sum_{n}^{} 2^{nq /p}(H'_n)^{q}\\
+     & \lesssim  1.
+    \end{aligned}
+  \end{equation*}
+\end{proof}
+这个定理说明,如果一个函数$f$ 可以写成$\sum_{n}^{} f_n$,其中$f_n$ 为高 $H_n$ 宽$W_n$ 的quasi-step function,并且只要其中一个变化得足够块,那么就有
+\[
+\|\sum_{n}^{} f_n\|_{L^{p,q}}\sim_{p,q}\|H_n W_n^{1 /p}\|_{l^{q}_n}.
+\]
+
+该定理的一个简单推论就是 Lorentz spaces上的H\"{o}lder不等式.
+\begin{theorem}[H\"{o}lder inequality in Lorentz spaces]
+ 设 $0<p_1,p_2,p<\infty$, $0<q_1,q_2,q\le \infty$,并且满足 $\frac{1}{p}=\frac{1}{p_1}+\frac{1}{p_2}$ 和$\frac{1}{q}=\frac{1}{q_1}+\frac{1}{q_2}$,则有
+ \[
+ \|fg\|_{L^{p,q}}\lesssim_{p_1,p_2,q_1,q_2}\|f\|_{L^{p_1,q_1}}\|g\|_{L^{p_2,q_2}},
+ \] 
+ 前提是不等式右边有意义.
+\end{theorem}
+
+还有两个类似于Riesz表示定理的结论如下,在证明Marcinkiewicz插值定理的时候会被用到.
+\begin{theorem}[Dual formulation of weak $L^{p}$ ]
+  设$1<p\le \infty $,对任意$L^{p,\infty}(X,\mathrm{d}\mu)$ 中的函数$f$都有
+   \begin{equation}
+     \|f\|_{L^{p,\infty}(X,\mathrm{d}\mu)}\sim_p \sup\left\{ \mu(E)^{-1 /p'} |\int_Xf 1_E \mathrm{d}\mu|:0<\mu(E)<\infty \right\}. 
+  \end{equation}
+\end{theorem}
+\begin{theorem}[Dual characterisation of $L^{p,q}$]\label{thm1-1}
+  设$1<p<\infty$,$1\le q\le \infty$,对任意$f\in L^{p,q}$ 都有
+  \begin{equation}
+    \|f\|_{L^{p,q}}\sim_{p,q}\sup\left\{ |\int_{X}f\overline{g}\mathrm{d}\mu|:\|g\|_{L^{p',q'}}\le 1 \right\}. 
+  \end{equation}
+\end{theorem}
+
+\subsection{Real Interpolation}
+这里开始讨论线性算子.首先我们需要定义一些概念.
+\begin{definition}
+  设$0<p,q\le \infty$, $T$是sublinear operator,则有如下定义
+   \begin{enumerate}
+     \item $T$ 是\textit{strong type} $(p,q)$ (或者就简单地称为 \textit{type} $(p,q)$),如果其满足
+       \[
+	 \|Tf\|_{L^{q}(Y)}\lesssim_{T,p,q}\|f\|_{L^{p}(X)},
+       \] 
+       其中$f$ 是$L^{p}$ 中的任意函数,或者是$L^{p}$ 的一个稠密子集中的任意函数.
+     \item 若$q<\infty$,称$T$ 是 \textit{weak type} $(p,q)$,如果其满足
+       \begin{equation}
+	 \|Tf\|_{L^{q,\infty}(Y)}\lesssim_{T,p,q}\|f\|_{L^{p}(X)}.
+       \end{equation}
+     \item 设$f$ 是任意的高$H$ 宽$W$ 的sub-step function,则称$T$是 \textit{restricted strong type}  $(p,q)$,如果其满足
+       \begin{equation}
+	 \|Tf\|_{L^{q}(Y)}\lesssim_{T,p,q} HW^{1 /p}.
+       \end{equation}
+       特别地,我们有
+       \begin{equation}
+	 \|T 1_{E}\|_{L^{q}(Y)}\lesssim_{T,p,q} \mu(E)^{1 /p}.
+       \end{equation}
+     \item 若$q<\infty$,$f$ 是任意的高$H$ 宽$W$ 的sub-step function,则称$T$是\textit{restricted weak type } $(p,q)$,如果其满足
+       \begin{equation}
+	 \|Tf\|_{L^{q,\infty}(Y)}\lesssim_{T,p,q}HW^{1 /p}.
+       \end{equation}
+       特别地,我们有
+       \begin{equation}
+	 \|T 1_E\|_{L^{q,\infty}(Y)}\lesssim_{T,p,q}\mu(E)^{1 /p}.
+       \end{equation}
+  \end{enumerate}
+\end{definition}
+
+在许多应用中,我们需要的往往是strong-type bounds.在这里我们会用\textit{real interpolation method} 来从weak-type甚至是restricted weak-type得到strong-type bounds.
+
+首先我们假设
+\begin{equation}\label{1-3}
+  \left<|Tf|,|g| \right>:=\int_{Y}|Tf| |g|\mathrm{d}\nu
+\end{equation}
+是well-defined的,其中$f,g$ 是拥有有限测度支撑的简单函数(simple functions).现在我们来看一个indicator function的例子$\left<|T 1_E|,1_F \right>$,其中$E\subset X,F\subset Y$ 都具有有限测度.假设$T$ 有strong-type $(p,q)$ bound,$0<p<\infty$,$1\le q\le \infty$,也就是
+\[
+  \|Tf\|_{L^{q}(Y)}\lesssim_{p,q}A\|f\|_{L^{p}(X)}.
+\] 
+那么就有
+\[
+  \|T 1_E\|_{L^{q}(Y)}\lesssim_{p,q}A\mu(E)^{1 /p},
+\] 
+从而由H\"{o}lder不等式可得
+\begin{equation}
+  \left<|T 1_E|, 1_F \right>\lesssim_{p,q}\mu(E)^{1 /p}\nu(F)^{1 /q'}.
+\end{equation}
+
+\begin{theorem}[Marcinkiewicz interpolation theorem]
+  设$T$ 是一个sublinear operator而且(\ref{1-3})式是well-defined的.设$0<p_0,p_1\le \infty$,$0<q_0,q_1\le \infty$ 以及$A_0,A_1>0$.定义
+  \[
+    \frac{1}{p_\theta}:=\frac{1-\theta}{p_0}+\frac{\theta}{p_1};\quad \frac{1}{q_\theta}:=\frac{1-\theta}{q_0}+\frac{\theta}{q_1};\quad A_\theta:=A_0^{1-\theta}A_1^{\theta}.
+  \] 
+  设$T$ 是一个bound为$A_i$的restricted weak-type $(p_i,q_i)$,$i=0,1$.假设 $p_0\neq p_1,q_0\neq p_1$.那么对于$0<\theta<1$ 以及$1\le r\le \infty$,我们有
+  \[
+    \|Tf\|_{L^{q_\theta,r}(Y)}\lesssim_{p_0,p_1,q_0,q_1,r} A_{\theta}\|f\|_{L^{p_\theta,r}(X)},
+  \] 
+  其中$f$ 是任意拥有有限支撑的简单函数.特别地,如果$q_\theta\ge p_\theta$,那么$T$ 是一个具有常数bound $O_{p_0,p_1,q_1,\theta}(A_\theta)$ 的strong-type $(p_\theta,q_\theta)$.
+\end{theorem}
+\begin{proof}
+  首先我们利用一些齐次对称性来把问题简写,最终可以简化成设$A_0=A_1=1=A_\theta$.我们的目标是证明对于所有的具有有限测度支撑的简单函数$f$,我们有
+  \[
+    \|Tf\|_{L^{q_\theta,r}(Y)}\lesssim \|f\|_{L^{p_\theta,r}(X)}.
+  \]
+  利用定理\ref{thm1-1},上式等价于
+  \begin{equation}
+    \left<|Tf|,|g| \right>\lesssim \|f\|_{L^{p_\theta,r}(X)}\|g\|_{L^{q^{\prime}_{\theta},r^{\prime}}(Y)},
+  \end{equation}
+  其中$f,g$ 是任意的具有有限支撑的简单函数.
+
+  \noindent 我
+\end{proof}
 

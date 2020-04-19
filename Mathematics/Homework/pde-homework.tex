@@ -25,8 +25,6 @@
 \usepackage{biblatex}
 \addbibresource{mybib.bib}
 
-\usepackage{framed}
-
 % figure support
 \usepackage{import}
 \usepackage{xifthen}
@@ -35,7 +33,7 @@
   \import{./figures/}{#1.pdf_tex}
 }
 
-
+\usepackage{framed}
 
 % Some shortcuts
 \newcommand\N{\ensuremath{\mathbb{N}}}
@@ -48,16 +46,15 @@
 % Some theorem environment settings
 \usepackage{ntheorem}
 \theoremseparator{.}
-\newtheorem{theorem}{定理}[section]
+\newtheorem{theorem}{Theorem}[section]
 \newenvironment{proof}{{\noindent\textbf{证明}}: }{\hfill $\square$\par}
 \theorembodyfont{\upshape}
 \newtheorem*{remark}{Remark}
-\newtheorem{definition}[theorem]{定义}
-\newtheorem{proposition}{性质}[section]
-\newtheorem{lemma}[theorem]{引理}
-\newtheorem{exe}{习题}
-\newtheorem*{sol}{解:}
-
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{exercise}{习题}
+\newtheorem{sol}{解:}
 % Enumerate Style
 \renewcommand{\labelenumi}{{\normalfont\alph{enumi}. }}
 
@@ -75,11 +72,10 @@
 
 
 \begin{document}
-\title{读Terence Tao的调和分析Notes(MATH 247A)\\
- 所作笔记\\
+\title{偏微分方程理论作业\\
 }
-\author{\large Notes taken by 89hao}
-\date{2020 年 4 月 11 日}  
+\author{\large 王允磊}
+  
 \maketitle
 %\begin{abstract}
 %\end{abstract}

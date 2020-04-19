@@ -44,10 +44,10 @@
   <internal package="biblatex" priority="9" active="0">
     <generic>latex</generic>
     <provides type="dynamic">
-      <file>20-04-11.bcf</file>
+      <file>pde-homework.bcf</file>
     </provides>
     <requires type="dynamic">
-      <file>20-04-11.bbl</file>
+      <file>pde-homework.bbl</file>
     </requires>
     <requires type="static">
       <file>blx-dm.def</file>
@@ -65,19 +65,19 @@
     <generic>biber</generic>
     <cmdline>
       <binary>biber</binary>
-      <infile>20-04-11</infile>
+      <infile>pde-homework</infile>
     </cmdline>
     <input>
-      <file>20-04-11.bcf</file>
+      <file>pde-homework.bcf</file>
     </input>
     <output>
-      <file>20-04-11.bbl</file>
+      <file>pde-homework.bbl</file>
     </output>
     <provides type="dynamic">
-      <file>20-04-11.bbl</file>
+      <file>pde-homework.bbl</file>
     </provides>
     <requires type="dynamic">
-      <file>20-04-11.bcf</file>
+      <file>pde-homework.bcf</file>
     </requires>
     <requires type="editable">
       <file>mybib.bib</file>

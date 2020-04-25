@@ -156,3 +156,96 @@ $x=-1$时同理.
   \] 
   得到.
 \end{proof}
+\begin{exercise}
+  设$f(x)=x^{\frac{1}{4}}$ $x\in [0,1]$,则$f\in C^{0, \frac{1}{4}}$,但是$f\notin C^{0,\mu},\mu>\frac{1}{4}$. 
+\end{exercise}
+\begin{proof}
+  根据$C^{0,\mu}$ 的定义,我们需要计算范数
+  \[
+    \|f\|_{C^{0,\mu}[0,1]}:=\sup_{x\in [0,1]}|f(x)|+[f]_{\mu,[0,1]},
+  \] 
+  其中半范数
+  \[
+    [f]_{\mu,[0,1]}:=\sup_{x,y\in [0,1],x\neq y} \frac{|f(x)-f(y)|}{|x-y|^{\mu}}.
+  \]
+  $\sup_{x\in [0,1]}|f(x)|=1$,所以只要计算半范数$[f]_{\mu,[0,1]}$.实际上我们可以证明一个一般结论:对于任意的$f(x)=x^{\alpha}$,$0<\alpha<1$,我们都有 $f\in C^{0,\alpha}$.为了证明这个一般结论,我们需要下述引理建立的不等式
+  \begin{framed}
+    \begin{lemma}
+      设$x>0$,$0<\alpha<1$,则
+      \[
+	(x+1)^{\alpha}\le x^{\alpha}+1.
+      \] 
+    \end{lemma}
+    \begin{proof}
+      令$g(x)=(x+1)^{\alpha}-x^{\alpha}-1$,则
+      \[
+	g'(x)=\alpha \left( \frac{1}{(x+1)^{1-\alpha}}-\frac{1}{x^{1-\alpha}} \right) \le 0.
+      \] 
+      又因为$g(0)=0$,所以 $g(x)\le g(0)=0$,不等式得证.
+    \end{proof}
+  \end{framed}
+  那么由引理中的不等式可得对$a,b>0$有
+  \begin{align*}
+  \left (\frac{a}{b}+1\right)^{\alpha}\le&\left(\frac{a}{b}\right)^{\alpha}+1\\
+  (a+b)^{\alpha}\le &a^{\alpha}+b^{\alpha}.
+  \end{align*}
+  (上式对$a=0$ 或$b=0$ 时是显然的.)令$a=x-y,b=y,x>y$可得
+   \[
+     x^{\alpha}\le (x-y)^{\alpha}+y^{\alpha}.
+   \]
+   所以当$x>y$时,有
+    \[
+      x^{\alpha}-y^{\alpha}\le (x-y)^{\alpha}
+   \] 
+ 特别地,当$\mu=\frac{1}{4}$且$x>y$ 时,
+  \begin{align*}
+    |f(x)-f(y)|=&|x^{\frac{1}{4}}-y^{\frac{1}{4}}|\\
+    \le  & |x-y|^{\frac{1}{4}}
+  .\end{align*}
+  $x<y$ 的情况同理.上述不等式说明\[
+    [f]_{\frac{1}{4},[0,1]}\le 1<\infty.
+  \] 
+  所以$f\in C^{0,\frac{1}{4}}$.
+  对于$\mu>\frac{1}{4}$ 的情形,我们有
+  \[
+    \sup_{x\neq y} \frac{|f(x)-f(y)}{|x-y|^{\mu}}\overset{\text{令}y=0}{\ge }\sup_{x\in (0,1]} \frac{f(x)}{x^{\mu}}=\sup_{x\in (0,1]}x^{\frac{1}{4}-\mu}=\infty.
+  \]  
+  所以$f\notin C^{0,\mu},\mu>\frac{1}{4}$.
+\end{proof}
+\begin{exercise}
+  设$\Omega =\left\{ x\in \R^{2}:|x|<1 \right\} $,说明$u\in W^{1,2}(\Omega)$ 但是$u \notin L^{\infty}(\Omega)$.其中
+  \[
+    u(x)=\ln \ln (1+\frac{1}{|x|}),\quad |x|<1,\quad,|x|=\sqrt{x_1^2+x^2_2}. 
+  \]
+\end{exercise}
+\begin{proof}
+  对$u(x)$ 求偏导可得
+  \begin{align*}
+    \partial_1u=&-\frac{1}{\ln(1+\frac{1}{|x|})}\frac{1}{1+\frac{1}{|x|}} \frac{x_1}{|x|^3},\\ 
+    \partial_2u=&-\frac{1}{\ln(1+\frac{1}{|x|})}\frac{1}{1+\frac{1}{|x|}} \frac{x_2}{|x|^3}
+  .\end{align*}
+  从而
+  \begin{align}\label{3}
+    |\partial_i u|=\left| \frac{1}{|x| \ln(1+\frac{1}{|x|})} \frac{1}{|x|+1} \frac{x_i}{|x|}  \right| \le &  \frac{1}{|x|\ln(1+\frac{1}{|x|})}
+  .\end{align}
+   利用不等式$\ln(1+x)\le x$可得
+   \[
+     |u(x)|\le \ln \frac{1}{|x|}=-\ln|x|.
+  \] 
+  则利用该不等式以及极坐标来表示积分,$r=|x|,0<1<r$,可得
+  \[
+    \|u\|_{L^2(\Omega)}^2=\int_{\Omega}|u(x)|^2\mathrm{d}x\le \int_{\Omega}r\ln^2r \mathrm{d}r\mathrm{d}\theta=2\pi\int_0^{1}r\ln^2r\mathrm{d}r<\infty.
+  \]
+  另一方面,利用(\ref{3})式得
+  \[
+    \|\partial_i u\|_{L^2(\Omega)}^2=\int_{\Omega}|\partial_iu|^2\mathrm{d}x\le \int_{\Omega} \left(\frac{1}{r\ln( 1+\frac{1}{r})}\right)^2 r\mathrm{d}r\mathrm{d}\theta=2\pi\int_0^{1}\frac{1}{r \ln^2(1+\frac{1}{r})}\mathrm{d}r.
+  \] 
+  由$-\mathrm{d}\left( \ln(1+\frac{1}{r}) \right)=\frac{1}{r^2+r}\mathrm{d}r $,令$\ln (1+\frac{1}{r})=u$ 得
+  \[
+    \|\partial_iu\|_{L^2(\Omega)}\le 2\pi\int_{\ln 2}^{\infty}\frac{r+1}{u^2}\mathrm{d}u\le 4\pi \int_{\ln 2}^{\infty}\frac{1}{u^2}\mathrm{d}u<\infty.
+  \] 
+  综上可知,$u\in W^{1,2}(\Omega)$.
+
+  由$u$在去心邻域 $\Omega \backslash 0$上的连续性以及$\lim_{|x|\to \infty}u(x)=\infty$知显然有$u\notin L^{\infty}(\Omega)$.
+\end{proof}
+

@@ -150,12 +150,14 @@ f=f 1_{|f|\le 1}+f 1_{|f|>1}.
   \end{enumerate}
 \end{definition}
 
+\begin{remark}\label{rmk1-1}
 一个高$1$宽 $W$的 sub-step function 按照二进制展开,总能分解成真正的 step functions 的和:
 \[
 f=\sum_{k=1}^{\infty} 2^{-k}f_k,
 \] 
 其中$f_k$是高 $1$宽 $H$的 step functions.
 因此, 上述定义的两个函数类型都可以由 step function 逼近.
+\end{remark}
 
 \begin{theorem}[Characterisation of $L^{p,q}$]
   设$f$ 为一个函数,$0<p<\infty,1\le q\le \infty$,设$0<A<\infty$.那么下述5个在相差一个常数的情况下是等价的:
@@ -278,7 +280,7 @@ f=\sum_{k=1}^{\infty} 2^{-k}f_k,
 \begin{theorem}[Dual formulation of weak $L^{p}$ ]
   设$1<p\le \infty $,对任意$L^{p,\infty}(X,\mathrm{d}\mu)$ 中的函数$f$都有
    \begin{equation}
-     \|f\|_{L^{p,\infty}(X,\mathrm{d}\mu)}\sim_p \sup\left\{ \mu(E)^{-1 /p'} |\int_Xf 1_E \mathrm{d}\mu|:0<\mu(E)<\infty \right\}. 
+     \|f\|_{L^{p,\infty}(X,\mathrm{d}\mu)}\sim_p \sup\left\{ \mu(E)^{-1 /p'} |\int_Xf 1_E \mathrm{d}\mu|:0<\mu(E)<\infty \right\}.\label{1-4} 
   \end{equation}
 \end{theorem}
 \begin{theorem}[Dual characterisation of $L^{p,q}$]\label{thm1-1}
@@ -293,16 +295,16 @@ f=\sum_{k=1}^{\infty} 2^{-k}f_k,
 \begin{definition}
   设$0<p,q\le \infty$, $T$是sublinear operator,则有如下定义
    \begin{enumerate}
-     \item $T$ 是\textit{strong type} $(p,q)$ (或者就简单地称为 \textit{type} $(p,q)$),如果其满足
+     \item $T$ 是\textit{strong-type} $(p,q)$ (或者就简单地称为 \textit{type} $(p,q)$),如果其满足
        \[
 	 \|Tf\|_{L^{q}(Y)}\lesssim_{T,p,q}\|f\|_{L^{p}(X)},
        \] 
        其中$f$ 是$L^{p}$ 中的任意函数,或者是$L^{p}$ 的一个稠密子集中的任意函数.
-     \item 若$q<\infty$,称$T$ 是 \textit{weak type} $(p,q)$,如果其满足
+     \item 若$q<\infty$,称$T$ 是 \textit{weak-type} $(p,q)$,如果其满足
        \begin{equation}
 	 \|Tf\|_{L^{q,\infty}(Y)}\lesssim_{T,p,q}\|f\|_{L^{p}(X)}.
        \end{equation}
-     \item 设$f$ 是任意的高$H$ 宽$W$ 的sub-step function,则称$T$是 \textit{restricted strong type}  $(p,q)$,如果其满足
+     \item 设$f$ 是任意的高$H$ 宽$W$ 的sub-step function,则称$T$是 \textit{restricted strong-type}  $(p,q)$,如果其满足
        \begin{equation}
 	 \|Tf\|_{L^{q}(Y)}\lesssim_{T,p,q} HW^{1 /p}.
        \end{equation}
@@ -310,7 +312,7 @@ f=\sum_{k=1}^{\infty} 2^{-k}f_k,
        \begin{equation}
 	 \|T 1_{E}\|_{L^{q}(Y)}\lesssim_{T,p,q} \mu(E)^{1 /p}.
        \end{equation}
-     \item 若$q<\infty$,$f$ 是任意的高$H$ 宽$W$ 的sub-step function,则称$T$是\textit{restricted weak type } $(p,q)$,如果其满足
+     \item 若$q<\infty$,$f$ 是任意的高$H$ 宽$W$ 的sub-step function,则称$T$是\textit{restricted weak-type } $(p,q)$,如果其满足
        \begin{equation}
 	 \|Tf\|_{L^{q,\infty}(Y)}\lesssim_{T,p,q}HW^{1 /p}.
        \end{equation}
@@ -339,6 +341,32 @@ f=\sum_{k=1}^{\infty} 2^{-k}f_k,
 \begin{equation}
   \left<|T 1_E|, 1_F \right>\lesssim_{p,q}\mu(E)^{1 /p}\nu(F)^{1 /q'}.
 \end{equation}
+实际上, strong-type这个限制过于强了,只要是restricted strong-type就能得出上面的结论.
+
+如果$q>1$,我们还可以把条件放宽到restricted weak-type:
+\begin{proposition}\label{prp1-1}
+  设$0<p\le \infty$,$1<q\le \infty$,$A>0$.设$T$ 是使得(\ref{1-3})式良定义的sublinear operator.则下面两个在相差一个隐含常数的情况下是等价的:
+  \begin{itemize}
+    \item $T$ 是restricted weak-type $(p,q)$,$A>0$,并满足
+       \begin{equation}
+        \|Tf\|_{L^{q,\infty}}\lesssim_{p,q}AHW^{1 /p},
+      \end{equation}
+      其中$f$ 是任意高$H$ 宽$W$ 的sub-step function.
+    \item 对于任意的$E\subset X,F\subset Y$ 且测度有限的可测集,我们有限制
+      \[
+	\left<|T 1_E|,1_F \right>\lesssim_{p,q}A\mu(E)^{1 /p}\nu(F)^{1 /q'}.
+      \] 
+    \end{itemize}
+\end{proposition}
+这个性质的证明需要用到(\ref{1-4})式,以及注 \ref{rmk1-1}.
+
+\begin{corollary}[Baby real interpolation]
+  设$T$ 是使得(\ref{1-3})式有意义的sublinear operator,$0<p_0,p_1\le \infty$,$1<q_0,q_1\le \infty$,$A_0,A_1>0$. $T$ 是具有常数$A_i$ 的restricted weak-type $(p_i,q_i)$,$i=0,1$.则$T$ 也是具有常数$A_\theta$ 的restricted weak-type $(p_\theta,q_\theta$,其中$0\le \theta\le 1$,
+   \[
+   \frac{1}{p_\theta}:=\frac{1-\theta}{p_0}+\frac{\theta}{p_1};\quad \frac{1}{q_\theta}:=\frac{1-\theta}{q_0}+\frac{\theta}{q_1};\quad A_\theta:=A_0^{1-\theta}A_1^{\theta}.
+   \]  
+\end{corollary}
+上面推论的证明实际上就是由$X\lesssim Y_0$ 和$X\lesssim Y_1$ 可以推出$X\lesssim Y_\theta=Y_0^{1-\theta}Y_1^{\theta}$,$0\le \theta\le 1$.
 
 \begin{theorem}[Marcinkiewicz interpolation theorem]
   设$T$ 是一个sublinear operator而且(\ref{1-3})式是well-defined的.设$0<p_0,p_1\le \infty$,$0<q_0,q_1\le \infty$ 以及$A_0,A_1>0$.定义
@@ -351,17 +379,6 @@ f=\sum_{k=1}^{\infty} 2^{-k}f_k,
   \] 
   其中$f$ 是任意拥有有限支撑的简单函数.特别地,如果$q_\theta\ge p_\theta$,那么$T$ 是一个具有常数bound $O_{p_0,p_1,q_1,\theta}(A_\theta)$ 的strong-type $(p_\theta,q_\theta)$.
 \end{theorem}
-\begin{proof}
-  首先我们利用一些齐次对称性来把问题简写,最终可以简化成设$A_0=A_1=1=A_\theta$.我们的目标是证明对于所有的具有有限测度支撑的简单函数$f$,我们有
-  \[
-    \|Tf\|_{L^{q_\theta,r}(Y)}\lesssim \|f\|_{L^{p_\theta,r}(X)}.
-  \]
-  利用定理\ref{thm1-1},上式等价于
-  \begin{equation}
-    \left<|Tf|,|g| \right>\lesssim \|f\|_{L^{p_\theta,r}(X)}\|g\|_{L^{q^{\prime}_{\theta},r^{\prime}}(Y)},
-  \end{equation}
-  其中$f,g$ 是任意的具有有限支撑的简单函数.
 
-  \noindent 我
-\end{proof}
+  
 

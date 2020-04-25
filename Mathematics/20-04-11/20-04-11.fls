@@ -297,6 +297,9 @@ INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm
+INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/lm/ts1lmr.fd
+INPUT /usr/local/texlive/2019/texmf-dist/tex/latex/lm/ts1lmr.fd
+INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/lm/ts1-lmr12.tfm
 OUTPUT 20-04-11.thm
 INPUT 20-04-11.aux
 INPUT ./20-04-11.out

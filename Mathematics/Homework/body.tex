@@ -77,7 +77,8 @@
 所以对任意的$n>0$,都有$\lim_{x\to 0^{+}}f^{(n)}(x)=0$.
 再利用分析学中的一个定理:
 \begin{framed}
-  \noindent \textbf{定理. } 设$f$ 是在$x=a$ 处连续的函数,$f'(x)$ 在$x=a$ 的一个去心领域上处处存在且
+  \small\itshape 
+  \begin{theorem} 设$f$ 是在$x=a$ 处连续的函数,$f'(x)$ 在$x=a$ 的一个去心领域上处处存在且
   \[
     \lim_{x\to a}f'(x)
   \] 
@@ -85,6 +86,7 @@
   \[
     f'(a)=\lim_{x\to a}f'(x).
   \] 
+\end{theorem}
   \begin{proof}
     根据导数定义 
     \[
@@ -170,6 +172,7 @@ $x=-1$时同理.
   \]
   $\sup_{x\in [0,1]}|f(x)|=1$,所以只要计算半范数$[f]_{\mu,[0,1]}$.实际上我们可以证明一个一般结论:对于任意的$f(x)=x^{\alpha}$,$0<\alpha<1$,我们都有 $f\in C^{0,\alpha}$.为了证明这个一般结论,我们需要下述引理建立的不等式
   \begin{framed}
+    \small\itshape
     \begin{lemma}
       设$x>0$,$0<\alpha<1$,则
       \[
@@ -232,7 +235,7 @@ $x=-1$时同理.
    \[
      |u(x)|\le \ln \frac{1}{|x|}=-\ln|x|.
   \] 
-  则利用该不等式以及极坐标来表示积分,$r=|x|,0<1<r$,可得
+  则利用该不等式以及极坐标来表示积分,$r=|x|,0<r<1$,可得
   \[
     \|u\|_{L^2(\Omega)}^2=\int_{\Omega}|u(x)|^2\mathrm{d}x\le \int_{\Omega}r\ln^2r \mathrm{d}r\mathrm{d}\theta=2\pi\int_0^{1}r\ln^2r\mathrm{d}r<\infty.
   \]

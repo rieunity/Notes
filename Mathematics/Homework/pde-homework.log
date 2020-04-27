@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.10.24)  25 APR 2020 21:44
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.10.24)  27 APR 2020 21:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1176,8 +1176,15 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 Package hyperref Info: bookmark level for unknown exercise defaults to 0 on input line 3.
  [1
 
-] [2] [3] [4]
-Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input line 174.
+] [2]
+Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 81.
+
+
+LaTeX Font Warning: Font shape `TU/FandolSong-Regular(0)/bx/it' undefined
+(Font)              using `TU/FandolSong-Regular(0)/bx/n' instead on input line 90.
+
+[3] [4]
+Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input line 177.
  [5] [6])
 \tf@thm=\write6
 \openout6 = `pde-homework.thm'.
@@ -1190,18 +1197,22 @@ Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 89.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 89.
 Package rerunfilecheck Info: File `pde-homework.out' has not changed.
 (rerunfilecheck)             Checksum: 21CA446E6F2F8BDE1A7C883F7BE1863C.
+
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
 Package logreq Info: Writing requests to 'pde-homework.run.xml'.
 \openout1 = `pde-homework.run.xml'.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 89.
  ) 
 Here is how much of TeX's memory you used:
- 33415 strings out of 492483
- 653525 string characters out of 6129482
- 1155314 words of memory out of 5000000
- 37591 multiletter control sequences out of 15000+600000
- 561173 words of font info for 79 fonts, out of 8000000 for 9000
+ 33444 strings out of 492483
+ 654198 string characters out of 6129482
+ 1156234 words of memory out of 5000000
+ 37612 multiletter control sequences out of 15000+600000
+ 577272 words of font info for 93 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  58i,10n,76p,943b,745s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on pde-homework.xdv (7 pages, 32732 bytes).
+Output written on pde-homework.xdv (7 pages, 34104 bytes).

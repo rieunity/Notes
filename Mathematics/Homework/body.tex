@@ -283,24 +283,22 @@ $x=-1$时同理.
   \[
     \widehat{f}(\xi)=e^{-\frac{\xi^2}{2}}.
   \]\\
-  (2)因为 $f\in L^{1}(\R)$,若式子右边存在,则
+  (2)
   \begin{equation*}
     \begin{aligned} 
     &(2\pi)^{-1}\int_{\R}\widehat{f}\overline{\widehat{g}}\mathrm{d}\xi\\
-    = &(2\pi)^{-1}\int_{\R}\left( \int_{\R}e^{-ix\xi}f(x)\mathrm{d}x \right)\overline{\left( \int_{\R}e^{-iy\xi}g(y)\mathrm{d}y \right)} \mathrm{d}\xi\\
-    = &(2\pi)^{-1}\int_{\R}\left( \int_{\R}e^{-ix\xi}f(x)\mathrm{d}x \right)\left( \int_{\R}e^{iy\xi}\overline{g}(y)\mathrm{d}y \right) \mathrm{d}\xi\\
-    =& (2\pi)^{-1}\int_{\R}f(x)\left(\int_{\R}\left( \int_{\R}e^{-i(x-y)}\mathrm{d}\xi \right)\overline{g}(y)\mathrm{d}y\right) \mathrm{d}x\\
-    =&(2\pi)^{-1}\int_{\R}f(x)\left( \int_{\R}2\pi \delta(x-y) \overline{g}(y)\mathrm{d}y \right) \mathrm{d}x\\
-    =&\int_{\R}f(x)\overline{g}(x)\mathrm{d}x.
+    =& (2\pi)^{-1}\int_{\R}\left( \int_{\R}e^{-ix\xi}f(x)\mathrm{d}x \right) \overline{\widehat{g}}(\xi)\mathrm{d}\xi\\
+    =& (2\pi)^{-1}\int_{\R}f(x)\left( \int_{\R}e^{-ix\xi}\overline{\widehat{g}}(\xi)\mathrm{d}\xi \right) \mathrm{d}x\\
+    =& \int_{\R}f(x)\overline{\left( (2\pi)^{-1}\int_{\R}e^{ix\xi} \widehat{g}(\xi)\mathrm{d}\xi \right) }\mathrm{d}x\\
+    =& \int_{\R}f(x)\overline{g}(x)\mathrm{d}x
     \end{aligned}
   \end{equation*}
 \begin{equation*}
   \begin{aligned}
     &(2\pi)^{-1} \widehat{f}*\widehat{g}\\
     =&(2\pi)^{-1} \int_{\R}\widehat{f}(\xi-\zeta)\widehat{g}(\zeta)\mathrm{d}\zeta\\
-    =& (2\pi)^{-1}\int_{\R}\left( \int_{\R}e^{-ix(\xi-\zeta)}f(x)\mathrm{d}x \right)\left( \int_{\R}e^{-iy\zeta}g(y)\mathrm{d}y \right)\mathrm{d}\zeta\\
-    =& (2\pi)^{-1}\int_{\R}e^{-ix\xi}f(x)\left( \int_{\R} \left( \int_{\R}e^{-i(y-x)\zeta}\mathrm{d}\zeta \right)g(y) \mathrm{d}y \right) \mathrm{d}x\\
-    =&(2\pi)^{-1}\int_{\R}e^{-ix\xi}f(x)\left( \int_{\R}(2\pi)\delta(y-x)g(y)\mathrm{d}y \right) \mathrm{d}x\\
+    =& (2\pi)^{-1}\int_{\R}\left( \int_{\R}e^{-ix(\xi-\zeta)}f(x)\mathrm{d}x \right)g(\zeta)\mathrm{d}\zeta\\
+    =& \int_{\R}e^{-ix\xi}f(x)\left( (2\pi)^{-1}\int_{\R}e^{ix\zeta}g(\zeta)\mathrm{d}\zeta \right) \mathrm{d}\xi\\
     = & \int_{\R}e^{-ix\xi}f(x)g(x)\mathrm{d}x\\
     =& \widehat{fg}.
   \end{aligned}

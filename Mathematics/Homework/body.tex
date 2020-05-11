@@ -251,4 +251,61 @@ $x=-1$时同理.
 
   由$u$在去心邻域 $\Omega \backslash 0$上的连续性以及$\lim_{|x|\to \infty}u(x)=\infty$知显然有$u\notin L^{\infty}(\Omega)$.
 \end{proof}
+\section{Fourier分析}
+\begin{exercise}
+  设 $f\in L^{1}(\R)$,定义Fourier变换
+  \[
+    \widehat{f}(\xi)=\int_{\R}e^{-ix\xi}f(x)\mathrm{d}x,\quad \xi \in \R.
+  \] 
+  \begin{enumerate}
+    \item [(1)]若$f(x)=(2\pi)^{-\frac{1}{2}}e^{- \frac{x^2}{2}}$,则$\widehat{f}(\xi)=e^{-\frac{\xi^2}{2}}$.
+    \item [(2)]若$f,g\in L^{1}(\R)$,则
+      \begin{align*}
+	\int_{\R}f\overline{g}\mathrm{d}x=&(2\pi)^{-1}\int_{\R}\widehat{f}\overline{\widehat{g}}\mathrm{d}\xi;\\
+	\widehat{fg}=&(2\pi)^{-1}\widehat{f}* \widehat{g}.
+      \end{align*}
+  \end{enumerate}
+\end{exercise}
+\begin{proof}\\
+  (1)根据Fourier变换的定义可得
+  \begin{equation}\label{4}
+    \begin{aligned}
+    \widehat{f}(\xi)=&\int_{\R}e^{-ix\xi}f(x)\mathrm{d}x\\
+    =& (2\pi)^{-\frac{1}{2}} \int_{\R}e^{-ix\xi}e^{-\frac{x^2}{2}}\mathrm{d}x\\
+    =&(2\pi)^{-\frac{1}{2}}e^{-\frac{\xi^2}{2}}\int_{\R} e^{-(x-i\xi)^2}\mathrm{d}x
+    \end{aligned}
+  .\end{equation}
+  剩下的问题就是求$\int_{\R}e^{-(x-i\xi)^2}\mathrm{d}x$,可以通过计算$\int_{\R}e^{-x^2}\mathrm{d}x$ 的方法同样求得
+  \[
+    \int_{\R}e^{-(x-i\xi)^2}\mathrm{d}x=\int_{\R}e^{-x^2}\mathrm{d}x=(2\pi)^{\frac{1}{2}}.
+  \] 
+  代入(\ref{4})中可得
+  \[
+    \widehat{f}(\xi)=e^{-\frac{\xi^2}{2}}.
+  \]\\
+  (2)因为 $f\in L^{1}(\R)$,若式子右边存在,则
+  \begin{equation*}
+    \begin{aligned} 
+    &(2\pi)^{-1}\int_{\R}\widehat{f}\overline{\widehat{g}}\mathrm{d}\xi\\
+    = &(2\pi)^{-1}\int_{\R}\left( \int_{\R}e^{-ix\xi}f(x)\mathrm{d}x \right)\overline{\left( \int_{\R}e^{-iy\xi}g(y)\mathrm{d}y \right)} \mathrm{d}\xi\\
+    = &(2\pi)^{-1}\int_{\R}\left( \int_{\R}e^{-ix\xi}f(x)\mathrm{d}x \right)\left( \int_{\R}e^{iy\xi}\overline{g}(y)\mathrm{d}y \right) \mathrm{d}\xi\\
+    =& (2\pi)^{-1}\int_{\R}f(x)\left(\int_{\R}\left( \int_{\R}e^{-i(x-y)}\mathrm{d}\xi \right)\overline{g}(y)\mathrm{d}y\right) \mathrm{d}x\\
+    =&(2\pi)^{-1}\int_{\R}f(x)\left( \int_{\R}2\pi \delta(x-y) \overline{g}(y)\mathrm{d}y \right) \mathrm{d}x\\
+    =&\int_{\R}f(x)\overline{g}(x)\mathrm{d}x.
+    \end{aligned}
+  \end{equation*}
+\begin{equation*}
+  \begin{aligned}
+    &(2\pi)^{-1} \widehat{f}*\widehat{g}\\
+    =&(2\pi)^{-1} \int_{\R}\widehat{f}(\xi-\zeta)\widehat{g}(\zeta)\mathrm{d}\zeta\\
+    =& (2\pi)^{-1}\int_{\R}\left( \int_{\R}e^{-ix(\xi-\zeta)}f(x)\mathrm{d}x \right)\left( \int_{\R}e^{-iy\zeta}g(y)\mathrm{d}y \right)\mathrm{d}\zeta\\
+    =& (2\pi)^{-1}\int_{\R}e^{-ix\xi}f(x)\left( \int_{\R} \left( \int_{\R}e^{-i(y-x)\zeta}\mathrm{d}\zeta \right)g(y) \mathrm{d}y \right) \mathrm{d}x\\
+    =&(2\pi)^{-1}\int_{\R}e^{-ix\xi}f(x)\left( \int_{\R}(2\pi)\delta(y-x)g(y)\mathrm{d}y \right) \mathrm{d}x\\
+    = & \int_{\R}e^{-ix\xi}f(x)g(x)\mathrm{d}x\\
+    =& \widehat{fg}.
+  \end{aligned}
+\end{equation*}
+\end{proof}
+
+
 

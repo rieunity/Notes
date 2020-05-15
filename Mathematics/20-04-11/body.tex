@@ -1,4 +1,4 @@
-\section{Lecture Notes 1 FOR 247A}
+\section{Lecture Notes 1 for 247A}
 \subsection{什么是调和分析}
 第一份讲义介绍了这份讲义(总共6个note)讲述的内容:
 \begin{framed}
@@ -159,7 +159,7 @@ f=\sum_{k=1}^{\infty} 2^{-k}f_k,
 因此, 上述定义的两个函数类型都可以由 step function 逼近.
 \end{remark}
 
-\begin{theorem}[Characterisation of $L^{p,q}$]
+\begin{theorem}[Characterisation of $L^{p,q}$]\label{thm1-1}
   设$f$ 为一个函数,$0<p<\infty,1\le q\le \infty$,设$0<A<\infty$.那么下述5个在相差一个常数的情况下是等价的:
   \begin{enumerate}
     \item  $\|f\|_{L^{p,q}}\lesssim_{p,q}A$.
@@ -380,5 +380,139 @@ f=\sum_{k=1}^{\infty} 2^{-k}f_k,
   其中$f$ 是任意拥有有限支撑的简单函数.特别地,如果$q_\theta\ge p_\theta$,那么$T$ 是一个具有常数bound $O_{p_0,p_1,q_1,\theta}(A_\theta)$ 的strong-type $(p_\theta,q_\theta)$.
 \end{theorem}
 
-  
+Marcinkiewicz Interpolation Theorem的证明所用的方法就叫作real interpolation method.这个方法的本质就是利用dual characterisation,用定理\ref{thm1-1}分解函数,对每一部分尽可能最优估计,然后求和.有时间我会另外写一个笔记专门写详细证明.
 
+\section{Lecture Notes 2 for 247A}
+这一个讲义主要讲解了conplex interpolation method以及如何利用该方法证明Riesz-Thorin Interpolation Theorem. 
+\subsection{Complex Interpolation}
+\begin{lemma}
+  设$1\le p,q\le \infty$ 是一对共轭指数(即$1=\frac{1}{p}+\frac{1}{q}$).如果$f$ 在所有有限测度集合(如果$q=\infty$ 则需要要求$\mu$ 是 semifinite)上都可积并且
+  \[
+  \sup_{\|g\|_{p}\le 1,g \text{ \upshape simple}}\left| \int fg \right| =M<\infty
+  \] 
+  则有$f\in L^{q}$ 并且$\|f\|_q=M$.
+\end{lemma}
+这个引理的证明需要用H\"{o}lder不等式以及选取一个特殊的函数来证明$\|f\|_q\le M$.
+
+\begin{proof}
+  首先我们考虑$p>1$ 以及$q<\infty$ 的情形.利用H\"{o}lder不等式可得
+   \[
+  M\le \|f\|_q \|g\|_p\le \|f\|_q
+  .\]
+  剩下需要证明不等式的$\|f\|_q\le M$.我们可以找到$L^{q} $ 中的一列简单函数$\{f_n\}_{n\in \N} $,它们从下方逐点收敛到$f$.我们定义
+   \[
+     g_n(x)= \frac{|f_n(x)|^{q-1}\cdot \sgn f}{\|f_n\|_q^{q-1}}.
+  \]
+  计算可得
+  \[
+    \|g_n\|_p^{p}=\frac{1}{\|f_n\|_q^{p(q-1)}}\int |f_n(x)|^{p(q-1)}= \frac{\|f\|_q^{q}}{\|f\|_q^{q}}=1.
+  \]
+  另一方面,
+  \[
+  \int f_n g_n= \frac{\int |f_n|^{q}}{\|f_n\|_q^{q-1}}=\|f_n\|_q.
+  \] 
+  所以
+  \[
+  \|f_n\|_q=\int f_n g_n \le  M.
+  \] 
+  利用Fatu引理可得
+  \[
+  \int |f|^{q}\le \lim \inf \int |f|^{q}\le M^{q},
+  \] 
+  即$\|f\|_q\le M$.
+  
+  接下来我门考虑$p=1,q=\infty$ 的情况. 固定$\epsilon >0$ 设$E=\{x| |f(x)|\ge  M+\epsilon \} $.因为$\mu$ 是semifinite,如果$\mu(E)$ 是正的,那么就存在$F\subset E$ 使得$0<\mu(F)<\infty$.设$g=\mu(F)^{-1} 1_{F}\sgn f$. 则$\|g\|_1=1$ 并且
+  \[
+    M\ge \int fg=\frac{1}{\mu(F)}\int_F |f|\ge M+\epsilon .
+  \] 
+  这显然是不可能的,所以$\mu(E)=0$,则$f\in L^{\infty}$ 并且$M\ge \|f\|_{\infty}$.反向不等式仍然是由H\"{o}lder不等式得到.
+\end{proof}
+上一节中的dual性质证明方法和上述这个几乎一样.
+\begin{lemma}[Three Lines Lemma]
+  设$f$ 是一个在带状区域$\{0\le\Re(z)\le 1 \} $ 上的复解析函数,并且是至多double-exponential增长的,即对于某个$\delta>0$,有$|f(z)|\lesssim_f e^{O_f\left( e^{(\pi-\delta)|z|} \right) }$.若在$\Re(z)=0$处有$|f(z)|\le A$,以及在$\Re(z)=1$ 处有$|f(z)|\le B$,则对于带状区域中的任意的$z$有
+   \[
+     |f(z)|\le A^{1-\Re(z)}B^{\Re(z)}.
+  \] 
+\end{lemma}
+有了这两个引理就可以得到Riesz-Thorin Interpolation Theorem:
+\begin{theorem}[Riesz-Thorin Interpolation Theorem]
+设$T$ 是一个线性算子,并且
+\[
+\int_{X}Tfg \mathrm{d}\mu
+\] 对所有具有有限测度支撑的简单函数都是良定义的.设$0<p_0,p_1\le \infty$,$1\le q_0,q_1\le \infty$.$A_0,A_1>0$,我们有
+\[
+  \|Tf\|_{L^{q_i}}(Y)\le A_i \|f\|_{L^{p_i}}(X),
+\] 
+其中$f$ 是任意的具有有限测度支撑的简单函数,$i=0,1$.则
+ \[
+   \|Tf\|_{L^{q_\theta}(Y)}\le A_\theta\|f\|_{L^{p_\theta}(X)},
+\] 
+其中$f$ 同上,$0\le \theta\le 1$,$p_\theta,q_\theta,A_\theta$ 同第一节的定义一样.
+\end{theorem}
+适当定义
+\[
+  \Phi(z)=\int Tf_z g_z \mathrm{d}\nu
+\] 
+再用Three Lines Lemma即可得到.
+\subsection{Schur's Test}
+这里我们考虑积分算子(integral operator) $T=T_K$,其定义为
+\begin{equation}\label{2-20}
+   Tf(y)=T_kf(y)=\int_{X}K(x,y)f(x)\mathrm{d}\mu_X(x)
+ \end{equation} 
+ 其中$K:X\times Y\to \C$ 是某个可测函数,被称为算子$T$的 积分核(integral kernel)或者核(kernel).
+ 
+ 调和分析中一个基本的问题就是找到使得$T$ 是strong-type $(p,q)$ (或者weak-type或者restricted-type)的 $K$ 需要满足的条件,以及估计相应的常数.一般来说,这个问题是很困难的.但是如果是从$L^{1}$映射到Banach空间,或者从Banach空间映射到 $L^{\infty}$,问题会变得简单得多.我们用$L^{p}\left( 1\le p\le \infty \right) $ 空间来阐述这个事实:
+ \begin{proposition}\label{prp2-5}
+   (Mapping from $L^{1}$). 设$1\le q\le \infty$, $K:X\times Y\to \C$.假设$\|K(x,\cdot )\|_{L^{q}(Y)}$ 一致有界,那么算子{\normalfont (\ref{2-20})}是 strong-type $(1,q)$(并且对于所有的$L^{1}(X)$ 绝对收敛),并且
+   \begin{equation}
+     \|T_K\|_{L^{1}(X)\to L^{q}(Y)}=\sup_{x\in X}\|K(x,\cdot )\|_{L^{q}(Y)}.
+   \end{equation}
+ \end{proposition}
+ \begin{proof}
+   对任意的$f\in L^{1}(X)$,利用Minkowski不等式得
+   \begin{align*}
+     \|\int_{X}|K(x,y)| |f(x)|\mathrm{d}\mu_X(x)\|_{L^{q}_y(Y)}\le & \int_{X}\| |K(x,\cdot )| |f(x)|\|_{L^{q}_y(Y)}\mathrm{d}\mu_X(x)\\
+     \le  & \int_{X}|f(x)| \mathrm{d}\mu_X(x)\sup_{x\in X}\| |K(x,\cdot )|\|_{L^{q}_y(Y)}\\
+     \le  & \infty
+   .\end{align*}
+   所以$Tf(y)$ 对几乎所有的$y$ 都是绝对收敛的,从三角不等式可得
+   \[
+     \|T_K\|_{L^{1}(X)\to L^{q}(Y)}\le \sup_{x\in X}\|K(x,\cdot )\|_{L^{q}(Y)}.
+   \] 
+   为了得到反向不等式,我们可以取$K$ 为一个simple function;事实上,我们可以取$K$ 为一个product simple function,也就是说一个关于分别在$X$ 和$Y$ 上的indicator functions的张量积的线性组合.在这种情况下我们可以将$X$分成有限多个正测度集,对其中的每一个 $K$ 都与$x$ 无关(这里已经排除了测度为零的集).对其中的一个集合,记作 $A$,  $\|K(x,\cdot )\|_{L^{q}(Y)}$ 可以达到.如果我们用$1_{A'},A' \subset A$ 来测试$T_K$,我们就完成了证明.
+ \end{proof}
+
+ 还有一个对偶性质:
+ \begin{proposition}
+   (Mapping into $L^{\infty}$).设$1\le p\le \infty$,$K:X\times Y\to \C$.假设$\|K(\cdot ,y)\|_{L^{p'}(X)}$ 一致有界,那么算子{\normalfont (\ref{2-20})}是strong-type $(p,\infty)$ (并且对所有的$L^{p}(X)$ 绝对收敛),并且
+   \begin{equation}
+     \|T_K\|_{L^{p}(X)\to L^{\infty}(Y)}=\sup_{y\in Y}\|K(\cdot ,y)\|_{L^{p'}(X)}.
+   \end{equation}
+ \end{proposition}
+\begin{proof}
+  对任意$f\in L^{p}(X)$,
+  \begin{align*}
+    \sup_{y\in Y} | \int_{X}| K(x,y)| |f(x)| \mathrm{d}\mu_X(x)  |\le & \sup_{y\in Y} | \|K(\cdot ,y)\|_{L^{p'}(X)}\|f\|_{L^{p}(X)} |\\
+    \le & \sup_{y\in Y}| \|K(\cdot ,y)\|_{L^{p'}(X)} | \|f\|_{L^{p}(X)}
+  .\end{align*}
+  反向不等式的证明也与性质\ref{prp2-5}类似.
+\end{proof}
+利用上面两个性质以及Riesz-Thorin Theorem我们可以得到:
+\begin{theorem}[Schur's Test]
+  设$K:X\times Y\to \C$ 满足
+  \[
+    \int_{X}|K(x,y)| \mathrm{d}\mu_X(x) \le A  \quad \text{ a.e. }y \in Y
+  \]以及
+  \[
+    \int_{Y}|K(x,y)| \mathrm{d}\mu_{Y}(y)\le B \quad \text{ a.e. }x \in X.
+  \]
+  那么对任意$1\le p\le \infty$,{\normalfont (\ref{2-20})}中的算子$T_K$ 对所有的$f\in L^{p}(X)$都是良定义的(积分对几乎所有的$y$都是绝对可积的)并且
+  \[
+    \|T_Kf\|_{L^{p}}(Y)\le A^{1 /p'}B^{1 /p}\|f\|_{L^{p}(X)}.
+  \] 
+\end{theorem}
+该定理也可以由不等式
+\[
+ab\le \frac{a^{p}}{p}+ \frac{b^{p'}}{p'}
+\] 
+来证明(i.e., 利用real convexity).

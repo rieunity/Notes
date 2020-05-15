@@ -1,0 +1,1157 @@
+%\Large
+\section{Modular Group, Congruence Subgroup and Modular Forms}
+\begin{definition}
+  The \textit{modular group} is the group of 2-by-2 matrices with integer entries and determinant 1:
+  \begin{equation*}
+    \SL:=\left\{ \begin{bmatrix} a & b\\
+    c & d\end{bmatrix}:a,b,c,d\in \Z,ad-bc=1  \right\} .
+  \end{equation*}
+  The \textit{principal congruence subgroup of level $N$} is 
+  \begin{equation*}
+    \Gamma(N):=\left\{ \begin{bmatrix} a&b\\
+    c&d\end{bmatrix} \in \SL:a\equiv d\equiv 1\pmod{N},  b\equiv c\equiv 0 \pmod{N}\right\} 
+ . \end{equation*}
+ $\Gamma$ is a congruence subgroup if 
+ \[
+   \Gamma(N)\subset \Gamma\subset \SL \text{ for some }N.
+ \] 
+\end{definition}
+\begin{example}
+  $\forall N\in \N$, 
+  \[
+    \Gamma_0(N)=\left\{ \begin{bmatrix} a&b\\c&d \end{bmatrix} \in \SL:c\equiv 0 \pmod{N} \right\} 
+  \]
+  and 
+  \[
+    \Gamma_1(N)=\left\{ \begin{bmatrix} a&b\\c,d \end{bmatrix} \in \SL:a\equiv d\equiv 1\pmod{N}, c\equiv 0\pmod{N} \right\} 
+  \] 
+  are congruence subgroups. Their relations are
+  \[
+    \Gamma(N)\subset \Gamma_1(N)\subset \Gamma_2(N)\subset \SL.
+  \] 		
+
+\end{example}
+\begin{definition}
+   $\mathcal{H}$ is the \textit{upper half plane} defined by 
+   \[
+     \mathcal{H}:=\left\{ \tau \in \C:\Im(\tau)>0 \right\} 
+   .\]
+   \textit{Action of $\SL$ on $\mathcal{H}$} is defined by
+   \[
+     \gamma(\tau)= \frac{a\tau+b}{c\tau+d}
+   \] 
+  for arbitrary $\gamma \in \SL$ and $\tau \in \mathcal{H}$.
+   
+\end{definition}
+
+\[
+\gamma(\tau)= \frac{a\tau+b}{c\tau+d}=\frac{(a\tau+b)(c \overline{\tau}+d}{|c\tau+d|^2}=\frac{ac|\tau|^2+bd+ad\tau+bc \overline{\tau}}{|c\tau+d|^2},
+\]
+then
+\[
+  \Im \gamma(\tau)= \frac{\Im(ad\tau+bc \overline{\tau})}{|c\tau+d|^2}= \frac{(ad-bc)\Im\tau}{|c\tau+d|^2}>0.
+\]
+
+Hence $\gamma(\tau)\in \mathcal{H}$ if $\tau \in \mathcal{H}$.
+
+
+Let $\gamma =\begin{bmatrix} a&b\\c&d \end{bmatrix} $ and $\gamma'=\begin{bmatrix} a'&b'\\c'&d' \end{bmatrix} $, then
+\[
+  \gamma\gamma'=\begin{bmatrix} aa'+bc'&ab'+bd'\\ca'+dc'&c b'+d d' \end{bmatrix} .
+\] 
+It's easy to verify 
+\[
+  \gamma(\gamma'(\tau))=\gamma\gamma'(\tau).
+\]
+Now we consider actions of $\SL$ on functions $f: \mathcal{H}\to \C$. Write \[
+  \gamma =\begin{bmatrix} a&b\\c&d \end{bmatrix} \in \SL ,\quad \tau \in \mathcal{H}.
+\] 
+\[
+  j(\gamma,\tau):=c\tau+d.
+\] 
+For $k\in \Z$, define $[\gamma]_k:=$ $\text{ the weight-}k \text{ operator acting on functions } \mathcal{H}\to \C \text{ such that }$
+\[
+  \left( f[\gamma_k] \right)(\tau)=j(\gamma,\tau)^{-k}f(\gamma(\tau))=(c\tau+d)^{-k}f\left( \frac{a\tau+b}{c\tau+d} \right) . 
+\]
+\begin{lemma}
+   $\forall \gamma,\gamma' \in \SL, \forall \tau \in \mathcal{H}$, we have 
+   \begin{enumerate}
+     \item $j(\gamma\gamma',\tau)=j(\gamma,\gamma'(\tau))j(\gamma',\tau)$;
+     \item $[\gamma\gamma']_k=[\gamma]_k[\gamma']_k$;
+     \item  $\frac{\mathrm{d}\gamma(\tau)}{\mathrm{d}\tau}=\frac{1}{j(\gamma,\tau)^2}$.
+   \end{enumerate}
+\end{lemma}
+\begin{proof}
+  \begin{enumerate}
+    \item 
+      \begin{align*}
+	\gamma  \begin{bmatrix} \tau\\1 \end{bmatrix} =&\begin{bmatrix} \gamma(\tau)\\1 \end{bmatrix} j(\gamma,\tau)\\
+	\gamma\gamma'\begin{bmatrix} \tau \\1 \end{bmatrix} =&\begin{bmatrix} \gamma\gamma'(\tau)\\
+      1\end{bmatrix}j(\gamma\gamma',\tau)\\
+      .\end{align*}
+      Also
+      \begin{align*}
+	\gamma\gamma'\begin{bmatrix} \tau\\1 \end{bmatrix} =&\gamma\begin{bmatrix} \gamma'(\tau)\\1 \end{bmatrix} j(\gamma',\tau)\\
+	=& \begin{bmatrix} \gamma\gamma'(\tau)\\1 \end{bmatrix} j(\gamma,\gamma'(\tau))j(\gamma',\tau)
+      .\end{align*}
+      \[
+	\Rightarrow j(\gamma\gamma',\tau)=j(\gamma,\gamma'(\tau))j(\gamma',\tau).
+      \] 
+    \item 
+      \begin{align*}
+	&(f[\gamma\gamma']_k)(\tau)\\
+	=& j(\gamma\gamma',\tau)^{-k}f(\gamma\gamma'(\tau))\\
+	=& j(\gamma,\gamma'(\tau))^{-k}j(\gamma',\tau)^{-k}f(\gamma\gamma'(\tau))\\
+	=& j(\gamma',\tau)f([\gamma]_k)(\gamma'(\tau))\\
+	=&(f[\gamma]_k[\gamma']_k)(\tau)
+      .\end{align*}
+    \item 
+      \begin{align*}
+	\frac{\mathrm{d}\gamma(\tau)}{\mathrm{d}\tau}=& \frac{a(c\tau+d)-(a\tau+b)c}{(c\tau+d)^2}\\
+	=& \frac{1}{(c\tau+d)^2}\\
+	=& \frac{1}{j(\gamma,\tau)^2}
+      .\end{align*}
+  \end{enumerate}
+\end{proof}
+\begin{definition}
+  Let $\Gamma= \text{ congruence subgroup}$ and $k\in \Z$ $f:\mathcal{H}\to \C$ is a weakly modular form function of weight $k$ with repect to $\Gamma$ if $f$ is meromorphic on $\mathcal{H}$ and 
+  \[
+    f[\gamma]_k=f,
+  \] 
+  i.e.,
+  \[
+    (c\tau+d)^{-k}f\left( \frac{a\tau+b}{c\tau+d} \right) = f.
+  \] 
+\end{definition}
+Suppose $f$ is a weakly modular function of weight $k$ with respect to $\Gamma$. 
+ \[
+   \Gamma \supset \Gamma(N)\Rightarrow \begin{bmatrix} 1&N\\0&1 \end{bmatrix} \in \Gamma 
+\] 
+\[
+  f\begin{bmatrix} 1&N\\0&1 \end{bmatrix} _{k}=f(\tau+N)=f(\tau)
+\]
+\[
+  \Rightarrow \exists \text{ minimal } h\in \N \text{ such that } f(\tau+h)=f(\tau)
+\]
+\[
+  \Rightarrow f(\tau)=g( e^{2\pi i\tau /h}) \text{ for some }g.  
+\] 
+\[
+\tau \in \mathcal{H}\Leftrightarrow  |e^{2\pi i \tau/h|}<1
+\] 
+\[
+  \Im(\tau)\to \infty \Rightarrow e^{2\pi i\tau /h}\to 0.
+\] 
+$g(z)$ is meromorphic on $0<|z|<1$.
+
+$z\to 0$ : $g(z)=\sum_{n=-\infty}^{\infty} a_n z^n$.\\
+$z=e^{2\pi i \tau /h}\Rightarrow \Im(\tau)\to \infty$
+\begin{equation}\label{1-1}
+  f(\tau)=g(e^{2\pi i\tau/ h})=\sum_{n=-\infty}^{\infty} a_n e^{2\pi in\tau /h}.
+\end{equation}
+We say $f(\tau)$ is holomorphic at $\infty$ if $a_n=0$ for all $n<0$ in (\ref{1-1}). In this case we write $f(\infty)=a_0$.
+
+$\forall \sigma \in \SL$, $f[\sigma]_k$ is a weakly modular function of weight $k$ with respect to $\sigma^{-1}\Gamma\sigma$. Indeed, let $\gamma \in \Gamma$,
+\[
+  f[\gamma]_k(\tau)=f(\tau)
+\] 
+\[
+  j(\gamma,\tau)^{-k}f(\gamma(\tau))=f(\tau)
+\] 
+\[
+  j(\gamma,\sigma(\tau))^{-k}f(\gamma\sigma(\tau))=f(\sigma(\tau))
+\] 
+\begin{align*}
+  ((f[\sigma]_k)[\sigma^{-1}\gamma\sigma]_k)(\tau)=&j(\sigma^{-1}\gamma\sigma,\tau)^{-k}(f[\sigma]_k)(\sigma^{-1}\gamma\sigma(\tau))\\
+  =& j(\sigma^{-1}\gamma\sigma,\tau)^{-k}j(\sigma,\sigma^{-1}\gamma\sigma(\tau))^{-k}f\left(\gamma\sigma(\tau)  \right) \\
+  =& j(\sigma^{-1}\gamma\sigma,\tau)^{-k}j(\sigma,\sigma^{-1}\gamma\sigma(\tau))^{-k}j(\gamma,\sigma(\tau))^{k}f(\sigma(\tau))\\
+  = & j(\sigma,\tau)^{-k}f(\sigma(\tau))\\
+  =& f[\sigma]_k
+.\end{align*}
+
+\begin{definition}
+  \begin{enumerate}
+    \item []
+    \item $f:\mathcal{H}\to \C$ is a modular formof weight $k$ with respect to $\Gamma$ if $f$ is weakly modular function and $f\sigma_k$ is holomorphic at $\infty \forall \sigma \in \SL$.
+    \item $f$ is a cusp form if $f$ is a modular form and $f\sigma_k$ vanishes at $\infty$ $ \forall \sigma \in \SL$.
+  \end{enumerate}
+\end{definition}
+\begin{proposition}
+  Assume $k=\text{odd}$, Then any modular form $f\equiv 0$.
+\end{proposition}
+\begin{proof}
+  $\gamma =\begin{bmatrix} -1&0\\0&-1 \end{bmatrix} \in \Gamma$, for arbitrary $\tau \in \mathcal{H}$,
+  \[
+    j(\gamma,\tau)^{-k}f(\gamma(\tau))=(-1)^{-k}f( \frac{-\tau+0}{0+(-1)})=(-1)^{-k}f(\tau)=-f(\tau).
+  \] 
+\end{proof}
+\section{Case $\Gamma=\SL$, Eisenstein Series}
+In this section assume $\Gamma=\SL$. $\Gamma$ is generated by $\begin{bmatrix} 1&1\\0&1 \end{bmatrix} $ and $\begin{bmatrix} 0 &-1\\1&0 \end{bmatrix} $.
+\[
+  \left( f\begin{bmatrix} 1&1\\0&1 \end{bmatrix} _k \right) (\tau)=f(\tau+1)
+  \] since $j\left( \begin{bmatrix} 1&1\\0&1 \end{bmatrix},\tau  \right)=1 $.
+  \[
+    \left( f\begin{bmatrix} 0&-1\\1&0 \end{bmatrix}_k  \right)= \frac{1}{\tau^{k}}f\left( -\frac{1}{\tau} \right)  
+    \] since $j\left( \begin{bmatrix} 0&-1\\1&0 \end{bmatrix} ,\tau \right) =\tau$.
+    Let  $f$ be a modular form of weight $k$, then
+    \begin{align*}
+      f(\tau+1)=&f(\tau)\\
+      f\left( -\frac{1}{\tau} \right) =\tau^{k}f(\tau)
+    .\end{align*}
+    (to find a nontrivial modular form, $k$ must be even.)
+    \begin{definition}[Eisenstein Series]
+      Assume $k=\text{even}>2$. Define 
+      \[
+	G_k(\tau)=\sum_{(c,d)\in \Z^2\backslash (0,0)}^{} \frac{1}{(c\tau+d)^k}.
+      \] 
+      $G_k(\tau)$ is called Eisenstein series.
+    \end{definition}
+    $\tau \in \mathcal{H}\Rightarrow G_k(\tau)$ is absolutely convergent and holomorphic.
+    \begin{align*}
+      \begin{bmatrix} a&b\\c&d \end{bmatrix} \in \SL\Rightarrow&G_k\left( \frac{a\tau+b}{c\tau+d} \right)\\
+      =&\sum_{(c',d')\neq (0,0)}^{} \frac{1}{\left( c' \frac{a\tau+b}{c\tau+d}+d' \right)^{k} }\\
+      =&\left( c\tau+d \right) ^{k}\sum_{(c',d')\neq(0,0)}^{} \frac{1}{((c'a+cd')\tau+(c'b+d d'))^{k}}
+    .\end{align*}
+    As $(c',d')$ walks through all $\neq (0,0)$, so does $(c'a+cd',c'b+d d')$. Hence
+    \[
+      G_k\left( \frac{a\tau+b}{c\tau+d} \right) =\left( c\tau+d \right) ^{k}G_k(\tau).
+    \]
+    When $\Im(\tau)\to \infty$,
+  \begin{equation*}
+    \frac{1}{(c\tau+d)^{k}}\to\left\{\begin{aligned}
+	&0 & \text{ if }c\neq 0,\\
+	&d^{-k}& \text{ if }c=0.
+    \end{aligned}\right.
+  \end{equation*}
+  \begin{align*}
+    \Rightarrow G_k(\infty)=& \lim_{\Im(\tau) \to \infty} G_k(\tau)\\
+    =& \sum_{d=-\infty,d\neq 0}^{\infty} \frac{1}{d^{k}}=2\zeta(k)
+  .\end{align*}
+  Assume $f$ is a modular form of weight  $k$, $k=\text{even}>2$. Define
+  \begin{align*}
+    D=&\left\{ q\in \C:|q|<1 \right\}\\
+    D'=&D-\{0\} 
+  .\end{align*}
+ Construct the mapping
+ \begin{align*}
+   \mathcal{H}\to&D'\\
+   \tau\mapsto&e^{2\pi i\tau}=q
+ \end{align*}
+ and
+ \begin{align*}
+   g:D'\to&\C\\
+   q\mapsto & f\left( \log(q)/(2\pi i) \right). 
+ \end{align*}
+$g$ is well defined even though the logarithm is only determined up to $2\pi i\Z$. Then 
+\[
+  f(\tau)=g(e^{2\pi i\tau}).
+\]
+
+At $\tau=\infty$, $G_k(\tau)=\sum_{n=0}^{\infty} a_ne^{2\pi in\tau}=2\zeta(k)$  $\Rightarrow a_0=2\zeta(k)$. $a_n=?$ 
+\begin{proposition}
+  Let $\tau \in \mathcal{H}$, we have
+  \[
+    \frac{1}{\tau}+\sum_{d=1}^{\infty} \left(\frac{1}{\tau-d}+\frac{1}{\tau+d}\right)=\pi\cot \pi\tau.
+  \] 
+\end{proposition}
+\begin{proof}
+  \[
+    \sin \pi\tau=\pi\tau \prod_{n=1}^{\infty}\left( 1- \frac{\tau^2}{n^2} \right). 
+  \] 
+  \[
+    \log \sin \pi\tau =\log \pi+\log\tau+\sum_{n=1}^{\infty} \log\left( 1- \frac{\tau^2}{n^2} \right) .
+  \] 
+  Taking the derivative, we obtain
+  \[
+    \pi\cot\pi\tau=\frac{1}{\tau}+\sum_{n=1}^{\infty} \frac{-2\tau /n^2}{1-\tau^2 /n^2}=\frac{1}{\tau}+\sum_{n=1}^{\infty} \left( \frac{1}{\tau-n}+\frac{1}{\tau+n} \right). 
+  \] 
+\end{proof}
+
+\begin{align*}
+  \frac{1}{\tau}+\sum_{d=1}^{\infty} \left( \frac{1}{\tau-d}+\frac{1}{\tau+d} \right) =& \pi i \frac{e^{i\pi\tau}+e^{-i\pi\tau}}{e^{i\pi\tau}-e^{-i\pi\tau}}\\
+  =& -\pi i \frac{1+e^{2\pi i\tau}}{1-e^{2\pi i\tau}}\\
+  =& -\pi i-2\pi i \sum_{m=0}^{\infty} e^{2\pi im\tau}
+.\end{align*}
+Differentiating $(k-1)$ times we get
+\[
+  (-1)^{k-1}(k-1)!\sum_{d=-\infty}^{\infty} \frac{1}{(\tau+d)^{k}}=-2\pi i \sum_{m=0}^{\infty} (2\pi im)^{k-1}e^{2\pi im\tau}.
+\] 
+\[
+  \Rightarrow \sum_{d=-\infty}^{\infty} \frac{1}{(\tau+d)^{k}}-\frac{(2\pi i)^{k}}{(k-1)!}\sum_{m=1}^{\infty} m^{k-1}e^{2\pi im\tau}=0.
+\] 
+\begin{align*}
+  \Rightarrow G_k(\tau)=&\sum_{c\neq 0}^{} \sum_{d=-\infty}^{\infty} \frac{1}{(c\tau+d)^{k}}+\sum_{d\neq 0}^{\infty} \frac{1}{d^{k}}\\
+  =& 2 \sum_{c=1}^{\infty} \sum_{d=-\infty}^{\infty} \frac{1}{(c\tau+d)^{k}}+2\zeta(k)\\
+  =& 2 \sum_{c=1}^{\infty} \frac{(2\pi i)^{k}}{(k-1)!}\sum_{m=1}^{\infty} m^{k-1}e^{2\pi imc\tau}+2\zeta(k)\\
+  =& 2 \sum_{n=1}^{\infty} \frac{(2\pi i)^{k}}{(k-1)!}\left( \sum_{m|n}^{} m^{k-1} \right) e^{2\pi in\tau}+2\zeta(k)
+.\end{align*}
+Then we get the following conclusion:
+\begin{proposition}
+  Let $k= \text{ even }>2$,$G_k(\tau)=\sum_{n=0}^{\infty} a_ne^{2\pi in\tau}$, then
+  \[
+    a_0=2\zeta(k)
+  \] 
+  \[
+    a_n=\frac{2(2\pi i)^{k}}{(k-1)!}\sigma_{k-1}(n)
+  \] 
+  where $n>0$ and $\sigma_{k-1}(n)=\sum_{m|n} m^{k-1} $.
+\end{proposition}
+
+A group $G$ acting on a set $S$ gives rise to an equivalent relation $\sim$ on $S$:
+ \[
+s_1\sim s_2 \Leftrightarrow \exists g\in G \text{ such that }s_2=gs_1.
+\]
+The quotient space $\sfrac{S}{G}=$ the set of the equivalent class.
+\begin{question}
+  $\SL$ acts on $\mathcal{H}$, what is the quotient space?
+\end{question}
+\begin{theorem}
+  Let $D=\left\{ \tau \in \mathcal{H}:|\Re\tau|\le \frac{1}{2},|\tau|\ge 1 \right\} $. Then $D$ is a fundamental domain for $\SL$ in the sense such that 
+  \begin{enumerate}
+    \item $\forall \tau \in \mathcal{H}$, $\exists \gamma \in \SL$ such that $\gamma(\tau)\in D$;
+    \item If $\tau_1,\tau_2 \in D$, $\tau_1\neq\tau_2$ and $\tau_2=\gamma(\tau_1)$ for some $\gamma \in \SL$, then either $\Re(\tau_1)=\pm \frac{1}{2},\tau_2=\tau_1\mp 1 $ or $|\tau_1|=1$,$\tau_2=-\frac{1}{\tau_1}$.
+  \end{enumerate}
+\end{theorem}
+\begin{figure}[ht]
+    \centering
+    \incfig{domain-d}
+    \caption{Domain D}
+    \label{fig:domain-d}
+\end{figure}
+\begin{proof}
+  Write $\gamma=\begin{bmatrix} a&b\\c&d \end{bmatrix} \in \SL$, $\gamma_1=\begin{bmatrix} 1&1\\0&1 \end{bmatrix} \in \SL$, $\gamma_2=\begin{bmatrix} 0&-1\\1&0 \end{bmatrix} \in \SL$. Then
+  \[
+    \gamma_1^{n}(\tau)=\tau+n
+  \] 
+  \[
+    \gamma_2(\tau)=-\frac{1}{\tau}.
+  \] 
+  \begin{enumerate}
+    \item $\forall \tau \in \mathcal{H}$, $\Im\gamma(\tau)= \frac{\Im(\tau)}{|c\tau+d|^2}$. There exists only finite $(c,d)$ such that $|c\tau+d|<$ a given volume. $\Rightarrow$ ($\exists \gamma $ such that $|c\tau+d|=\min$ $\Rightarrow \Im\gamma(\tau)=\max$ and $\exists n\in \Z$ such that $|\Re\gamma_1^{n}(\gamma(\tau))|\le \frac{1}{2}$).
+
+      Write $\tau_1=\gamma_1^{n}(\gamma(\tau))$,$\tau_2=\gamma_2(\tau_1)$.
+      \begin{align*}
+	\Im\tau_2=\frac{\Im\tau_1}{|\tau_1|^2} \text{ and }&\Im\tau_2\le \Im\gamma(\tau)= \Im\tau_1\\
+	\Rightarrow & |\tau_1|\ge 1\Rightarrow \tau_1\in D
+      .\end{align*}
+    \item Suppose $\tau_1,\tau_2 \in D$,$\tau_1\neq\tau_2$,$\gamma(\tau_1)=\tau_2$ for some $\gamma\in \SL$. We assume $\Im\tau_1\le \Im\tau_2$, then
+      \begin{align*}
+	\Im\tau_1\le & \frac{\Im \tau_1}{|c\tau_1+d|^2}\\
+	\Rightarrow &|c\tau_1+d|\le 1
+      .\end{align*}
+      Since $\Im\tau_1\ge \frac{\sqrt{3} }{2}$, then $c=0,\pm 1$. 
+      \begin{itemize}
+	\item  [Case 1:] $c=0,a=d=\pm 1$
+	  \begin{align*}
+	    \Rightarrow & \tau_2=\tau_1\pm b\\
+	    \Rightarrow &\left\{ 
+	    \begin{aligned}
+	      &\Re \tau_1=\pm \frac{1}{2}\\
+	      &\tau_2=\tau_1\mp 1
+	    \end{aligned}\right.
+	  .\end{align*}
+	\item [Case 2:] $c=1,|\tau_1+d|\le 1$
+\begin{align*}
+  \Rightarrow & \left\{
+    \begin{aligned}
+      & d=0\Rightarrow |\tau_1|=1,\tau_2=-\frac{1}{\tau_1}\\
+      &  \text{ or } \tau_1=\rho, d=1\\
+      & \text{ or } \tau_1=-\overline{\rho},d=-1
+    \end{aligned}\right.
+.\end{align*}
+	\item [Case 3:] $c=-1$, similar to Case 2. 
+      \end{itemize}
+  \end{enumerate}
+  Here $\rho := e^{2\pi i/3}=-\frac{1}{2}+\frac{\sqrt{3} }{2}i$.
+\end{proof}
+
+The quotient space $\sfrac{\mathcal{H}}{\SL}$ is obtained by identifying the left side and right side of $D$ and identifying the left and right parts of the bottom circle of $D$.
+
+Assume  $f$ is holomorphic on $\mathcal{H}$ and $\infty(\Im\tau\to \infty)$. 
+
+At $p\in \mathcal{H}$, $m=$ order of $f$ at $p$ means
+\[
+  \lim_{\tau\to p}\frac{f(\tau)}{(\tau-p)^{m}}
+\] 
+exists and not equals $0$. We use $v_{p}(f)=m$ to represent this meanning.
+
+At $\infty$, if $a_m\neq 0$ in $f(\tau)=\sum_{n=m}^{\infty} a_ne^{2\pi in\tau}$, write $v_{\infty}(f)=m$.
+
+If $p_1,p_2$ are equivalent ( $p_2=\gamma p_1$ for some $\gamma \in \SL$), then $v_{p_1}(f)=v_{p_2}(f)$.
+
+\begin{theorem}\label{thm2-5}
+  Suppose $f$ is a (non-zero) modular form of weight $k$ ($k$ even),  $\rho = e^{ \frac{2\pi i}{3}}$. Then 
+  \begin{equation}\label{2-2}
+    v_{\infty}(f)+\frac{1}{2}v_i(f)+\frac{1}{3}v_\rho (f)+\sum_{p \in \sfrac{\mathcal{H}}{\SL}}\nolimits^{*} v_p(f)=\frac{k}{12}
+  \end{equation} 
+  where $\sum^{*} $ means the sum is over $p \in \sfrac{H}{\SL}$ and $p\not\sim i,\rho$, i.e., $\sum_{p\in \sfrac{\mathcal{H}}{\SL}}^{*}:=\sum_{p\in D\backslash \{i,\rho\} }$.
+\end{theorem}
+ $k=2$: right side $=\frac{1}{6}$, left side either $=0$ or $\ge \frac{1}{3}$. Hence modular forms of weight $2$ don't exist.\\
+ $k=4$: right side  $=\frac{1}{3}$, $f=G_4$,$v_\rho f=1$,  $v_{\infty}(f)=v_i(f)=0$, $\sum_{p \in \sfrac{\mathcal{H}}{\SL}}^{*} v_p(f)=0$.\\
+ $k=12$:  $G_4^3$, $G_6^2$, $\exists $ linear combination
+ \[
+ \Delta=c_1G_4^3+c_2G_6^2, \Delta:\text{ weight }=12
+ \] 
+ such that $\Delta(\infty)=0$. Since 
+ \[
+   v_{\infty}(\Delta)+\frac{1}{2}v_i(\Delta)+\frac{1}{3}v_\rho(\Delta)+\sum\nolimits^{*}=\frac{12}{12}=1
+ \]
+ and $v_{\infty}(\Delta)=1$, we have $\Delta(\tau)\neq 0$ $\forall \tau \in \mathcal{H}$.
+
+ \begin{definition}
+   Define
+   \begin{align*}
+     \mathcal{M}_k:=&\text{ space of modular forms of weight }k\\
+     \mathcal{S}_k:=&\text{ space of cusp}\left( f(\infty)=0 \right) \text{ forms of weight }k
+   .\end{align*}
+ \end{definition}
+
+ If $\mathrm{dim}\mathcal{M}_k>0$, then
+\[
+\mathrm{dim}\mathcal{S}_k=\mathrm{dim}\mathcal{M}_k-1.
+\]
+In fact, $\mathcal{M}_k=\mathcal{S}_k\oplus \C$
+
+If $f\in \mathcal{M}_k$, then $\Delta f\in S_{k+12}$, then we establish an isomorphism 
+\begin{align*}
+  \mathcal{M}_k\to &S_{k+12}\\
+  f\mapsto&\Delta f
+.\end{align*}
+If we know $\mathrm{dim}\mathcal{M}_k$ for all $k\le 12$, then we know all the conditions.
+
+Before tge proof of Theorem \ref{thm2-5}, we introduce the following lemma in complex analysis:
+\begin{lemma}
+  \begin{equation}
+    \frac{1}{2\pi i}\int_C \frac{\mathrm{d}\tau}{\tau-\rho}=- \frac{\theta}{2 \pi}
+  \end{equation}
+  where  $C$ is given by
+\begin{figure}[ht]
+    \centering
+    \incfig{argument-principle}
+    \caption{Argument principle}
+    \label{fig:argument-principle}
+\end{figure}
+\end{lemma}
+\textit{Proof of Theorem \ref{thm2-5}}. Assume $f\neq 0$ on the boundary of $D$, except at $\tau=\rho,i-\overline{\rho}$, consider the countour $L$ in Figure \ref{fig:countour}.
+\begin{figure}[ht]
+    \centering
+    \incfig{countour-L}
+    \caption{Countour $L$}
+    \label{fig:countour}
+\end{figure}
+Residue Theorem $\Rightarrow$ 
+\begin{equation}\label{2-3}
+  \frac{1}{2\pi i}\int_{L} \frac{\mathrm{d}f}{f}=\sum\nolimits_{p}^{*}v_p(f).
+\end{equation}
+Recall $f(\tau)=g(e^{2\pi i\tau})$ and let $z=e^{2\pi i\tau}$. Set $\Im A'=T$. Then  $z=-e^{-2\pi T}\to -e^{-2\pi T}$ along a circle $\omega$:
+\begin{equation}\label{2-4}
+   \frac{1}{2\pi i}\int_{A'}^{A}\frac{\mathrm{d}f}{f}=\frac{1}{2\pi i}\int_{\omega} \frac{\mathrm{d}g}{g}=-v_{\infty}(f).
+\end{equation}
+Since 
+\[
+  \frac{1}{2\pi i}\int_A^{B} \frac{\mathrm{d}f}{f}=\frac{1}{2\pi i}\int_A^{B} \frac{\mathrm{d}f(\tau+1)}{f(\tau+1)}
+\] 
+and $\tau+1:A'\to E'$, we get 
+   \begin{equation}
+     \frac{1}{2\pi i}\left(\int_A^{B}+\int_{E'}^{A'}\right) \frac{\mathrm{d}f(\tau)}{f(\tau)}=0.
+   \end{equation}
+$\tau:B\to B'$:
+ \[
+   \frac{\mathrm{d}f}{f}\sim \frac{v_\rho(f)}{\tau-\rho},
+\] 
+hence 
+\begin{equation}
+  \frac{1}{2\pi i}\int_B^{B'}\frac{\mathrm{d}f}{f}\to -\frac{1}{6}v_\rho(f).
+\end{equation}
+$\tau:B'\to C\Rightarrow -\frac{1}{\tau}:E\to C'$:
+\begin{align*}
+  \frac{\mathrm{d}f(\tau)}{f(\tau)}=&\frac{\mathrm{d}\tau^{-k}}{\tau^{-k}}+\frac{\mathrm{d}f(-\frac{1}{\tau})}{f(-\frac{1}{\tau})}\\
+  =& -k \frac{\mathrm{d}\tau}{\tau}+ \frac{\mathrm{d}f(-\frac{1}{\tau})}{f(-\frac{1}{\tau})}.
+\end{align*}
+\begin{equation}
+  \frac{1}{2\pi i}\int_{B'}^{C}\frac{\mathrm{d}f}{f}=\frac{1}{2\pi i}\int_{B'}^{C}\frac{k}{\tau}\mathrm{d}\tau+\frac{1}{2\pi i}\int_{E}^{C'} \frac{\mathrm{d}f(\tau)}{f(\tau)}=\frac{k}{12}-\frac{1}{2\pi i}\int_{C'}^{E} \frac{\mathrm{d}f(\tau)}{f(\tau)}.
+\end{equation}
+$\tau:C\to C'$:
+ \[
+   \frac{\mathrm{d}f}{f}\sim \frac{v_i(f)}{\tau-i}
+\] 
+\begin{equation}
+  \frac{1}{2\pi i}\int_{C}^{C'}\frac{\mathrm{d}f}{f}\to -\frac{1}{2}v_i(f).
+\end{equation}
+$\tau:E\to E'$: Similarly 
+\begin{equation}\label{2-9}
+  \frac{1}{2\pi i}\int_{E}^{E'} \frac{\mathrm{d}f}{f}\to -\frac{1}{6}v_\rho(f).
+\end{equation}
+By (\ref{2-4})$\to$ (\ref{2-9}) we obtain the conclusion.\hfill$\square$\par
+If $f$ has a zero ($\neq \rho,-\overline{\rho},i$) on the boundary of $D$, modify $L$ as Figure \ref{fig:modified}
+\begin{figure}[ht]
+    \centering
+    \incfig{modified-conuntour}
+    \caption{Modified conuntour}
+    \label{fig:modified}
+\end{figure}
+
+As vector space over $\C$, let 
+\[
+\mathcal{M}_k= \text{ the space of modular form of weight }k
+\] 
+\[
+\mathcal{S}_k=\text{ the space of cusp form of weight }k.
+\] 
+In case $\mathrm{dim}\mathcal{M}_k>1$ say $d=\mathrm{dim}\mathcal{M}_k$, $f_1,f_2,\cdots,f_d$ a basis of $\mathcal{M}_k$. i.e.,
+\[
+\mathcal{M}_k=\{c_1f_1+c_2f_2+\cdots+c_df_d:c_1,\cdots,c_d \in \C\}. 
+\] 
+\begin{align*}
+  c_1f_1+\cdots c_df_d\in S_k \Leftrightarrow & c_1f_1(\infty)+c_df_d(\infty)=0\\
+  \Rightarrow & \mathrm{dim}\mathcal{S}_k=\mathrm{dim}\mathcal{M}_k-1
+.\end{align*}
+In general $\mathrm{dim}\mathcal{M}_k\le \mathrm{dim}\mathcal{S}_k+1$.
+
+Write
+\begin{align*}
+  g_2=&60G_4\\
+  g_3=&140 G_6
+.\end{align*}
+Define $\Delta=g_2^{3}-27g_3^2$, notice that $g_2^3$ and $g_3^2$ are both modular forms of weight $12$. Then $\Delta\in \mathcal{M}_k$. 
+\[
+  \Delta(\infty)=0\Rightarrow \Delta\in \mathcal{S}_k.
+\] 
+\begin{align*}
+  (\ref{2-2})\overset{f=\Delta}{\Longrightarrow}&v_{\infty}(\Delta)+\frac{1}{2}v_i(\Delta)+\frac{1}{3}v_{\rho}(\Delta)+\sum\nolimits^{*}v_p(\Delta)=1\\
+  \Delta(\infty)=0\Longrightarrow & v_{oo}(\Delta)\ge 1\\
+  \overset{\text{ combine with the above }}{\Longrightarrow} & v_{\infty}(\Delta)=1,\quad v_i(\Delta)=v_\rho(\Delta)=v_p(\Delta)=0\\
+  \Longrightarrow & \Delta(\tau)\neq 0, \forall \tau \in \mathcal{H}
+.\end{align*} 
+\begin{theorem}
+  \begin{enumerate}
+    \item []
+    \item When $k<0$ and $k=2$, $\mathcal{M}_k=0$.
+    \item The map: $\begin{matrix} \mathcal{M}_k \to &\mathcal{S}_{k+12}\\f\mapsto& \Delta f \end{matrix} $ is an isomorphism.
+    \item When $k=0,4,6,8,10$,$\mathrm{dim}\mathcal{M}_k=1$, $\mathrm{dim}S_k=0$, Their basis are $1,G_4,G_6,G_8,G_{10}$ respectively.
+  \end{enumerate}
+\end{theorem}
+\begin{proof}
+  \begin{enumerate}
+    \item []
+    \item Suppose $\exists$ non-zero modular $f\in \mathcal{M}_k$. Left side of $(\ref{2-2})\ge 0 \Rightarrow k\ge 0$.
+
+      For $k=2$,  $v_{\infty}(f),v_i(f),v_\rho(f),v_p(f)$ are non-negative integers. If one of them $\ge 1$, the left side of $(\ref{2-2})\ge  \frac{1}{3}$. But the right side $=\frac{1}{6}$.
+    \item It suffices to prove that $f\mapsto \Delta f$ is surjective. $\forall g\in S_{k+12}$, consider $h=\frac{g}{\Delta}$. $\left\{\begin{matrix} v_{\infty}(g)\ge &1\\v_{\infty}(\Delta)=1\end{matrix}\right. \Rightarrow v_{\infty}(h)\ge 1$ $\Rightarrow$ $h$ is holomorphic at $\infty$. 
+      \[
+      \left\{ 
+	\begin{aligned}
+	  g &\text{ is holomorphic on }\mathcal{H}\\
+	\Delta^{-1}& \text{ is holomorphic and } \Delta\neq 0 \text{ on }\mathcal{H}
+	\end{aligned}\right.\Rightarrow  h  \text{ is holomorphic on }\mathcal{H}.
+      \]
+      \[
+	h\left( \frac{a\tau+b}{c\tau+d} \right) =\frac{g\left( \frac{a\tau+b}{c\tau+d} \right) }{\Delta\left( \frac{a\tau+b}{c\tau+d} \right) }=\frac{(c\tau+d)^{k+12}g(\tau)}{(c\tau+d)^{12}\Delta(\tau)}=(c\tau+d)^{k}h(\tau)
+      \] 
+      \[
+      \Rightarrow h\in \mathcal{M}_k.
+      \]
+    \item For $k=0,4,6,8,10$,  $\exists $ non-zero $f\in \mathcal{M}_k$ 
+      \[
+     \left. \begin{aligned}
+	f\equiv 1 \text{ for }&k=0\\
+	f=G_{k} \text{ for }&k\ge 4
+    \end{aligned}\right\}\Rightarrow \mathrm{dim}\mathcal{M}_k\ge 1.
+      \] 
+      By b we have $S_{k}\simeq \mathcal{M}_{k-12}$, but $k-12\le 0$ $\Rightarrow \mathcal{M}_{k-12}=0$ $\Rightarrow$ $S_k=0$. 
+  \end{enumerate}
+\end{proof}
+
+\begin{corollary}\label{crc2-9}
+  For $k\ge 0$, we have
+  \[
+  \mathrm{dim}\mathcal{M}_k=\left\{
+    \begin{aligned}
+      &\left[ \frac{k}{12} \right] &  \text{ if }k\equiv 2 \pmod{12},\\
+      &\left[ \frac{k}{12} \right]+1 & \text{ if }k\not\equiv 2\pmod{12}. 
+    \end{aligned}\right.
+  \]
+  \begin{proof}
+    $0\le k\le 10$ can be directly verified.
+
+    For $k=12$,  $\mathcal{S}_{12}\simeq \mathcal{M}_0$ $\Rightarrow$ $\mathrm{dim}\mathcal{S}_12=1$$\Rightarrow$ $\mathrm{dim}\mathcal{M}_{12}=2$. By $\mathcal{S}_{k+12}\simeq \mathcal{M}_{k}$ we get 
+    \[
+    \mathrm{dim}\mathcal{M}_{k+12}=\mathrm{dim}\mathcal{S}_{k+12}+1=\mathrm{dim}\mathcal{M}_k+1,
+    \] 
+    then use induction.
+  \end{proof}
+\end{corollary}
+
+\begin{corollary}
+  For $k\ge 12$, the set $\left\{G_4^{\alpha}G_6^{\beta}: 4\alpha+6\beta=k,\alpha,\beta\ge 0\right\}$ is a basis of $\mathcal{M}_k$.
+\end{corollary}
+\begin{proof}
+  The elements of $i\left\{G_4^{\alpha}G_6^{\beta}:4\alpha+6\beta=k,\alpha,\beta\ge 0\right\} $ are linearly independent and the number of $G_4^{\alpha}G_6^{\beta}$ is $\mathrm{dim}\mathcal{M}_k$ by Corollary \ref{crc2-9}.
+\end{proof}
+\section{Complex Tori}
+A \textit{Riemann surface} is an 1-dimensional connected complex manifold.
+\begin{proposition}
+  If $f:S_1\to S_2$ is a holomorphic map of compact Riemann surfaces, then either the image of $f$ is a point, or $f$ is surjective.
+\end{proposition}
+\begin{proof}
+  Suppose $X$ and $Y$ are compact Riemann surfaces and $f:X\to Y$ is holomorphic. Since $f$ is continuous and $X$ is compact and connected, so is the image $f(X)$, making $f(X)$ closed. Unless $f$ is constant $f$ is open by the Open Mapping Theorem of complex analysis, applicable to Riemann surfaces since it is a local result, making $f(X)$ open as well. So $f(X)$ is either a single point or a connected, open, closed subset of the connected set $Y$, i.e., all of $Y$.
+\end{proof}
+
+Assume $\omega_1,\omega_2\in \C$, linearly independent over $\R$ (for normalization, set $\Im \frac{\omega_1}{\omega_2}>0$).
+\begin{figure}[ht]
+    \centering
+    \incfig{relation-between-two-numbers}
+    \caption{Relation between two numbers}
+    \label{fig:relation-between-two-numbers}
+\end{figure}
+
+Let $\Lambda=\omega_1\Z\oplus\omega_2\Z=\{\omega_1n_1+\omega_2n_2:n_1,n_2\in \Z\} $, $\Lambda$ is a lattice and a discrete subgroup fo $\C$.
+\begin{lemma}
+  Let 
+  \begin{align*}
+    \Lambda=&\omega_1\Z\oplus \omega_2\Z,\\
+    \Lambda'=&\omega'_1\Z\oplus\omega'_2\Z
+  .\end{align*}
+Then $\Lambda=\lambda'$ $\Leftrightarrow$ $\exists \begin{bmatrix} a&b\\c&d \end{bmatrix} \in \SL$ such that 
+\[
+  \begin{bmatrix} \omega'_1\\\omega'_2 \end{bmatrix} =\begin{bmatrix} a&b\\c&d \end{bmatrix} \begin{bmatrix} \omega_1\\ \omega_2 \end{bmatrix}.
+\]
+
+\end{lemma}
+\begin{definition}[Complex Tori]
+  A \textit{complex tori} is a quotien of $\C$ by $\Lambda$ :
+  \[
+    \sfrac{\C}{\Lambda}=\{z+\Lambda:z\in \C\}. 
+  \] 
+\end{definition}
+In algebra: $\sfrac{\C}{\Lambda}=$ an abelian group,
+\[
+  \left( z_1+\Lambda \right) +\left( z_2+\Lambda \right) =(z_1+z_2)+\Lambda.
+\] 
+In topology: $\sfrac{\C}{\Lambda}=$ the parallelogram on identifying the opposite side (see Figure \ref{fig:parallelogram}).
+\begin{figure}[ht]
+    \centering
+    \incfig{parallelogram}
+    \caption{The parallelogram $\sfrac{\C}{\Lambda}$}
+    \label{fig:parallelogram}
+\end{figure}
+
+\[
+z_1+\Lambda=z_2+\Lambda\Leftrightarrow z_1-z_2 \in \Lambda.
+\] 
+\begin{proposition}
+  Suppose $\varphi:\sfrac{\C}{\Lambda}\to \sfrac{\C}{\Lambda'}$ is holomorphic. $\exists m,b\in \C$ such that 
+  \[
+    m\Lambda\subset \Lambda',\quad \left( m\Lambda =\{mz:z\in \Lambda\}  \right) 
+  \] 
+  and 
+  \[
+    \varphi(z+\Lambda)=mz+b+\Lambda'.
+  \] 
+  $\varphi$ is invertable $\Leftrightarrow$ $m\Lambda=\Lambda'$.
+\end{proposition}
+
+\begin{proof}
+  Let 
+  \[
+    \begin{matrix} p:\C&\to& \sfrac{\C}{\Lambda}\\ z&\mapsto &z+\Lambda\end{matrix} 
+  \]
+  and 
+  \[
+    \begin{matrix} p':\C&\to & \sfrac{\C}{\Lambda'}\\
+    z&\mapsto & z+\Lambda'\end{matrix} .
+  \]
+  By universal cover lifting: $\exists \widetilde{\varphi}:\C\to \C$ holomorphic such that the diagram
+  \[
+    \begin{tikzcd}
+      \C \arrow{r}{\widetilde{\varphi}} \arrow[swap]{d}{p} & \C \arrow{d}{p'}\\
+      \sfrac{\C}{\Lambda} \arrow{r}{\varphi} & \sfrac{\C}{\Lambda'}
+    \end{tikzcd}
+  \] 
+is commutative: $p'\circ \widetilde{\varphi}=\varphi\circ p$.
+$\forall \lambda \in \Lambda$, 
+\begin{align*}
+ & p'\left( \widetilde{\varphi}(z+\lambda)-\widetilde{\varphi}(z) \right)\\
+ = & \varphi\left( p(z+\lambda) \right) -\varphi\left( p(z) \right) \\
+ =& \varphi\left( p(z) \right) -\varphi\left( p(z) \right) \\
+ = & 0+\Lambda'\\
+ \Rightarrow & \widetilde{\varphi}\left( z+\lambda \right)-\tilde{\varphi}(z)\in \Lambda' 
+.\end{align*}
+Left side $=$ holomorphic function in $z$ taking values in discrete $\Lambda'$ $\Rightarrow$ it is constant
+\begin{align*}
+  \Rightarrow & \widetilde{\varphi}'(z+\lambda)-\tilde{\varphi}'(z)=0 \text{ (here the prime symbol means taking derivative) }\\
+  & \widetilde{\varphi}' = \text{ entire function and period }=\lambda \in \Lambda\\
+  \Rightarrow & \widetilde{\varphi}' \text{ is bounded}\\
+  \Rightarrow & \widetilde{\varphi}'= \text{ constant by Liouville's Theorem}\\
+  \Rightarrow & \widetilde{\varphi}=mz+b \text{ for some }m,b \in \C \\
+  \Rightarrow & \varphi(z+\Lambda)=mz+b+\Lambda'
+.\end{align*}
+To prove $m\Lambda\subset \Lambda'$, $\forall z\in \Lambda$,
+\[
+  \left. \begin{matrix} \varphi(z+\Lambda)=&mz+b+\Lambda'&\\
+  \varphi(0+\Lambda)=&b+\Lambda'&\end{matrix} \right\}\Rightarrow mz \in \Lambda' \text{ since }\varphi(z+\Lambda)=\varphi(0+\Lambda).
+\]
+$\varphi$ is invertable $\Leftrightarrow$ directly verified.
+\end{proof}
+
+\begin{corollary}
+  Suppose $\varphi:\sfrac{\C}{\Lambda}\to \sfrac{\C}{\Lambda'}$ is holomorphic:
+  \[
+    \varphi(z+\Lambda)=mz+b+\Lambda', \quad m\Lambda\subset \Lambda'.
+  \] 
+  Then $\varphi$ is a group homomorphism $\Leftrightarrow$ $b\in \Lambda'$.
+\end{corollary}
+
+\begin{definition}
+  A nonzero holomorphic homomorphism:
+  \[
+    \sfrac{\C}{\Lambda}\to \sfrac{\C}{\Lambda'}
+  \] 
+  is called an \textit{isogeny} .
+\end{definition}
+Isogeny is surjective, its kernel is finite (it is discrete, otherwise the map is zero).
+
+  A  \textit{curve} $C$ (in $\R^2$) means $\exists$ polynomial $F(x,y)$ such that 
+  \[
+    (x,y)\in C\Leftrightarrow F(x,y)=0.
+  \] 
+  Assume $\Lambda=\omega_1\Z\oplus\omega_2\Z$, then $\sfrac{\C}{\Lambda}=$ a complex curve, why?
+
+  Define (Weierstrass-$p$ function)
+  \[
+  p=p_{\Lambda}:\C\to \C \cup \{\infty\} 
+  \] by 
+  \[
+    p(z)=\frac{1}{z^2}+\sum_{\begin{smallmatrix} &\omega \in \Lambda\\ &\omega\neq 0 \end{smallmatrix} }^{} \left( \frac{1}{\left( z+\omega \right) ^2}-\frac{1}{\omega^2} \right) .
+  \] 
+  At each $z\in \Lambda$, $p(z)$ has a double pole, otherwise $p(z)$ is holomorphic. 
+  
+  $\forall \lambda \in \Lambda$, $\lambda\neq 0$, 
+  \begin{align*}
+    p(z-\lambda)= & \frac{1}{(z-\lambda)^2}+\sum_{\begin{smallmatrix} & \omega \in \Lambda\\ &\omega\neq 0\\&\omega\neq -\lambda  \end{smallmatrix} }\left( \frac{1}{(z-\lambda-\omega)^2}-\frac{1}{\omega^2} \right) +\left( \frac{1}{z^2}-\frac{1}{\lambda^2} \right)
+  .\end{align*}
+ By the virtue of 
+ \[
+   \lim_{z\to \infty}\left( \sum_{\begin{smallmatrix} &\omega \in \Lambda\\&|\omega|<z\\&\omega\neq 0,-\lambda  \end{smallmatrix} }\frac{1}{\omega^2}- \sum_{\begin{smallmatrix}&\omega \in \Lambda\\&|\omega|<z\\&\omega\neq 0,-\lambda  \end{smallmatrix} }\frac{1}{(\omega+\lambda)^2} \right) =0
+ \] 
+ \[
+   \Rightarrow p(z) \text{ is } \Lambda\text{-periodical},
+ \] 
+ i.e., $p(z-\lambda)=p(z),\forall \lambda \in \Lambda$.
+\[
+  p'(z)=-2\sum_{\omega \in \Lambda}\frac{1}{(z-\omega)^3}, p'(z-\lambda)=p'(z),\forall \lambda \in \Lambda.
+\] 
+Identify $\sfrac{\C}{\Lambda}$ with the parallelogram (see Figure \ref{fig:parallelogram}), consider
+\begin{align*}
+  \left\{
+    \begin{matrix} \sfrac{\C}{\Lambda}\\z\neq 0 \end{matrix} 
+  \right\}&\to  \C^2\\
+  z&\mapsto  (p(z),p'(z))
+.\end{align*}
+For $k=\text{ even }>2$,
+\[
+  G_k(\Lambda)= \sum_{\begin{smallmatrix}&\omega \in \Lambda\\&\omega\neq 0  \end{smallmatrix} }\frac{1}{\omega^{k}}=\sum_{(c,d)\neq(0,0)}\frac{1}{\left(c\omega_1+d\omega_2  \right) ^{k}}.
+\]
+Laurent expansion of $p(z)$ and $p'(z)$ at  $z=0,\omega\neq 0,\omega \in \Lambda,|z|<|\omega|$ $\Rightarrow$  $\frac{1}{(z-\omega)^2}-\frac{1}{\omega^2}=\frac{1}{\omega^2}\left( \frac{1}{\left( 1- \frac{z}{\omega} \right) ^2}-1 \right) =\cdots$ $\Rightarrow$ when $z\to 0$:
+\begin{equation}\label{3-11}
+   p(z)= \frac{1}{z^2}+3G_4(\Lambda)z^2+5G_6(\Lambda)z^{4}+\mathcal{O}(|z|^{6})
+\end{equation}
+\begin{equation}\label{3-12}
+  p'(z)=-\frac{2}{z^3}+6G_4(\Lambda)z+20 G_6(\Lambda)z^3+\mathcal{O}(|z|^{5}).
+\end{equation}
+Write 
+\begin{align*}
+  g_2(\Lambda)=&60G_4(\Lambda)\\
+  g_3(\Lambda)=&140 G_6(\Lambda)
+.\end{align*}
+(\ref{3-11}),(\ref{3-12}) $\Rightarrow$ the function
+\[
+  F(z)=p'^{2}(z)-\left[ 4p^3(z)-g_2(\Lambda)p(z)-g_3(\Lambda) \right] 
+\] 
+is holomorphic and $F(0)=0$  $\Rightarrow$ $F(z)\equiv 0$ (bounded entire function) $\Rightarrow$ the point $\left(p(z),p'(z)\right)$ lies in the curve
+\begin{equation}
+  E: y^2=4x^3-g_2(\Lambda)x-g_3(\Lambda).
+\end{equation}
+
+\begin{proposition}
+  The map $ \begin{matrix} \varphi:\sfrac{\C}{\Lambda}\setminus \{0\} &\to & E\\ z &\mapsto &(p(z),p'(z)) \end{matrix}  $ is bijective.
+\end{proposition}
+\begin{proof}
+  (i) We prove $\forall s\in \C$, the function $p(z)-s$ has exactly two roots on $\sfrac{\C}{\Lambda}$. First assume $\varphi(z)-s\neq 0$ on boundary of $\sfrac{\C}{\Lambda}$.
+  \[
+    \text{ \# of roots }=\frac{1}{2\pi i}\int_{L} \frac{p'(z)}{p(z)-s}\mathrm{d}s
+  \] 
+  where $L$ is the countour in Figure \ref{fig:countour-l-on-boundary}.
+\begin{figure}[ht]
+    \centering
+    \incfig{countour-l-on-boundary}
+    \caption{Countour L on boundary of $\sfrac{\C}{\Lambda}$}
+    \label{fig:countour-l-on-boundary}
+\end{figure}
+\begin{align*}
+  p(z+\omega_2)=p(z)\Rightarrow & \int_{L_1}+\int_{L_2}=0,\\
+  p(z+\omega_1)=p(z)\Rightarrow & \int_{L_3}+\int_{L_4}=0
+.\end{align*}
+$z\to o$, $\begin{matrix} p(z)-s&\sim &\frac{1}{z^2}\\p'(z)&\sim&-\frac{2}{z^3} \end{matrix}$ $\Rightarrow$ $\frac{p'(z)}{p(z)-s}\sim-\frac{2}{z}$ 
+\[
+\Rightarrow \frac{1}{2\pi i}\int_{C_1}\to-2 \frac{-\theta}{2\pi}=\frac{\theta}{\pi}.
+\] 
+Similarly,
+\[
+\frac{1}{2\pi i}\int_{C_3}\to \frac{\pi-\theta}{\pi}.
+\] 
+\[
+  \Rightarrow \frac{1}{2\pi i}\left( \int_{C_1}+\int_{C_3} \right) \to 1.
+\] 
+Similarly,
+\[
+  \frac{1}{2\pi i}\left( \int_{C_2}+\int_{C_4} \right) \to 1.
+\]
+Hence 
+\[
+  \frac{1}{2\pi i}\int_{L} \frac{p'(z)}{p(z)-s}\mathrm{d}s=2.
+\]
+
+\begin{remark}
+  If 
+  \begin{align*}
+   & p(z)-s=0\\
+   & z\neq -z+\Lambda \in \sfrac{\C}{\Lambda}
+  \end{align*}
+  then $p(z)-s=0$ has two distinct roots(if $z$ is the root of $p(z)-s=0$, then $-z+\lambda,\lambda\in \Lambda$ is also the root).
+
+  If $z= \frac{\omega_1}{2},\frac{\omega_2}{2},\frac{\omega_1+\omega_2}{2}$, then
+  \begin{align*}
+    &-z+\Lambda=z\\
+    \Rightarrow& p'(z)=p'(-z)=-p'(z)\\
+    \Rightarrow& p'(z)=0\\
+    \Rightarrow & z  \text{ is a double root}
+  .\end{align*} 
+\end{remark}
+If $p(z)=0$ ont the boundary, then modify $L$.\\
+\\
+(ii) $\varphi$ is surjective.\\
+$\forall (x,y)\in E$, $(i)\Rightarrow \exists z$ such that $p(z)=x$. Let $y'=p'(z)$, then
+ \[
+   (x,y) \in E,(x,y')\in E\Rightarrow y'^2=y^2\Rightarrow y'=\pm y.
+\] 
+If $y'=-y\neq 0$, then:\\
+$\exists \lambda \in \Lambda$ such that $-z+\lambda\neq z $ $\Rightarrow$ and :
+\[
+\left\{\begin{aligned}
+   & p(-z+\lambda)=x,\\
+   & p'(-z+\lambda)=-y'=y\quad (\text{ recall }p'(-z+ \lambda )=-p'(z)).
+\end{aligned}\right.
+\]
+(iii) $\varphi$ is injective. \\
+Suppose $\varphi(z_1)=\varphi(z_2)=(x,y)$ 
+ \[
+   \Rightarrow p(z_1)=p(z_2)=x\Rightarrow z_2=z_1 \text{ or } z_2=-z_1+\lambda.
+\] 
+In case $z_2=-z_1+\lambda$,
+\begin{align*}
+  \Rightarrow & y=p'(z_2)=p'(-z_1+\lambda)=-p'(z_1)=-y\\
+  \Rightarrow & p'(z_1)=0
+\end{align*}
+$\Rightarrow p'(z_1)=0$, $z_1$ is a double root of $p(z)-x=0$ $\Rightarrow$ $z_2=z_1$.
+\end{proof}
+Recall 
+\[
+  G_k(\Lambda)=\sum_{(c,d)\neq(0,0)} \frac{1}{(c\omega_1+d\omega_2)^{k}}
+\] 
+and 
+\[
+  G_k(\tau)= \sum_{(c,d)\neq (0,0)}\frac{1}{c\tau+d)^{k}}
+\] 
+\[
+  \Rightarrow G_k(\Lambda)=\frac{1}{\omega_2^{k}}G_k\left( \frac{\omega_1}{\omega_2} \right). 
+\] 
+\begin{align*}
+ & \delta(\tau)=g_2^3(\tau)-27g_3^2(\tau)\\
+  \Rightarrow & g_2^3(\Lambda)-27g_3^2(\Lambda)=\delta \left( \frac{\omega_1}{\omega_2} \right) \frac{1}{\omega_2^{12}} \neq 0. \left( \text{ Recall } \delta(\infty)=0, \delta(\tau)\neq 0 \forall\tau \in \mathcal{H} \right) 
+\end{align*}
+\begin{definition}
+Suppose $C:F(x,y)$ is a curve. If $\forall (x_0,y_0)\in C$ we have
+\[
+  \frac{\partial F}{\partial x} \lvert_{(x_0,y_0)}\neq 0 \text{ or } \frac{\partial F}{\partial y} \lvert_{(x_0,y_0)}\neq 0,
+\] 
+then $C$ is a non-singular curve.
+\end{definition}
+
+Let $E:y^2-(4x^3-g_2(\Lambda)x-g_3(\Lambda))=0$, then
+\[
+  E \text{ is non-singular}\Leftrightarrow 4x^3-g_2(\Lambda)x-g_3(\Lambda)=0 \text{ has no multiple roots}
+\] 
+\[
+  \Leftrightarrow g_2^3(\tau)-27g_3^2(\tau)\neq 0.
+\] 
+Given $E:y=4x^3-C_2x-C_3$, $\Delta=C_2^3-C_3^2$. If $\exists \Lambda$ such that 
+\[
+\begin{cases}
+  C_2=g_2(\Lambda)&\\
+  C_3=g_3(\Lambda)&
+\end{cases}
+\] 
+then $\Delta\neq 0$, $E$ is a non-singular curve.
+Let 
+\begin{equation}
+  j(\tau):= \frac{1728 g_2^3(\tau)}{\Delta(\tau)}
+.\end{equation} 
+It is easy to verify that
+\[
+  j\left( \frac{a\tau+b}{c\tau+d} \right) =j(\tau),\forall \begin{bmatrix} a&b\\c&d \end{bmatrix} \in \SL,
+\] 
+$j(\tau)$ is holomorphic on $\mathcal{H}$ ($\Delta(\tau)\neq 0$ on $\mathcal{H}$) and $j(\tau)$ has a simple pole at $\infty$.
+
+\begin{lemma}\label{lma3-9}
+  The map $\begin{matrix} \mathcal{H}&\to & \C \\ \tau & \mapsto & j(\tau) \end{matrix} $ is surjective.
+\end{lemma}
+\begin{proof}
+  $\forall s \in \C$, let $f=f_s=1728g_2^3-s\Delta$, i.e.,
+  \[
+    f(\tau)=1728g_2^3(\tau)-s\Delta(\tau).
+  \] 
+  $f$ is of weight $12$ modular form.
+  \begin{align*}
+    &f(\infty)\neq 0\\
+    \Rightarrow & \frac{1}{2}v_i(f)+\frac{1}{3}v_\rho(f)+\sum\nolimits^{*}v_p(f)=1\\
+    \Rightarrow & \text{ one of }v_i(f),v_\rho(f),v_p(f)>0
+  .\end{align*}
+\end{proof}
+
+\begin{proposition}
+  If $a_2^3-27a_3^2\neq 0$ then $\exists \Lambda$ such that 
+  \[
+  \begin{cases}
+    g_2(\Lambda)=a_2&\\
+    g_3(\Lambda)=a_3.&
+  \end{cases}
+  \] 
+\end{proposition}
+\begin{proof}
+  Lemma \ref{lma3-9} $\Rightarrow$ $\exists \tau \in \mathcal{H}$ such that 
+  \begin{align*}
+    &j(\tau)=\frac{1728g_2^3(\tau)}{\Delta(\tau)}\\
+    \Rightarrow & \frac{g_2(\tau)^3}{g_2^3(\tau)-27g_3^2(\tau)}=\frac{a_2^3}{a_2^3-27a_3^2}\\
+    \Rightarrow & \frac{a_2^3}{g_2^3(\tau)}=\frac{a_3^2}{g_3^2(\tau)}
+  .\end{align*}
+  Choose $\omega_2\neq 0$ such that $\frac{a_2}{g_2(\tau)}=\omega_2^{4}$, let $\omega_1=\tau \omega_2$ $\Rightarrow$ $\frac{a_2}{g_2(\Lambda)}= \frac{a_2}{g_2(\tau)\omega_2^{4}}=1$ $\Rightarrow$ $\frac{a_3^2}{g_3^2(\Lambda)}= \frac{a_2^3}{g_2^3(\tau)\omega_2^{6}}=1$ $\Rightarrow$ $ \frac{a_3}{g_3(\Lambda)}=\pm 1$. Replace $\omega_2$ by $i\omega_2$ if necessary $\Rightarrow$ $ \frac{a_3}{g_2(\Lambda)}=1$.
+\end{proof}
+
+\begin{remark}
+  $\exists$ a surjection between $\{ \text{ complex tori }\} $ and $\{\text{ curves }E:y^2=4x^3-a_2x-a_3,a_2^3-27a_3^2\neq 0\} $.
+  Write 
+   \begin{align*}
+     \Lambda=\omega_1\Z\oplus \omega_2\Z & \quad \tau= \frac{\omega_1}{\omega_2}\in \mathcal{H},\\
+     \Lambda'=\omega_1'\Z\oplus \omega_2'\Z &\quad \tau'=\frac{\omega_1'}{\omega_2'}\in \mathcal{H}.
+  \end{align*}
+  Recall that\\
+  $\varphi:\sfrac{\C}{\Lambda}\to \sfrac{\C}{\Lambda'}$ is holomorphically group-homomorphism $\Leftrightarrow$ $\exists$ $m\in \C$ such that $\varphi(z+\Lambda)=mz+\Lambda',m \Lambda\subset \Lambda'$.\\
+  $\varphi$ is isomorphic $\Leftrightarrow$ $m\Lambda=\Lambda'$.\\
+  $\sfrac{\C}{\Lambda}\simeq \sfrac{\C}{\Lambda'}$ $\Leftrightarrow$ $m\in \C$ such that $m\Lambda=\Lambda'$ $\Leftrightarrow$ $\begin{bmatrix} m\omega_1\\m\omega_2 \end{bmatrix} =\begin{bmatrix} a&b\\c&d \end{bmatrix} \begin{bmatrix} \omega'_1\\\omega'_2 \end{bmatrix} $ for some $\begin{bmatrix} a&b\\c&d \end{bmatrix} \in \SL$
+  \begin{align*}
+    & \frac{m\omega_1}{m\omega_2}=\frac{a\omega_1'+b\omega_2'}{c\omega_1'+d\omega_2'}\\
+    \Leftrightarrow & \tau = \frac{a\tau'+b}{c\tau'+d}\\
+    \Leftrightarrow &\tau,\tau' \text{ are } \SL\text{-equivalent}\\
+  .\end{align*}
+$\Rightarrow$ $\exists$ a bijection between
+$\{\text{ isomorphism class of }\sfrac{\C}{\Lambda}\} $ and $\{\SL\text{-equivalence class of }\mathcal{H}\} $.
+\[
+\sfrac{\C}{\Lambda}\to \tau.
+\] 
+\end{remark}
+
+\section{The Congruence Subgroup Case: Basic Results}
+Let
+\begin{gather*}
+  \Gamma := \text{ a congruence subgroup},\\
+  s,s'\in \Q \cup \{\infty\}, \infty := \lim_{\Im \tau\to \infty}\tau,\tau \in \mathcal{H},\\
+  \gamma =  \begin{bmatrix} a&b\\c&d \end{bmatrix} \in \Gamma\\
+ \gamma(s):= \frac{as+b}{cs+d}.
+\end{gather*}
+Then
+\[
+  \gamma(\infty)= \begin{cases}
+    \frac{a}{c} & \text{ if }c\neq 0\\
+    \infty & \text{ if }c=0
+  \end{cases}\quad \text{ and }\quad \gamma(s)=\infty  \text{ if } cs+d=0,s \in \mathcal{H}.
+\]
+If $s'=\gamma(s),\gamma\in \Gamma$, $s'\neq s$ are $\Gamma$-equivalent, denoted by $s'\sim s$. 
+ \begin{definition}
+  A \textit{cusp} of $\Gamma$ is a $\Gamma$-equivalence class of points in $\Q\cup \{\infty\} $.
+\end{definition}
+\begin{exercise}
+  \begin{enumerate}
+    \item []
+    \item Let $\Gamma=\SL$, only one cusp $=\{\infty\} $.
+    \item Let $p$ be prime, $\Gamma_0(p)=\left\{\begin{bmatrix} a&b\\c&d \end{bmatrix} \in \SL:c\equiv 0 \pmod{p}\right\} $. How many cusps?
+  \end{enumerate}
+\end{exercise}
+\begin{solution}
+  The first is obvious. Consider $\frac{m}{n}\in \Q$, $(m,n)=1,n>0$.
+  \begin{align*}
+    &\frac{m}{n}\sim \infty\\
+    \Leftrightarrow & c \frac{m}{n}+d=0\Leftrightarrow n\equiv 0 \pmod{p}
+  .\end{align*}
+  Hence one cusp $=\left\{ \frac{m}{n},n\equiv 0 \pmod{p} \right\} \cup \left\{ \infty \right\} $  and another cusp $=\left\{ \frac{m}{n}:(m,n)=(n,p)=1 \right\} $.
+\end{solution}
+
+\begin{proposition}
+  Let $\Gamma$ be a congruent subgroup, $\sfrac{\C}{\Lambda}$, $\bsfrac{\Gamma}{\mathcal{H}}$ be the quotient space of $\Gamma$ acting on $\mathcal{H}$. Let 
+  \[
+    X(\Gamma)= \bsfrac{\Gamma}{\mathcal{H}}\cup \left[ \text{ cusps of }\Gamma \right] .
+  \] 
+  Then $X(\Gamma)$ has a natural structure as a compact Riemann surface.
+\end{proposition}
+
+\begin{definition}[Elliptic points w.r.t $\Gamma$ ]
+  $\tau \in \mathcal{H}$ is an \textit{elliptic point} of $\Gamma$ if $\exists \gamma \in \Gamma$, $\gamma\neq \pm I$ such that $\gamma(\tau)=\tau$. 
+  \[
+   \gamma(\tau)=\tau\Leftrightarrow \sigma\gamma\sigma^{-1}\left( \sigma(\tau) \right)=\sigma(\tau) .
+  \]
+\end{definition}
+$\gamma$ is an elliptic point of $\Gamma$ $\Rightarrow$ $\tau $ is an elliptic point of $\SL$.
+
+\begin{lemma}\label{lma4-5}
+  Let $\gamma \in \SL$.
+  \begin{enumerate}
+    \item 
+  If $\gamma^2=-I$, then $\gamma$ is conjugate to 
+  $\begin{bmatrix} 0 & -1\\1&0 \end{bmatrix} ^{\pm 1}$, i.e., 
+  \[
+    \sigma \gamma\sigma^{-1} = \begin{bmatrix} 0&-1\\1&0 \end{bmatrix} ^{\pm 1}.
+  \]
+    \item 
+    If $\gamma^2+\gamma+I=0$, then $\gamma$ is conjugate to $\begin{bmatrix} 0&1\\-1&-1 \end{bmatrix} ^{\pm 1}$.
+    \item
+      If $\gamma^2-\gamma+I=0$, then $\gamma$ is conjugate to $\begin{bmatrix} 0&-1\\1&1 \end{bmatrix}^{\pm 1} $.
+  \end{enumerate}
+\end{lemma}
+\begin{lemma}
+  Any elliptic point of $\SL$ is equivalent to $i$ or $\rho=e^{ \frac{2\pi i}{3}}$.
+\end{lemma}
+\begin{proof}
+  For $\gamma=\begin{bmatrix} a&b\\c&d \end{bmatrix} \neq \pm I$, 
+  \begin{align*}
+    \gamma(\tau )=\tau \Leftrightarrow & a\tau +b=c\tau^2 +d \tau \\
+    \Leftrightarrow & c\tau ^2+(d-a)\tau -b=0
+  .\end{align*}
+  If $c=0$, then $a=d$ $\Rightarrow$ $\gamma=\pm I$. Assume $c\neq 0$, $\tau \notin \R$ $\Rightarrow$ $(d-a)^2+4bc<0$
+  \begin{align*}
+    \Rightarrow & (d+a)^2+4(bc-ad)<0\\
+    \Rightarrow&(d+a)^2-4<0\\
+    \Rightarrow & |d+a|<2\\
+    \Rightarrow & \left| \begin{matrix} a-x&b\\c&d-x \end{matrix} \right|=x^2+1 \text{ or } x^2\pm x+1\\
+    \Rightarrow & \gamma^2+I=0 \text{ or } \gamma^2\pm \gamma+I=0
+  .\end{align*}
+  By Lemma \ref{lma4-5}: 
+  \begin{align*}
+    \gamma^2+I=0 \Rightarrow & \gamma=\sigma \begin{bmatrix} 0&-1\\1&0 \end{bmatrix} ^{\pm 1}\sigma^{-1}\\
+    \gamma(\tau )=\tau \Rightarrow&\tau \sim i
+  .\end{align*}
+  Similarly $\gamma^2\pm \gamma+I=0 \Rightarrow\tau \sim\rho$.
+\end{proof}
+Let 
+\begin{align*}
+  \mathcal{M}_k(\Gamma)=&\text{ space of weight }k  \text{ modular forms w.r.t. }\Gamma,\\
+  \mathcal{S}_k(\Gamma)=&\text{ space of weight }k \text{ cusp forms w.r.t. }\Gamma,\\
+  g=&\text{ genus of }X(\Gamma)
+.\end{align*}
+\begin{theorem}
+  Suppose $k$ is even,
+  \begin{align*}
+    \varepsilon _2=& \text{ number of elliptic points of }\Gamma \text{ which are }\SL\sim i,\\
+    \varepsilon 3=& \text{ number of elliptic points of }\Gamma \text{ which are }\SL\sim\rho,\\
+    \varepsilon _{\infty}= \text{ number of cusps of }\Gamma
+  .\end{align*}
+  Then
+
+  \begin{align*}
+    \mathrm{dim}\mathcal{M}_k(\Gamma)=&\begin{cases}
+      (k-1)(g-1)+\left[ \frac{k}{4} \right] \varepsilon_2+\left[ \frac{k}{3} \right] \varepsilon _3+\frac{k}{2}\varepsilon _{\infty} & k>=2,\\
+      1&k=0,\\
+      0&k<0.
+    \end{cases}\\
+      \mathrm{dim}\mathcal{S}_k(\Gamma)=& \begin{cases}
+	(k-1)(g-1)+\left[ \frac{k}{4} \right] \varepsilon _2+\left[ \frac{k}{3} \right] \varepsilon _3+\left( \frac{k}{2}-1 \right) \varepsilon _{\infty}&k>=4,\\
+	g&k=2,\\
+	0&k<=0.
+      \end{cases}
+  \end{align*}
+\end{theorem}
+
+$X(\Gamma)\overset{\text{called}}{=}$ a \textit{modular curve}.\\
+\textbf{Modularity Theorem(Version $X_{\C}$ )}. Suppose $\sfrac{\C}{\Lambda}$ is a complex elliptic curve with $j(\Lambda)\in \Q$. Then for some $N \in \N$, there exists a surjective holomorphic function $X(\Gamma_0(N))\to \sfrac{\C}{\Lambda}$.
+
+\section{Hecke Operators}
+Let $\Gamma_1$ and $\Gamma_2$ be congruence subgroups,
+\[
+  \GL_2^{+}(\Q):=\left\{\begin{bmatrix} a&b\\c&d \end{bmatrix} :a,b,c,d\in \Q,ad-bc>0\right\}.	
+\] 
+Let $\alpha \in \GL_2^{+}(\Q)$, write 
+\[
+\Gamma_1\alpha\Gamma_2:=\left\{\gamma_1\alpha\gamma_2:\gamma_1\in \Gamma_1,\gamma_2\in \Gamma_2\right\}. 
+\] 
+$\Gamma_1\alpha\Gamma_2$ is called a double coset in $\GL_2^{+}(\Q)$.
+
+\begin{remark}
+  Let $G=$ group, $S=$ set, then $G$ acts on $S$ is denoted by $\bsfrac{G}{S}=\left\{ \text{ orbits of }G \text{ on }S\right\} $ $=\left\{Gs:s \in S\right\} $. Indeed, if $S=$ group $G\vartriangleleft S$ $\Rightarrow$ $\bsfrac{G}{S}=\left\{Gs:s \in S\right\} =\sfrac{S}{G}$.
+\end{remark}
+\textbf{Fact}: $\bsfrac{\Gamma_1}{\Gamma_1\alpha \Gamma_2}=\left\{\Gamma_1\alpha_2\gamma_2:\gamma_2 \in \Gamma_2\right\} $ is finite.\\
+$\Gamma=$ congruence subgroup $\Rightarrow$ $\left[ \SL_2(\Z):\Gamma \right] <\infty$.
+
+\begin{lemma}
+  Let $\Gamma$ be a congruence subgroup and $\alpha \in \GL_2^{+}(\Q)$, then $\alpha^{-1}\Gamma\alpha \cap \GL_2^{+}(\Q)$ is a congruence subgroup.
+\end{lemma}
+\begin{proof}
+  $\exists \widetilde{N}\in \N$ such that $\Gamma(\widetilde{N})\subset \Gamma$ and
+  \[
+    \widetilde{N}\alpha\in M_2(\Z)=\left\{\begin{bmatrix} a&b\\c&d \end{bmatrix} :a,b,c,d \in \Z\right\}, \widetilde{N}\alpha^{-1}\in  M_2(\Z).
+  \]
+  Let $N=\widetilde{N}^3$,
+  \begin{align*}
+    \alpha \Gamma(N)\alpha^{-1}\subset & \alpha(I+NM_2(\Z))\alpha^{-1}\\
+    =& I+ \widetilde{N}\widetilde{N}\alpha M_2(\Z)\widetilde{N}\alpha^{-1}\\
+    \subset & I+\widetilde{N}M_2(\Z)
+  \end{align*}
+  \begin{align*}
+    \Rightarrow&\alpha\Gamma(N)\alpha^{-1}\subset \SL\cap \left( I+\widetilde{N}M_2(\Z) \right)=\Gamma(\widetilde{N})\\
+    \Leftrightarrow & \alpha \Gamma(N)\alpha^{-1}\subset \Gamma(\widetilde{N})\\
+    \Rightarrow& \Gamma(N)\subset \alpha^{-1}\Gamma(\widetilde{N})\alpha\subset \alpha^{-1}\Gamma\alpha\\
+    \Rightarrow& \Gamma(N)\subset \alpha^{-1}\Gamma\alpha \cap \SL\\
+    \Rightarrow& \alpha^{-1}\Gamma\alpha \cap \SL \text{ is a congruence sub group}
+  .\end{align*}
+\end{proof}
+\begin{lemma}
+  Write $\Gamma_3=\alpha^{-1}\Gamma_1\alpha \cap \Gamma_2 \left( \Gamma_3\subset \Gamma_2 \right) $,
+  \[
+  \bsfrac{\Gamma_1}{\Gamma_1\alpha\Gamma_2}=\left\{\Gamma_1\alpha\gamma_2:\gamma \in \Gamma_2\right\}. 
+  \] 
+  The map  $\begin{matrix}\varphi:& \Gamma_2 & \to & \bsfrac{\Gamma_1}{\Gamma_1\alpha\Gamma_2}\\&\gamma_2 & \mapsto &\Gamma_1\alpha\gamma_2 \end{matrix} $ induces a bijection
+  \[
+  \bsfrac{\Gamma_3}{\Gamma_2}\to \bsfrac{\Gamma_1}{\Gamma_1\alpha \Gamma_2}.
+  \] 
+\end{lemma}
+\begin{proof}
+  It is obvious that $\varphi$ is surjective. Suppose $\varphi(\gamma_2)=\varphi(\gamma_2')$,
+  \begin{align*}
+    & \Gamma_1\alpha \gamma_2=\Gamma_1\alpha \gamma_2'\\
+    \Leftrightarrow&\Gamma_1\alpha\gamma_2\gamma_2'^{-1}=\Gamma_1\alpha\\
+    \Leftrightarrow& \alpha(\gamma_2\gamma_2'^{-1})\alpha^{-1}\in \Gamma_1\\
+    \Leftrightarrow&\gamma_2\gamma_2'^{-1}\in \alpha^{-1}\Gamma_1\alpha\\
+    \Leftrightarrow&\gamma_2\gamma_2'^{-1}\in \Gamma_3
+  .\end{align*}
+\end{proof}
+
+Zeta function is defined by
+\[
+  \zeta(s)=\sum_{n=1}^{\infty} \frac{1}{n^{s}}=\prod_{p}\left( 1-\frac{1}{p^{s}} \right) ^{-1}, \Re s>1.
+\] 
+Let $f=$ cusp form at $\infty:f(\tau )=\sum_{n=1}^{\infty} a_n(f)e^{2\pi n\tau }$. Define
+\[
+  L(f,s)=\sum_{n=1}^{\infty} a_n(f) n^{-s}
+\] 
+for some $f$. Then 
+\[
+  L(f,s)=\prod_{p}\left( 1- \frac{a_p(f)}{p^{s}}+\frac{1}{p^{2s}} \right) ^{-1}.
+\] 

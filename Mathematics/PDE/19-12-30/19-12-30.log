@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.10.24)  31 DEC 2019 16:51
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.10.24)  31 MAY 2020 10:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -797,11 +797,11 @@ Package graphics Info: Driver file: xetex.def on input line 105.
 \Gin@req@height=\dimen198
 \Gin@req@width=\dimen199
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 65.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 66.
  (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 65.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 66.
  (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (./19-12-30.toc)
@@ -840,17 +840,17 @@ Overfull \hbox (4.9643pt too wide) in paragraph at lines 207--208
 \tf@thm=\write5
 \openout5 = `19-12-30.thm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 70.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 71.
  [7
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 70.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 71.
  (./19-12-30.aux (./body.aux))
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 70.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 70.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 71.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 71.
 Package rerunfilecheck Info: File `19-12-30.out' has not changed.
 (rerunfilecheck)             Checksum: 01E26853B5BA9A9C0872B9E7EF95E650.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 70.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 71.
  ) 
 Here is how much of TeX's memory you used:
  24406 strings out of 492483
@@ -861,4 +861,4 @@ Here is how much of TeX's memory you used:
  1348 hyphenation exceptions out of 8191
  46i,15n,64p,417b,443s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on 19-12-30.xdv (7 pages, 26556 bytes).
+Output written on 19-12-30.xdv (7 pages, 26684 bytes).

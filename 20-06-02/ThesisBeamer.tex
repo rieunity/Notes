@@ -1,0 +1,1091 @@
+%!TEX program = xelatex
+\documentclass[xcolor=svgnames,serif,table,10pt]{beamer}
+%\includeonlyframes{Representation}%Acknowledgement
+\mode<presentation>{
+% Setup appearance:
+\setbeamercovered{transparent}
+\usecolortheme[named=FireBrick]{structure}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{navigation symbols}{}
+
+\useoutertheme{infolines}
+\usetheme{Darmstadt}
+
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamercovered{transparent}
+
+% 修改样式
+%\setbeamertemplate{blocks}[rounded][shadow=true]
+
+\setbeamercolor{box}{bg=black!20!orange,fg=white}
+
+\setbeamercolor{block title}{use=sidebar,fg=sidebar.fg!10!white,bg=orange!70!black}
+%\setbeamercolor{block body}{use=sidebar,fg=black,bg=sidebar.bg!90!blue}
+
+\setbeamercolor{block title example}{use=sidebar,fg=sidebar.fg!10!white,bg=black!60!green}
+%\setbeamercolor{block body example}{use=sidebar,fg=black,bg=sidebar.bg!90!green}
+
+\setbeamercolor{block title alerted}{use=sidebar,fg=sidebar.fg!10!white,bg=black!50!red}
+%\setbeamercolor{block body alerted}{use=sidebar,fg=black,bg=sidebar.bg!90!red}
+
+%\setbeamerfont{frametitle}{size=\small,series=\CJKfamily{FZDH}\Arial\boldmath}
+%\setbeamerfont{frametitle}{series=\bfseries}
+
+
+\setbeamertemplate{headline}
+{%
+  \begin{beamercolorbox}[shadow=true]{section in head/foot}
+  \vskip2pt\insertnavigation{\paperwidth}\vskip2pt
+  \end{beamercolorbox}%
+}
+
+\iffalse
+\AtBeginSection[]
+{
+  \frame{
+    \footnotesize
+    \frametitle{主要内容}
+    \tableofcontents[currentsection]
+  }
+}
+
+\AtBeginSubsection[]
+{
+  \begin{frame}
+    \footnotesize
+    \frametitle{主要内容}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+\fi
+
+\renewcommand{\raggedright}{\leftskip=0pt \rightskip=0pt plus 0cm}
+\raggedright
+}
+
+\usepackage{tabularx,multirow,multicol,longtable}
+\usepackage{tabu}
+\usepackage{graphics}
+\usepackage{xcolor}
+\usepackage[no-math]{fontspec}%--------------------------------------------------提供字体选择命令
+\usepackage{xunicode}%-----------------------------------------------------------提供Unicode字符宏
+\usepackage{xltxtra}%------------------------------------------------------------提供了针对XeTeX的改进并且加入了XeTeX的LOGO
+\usepackage[BoldFont,SlantFont,CJKchecksingle]{xeCJK}%---------------------------使用xeCJK宏包
+%================================== 设置中文字体 ================================%
+%\setCJKmainfont{Adobe Heiti Std}%------------------------------------------------设置正文为黑体
+%\setCJKmonofont{Adobe Song Std}%-------------------------------------------------设置等距字体
+%\setCJKsansfont{Adobe Kaiti Std}%------------------------------------------------设置无衬线字体
+%\setCJKfamilyfont{zxzt}{FZShouJinShu-S10S}
+%\setCJKfamilyfont{FZDH}{FZDaHei-B02S}
+%================================== 设置中文字体 ================================%
+
+%================================== 设置英文字体 ================================%
+%\setmainfont[Mapping=tex-text]{TeX Gyre Pagella}%--------------------------------英文衬线字体
+%\setsansfont[Mapping=tex-text]{Trebuchet MS}%------------------------------------英文无衬线字体
+%\setmonofont[Mapping=tex-text]{Courier New}%-------------------------------------英文等宽字体
+%\newfontfamily\Arial{Arial}
+%================================== 设置英文字体 ================================%
+
+%================================== 设置数学字体 ================================%
+%\setmathsfont(Digits,Latin,Greek)[Numbers={Lining,Proportional}]{Minion Pro}
+%================================== 设置数学字体 ================================%
+\punctstyle{kaiming}%------------------------------------------------------------开明式标点格式
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{positioning,backgrounds}
+\usetikzlibrary{fadings}
+\usetikzlibrary{patterns}
+\usetikzlibrary{calc}
+\usetikzlibrary{shadings}
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+\usepackage{xifthen}
+\usepackage{colortbl,dcolumn}
+\usepackage{enumerate}
+\usepackage{pifont}
+\usepackage{tabularx}
+\usepackage{booktabs}
+
+%=================================== 数学符号 =================================%
+\newcommand{\rtn}{\mathrm{\mathbf{R}}}
+\newcommand{\N}{\mathrm{\mathbf{N}}}
+\newcommand{\As}{\mathrm{a.s.}}
+\newcommand{\Ae}{\mathrm{a.e.}}
+\newcommand*{\PR}{\mathrm{\mathbf{P}}}
+\newcommand*{\EX}{\mathrm{\mathbf{E}}}
+\newcommand{\EXlr}[1]{\mathrm{\mathbf{E}}\left[#1\right]}
+\newcommand*{\dif}{\,\mathrm{d}}
+\newcommand*{\F}{\mathcal{F}}
+\newcommand*{\h}{\mathcal{H}}
+\newcommand*{\vp}{\varepsilon}
+\newcommand*{\prs}{\dif\PR-\As}
+\newcommand*{\dte}{\dif t-\Ae}
+\newcommand*{\pts}{\dif\PR\times\dif t-\Ae}
+\newcommand{\Ito}{It\^{o}}
+\newcommand{\tT}[1][0]{[#1,T]}
+\newcommand{\intT}[2][T]{\int^{#1}_{#2}}
+\newcommand{\intTe}[1][t]{\intT[t+\varepsilon]{#1}}
+\newcommand{\s}{\mathcal{S}}
+\newcommand{\me}{\mathrm{e}}
+\newcommand{\one}[1]{{\bf 1}_{#1}}
+\renewcommand{\M}{{\rm M}}
+\newcommand{\Me}[1][t]{M^{\varepsilon}_{#1}}
+\newcommand{\Ne}[1][t]{N^{\varepsilon}_{#1}}
+\newcommand{\Pe}[1][t]{P^{\varepsilon}_{#1}}
+\DeclareMathOperator*{\sgn}{sgn}
+%=================================== 数学符号 =================================%
+
+\graphicspath{{figures/}}
+
+\title[2010 级硕士学位答辩 (BSDE)]{一类倒向随机微分方程 \boldmath$L^p$ $(p\geq 1)$ 解的\\ 存在惟一性及生成元的表示定理}
+
+\author[肖立顺]
+{姓名: \makebox[4em][s]{肖立顺}\\
+  导师: \makebox[4em][s]{范胜君}\\
+  专业: \makebox[4em][s]{应用数学}\\
+  方向: \makebox[4em][s]{随机分析}}
+
+\institute[CUMT]{\includegraphics[width=1cm]{cumt.pdf}\\ 2010 级硕士学位论文答辩}
+
+\date{\tiny 2013-05-21}
+
+\setlength{\baselineskip}{22pt}
+\renewcommand{\baselinestretch}{1.4}
+
+\begin{document}
+
+\setlength{\abovedisplayskip}{1ex}%------------------------------------------ 公式前的距离
+\setlength{\belowdisplayskip}{1ex}%------------------------------------------ 公式后的距离
+
+%\includeonlyframes{Brown}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+%\begin{frame}{内容提纲}
+%\begin{figure}
+%\vskip-2.5em
+%  \includegraphics[page=1,scale=0.5]{mainmap}
+%\end{figure}
+%\end{frame}
+
+\section{BSDE 简介}
+\begin{frame}{倒向随机微分方程 (BSDE) 简介}
+\begin{figure}
+\vskip-2.5em
+  \includegraphics[page=2,scale=0.5]{mainmap}
+\end{figure}
+\end{frame}
+
+\begin{frame}[t]{倒向随机微分方程 (BSDE) 简介}
+
+\qquad 线性的倒向随机微分方程 (BSDE) 由 \cite{Bismut1973JMAA} 提出;
+
+\qquad \cite{PardouxPeng1990SCL} 提出非线性 BSDE 如下:
+
+\medskip
+  \begin{beamercolorbox}[shadow=true,sep=0pt,rounded=true]{box}
+    \begin{equation}\label{eq:BSDEs}
+      {\color<6>[rgb]{0,0,0}y_t}={\color<3,5>[rgb]{0,0,0}\xi}+
+          \int_t^{{\color<2,5>[rgb]{0,0,0}T}} {\color<4,5>[rgb]{0,0,0}g}(s,{\color<6>[rgb]{0,0,0}y_s},{\color<6>[rgb]{0,0,0}z_s})\dif s
+          -\int_t^{{\color<2,5>[rgb]{0,0,0}T}}{{\color<6>[rgb]{0,0,0}z_s}\dif B_s},\quad t\in[0,{\color<2,5>[rgb]{0,0,0}T}].
+    \end{equation}
+  \end{beamercolorbox}
+
+\pause
+
+ \begin{center}
+  \setlength{\extrarowheight}{1.5mm}
+  %\addtolength{\tabcolsep}{1mm}
+  \rowcolors[]{1}{orange!70}{white!90!gray}
+   \begin{tabular}{cl}
+      \onslide<2->{$T$}         & \onslide<2->{终端时间, $0\leq T\leq +\infty$} \\
+      \onslide<3->{$\xi$}       & \onslide<3->{终端条件, 可测随机变量}\\
+      \onslide<4->{$g$}         & \onslide<4->{生成元, $g(\omega,t,y,z):\Omega\times[0,T]\times\rtn^k\times\rtn^{k\times d}\to\rtn^k$}\\
+      \onslide<5->{$(\xi,T,g)$} & \onslide<5->{BSDE 的参数}\\
+      \onslide<6->{$(y_t,z_t)_{t\in\tT}$} & \onslide<6->{BSDE 的适应解}\\
+    \end{tabular}
+ \end{center}
+\end{frame}
+
+\begin{frame}{倒向随机微分方程 (BSDE) 简介}
+  \begin{itemize}
+    \item \cite{DuffieEpstein1992Econometrica}, \alert{效用函数理论};
+    \item \mbox{[Peng(1991)]}, \alert{反应扩散方程}和 \alert{Navier-Stokes 方程};
+    \item \cite{ElKarouiPengQuenez1997MF}, \alert{派生证券} (如期权期货等);
+    \item \mbox{[Peng(1997)]}, $g$-期望和条件 $g$-期望, \alert{金融风险度量};
+    \item 反射倒向随机微分方程 (RBSDE), 正倒向随机微分方程 (FBSDE), 倒向重随机微分
+          方程 (BDSDE), 以及带跳的、超前的 BSDE;
+    \item 解的性质: [Peng(1992)] 提出 BSDE 解的比较定理;
+    \item \cite{BriandCoquetHuMeminPeng2000ECIP} 提出解的逆比较定理, 生成元表示定理;
+    \item \ldots\ldots \ \ldots\ldots
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{倒向随机微分方程 (BSDE) 简介}
+\scriptsize
+  \begin{block}{$(Y_t)_{t\in\tT}$ 所在的空间}
+    ${\s}^p(0,T;\rtn^k)$  表示 $\rtn^k$-值, 适应且满足
+    $$\|Y\|_{{\s}^p}:=
+    \left(\EX
+      \left[
+        \sup_{t\in\tT}|Y_t|^p
+      \right]
+    \right)^{1\wedge 1/p}<+\infty$$
+    的连续过程 $(Y_t)_{t\in\tT}$ 全体.
+  \end{block}
+
+  \begin{block}{$(Z_t)_{t\in\tT}$ 所在的空间}
+    $\M^p(0,T;\rtn^{k\times d})$ 表示
+    ${\rtn}^{k\times d}$-值, $(\F_t)$-循序可测且满足
+    $$\|Z\|_{{\M}^p}:=
+      \left\{\EX
+      \left[
+        \left(
+          \int_0^T |Z_t|^2\dif t
+        \right)^{p\over 2}
+      \right]
+      \right\}^{1\wedge 1/p}<+\infty$$
+    的连续过程 $(Z_t)_{t\in\tT}$ 全体.
+  \end{block}
+
+  \qquad 连续过程 $(Y_t)_{t\in\tT}$ 属于 (D) 类是指, 随机过程族
+$\{Y_\tau:\tau\in\Sigma_T\}$
+是一致可积的, 其中 $\Sigma_T$ 表示所有满足 $\tau\leq T$ 的停时全体.
+\end{frame}
+
+\section{研究的出发点}
+
+\begin{frame}{研究的出发点}
+\begin{figure}
+\vskip-2.5em
+  \includegraphics[page=3,scale=0.5]{mainmap}
+\end{figure}
+\end{frame}
+
+\subsection{$L^p$ $(p\geq 1)$ 解的存在惟一性}
+
+
+\subsection{生成元表示定理}
+
+
+\section{$L^p$ $(p>1)$ 解存在惟一性}
+
+\begin{frame}{有限或无限时间终端多维 BSDE 的 $L^p$ $(p>1)$ 解的存在惟一性}
+\begin{figure}
+\vskip-2.5em
+  \includegraphics[page=4,scale=0.5]{mainmap}
+\end{figure}
+\end{frame}
+
+\subsection{$L^p$ $(p>1)$ 解存在惟一性的主要结果}
+
+\begin{frame}[t]{有限或无限时间终端多维 BSDE 的 $L^p$ $(p>1)$ 解 --- 主要结果}
+\vspace{-1ex}
+令 $p>1$, $u(t)$, $v(t):\tT\mapsto \rtn^+$ 满足
+\alert<2>{$\intT{0}\big(u(t)+v^2(t)\big)\dif t<+\infty$}.
+\vspace{-1ex}
+  \begin{block}{生成元 $g$ 的主要假设, $0\leq T\leq +\infty$}
+    \begin{enumerate}[(H1)]
+      \item $\EX
+              \big[
+                \big(
+                  \intT{0}|g(t,0,0)|\dif t
+                \big)^p
+              \big]<+\infty$;
+      \item $\pts$, $\forall z\in\rtn^{k\times d}$, $y\mapsto g(t,y,z)$ 连续;
+
+      \item $g$ 关于 $y$ 满足广义一般增长条件\only<1-2>{:}\only<3->{;}
+            \only<1-2>{$$\forall r'\in\rtn^+,\
+            \psi_{r'}(t):=\sup_{|y|\leq r'}|g(t,y,0)-g(t,0,0)|\in L^1(\tT\times\Omega);$$}
+      \item $g$ 关于 $y$ 满足对 $t$ 不一致的单调条件\only<1-2>{:}\only<3->{;}
+            \only<1-2>{
+            \[
+               \langle y_1-y_2,g(t,y_1,z)-g(t,y_2,z)\rangle\leq \alert<2>{u(t)}|y_1-y_2|^2;
+            \]}
+      \item $g$ 关于 $z$ 满足对 $t$ 不一致的 Lipschitz 连续条件\only<1-2>{:}\only<3->{.}
+            \only<1-2>{
+            \[
+              |g(t,y,z_1)-g(t,y,z_2)|\leq \alert<2>{v(t)}|z_1-z_2|.
+            \]}
+    \end{enumerate}
+  \end{block}
+\only<4>{
+  \begin{alertblock}{定理 2.3. [P8]: $L^p$ $(p>1)$ 解的存在惟一性}
+    \qquad 如果 $0\leq T\leq +\infty$, $p>1$ 且 $g$ 满足 (H1)--(H5), 则
+    $\forall\xi\in L^p(\Omega,\F_T,\PR;\rtn^k)$, BSDE $(\xi,T,g)$
+    存在惟一解 $(y_t,z_t)_{t\in\tT}\in\s^p\times \M^p$ .
+  \end{alertblock}
+}
+
+  \only<5>{
+  \begin{alertblock}{定理 2.4.[P9]: $L^p$ $(p>1)$ 解的比较定理, $0\leq T\leq+\infty$}
+    \qquad BSDE $(\xi^i,T,g_i)$ 存在惟一解
+    $(y^i_\cdot,z^i_\cdot)\in\s^p\times\M^p$. 如果 $\xi^1\leq\xi^2$,
+    $g$ 满足 (H4) -- (H5), 且 $g_1(t,y^2_t,z^2_t)\leq g_2(t,y^2_t,z^2_t)$,
+    则 $\forall t\in\tT$, 有 $y^1_t\leq y^2_t$.
+  \end{alertblock}}
+\end{frame}
+
+\subsection{证明简述}
+
+\begin{frame}{有限或无限时间终端多维 BSDE 的 $L^p$ $(p>1)$ 解 --- 惟一性证明}
+\vspace{-2ex}
+  \begin{block}{先验估计的假设: $0\leq T\leq+\infty$}
+    \begin{enumerate}[(A)]
+      \item $\forall(y,z)\in\rtn^k\times\rtn^{k\times d}$, $\EX\big[\big(\intT{0}f_t\dif t\big)^p\big]<+\infty$
+            \[
+              \langle y,g(t,y,z)\rangle\leq u(t)|y|^2+v(t)|y||z|+f_t|y|.
+            \]
+    \end{enumerate}
+  \end{block}
+
+  \begin{exampleblock}{命题 2.9. [P14]: $L^p$ $(p>1)$ 解的先验估计}
+    \qquad 令 $0\leq T\leq+\infty$, $g$ 满足 (A), $\forall p>1$,
+    则 $\exists C_p>0$ 使得 $\forall\ 0\leq r\leq t\leq T$,
+    \begin{align*}
+     \EX
+       \left[\left.
+         \sup_{s\in\tT[t]}|y_s|^p\right|\F_r
+       \right]+
+       \EX
+       \left[\left.
+        \left(
+          \intT{t}|z_s|^2\dif s
+        \right)^{p\over 2}\right|\F_r
+       \right]
+     \leq C_p\EX
+        \left[\left.|\xi|^p+
+          \left(
+            \intT{t}f_s\dif s
+          \right)^p\right|\F_r
+        \right].
+    \end{align*}
+  \end{exampleblock}
+\end{frame}
+
+
+
+\begin{frame}[t]{有限或无限时间终端多维 BSDE 的 $L^p$ $(p>1)$ 解 --- 存在性证明}
+\vspace{-2ex}
+  \begin{block}{第一步: \hspace{1.5cm} \only<3->{P16--P22, 共 6 页}}
+    \qquad 假设 $g$ 满足 (H2), (H3'), (H4) 和 (H5), $V\in\M^p$,
+    \begin{equation}\label{eq:AssumptionFirstStepLpMultiInfinite}
+      |\xi|\leq K,\prs, \qquad |g(t,0,V_t)|\leq K\me^{-t},\pts.
+    \end{equation}
+    证明 BSDE \eqref{eq:BSDE-g-yt-VtLpMultiInfinite} 在空间 $\s^2\times\M^2$
+    中存在解,
+    \begin{equation}\label{eq:BSDE-g-yt-VtLpMultiInfinite}
+      y_t=\xi+\intT{t}g(s,y_s,V_s)\dif s-\intT{t}z_s\dif B_s,\quad t\in\tT;
+    \end{equation}
+  \end{block}
+  \pause
+  \begin{itemize}
+    \item 对 $g$ 与 $\rho_n$ 关于 $y$ 做\alert{卷积}得到 $g_n$, 关于 $y$ 局部 Lipschitz 连续;
+    \item 对 $g_n$ \alert{截断}得到 $g_{n,q}$, 关于 $y$ 是 Lipschitz 连续;
+    \item BSDE $(\xi,T,g_{n,q})$ 有解 $(y^{n,q},z^{n,q})\in\s^2\times\M^2$, $(y^{n},z^{n})\in\s^2\times\M^2$;
+    \item 对 BSDE $(\xi,T,g_n)$ 两侧取\alert{弱极限}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[t]{有限或无限时间终端多维 BSDE 的 $L^p$ $(p>1)$ 解 --- 存在性证明}
+
+  \begin{block}{第二步}
+    \qquad 通过改进的特殊\alert{截断}技术, 将假设 (H3') 弱化为 (H3);
+  \end{block}
+
+  \only<2>{\qquad 困难之处: 此时需在 $g$ 不依赖于 $z$ 时进行截断, 且为第三步做铺垫.
+
+  \begin{equation*}
+    \pi_{u}(x):=\frac{u x}{u\vee |x|},\quad \forall u\in\rtn;
+  \end{equation*}
+  \begin{align*}
+    h_n(t,y,V_t):=&\
+    \theta_{r'}(y)\big(g(t,y,\pi_{n\me^{-t}}(V_t))-g(t,0,\pi_{n\me^{-t}}(V_t))\big)
+    \frac{n\me^{-t}}{\psi_{r'+1}(t)\vee(n\me^{-t})}\\
+    &+g(t,0,V_t).
+  \end{align*}
+  }
+
+  \only<3->{
+  \begin{block}{第三步}
+     \qquad 再次使用\alert{截断}技术, 去掉假设 \eqref{eq:AssumptionFirstStepLpMultiInfinite},
+     同时证明 $\forall V\in\M^p$,
+     BSDE \eqref{eq:BSDE-g-yt-VtLpMultiInfinite} 在假设 (H1) -- (H5) 下有
+     $\s^p\times\M^p$ 解;
+  \end{block}}
+  \only<4>{
+  \begin{equation*}
+    \xi^n:=\pi_n(\xi), \quad g^n(t,y,V_t):=g(t,y,V_t)-g(t,0,V_t)+\pi_{n\me^{-t}}(g(t,0,V_t)).
+  \end{equation*}}
+
+  \only<5->{
+  \begin{block}{第四步}
+     \qquad 类似于 \cite{FanJiang2011Stochastics} 通过\alert{先验估计, 分区间构建压缩映射},
+     证明 BSDE $(\xi,T,g)$ 在假设 (H1) -- (H5) 下有 $\s^p\times\M^p$ 解.
+  \end{block}}
+\end{frame}
+
+
+\begin{frame}{有限或无限时间终端多维 BSDE 的 $L^p$ $(p>1)$ 解 --- 举例}
+
+  \begin{exampleblock}{例 2.16. [P29]: 终端时间有限 $0\leq T<+\infty$, 一维情况}
+    $$g(t,y,z)=\alert{|\ln t\,|}(-\me^{y}+|y|)+\alert{\frac{1}{\sqrt[4]{t\,}}}|z|+|B_t|.$$
+  \end{exampleblock}\pause
+
+  \begin{exampleblock}{例 2.17. [P30]: 终端时间无限 $0\leq T\leq +\infty$, 二维情况}
+    \begin{equation*}
+      g(t,y,z)=\alert{t^2\me^{-t}}
+      \begin{bmatrix}
+        \displaystyle-y^3_1+y_2\\
+        \displaystyle-y^5_2-y_1
+      \end{bmatrix}
+      +\alert{\frac{1}{\sqrt{1+t^2}}}
+      \begin{bmatrix}
+        \displaystyle|z_1|\\
+        \displaystyle|z_2|
+      \end{bmatrix}
+      +\frac{t^2}{t^4+1}
+      \begin{bmatrix}
+        \displaystyle 1\\
+        \displaystyle 1
+      \end{bmatrix},
+    \end{equation*}
+  \end{exampleblock}
+
+  \qquad $g$ 满足 (H1) -- (H5). BSDE $(\xi,T,g)$ 在空间 $\s^p\times\M^p$
+  中有惟一解.
+\end{frame}
+
+\section{$L^1$ 解存在惟一性}
+
+\begin{frame}{有限或无限时间终端多维 BSDE 的 $L^1$ 解}
+\begin{figure}
+\vskip-2.5em
+  \includegraphics[page=5,scale=0.5]{mainmap}
+\end{figure}
+\end{frame}
+
+\subsection{有限或无限时间终端多维 BSDE 的 $L^1$ 解的存在惟一性}
+
+\begin{frame}[t]{有限或无限时间终端多维 BSDE 的 $L^1$ 解 --- 主要结果}
+  \begin{block}{生成元 $g$ 的假设: $0\leq T\leq +\infty$}
+    \begin{enumerate}[(H1')]
+      \item $\EXlr{\intT{0}|g(t,0,0)|\dif t}<+\infty$;
+      \item[(H6)] $\exists\alpha\!\in\!(0,1)$,
+        \alert<3>{$\intT{0}\!\!\big(\gamma(t)\!+\!\gamma^{1/(1-\alpha)}(t)\!+\!\gamma^{2/(2-\alpha)}(t)\big)\!\dif t\!<\!+\infty$},
+        $\EX[\int^T_0\!g_t\!\dif t]\!<\!+\infty$,
+        $$|g(t,y,z)-g(t,y,0)|\leq \alert<3>{\gamma(t)}(g_t+|y|+|z|)^\alpha.$$
+    \end{enumerate}
+  \end{block}
+
+  \only<2-3>{
+  \begin{alertblock}{定理 3.1. [P31]: $L^1$ 解的存在惟一性}
+    \qquad 令 $0\leq T\leq +\infty$ 且 $g$ 满足 (H1'), (H2) -- (H6),
+    则 $\forall\xi\in L^1$ 及 $\beta\in(0,1)$,
+    BSDE $(\xi,T,g)$ 存在解 $(y_\cdot,z_\cdot)\in\s^\beta\times \M^\beta$, 且
+    $(y_\cdot)$ 属于 (D) 类; $\forall\beta\in(\alpha,1)$, 解惟一.
+  \end{alertblock}}
+
+  \only<4>{\qquad 受 \cite{FanJiang2012JTP} 及 \cite{FanLiu2010SPL} 启发.
+  \begin{alertblock}{定理 3.6. [38]: $L^1$ 解的比较定理, $0\leq T\leq+\infty$}
+    \qquad $\xi^i\in L^1$, $\beta\in(\alpha,1)$, BSDE $(\xi^i,T,g_i)$
+    存在惟一解 $(y^i_\cdot,z^i_\cdot)\in\s^\beta\times\M^\beta$,
+    且 $(y^i_\cdot)$ 属于 (D) 类.
+    若 $\xi^1\leq\xi^2$, $g$ 满足
+    (H4) -- (H6), 且
+    $g_1(t,y^2_t,z^2_t)\leq g_2(t,y^2_t,z^2_t)$,
+    则 $\forall t\in\tT$, 有
+    $y^1_t\leq y^2_t$.
+  \end{alertblock}}
+\end{frame}
+
+\subsection{证明简述}
+
+\begin{frame}{有限或无限时间终端多维 BSDE 的 $L^1$ 解 --- 证明思路}
+
+  借鉴 [Briand et al.(2003)] 的证明方法.
+  \begin{block}{惟一性}
+    \begin{enumerate}
+      \item 假设存在两对 $L^1$ 解 $(y_t,z_t)_{t\in\tT}$ 和 $(y'_t,z'_t)_{t\in\tT}$;
+      \item 作差得 $\hat y_\cdot=y_\cdot-y'_\cdot$, $\hat z_\cdot=z_\cdot-z'_\cdot$,
+            $(\hat y_\cdot,\hat z_\cdot)\in\s^p\times\M^p$;
+      \item 利用 $L^p$ 解的先验估计得 $\hat y_\cdot=0$, $\hat z_\cdot=0$.
+    \end{enumerate}
+  \end{block}
+  \pause
+  \begin{block}{存在性}
+    \begin{enumerate}
+      \item $g$ 不依赖于 $z$ 时, 利用\alert{截断}技术得到 $L^1$ 解的存在性;
+      \item $g$ 依赖于 $z$ 时, 使用 \alert{Picard 迭代}分区间构造压缩映射证明 $L^1$ 解的存在性.
+    \end{enumerate}
+  \end{block}
+\end{frame}
+
+\begin{frame}{有限或无限时间终端多维 BSDE 的 $L^1$ 解 --- 举例}
+  \begin{exampleblock}{例 3.4. [P37]: 终端时间有限 $0\leq T<+\infty$, 一维情况}
+    $$g(t,y,z)=\alert{\frac{1}{\sqrt[3]{t\,}}}
+    \big(\me^{-y}\one{y\leq 0}+(1-y^2)\one{y>0}\big)
+    +\alert{\frac{t+1}{\sqrt[4]{t\,}}}\big(|z|^2\wedge\sqrt{|z|}\,\big)+\frac{1}{1+t^4}.$$
+  \end{exampleblock}
+
+  \begin{exampleblock}{例 3.5. [P38]: 终端时间无限 $0\leq T\leq +\infty$, 二维情况}
+    \begin{equation*}
+      g(t,y,z)=\alert{\frac{1}{1+t^2}}
+      \begin{bmatrix}
+        \displaystyle\me^{-y_1}+3y_2\\
+        \displaystyle-\me^{y_2}-3y_1
+      \end{bmatrix}+\alert{\me^{-t}}
+      \begin{bmatrix}
+        \displaystyle\sin|z_1|\\[3pt]
+        \displaystyle\sin|z_2|
+      \end{bmatrix}+
+      \begin{bmatrix}
+        \displaystyle\me^{-t}\sin t\\[3pt]
+        \displaystyle t\me^{-t}
+      \end{bmatrix}.
+    \end{equation*}
+  \end{exampleblock}
+
+  \qquad $g$ 满足 (H1'), (H2) -- (H6). $\forall\beta\in(\alpha,1)$, BSDE $(\xi,T,g)$ 存
+  在惟一解 $(y_\cdot,z_\cdot)\in\s^\beta\times\M^\beta$.
+\end{frame}
+
+\section{表示定理及应用}
+
+\begin{frame}{$L^p$ $(p>1)$ 空间中的表示定理及应用}
+\begin{figure}
+\vskip-2.5em
+  \includegraphics[page=6,scale=0.5]{mainmap}
+\end{figure}
+\end{frame}
+
+\subsection{$L^p$ $(p>1)$ 空间中的表示定理}
+
+\begin{frame}[t]{$L^p$ $(p>1)$ 空间中的表示定理 --- 主要结果}
+\vskip-2ex
+  $0\leq T\leq+\infty$, $1<p\leq 2$, $\alpha\geq 1$,
+  $\intT{0}\big(\mu(t)+\nu^2(t)\big)\dif t<+\infty$.
+
+  \begin{block}{生成元 $g$ 的主要假设}
+    \begin{enumerate}[(B1)]
+      \item $\EX\big[\big(\intT{0}|g(t,0,0)|\dif t\big)^p\big]<+\infty$;
+      \item $\forall z\in\rtn^d$, $y\mapsto g(t,y,z)$ 连续;
+      \item $g$ 关于 $y$ 满足对 $t$ 不一致的单调条件\only<1>{:}\only<2->{;}
+            \only<1>{
+            $$(y_1-y_2)\cdot\big(g(t,y_1,z)-g(t,y_2,z)\big)\leq \mu(t)|y_1-y_2|^2;$$}
+      \item $g$ 关于 $y$ 满足对 $t$ 不一致的多项式增长条件\only<1>{:}\only<2->{;}
+            \only<1>{
+            $$|g(t,y,z)|\leq |g(t,0,z)|+\mu(t)|y|^\alpha;$$}
+      \item $g$ 关于 $z$ 满足对 $t$ 不一致的 Lipschitz 条件\only<1>{:}\only<2->{;}
+            \only<1>{
+            $$|g(t,y,z_1)-g(t,y,z_2)|\leq \nu(t)|z_1-z_2|;$$}
+      \only<2>{\item 对于 $\dte$ $t\in\tT$, 有 $\EX[|g(t,0,0)|^{p}]<+\infty$, 且
+            $\exists k_t>0$, $\delta_t>0$ 使得
+            $$\EXlr{\left(\frac{1}{\varepsilon}\intTe|g(u,0,0)|\dif u\right)^{\alpha p}}\leq k_t,\quad
+             0<\varepsilon\leq\min\{\delta_t,T-t\}.$$}
+    \end{enumerate}
+  \end{block}
+
+  \only<3>{\vskip-.8ex
+  \begin{alertblock}{定理 4.2. [P42]: $L^p$ $(p>1)$ 空间中的表示定理, $0\leq T\leq+\infty$}
+    \qquad 假设 $g$ 满足 (B1) -- (B6),
+    则 $\forall y\in\rtn$, $z\in\rtn^d$, $1\leq q<p$,
+    \begin{equation*}
+      g(t,y,z)=L^q-\lim_{\varepsilon\to 0^+}\frac{1}{\varepsilon}
+             \left[
+               y_t(g,t+\varepsilon,y+z\cdot(B_{t+\varepsilon}-B_t))-y
+             \right],\quad \dte\ t\in\tT.
+    \end{equation*}
+  \end{alertblock}}
+\end{frame}
+
+\begin{frame}[t]{$L^p$ $(p>1)$ 空间中的表示定理 --- 简要证明}
+\vspace{-2ex}\small
+  \begin{block}{引理 4.7. [P43]}
+    \qquad 假设 $0\leq T\leq+\infty$, $y\in\rtn$, $z\in\rtn^d$ 且 $g$ 满足 (B2),
+    (B4) -- (B6). 对于 $\dte$ $t\in\tT$,
+    $\exists\{\psi^n(t)\}^\infty_{n=1}\in L^{p}(\Omega,\F_t,\PR)$ 满足
+    $\lim_{n\to\infty}\EXlr{|\psi^n(t)|^{p}}=0$, 且
+    $\forall n\in\N$, $\widetilde y\in\rtn$ 有
+    \vspace{-.8ex}
+    \begin{equation*}
+      \psi^n(t)\leq (2^\alpha+2)(|g(t,0,0)+\nu(t)|z|+\mu(t)|y|^\alpha),\quad\prs,\vspace{-.5ex}
+    \end{equation*}
+    \begin{equation*}
+      |g(t,\widetilde y,z)-g(t,y,z)|\leq2^\alpha n\mu(t)|\widetilde y-y|^\alpha+\psi^n(t), \quad\prs.
+    \end{equation*}
+  \end{block}
+  \vspace{-.5ex}
+  \begin{block}{引理 4.8. [P45]}
+    \qquad $\forall p\in(1,2]$, 若 $(\widetilde{y}^\varepsilon_s,\widetilde{z}^\varepsilon_s)_{s\in[t,t+\varepsilon]}$
+    为%\vspace{-1ex}
+    \begin{equation*}
+      \widetilde{y}^\varepsilon_s=
+      \intTe[s]g(u,\widetilde y+y+z\cdot(B_u-B_t),\widetilde z+z)\dif u
+      -\intTe[s]\widetilde{z}^\varepsilon_u\cdot\dif B_u, \quad s\in[t,t+\varepsilon],%\vspace{-1ex}
+    \end{equation*}
+    的解, 则对于 $\dte$ $t\in\tT$ 有%\vspace{-1ex}
+    \begin{equation*}
+      \lim_{\varepsilon\to0^+}\frac{1}{\varepsilon}
+      \EXlr{\sup_{s\in[t,t+\varepsilon]}|\widetilde{y}^\varepsilon_s|^{\alpha p}
+        +\left(
+           \intTe|\widetilde z^\varepsilon_s|^2\dif s
+         \right)^{p\over 2}}=0.
+    \end{equation*}
+  \end{block}
+\end{frame}
+
+\subsection{$L^p$ $(p>1)$ 的逆比较定理}
+
+\begin{frame}[t]{有限或无限时间终端一维 BSDE 的 $L^p$ $(p>1)$ 解的逆比较定理}
+\vspace{-2ex}
+  \begin{alertblock}{定理 4.9.[P50]: $L^p$ $(p>1)$ 解的逆比较定理, $0\leq T\leq+\infty$}
+    \qquad $g_i$ 满足 (B1) -- (B6).
+    如果 $\forall \xi\in L^p$,
+    BSDE $(g_i,T,\xi)$ 的解 $(y^i_\cdot,z^i_\cdot)$ 满足
+    $\forall t\in\tT$,
+    \begin{equation*}
+      y^1_t\geq y^2_t, \quad \prs,
+    \end{equation*}
+    则 $\forall y\in\rtn$, $z\in\rtn^d$ 有,
+    \begin{equation*}
+      g_1(t,y,z)\geq g_2(t,y,z),\quad\pts.
+    \end{equation*}
+  \end{alertblock}\pause
+
+  \begin{alertblock}{命题 4.10.[P50]: 等价命题}
+    \qquad 假定 $0\leq T\leq+\infty$, $g_i$ 满足 (B1) -- (B6).
+    则如下两条陈述等价:
+    \begin{enumerate}
+      \item $\forall\xi\in L^p$, $t\in\tT$,
+            $y_t(g_1,T,\xi)\geq y_t(g_2,T,\xi)$, $\prs$;
+      \item $\forall t\in\tT$, $y\in\rtn$, $z\in\rtn^d$,
+            $g_1(t,y,z)\geq g_2(t,y,z)$, $\pts$.
+    \end{enumerate}
+  \end{alertblock}
+\end{frame}
+
+\section{其他}
+
+\begin{frame}{其他}
+\begin{figure}
+\vskip-2.5em
+  \includegraphics[page=7,scale=0.5]{mainmap}
+\end{figure}
+\end{frame}
+
+\subsection{发表论文及获奖情况}
+
+\begin{frame}{发表论文情况}
+\scriptsize\sffamily
+  \begin{enumerate}
+    \item {\normalfont 肖立顺}, 李慧颖, 范胜君. One-dimensional BSDEs with monotonic,
+          H\"older continuous and integrable parameters. 华东师范大学学报
+          (自然科学版), 2012, 1: 130--137.\pause
+
+          江苏省概率统计学会第十次学术年会 (苏州) 做 15 分钟报告. \pause
+
+    \item {\normalfont 肖立顺}, 范胜君, 徐娜. 随机变量本性上 (下) 确界与范数的关系.
+          烟台大学学报 (自然科学与工程版), 2012, 25(4):217--219.
+    \item {\normalfont  肖立顺}, 徐娜, 山显雷. 房地产行业供需模型及调控模型的研究.
+          数学的实践与认识, 2012, 42(15):148--154.
+    \item 刘德群, {\normalfont 肖立顺}, 范胜君. An existence and uniqueness result of $L^l$
+          solutions to multidimensional BSDEs with a finite and an infinite time interval.
+          应用数学, 2012, 25(4):777--784.
+    \item 侯杰, {\normalfont 肖立顺}, 范胜君. 终端时间可为无限的 BSDE 解的递归迭代序列的收敛
+          性及解的存在唯一性. 云南大学学报 (自然科学版), 2012, 34(4):380--384.
+    \item Lishun XIAO ({\normalfont 肖立顺}), Shengjun FAN (范胜君), Na XU. $L^p$
+          $(p\geq 1)$ solutions
+          of multidimensional BSDEs with monotone generators in general time intervals.
+          {\itshape Stochastics and Dynamics} (SCI), 2012.04 投稿, 2013.04 回修.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[t]{获奖情况及参与科研项目}
+\sffamily
+
+\begin{block}{{\normalfont 获奖情况}}
+  \begin{enumerate}\footnotesize
+    \item 2012年, 研究生国家奖学金;
+    \item 2010年 --- 2012 年, 研究生一等奖学金 (2 次), 研究生特等奖学金 (1 次);
+    \item 2011 年, 第八届全国研究生数学建模竞赛一等奖;
+    \item 2011 年, 第八届苏北数学建模联赛二等奖;
+    \item 2011 年, 理学院第四届研究生科技创新论坛二等奖.
+  \end{enumerate}
+\end{block}
+\pause
+\begin{block}{{\normalfont 参与科研项目}}
+  \begin{enumerate}\footnotesize
+    \item 终端时间有限或无限的多维倒向随机微分方程 $L^p$ $(p\geq 1)$ 解的存在惟一性
+
+          {\normalfont 中央高校基本科研业务费专项资金} (No. 2012LWB57), 2012 年 6 月至 2013 年 5 月, 主持人.
+    \item 生成元 $g$ 关于 $y$ 弱单调且广义一般增长的倒向随机微分方程解的存在唯一性及
+          相关问题研究
+
+          {\normalfont 国家自然科学基金青年基金资助} (No. 11101422),
+          2012 年 1 月至 2014 年 12 月, 排名第 4.
+  \end{enumerate}
+\end{block}
+\end{frame}
+
+
+
+
+\section*{参考文献}
+
+\begin{frame}[allowframebreaks]{参考文献}
+\tiny
+\sffamily
+\begin{thebibliography}{57}
+%\bibitem[Bahlali(2001)]{Bahlali2001CRASPSI}
+%Bahlali, K.
+%\newblock Backward stochastic differential equations with locally {L}ipschitz
+%  coefficient~[J].
+%\newblock \emph{Comptes Rendus de l'Acad{\'e}mie des Sciences-Series
+%  I-Mathematics}, 2001, 333\penalty0 (5):\penalty0 481--486.
+
+\bibitem[Bismut(1973)]{Bismut1973JMAA}
+Bismut, J.-M.
+\newblock Conjugate convex functions in optimal stochastic control~[J].
+\newblock \emph{Journal of Mathematical Analysis and Applications}, 1973,
+  44\penalty0 (2):\penalty0 384--404.
+
+\bibitem[Briand-Carmona(2000)]{BriandCarmona2000JAMSA}
+Briand, P., Carmona, R.
+\newblock {BSDE}s with polynomial growth generators~[J].
+\newblock \emph{Journal of Applied Mathematics and Stochastic Analysis}, 2000,
+  13\penalty0 (3):\penalty0 207--238.
+
+\bibitem[Briand-Coquet-Hu-M\'{e}min-Peng(2000)]{BriandCoquetHuMeminPeng2000ECIP}
+Briand, P., Coquet, F., Hu, Y., M\'{e}min, J., Peng, S.
+\newblock A converse comparison theorem for {BSDE}s and related properties of
+  $g$-expectation~[J].
+\newblock \emph{Electronic Communications in Probability}, 2000, 5:\penalty0
+  101--117.
+
+\bibitem[Briand-Delyon-Hu-Pardoux-Stoica(2003)]{BriandDelyonHu2003SPA}
+Briand, P., Delyon, B., Hu, Y., Pardoux, E., Stoica, L.
+\newblock {$L^p$} solutions of backward stochastic differential equations~[J].
+\newblock \emph{Stochastic Processes and Their Applications}, 2003,
+  108\penalty0 (1):\penalty0 109--129.
+
+\bibitem[Briand-Lepeltier-San~Martin(2007)]{BriandLepetierSanMrtin2007Bernoulli}
+Briand, P., Lepeltier, J.-P., San~Martin, J.
+\newblock One-dimensional backward stochastic differential equations whose
+  coefficient is monotonic in $y$ and non-{L}ipschitz in $z$~[J].
+\newblock \emph{Bernoulli}, 2007, 13\penalty0 (1):\penalty0 80--91.
+
+\bibitem[Chen(2010)]{Chen2010SAA}
+Chen, S.
+\newblock {$L^p$} solutions of one-dimensional backward stochastic differential
+  equations with continuous coefficients~[J].
+\newblock \emph{Stochastic Analysis and Applications}, 2010, 28\penalty0
+  (5):\penalty0 820--841.
+
+\bibitem[Chen-Wang(2000)]{ChenWang2000JAMSA}
+Chen, Z., Wang, B.
+\newblock Infinite time interval {BSDE}s and the convergence of
+  $g$-martingales~[J].
+\newblock \emph{Journal of the Australian Mathematical Society (Series A)},
+  2000, 69\penalty0 (2):\penalty0 187--211.
+
+\bibitem[Duffie-Epstein(1992)]{DuffieEpstein1992Econometrica}
+Duffie, D., Epstein, G.~L.
+\newblock Stochastic differential utility~[J].
+\newblock \emph{Econometrica: Journal of the Econometric Society}, 1992,
+  60\penalty0 (2):\penalty0 353--394.
+
+\bibitem[El~Karoui-Kapondjian-Pardoux-Peng-Quenez(1997a)]{ElKarouiKapondjianPardouxPengQuenez1997AP}
+El~Karoui, N., Kapondjian, C., Pardoux, E., Peng, S., Quenez, M.~C.
+\newblock Reflected solutions of {B}ackward {SDE} and related obstacle problems
+  for {PDE}s~[J].
+\newblock \emph{Annals of Probability}, 1997a, 25\penalty0
+  (2):\penalty0 702--737.
+
+\bibitem[El~Karoui-Peng-Quenez(1997b)]{ElKarouiPengQuenez1997MF}
+El~Karoui, N., Peng, S., Quenez, M.~C.
+\newblock Backward stochastic differential equations in finance~[J].
+\newblock \emph{Mathematical Finance}, 1997b, 7\penalty0
+  (1):\penalty0 1--71.
+
+%\bibitem[Fan-Hu(2008)]{FanHu2008SPL}
+%Fan, S., Hu, J.
+%\newblock A limit theorem for solutions to {BSDE}s in the space of
+%  processes~[J].
+%\newblock \emph{Statistics and Probability Letters}, 2008, 78:\penalty0
+%  1024--1033.
+
+\bibitem[Fan-Jiang(2010a)]{FanJiang2010SPL}
+Fan, S., Jiang, L.
+\newblock Finite and infinite time interval {BSDE}s with non-{L}ipschitz
+  coefficients~[J].
+\newblock \emph{Statistics and Probability Letters}, 2010a, 80\penalty0
+  (11-12):\penalty0 962--968.
+
+\bibitem[Fan-Jiang(2010b)]{FanJiang2010JCAM}
+Fan, S., Jiang, L.
+\newblock A representation theorem for generators of {BSDE}s with continuous
+  linear-growth generators in the space of processes~[J].
+\newblock \emph{Journal of Computational and Applied Mathematics}, 2010b,
+  235:\penalty0 686--695.
+
+\bibitem[Fan-Jiang(2012a)]{FanJiang2011Stochastics}
+Fan, S., Jiang, L.
+\newblock ${L}^p$ solutions of finite and infinite time interval {BSDE}s with
+  non-{L}ipschitz coefficients~[J].
+\newblock \emph{Stochastics An International Journal of Probability and
+  Stochastic Processes: formerly Stochastics and Stochastics Reports},
+  2012a, 84\penalty0 (5):\penalty0 478--506.
+
+\bibitem[Fan-Jiang(2012b)]{FanJiang2012JTP}
+Fan, S., Jiang, L.
+\newblock A generalized comparison theorem for {BSDE}s and its
+  applications~[J].
+\newblock \emph{Journal of Theoretical Probability}, 2012b,
+  25\penalty0 (1):\penalty0 50--61.
+
+\bibitem[Fan-Jiang(2012a)]{FanJiang2012JAMC}
+Fan, S., Jiang, L.
+\newblock ${L}^p$ $(p>1)$ solutions for one-dimensional {BSDE}s with
+  linear-growth generators~[J].
+\newblock \emph{Journal of Applied Mathematics and Computing}, 2012a,
+  38\penalty0 (1--2):\penalty0 295--304.
+
+\bibitem[Fan-Jiang(2012b)]{FanJiang2012SciSinMathChina}
+Fan, S., Jiang, L.
+\newblock {BSDE}s with uniformly continuous generators and integrable
+  parameters ({I}n {C}hinese)~[J].
+\newblock \emph{Sci Sin Math}, 2012b, 42\penalty0 (2):\penalty0 119--131.
+\newblock doi:10.1360/012010-746.
+
+\bibitem[Fan-Liu(2010)]{FanLiu2010SPL}
+Fan, S., Liu, D.
+\newblock A class of {BSDE}s with integrable parameters~[J].
+\newblock \emph{Statistics and Probability Letters}, 2010, 80\penalty0
+  (23):\penalty0 2024--2031.
+
+\bibitem[Fan-Jiang-Tian(2011a)]{FanJiangTian2011SPA}
+Fan, S., Jiang, L., Tian, D.
+\newblock One-dimensional {BSDE}s with finite and infinite time horizons~[J].
+\newblock \emph{Stochastic Processes and Their Applications},
+  2011{a}, 121\penalty0 (3):\penalty0 427--440.
+
+\bibitem[Fan-Jiang-Xu(2011b)]{FanJiangXu2011EJP}
+Fan, S., Jiang, L., Xu, Y.
+\newblock Representation theorem for generators of {BSDE}s with monotonic and
+  polynomial-growth generators in the space of processes~[J].
+\newblock \emph{Electronic Journal of Probability}, 2011b,
+  16\penalty0 (27):\penalty0 830--844.
+
+%\bibitem[Hamad\`{e}ne(2003)]{Hamadene2003Bernoulli}
+%Hamad\`{e}ne, S.
+%\newblock Multidimensional backward stochastic differential equations with
+%  uniformly continuous coefficients~[J].
+%\newblock \emph{Bernoulli}, 2003, 9\penalty0 (3):\penalty0 517--534.
+
+%\bibitem[Hewitt-Stromberg(1978)]{HewittStromberg1978RAA}
+%Hewitt, E., Stromberg, K.~R.
+%\newblock \emph{Real and Abstract Analysis}~[M].
+%\newblock New York: Spring-Verleg, 1978.
+
+%\bibitem[Hu-Peng(1995)]{HuPeng1995PTRF}
+%Hu, Y., Peng, S.
+%\newblock Solution of forward-backward stochastic differential equations~[J].
+%\newblock \emph{Probability Theory and Related Fields}, 1995, 103:\penalty0
+%  273--283.
+
+%\bibitem[Jia(2008)]{Jia2008SPL}
+%Jia, G.
+%\newblock A class of backward stochastic differential equations with
+%  discontinuous coefficients~[J].
+%\newblock \emph{Statistics and Probability Letters}, 2008, 78\penalty0
+%  (3):\penalty0 231--237.
+
+\bibitem[Jia(2010)]{Jia2010SPA}
+Jia, G.
+\newblock Backward stochastic differential equations with a uniformly
+  continuous generator and related $g$-expectation~[J].
+\newblock \emph{Stochastic Processes and Their Applications}, 2010,
+  120\penalty0 (11):\penalty0 2241--2257.
+
+\bibitem[Jiang(2005a)]{Jiang2005aSPL}
+Jiang, L.
+\newblock Converse comparison theorems for backward stochastic differential
+  equations~[J].
+\newblock \emph{Statistics and Probability Letters}, 2005a, 71:\penalty0
+  173--183.
+
+\bibitem[Jiang(2005b)]{Jiang2005bCRASPSI}
+Jiang, L.
+\newblock Representation theorems for generators of backward stochastic
+  differential equations~[J].
+\newblock \emph{Comptes Rendus de l'Acad{\'e}mie des Sciences-Series
+  I-Mathematics}, 2005b, 340:\penalty0 161--166.
+
+\bibitem[Jiang(2005c)]{Jiang2005cSPA}
+Jiang, L.
+\newblock Representation theorems for generators of backward stochastic
+  differential equations and their applications~[J].
+\newblock \emph{Stochastic Processes and Their Applications}, 2005c,
+  115\penalty0 (12):\penalty0 1883--1903.
+
+\bibitem[Jiang(2006)]{Jiang2006ScienceInChina}
+Jiang, L.
+\newblock Limit theorem and uniqueness theorem for backward stochastic
+  differential equations~[J].
+\newblock \emph{Science In China, Series A}, 2006, 49\penalty0 (10):\penalty0
+  1353--1362.
+
+\bibitem[Jiang(2008)]{Jiang2008TAAP}
+Jiang, L.
+\newblock Convexity, translation invariance and subadditivity for
+  $g$-expectations and related risk measures~[J].
+\newblock \emph{The Annals of Applied Probability}, 2008, 18\penalty0
+  (1):\penalty0 245--258.
+
+%\bibitem[Kobylanski(2000)]{Kobylanski2000AP}
+%Kobylanski, M.
+%\newblock Backward stochastic differential equations and partial differential
+%  equations with quadratic growth~[J].
+%\newblock \emph{Annals of Probability}, 2000, 28\penalty0 (2):\penalty0
+%  558--602.
+
+\bibitem[Lepeltier-San~Martin(1997)]{LepeltierSanMartin1997SPL}
+Lepeltier, J.-P., San~Martin, J.
+\newblock Backward stochastic differential equations with continuous
+  coefficient [J].
+\newblock \emph{Statistics and Probability Letters}, 1997, 32\penalty0
+  (4):\penalty0 425--430.
+
+\bibitem[Mao(1995)]{Mao1995SPA}
+Mao, X.
+\newblock Adapted solutions of backward stochastic differential equations with
+  non-{L}ipschitz coefficients [J].
+\newblock \emph{Stochastic Processes and their Applications}, 1995, 58\penalty0
+  (2):\penalty0 281--292.
+
+\bibitem[Pardoux(1999)]{Pardoux1999NADEC}
+Pardoux, E.
+\newblock {BSDE}s, weak convergence and homogenization of semilinear
+  {PDE}s [C].
+\newblock In Clarke, F., Stern, R., editors, \emph{Nonlinear Analysis,
+  Differential Equations and Control}, pages 503--549. Kluwer Academic, New
+  York, 1999.
+
+\bibitem[Pardoux-Peng(1990)]{PardouxPeng1990SCL}
+Pardoux, E., Peng, S.
+\newblock Adapted solution of a backward stochastic differential equation [J].
+\newblock \emph{Systems Control Letters}, 1990, 14\penalty0 (1):\penalty0
+  55--61.
+
+
+%\bibitem[Pardoux-Peng(1994)]{PardouxPeng1994PTRF}
+%Pardoux, E., Peng, S.
+%\newblock Backward doubly stochastic differential equations and systems of
+%  quasilinear {SPDE}s [J].
+%\newblock \emph{Probability Theory and Related Fields}, 1994, 98\penalty0
+%  (2):\penalty0 209--227.
+
+%\bibitem[Peng(1991)]{Peng1991LectureNotes}
+%Peng, S.
+%\newblock \emph{A Generalized {H}amihon-{J}acobi {B}ellman Equation} [M],
+%  volume Lecture Notes in CIS 184 of \emph{126--134}.
+%\newblock Berlin: Spring-Verleg, 1991.
+
+%\bibitem[Peng(1992)]{Peng1992SSR}
+%Peng, S.
+%\newblock A generalized dynamic programming principle and
+%  hamilton-jacobibellman equation [J].
+%\newblock \emph{Stochastics and Stochastic Reports}, 1992, 38\penalty0
+%  (2):\penalty0 119--134.
+
+%\bibitem[Peng(1997)]{Peng1997BSDEP}
+%Peng, S.
+%\newblock Backward {SDE} and related $g$-expectation [C].
+%\newblock In El~Karoui, N., Mazliak, L., editors, \emph{Backward stochastic
+%  differential equations ({P}aris,1995--1996)}, volume 364 of \emph{Pitman
+%  Research Notes Mathematical Series}, pages 141--159. Longman, Harlow, 1997.
+
+%\bibitem[Peng(2004)]{Peng2004LectureNotesOfMathematics}
+%Peng, S.
+%\newblock Nonlinear expectation, nonlinear evaluation and risk measures [C].
+%\newblock In Back, K., Bielecki, T.~R., Hipp, C., Peng, S., Schachermayer, W.,
+%  editors, \emph{Stochastic Methods in Finance}, volume 1856 of \emph{Lectures,
+%  C.I.M.E.-E.M.S. Lecture Notes of Mathematics}, pages 165--253. Springer,
+%  2004.
+
+%\bibitem[Peng-Yang(2009)]{PengYang2009AP}
+%Peng, S., Yang, Z.
+%\newblock Anticipated backward stochastic differential equations [J].
+%\newblock \emph{Annals of Probability}, 2009, 37\penalty0 (3):\penalty0
+%  877--902.
+
+\bibitem[Song-Hu-Chen(2012)]{SongHuChen2012AMASES}
+Song, L., Hu, F., Chen, Z.
+\newblock Representation theorems for generators of {BSDE}s in ${L}^p$
+  spaces [J].
+\newblock \emph{Acta Mathematicae Applicatae Sinica, English Series}, 2012,
+  28\penalty0 (2):\penalty0 255--264.
+
+\bibitem[Touzi(2013)]{Touzi2013StochasticControlNote}
+Touzi, N.
+\newblock \emph{Optimal stochastic control, stochastic target problems, and
+  backward {SDE}} [M], volume 29 of \emph{Fields Institute Monographs}.
+\newblock New York: Springer, 2013.
+
+\bibitem[Wang-Huang(2009)]{WangHuang2009SPL}
+Wang, Y., Huang, Z.
+\newblock Backward stochastic differential equations with non-{L}ipschitz
+  coefficients [J].
+\newblock \emph{Statistics and Probability Letters}, 2009, 79\penalty0
+  (12):\penalty0 1438--1443.
+
+{\beamertemplatebookbibitems
+\bibitem[范胜君(2011)]{FanShenJun2011PhD}
+范胜君.
+\newblock
+  \emph{一类随机动力系统 --- 倒向随机微分方程 --- 解的存在惟一性及生成元的表示定理} [D].
+\newblock 博士毕业论文, 中国矿业大学, 2011.}
+
+{\beamertemplatebookbibitems
+\bibitem[贾广岩(2008)]{JiaGuangYan2008PhD}
+贾广岩.
+\newblock \emph{倒向随机微分方程、$g$-期望及其相关的半线性偏微分方程} [D].
+\newblock 博士毕业论文, 山东大学, 2008.}
+
+%{\beamertemplatebookbibitems
+%\bibitem[刘德群(2012)]{LiuDeQun2012MD}
+%刘德群.
+%\newblock \emph{具有可积参数的倒向随机微分方程解的存在惟一性} [D].
+%\newblock 硕士毕业论文, 中国矿业大学, 2012.}
+
+%{\beamertemplatebookbibitems
+%\bibitem[马明(2011)]{MaMing2011MD}
+%马明.
+%\newblock
+%  \emph{关于 $y$ 单调且关于 $z$ 一致连续倒向随机微分方程 ${L}^p$ 解的存在唯一性及单调连续性} [D].
+%\newblock 硕士毕业论文, 中国矿业大学, 2011.}
+
+{\beamertemplatebookbibitems
+\bibitem[汪嘉冈(2005)]{WangJiaGang2005XianDaiGaiLvLunJiChu}
+汪嘉冈.
+\newblock \emph{现代概率论基础} [M].
+\newblock 复旦大学出版社, 第 2 版, 2005.}
+
+\end{thebibliography}
+\end{frame}
+
+\begin{frame}{致谢评委}
+  \begin{center}
+    \begin{tikzpicture}
+      \node[above,xscale=1.2,yscale=1.4]{\Huge\bfseries 欢迎各位老师批评指正!};
+      \node[xscale=1.2,above,yscale=-1.4,scope fading=south,opacity=0.2]{\Huge\bfseries 欢迎各位老师批评指正!};
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\end{document}
+

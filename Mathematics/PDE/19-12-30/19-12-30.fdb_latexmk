@@ -1,18 +1,18 @@
 # Fdb version 3
-["bibtex 19-12-30"] 1577781457 "19-12-30.aux" "19-12-30.bbl" "19-12-30" 1577782303
+["bibtex 19-12-30"] 1577781457 "19-12-30.aux" "19-12-30.bbl" "19-12-30" 1590893485
   "/usr/local/texlive/2019/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "19-12-30.aux" 1577782302 737 4a47cc2ba9e1e23a6411d37fefd9d80c "xelatex"
-  "body.aux" 1577782302 2877 21da85e2d1b893fd3386ee5502dd2b0f "xelatex"
+  "19-12-30.aux" 1590893484 737 4a47cc2ba9e1e23a6411d37fefd9d80c "xelatex"
+  "body.aux" 1590893484 2877 21da85e2d1b893fd3386ee5502dd2b0f "xelatex"
   "mybib.bib" 1577781194 144 6fcb51149bfb2cb154f0f081731f4ce6 ""
   (generated)
-  "19-12-30.bbl"
   "19-12-30.blg"
-["xdvipdfmx"] 1577782303 "19-12-30.xdv" "19-12-30.pdf" "19-12-30" 1577782303
-  "19-12-30.xdv" 1577782302 26556 0d60af7c1dab3cd6086ee055a77a4cce "xelatex"
+  "19-12-30.bbl"
+["xdvipdfmx"] 1590893484 "19-12-30.xdv" "19-12-30.pdf" "19-12-30" 1590893485
+  "19-12-30.xdv" 1590893484 26684 abc9fb8365c47e7fe1dfc83f9b76eab1 "xelatex"
   (generated)
   "19-12-30.pdf"
-["xelatex"] 1577782301 "19-12-30.tex" "19-12-30.xdv" "19-12-30" 1577782303
-  "/dev/null" 1577763951 0 d41d8cd98f00b204e9800998ecf8427e ""
+["xelatex"] 1590893483 "19-12-30.tex" "19-12-30.xdv" "19-12-30" 1590893485
+  "/dev/null" 1590886160 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/home/rieunity/texmf/tex/latex/tensor/tensor.sty" 1571488674 4258 177d16e71f50eb48389533ac9bd9cd26 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -128,20 +128,20 @@
   "/usr/local/texlive/2019/texmf-dist/web2c/texmf.cnf" 1570742662 39452 758acee3f2beaeeedff570c5f5d76d98 ""
   "/usr/local/texlive/2019/texmf-var/web2c/xetex/xelatex.fmt" 1571853579 3765666 62de793a3e398af58254cb198b8b0b2d ""
   "/usr/local/texlive/2019/texmf.cnf" 1571853555 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "19-12-30.aux" 1577782302 737 4a47cc2ba9e1e23a6411d37fefd9d80c "xelatex"
+  "19-12-30.aux" 1590893484 737 4a47cc2ba9e1e23a6411d37fefd9d80c "xelatex"
   "19-12-30.bbl" 1577781457 176 34bb5b5b12c62eb9b8daf32caef03783 "bibtex 19-12-30"
-  "19-12-30.out" 1577782302 283 01e26853b5ba9a9c0872b9e7ef95e650 "xelatex"
-  "19-12-30.tex" 1577781434 1731 33474e40527f671bca4661356bd375a4 ""
-  "19-12-30.toc" 1577782302 342 168c58a8c654333ca4de4ffe0a3c66a0 "xelatex"
-  "body.aux" 1577782302 2877 21da85e2d1b893fd3386ee5502dd2b0f "xelatex"
-  "body.tex" 1577782299 10473 aa9a7958214e8373c4e1209dd850b3a3 ""
+  "19-12-30.out" 1590893484 283 01e26853b5ba9a9c0872b9e7ef95e650 "xelatex"
+  "19-12-30.tex" 1590751360 1756 86643bd50e3171264617ec5e1de711eb ""
+  "19-12-30.toc" 1590893484 342 168c58a8c654333ca4de4ffe0a3c66a0 "xelatex"
+  "body.aux" 1590893484 2877 21da85e2d1b893fd3386ee5502dd2b0f "xelatex"
+  "body.tex" 1590893481 9662 c667204e62208f6711f150194fbb30f9 ""
   "figures/interior-ball-condition.pdf" 1577768455 2238 aa3d6970a46f5c0137dc897e6ffbc1f6 ""
   "figures/interior-ball-condition.pdf_tex" 1577768455 2713 d6343466a7dc84c8974fbbc6f0c868ca ""
   (generated)
-  "19-12-30.toc"
   "19-12-30.log"
-  "19-12-30.aux"
+  "19-12-30.toc"
   "19-12-30.xdv"
-  "19-12-30.thm"
-  "body.aux"
   "19-12-30.out"
+  "19-12-30.thm"
+  "19-12-30.aux"
+  "body.aux"

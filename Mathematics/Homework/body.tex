@@ -252,7 +252,7 @@ $x=-1$时同理.
   由$u$在去心邻域 $\Omega \backslash 0$上的连续性以及$\lim_{|x|\to \infty}u(x)=\infty$知显然有$u\notin L^{\infty}(\Omega)$.
 \end{proof}
 \section{Fourier分析}
-\begin{exercise}
+\begin{exercise}\label{exe2-7}
   设 $f\in L^{1}(\R)$,定义Fourier变换
   \[
     \widehat{f}(\xi)=\int_{\R}e^{-ix\xi}f(x)\mathrm{d}x,\quad \xi \in \R.
@@ -304,6 +304,193 @@ $x=-1$时同理.
   \end{aligned}
 \end{equation*}
 \end{proof}
+\begin{exercise}
+  \begin{enumerate}
+    \item []
+    \item [(1)]若$| \widehat{f}(\xi)| \le e^{-|\xi|},\xi \in \R $,求证$f\in C^{\infty}(\R)$.
+    \item [(2)]若$1\le p\le 2$,且对于任意$f\in L^{p}$ 有不等式
+      \[
+	\|\widehat{f}\|_{L^{q}(\R)}\le C\|f\|_{L^{p}(\R)}
+      \] 
+      求证: $q$ 必须满足 $\frac{1}{p}+\frac{1}{q}=1$.
+  \end{enumerate}
+\end{exercise}
+\begin{proof}(1)这是Paley-Wiener定理的特殊情况,只要在定理中取$a=\frac{1}{2}$,则 $e^{\frac{1}{2}|\xi|}|\widehat{f}|\le e^{-\frac{1}{2}|\xi|}$,所以$e^{\frac{1}{2}|\xi|}\widehat{f}\in L^{2}(\R)$,从而$f$ 在带形区域$\left\{(x+iy):x\in \R,|y|\le \frac{1}{2}\right\} $解析,当然有$f\in C^{\infty}$,命题得证.
+ 
+  (2)假设对于所有的$f\in L^{p}$ 都有
+  \begin{equation}\label{2-5}
+   \|\widehat{f}\|_{L^{q}(\R)}\le C \|f\|_{L^{p}(\R)},
+ \end{equation}
+ 用$\varphi(x)=f(\lambda x),\lambda\neq 0$代替 $f(x)$可得
+ \begin{equation}\label{2-6}
+    \|\widehat{\varphi}\|_{L^{q}(\R)}\le C\|\varphi\|_{L^{p}(\R)}.
+ \end{equation}
+ 其中 
+\[
+  \widehat{\varphi}(\xi)=\frac{1}{\lambda}\widehat{f}\left( \frac{\xi}{\lambda} \right) .
+\] 
+对新的函数计算相应的范数:
+\begin{align*}
+  \|\widehat{\varphi}\|_{L^{q}(\R)} =& \left( \frac{1}{\lambda^{q}} \int_{\R}\left|\widehat{f}\left( \frac{\xi}{\lambda} \right)  \right|^{q}\mathrm{d}\xi \right)^{\frac{1}{q}}\\
+  = & \left( \frac{1}{\lambda^{q-1}}\int_{\R}\left| \widehat{f}\left( \frac{\xi}{\lambda} \right)  \right| ^{q}\mathrm{d}\left( \frac{\xi}{\lambda} \right)  \right) ^{\frac{1}{q}}\\
+  = & \left( \frac{1}{\lambda} \right) ^{\frac{q-1}{q}} \|\widehat{f}\|_{L^{q}(\R)}
+,\end{align*}
+\begin{align*}
+  \|\varphi\|_{L^{p}(\R)} = & \left( \int_{\R}\left| f(\lambda x) \right| ^{p}\mathrm{d}x \right) ^{\frac{1}{p}}\\
+  = &\frac{1}{\lambda^{\frac{1}{p}}} \left( \int_{\R}\left| f(\lambda x) \right| ^{p}\mathrm{d}\left( \lambda x \right)  \right)^{\frac{1}{p}}\\
+  = & \frac{1}{\lambda^{\frac{1}{p}}} \|f\|_{L^{p}(\R)}
+.\end{align*}
+上述两个结果代入不等式(\ref{2-6})可得
+\[
+  \|\widehat{f}\|_{L^{q}(\R)}\le \left( \frac{1}{\lambda} \right) ^{\frac{1}{p}-\frac{q-1}{q}} C\|f\|_{L^{p}(\R)}.
+\] 
+如果指数$\frac{1}{p}-\frac{q-1}{q}$不等于$0$,例如当它 大于$0$ 的时候,取$\lambda\to \infty$,不等式右边便趋于$0$,这是不可能的(小于$0$时就令 $\lambda\to 0$). 所以指数只能等于$0$.所以
+ \[
+\frac{1}{p}-\frac{q-1}{q}=0,
+\] 
+整理可得
+\[
+\frac{1}{q}+\frac{1}{p}=1.
+\]
+\end{proof}
 
+\begin{exercise}
+  \begin{enumerate}
+    \item []
+    \item [(1)] 对于给定函数$w(x)\in C_0^{\infty}$,定义
+      \[
+	(Tf)(x)=\int_{\R}f(y)w(x-y)\mathrm{d}y, x\in \R,f\in C_0^{\infty}(\R).
+      \] 
+      证明$T$ 是平移不变算子.
+    \item [(2)] 设$1<p<\infty$,利用Mihlin-Hormander乘子定理证明
+      \[
+	\|\partial_1\partial_2f\|_{L^{p}(\R^2)}\le C\|(\partial_1^2+\partial_2^2)f\|_{L^{p}(\R^2)},\quad \forall f \in C_0^{\infty}(\R^2).
+      \] 
+  \end{enumerate}
+\end{exercise}
+\begin{proof}
+  \begin{enumerate}
+    \item []
+    \item [(1)] 
+      \begin{align*}
+	T(\tau _af) = & Tf(x-a)\\
+	= & \int_{\R}f(y-a)w(x-y)\mathrm{d}y\\
+	= & \int_{\R}f(y)w(x-y-a)\mathrm{d}y\\
+	= & \int_{\R}f(y)w(x-a-y)\mathrm{d}y\\
+	= & (Tf)(x-a)\\
+	= & \tau _a Tf,\quad,\forall a\in \R,f\in C_0^{\infty}(\R)
+      .\end{align*}
+      其中第四个等号是利用$y+a$ 代替$a$ 并利用了函数具有紧支集的性质.
+    \item [(2)] 令$g=(\partial_1^2+\partial_2^2)f$,则需要证明的不等式等价于
+      \[
+	\|\partial_1\partial_2(\partial_1^2+\partial_2^2)^{-1}g\|_{L^{p}(\R^2)}\le C\|g\|_{L^{p}(\R^2)}.
+      \] 
+      因为$\partial_1\partial_2(\partial_1^2+\partial_2^2)^{-1}g$ 的傅里叶变换为$\xi_1\xi_2(\xi_1^2+\xi_2^2)^{-1}$,因此只需说明$m=\xi_1\xi_2(\xi_1^2+\xi_2^2)^{-1}\in \mathcal{M}_{p}(\R)$.根据Mihlin-H\"{o}rmander乘子定理,只需要证明
+      \[
+	|\partial_{\xi}^{\alpha}m(\xi)|\le C_\alpha |\xi|^{-|\alpha|}
+      \] 
+      对所有的$|\alpha|\le 2$ 成立.
+      \begin{itemize}
+	\item [1.] $\alpha=0$.\\
+	  因为
+	  \[
+	    \frac{\xi_1\xi_2}{\xi_1^2+\xi_2^2}\le \frac{1}{2}=\frac{1}{2}|\xi|^{0},
+	  \] 
+	  所以该情况下定理要求的条件成立.
+	\item [2.] $\alpha=1$, $\partial_\xi^{\alpha}=\partial_1.$\\
+	  $\partial_1m(\xi)=\frac{\xi^3_2-\xi_1^2\xi_2}{(\xi_1^2+\xi_2^2)^2},|\xi|^{-1}=(\xi_1^2+\xi_2^2)^{-1 /2},$ 我门要验证
+	  \[
+	    \frac{|\xi_2^3-\xi_1^2\xi_2|}{(\xi_1^2+\xi_2^2)^2}\le C_1 \frac{1}{(\xi_1^2+\xi_2^2)^{\frac{1}{2}}}
+	 , \]
+	  其中$C_1$ 是某个确定的常数.
+	  也就是要证明
+	  \begin{align}
+	    |\xi_2| |\xi_2^2-\xi_1^2|\le C_1 (\xi_1^2+\xi_2^2)^{\frac{3}{2}}\label{2-7}
+	  .\end{align}
+	  注意到
+	   \[
+	     |\xi_2| \le (\xi_1^2+\xi_2^2)^{\frac{1}{2}} \text{ 以及 }|\xi_2^2-\xi_1^2|\le (\xi_2^2+\xi_1^2)
+	 , \]
+	 代入(\ref{2-7})式的左边并取$C_1=1$即可得到该不等式.
+       \item [3.] $\alpha=1,\partial_\xi^{\alpha}=\partial_2$.\\
+	 这与上一情况雷同,只是指标互换,验证同上.
+       \item [4.]  $\alpha=2,\partial^{\alpha}_\xi=\partial_1^2.$\\
+	 $\partial_1^2 m(\xi)= \frac{2\xi_1^3\xi_2-6\xi_1\xi_2^3}{(\xi_1^2+\xi_2^2)^3},|\xi|^{-2}=(\xi_1^2+\xi_2^2)^{-1}$,我们要验证
+	 \[
+	   \frac{|2\xi_1^3\xi_2-6\xi_1\xi_2^3|}{(\xi_1^2+\xi_2^2)^3}\le C_2 \frac{1}{\xi_1^2+\xi_2^2},
+	 \] 
+	 其中$C_2$ 是某个确定的常数.也就是要证明
+	 \begin{equation}\label{2-8}
+	   |2\xi_1\xi_2| |\xi_1^2-3\xi_2^2|\le C_2(\xi_1^2+\xi_2^2)^2.
+	 \end{equation}
+	 注意到
+	 \[
+	   |2\xi_1\xi_2|\le \xi_1^2+\xi_2^2\text{ 以及 }|\xi_1^2-3\xi_2^2|\le 3(\xi_1^2+\xi_2^2),
+	 \] 
+	 代入(\ref{2-8})式的左边并取$C_2=3$即可得到该不等式.
+       \item [5.] $\alpha=2,\partial^{\alpha}=\partial_2^2$.\\
+	 这与上一情况相同,只是指标互换,验证同上.
+       \item [6.] $\alpha=2,\partial^{\alpha}=\partial_1\partial_2$.\\
+	 $\partial_1\partial_2m(\xi)= \frac{6\xi_1^2\xi_2^2-\xi_1^{4}-\xi_2^{4}}{(\xi_1^2+\xi_2^2)^3},|\xi|^{-2}=(\xi_1^2+\xi_2^2)^{-1}$,我们要验证
+	 \[
+	   \frac{|6\xi_1^2\xi_2^2-\xi_1^{4}-\xi_2^{4}|}{(\xi_1^2+\xi_2^2)^{3}}\le C_3 \frac{1}{\xi_1^2+\xi_2^2}
+	 ,\]
+	 其中$C_3$ 是某个确定的常数.也就是要证明
+	 \begin{equation}\label{2-9}
+	   |6\xi_1^2\xi_2^2-\xi_1^{4}-\xi_2^{4}|\le (\xi_1^2+\xi_2^2)^2,
+	 \end{equation}
+	 注意到
+	 \begin{align*}
+	   | 6\xi_1^2\xi_2^2-\xi_1^{4}-\xi_2^{4}| = & |(\xi^2+\xi_2^2)^2-8\xi_1^2\xi_2^2|\\
+	   \le & (\xi_1^2+\xi_2^2)^2+8\xi_1^2\xi_2^2\\
+	   \le & 3(\xi_1^2+\xi_2^2)^2 
+	 .\end{align*}
+	 代入(\ref{2-9})式的左边并取$C_3=3$ 即可得到该不等式.
+      \end{itemize}
+      综上,Mihlin-H\"{o}rmander乘子定理的所有条件都满足.
+  \end{enumerate}
+\end{proof}
+\begin{exercise}
+  详细证明测不准原理
+  \[
+    \|xf\|_{L^2(\R)}\|\partial_x f\|_{L^{2}(\R)}\ge \frac{1}{2}\|f\|^2_{L^2(\R)}.
+  \] 
+\end{exercise}
+\begin{proof}
+  由$\widehat{\partial_x f}(\xi)=i\xi\widehat{f}(\xi)$ 以及Plancherel定理可将要证明的不等式转化为
+  \[
+    \|xf\|_{L^2(\R)}\|\xi \widehat{f}\|_{L^2(\R)}\ge \frac{1}{2}\|f\|^2_{L^2(\R)}.
+  \] 
+  定义$[A,B]=AB-BA$, $(\cdot ,\cdot )$表示$L^2$ 中的内积
+  \[
+    (f,g):=\int_{\R}f(x)\overline{g}(x)\mathrm{d}x.
+  \] 
+定义$D=i\partial_x$, 考虑
+  \[
+    I=\left( [x,D]f,f \right) .
+  \] 
+  下面用两种方式估计$I$.
 
+  一方面,利用交换子的定义可得
+   \begin{align*}
+     I= & \left( xDf,f \right) -\left( Dxf,f \right) \\
+     = & \left( Df,xf \right) -\left( xf,Df \right) \\
+     = & 2 \mathrm{Im} \left( Df,xf \right) \\
+     \le & 2 \|Df\|_{L^2(R)}\|xf\|_{L^2(\R)}.
+  \end{align*}
+最后一步用到了Cauchy-Schwartz不等式.
 
+另一方面,直接计算可得
+\begin{align*}
+  [x,D]f = & xDf-Dxf\\
+  = & xDf-Dxf=if.
+\end{align*}
+因此
+\[
+  I=\left( [x,D]f,f \right) =i(f,f)=i\|f\|^2_{L^2(\R)}.
+\] 
+联合第一步可知
+\[
+  \|f\|^2_{L^2(\R)}\le 2 \|\xi f\|_{L^2(\R)}\|xf\|_{L^2(\R)}.
+\] 
+\end{proof}

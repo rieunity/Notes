@@ -1,0 +1,223 @@
+\begin{enumerate}
+  \item [before 1900] Euler formula $V-E+F=2$\\
+    Winding number
+  \item [1900] H. Poincar\'{e} introduce Homology, Fundamental Group
+\end{enumerate}
+Aimed to study "spaces"\\
+Topological spaces and continuous mappings\\
+Invariants\\
+$X\in \left\{\text{ Topological spaces }\right\} $ $\Rightarrow$ e.g. $G(X) \in \left\{\text{ abelian groups}\right\} $\\
+If $X\to G(X)$, $Y\to G(Y)$ and $f:X\to Y$, we wish to get $G(f)$:
+\[
+\begin{tikzcd}
+  X\arrow{r}\arrow[swap]{d}{f} & G(X) \arrow{d}{G(f)}\\
+  Y \arrow{r}{} & G(Y)
+\end{tikzcd}
+\]  
+and let $G(f)$ be a homomorphism of groups.
+
+\begin{figure}[ht]
+    \centering
+    \incfig{boundary-of-a-segment}
+    \caption{boundary of a segment}
+    \label{fig:boundary-of-a-segment}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \incfig{boundary-of-a-surface}
+    \caption{boundary of a surface}
+    \label{fig:boundary-of-a-surface}
+\end{figure}
+Boundary of the boundary $+C$ is  $0$ in Figure \ref{fig:boundary-of-a-surface}.
+
+\section{Categories, Functors, and Natural Transformations}
+\begin{definition}[categories]
+   A category $\mathcal{C}$ consists of 
+   \begin{enumerate}
+     \item (objects) $\Ob(\mathcal{C})$ consists of the class of objects in $\mathcal{C}$.
+     \item (morphisms) $\forall X,Y \in  \Ob(\mathcal{C)}$, we have a set 
+       $\Hom_{\mathcal{C}}(X,Y)$ s.t. $\Hom_{\mathcal{C}}(X,Y)=\Hom_{\mathcal{C}}(X',Y')$ iff $X=X',Y=Y'$.
+     \item (composition law)  $\forall X,Y,Z \in \Ob(\mathcal{C})$, we have a map:
+       \begin{align*}
+	\Hom_{\mathcal{C}}(X,Y)\times \Hom_{\mathcal{C}}(Y,Z)&\overset{\circ}{\to}\Hom_{\mathcal{C}}(X,Z)\\
+	(f,g)&\mapsto  g\circ f
+	     \end{align*}
+	     \[
+	     \begin{tikzcd}
+	       &  Y\arrow{rd}{g} & \\
+	       X\arrow{ru}{f} \arrow[swap]{rr}{g\circ f} & & Z
+	     \end{tikzcd}
+	     \]
+	     which satisfy the following two axioms:
+	     \begin{itemize}
+	       \item [(1)](Associativity) $X\overset{f}{\to}Y,Y\overset{g}{\to}Z,Z\overset{h}{\to}W$,
+		  \[
+		    h\circ(g\circ f)=(h\circ g)\circ f
+		 \] 
+	       \item [(2)](Identity) $\forall X\in \Ob(\mathcal{C})$, $\exists X\overset{1_X}{\to}X$ s.t. 
+		  \[
+		 h\circ 1_X=H, 1_X\circ k=k
+		 \] 
+		 $\forall X\overset{h}{\to}H,K\overset{k}{\to}X$.
+		 
+	     \end{itemize}
+   \end{enumerate}
+ \end{definition}
+ \begin{example}
+\begin{enumerate}
+  \item 
+   $\mathcal{C}=$ (set), $(\text{Ab})$,$(\text{Mod}_R)$($R$ is a ring), $(\text{Top})$,$(\text{TopGp})$.
+ \item $\mathcal{C}^{\text{op}}$ (the opposite of $\mathcal{C}$):
+   \[
+     \Ob(\mathcal{C}^{\text{op}}):=\Ob(\mathcal{C})
+   \] 
+   \[
+     \Hom_{\mathcal{C}^{\text{op}}}(X,Y):=\Hom_{\mathcal{C}}(Y,X)
+   \] 
+   \begin{align*}
+     \Hom_{\mathcal{C}^{\text{op}}}(X,Y)\times \Hom_{\mathcal{C}^{\text{op}}}(Y,Z)&\overset{\circ_{\mathcal{C}^{\text{op}}}}{\to}\Hom_{\mathcal{C}^{\text{op}}}(X,Z)\\
+     (f,g)&\to g\circ_{\mathcal{C}^{\text{op}}} f\\
+     X\overset{f}{\gets}Y,Y\overset{g}{\gets}Z &\quad X\overset{f\circ g}{\gets}Z
+   .\end{align*}
+   
+\end{enumerate}
+ \end{example}
+\begin{definition}
+  $X,X'\in \Ob(\mathcal{C}),X\overset{f}{\mathcal{C}}X'$, $f$ is an \textit{isomorphism} $\Leftrightarrow$ $\exists X'\overset{\widetilde{f}}{\to}X$ s.t. 
+  \begin{align*}
+    \widetilde{f}\circ f=1_{X}\\
+    f\circ \widetilde{f}=1_{X'}
+  .\end{align*}
+\end{definition}
+\begin{definition}[Functors]
+     $\mathcal{C},\mathcal{C}':$ categories.
+      A covariant(contravariant) functor $F:\mathcal{C}\to\mathcal{C}'$ ($\mathcal{C}\overset{F}{\to}\mathcal{C}'$) consists of 
+      \begin{itemize}
+	\item a rule of associating to each $X\in \Ob(\mathcal{C})$ an object $F(X)\in \Ob(\mathcal{C}')$.
+	\item A map $\Hom_{\mathcal{C}}(X,Y)\overset{F}{\to} \Hom_{\mathcal{C}'}(F(X),F(Y))\left( \Hom_{\mathcal{C}'}(F(Y),F(X)) \right) $ for each pair $X,Y\in \Ob(\mathcal{C})$ s.t. $F(1_X)=1_{F(X)}$ and $F(g\circ f)=F(g)\circ F(f)$($F(g\circ f)=F(f)\circ F(g)$) i.e. 
+	   \[
+	  \begin{tikzcd}
+	    & Y\arrow{rd}{g} & \\
+	    X\arrow{ru}{f} \arrow{rr}{g\circ f}& & Z
+	  \end{tikzcd} \rightsquigarrow 
+	  \begin{tikzcd}
+	    & F(Y)\arrow{rd}{F(g)} & \\
+	    F(X)\arrow{ru}{F(f)} \arrow{rr}{F(g\circ f)}& & F(Z)
+	  \end{tikzcd} 
+	  \] 
+      \end{itemize}
+\end{definition}
+\begin{example}
+  \begin{enumerate}
+    \item []
+    \item [(1)] $\mathcal{C}\overset{\text{op}}{\to}\mathcal{C}^{\text{op}}$, $X^{\text{op}}:=X$
+    \item [(2)] $\forall X\in \mathcal{Ob}(\mathcal{C})$, $h_X:\mathcal{C}\to (\text{set})$, 
+      \[
+	h_X(Y):=\Hom_{\mathcal{C}}(Y,X),\forall Y\in \Ob(\mathcal{C})
+      \] 
+      \[
+	h_X(f):=\circ f:h_X(Y)\to h_X(Y'),\forall Y'\overset{f}{\to}Y(\to X)
+      \] $h_X$ is contravariant. 
+  \end{enumerate}
+\end{example}
+
+\begin{definition}[Natural Transformations]
+      $\mathcal{C}\xRightarrow[F_2]{F_1}\mathcal{C}'$ two functors of the same variance.
+      \begin{enumerate}
+	\item 
+    A \textit{natural transformation} $T$ form $F_1$ to $F_2$ (denoted as $F_1\xrightarrow[]{T}F_2$) is a rule of associating to each $X\in \Ob(\mathcal{C})$ a morphism $F_1(X)\xrightarrow[\mathcal{C}']{T(X)} F_2(X)$ s.t. for each $X\xrightarrow[\mathcal{C}]{f}Y$ we have :
+      \[
+      \begin{tikzcd}
+	F_1(X)\arrow[swap]{d}{F_1(f)} \arrow{r}{T(X)} &F_2(X) \arrow{d}{F_2(f)} \\
+	F_1(Y)\arrow[swap]{r}{T(Y)} &F_2(Y)
+      \end{tikzcd}
+      \] 
+\item A natural transformation $F_1\xrightarrow{T}F_2$ is called a \textit{natural equivalence} if $F_1(X)\xrightarrow{T(X)}F_2(X)$ is an isomorphism for each $X\in \Ob(\mathcal{C})$.
+  \end{enumerate}
+\end{definition}
+$F_1\xrightarrow{T}F_2,F_2\xrightarrow{S} F_3$ $\rightsquigarrow $ $S\circ T$.
+
+\section{Singular Homolgy Groups}
+\begin{definition}[Standard simplexes]
+  $k\in \N \cup \left\{0\right\} $, 
+  \[
+    \Delta_k :=\left\{(t_0,\cdots,t_k)\in \R^{k+1}: \sum_{i=0}^{k} t_i=1,t_i\ge 0,i=0,\cdots,k\right\} .
+  \]
+\end{definition}
+\begin{definition}[The $i$-th face inclusion]
+  $i\le k \in \N \cup \left\{0\right\} $,
+  \begin{align*}
+    \Delta_{k}&\xrightarrow{l_i}\Delta_{k+1}\\
+    (t_0,\cdots,t_k)&\mapsto \left( t_0,\cdots,t_{i-1},0,t_{i+1},\cdots,t_{k+1} \right). 
+  \end{align*} 
+\end{definition}
+\begin{definition}[Singular complexes, ude to Lefschetz-Eilenberg]
+  $X:$ topological space, $k\in \N\cup \left\{0\right\} $. A (singular) $k$-simplex in $X$ is 
+  a continuous map $\sigma :\Delta_k\to X$.
+\begin{figure}[ht]
+    \centering
+    \incfig{singular-complexes}
+    \caption{singular complexes}
+    \label{fig:singular-complexes}
+\end{figure}
+\end{definition}
+\begin{definition}[Faces of a singular simplex]
+  $\sigma:\Delta_k\to X$ continuous, $\sigma_i:=\sigma\circ l_i,i=0,\cdots,k.$
+\end{definition}
+\begin{definition}[Singular chain groups]
+  $k\in \Z$, 
+  \[
+    S_k(X):= \text{ the free abelian group generated by all singular } k\text{-simplexes in }X
+  \] 
+  \[
+  =\oplus_{\sigma:\Delta_k\to X }\Z{\sigma}, k\ge 0
+  \] 
+  \[
+  =\left\{0\right\} ,k<0.
+  \] 
+\end{definition}
+$X\xrightarrow[\text{continuous}]{f}Y$, we can define $S_k(X)\xrightarrow{S_k(f)=f_{\#}}S_k(Y)$:
+\[
+\sigma:\Delta_k\to X \mapsto 
+\begin{tikzcd}
+  \Delta_k\arrow{rr}{f\circ\sigma} \arrow[swap]{rd}{\sigma} & & Y\\
+   & X  \arrow[swap]{ru}{f}& 
+\end{tikzcd}
+.\] 
+$S_k:(\text{Top})\rightarrow (\text{Ab})$ is a covariant functor.
+
+\begin{definition}[Boundary operation]
+ $S_k(X)\xrightarrow{\partial_k}S_{k-1}(X)$ 
+ \[
+   \partial_k:=\sum_{i=0}^{k} (-1)^{i}\sigma_i
+ \] 
+\end{definition}
+\begin{exercise}
+  The following two diagrams are commutative:
+  \[
+  \begin{tikzcd}
+    S_k(X)\arrow{r}{f_{\#}} \arrow[swap]{d}{\partial_k} &S_k(Y)\arrow{d}{\partial_{\#}} \\
+    S_{k-1}(X)\arrow[swap]{r}{f_{\#}} & S_{k-1}(Y)
+  \end{tikzcd}
+  \]
+  \[
+ \begin{tikzcd}
+   \Delta_k \arrow[swap]{d}{l_{i-1}} \arrow{r}{l_j}&\Delta_{k-1}\arrow{d}{l_i}\\
+   \Delta_{k-1}\arrow[swap]{r}{l_j}&\Delta_{k} 
+ \end{tikzcd} 
+  \] 
+  if $1\le j+1\le i\le k, k\ge2$.
+\end{exercise}
+\begin{definition}[Singular chain complexes]
+  $\sigma:\Delta_k\to X:$ a singular $k$-simplex in $X$,
+  \begin{align*}
+    \partial_{k-1}\left( \partial_k\sigma \right) =&\sum_{j=0}^{k-1} \sum_{i=0}^{k} (-1)^{i+j}(\sigma_i)_j\\
+    =& \sum_{k-1\ge j\ge i\ge 0}^{} (-1)^{i+j}\sigma\circ l_i\circ l_j+\sum_{1\le j+1\le i\le k}^{} (-1)^{i+j}\sigma\circ l_i\circ l_j\\
+    =&\sum_{k-1\ge j\ge i\ge 0}^{} (-1)^{i+j}\sigma\circ l_i\circ l_j+\sum_{1\le j+1\le i\le k}^{} \sigma\circ l_j\circ l_{i-1}\\
+    =&0
+  .\end{align*}
+Then, we have the chain complex:
+\[
+  \cdots\xrightarrow{\partial_{k+2}}S_{k+1}(X)\xrightarrow{\partial_{k+1}} S_{k}(X)\xrightarrow{\partial_k} S_{k-1}\xrightarrow{\partial_{k-1}}S_{k-2}\cdots.
+\] 
+\end{definition}

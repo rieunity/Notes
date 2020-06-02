@@ -1,0 +1,474 @@
+\begin{frame}[t]{目录}
+\tableofcontents
+\end{frame}
+\section{椭圆偏微分方程}
+\begin{frame}[t]{拉普拉斯方程}
+设$\Omega$ 是$\R^{n}$ 中的开集,则在该区域上满足
+  \[
+  -\Delta u =0, \quad \Delta = \frac{\partial ^2}{\partial x_1^2} +\frac{\partial ^2}{\partial x_2^2} +\cdots+\frac{\partial ^2}{\partial x_n^2} 
+  \]
+  的方程就叫做拉普拉斯方程.\\
+  这里的$u$ 可以对应现实世界的化学浓度,热平衡台下的温度分布,经典引力势能和电磁势能.以热平衡态的温度场为例,因为达到了热平衡,所以温度分布$u$ 不再随时间的变换,只是位置的函数.根据热传导定律,热量的流动速度$\mathbf{F}$ 和温度梯度$\nabla u$ 成正比:
+  \[
+    \mathbf{F}=-a \nabla u \quad (a>0).
+  \] 
+  如果区域内没有产生热量的热源,那么在平衡态下通过一个区域$V$表面的热量总和应该为零(即传导进 $V$的和传导出去的热量应该相等):
+\end{frame}
+\begin{frame}
+  \[
+  \int_{\partial V}\mathbf{F}\cdot \nu \mathrm{d}S=0,
+  \] 
+  再利用高斯公式可得
+ \[
+  \int_{V}\nabla\cdot \mathbf{F}\mathrm{d}x =0,
+  \] 
+  所以
+  \[
+  \nabla\cdot \mathbf{F} = 0\Rightarrow \Delta u = 0. 
+  \]  
+\end{frame}
+\begin{frame}[t]{泊松方程}
+  当热平衡区域有恒定的热源时,我们可以用函数$f$来表示,则
+   \[
+ \Delta u = f,
+  \] 
+  这样的方程便叫做泊松方程.
+  这样的例子很多,比如经典的引力场方程:
+  \[
+  \Delta \Phi = 4\pi G\rho.
+  \] 
+
+\end{frame}
+
+\begin{frame}[t]{一般二阶线性偏微分方程}
+ 一般的二阶线性偏微分方程可以写成
+  \[
+    -\sum_{i,j=1}^{n} a^{ij}(x) \frac{\partial^2 u(x)}{\partial x^i\partial x^j}+\sum_{i=1}^{n} b^i(x) \frac{\partial u(x)}{\partial x^i}+c(x)u(x)=f(x).
+  \] 
+  上式可以简写为
+  \[
+  -\sum_{i=1}^{n} a^{ij}\partial^2_{ij}u+\sum_{i=1}^{n} b^i \partial_i u +cu = f.
+  \] 
+  如果利用爱因斯坦记号,则方程还可简写为
+  \[
+  -a^{ij}\partial_{ij}^2 u +b^i \partial_i u+cu =f.
+  \] 
+  如果某一项中有两个相同的上标下标,就默认对该指标作求和运算.
+\end{frame}
+
+\begin{frame}[t]{椭圆偏微分方程}
+  根据偏微分方程的二阶系数$a^{ij}$,我们可以对椭圆进行分类.
+  \[
+    (a^{ij})=\begin{pmatrix} a^{11} & a^{12} &\cdots &a^{1n}\\
+      a^{21} & a^{22} & \cdots & a^{2n}\\
+      \vdots & \vdots & \ddots & \vdots\\
+      a^{n1} & a^{n2} &\cdots & a^{nn}
+    \end{pmatrix} 
+  \] 
+如果上述矩阵在求解区域内的任意一点都是正定矩阵,那么相应的方程被称为椭圆偏微分方程.\\
+进一步,如果矩阵还满足: 存在$c_0>0$ 使得
+\[
+a^{ij}\xi_i\xi_j\ge c_0|\xi|^2,\quad \forall \xi \in \R^{n},x \in \Omega,
+\] 
+则称其为一致椭圆方程.
+\end{frame}
+\begin{frame}[t]{经典解和强解}
+  记$L=-a^{ij}\partial^2_{ij}+b^i\partial_i+c,Lu=f$.\\
+    若$u\in C^{^2}(\Omega) $并且满足
+    \[
+      Lu=f,
+    \]则称其为方程的经典解.\\
+    若$u$可测, \[
+    L u(x)=f(x), \text{ a.e. }x\in \Omega, \]则称其为方程的强解.
+ \end{frame}
+ \begin{frame}{弱解}
+    考虑
+    \[
+    Lu=-\partial_j\left( a^{ij}\partial_i u \right)+b^i \partial_i u +cu=f
+    \]
+    其中
+    \[
+      a^{ij},b^i,c \in L^{\infty}(\Omega)\quad \left( i,j=1,\cdots,n \right) .
+    \] 
+    若
+\[
+  \int_{\Omega}(a^{ij}\partial_i u \partial_j v +b^i \partial_i u v+cuv)\mathrm{d}x = \int_{\Omega} fv \mathrm{d}x, \quad \forall v \in C_0^{\infty}(\Omega).
+\]
+则称$u$ 为$Lu=f$ 的弱解.
+\end{frame}
+\section{弱解和正则性}
+\begin{frame}[t]{一般的一致椭圆方程弱解定义}
+  \begin{equation}\label{1}
+    Lu=-\partial_i(a^{ij}(x)\partial_j u+b^{i}(x)u)+c^{i}(x)\partial_i u +d(x)u. 
+  \end{equation}
+  存在$\lambda>0$ 使得
+  \begin{equation}\label{2}
+    a^{ij}(x)\xi_i\xi_j\ge \lambda|\xi|^2,\quad \forall x\in \Omega,\xi \in \R^{n}.
+  \end{equation}
+  并且$L$ 的系数满足
+  \begin{equation}\label{3}
+    \sum |a^{ij}(x)|^2\le \Lambda^2,\quad \lambda^{-2}\sum\left(|b^{i}(x)|^2+|c^{i}(x)|^2 \right) +\lambda^{-1}|d(x)|\le \nu^2.
+  \end{equation}
+  方程$Lu=g+\partial_i f^{i}$ 
+  的弱解定义为
+  \[
+    \mathcal{L}(u,v):=\int_{\Omega}\left\{(a^{ij}\partial_ju+b^{i}u)\partial_iv +(c^{i}\partial_i u +d u)v\right\}\mathrm{d}x=\int_{\Omega}(-f^{i}\partial_i v+gv)\mathrm{d}x,
+  \] 
+  其中$v\in C_0^{1}(\Omega)$.
+\end{frame}
+\begin{frame}[t]{弱最大值原理}
+  \begin{alertblock}{定理1(弱最大值原理)}
+    设$u\in W^{1,2}(\Omega)$ 满足$Lu\le 0(\ge 0)$(积分意义上),并且$L$ 的系数满足
+    \begin{equation}\label{6}
+      \int_{\Omega}\left( -dv-b^{i}\partial_i v \right) \mathrm{d}x\le 0,\quad \forall v\ge 0,v \in C_0^{1}(\Omega).
+    \end{equation}
+    则
+   \begin{equation}
+     \sup_{\Omega}u\le \sup_{\partial \Omega}u^{+}\quad \left( \inf_{\Omega}u\ge \inf_{\partial \Omega}u^{-} \right). 
+  \end{equation}
+\end{alertblock}
+证明:设$u\in W^{1,2}(\Omega),v\in W_0^{1,2}(\Omega)$,则$uv\in W_0^{1,1}(\Omega)$,以及$\nabla (uv)=v\nabla u+u\nabla v$.不等式$\mathcal{L}(u,v)\le 0$的形式为
+\[
+  \int_{\Omega}\left( \left( a^{ij}\partial_j u+b^{i}u \right) \partial_iv+\left( c^{i}\partial_i u+d u \right) v \right) \mathrm{d}x\le 0.
+\] 
+\begin{equation}\label{10}
+  \int_{\Omega}\left( a^{ij}\partial_j u \partial_iv -(b^{i}-c^{i})v\partial_i u \right)\mathrm{d}x\le \int_{\Omega}\left( -duv-b^{i}\partial_i(uv) \right)  \mathrm{d}x\le 0,
+\end{equation}
+\end{frame}
+\begin{frame}[t]
+其中$v\ge 0$是使得 $uv\ge 0$ 的任意$W^{1,2}_0(\Omega)$函数.
+
+如果$b^{i}-c^{i}=0$,则
+\[
+\int_{\Omega}a^{ij}\partial_ju\partial_i v \mathrm{d}x\le 0,
+\] 
+令$v=\max\left( u-l,0 \right),l =\sup\limits_{\partial\Omega}u^{+} $,则
+\[
+  \int_{\left\{x\in \Omega:u(x)>v(x)\right\} }a^{ij}\partial_ju\partial_i u\mathrm{d}x\le 0.
+\] 
+但是$a^{ij}\partial_j\partial_i u\ge \lambda |\nabla u|^2$,必然得到$\nabla u(x)=0,x\in \left\{ x\in \Omega:u(x)>v(x) \right\} $,所以该情况下定理成立.
+
+对于一般情形,假设$l\le k <\sup\limits_{\Omega}u$,并设$v=(u-k)^{+}$.(如果这样的$k$ 不存在则我们的证明已经完成.)
+\[
+\nabla v=\left\{
+  \begin{matrix} \nabla u & u>k,\\
+  0 &u\le k.\end{matrix} 
+\right.
+\]
+\end{frame}
+\begin{frame}[t]
+  从式(\ref{10})可得
+  \[
+  \int_{\Omega}a^{ij}\partial_j v\partial_iv \mathrm{d}x\le 2\lambda v\int_{\Gamma}v|\partial v|\mathrm{d}x,
+  \] 
+  其中$\Gamma=\mathrm{supp}\nabla v \subset \mathrm{supp}v$.再由一致椭圆条件(\ref{2})得
+  \[
+  \int_{\Omega}a^{ij}\partial_jv\partial_iv\mathrm{d}x\le 2 \nu \int_{\Gamma}v|\nabla v|\mathrm{d}x\le 2\nu \|\nu\|_{2;\Gamma}\|\nabla v\|_{2},
+  \] 
+  从而
+  \[
+  \|\nabla v\|_2\le 2\nu \|v\|_{2;\Gamma}.
+  \]
+  再利用$n\ge 3,p=2$(n=2的情形类似,只是用的不等式不一样)的Sobolev不等式以及H\"{o}lder不等式可得
+  \[
+    \|v\|_{\frac{2n}{n-2}}\le C\|v\|_{2;\Gamma}\le C|\mathrm{supp}\nabla v|^{\frac{1}{n}}\|v\|_{\frac{2n}{n-2}}
+  .\]
+  进而有
+  \[
+  |\mathrm{supp}\nabla v|\ge C^{-n}.
+  \] 
+这些不等式与$k$ 的选取没有关系,所以当$k\to \sup_{\Omega}u$的时候不等式仍然成立.
+\end{frame}
+\begin{frame}[t]
+这说明$u$一定在一个测度大于 $0$的集合上达到最大值,并且在这个集合上有 $\nabla u=0$.这与$\mathrm{supp}\nabla v> 0$ 矛盾.\hfill $\square $\par
+
+由弱最大值原理可以得到满足条件(\ref{1}),(\ref{2}),(\ref{3})和(\ref{6})的$Lu=0$的解的唯一性.
+\end{frame}
+\begin{frame}[t]{弱解的存在性}
+  \begin{alertblock}{定理2}
+    设$L$ 满足(\ref{1}), (\ref{2}), (\ref{3})和(\ref{6}),那么对任意的$\varphi \in W^{1,2}(\Omega)$和$g,f^{i}\in L^2(\Omega)$,广义Dirichlet问题\[
+    \left\{ \begin{matrix} 
+	Lu=g+\partial_i f^{i} & x\in \Omega\\
+	u=\varphi & x\in \partial \Omega
+      \end{matrix} \right.
+    \] 
+    的解存在且唯一.
+   \end{alertblock}
+   令$w=u-\varphi$,则
+   \begin{align*}
+     Lw=& Lu-L\varphi\\
+     =& g-c^{i}\partial_i \varphi-d\varphi+\partial_i(f^{i}+a^{ij}\partial_j\varphi+b^{i}\varphi)\\
+     =& \widehat{g}+\partial_i \widehat{f}^{i} 
+   .\end{align*}
+ \end{frame}
+\begin{frame}[t]{Lax-Milgram 定理}
+  \begin{alertblock}{定理3(Lax-Milgram定理)}
+  设$B$ 是希尔伯特空间$H$ 上的一个双线性算子,并且满足
+  \begin{equation}\label{5}
+    |B(x,y)|\le K \|x\|\|y\|,\quad \forall x,y \in  H
+  \end{equation}
+  以及对某个$v>0$ 有
+  \begin{equation}\label{4}
+    B(x,x)\ge v\|x\|^2,\quad \forall x \in H.
+  \end{equation}
+  则对任意的一个有界线性泛函$F\in H^{*}$,存在唯一的$f\in H$ 使得
+  \[
+    B(x,f)=F(x),\quad \forall x\in H.
+  \] 
+\end{alertblock}
+证明:由Riesz表示定理可知,对一个固定的$f \in H$,存在唯一的$g$ 使得
+\[
+  B(x,f)=(x,g),\quad \forall x\in H.
+\] 
+\end{frame}
+
+\begin{frame}[t]
+  我们把以上述方式作的从$f$ 到$g$ 的映射记作$T$.则上式可写成
+   \[
+     B(x,f)=(x,Tf),\quad \forall x\in H.
+  \] 
+由双线性算子的第一个性质可得
+\[
+  (x,Tf)\le K\|x\|\|f\|
+\Rightarrow \|Tf\|\le K\|f\|.
+\] 
+在利用$B$ 的第二个性质
+\[
+  v\|f\|\le B(f,f)=(f,Tf)\le \|f\|\|Tf\|\Rightarrow v\|f\|\le \|Tf\|.
+\] 
+所以$T$是双射,具有有界的你算子 $T^{-1}$.则
+\[
+  F(x)=(x,g)=B(x,T^{-1}g),
+\] 
+令$f=T^{-1}g$ 即可得到$F(x)=B(x,f)$.\hfill $\square$ \par
+\end{frame}
+\begin{frame}[t]{弱解存在性的证明}
+  定理2的证明:利用Lax-Milgram定理,设$H=W^{1,2}_0(\Omega)$, $F(v)=\int_{\Omega}(-f^{i}\partial_i v+gv)\mathrm{d}x,v\in H$.令$\mathbf{g}=(g,f^{1},\cdots,f^{n})$,则
+  \[
+    |F(v)|\le \|g\|_2 \|v\|_{W^{1,2}(\Omega)}.
+  \] 
+  剩下的只要说明$\mathcal{L}(u,v)$满足条件(\ref{5})和(\ref{4})即可.但$\mathcal{L}(u,v)$ 不一定满足条件(\ref{4}),不过我们可以用一种迂回的方案来解决这个问题.
+\begin{align*}
+  \mathcal{L}(u,u)= & \int_{\Omega}\left( a^{ij}\partial_j u\partial_i u+(b^{i}+c^{i})u\partial_i u  +du^2  \right) \mathrm{d}x\\
+  \ge & \int_{\Omega}\left( \lambda|\nabla u|^2- \frac{\lambda}{2}|\nabla u|^2-2\lambda v^2u^2 \right) \mathrm{d}x\\
+  = & \frac{\lambda}{2}\int_{\Omega}|\nabla u|^2\mathrm{d}x-2\lambda v^2\int_{\Omega}u^2\mathrm{d}x 
+.\end{align*}
+\end{frame}
+\begin{frame}[t]
+  定义新的算子$L_\sigma u = L u +\sigma u$,根据上面的计算,只要$\sigma$ 足够大,相应的新的$\mathcal{L}_\sigma(u,v)=\mathcal{L}(u,v)+\sigma(u,v)$就可以满足条件(\ref{4}).
+
+  则
+   \[
+     \mathcal{L}_\sigma (u,v)-\sigma(u,v)=F(v),
+  \]
+  进一步可以简记为
+  \[
+  L_\sigma u -\sigma I u = F.
+  \] 
+  注意这里的映射$L_\sigma$是从$H$到$H^*$的映射, 是将$u\in H$映射成泛函$\mathcal{L}_\sigma(u,\cdot )\in H^*$,同理$I$ 是将$u\in H$ 映射成$( u,\cdot )\in H^*$.\\
+  由Lax-Milgram定理,映射$L_\sigma :u\to f,\mathcal{L}_\sigma(u,v)=f(v)$是一一对应的可逆算子.所以
+  \[
+  u-\sigma L_\sigma^{-1}I u = L^{-1}_\sigma F.
+  \] 
+  再用到$I=I_1I_2$,$I_2:H\to L^{2}(\Omega)$ 是紧算子,$I_2: L^{2}(\Omega)\to H^{*}$以及$L^{-1}_\sigma$ 连续,得到$T=\sigma L^{-1}_\sigma I$ 为紧算子.
+\end{frame}
+\begin{frame}[t]
+  再由下面的Fredholm Alternative以及$Lu=0$解的唯一性即可完成证明.\hfill $\square$ \par
+  \begin{alertblock}{定理4(Fredholm Alternative)}
+    设$H$为Hilbert空间, $T$是 $H$到自身的紧算子,则要么
+    \[
+    x-Tx=0
+    \] 
+    有一个非平凡的解$x\in H$,要么对任意的$y\in H$,方程
+    \[
+    x-Tx=y
+    \] 
+    都有唯一确定的解,并且$(I-T)^{-1}$ 有界.
+  \end{alertblock}
+  证明:略.\hfill $\square$\par
+\end{frame}
+\begin{frame}[t]{为什么需要弱解}
+  从定义可以看出, 弱解相比于经典解需要的条件更弱.本质上,是因为经典情形下$Lu=f$ 中的算子$L$ 的作用空间从$X$(例如,至少是在$C^2(\Omega)$中) 变成了更大的空间$Y$.在空间$Y$ 上的算子$L_Y$具有更好的性质,在这个空间上更加容易讨论解的存在性问题.
+
+  尽管我们很多时候可以得到弱解$u\in Y$,但是最终需要的还是$X$中解的存在性,这需要我们找到某些条件,使得$u \in X$,这样的条件就是正则性(因为正则性可以使得函数更加光滑,所以正则性就是对函数光滑性的一种刻画).
+
+  这种正则性往往是一种先验估计,即假设解存在,然后就可以利用正则性得到解的存在性.
+\end{frame}
+\section{正则性举例:内正则性}
+\begin{frame}[t]{内正则性}
+  为了简化证明,下述的内正则性定理的$L$算子作了简化,满足(\ref{1})的最一般情形的证明除了多几项平凡的估计,没有区别.
+  \begin{alertblock}{定理5(内正则性)}
+  令
+  \[
+    Lu = -a^{ij}\partial^2_{ij}u+b^i \partial_i u +cu=f.
+  \] 
+  设$u\in W^{1,2}(\Omega)$ 是一致椭圆偏微分方程$Lu=f$在开集 $\Omega$ 上的弱解,其系数$a^{ij},b^i,i,j=1,\cdots,n$ 在$\Omega$ 上一致Lipschitz连续,系数$c$ 在$\Omega$ 上本性有界,$f\in L^{2}(\Omega)$.那么对于任意的$\Omega'\subset \subset \Omega$,我们有$u\in W^{2,2}(\omega')$ 并且
+  \begin{equation}
+    \|u\|_{W^{2,2}(\Omega')}\le C\left( \|u\|_{W^{1,2}(\Omega)}+\|f\|_{L^{2}(\Omega)} \right), 
+  \end{equation}
+  其中$C$ 只与方程系数和 $\mathrm{dist}(\Omega',\partial \Omega)$ 有关.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}{$L=-\Delta$ 情形}
+  该情形下
+  \[
+    \Delta u = -f\in L^{2}(\Omega).
+  \]
+  \[
+    \|u\|_{W^{2,2}(\Omega')}=\|u\|_{L^{2}(\Omega')}+\sum_{1\le i\le n}^{} \|\partial_i u\|_{L^{2}(\Omega')}+\sum_{|\alpha|=2} \|\partial_{\alpha}u\|_{L^2(\Omega')}.
+  \]
+  因为上面的前两项都在不等式右边出现了,所以只要证明第三项小于等于$\|f\|_{L^{2}}$ 的常数倍即可,而这可以利用之前证明过的不等式$\|\partial^2_{ij}u\|_{L^{2}}\le C \|\Delta u\|_{L^{2}}$.
+\end{frame}
+
+\begin{frame}[t]{一般情形}
+  一般情形的证明有两个关键点:
+  \begin{enumerate}
+    \item 证明$u \in W^{2,2}(\Omega')$.
+    \item 对$\sum_{\alpha=2}\|\partial_{\alpha} u\|_{L^2(\Omega')}$ 进行估计.
+  \end{enumerate}
+在证明之前,首先引入差商的概念:
+\begin{block}{定义}
+  函数$u$在$x$ 点处关于$e_i$ 方向步长为$h$的差商是
+  \[
+    \Delta_i^{h}u(x):= \frac{u(x+he_i)-u(x)}{h}, h\neq 0.
+  \] 
+\end{block}
+有时候如果一个讨论或者陈述对任意的$i=1,\cdots,n$ 都成立的话,也可以简写为$\Delta^{h}u(x)$.
+\end{frame}
+
+\begin{frame}[t]{两个引理}
+  \begin{alertblock}{引理1}
+    设$u\in W^{1,p}(\Omega)$.那么对任意的$\Omega' \subset \subset \Omega$,$h<\mathrm{dist}(\Omega',\Omega)$,我们有$\Delta^{h}u \in L^{p}(\Omega')$,并且
+    \[
+      \|\Delta^{h}u\|_{L^{p}(\Omega')}\le \|\partial_i u\|_{L^{p}(\Omega)}
+    \] 
+  \end{alertblock}
+  证明:设$u\in W^{1,p}(\Omega)\cap C^{1}(\Omega)$,
+  \[
+    \Delta^{h}u(x) = \frac{u(x+he_i)-u(x)}{h}=\frac{1}{h}\int_0^{h}\partial_i u\left( x_1,\cdots,x_{i-1},x_i+\xi,x_{i+1},\cdots,x_n \right) \mathrm{d}\xi.
+  \] 
+  利用H\"{o}lder不等式可得
+  \[
+    |\Delta^{h}u(x)|^{p}\le \frac{1}{h}\int_{0}^{h}|\partial_i u(x_1,\cdots,x_{i-1},x_i+\xi,x_{i+1},\cdots,x_n)|^{p}\mathrm{d}\xi,
+  \] 
+\end{frame}
+\begin{frame}[t]
+  从而
+  \[
+    \int_{\Omega'}|\Delta^{h}u|^{p}\mathrm{d}x\le \frac{1}{h}\int_0^{h}\int_{B_h(\Omega')}|\partial_i u|^{p}\mathrm{d}x\mathrm{d}\xi\le \int_{\Omega}|\partial_iu|^{p}\mathrm{d}x,
+  \]
+  其中$B_h(\Omega')=\left\{x:\mathrm{dist}(x,\Omega')<h\right\} $.\hfill $\square$\par
+
+
+  \begin{alertblock}{引理2}
+    设$u\in L^{p}(\Omega),1<p<\infty$,$\Omega'\subset \subset \Omega$, 假设存在一个常数$K$使得 $\Delta^{h}u\in L^{p}(\Omega')$ 并且对所有的$0<h<\mathrm{dist}(\Omega'.\Omega)$ 都有$\|\Delta^{h}u\|_{L^{p}(\Omega')}\le K$.则弱导数$\partial_i u $ 存在并且满足$\|\partial_i u\|_{L^{p}(\Omega)}\le K$.
+  \end{alertblock}
+  证明:由$L^{p}(\Omega')$ 中有界子集的弱紧性可知,存在一个收敛到$0$ 的序列$\left\{h_m\right\} $ 以及一个函数$v\in L^{p}(\Omega)$,$\|v\|_p\le K$,对所有的$\varphi \in C^{1}_0(\Omega)$有
+  \[
+  \int_{\Omega}\varphi\Delta^{h_m}u\mathrm{d}x\to \int_{\Omega}\varphi v\mathrm{d}x.
+  \]
+  对$h_m<\mathrm{dist}(\mathrm{supp}\varphi,\partial \Omega)$,我们有
+\end{frame}
+\begin{frame}[t]
+  \[
+  \int_{\Omega}\varphi \Delta^{h_m}u \mathrm{d}x=-\int_{\Omega}u \Delta^{-h_m}\varphi\mathrm{d}x\to - \int_{\Omega}u\partial_i\varphi\mathrm{d}x.
+  \]
+  所以
+  \[
+  \int_{\Omega}\varphi v \mathrm{d}x=-\int_{\Omega}u\partial_i\varphi\mathrm{d}x
+  \] 
+ 即$u$ 的弱导数存在且$v=\partial_i u$.\hfill $\square$ \par
+\end{frame}
+\begin{frame}{内正则性的证明}
+  证明:回顾弱解的定义,弱解$u$ 满足
+  \[
+    \int_{\Omega}\left( a^{ij}\partial_j u\partial_iv+b^{i}\partial_i u v +cuv \right) \mathrm{d}x=\int_{\Omega}fv\mathrm{d}x,\quad \forall v\in C_0^{\infty}(\Omega).
+  \] 
+  定义$g=-b^{i}\partial_i u-cu+f$,则上式可写成
+  \[
+    \int_{\Omega}a^{ij}\partial_j u\partial_iv\mathrm{d}x=\int_{\Omega}gv\mathrm{d}x.
+  \]
+  对$|2h|<\mathrm{dist}(\mathrm{supp}v,\partial \Omega)$,
+  \[
+    \int_{\Omega}\Delta^{h}(a^{ij}\partial_j u)\partial_i v \mathrm{d}x = -\int_{\Omega}a^{ij}\partial_ju \partial_i \Delta^{-h}v \mathrm{d}x=-\int_{\Omega}g \Delta^{-h}v \mathrm{d}x.
+  \] 因为
+    \[
+      \Delta^{h}(a^{ij}\partial_j u )(x)=a^{ij}(x+he_k)\Delta^{h}\partial_j u(x)+\Delta^{h}a^{ij}(x)\partial_ju(x),
+    \] 
+\end{frame}
+
+\begin{frame}[t]
+  所以
+  \[
+    \int_{\Omega}a^{ij}(x+he_k)\partial_j\Delta^{h}u\partial_i v \mathrm{d}x=-\int_{\Omega} \left(\Delta^{h}a^{ij}\partial_j u \partial_i v +g\Delta^{-h}v\right)\mathrm{d}x.
+  \]
+  回顾$g$ 的定义以及利用引理1可得
+  \[
+    \int_{\Omega}a^{ij}(x+he_k)\partial_j\Delta^{h}u\partial_iv \mathrm{d}x\le C \left( \|u\|_{W^{1,2}(\Omega)}+\|f\|_2 \right) \|\nabla v\|_2.
+  \]
+  令$\eta \in C_0^{1}(\Omega),0\le\eta \le 1,v=\eta^2\Delta^{h}u$,利用一致椭圆函数系数的性质可得
+\begin{align*}
+  c_0 \int_{\Omega}|\eta \nabla \Delta^{h}u|^2\mathrm{d}x\le & \int_{\Omega}\eta^2a^{ij}(x+he_k)\Delta^{h}\partial_i u \Delta^{h}\partial_j u \mathrm{d}x\\
+  = & \int_{\Omega}a^{ij}(x+he_k)\partial_j\Delta^{h}u(\partial_i v-2\Delta^{h} u \eta\partial_i\eta)\mathrm{d}x\\
+  \le & C\left( \|u\|_{W^{1,2}(\Omega)}+\|f\|_2 \right) \left(\|2 \eta \nabla \eta\Delta^{h}u+\eta^2\Delta^{h}\nabla u\|_2 \right) \\
+  +& C' \|\eta \nabla  \Delta^{h}u\|_2\|\Delta^{h}u \nabla \eta\|_2\\
+  \le & C\left( \|u\|_{W^{1,2}(\Omega)}+\|f\|_2 \right) \left(2 \|\nabla \eta \Delta^{h}u \|_2+\|\eta \nabla  \Delta^{h}u\|_2 \right)\\
+  +& C' \|\eta\nabla \Delta^{h}u\|_2\|\Delta^{h}u\nabla \eta\|_2
+.\end{align*}
+\end{frame}
+\begin{frame}[t]
+  利用引理1以及对上式的第二项用平均不等式可得
+  \begin{align*}
+    \|\eta \Delta^{h}\nabla u\|_2\le & C\left(\|u\|_{W^{1,2}(\Omega)}+\|f\|_2+\|\Delta^{h}u\nabla \eta\|_2  \right)\\
+    \le & C\left( 1+\sup_{\Omega}|\nabla \eta| \right) \left( \|u\|_{W^{1,2}(\Omega)}+\|f\|_2 \right) .
+  \end{align*}
+  令$\eta(x)=1,x\in \Omega'\subset \subset \Omega,|\nabla \eta|\le 2 / d',d'=\mathrm{dist}(\partial\Omega.\Omega')$.利用引理2可得 $\nabla u \in W^{1,2}(\Omega')$.\hfill $\square$\par
+
+\end{frame}
+\begin{frame}[t]{正则性+泛函$\Rightarrow$性质更好的解的存在唯一性}
+准确地说,就是内政则性(硬分析),再加上前面的存在唯一性定理2(由泛函分析这样的软分析得到),就可以得到更好的解的存在唯一性:
+\begin{alertblock}{定理6}
+  设
+  \[
+    Lu=a^{ij}(x)\partial^2_{ij}u+b^{i}(x)\partial_i u+c(x)u=f
+  \] 
+ 满足一致椭圆条件,系数$a^{ij}\in C^{0,1}(\overline{\Omega}),b^{i},c\in L^{\infty}(\Omega),c\le 0$.则对任意的$f\in L^{2}(\Omega)$ 以及$\varphi \in W^{1,2}(\Omega)$,存在唯一的解$u\in W^{1,2}(\Omega)\cap W^{2,2}_{loc}(\Omega)$满足$Lu=f$并且 $u-\varphi \in W_0^{1,2}(\Omega)$.
+\end{alertblock}
+\end{frame}
+\begin{frame}[t]{全局正则性}
+ 上面的内正则性的内,就是指我们只能得到局部的$\Omega'\subset \subset \Omega$的结果.本质上是因为取局部的时候就可以不需要考虑边界条件的任意性.所以为了将这个局部的正则性变成全局正则性,必然要对边界条件进行限制,更加规则的边界加上内正则性就可以得到下面的全局正则性:
+ \begin{alertblock}{定理7(全局正则性)}
+   假设在定理5的基础上,设边界$\partial\Omega$ 属于$C^{2}$ 类,并且存在一个函数$\varphi \in W^{2,2}(\Omega)$ 满足$u-\varphi \in W^{1,2}_0(\Omega)$,则我们有$u \in W^{2,2}(\Omega)$并且
+   \begin{equation}
+     \|u\|_{W^{2,2}(\Omega)}\le C \left( \|u\|_{L^{2}(\Omega)}+\|f\|_{L^{2}(\Omega)}+\|\varphi\|_{W^{2,2}(\Omega)} \right) .
+   \end{equation}
+ \end{alertblock}
+ 证明:略.\hfill $\square$\par
+\end{frame}
+\section{解的有界性}
+\begin{frame}{弱解有界性}
+  有界性就是通过系数,函数$f$以及边界条件来估计$\sup_{U}u$ 或者$\sup_{U}(-u)$ 的上界,下面就是一个局部有界性的定理范例:
+  \begin{alertblock}{定理8}
+    设$a^{ij} \in L^{\infty}(B_1)$并且$c\in L^{q}(B_1)$,$q>\frac{n}{2}$, 一致椭圆方程的下解$Lu\le 0$定义为
+     \[
+       \int_{B_1}a^{ij}\partial_iu \partial_j \varphi +cu\varphi\le \int_{B_1}f\varphi,\quad\forall \varphi \in C_0^{1}(B_1),\varphi\ge 0.
+    \] 
+    若$f\in L^{q}(B_1)$,则$u^{+}\in L_{\mathrm{loc}}^{\infty}(B_1)$,并且对任意$\theta \in (0,1)$和任意$p>0$都有
+     \[
+       \sup_{B_\theta}u^{+}\le C\left\{ \frac{1}{(1-\theta)^{\frac{n}{p}}}\|u^{+}\|_{L^{p}(B_1)}+\|f\|_{L^{q}(B_1)} \right\} 
+    \] 
+    其中$C=C(n,\lambda,\Lambda,p,q)$为一个大于$0$的常数.
+  \end{alertblock}
+\end{frame}
+\begin{frame}[t]
+  定理8的证明用到的方法叫Nash-Moser迭代,考虑函数$f\in C[0,1]$,如果我们对$\lvert\int_0^{1}|f(x)|^{\gamma}\mathrm{d}x\rvert ^{\frac{1}{\gamma}}$可以作估计,那么如何过渡到对$\sup_{0\le x\le 1}|f(x)|$ 的估计呢?考虑极限
+  \[
+    \lim_{\gamma\to \infty}\lvert \int_0^{1}|f(x)|^{\gamma}\mathrm{d}x \rvert ^{\frac{1}{\gamma}}=\sup_{0\le x\le 1}|f(x)|.
+  \]
+  这里的迭代就是知里面的$\gamma\to \infty$ 过程,具体通过建立不等式
+  \[
+    \left( \int_{B_r}|u^{+}|^{\gamma\chi} \right) ^{\frac{1}{\chi}}\le C\int_{B_R}|u^{+}|^{\gamma},r<R
+  \] 
+  然后不停地迭代使用上述不等式以达到$\gamma\to \infty$ 的目的.
+\end{frame}

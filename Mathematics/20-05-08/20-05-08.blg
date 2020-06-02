@@ -1,9 +1,0 @@
-[0] Config.pm:304> INFO - This is Biber 2.13
-[0] Config.pm:307> INFO - Logfile is '20-05-08.blg'
-[22] biber:315> INFO - === Wed May 13, 2020, 14:28:28
-[35] Biber.pm:375> INFO - Reading '20-05-08.bcf'
-[100] Biber.pm:905> INFO - Found 0 citekeys in bib section 0
-[105] Utils.pm:300> WARN - The file '20-05-08.bcf' does not contain any citations!
-[113] bbl.pm:648> INFO - Writing '20-05-08.bbl' with encoding 'UTF-8'
-[113] bbl.pm:751> INFO - Output to 20-05-08.bbl
-[113] Biber.pm:110> INFO - WARNINGS: 1

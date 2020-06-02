@@ -1,0 +1,76 @@
+%TEX program = xelatex
+\documentclass[a4paper]{article}
+%\usepackage{ctex}
+ \usepackage[colorlinks,
+           linkcolor=red,
+           anchorcolor=blue,
+           citecolor=green
+           ]{hyperref} 
+%少量中文时使用
+%\usepackage{xeCJK}
+\usepackage[center]{titlesec}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+%\usepackage[english]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{mathtools}
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\newcommand{\incfig}[1]{%
+  \def\svgwidth{\columnwidth}
+  \import{./figures/}{#1.pdf_tex}
+}
+
+
+
+% Some shortcuts
+\newcommand\N{\ensuremath{\mathbb{N}}}
+\newcommand\R{\ensuremath{\mathbb{R}}}
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+\renewcommand\O{\ensuremath{\emptyset}}
+\newcommand\Q{\ensuremath{\mathbb{Q}}}
+%\newcommand\C{\ensuremath{\mathbb{C}}}
+
+% Some theorem environment settings
+\usepackage{ntheorem}
+\newtheorem{theorem}{Theorem}
+\newtheorem*{rmk}{Remark}
+\newtheorem{lemma}{Lemma}
+\newtheorem{definition}{Definition}
+\newtheorem*{exe}{Exercise}
+\newtheorem*{sol}{Solution}
+\newenvironment{proof}{{\noindent\itshape Proof}.}{\hfill $\square$\par}
+
+% Enumerate Style
+\renewcommand{\labelenumi}{{\normalfont\alph{enumi}. }}
+
+% Tensor
+\usepackage{tensor}
+
+% bracket notations 
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
+
+% Normal ordering
+\newcommand{\normord}[1]{:\mathrel{#1}:}
+
+
+\begin{document}
+\title{The Schauder Approach}
+\author{89hao}
+\date{May 29, 2020}
+\maketitle
+\begin{abstract}
+{This is a learning note about the Schauder approach, the reference book is David Gilbarg and Neil S. Trudinger's \textit{Elliptic Partial Differential Equations of Second Order}. }
+\end{abstract}
+%\tableofcontents
+\input{body}
+
+%\bibliographystyle{plain}
+%\bibliography{mybib}
+
+\end{document}

@@ -43,7 +43,7 @@ Boundary of the boundary $+C$ is  $0$ in Figure \ref{fig:boundary-of-a-surface}.
 	(f,g)&\mapsto  g\circ f
 	     \end{align*}
 	     \[
-	     \begin{tikzcd}
+	       \begin{tikzcd}[column sep = small]
 	       &  Y\arrow{rd}{g} & \\
 	       X\arrow{ru}{f} \arrow[swap]{rr}{g\circ f} & & Z
 	     \end{tikzcd}
@@ -58,7 +58,7 @@ Boundary of the boundary $+C$ is  $0$ in Figure \ref{fig:boundary-of-a-surface}.
 		  \[
 		 h\circ 1_X=H, 1_X\circ k=k
 		 \] 
-		 $\forall X\overset{h}{\to}H,K\overset{k}{\to}X$.
+		$\forall X\overset{h}{\to}H,K\overset{k}{\to}X$.
 		 
 	     \end{itemize}
    \end{enumerate}
@@ -96,11 +96,11 @@ Boundary of the boundary $+C$ is  $0$ in Figure \ref{fig:boundary-of-a-surface}.
 	\item a rule of associating to each $X\in \Ob(\mathcal{C})$ an object $F(X)\in \Ob(\mathcal{C}')$.
 	\item A map $\Hom_{\mathcal{C}}(X,Y)\overset{F}{\to} \Hom_{\mathcal{C}'}(F(X),F(Y))\left( \Hom_{\mathcal{C}'}(F(Y),F(X)) \right) $ for each pair $X,Y\in \Ob(\mathcal{C})$ s.t. $F(1_X)=1_{F(X)}$ and $F(g\circ f)=F(g)\circ F(f)$($F(g\circ f)=F(f)\circ F(g)$) i.e. 
 	   \[
-	  \begin{tikzcd}
+	     \begin{tikzcd}[column sep=small]
 	    & Y\arrow{rd}{g} & \\
 	    X\arrow{ru}{f} \arrow{rr}{g\circ f}& & Z
 	  \end{tikzcd} \rightsquigarrow 
-	  \begin{tikzcd}
+	  \begin{tikzcd}[column sep=small]
 	    & F(Y)\arrow{rd}{F(g)} & \\
 	    F(X)\arrow{ru}{F(f)} \arrow{rr}{F(g\circ f)}& & F(Z)
 	  \end{tikzcd} 
@@ -148,7 +148,7 @@ $F_1\xrightarrow{T}F_2,F_2\xrightarrow{S} F_3$ $\rightsquigarrow $ $S\circ T$.
   $i\le k \in \N \cup \left\{0\right\} $,
   \begin{align*}
     \Delta_{k}&\xrightarrow{l_i}\Delta_{k+1}\\
-    (t_0,\cdots,t_k)&\mapsto \left( t_0,\cdots,t_{i-1},0,t_{i+1},\cdots,t_{k+1} \right). 
+    (t_0,\cdots,t_k)&\mapsto \left( t_0,\cdots,t_{i-1},0,t_{i},\cdots,t_{k} \right). 
   \end{align*} 
 \end{definition}
 \begin{definition}[Singular complexes, ude to Lefschetz-Eilenberg]
@@ -162,7 +162,7 @@ $F_1\xrightarrow{T}F_2,F_2\xrightarrow{S} F_3$ $\rightsquigarrow $ $S\circ T$.
 \end{figure}
 \end{definition}
 \begin{definition}[Faces of a singular simplex]
-  $\sigma:\Delta_k\to X$ continuous, $\sigma_i:=\sigma\circ l_i,i=0,\cdots,k.$
+  $\sigma:\Delta_k\to X$ continuous, $\sigma_i:=\sigma\circ l_i$ where $l_i:(t_0,\cdots,t_{k-1})\mapsto (t_0,\cdots,t_{i-1},0,t_{i},\cdots,t_{k-1}),i=0,\cdots,k$.
 \end{definition}
 \begin{definition}[Singular chain groups]
   $k\in \Z$, 
@@ -176,11 +176,11 @@ $F_1\xrightarrow{T}F_2,F_2\xrightarrow{S} F_3$ $\rightsquigarrow $ $S\circ T$.
   =\left\{0\right\} ,k<0.
   \] 
 \end{definition}
-$X\xrightarrow[\text{continuous}]{f}Y$, we can define $S_k(X)\xrightarrow{S_k(f)=f_{\#}}S_k(Y)$:
+$X\xrightarrow[\text{continuous}]{f}Y$, we can define a functor $S_k:S_k(X)\xrightarrow{S_k(f)=f_{\#}}S_k(Y)$:
 \[
 \sigma:\Delta_k\to X \mapsto 
-\begin{tikzcd}
-  \Delta_k\arrow{rr}{f\circ\sigma} \arrow[swap]{rd}{\sigma} & & Y\\
+\begin{tikzcd}[column sep=small]
+\Delta_k\arrow{rr}{f\circ\sigma} \arrow[swap]{rd}{\sigma} & & Y\\
    & X  \arrow[swap]{ru}{f}& 
 \end{tikzcd}
 .\] 
@@ -189,7 +189,7 @@ $S_k:(\text{Top})\rightarrow (\text{Ab})$ is a covariant functor.
 \begin{definition}[Boundary operation]
  $S_k(X)\xrightarrow{\partial_k}S_{k-1}(X)$ 
  \[
-   \partial_k:=\sum_{i=0}^{k} (-1)^{i}\sigma_i
+   \partial_k \sigma:=\sum_{i=0}^{k} (-1)^{i}\sigma_i
  \] 
 \end{definition}
 \begin{exercise}
@@ -221,3 +221,208 @@ Then, we have the chain complex:
   \cdots\xrightarrow{\partial_{k+2}}S_{k+1}(X)\xrightarrow{\partial_{k+1}} S_{k}(X)\xrightarrow{\partial_k} S_{k-1}\xrightarrow{\partial_{k-1}}S_{k-2}\cdots.
 \] 
 \end{definition}
+
+Let $X$ be a topological space $k\in \Z$. Recall
+\[
+  S_k(X)=\oplus_{\sigma:\Delta_k\to X}\Z \sigma, \quad k\ge 0.
+\] 
+$\forall $ set $S$, define $\Z^{\oplus S}:=\left\{\phi: S\to \Z\lvert \phi(s)\neq 0 \text{ for only finitely many }s \in S\right\} $, it is an abelian group. Write $\phi=\sum_{s\in S}^{} \phi(s) s$, define the map  
+\begin{align*}
+  S &\to \Z^{\oplus S}\\
+  s &\mapsto e_s:s'\mapsto \left\{
+  \begin{aligned}
+    1,&s'=s\\
+    0,&s'\neq s
+  \end{aligned}\right.
+\end{align*}
+Universal property:
+consider any map $\phi$ and any abelian group  $A$, we have
+\[
+  \begin{tikzcd}[column sep = small]
+    S \arrow{rr}{\forall \text{ map }\phi} \arrow{rd}[swap]{e} & & A\\
+  & \Z^{\oplus S}\arrow{ru}[swap]{\exists ! \Phi \text{ group homomorphism }} &
+\end{tikzcd}
+\]
+
+\begin{example}
+  Consider $\Hom_{(\text{Top})}(\Delta_k,X) = \left\{ \text{all singular }k\text{-simplexes in }X\right\}  $, then we can define $S_k(X)$ in another way 
+  \[
+    S_k(X):= \Z^{\oplus \Hom_{(\text{top})}(\Delta_k,X)}.
+  \] 
+\end{example}
+Consider the map 
+\begin{align*}
+  \Z^{\oplus}: (\text{Set})\to & (\text{Ab})\\
+  S\mapsto & \Z^{\oplus S}
+.\end{align*}
+\[
+\begin{tikzcd}
+  S \arrow[d,"u"]\\
+  T 
+\end{tikzcd}\longmapsto 
+\begin{tikzcd}[column sep = tiny]
+  \Z^{\oplus S}\arrow[d] & e_s \arrow[d,mapsto,"\text{extend linearly}"]\\
+  Z^{\oplus T} & e_{u(s)}
+\end{tikzcd}
+\]
+Hence we can view $S_k$ as
+\[
+  S_k= \Z^{\oplus}\circ \Hom_{(\mathrm{Top})}(\Delta_k,\cdot )=\Z^{\oplus}\circ\tensor[_{\Delta_k}]{h}{}
+\]
+where $\tensor[_{\Delta_k}]{h}{} $ is a covariant functor.
+
+Consider the following diagram:
+\[
+  \begin{tikzcd}[column sep=small]
+  \Hom_{(\mathrm{top})}(\Delta_k,X) \arrow{rr}{\partial_{k-1}\circ \partial_k}\arrow{rd}{e} 		 & & S_{k-2(X)}\\
+  &S_k(X) \arrow{ru}[swap]{\partial_{k-1}\circ\partial_k \circ e =0}& 
+\end{tikzcd}
+\] 
+This diagram explains why $\partial_{k-1}\circ\partial_{k}\sigma=0\to \partial_{k-1}\circ\partial_{k}=0$ through universal property.
+
+\begin{definition}[Singular homology groups]
+  Let $X$ be a toplogical space, we have a singular chain complexes
+  \[ 
+  \cdots\xrightarrow{\partial_{k+2}}S_{k+1}(X)\xrightarrow{\partial_{k+1}} S_{k}(X)\xrightarrow{\partial_k} S_{k-1}\xrightarrow{\partial_{k-1}}S_{k-2}\cdots.
+  \] 
+  \begin{enumerate}
+    \item $S_k(X)$ : the group of (singular) $k$-chains in $X$.
+    \item  $Z_k(X):=\mathrm{ker}\partial_k(X)$ the group of $k$-cycles in $X$.
+    \item $B_k(X):= \mathrm{im}\partial_{k+1}$ the group of $k$-boundaries in $X$. 
+    \item $H_k(X):= \sfrac{Z_k(X)}{B_k(X)}$ the $k$-th sinular homology group of $X$.
+  \end{enumerate}
+
+\end{definition}
+\section{Chain complexes}
+\begin{definition}[Chain complexes and chain maps]
+  A chain complex of abelian groups is a sequence of abelian groups linked by homomorphisms
+  \[
+    C_{\cdot }:\cdots\xrightarrow{\partial_{k+2}}C_{k+1}\xrightarrow{\partial_{k+1}}C_k\xrightarrow{\partial_k}C_{k-1}\xrightarrow{\partial_{k-1}}\cdots
+  \] 
+  such that $\partial_{k-1}\circ\partial_{k}=0,\forall k \in \Z$.
+
+  A chain map of $f_{\cdot }:C_{\cdot }\to C_{\cdot }'$ consists of homomorphisms $f_k:C_k\to C_{k}',k\in \Z$ such that the following diagram commute:
+  \[
+  \begin{tikzcd}
+    C_{k}\arrow{r}{\partial_k} \arrow{d}{f_k}  &C_{k-1} \arrow{d}{f_{k-1}} \\
+    C'_{k}\arrow{r}{\partial_{k}'} & C_{k-1}'
+  \end{tikzcd}
+  \] 
+\end{definition}
+
+\begin{definition}[Composition of chain maps]
+  Given two chain maps $f_{\cdot }\xrightarrow{f_{*}} C_{*}'$ and $C'_{\cdot }\xrightarrow{f'_{\cdot }} C_{\cdot }''$, the composition of chain maps $(f'\circ f)_{\cdot }:C_{\cdot }\to C_{\cdot }''$ is defined by 
+  \[
+    (f'\circ f)_{k}:=f'_k\circ f_k, k\in \Z.
+  \] 
+  All chain complexes and chain maps form a category, we use $``\left( \mathrm{cKom} \right) "$ to denote it.
+\end{definition}
+
+\begin{definition}
+  Let $f_{\cdot }:C_{\cdot }\to C_{\cdot }'$be a chain map, then we have
+  \[
+    f_{k}(Z_k(C_{\cdot }))\subset Z_{k}(C_{\cdot }') \quad\text{ and }\quad f_{k}(B_k(C_{\cdot }))\subset B_{k}(C_{\cdot }).
+  \]
+  It induces a group homomorphism
+\end{definition}
+\begin{exercise}
+  \begin{equation*}
+    \begin{aligned}
+      H_k:\mathrm{(cKom)} &\to  \mathrm{(Ab)}\\
+      C_{\cdot }&\to H_{k}(C_{\cdot })\\
+      C_{\cdot }\xrightarrow{f_{\cdot }}C_{\cdot }' & \mapsto  H_k(C_{\cdot })\xrightarrow{f_{*k}}H_k(C_{\cdot }')
+    \end{aligned}
+  \end{equation*}
+  is a covariant functor.
+\end{exercise}
+
+Let $\mathcal{C}$ be a category. Giving a functor $\mathcal{C}\xrightarrow{K}\mathrm{(cKom)}$ is equivalent to giving functor $\mathcal{C}\xrightarrow{K_{k}}\mathrm{(Ab)}$ and natural transformations
+\[
+  K_k\xrightarrow{D_k}K_{k-1},\quad k\in \Z
+\] 
+such that 
+\[
+D_{k-1}\circ D_k=0,\quad \forall k\in \Z.
+\] 
+
+\begin{definition}
+  Let $X$ be a topological space, 
+  \[
+    \pi_0(X):=\text{ the set of path-connected components of }X.
+  \] 
+
+\begin{figure}[ht]
+    \centering
+    \incfig{path-connected}
+    \caption{$\pi_0:X\to \text{the set of path-connected components of }X$}
+    \label{fig:path-connected}
+\end{figure}
+
+\end{definition}
+$\pi_0$ is a functor:
+\begin{equation*}
+  \begin{aligned}
+    X &\mapsto \pi_0(X)\\
+    X\xrightarrow{f}Y&\mapsto \pi_0(X)  \xrightarrow{\pi_0(f)} \pi_0(Y)
+  \end{aligned}
+\end{equation*}
+where $\pi_0(f)c:=$ the path-connected components containing $f(c)$ for any $c \in \pi_0(X)$.
+
+\begin{exercise}
+  For every topological space $X$, establish a group isomorphism
+  \[
+    \Z ^{\oplus \pi_0(X)}\xrightarrow{T(X)}H_0(X)
+  \] 
+  and show that your $T$ is a natural transformation between $\Z^{\oplus}\circ\pi_0$ and $H_0$.
+\end{exercise}
+\section{The singular homology of a star-shaped}
+\begin{definition}[Star-shaped set]
+  Let $0\in X \subset \R^{n}$ s.t.
+  \[
+    \forall p \in X \Rightarrow tp \in X \text{ for any }t\in [0,1].
+  \] 
+  Then we call $X$ a star-shaped set in $\R^{n}$.
+\end{definition}
+
+Let $\sigma:\Delta_k\to X$ be a singular k-simplex in $X$, then we define
+\begin{equation*}
+  \begin{aligned}
+    H_{\sigma}:\Delta_{k+1}&\to X\\
+    (t_0,\cdots,t_n)&\mapsto 
+   \left\{ \begin{aligned}
+      &0,\quad (t_0,\cdots,t_{k+1})=(1,0,\cdots,0)\\
+      &(1-t_0)\sigma\left( \frac{t_1}{t_1+\cdots t_{k+1}},\cdots, \frac{t_{k+1}}{t_1+\cdots t_{k+1}} \right), \quad \text{ others.} 
+    \end{aligned}\right.
+  \end{aligned}
+\end{equation*}
+It is easy to verify that 
+\[
+  (H\sigma)_0=\sigma,(H\sigma)_i=H(\sigma_{i-1}),\quad i=1,\cdots,k+1.
+\] 
+Calculate for $k\ge 1$
+\begin{align*}
+  \partial_{k+1}(H_k \sigma) = & \sum_{i=0}^{k+1} (-1)^{i}(H_k \sigma)_i\\
+  = & \sigma + \sum_{i=1}^{k+1} (-1)^{i}H_{k-1}(\sigma_{i-1})\\
+  = & \sigma -\sum_{j=0}^{k} (-1)^{j}H_{k-1}(\sigma_j)\\
+  = & \sigma - H_{k-1}\partial_{k}\sigma.
+\end{align*}
+Hence 
+\[
+  \sigma=\left( \partial H+H\partial \right) \sigma.
+\] 
+\[
+  \sigma \in Z_{k}(X)\Leftrightarrow\partial\sigma=0\Rightarrow \sigma=\partial(H\sigma)\in B_k(X)\Rightarrow H_{k}(X)=0,k \ge 1.
+\] 
+For $k=0$,  $H_0(X)=\Z$ since a star-shaped set has only one component.
+\section{Chain homotopy vs. Homotopy}
+\section{Acyclic models theorem}
+\section{Subdivision}
+\section{Homology exact sequence}
+\section{Mayer-Vietoris Sequences}
+\section{Some variants of singular homology}
+
+
+
+
+
+

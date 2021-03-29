@@ -1,0 +1,11 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {0}Preliminary}{3}{section.0}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1}How to choose the solution map}{4}{section.1}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2}Some properties related to infinite-dimensional initial conditions}{5}{section.2}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3}Equivalence classes of solutions}{8}{section.3}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4}Small solutions for linear equations}{12}{section.4}% 

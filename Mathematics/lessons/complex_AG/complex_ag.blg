@@ -1,0 +1,9 @@
+[0] Config.pm:304> INFO - This is Biber 2.13
+[0] Config.pm:307> INFO - Logfile is 'complex_ag.blg'
+[20] biber:315> INFO - === Sun Mar 28, 2021, 22:49:15
+[32] Biber.pm:375> INFO - Reading 'complex_ag.bcf'
+[81] Biber.pm:905> INFO - Found 0 citekeys in bib section 0
+[85] Utils.pm:300> WARN - The file 'complex_ag.bcf' does not contain any citations!
+[91] bbl.pm:648> INFO - Writing 'complex_ag.bbl' with encoding 'UTF-8'
+[91] bbl.pm:751> INFO - Output to complex_ag.bbl
+[91] Biber.pm:110> INFO - WARNINGS: 1

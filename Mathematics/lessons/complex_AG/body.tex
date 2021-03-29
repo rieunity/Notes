@@ -1,0 +1,120 @@
+\section{Introduction}
+Let $f_i(x_1,\cdots ,x_n),i\in \left\{1,\cdots ,k\right\} $ be polynomials with coefficient in $\R$ or $\C$. An \textit{affine algebraic variety} is the common zero of $X=X(f_1,\cdots ,f_k)=\left\{x:f_i(x)=0\forall i\right\} $. We incorporate the field into the notation 
+\[
+  X\left( \C \right) =\left\{x\in \C^{n}:f_i(x)=0\forall i\right\} ,
+\] 
+\[
+  X(\R)=\left\{x\in \R^{n}:f_i(x)=0 \forall i\right\} \left( f_i\text{have real coefficients} \right). 
+\] 
+These can be thought of naturally as topological spaces with the topology they inherit from $\C^{n}$ or $\R^{n}$(Alternately, you can use the ``Zariski topology'' induced by declaring that zero sets of polynomials are closed). 
+
+It is frequently in convenient that $X\left( \C \right) $ is essentially never compact. To remedy this, we shift our attention to projective space:
+\begin{align*}
+  \CP^{n}= &\frac{\C^{n+1}\backslash \left\{0\right\} }{\text{dilations}}\\
+  =&\sfrac{\left\{\left( z_0,z_1,\cdots ,z_{n} \right) \in \C^{n+1}\backslash \left\{0\right\} \right\} }{(z_0,\cdots ,z_n)\sim (\lambda z_0,\cdots ,\lambda z_n), \forall \lambda \neq 0}\\
+  = & \sfrac{\Sph^{2n+1}}{u(1)},  
+\end{align*}
+hence compact.
+
+Given homogeneous polynomials $F_i(x_0,\cdots ,x_n)$ we obtain a ``projective variety'' $X=X\left( F_1,\cdots ,F_k \right) =\left\{x\in \CP^{n}:F_i(x)=0\forall i\right\} $. As before, if the polynomial have real coefficients, we have $X(\R)=\left\{x\in \mathbb{RP}^{n}:F_i(x)=0\forall i\right\} $. 
+
+We can ask about the relation between the topology and geometry of $X\left( \R \right) ,X(\C)$ and the algebraic properties of $X$. For example, say $X$ is the zero set of a single homogeneous polynomial of degree $d$ called $F$, can we recover $d$ from looking at $X(\C),X(\R)$?(Only a sensible question for $F$ irreducible.) It turns out that $X_F(\C)$ determines a homology class $\left[ X_F(\C) \right] \in H_{2n-2}\left( \CP^{n};\Z \right) $, and this group is cyclic with generator $\left[ H \right] $ induced by $\CP^{n-1}\hookrightarrow \CP^{n}$, and $\left[ X_F(\C) \right] =d\cdot \left[ H \right] $.
+
+We can recover $d$ from the intrinsic geometry of $X_F\left( \C \right) $ using the ``Chern classes'' in $H^{*}\left( ? \right) $. Over the real numbers, $H_{n-1}\left( \mathrm{RP}^{n;\Z_2} \right) $ is cyclic with generator $\left[ H \right] $ and $\left[ X_F\left( \R \right)  \right] =d\cdot \left[ H \right] $, so we recover $d \mod 2$. 
+It is possible to show that $X_F(\R)$ does not provide an upper bound for $d$.
+
+From a different point of view, the Nash embedding theorem shows that any smooth manifold over $\R$ is diffeomorphic to $X(R)$ for some real smooth projective variety.
+For complex manifolds the analogue statement is false. To be diffeomorphic to a complex projective variety, a manifold must be complex, K\"{a}hler, Hodge, and then it will have an embedding into some $\CP^{n}$ and Chow's theorem guarantees that it's algebraic.
+
+\section{Holomorphic functions}
+This section we want to talk about holomorphic functions.
+
+Recall some concepts / theorems from one complex variable. Let   $\mathcal{U}\subset \C, f:\mathcal{U}\to \C, \mathcal{U}$ open,
+\begin{enumerate}
+  \item $f$ is holomophic $\Leftrightarrow$ f is analytic: $\forall  z_0 \in  u, \exists \varepsilon >0$ s.t. $f(z)=\sum_{n=0}^{\infty} a_n (z-z_0)^n,\forall z\in B_{\varepsilon }(z_0)$.
+  \item  $f$ is holomorphic $\Leftrightarrow$ $f$ satisfies Cauchy integral formula: $f\in \C^{1}$ and $\forall z_0 \in  \mathcal{U}$, $\varepsilon $ small enough 
+    \[
+      f(z_0)=\frac{1}{2\pi i}\int_{\partial B_\varepsilon (z_0)}\frac{ f(z)}{z-z_0}\,\mathrm{d}z.
+    \] 
+  \item $f$ is holomorphic $\Leftrightarrow$ $f$ satisfies Cauchy-Riemann equations. Writing $z=x+iy,x,y\in \R$, $f(x,y)=u(x,y)+iv(x,y), u,v$ real values, $u,v$ are continuous differentiable and satisfy
+    \[
+    \frac{\partial u}{\partial x} =\frac{\partial v}{\partial y},  \frac{\partial u}{\partial y} =-\frac{\partial v}{\partial x} . 
+    \] 
+\end{enumerate}
+
+Let's introduce the differential operators:
+\[
+  \partial_z=\frac{\partial ~}{\partial z} =\frac{1}{2}=\left( \partial_x-i\partial_y \right) ,\partial_{\overline{z}}=\frac{\partial ~}{\partial \overline{z}} =\frac{1}{2}\left( \partial_x+i\partial_y \right) .
+\] 	
+Then $\partial_z z=1=\partial_{\overline{z}}\overline{z},\partial_z\overline{z}=0=\partial_{\overline{z}}z$. In these terms Cauchy-Riemann equations are $\partial_{\overline{z}}f=0$.
+
+Geometrically, $f:\mathcal{U}\subset \C=\R^{2}\to \C=\R^{2}, f\left( \begin{bmatrix} x\\y \end{bmatrix}  \right)=\begin{bmatrix} u\\v \end{bmatrix}  $ induces $D_{z_0}f:T_{z_0}\R^2\to T_{f(z_0)}\R^2$ with respect to the standard basis, this is the real Jacobian of $f$ :
+\[
+  J_{\R}(f)=\begin{bmatrix} \frac{\partial u}{\partial x} &\frac{\partial u}{\partial y} \\ \frac{\partial v}{\partial x} &\frac{\partial v}{\partial y}  \end{bmatrix} .
+\] 
+\begin{example}
+  \[
+    \left( D_{(x_0,y_0)}f \right) \left( \partial_x \right) =\partial_t |_{t=0}f(x_0+t,y_0)=\partial_t|_{t=0}\begin{bmatrix} u(x_0+t,y)\\v(x_0+t,y) \end{bmatrix} =\begin{bmatrix} \frac{\partial u}{\partial x} &\frac{\partial v}{\partial x}  \end{bmatrix} 
+  .\] 
+\end{example}
+After we complexify, $D_{z_0}^{\C}f:T_{z_0}\R^{2}\otimes \C\to T_{f(z)}\R^{2}\otimes \C$. We can write this matrix in the basis $\partial_z,\partial_{\overline{z}}$:
+\[
+  \begin{bmatrix} \partial_z(u+iv) &\partial_{\overline{z}}(u+iv)\\ 
+  \partial_z(u-iv) & \partial_{\overline{z}}(u-iv)\end{bmatrix}
+  = \begin{bmatrix} 
+  \partial_z f & \partial_{\overline{z}}f\\
+\partial_z \overline{f}&\partial_{\overline{z}}\overline{f}\end{bmatrix} 
+.\] 
+(note: $\partial_{\overline{z}}\overline{f}=\overline{\partial_z f}, \overline{\partial_z \overline{f}}=\partial_{\overline{z}}f$, etc.)
+The funciton $f$ is holomorphic if and only if this matrix is diagnal. The complex Jocabian for $f$ holomorphic is $J_{\C}f=\begin{bmatrix} \partial_z f & 0\\ 0 & \partial_{\overline{z}}\overline{f} \end{bmatrix} $.
+
+Holomorphic functions of one variable satisfy some important theorems:
+\begin{enumerate}
+  \item Maximum principle: $\mathcal{U}\subset \C$ open, connected, $f:\mathcal{U}\to \C$ is holomorphic, nonconstant, then $|f|$ has no local maximum in $\mathcal{U}$. If $\mathcal{U}$ is bounded and $f$ extends to a continuous $\overline{\mathcal{U}}\to \C$, then $\max |f|$ occurs on $\partial \overline{\mathcal{U}}$.
+  \item Identity theorem: $f,g:\mathcal{U}\to \C$ holomoprhic and $\mathcal{U}$ connected. If $$\left\{z\in \mathcal{U}:f(z)=g(z)\right\} $$ contains an open set then it is all of $\mathcal{U}$.
+  \item Extension theorem: $f:B_\varepsilon (z_0) \backslash  \left\{z_0\right\} \to \C$ is holomorphic and bounded, then it extends to a holomorphic function $B_{\varepsilon }(z_0)\to \C$.
+  \item Liouville's theorem: $f:\C\to \C$ holomorphic and bounded implies $f$ is constant.
+  \item Riemann mapping theorem: If $\mathcal{U}\subset \C$is a simply connected, proper open set, then $\mathcal{U}$ is biholomorphic to the unit ball $B_1(0)$.
+  \item Residue theorem: If $f:B_\varepsilon (0) \backslash  \left\{0\right\} \to \C$ is holomorphic and $f(z)=\sum_{j\in \Z}^{} a_jz^{j}$ is its Laurent series. Then
+    \[
+      a_{-1}=\frac{1}{2\pi i}\int_{\partial B_{\varepsilon  /2}(0)}f(z)\,\mathrm{d}z.
+    \] 
+\end{enumerate}
+
+
+\begin{definition}
+  $U\subset \C^{n}$ open, $f:U\to \C$ continuously differentiable,  then $f$ is holomorphic at $a\in U$ if for all $j\in \left\{1,\cdots ,n\right\} $ the function of one variable 
+  \[
+    z_j\mapsto f(a_1,\cdots ,a_{j-1}, z_j, a_{j+1},\cdots ,a_n)
+  \] is holomorphic. i.e., $\partial_{\overline{z_j}}f=0,\forall j \in \left\{1,\cdots ,n\right\} $.
+\end{definition}
+If we write 
+\[
+\mathrm{d}f=\sum \frac{\partial f}{\partial z_j} \mathrm{d}z_j+\sum \frac{\partial f}{\partial \overline{z}_j} \mathrm{d}\overline{z}_j.
+\] 
+Denote the first term $\partial f$ and the second $\overline{\partial}f$, then $f$ is holomorphic iff $\overline{\partial}f=0$.
+
+\begin{definition}
+  For $a\in \C^{n}, R\in \left( \R^{+} \right) ^{n}$, the polydisc around $a$ with multindices $R$ is the set $D(a,R)=\left\{z\in \C^{n}:|z_j-a_j|<R_j,\\forall j\in \left\{1,\cdots ,n\right\} \right\} $. If $R=(1,\cdots ,1)$ and $a=0$ we abbreviate $D(0,1)$ by $\mathbb{D}$ and refer to it as the unit disc in $\C^{n}$. 
+\end{definition}
+Repeatedly applying the Cauchy formula in $1$-variable, we obtain the following theorem:
+\begin{theorem}
+  $f:D(w,\varepsilon )\to \C$ hilomorphic and $z\in D(w,\varepsilon )$ then 
+  \[
+    f(z)=\frac{1}{\left( 2\pi i \right) ^{n}}\int_{\partial D(w,\varepsilon )}\frac{f(\xi_1,\cdots ,\xi_n)}{(\xi-z_1)\cdots (\xi_n-z_n)}\,\mathrm{d}\xi_1\cdots \mathrm{d}\xi_n.
+  \] 
+\end{theorem}
+Using this we can show that for any point $w\in U$, $\exists $ multi disc $D(w,\varepsilon )$ inside $U$ such that for all $z\in D(w,\varepsilon )$, $f(z)=\sum_{|\alpha|=0}^{\infty} \frac{\partial^{\alpha}_z f}{\alpha!}(z-w)^{\alpha}$. Here $\alpha$ is a multi-index $\alpha \in \left( \N_0 \right) ^{n}$, and 
+\begin{align*}
+  (z-w)^{\alpha}&= (z_1-w_1)^{\alpha_1}\cdots (z_n-w_n)^{\alpha_n} \\
+  \alpha! &= \alpha_1!\cdots \alpha_n! \\
+  \partial^{\alpha}_{z}f=\partial_{z_1}^{\alpha_1}\cdots \partial_{z_n}^{\alpha_n}f
+.\end{align*}
+From the list above, the maximum principle, the identity theorem and Liouville's theorem generaliz easily.
+Riemann extension theorem holds but is harder to prove and Riemann mapping definitely fails. There are also phenomenon that do not have analogues in one complex variable. 
+\begin{theorem}[Hartog Extension Theorem]
+  $n\ge 2$, $f:U \backslash  K\to \C$ holomorphic with $U \subset  \C^{n}$ open, $K\subset U$ compact. If $U \backslash  K$ is connected, then $\exists ! F:U\to \C$ holomorphic extending $f$.
+\end{theorem}
+
+\section{Solving $\partial u = f$}
+

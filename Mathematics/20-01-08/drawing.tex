@@ -1,0 +1,78 @@
+%TEX program = xelatex
+\documentclass[landscape]{article}
+%\usepackage{geometry}
+%\geometry{a4paper,scale=0.75}
+\usepackage{ctex}
+ \usepackage[colorlinks,
+           linkcolor=red,
+           anchorcolor=blue,
+           citecolor=green
+           ]{hyperref} 
+%少量中文时使用
+%\usepackage{xeCJK}
+\usepackage[center]{titlesec}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+%\usepackage[english]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{mathtools}
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\newcommand{\incfig}[1]{%
+  \def\svgwidth{\columnwidth}
+  \import{./figures/}{#1.pdf_tex}
+}
+
+
+
+% Some shortcuts
+\newcommand\N{\ensuremath{\mathbb{N}}}
+\newcommand\R{\ensuremath{\mathbb{R}}}
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+\renewcommand\O{\ensuremath{\emptyset}}
+\newcommand\Q{\ensuremath{\mathbb{Q}}}
+%\newcommand\C{\ensuremath{\mathbb{C}}}
+
+% Some theorem environment settings
+\usepackage{ntheorem}
+\newtheorem{theorem}{定理}
+\newtheorem*{rmk}{Remark}
+\newtheorem{lemma}{引理}
+\newtheorem{definition}{定义}
+\newtheorem{corollary}{推论}
+\newtheorem*{exe}{Exercise}
+\newtheorem*{sol}{Solution}
+\newtheorem{example}{例}
+\newenvironment{proof}{{\noindent\bfseries 证明}:}{\hfill $\square$\par}
+%\theorembodyfont{\upshape}
+% Enumerate Style
+\renewcommand{\labelenumi}{{\normalfont\alph{enumi}. }}
+
+% Tensor
+\usepackage{tensor}
+
+% bracket notations 
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
+
+% Normal ordering
+\newcommand{\normord}[1]{:\mathrel{#1}:}
+
+
+\newcommand{\enabstractname}{Abstract}
+\newenvironment{enabstract}{%
+    \par\small
+    \noindent\mbox{}\hfill{\bfseries \enabstractname}\hfill\mbox{}\par
+    \vskip 2.5ex}{\par\vskip 2.5ex}
+\newcommand{\zhabstractname}{摘要}
+\newenvironment{zhabstract}{%
+    \par\small
+    \noindent\mbox{}\hfill{\bfseries \zhabstractname}\hfill\mbox{}\par
+    \vskip 2.5ex}{\par\vskip 2.5ex}
+\begin{document}
+\include{body2}
+\end{document}

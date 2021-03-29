@@ -1,0 +1,513 @@
+\section{Preliminary}
+This section introduces notions of retarded functional differential equations. Then we give some basic conclusions which would be usefull in following sections. Before doing these, it is necessary to make some notations clear:
+\begin{enumerate}
+  \item [] $\R:=(-\infty,\infty)$.
+  \item [] $ \R^{n}$ : an $n$-dimensional linear vector space over the reals with norm $|\cdot |$.
+  \item [] $C([a,b],\R^{n})$ : the Banach space of continuous functions mapping the interval $[a,b]$ into $\R^{n}$ with the topology of uniform convergence.
+  \item [] $C:=C([-r,0],\R^{n})$, where $r$ is a given real number.
+  \item [] $|\phi|:=\sup_{-r\le\theta\le 0}|\phi(\theta)|$, $\phi \in  C$.
+\end{enumerate}
+\begin{definition}
+  Let 
+  \[
+    \sigma \in \R, A\ge 0, \quad \text{and}\quad x\in C\left( [-\sigma-r,\sigma+A],\R^{n} \right) 
+  ,\]
+  For any $t\in [\sigma,\sigma+A]$, let $x_t \in C$ be defined by $x_t(\theta)=x(t+\theta),-r\le\theta\le 0$. If $D$ is a subset of $\R\times C$, $f:D\to \R^{n}$ is a given function, we say 
+  \begin{equation}\label{eqn-1}
+  \dot{x}(t)=f(t,x_t)
+\end{equation}
+is a \textit{retarded functional differential equations} on $D$ and will denote this equation by RFDE or RFDE($f$). 
+\end{definition}
+
+\begin{definition}
+  A function $x$ is said to be a \textit{solution} of Equation (\ref{eqn-1}) on $[\sigma-r,\sigma+A)$ if there are $\sigma \in \R$ and $A>0$ such that  $x\in C\left( [\sigma-r,\sigma+A \right) ,\R^{n}), (t,x_t)\in D$ and $x(t)$ satisfies Equation (\ref{eqn-1}) for $t \in [\sigma,\sigma+A)$.
+  For given $\sigma \in \R,\phi \in C$, we say $x(\sigma,\phi,f)$ is a \textit{solution} of Equation (\ref{eqn-1}) \textit{with initial value $\phi$ at $\sigma$} or simply a \textit{solution through $(\sigma,\phi)$} if there is an $A>0$ such that $x(\sigma,\phi,f)$ is a solution of Equation (\ref{eqn-1}) on $[\sigma-r,\sigma+A)$ and $x_\sigma(\sigma,\phi,f)=\phi$.
+\end{definition}
+
+\begin{theorem}[The continuation theorem]
+  Suppose $\Omega$ is an open set in $\R\times C$, $f:\Omega\to \R^{n}$ is completely continuous; that is, $f$ is continuous and takes closed bounded sets of $\Omega$ into bounded sets of $\R^{n}$, and $x$ is a noncontinuable solution of Equation {\normalfont (\ref{eqn-1})} on $[\sigma-r,b)$. Then, for any closed bounded set $U$ in $\R\times C$, $U$ in $\Omega$, there is a $t_U$ such that $(t,x_t)\notin  U$ for $t_U\le t<b$.
+\end{theorem}
+
+\begin{theorem}[The continuation theorem]
+  Suppose $\Omega$ is an open set in $\R\times C$, $f:\Omega\to \R^{n}$ is completely continuous, and $x$ is a noncontinuable solution of Equation {\normalfont(\ref{eqn-1})} on $[\sigma-r,b)$. Then, for any closed bounded set $U$ in $\R\times C$, $U$ in $\Omega$, there is a $t_U$ such that $(t,x_t)\notin U$ for $t_U\le t<b$.
+\end{theorem}
+
+\section{How to choose the solution map}
+For autonomous systems, it is more natural to use orbits of solutions rather than the trajectories.
+\begin{example}
+Consider the equation
+\begin{equation}\label{eqn-2}
+  \dot{x}(t)=-x\left( t- \frac{\pi}{2} \right) 
+\end{equation}
+Obviously, it has a unique solution through each $(\sigma,\phi)\in \R\times C$. Figure \ref{fig-1} show the picture of two solutions.
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}[scale=0.8]
+    \draw[eaxis] (-\num,0)--(4*\num,0) node[below] {$t$};
+    \draw[eaxis] (0,-4) --(0,4) node[above] {$f(t)$};
+    \draw[elegant,domain=-\num:4*\num] plot(\x,{cos(\x r)});
+    \draw[elegant,orange,domain=-\num:4*\num] plot(\x,{sin(\x r)});
+  \end{tikzpicture}
+  \caption{$x=\cos t$ and $x=\sin t$.}
+  \label{fig-1}
+\end{figure}
+It is not a good way to represent these two solutions. In fact, given a $\frac{\pi}{2}$ phase shift of the solution $x(t)=\sin t$ we get 
+\[
+  \sin(t+\frac{\pi}{2})=\cos t.
+\] 
+Hence it is more natural to find a representation to identify these two solutions. If we choose $\R$ as the phase space and $\bigcup_{t\ge 0}x(0,\phi)(t)$ as the orbits, then the orbits for the solution $x(t)=\sin t$ and $x(t)=\cos t$ coinside and are equal to the interval $[-1,1]$, as Figure \ref{fig-2} shows. But the difficulty is: the orbit of the solution $x=\cos t$ contain the orbit of another solution $x=0$ and not be related in any way to a phase shift. Hence it is not a proper choice of the phase space. Instead of $\R$, we choose the phase space $C=C([-\pi /2,0],\R)$. The orbit of the solution $\sin t$ is the set 
+\begin{equation}
+  \Gamma=\left\{\psi:\psi(\theta)=\sin(t+\theta), -\frac{\pi}{2}\le\theta\le 0, \text{ for }t \in [0,\infty)\right\} 
+\end{equation}
+of points in $C$. Then  $\Gamma$ is determined by phase shifts of a solution. This orbit cannot be pictured since the dimension of $\Gamma$ is infinite.
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}[scale=1]
+    \draw[white] (5,0) node[above] {empty};
+    \draw[eaxis] (-5,0) -- (5,0) node[below] {$x=x(t)$} ;
+    \draw[red, thick] (-1,0) node[below] {$x=\cos(\pi)$} -- (1,0) node[below] {$x=\cos(0)$};
+  \end{tikzpicture}
+  \caption{Orbits $\bigcup_{t\ge 0} x(0,\phi)(t)$ in the phase space $\R$, $\phi=\cos (t+\theta),\forall \theta \in \R$.}
+  \label{fig-2}
+\end{figure}
+\end{example}
+
+The purpose of the following content is to discuss some good or bad properties of the solution map $T_f(t,\sigma)$ of an RFDE($f$) defined by
+\begin{equation}
+  T_f(t,\sigma)\phi=x_t(\sigma,\phi,f).
+\end{equation}
+Unless explicitly stated, $f$ is continuous. This ensures the uniqueness and the existence of the solution of the RFDE($f$).
+
+\section{Some properties related to infinite-dimensional initial conditions}
+Many properties of RFDE is quite different from ODE, since the initial condition of ODE is one-dimensional but RFDE is not. 
+\begin{proposition}
+  The continuation theorem is not valid if $f$ is not a completely continuous map.
+\end{proposition}
+\begin{proof}
+  Let $\Delta(t)=t^2$ and select two sequences $\left\{a_k\right\} $ and $\left\{b_k\right\} $ such that 
+  \[
+  a_1<b_1<a_2<b_2<a_3<b_3<\cdots,\quad a_k\to 0,b_k\to 0 \text{ as } k\to \infty
+  \] 
+  and
+  \[
+    a_k=b_k-\Delta(b_k),b_k\le a_{k+1}-\Delta(a_{k+1}),k=1,2,\cdots.
+  \] 
+  For example, choose $b_k=-2^{-k}$. Define $\psi(t)$ as an arbitrary continuous differentiable function satisfying 
+  \begin{equation*}
+    \psi(t)=\left\{\begin{aligned}
+	+1, & \text{ for }t \text{ in } (-\infty,a_1],[b_{2k},a_{2k+1}],k=1,2,\cdots,\\
+	-1, & \text{ for }t \text{ in } [b_{2k-1},a_{2k}],k=1,2,\cdots
+    \end{aligned}
+    \right.
+  \end{equation*}
+  and 
+  \[
+    \psi'(t)\neq 0,\quad t\in (a_k,b_k),k=1,2,\cdots
+  \] 
+  Let $H$ be the set of points $(t,x)$ such that $|x|<1-t$. Define a function  $g(t,x)$ on $H$ such that 
+  \[
+    g(t,\psi(t))=\psi'(t).
+  \] 
+  By Inverse Function Theorem there exists a function $h(t,x)$ such that
+  \[
+    h(t-\Delta(t),\psi(t-\Delta(t))=\psi'(t),\quad -\infty<t<0.
+  \] 
+  The function $h$ is continuous on the graph of $\psi $. For any $t$ in $(a_k,b_k)$,$k\ge 2$, $t-\Delta (t)\in [b_{k-1},a_k]$. For $t$ in $(-\infty,b_1]$,$t-\Delta(t)\in (-\infty,a_1]$. Hence $h=0$ for any $t$ in $(-\infty,b_1],(a_k,b_k),k\ge 2$.
+
+  Consider the equation 
+  \begin{equation}
+    \dot{x}(t)=h(t-\Delta(t),x(t-\Delta(t))),\quad t<0 \text{ and }\Delta(t)=t^2.
+  \end{equation}
+  Let $\sigma<a_1$ and $r=\sigma-\min \left\{(t-t^2):\sigma\le t\le 0\right\} $.  The function $x(t)=\psi(t)$ is a solution of this equation for $t<0$ and is noncontinuable on $[\sigma-r,0)$.
+\end{proof}
+\begin{proposition}
+  $T(t,\sigma)$ may not be a bounded map.
+\end{proposition}
+\begin{proof}
+Let $r=\frac{1}{4}$, $C=C([-r,0],\R)$, consider the equation
+\begin{equation}\label{eqn-6}
+  \dot{x}(t)=f(t,x_t):=x^2(t)-\int_{\min(t-r,0)}^{0}|x(s)|\,\mathrm{d}s.
+\end{equation}
+Let $B=\left\{\phi \in C:|\phi|\le 1\right\} $ and $x(\psi)$ be the  solution of Equation (\ref{eqn-6}) with the initial function $\psi \in B$. 
+\begin{enumerate}
+\item We first claim that $x(\psi)$ is always $\ge -1$.In fact,
+  if there exists $x(\psi)(t)<-1$ for $0\le t\le \frac{1}{r}$, let $x(\psi)(t_0)=-1$ and $x(\psi)(t)\ge-1$ for $t<t_0$(and this implies $\dot{x}(t_0)\le 0$). Then
+ \[
+   \dot{x}(t_0)\ge 1-\frac{1}{4}\cdot \frac{1}{4}>0.
+\] 
+This contradicts to the assumption.
+\item Let $\dot{y}=y^2(t)$ and $y(0)=1$, then $x(t)<y(t)$ for all $0<t<1$,
+  \[
+    x(\psi)(t)<y(t)=\frac{1}{1-t}.
+  \] 
+  This implies $x(\psi)(t)$ exists on $[0,1)$.
+  In particular, $x(\psi)(r)<(1-r)^{-1}$ for all $\psi \in B$. For $t\ge r$, $\dot{x}(\psi)(t)=x^2(\psi)(t)$ and the fact that $x(\psi)(r)<(1-r)^{-1}$ implies $x(\psi)(t)$ exists for $-r\le t\le 1$. In fact, if $x(\psi)(r)<(1-r)^{-1}$, then for $1\ge t>r$, we have
+   \[
+     \frac{1}{x(\psi)(t)}-\frac{1}{x(\psi)(r)}=-1\cdot \left( t-r \right) 
+  \] 
+  \[
+    \Rightarrow \frac{1}{x(\psi)(t)}=-\cdot (t-r)+\frac{1}{x(\psi)(r)}>r-1+(1-r)=0.
+  \] 
+  Hence $\frac{1}{x(\psi)(1)\neq 0}$ and then $x(\psi)(1)\neq \infty$.
+\item If we show that for any $\varepsilon >0$, there is a function  $\psi \in B$ such that 
+  \[
+    x(\psi)(r)\ge (1-r)^{-1}-\varepsilon ,
+  \] 
+  then the set  $x(B)(1)$ is not bounded. Let $\alpha=y-x$ where $x(t)=x(\psi)(t),\psi(0)=1$, we need to find $x$ such that $\alpha\le \varepsilon $ for $0<t<r$. Let $C=(1-r)^{-1},\lambda=\int_{-r}^{0}|b(s)|\,\mathrm{d}s$, then 
+  \begin{equation*}
+    \begin{aligned}
+      \dot{\alpha}(t)= & \dot{y}(t)-\dot{x}(t)\\
+      = & y^2(t)-x^2(t)+\int_{\min(t-r,0}^{0}|b(s)|\,\mathrm{d}s\\
+      \le & \left( y(t)+x(t) \right) \alpha(t)+\int_{-r}^{0}|b(s)\,\mathrm{d}s\\
+      \le & 2 C \alpha(t)+\lambda\\
+      \le & 2C\left( \alpha(t)+\frac{\lambda}{2C} \right) .
+    \end{aligned}
+  \end{equation*}
+  Since $\alpha(0)=0$,
+  \[
+    \alpha(t)+\frac{\lambda}{2C}\le \frac{\lambda}{2C}e^{2Ct}.
+  \] 
+  To obtain $\alpha\le \varepsilon $, it is enough to get 
+  \begin{equation*}
+    \begin{aligned}
+      & \left( e^{2Ct}-1 \right) \frac{\lambda}{2C}\le \varepsilon \\
+      & \Leftarrow \lambda\le \frac{2C}{e^{2Ct}-1}\varepsilon \\
+      & \Leftarrow \lambda\le 2C\varepsilon  \text{ since }e^{\frac{2r}{1-r}}-1<1.
+    \end{aligned}
+  \end{equation*}
+  This last inequality $\lambda\le 2C\varepsilon $ can be satisfied, hence there exists the required $\psi $ for arbitrary small $\varepsilon >0$. This completes the proof of the proposition.
+\end{enumerate}
+\end{proof}
+Through the given example of the above, we can find that the difference between RFDE and ODE. In ODE, the map is always be a bounded map. The following proposition states another difference between these two kinds of equations.
+
+
+Before stating the proposition,Consder the control problem 
+
+\begin{equation}\label{eqn-7}
+  \dot{x}(t)=Ax(t-r)+Bu
+\end{equation}
+where $A$ and $B$ are constant matrices, $r>0$,$x\in \R^{n}$, $u\in \R^{p}$,$ |u|\le 1$, and $u=u(t)$ is a locally integrable function.
+We define
+\[
+  \mathcal{A}(t,\phi):=\left\{\psi \in C: \text{ there is a locally integrable }u, |u|\le 1, \text{ with }x_t(\phi,u)=\psi\right\} . 
+\]
+
+The set $\mathcal{A}(t,\phi)$ is the set attainable at time $t$ along solutions of Equation (\ref{eqn-7}) using the controls $u$ and starting at $t=0$ with $\phi$.
+
+It is known that every element of the attainable set at time $t$ can be reached by using only the bang-bang controls, i.e., by only using control function $u(\tau )$ with $|u(\tau )|=1$ for $0\le \tau \le t$. Now we state the following proposition:
+\begin{proposition}
+  Bang-bang controls are not always possible for RFDE.
+\end{proposition}
+\begin{proof}
+  Suppose 
+  \[
+  \phi=0
+  \] 
+  and consider 
+  \begin{equation}
+    \dot{x}(t)=x(t-1)+u(t),\quad |u|\le 1.
+  \end{equation}
+  Then 
+  \[
+    x(0,u)(t)= \int_0^{t}u(s)\,\mathrm{d}s
+  \] 
+  for $0\le t\le 1$ and $\mathcal{A}(1,0)$ contains zero since the control $u(t)=0,0\le t\le 1$ gives $x_1(0,u)=0$. On the other hand, there is no way to reach zero with a bang-bang control.
+\end{proof}
+\section{Equivalence classes of solutions}
+Sometimes the map $T(t,\sigma)$ is not one-to-one, this is the reason why we need to study and classify the solutions.
+\begin{proposition}
+  The map $T(t,\sigma)$ may not be one-to-one.
+\end{proposition}
+\begin{proof}
+This proposition can be proven easily by analysing the equation
+\begin{equation}\label{eqn-9}
+  \dot{x}(t)=-x(t-r)[1-x^2(t)].
+\end{equation}
+This equation has the solution $x(t)=1$ for all $t$ in $(-\infty,\infty)$. 
+If $r=1$,$\sigma=0$ and $\phi \in C$, then there is a unique solution $x(0,\phi) $ of Equation (\ref{eqn-9}) that depends continuously on $\phi$.
+  
+If $\phi \in C$,$\phi(0)=1$, then $x(0,\phi)(t)=1$ for all $t\ge 0$. Therefore, for all these initial values, $x_t(0,\phi)$,$t\ge 1$ is the constant function $1$. This implies that a translation of a subspace of $C$ of codimension one is mapped into a point by $T(t,0)$ for all $t\ge 1$.
+\end{proof}
+To depict the trajectories of this example, it is necessary to introduce the definition of equivalence class of solutions.
+\begin{definition}
+  Suppose $\Omega=\R\times C$ and all solutions $x(\sigma,\phi)$ of the RFDE($f$) are defined on $[\sigma-r,\infty)$. We say $(\sigma,\phi)\in \R\times C$ is \textit{equivalent} to $(\sigma,\psi)\in \R\times C$ if there is a $\tau \ge \sigma$ such that $x_{\tau }(\sigma,\phi)=x_{\tau }(\sigma,\psi)$.
+\end{definition}
+
+Be careful of the difference between equivalence relation defined here and orbits defined before.
+
+Then the space can be decomposed into equivalence classes $\left\{V_\alpha\right\} $ for each fixed $\sigma$. For each equivalence class $V_\alpha$, choose a representation element $\phi^{\sigma,\alpha}$ and let 
+\begin{equation}
+  W(\sigma)= \bigcup_{\alpha} \phi^{\sigma,\alpha}.
+\end{equation}
+It is important to choose an appropriate $\phi^{\sigma,\alpha}\in  V_\alpha$.
+\begin{example}
+  Consider Equation (\ref{eqn-9}), a good choice for $W(0)$ of this would be 
+   \[
+     C\backslash \setminus \left\{\left( C_1 \setminus \left\{1\right\}  \right)\cup \left( C_{-1}\setminus \left\{-1\right\}  \right)  \right\} 
+  \] 
+  where $C_\alpha=\left\{f\in C:\phi(0)=a\right\} $.
+\end{example}
+
+The following notion is important for control theory.
+\begin{definition}
+  An equivalence class  $V_\alpha$ is said to be \textit{determined in a finite time} if there exists $\tau >0$ such that for any $\phi,\psi \in V_\alpha$, there is a relation
+  \[
+    x_{\sigma+t}(\sigma,\phi)=x_{\sigma+t}(\sigma,\psi)
+  \] 
+  for $t\ge \tau $.
+\end{definition}
+Given two fixed $\phi,\psi \in  V_\alpha$, by the definition of equivalence classes there must exists $\tau >0$ such that $x++\sigma+t(\sigma,\phi)=x_{\sigma+t}(\sigma,\psi)$ for $t\ge \tau $.
+The choice of $\tau $ here may be relevant to the pair $(\phi,\psi)$. Being determined in a finite time means the choice of $\tau $ can be chosen as the same number. i.e., irrelevant to the choice of the pair $(\phi,\psi)$.
+
+It is good to be determined in finite time, but the reality is not that perfect.
+\begin{proposition}\label{prp-3-4}
+  The equivalence classes may not be determined in a finite time.
+\end{proposition}
+To prove Proposition \ref{prp-3-4}, we consider the equation
+\begin{equation}
+  \dot{x}(t)=\beta [|x_t|-x(t)],\quad \beta>0.\label{eqn-11}
+\end{equation}
+given the initial state $\phi$ in $C=C([-1,0],\R)$.
+
+Before proving this proposition, we first establish some lemmas.
+\begin{lemma}\label{lma-3-5}
+  Suppose  $\phi(0)\ge 0$, then the solution $x(t)$ of Equation (\ref{eqn-11}) is a constant for $t\ge 1$. Further more, for any positive constant function, the corresponding equivalence class contains more than one element and equivalence class corresponding to the constant function zero contains only zero. 
+\end{lemma}
+\begin{proof}
+  \begin{enumerate}
+    \item If $\phi(0)\ge 0$, $\phi\neq 0$, combined with $\dot{x}(t)\ge 0$ by Equation (\ref{eqn-11}), then 
+  \[
+    |x_t|=x(t)
+  \] 
+  for $t\ge 1$ and uniqueness implies $x(t)$ is a constant $\ge \phi(0)$ for $t\ge 1$. If $\phi\left(0 \right) =0$ and $\phi\neq 0$, then $\dot{x}(0)>0$ and $x(t)>0$ for $t\ge 1$. Therefore, for any positive constant function, the corresponding equivalence class contains more than one element.
+\item If $x(t)=0,t\ge a>0$, then $x(t)$ must be zero at $[a-1,a]$. Hence the equivalence class corresponding to the constant function zero contains only zero.
+  \end{enumerate}
+\end{proof}
+
+\begin{lemma}\label{lma-3-6}
+  Suppose $\phi(0)<0$ and $x(\phi,\beta)(t)$ has a zero $z(\phi,\beta)$. Then it must be simple.
+\end{lemma}
+\begin{proof}
+  Given $\phi(0)<0$, it is clear that $x(\phi,\beta)(t)$ approaches a constant as $t\to \infty$. If $x(\phi,\beta)(t)$ has a zero $z=z(\phi,\beta)$, then $x(t)\neq 0$ as a function in $C\left( [z-1,z] \right) $, hence $\dot{x}(z)=\beta |x_t|>0$, i.e., $z$ is simple. 
+\end{proof}
+
+\begin{lemma}\label{lma-3-7}
+  For any $\beta>0$, there is a  $\phi \in C,\phi(0)<0$ such that $z(\phi,\beta)$ exists.
+\end{lemma}
+\begin{proof}
+  Let $\phi(0)=-1$,$ \phi(\theta)=-\gamma,\gamma>1,-1\le \theta \le -\frac{1}{2}$ and let $\phi(\theta)$ be a monotone increasing function for $-\frac{1}{2}\le \theta \le 0$. As long as $x(t)\le 0$ and $0\le t \le \frac{1}{2}$, we have $|x_t|=\gamma$ and 
+  \[
+    \dot{x}(t)=\beta[\gamma-x(t)]\ge \beta \gamma.
+  \] 
+  Therefore, $x(t)\ge \beta \gamma t-1$ if $x(t)\le 0$ and $0\le t \le \frac{1}{2}$. For $\beta \gamma /2>1$, $x(\frac{1}{2})\gamma \frac{\beta\gamma}{2}-1>0$, hence $x$ must have a zero $z(\phi,\beta)<\frac{1}{2}$.
+\end{proof}
+\textit{Proof of Proposition \ref{prp-3-4}. } Define 
+\begin{equation*}
+  \begin{aligned}
+    C_{-1}&=\left\{\phi \in C:\phi(0)=-1\right\} \\
+    C_{-1^{0}}&= \left\{\phi \in C_{-1}: z(\phi,\beta) \text{ exists}\right\}  \\
+    C_{-1^{n}}&= \left\{\phi \in C_{-1}:z(\phi,\beta) \text{ does not exist}\right\} .
+  \end{aligned}
+\end{equation*}
+Lemma \ref{lma-3-7} implies $C_{-1^{0}}$ is not empty. In fact, if $\phi(0)=-a$ in Lemma \ref{lma-3-7}, we can do the rescaling $\phi\to \frac{\phi}{a}$ and $x(t)\to \frac{x(t)}{a}$, then we get the desired $\phi$ such that $\phi \in  C_{-1^{0}}$.
+
+Since $z(\phi,\beta)$ is continuous by Lemma \ref{lma-3-6}, the set $C_{-1^{0}}$ is open, therefore $C_{-1^{n}}$ is closed. If $C_{-1^{n}}$ is not empty, then there is a sequence $\phi_j \in C_{-1^{0}}$,$\phi_j\to \phi \in C_{-1^{n}}$ as $j\to \infty$ and $z(\phi_j,\beta)\to \infty$.
+
+Now we claim that $C_{-1^{n}}$ is not empty. To prove it, choose $\beta_0>0$ less than or equal to the value $\beta$ for which the equation
+\[
+\lambda+\beta=-\beta e^{-\lambda}
+\] 
+has a real root $\lambda_0$ of multiplicity two. For this $\beta_0$, the equation $\lambda+\beta_0=-\beta_0 e^{-\lambda}$ has two real negative roots. If $-\lambda_0$ is one of these roots, then $x(t)=-e^{-\lambda_0t}$ is a solution of Equation (\ref{eqn-11}) with initial value $\phi_0(\theta)=-e^{-\lambda_0 \theta},-1\le \theta\le 0$, $\phi_0 \in C_{-1}$. Therefore $C_{-1^{n}}$ is not empty. It follows that 
+\[
+  \delta(\beta_0):=\sup \left\{z(\phi,\beta_0):\phi \in C_{-1^{0}}\right\} =\infty.
+\] 
+Let $\phi_j \in  C_{-1}^{0}$ and $z(\phi_j,\beta_0)\to \infty$. By Lemma \ref{lma-3-5}, for every $\phi_j$, there exists $t_j$ such that $\phi_j(t)=a_j$ for $t\ge t_0$ and $\phi_j(t)<a_j$ for $t<t_0$. $t_j$ can be chosen continuously on $(0,+\infty)$ since $z(\phi,\beta)$ is continuous.
+
+
+Since the original equation is positive homogeneous of degree $1$ in $x$, by doing the transform $\phi_j\to \frac{\phi_j}{a_j}$ we get that for any positive constants $a$ and $t_0$ there exists $\phi \in  C$ such that 
+$x(\phi,\beta_0)(t)=a,t\ge t_0$, and $x(\phi,\beta_0)(t)<a$ for $0\le t<t_0$.\hfill $\square$ \par
+
+\section{Small solutions for linear equations}
+Now we pay attention to linear autonomous RFDE(L)
+\begin{equation}\label{eqn-12}
+ \left\{ \begin{aligned}
+     \dot{x}(t)=& \int_{-r}^{0}\, \mathrm{d}[\eta(\theta)]x(t+\theta)\\
+     x_0=& \phi.
+  \end{aligned}\right.
+\end{equation}
+\begin{definition}
+  A \textit{small solution } $x$ is a solution such that 
+  \begin{equation}
+    \lim_{t\to \infty}e^{kt}x(t)=0 \text{ for all } k \in \R.
+  \end{equation}
+\end{definition}
+The aim of this section is to study the \textit{nontrivial} small solutions of System (\ref{eqn-12}).
+\begin{example}[Existence of nontrivial small solutions]
+  Consider the system
+  \begin{equation}
+    \left\{
+      \begin{aligned}
+	\dot{x}_1(t)=&x_2(t-1)\\
+	\dot{x}_2(t)=&x_1(t).
+      \end{aligned}
+      \right.
+  \end{equation}
+  For any $\phi_1(0)=0$ and $\phi_2=0$, the initial condition $\phi=(\phi_1,\phi_2)$ gives a small solution.
+\end{example}
+
+We will present necessary and sufficient conditions for existence of nontrivial small solutions. Before stating this, we need to introduce some notions and outcomes about complex analysis,which are usefull latter.
+
+\begin{definition}
+  An entire function $h:\C\to \C$ is of \textit{order} $1$ if and only if
+  \[
+ \mathop{\overline{\lim}}\limits_{r\to \infty} \frac{\log \log M(r)}{\log r}=1
+  \] 
+  where
+  \[
+    M(r)=\max_{0\le\theta\le 2\pi}\left\{ |h(re^{i\theta})|\right\} .
+  \] 
+  An entire function of order $1$ is of \textit{exponential type} if and only if
+  \[
+    \mathop{\overline{\lim}}\limits_{r\to \infty} \frac{\log M(r)}{r}=E(h)
+  \] 
+  where $0\le E(h)<\infty$.
+  In this case, $E(h)$ is called the exponential type of $h$.
+\end{definition}
+For vector-valued function,
+\[
+  h=(h_1,h_2,\cdots,h_n):\C\to \C^{n}
+\] 
+exponential type defined by 
+\[
+  0\le \mathrm{E}(h)=\max_{1\le j\le n}\mathrm{E}(h_j)<\infty.
+\] 
+
+\begin{lemma}[Paley-Wiener Theorem]\label{lma-4-3}
+  Let $h:\C\to \C$ be an entire function and uniformly bounded in the closed right half plane $\left\{z:\Re z\ge 0\right\} $. Then $h$ is of exponential type $\tau $ and $L^2$-integrable along the imaginary axis if and only if 
+  \[
+    h(z)=\int_0^{\tau }e^{-z\tau }\phi(t) \,\mathrm{d}t
+  \] 
+  where $\phi \in L^2[0,\tau ]$ and $\phi$ does not vanish a.e. in any neighborhood of $\tau $.
+\end{lemma}
+
+\begin{lemma}
+  Let $\alpha_j$ be functions of bounded variation on the interval $[0,a_j]$,$j=1,2$ and continuous from the left on $(0,a_j)$ and $\alpha_j(0)=0$, not constant in neighborhoods of $a_j$. Then 
+   \begin{equation}
+     \mathrm{E}(\int_{0}^{a_j}e^{-zt}\,\mathrm{d}\alpha_j(t))=a_j,\quad j=1,2
+  \end{equation}
+  and 
+  \begin{equation}
+    \mathrm{E}(\int_0^{a_1}e^{-zt}\,\mathrm{d}\alpha_1(t)\int_{0}^{a_2}\,\mathrm{d}\alpha_2(t))=a_1+a_2.
+  \end{equation}
+\end{lemma}
+The laplace transform of a function  $f$ is defined by 
+\[
+  \mathcal{L}(f)(\lambda)=\int_0^{\infty}e^{-\lambda t}f(t)\,\mathrm{d}t.
+\] 
+Let $x$ be a small solution of Equation (\ref{eqn-12}). We want to find the Laplace transform of $x$. First we compute the Laplace transform of  $\dot{x}$:
+
+\begin{equation*}
+  \begin{aligned}
+    \mathcal{L}(\dot{x})(z)= & \int_0^{\infty}e^{-zs}\dot{x}(s)\,\mathrm{d}s\\
+    = &\int_0^{\infty}e^{-zs}\int_{-r}^{0}\,\mathrm{d}[\eta(\theta)]x(s+\theta)\,\mathrm{d}s\\
+    = & \int_{-r}^{0}\,\mathrm{d}[\eta(\theta)]\left( \int_0^{\infty}e^{-zs}x(s+\theta)\,\mathrm{d}s \right) \\
+    = & \int_{-r}^{0}\,\mathrm{d}[\eta(\theta)] \left( \int_{\theta}^{\infty}e^{-z(s-\theta)}x(s)\,\mathrm{d}s \right) \\
+    = & \int_{-r}^{0}e^{z\theta}\,\mathrm{d}[\eta(\theta)]\left( \int_{\theta}^{-r}e^{-zs}x(s)\,\mathrm{d}s+\int_{-r}^{\infty}e^{-zs}x(s)\,\mathrm{d}s \right) \\
+    = & \int_{-r}^{0}e^{z\theta}\,\mathrm{d}[\eta(\theta)]\left( -\int_{-r}^{\theta}e^{-z\tau }\phi(\tau )\,\mathrm{d}\tau +\int_{-r}^{\infty}e^{-zs}x(s)\,\mathrm{d}s \right) \\
+    = & - \int_{-r}^{0}e^{z\theta}\,\mathrm{d}[\eta(\theta)] \int_{-r}^{\theta}e^{-z\tau }\phi(\tau )\,\mathrm{d}\tau \\
+    + & \int_{-r}^{0}e^{z\theta}\,\mathrm{d}[\eta(\theta)]\widehat{x}(z)
+  \end{aligned}
+\end{equation*}
+where $\widehat{x}(z):= \int_{-r}^{\infty}e^{-zs}x(s)\, \mathrm{d}s$.
+\begin{equation*}
+  \begin{aligned}
+    \widehat{x}(z)=& \int_{-r}^{\infty}e^{-zs}x(s)\,\mathrm{d}s\\
+    =& \left( \int_{-r}^{0}e^{-zs}\phi(s)\,\mathrm{d}s+ \frac{e^{-zs}}{-zs}x(s)\lvert_{s=0}^{s=\infty} + \frac{1}{z}\int_0^{\infty}e^{-zs}\dot{x}(s)\,\mathrm{d}s \right) \\
+    =& \frac{1}{z}\left( z\int_{-r}^{0}e^{-zs}\phi(s)\,\mathrm{d}s+\phi(0)-\int_{-r}^{0}e^{z\theta}\,\mathrm{d}[\eta(\theta)]\int_{-r}^{\theta}e^{-z\tau }\phi(\tau )\mathrm{d}\tau\right.\\
+    + &\left. z \int_{-r}^{0}e^{z\theta}\,\mathrm{d}[\eta(\theta)]\widehat{x}(z)\right). 
+  \end{aligned}
+\end{equation*}
+Hence we get 
+
+\begin{equation*}
+  \widehat{x}(z)= \frac{1}{z}\left( \phi(0)-\int_{-r}^{0}e^{z\theta)}\,\mathrm{d}\eta(\theta)\int_{-r}^{\theta}e^{-z\tau }\phi(\tau )\,\mathrm{d}\tau +z\int_{-r}^{0}e^{-zs}\phi(s)\,\mathrm{d}s+\int_{-r}^{0}e^{z\theta}\,\mathrm{d}\eta(\theta)\widehat{x}(z) \right) .
+\end{equation*}
+It can be written as 
+\[
+\widehat{x}=A+B\widehat{x}
+\] 
+where
+\[
+  A=\frac{1}{z}\left( \phi(0)-\int_{-r}^{0}e^{z\theta}\,\mathrm{d}\eta(\theta)\int_{-r}^{\theta}e^{-z\tau }\phi(\tau )\,\mathrm{d}\tau +z\int_{-r}^{0}e^{-zs}\phi(s)\,\mathrm{d}s \right) 
+\] 
+and
+\[
+  B=\frac{1}{z}\int_{-r}^{0}e^{z\theta}\,\mathrm{d}\eta(\theta).
+\] 
+Then
+\begin{equation}\label{eqn-17}
+ \begin{aligned}
+    \widehat{x}= & (I-B)^{-1}A\\
+    = & \left(zI-\int_{-r}^{0}e^{z\theta}\,\mathrm{d}\eta(\theta)\right)^{-1} \left( \phi(0)-\int_{-r}^{0}e^{z\theta}\,\mathrm{d}\eta(\theta)\int_{-r}^{\theta}e^{-z\tau }\phi(\tau )\,\mathrm{d}\tau  \right.\\
+  + &\left. z\int_{-r}^{0}e^{-zs}\phi(s)\,\mathrm{d}s\right).
+  \end{aligned}
+\end{equation}
+From the above equation we introduce a useful notion:
+\begin{definition}
+  The \textit{characteristic matrix} $\Delta(z)$ of Equation (\ref{eqn-12}) is defined by
+  \begin{equation}
+    \Delta(z):=zI-\int_{-r}^{0}e^{z\theta}\,\mathrm{d}\eta(\theta)=zI-\int_0^{r}e^{-z\theta}\,\mathrm{d}\eta(\theta).
+  \end{equation}
+\end{definition}
+Then $\widehat{x}$ can be written as 
+\begin{equation}\label{eqn-19}
+  \widehat{x}=\Delta(z)^{-1}\left( \phi(0)-\int_{-r}^{0}e^{z\theta}\,\mathrm{d}\eta(\theta)\int_{-r}^{\theta}e^{-z\tau }\phi(\tau )\,\mathrm{d}\tau +z\int_{-r}^{0}e^{-zs}\phi(s)\,\mathrm{d}s \right). 
+\end{equation}
+The determinant of $\Delta(z)$ can be written as 
+\[
+  \mathrm{det}\Delta(z)=z^{n}-\sum_{j=1}^{n} l_j(z)z^{n-j}
+\] 
+where $l_j(z)=\int_0^{\tau }e^{-zt }\,\mathrm{d}\alpha_j(t)$. $l_j$ is of exponential type at most $jr$. So 
+\begin{equation}\label{eqn-20}
+  \mathrm{E}\left( \mathrm{det}\Delta(z) \right) \le nr.
+\end{equation}
+The cofactors 
+\begin{equation}\label{eqn-21}
+  C_{ij}(z)=\sum_{j=1}^{n-1} l_{j}(z)z^{n-j}.
+\end{equation}
+Hence 
+\begin{equation}\label{eqn-22}
+  \mathrm{E}\left( C_{ij}(z) \right) \le (n-1)r.
+\end{equation}
+Since $x$ is a small solution by assumption,  $x$ decays faster than any exponential, the Laplace transform of $x$ converges for every $z$ in $\C$. Recall $\widehat{x}(z)=\int_{-r}^{\infty}e^{-zs}x(s)\,\mathrm{d}s$, the Plancherel theorem implies that $\widehat{x}$ is $L^2$-intergrable along the imaginary axis. So $\widehat{x}$ is an entire function that is $L^2$-integrable along the imaginary axis. From the explicit representation of $\widehat{x}$ in Equation (\ref{eqn-19}), we can compute the exponential type of $\widehat{x}$. Combined with Equation (\ref{eqn-20}), the exponential type of $\widehat{x}$ satisfies
+\begin{equation}
+  \mathrm{E}\left( \widehat{x} \right) \le nr-\mathrm{E}\left(  \mathrm{det}\Delta(z) \right) .
+\end{equation}
+Thus, Lemma \ref{lma-4-3} implies $x(t;\phi)=0$ the following theorem:
+\begin{theorem}
+  Supose that $x(\cdot ;\phi)$ is a small solution of Equation {\normalfont (\ref{eqn-12})}, then 
+  $x(t;\phi)=0$ for $t\ge nr-\mathrm{E}\left( \mathrm{det}\Delta(z) \right) $.
+\end{theorem}
+\begin{remark}
+This theorem implies that for linear autonomous systems of RFDE, the equivalence classes are determined in a finite time.
+\end{remark}
+\iffalse
+\begin{definition}
+  The \textit{ascent} $\alpha$ of a semigroup $T(t)$ is the value defined by
+  \begin{equation}
+    \alpha=\inf \left\{t: \text{ for all } \epsilon >0, \mathcal{N}(T(t))=\mathcal{N}(T(t+\epsilon ))\right\} .
+  \end{equation}
+\end{definition}
+\begin{definition}
+  Define $\epsilon $ and $\sigma$ by
+  \begin{equation}
+    \mathrm{E}\left( \mathrm{det}\Delta(z) \right) =nr-\epsilon ,\quad \max_{1\le i,j\le n}\mathrm{E}(C_{ij}(z))=(n-1)r-\sigma.
+  \end{equation}
+\end{definition}
+Now we state and prove the following theorem:
+\begin{theorem}
+  The \textit{ascent} $\alpha$ of the solution operator $T(t)$ associated with Equation {\normalfont(\ref{eqn-12})} is one-to-one if and only if $\mathrm{E}\left( \mathrm{det}\Delta(z) \right) =nr$.
+\end{theorem}
+\fi
+
+Though the properties of RFDE is rather wild and different from ODE, the linear autonomous system of RFDE is rather simple compaired with the general conditions through studies of small solutions.

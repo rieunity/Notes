@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.10.24)  2 JUN 2020 22:15
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.10.24)  5 JUL 2020 23:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1190,18 +1190,33 @@ Overfull \hbox (5.14049pt too wide) in paragraph at lines 318--319
 \OML/cmm/m/it/12 e[]\OMS/cmsy/m/n/12 j[]j ^^T \OML/cmm/m/it/12 e[]$\T1/lmr/m/n/12 , \TU/FandolSong-Regular(0)/m/n/12 所 以 $\OML/cmm/m/it/12 e[][] \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 L[]\OT1/cmr/m/n/12 (\U/msb/m/n/12 R\OT1/cmr/m/n/12 )$\T1/lmr/m/n/12 , \TU/FandolSong-Regular(0)/m/n/12 从 而 $\OML/cmm/m/it/12 f$ \TU/FandolSong-Regular(0)/m/n/12 在 带 形 区 域 $[]$
  []
 
-[9] [10] [11] [12])
+[9] [10] [11] [12] [13]
+Overfull \hbox (13.27002pt too wide) detected at line 537
+[]
+ []
+
+[14]
+Overfull \hbox (7.10516pt too wide) in paragraph at lines 543--545
+\TU/FandolSong-Regular(0)/m/n/12 第 一 项 小 于 等 于 $\OML/cmm/m/it/12 C [][]$\T1/lmr/m/n/12 . \TU/FandolSong-Regular(0)/m/n/12 对 第 二 项 利 用 \T1/lmr/m/n/12 Young
+ []
+
+
+Overfull \hbox (27.2317pt too wide) in paragraph at lines 557--559
+\TU/FandolSong-Regular(0)/m/n/12 上 述 式 子 对 于 $\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 h\OMS/cmsy/m/n/12 j \OML/cmm/m/it/12 < d$ \TU/FandolSong-Regular(0)/m/n/12 的 所 有 差 分 都 成 立\T1/lmr/m/n/12 , \TU/FandolSong-Regular(0)/m/n/12 所 以 由 差 分 和 微 分 的 关 系 可 得 $\OMS/cmsy/m/n/12 k\OT1/cmr/m/n/12 ^^A[]\OML/cmm/m/it/12 u\OMS/cmsy/m/n/12 k[] ^^X
+ []
+
+[15] [16] [17] [18] [19])
 \tf@thm=\write6
 \openout6 = `pde-homework.thm'.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 89.
- [13]
+ [20]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 89.
  (./pde-homework.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 89.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 89.
 Package rerunfilecheck Info: File `pde-homework.out' has not changed.
-(rerunfilecheck)             Checksum: 7897E65EE84AD43379FFE6ED739CE869.
+(rerunfilecheck)             Checksum: 167C9654683AD3440AA1722F052207A0.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1212,12 +1227,12 @@ Package logreq Info: Writing requests to 'pde-homework.run.xml'.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 89.
  ) 
 Here is how much of TeX's memory you used:
- 33451 strings out of 492483
- 654234 string characters out of 6129482
- 1156575 words of memory out of 5000000
- 37619 multiletter control sequences out of 15000+600000
+ 33455 strings out of 492483
+ 654262 string characters out of 6129482
+ 1156995 words of memory out of 5000000
+ 37623 multiletter control sequences out of 15000+600000
  577272 words of font info for 93 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  58i,11n,76p,943b,745s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on pde-homework.xdv (13 pages, 66568 bytes).
+Output written on pde-homework.xdv (20 pages, 109804 bytes).

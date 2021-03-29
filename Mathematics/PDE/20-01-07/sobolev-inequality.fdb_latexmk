@@ -1,9 +1,9 @@
 # Fdb version 3
-["xdvipdfmx"] 1578404392 "sobolev-inequality.xdv" "sobolev-inequality.pdf" "sobolev-inequality" 1578404392
+["xdvipdfmx"] 1578404392 "sobolev-inequality.xdv" "sobolev-inequality.pdf" "sobolev-inequality" 1606509052
   "sobolev-inequality.xdv" 1578404392 20372 8caf704d6f06795253fed9ea92733128 "xelatex"
   (generated)
   "sobolev-inequality.pdf"
-["xelatex"] 1578404392 "sobolev-inequality.tex" "sobolev-inequality.xdv" "sobolev-inequality" 1578404392
+["xelatex"] 1578404392 "sobolev-inequality.tex" "sobolev-inequality.xdv" "sobolev-inequality" 1606509052
   "/home/rieunity/texmf/tex/latex/tensor/tensor.sty" 1571488674 4258 177d16e71f50eb48389533ac9bd9cd26 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -92,13 +92,13 @@
   "/usr/local/texlive/2019/texmf-dist/web2c/texmf.cnf" 1570742662 39452 758acee3f2beaeeedff570c5f5d76d98 ""
   "/usr/local/texlive/2019/texmf-var/web2c/xetex/xelatex.fmt" 1571853579 3765666 62de793a3e398af58254cb198b8b0b2d ""
   "/usr/local/texlive/2019/texmf.cnf" 1571853555 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "body.tex" 1578404319 10620 d04d2a0fc9eef805e37f73be57354ae2 ""
+  "body.tex" 1578404433 10620 d04d2a0fc9eef805e37f73be57354ae2 ""
   "sobolev-inequality.aux" 1578404392 1083 4d783ec3efd1fc181f7272ed868fde78 "xelatex"
   "sobolev-inequality.out" 1578404392 58 48e144f9880a28930917098b44eee40e "xelatex"
-  "sobolev-inequality.tex" 1578404385 1883 ab8d5e3900ac20b4ffd7c167e5d12a3f ""
+  "sobolev-inequality.tex" 1578492541 1883 ab8d5e3900ac20b4ffd7c167e5d12a3f ""
   (generated)
+  "sobolev-inequality.out"
   "sobolev-inequality.log"
+  "sobolev-inequality.xdv"
   "sobolev-inequality.thm"
   "sobolev-inequality.aux"
-  "sobolev-inequality.xdv"
-  "sobolev-inequality.out"

@@ -14,7 +14,136 @@ The main task of this note is to prove the following theorem:
   \]
   where $C=C(n,\lambda,\Lambda,p,q)$ is a positive constant.
 \end{theorem}
-\section{Moser's Method}
+
+\begin{proof}
+  We use two approaches to prove the theorem for $\theta=1/2$ and $p=2$.
+
+\textsc{Method 1.} Approach by De Giorgi.
+
+For some $k\ge 0$ and $\eta\in C_0^1(B_1)$, define $v=(u-k)^+$ and set $\varphi = v\eta^2$. By H\"{o}lder inequality we have
+\begin{align*}
+  \int a_{ij}D_i u D_j\varphi=& \int a_{ij}D_i u D_j v\eta^2+\int 2a_{ij}D_i u D_j\eta v\eta\\
+  \ge & \lambda \int |Dv|^2\eta^2-2\Lambda \int |Dv| |D\eta|v\eta \\
+  \ge & \frac{\lambda}{2}\int |Dv|^2\eta^2- \frac{2\Lambda^2}{\lambda}\int |D\eta|^2v^2.
+\end{align*} 
+Hence we obtain 
+$$
+  \int |Dv|^2\eta^2 \le C\left(\int v^2|D\eta|^2+\int |c|v^2\eta^2+k^2\int|c|\eta^2+\int |f|v\eta^2\right).
+$$
+Then 
+$$
+  \int |D(v\eta)|^2\le C \left( \int v^2|D\eta|^2+ \int |c|v^2\eta^2+k^2\int|c|\eta^2+\int |f|v\eta^2\right).
+$$
+By the Sobolev's inequality we have
+$$
+  \left(\int_{B_1}(v\eta)^{2^*}\right)^{\frac{2}{2^*}}\le c(n)\int _{B_1}|D(v\eta)|^2
+$$
+where $2^*=2n/(n-2)$ for $n>2$ and $2^*>2$ is arbitrary if $n=2$. H\"{o}lder's inequality implies that  with $\delta$ small and $\eta\le 1$ 
+\begin{align*}
+  \int |f|v\eta^2\le& \left( \int |f|^q \right) ^{\frac{1}{q}}\left( \int |v\eta|^{2^*} \right) ^{\frac{1}{2^*}} |\left\{v\eta\neq 0\right\} |^{1-\frac{1}{2^*}-\frac{1}{q}}\\
+  \le & c(n)\|f\|_{L^{q}}\left( \int |D(v\eta)|^2 \right) ^{\frac{1}{2}}|\left\{v\eta\neq 0\right\} |^{\frac{1}{2}+\frac{1}{n}-\frac{1}{q}}\\
+  \le & \delta \int|D\left( v\eta \right) |^2+c(n,\delta)\|f\|^2_{L^{q}} |\left\{v\eta\neq 0\right\} |^{1+\frac{2}{n}-\frac{2}{q}}.
+.\end{align*}
+Note $1+\frac{2}{n}-\frac{2}{q}>1-\frac{1}{q}$ if $q>n /2$. Therefore we have the following estimate:
+\[
+  \int |D(v\eta)|^2\le C \left( \int v^2|D\eta|^2+\int|c|v^2\eta^2+k^2\int |c|\eta^2+\|f\|_{L^{q}(B_1)}|\left\{v\eta\neq 0\right\} |^{1-\frac{1}{q}} \right) .
+\] 
+
+Since 
+\[
+  \int |c|\eta^2\le \left( \int|c|^{q} \right) ^{\frac{1}{q}}|\left\{v\eta\neq 0\right\} |^{1-\frac{1}{q}}
+\] 
+and by H\"{o}lder's inequality
+\begin{align*}
+  \int |c|v^2\eta^2\le & \left( \int|c|^{q} \right) ^{\frac{1}{q}}\left( \int (v\eta)^{2^*} \right) ^{\frac{2}{2^*}}|\left\{v\eta\neq 0\right\} |^{1-\frac{2}{2^*}-\frac{1}{q}}\\
+  \le & c(n) \int |D(v\eta)|^2\left( \int |c|^{q} \right) ^{\frac{1}{q}}|\left\{v\eta\neq 0\right\} |^{\frac{2}{n}-\frac{1}{q}}
+\end{align*}
+if  $|\left\{v\eta\neq 0\right\}| $ is small, we have
+
+\begin{align*}
+  &\int |D(v\eta)|^2\le\\
+		      &C\left( \int v^2|D\eta|^2+\int|D(v\eta)|^2|\left\{v\eta\neq 0\right\} |^{\frac{2}{n}-\frac{1}{q}}+(k^2+\|f\|_{L^q(B_1)}^2)|\left\{v\eta\neq 0\right\} |^{1-\frac{1}{q}}  \right), 
+\end{align*}
+and this implies
+
+\begin{equation}
+  \int|D(v\eta)|^2\le C\left(\int v^2|D\eta|^2+(k^2+\|f\|_{L^{q}(B_1)}^{^2})|\left\{v\eta\neq 0\right\} |^{1-\frac{1}{q}} \right) 
+\end{equation} 
+if $ |\left\{v\eta\neq 0\right\} |$ is small.
+
+Applying Sobolev's inequality again we obtain
+
+\[
+  \int(v\eta)^2\le\left( \int(v\eta)^{2^*} \right) ^{\frac{2}{2^*}}|\left\{v\eta\neq 0\right\} |^{1-\frac{2}{2^*}}\le c(n)\int|D(v\eta)|^2|\left\{v\eta\neq 0\right\} |^{\frac{2}{n}}.
+\] 
+Therefore we have 
+\[
+  \int(v\eta)^2\le C\left( \int v^2|D\eta|^2|\left\{v\eta\neq 0\right\} |^{\frac{2}{n}}+(k+\|f\|_{L^{q}(B_1)})^2|\left\{v\eta\neq 0\right\} |^{1+\frac{2}{n}-\frac{1}{q}} \right) 
+\] 
+if $|\left\{v\eta\neq 0\right\} |$ is small. Choose $0<\epsilon<\frac{2}{n}-\frac{1}{q} $, then we have
+\[
+  \int (v\eta)^2\le C\left( \int v^2|D\eta|^2|\left\{v\eta\neq 0\right\} |^{\epsilon }+(k+\|f\|_{L^{q}(B_1)})^2|\left\{v\eta\neq 0\right\} |^{1+\epsilon } \right) 
+\] 
+if $|\left\{v\eta\neq 0\right\} |$ is small. 
+
+Now we choose the cut-off function in the following way. For any fixed $0<r<R\le 1$ choose $\eta \in C_0^{\infty}(B_R)$ such that $\eta\equiv 1$ in $B_r$ and $0\le \eta\le 1$ and $|D\eta|\le 2(R-r)^{-1}$ in $B_1$. Define the set
+\[
+  A(k,r)=\left\{x\in B_r\lvert u\ge k\right\} .
+\] 
+If $|A(k,R)|$ is small, we obtain
+\begin{align}
+  & \int_{A(k,r)}(u-k)^2\notag\\
+  \le & C\left( \frac{1}{(R-r)^2}|A(k,R)|^{\epsilon }\int_{A(k,r)}(u-k)^2+(k+\|f\|_{L^{q}(B_1)})^2|A(k,R)|^{1+\epsilon } \right) \label{eqn-1}
+\end{align}
+Note 
+\[
+  |A(k,R)|\le \frac{1}{k}\int_{A(k,R)}u^{+}\le \frac{1}{k}\|u^{+}\|_{L^2}.
+\] 
+Hence (\ref{eqn-1}) holds if $k\ge k_0=C\|u^{+}\|_{L^2}$ for some large $C$ depending only on $\lambda$ and $\Lambda$.
+
+
+Next we would show that there exists some $k=C\left( k_0+\|f\|_{L^{q}(B_1)} \right) $ such that 
+\[
+  \int_{A(k,\frac{1}{2}}(u-k)^2=0.
+\] 
+
+Let $h>k\ge k_0$ and any $0<r<1$. Since $A(k,r)\supset A(h,r)$, we obtain
+\[
+  \int_{A(h,r)}(u-h)^2\le \int _{A(k,r)}(u-k)^2
+\] 
+and
+\[
+  |A(h,r)|=|B_r\cap \left\{u-k\ge h-k\right\} |\le \frac{1}{(h-k)^2}\int_{A(k,r)}(u-k)^2.
+\]
+Therefore by (\ref{eqn-1}) we have for any $h>k\ge k_0$ and $\frac{1}{2}\le r<R\le 1$
+\begin{align*}
+  &\int_{A(h,r)}(u-h)^2\\
+  \le & C\left( \frac{1}{(R-r)^2}\int_{A(h,R)}(u-h)^2+(h+\|f\|_{L^{q}(B_1)})^2 |A(h,R)| \right) |A(h,R)|^{\epsilon }\\
+  \le & C\left( \frac{1}{(R-r)^2}+ \frac{(h+\|f\|_{L^{q}(B_1)})^2}{(h-k)^2} \right)\frac{1}{(h-k)^{2\epsilon }}\left( \int_{A(k,R)}(u-k)^2 \right) ^{1+\epsilon } 
+\end{align*}
+or 
+\begin{equation}
+  \|(u-h)^{+}\|_{L^2(B_r)}\le C\left( \frac{1}{R-r}+\frac{h+F}{h-k} \right) \frac{1}{(h-k)^{\epsilon }}\|(u-k)^{+}\|_{L^2(B_R)}^{1+\epsilon }.
+\end{equation}
+
+Set $\varphi(k,r)=\|(u-k)^{+}\|_{L^2(B_r)}$, $\tau =\frac{1}{2}$ and some $k>0$ to be determined. Define for $m=0,1,2,\cdots ,$
+\[
+  k_m=k_0+k(1-\frac{1}{2^{m}})\text{ and } r_m=\tau +\frac{1}{2^{m}}(1-\tau ).
+\] 
+By definition we have
+\[
+  k_m-k_{m-1}=\frac{k}{2^{m}} \text{ and }r_{m-1}-r_{m}=\frac{1}{2^{m}}(1-\tau ). 
+\] 
+
+
+
+
+
+
+\textsc{Method 2.} Approach by Moser.
+
+
+
 Think about the following undergraduate level question:\\
 {\textbf{Question}} Let $f\in C[0,1]$, then what is the value of 
   \[
@@ -52,13 +181,13 @@ Set the test function
 \] 
 for some $\beta\ge 0$ and some nonnegative function $\eta \in C_0^{1}(B_1)$. The function $\eta$ is a cut-off function to be chosen later on (remember the trade-off $r<R$?). $\phi$ is an element of $H_0^{1}(B_1)$ because $\overline{u}_m$ is bounded. Direct calculation yields
 \begin{align*}
-  D \phi = & \beta \eta^2\overline{u}_m^{\beta-1}D \overline{u}_m \overline{u}+D \overline{u}\eta^2\overline{u}_m^{\beta}+2\eta D\eta\left( \overline{u}_m^{\beta}-k^{\beta+1} \right)\\
+  D \phi = & \beta \eta^2\overline{u}_m^{\beta-1}D \overline{u}_m \overline{u}+D \overline{u}\eta^2\overline{u}_m^{\beta}+2\eta D\eta\left( \overline{u}_m^{\beta}\overline{u}-k^{\beta+1} \right)\\
   =& \eta^2\overline{u}_m^{\beta}\left( \beta D\overline{u}_m+D\overline{u} \right) +2\eta D \eta\left( \overline{u}_m^{\beta}\overline{u}-k^{\beta+1} \right) 
 .\end{align*}
 where we used the fact that $\overline{u}=\overline{u}_m$ whenever $D \overline{u}_m\neq 0$.
 Then we have 
 \begin{align*}
-  \int a_{ij}D_iuD_j\phi=&\int a_{ij}D_i \overline{u}\left( \beta D_j\overline{u}_m+D_j\overline{u} \right) \eta^{2}\overline{u}_m^{\beta}+2\int a_{ij}D_i\overline{u}D_j\eta\left( \overline{u}_m^{\beta}\overline{u}-k^{\beta+1} \right)\\
+  \int a_{ij}D_iuD_j\phi=&\int a_{ij}D_i \overline{u}\left( \beta D_j\overline{u}_m+D_j\overline{u} \right) \eta^{2}\overline{u}_m^{\beta}+2\int a_{ij}D_i\overline{u}\eta D_j\eta\left( \overline{u}_m^{\beta}\overline{u}-k^{\beta+1} \right)\\
   \ge &\lambda\beta \int\eta^{2}\overline{u}^{\beta}_m\left| D\overline{u}_m \right|^{2}+\lambda\int\eta^2\overline{u}_m^{\beta}\left| D\overline{u} \right| ^2-\Lambda\int\left| D\overline{u} \right| \left| D\eta \right| \overline{u}_m^{\beta}\overline{u}\eta\\
   \ge & \lambda\beta \int\eta^2\overline{u}_m^{\beta}\left| D\overline{u}_m \right| ^2+\frac{\lambda}{2}\int\eta^2\overline{u}_m^{\beta}\left| D\overline{u} \right| ^2-\frac{2\Lambda^2}{\lambda}\int \left| D\eta \right| ^2\overline{u}_m^{\beta}\overline{u}^2
 .\end{align*}
@@ -90,23 +219,24 @@ therefore
 .\end{align*}
 Therefore we have 
 \[
-  \int\left| Dw \right| ^2\eta^2\le  C\left( (1+\beta)\int w^2\left| D\eta \right| ^2+(1+\beta)\int c_0w^2\eta^2 \right) 
+  \int\left| Dw \right| ^2\eta^2\le  C(1+\beta)\left( \int w^2\left| D\eta \right| ^2+\int c_0w^2\eta^2 \right) 
 \] 
 and so
 \begin{align*}
   \int \left| D(w\eta) \right| ^2\le & 2\int\left( \left| D\eta \right| ^2w^2+\left| Dw \right| ^2\eta^2 \right) \\
-  \le  & C \left( (1+\beta)\int w^2 \left| D\eta \right| ^2+\left( 1+\beta \right) \int c_0w^2\eta^2 \right) .
+  \le  & C(1+\beta) \left( \int w^2 \left| D\eta \right| ^2+ \int c_0w^2\eta^2 \right) .
 \end{align*}
- $C$ in different lines may not identical. H\"{o}lder inequality implies 
+ H\"{o}lder inequality implies 
  \[
    \int c_0 w^2\eta^2\le \left( \int c_0^{q} \right) ^{\frac{1}{q}}\left( \int \left( \eta w \right) ^{\frac{2q}{q-1}} \right) ^{1-\frac{1}{q}}\le \left( \Lambda+1 \right) \left( \int (\eta w)^{\frac{2q}{q-1}} \right) ^{1-\frac{1}{q}}.
  \] 
- By interpolation inequality and  Sobolev inequality and Sobolev's inequality with $2^{\ast}=\frac{2n}{n-2}>\frac{2q}{q-1}>2$ if $q>\frac{n}{2}$, we have
+ What we do in this inequality is to split $c_0$ and $w^2\eta^2$.If $c=f=0$, then the operation here would not be needed and the proof can be simpler.
+ By interpolation inequality and Sobolev's inequality with $2^{\ast}=\frac{2n}{n-2}>\frac{2q}{q-1}>2$ if $q>\frac{n}{2}$, we have
  \begin{align*}
    \|\eta w\|_{L^{\frac{2q}{q-1}}}\le & \varepsilon  \|\eta w\|_{L^{2^{\ast}}}+C(n,q)\varepsilon ^{-\frac{n}{2q-n}}\|\eta w\|_{L^2}\\
    \le &\varepsilon  \|D(\eta w)\|_{L^2}+C(n,q)\varepsilon ^{-\frac{n}{2q-n}}\|\eta w\|_{L^2}
  \end{align*}
- for any small $\varepsilon >0$. (What we do in this inequality is to split $c_0$ and $w^2\eta^2$.If $c=f=0$, then the operation here would not be needed and the proof can be simpler.)
+ for any small $\varepsilon >0$.
  Therefore we obtain
  \[
    \int \left| D(w\eta) \right| ^2\le C\left( (1+\beta)\int w^2\left| D\eta \right| ^2+(1+\beta)^{\frac{2q}{2q-n}}\int w^2\eta^2 \right) 
@@ -116,9 +246,9 @@ and so
    \int \left| D(w\eta) \right| ^2\le C(1+\beta)^{\alpha}\int \left( \left| D\eta \right| ^2+\eta^2 \right) w^2
  \] 
  where $\alpha$ is a positive number depending only on $n$ and $q$. 
- From the Sobolev inequality, with $\chi=n\slash(n-2)>1$ for  $n>2$ and any fixed  $\chi >2$ for $n=2$, we get
+ From the Sobolev's inequality, with $\chi=n\slash(n-2)>1$ for  $n>2$ and any fixed  $\chi >2$ for $n=2$, we get
  \[
-   \left( \int\left| \eta w \right| ^{2\chi} \right) ^{\frac{1}{chi}}\le C(1+\beta)^{\alpha}\int \left( \left| D \eta \right| ^2+\eta^2 \right) w^2.
+   \left( \int\left| \eta w \right| ^{2\chi} \right) ^{\frac{1}{\chi}}\le C(1+\beta)^{\alpha}\int \left( \left| D \eta \right| ^2+\eta^2 \right) w^2.
  \] 
  Choose the cut-off function $\eta$ as follows. For any $0<r<R\le 1$ set $\eta \in C_0^{1}(B_R)$ with the property
  \[
@@ -161,7 +291,7 @@ in particular
 \[
   \|\overline{u}\|_{L^{\gamma_{i+1}}\left( B_{\frac{1}{2}} \right) }\le C^{\sum_{j=1}^{i}\frac{j}{\chi^{j}}}\|\overline{u}\|_{L^{2}\left( B_1 \right) }
 \] 
-Letting $i\to \infty$ and using Fatou's Lemma we get 
+Letting $i\to \infty$ we get 
 \[
   \sup_{B_{\frac{1}{2}}}\overline{u}\le C\|\overline{u}\|_{L^2\left( B_1 \right) },
 \] 
@@ -170,3 +300,5 @@ hence
   \sup_{B_{\frac{1}{2}}}u^{+}\le C\left( \|u^{+}\|_{L^2\left( B_1 \right) }+k \right). 
 \] 
 Since $k=\|f\|_{L^{q}}$, we finish the proof for $p=2$.
+
+\end{proof}

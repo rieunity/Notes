@@ -1,0 +1,1639 @@
+\section{Tangent space, Lie brackets and flows}
+\begin{definition}
+  The map $u$(see Fig \ref{fig:smooth-map}) is a \textit{smooth map} if $y^{-1}_\beta\circ u\circ x_\alpha$ is smooth.
+\begin{figure}[ht]
+    \centering
+    \incfig{smooth-map}
+    \caption{smooth map}
+    \label{fig:smooth-map}
+\end{figure}
+\end{definition}
+Tangents,directional derivatives and vectors are equivalent.
+\begin{definition}
+  Let $M$ be a manifold, $p\in M$, the  \textit{tangent space} of $M$ at $p$ is 
+  \[
+  T_p M=\left\{\text{All possible tangents to curves in }M \text{ at }p\right\}.
+  \] 
+\end{definition}
+\begin{definition}
+  A \textit{derivation}  is a $\R$-linear map $X$ from functions on $M$ to functions on $M$ so that the Leibniz rule holds
+  \[
+    X(fg)=fX(g)+gX(f).
+  \] 
+  
+\end{definition}
+The space of derivations and the space of vector fields on  $M$ are equivalent.
+\begin{question}
+  What happens to vector fields if we change coordinates?
+\end{question}
+Let $\mathbf{v}=\sum_{i=1}^{n} a^i \frac{\partial ~}{\partial x^i}=\sum_{i=1}^n b^i \frac{\partial~}{\partial y^i}\in T_pM$, $\gamma$ be a curve. Set $\gamma(0)=p$, $\gamma'(0)=\mathbf{v}$. 
+\begin{align*}
+  \mathbf{v}f&=\left. \frac{\mathrm{d} ~}{\mathrm{d}t}\left( f\left( \gamma(t) \right)  \right)\right|_{t=0}\\
+  &= \left. \frac{\mathrm{d}~}{\mathrm{d}t}\left( f\circ y\circ y^{-1}\circ x \circ x^{-1}\circ \gamma(t) \right)\right|_{t=0}\\
+  &=\left . \sum_{i=1}^{n} \frac{\partial (f\circ y)}{\partial y^i}\sum_{j=1}^n \frac{\partial (y^i\circ x)}{\partial x^j} \frac{\mathrm{d} (x^j\circ \gamma(t))}{\mathrm{d}t}\right|_{t=0}\\
+    &=\left. \sum_{i=1}^{n} \frac{\partial f}{\partial y^i}\sum_{j=1}^{n} \frac{\partial y^i}{\partial x^j}a^j\right|_{t=0}
+.\end{align*}
+This implies $b^i=\sum_{j=1}^{n} \frac{\partial y^i}{\partial x^j}a^j$.
+From now on, we always use Einstein summation convention, i.e. $b^i=\frac{\partial y^i}{\partial x^j}a^j$.
+
+In fact, $a^i=\mathbf{v}(x^i)$ and $b^j=\mathbf{v}(y^j)$, hence 
+\[
+  b^j=\mathbf{v}(y^j)=\mathbf{v}\left( \frac{\partial y^j}{\partial x^i} x^i \right)= \frac{\partial y^j}{\partial x^i}a^i. 
+\] 
+
+\begin{definition}  
+$X(M)\equiv\text{smooth vector fields n }M$.
+\end{definition}
+\begin{definition}
+  Let $\mathbf{v},\mathbf{w}\in X(M)$, define \textit{Lie Bracket} of $\mathbf{v}$ and $\mathbf{w}$ as
+  \[
+    [\mathbf{v},\mathbf{w}]\equiv \mathbf{v}\mathbf{w}-\mathbf{w}\mathbf{v}.
+  \] 
+\end{definition}
+Consider $f\in C^{\infty}(M)$, then  $[\mathbf{v},\mathbf{w}]f=\mathbf{v}(\mathbf{w}(f))-\mathbf{w}(\mathbf{v}(f))$.
+\begin{proposition}
+  $[\mathbf{v},\mathbf{w}]\in X(M)$.
+\end{proposition}
+\begin{proof}
+  We present two proofs, one is abstract and the other is based on coordinates.
+
+  First, we prove it in an abstract way. 
+  \begin{align*}
+    \mathbf{v}\left( \mathbf{w}\left( fg \right)  \right) &= \mathbf{v}\left( f \mathbf{w}(g)+g \mathbf{w}(f) \right) \\
+    &= \mathbf{v}(f)\mathbf{w}(g)+f \mathbf{v}\left( \mathbf{w}(g) \right)+\mathbf{v}(g)\mathbf{w}(f)+g \mathbf{v}\left( \mathbf{w}(f) \right) 
+  .\end{align*}
+  Interchange $\mathbf{v}$ and $\mathbf{w}$ we get
+  \[
+    \mathbf{w}\left( \mathbf{v}(fg) \right) =\mathbf{w}(f)\mathbf{v}(g)+f\mathbf{w}\left(\mathbf{v}(g)  \right)+ \mathbf{w}(g)\mathbf{v}(f)+g\mathbf{w}\left( \mathbf{v}(f) \right). 
+\] 
+First minus second we obtain
+\[
+  [\mathbf{v},\mathbf{w}]=f[\mathbf{v},\mathbf{w}](g)+g[\mathbf{v},\mathbf{w}](f).
+\]
+
+Then we prove it in another way based on coordinates. Let 
+\[
+\mathbf{v}=a^i \partial_i \text{ and } \mathbf{w}=b^j \partial_j.
+\]
+Then 
+\begin{align*}
+  \mathbf{v}\mathbf{w}f&=a^i\partial_i\left( b^j \partial_j \right) \\
+  &= a^i \partial_i b^j \partial_j +a^ib^j \partial_i\partial_j
+\end{align*}
+and
+\begin{align*}
+  \mathbf{w}\mathbf{v}f&=b^j\partial_j\left( a^i\partial_i \right)\\
+  &= b^j\partial_j a^i \partial_i+b^ja^i\partial_j\partial_i
+.\end{align*}
+Since $\partial_i\partial_j=\partial_j\partial_i$, we get
+\[
+  [\mathbf{v},\mathbf{w}]=(a^j\partial_j b^i-b^j\partial_ja^i)\partial_i.
+\] 
+\end{proof}
+\begin{proposition}
+  Let $X,Y,Z\in X(M)$, then we have the following called \textit{Jacobi identity} 
+  \[
+    [X,[Y,Z]]+[Y,[Z,X]]+[Z,[X,Y]]=0.
+  \] 
+\end{proposition}
+
+\begin{definition}
+  Let $M$ be a closed(i.e., compact and no boundary) manifold. Given a smooth vector field $\mathbf{v}$, we can get a map $\varphi(x,t):M\times \R\to M$ such that 
+  \[
+    \varphi(x,0)=x \text{ and } \frac{\mathrm{d}\varphi(x,t)}{\mathrm{d}t}=\mathbf{v}_{\varphi(x,t)}.
+  \] 
+  $\varphi(x,t)$ is called the \textit{flow} of vector field $\mathbf{v}$.
+\end{definition}
+
+\begin{definition}
+  Define $X^*(M)$ the dual space of  $X(M)$.Precisely speaking, for any $\alpha\in X^*(M)$, $\alpha$ is a $C^\infty(M)$-linear map from $X(M)$ to $C^{\infty}(M)$. In local coordinates, we can choose  $\mathrm{d}x^1,\mathrm{d}x^2,\cdots ,\mathrm{d}x^n$ be the dual basis of $\partial_1,\partial_2,\cdots ,\partial_n$.
+\end{definition}
+\section{Tensors and connections}
+
+\begin{definition}
+  An $(r,s)$ \textit{tensor} is a multi-linear map over $C^\infty(M)$
+   \[
+     A: \underbrace{X^*(M)\times \cdots \times X^*(M)}_{r}\times \underbrace{X(M)\times \cdots \times X(M)}_{s}\to C^\infty(M).
+  \] 
+\end{definition}
+\begin{definition}
+  A Riemannian metric  on a differentiable manifold $M$ is a crrespondence which associates to each point $p$ of $M$ an inner product $\langle \cdot ,\cdot \rangle_p$ on the tangent space $T_p(M)$, which varies differentiably in the following sense:  If $x:U\subset \R^n\to M$ is a system of coordinates around $p$, then $\langle \partial_i,\partial_j\rangle =g_{ij}(x_1,\cdots ,x_n)$ is a differentiable function.
+\end{definition}
+We can write Riemannian metric as $g=g_{ij}\mathrm{d}x^i\otimes\mathrm{d}x^j$. Let $A$ be a $(1,1)$ tensor, then we can write $A=A^i_j \partial_j\otimes \mathrm{d}x^j$ with $A^i_j=A(\mathrm{d}x^i,\partial_j)$. We can do \textit{contraction} 
+\[
+  \mathrm{Tr}(A)=\sum_{i=1}^{n} A^i_i=\sum_{i=1}^{n} A(\mathrm{d}x^i,\partial_i).
+\]
+If $y_1,\cdots ,y_n$ is another choice of coordinates at the same point we still have
+\[
+  \mathrm{Tr}A=\sum_{i=1}^{n} A(\mathrm{d}y^i,\partial_{y^i}).
+\] 
+In fact,
+\begin{align*}
+  A(\mathrm{d}y^i,\partial_{y^i})&= A\left( \frac{\partial y^i}{\partial x^j}\mathrm{d}x^j, \frac{\partial x^k}{\partial y^i}\partial_{x^k} \right)\\
+  &= \frac{\partial y^i}{\partial x^j}\frac{\partial x^k}{\partial y^i}A\left( \mathrm{d}x^j,\partial_{x^k} \right)\\
+  &=\delta_j^k A\left( \mathrm{d}x^j,\partial_{x_k} \right) \\
+  &=A\left( \mathrm{d}x^j,\partial_{x^j} \right) 
+.\end{align*}
+
+\begin{definition}
+  An \textit{affine connection}  is a map 
+  \[
+    \nabla :X(M)\times X(M)\to X(M)
+  \] 
+  denoted by $\nabla _XY$, which satisfies the following properties:
+  \begin{itemize}
+    \item [(1)] $\nabla _{fX+gY}Z=f\nabla _{X}Z+g\nabla _{Y}Z.$
+    \item [(2)] $\nabla _{X}(Y+Z)=\nabla _{X}Y+\nabla_X Z$.
+    \item [(3)] $\nabla _X(fY)=f\nabla _XY+X(f)Y$.
+  \end{itemize}
+  in which $X,Y,Z\in X(M)$ and  $f,g\in C^\infty(M)$.
+  
+  Furthermore, it is the \textit{Levi-Civita connection} if it  satisfies the following 2 conditions:
+ \begin{itemize}
+   \item [(4)] (Symmetry condition) 
+     \[
+       \nabla _XY-\nabla _YX=[X,Y].
+     \] 
+   \item [(5)] (Metric compatible condition $\nabla g=0$)
+     \[
+       X\langle Y,Z\rangle=\langle \nabla _XY,Z\rangle+\langle Y,\nabla _XZ\rangle.
+     \] 
+ \end{itemize}
+\end{definition}
+\begin{theorem}
+  Levi-Civita connection exists and unique.
+\end{theorem}
+\begin{proof}
+  First, we assume Levi-Civita connection exists. Then by metric compitable condition 
+  \begin{align*}
+    X\langle Y,Z\rangle & = \langle \nabla _XY,Z\rangle+\langle Y,\nabla _XZ\rangle\\
+    Y\langle X,Z\rangle & = \langle \nabla _Y X,Z\rangle + \langle X,\nabla _Y Z\rangle\\
+    Z\langle X,Y\rangle & = \langle \nabla _Z X, Y\rangle + \langle X,\nabla _ZY\rangle
+  .\end{align*}
+  Add first two identities and then subtract the third, by symmetry condition
+  \begin{align*}
+    & X\langle Y, Z\rangle +Y\langle X,Z\rangle -Z\langle X,Y\rangle\\
+    =& \langle Y, [X,Z]\rangle +\langle X,[Y,Z]\rangle +\langle \nabla _XY+\nabla _YX,Z\rangle\\
+    =& \langle Y,[X,Z]\rangle +\langle X,[Y,Z]\rangle +2\langle \nabla _XY,Z\rangle -\langle [X,Y],Z\rangle. 
+  \end{align*}
+  This means that if $\nabla _X Y$ exists, it must satisfy
+  \begin{align}
+   & 2 \langle \nabla _X Y,Z\rangle \notag \\
+    =& X\langle Y,Z\rangle +Y\langle X,Z\rangle -Z\langle X,Y\rangle -\langle Y,[X,Z]\rangle -\langle X,[Y,Z]\rangle -\langle Z,[Y,X]\rangle.\label{connection}
+  \end{align}
+
+  Since the inner product is nondegenerate, we can define the connection through the above identity. Hence we complete the unique part. For the existence, we need to check (1)--(5). 
+  \begin{itemize}
+    \item [(1)] It is enough to verify $\ipd{\nabla _{fX}Y}{Z}=f\ipd{\nabla _{X}Y}{Z}$. 
+      \begin{align*}
+	& 2\ipd{\nabla _{fX}Y}{Z}\\
+	= & fX\ipd{Y}{Z}+Y\ipd{fX}{Z}-Z\ipd{fX}{Y}\\
+	- & \ipd{Y}{[fX,Z]}-\ipd{fX}{[Y,Z]}-\ipd{Z}{[Y,fX]}\\
+	= & fX\ipd{Y}{Z}+fY\ipd{X}{Z}+Y(f) \ipd{X}{Z}-fZ\ipd{X}{Y}-Z(f)\ipd{X}{Y}\\
+	- & f\ipd{Y}{[X,Z]}+Z(f)\ipd{Y}{X}-f\ipd{X}{[Y,Z]}-f\ipd{Z}{[Y,X]}-Y(f)\ipd{Z}{X}\\
+	= & 2f \ipd{\nabla _XY}{Z}
+      .\end{align*}
+    \item [(2)] It is trivial.
+    \item [(3)] We need to check $fY$ is differentiated in terms 1,3,5,6 of (\ref{connection}).\\
+      Term 1:
+      \[
+	X\left( f\ipd{Y}{Z} \right) =X(f)\ipd{Y}{Z}+fX\ipd{Y}{Z}.
+      \] 
+      Term 3:
+      \[
+	Z\left( f\ipd{X}{Y} \right) =Z(f)\ipd{X}{Y}+fZ\ipd{X}{Y}.
+      \] 
+      Term 5:
+      \[
+	\ipd{X}{[fY,Z]}=\ipd{X}{f[Y,Z]}-\ipd{X}{Z(f)Y}.
+      \] 
+      Term 6:
+      \[
+	\ipd{Z}{[fY,X]}=\ipd{Z}{f[Y,X]}-\ipd{Z}{X(f)Y}.
+      \]
+      Then we have
+      \[
+	2\ipd{\nabla _X (fY)}{Z}=2f\ipd{\nabla _XY}{Z}+2X(f)\ipd{Y}{Z}.
+      \]
+      Hence 
+      \[
+	\nabla _X(fY)=f\nabla _XY+X(f)Y.
+      \]
+  \end{itemize}
+  The remaining (4) and (5) are easy to verify.
+\end{proof}
+\begin{definition}
+  In some coordinate chart, we can write
+  \begin{equation}
+    \nabla _{\partial_i}\partial_j=\Gamma^k_{ij}\partial_k.\label{chris}
+\end{equation}
+  Functions $\Gamma^k_{ij}$'s are called \textit{Christoffel symbols}. 
+\end{definition}
+Given two vector fields $\mathbf{v}=v^j\partial_j$ and $\mathbf{w}=w^j\partial_j$. Then 
+\begin{align*}
+  \nabla _{\mathbf{w}}\mathbf{v}&=w^i\nabla _{\partial_i}\mathbf{v}\\
+&= w^i \nabla _{\partial_i}\left( v^j\partial_j \right) \\
+& = w^i \left( \partial_i v^j \partial_j+v^j \nabla _{\partial_i}\partial_j \right) \\
+& = w^i\left( \partial_i v^j\partial_j+v^j\Gamma^k_{ij}\partial_k \right) \\
+&= \left( w^i \partial_i v^k+ w^i v^j\Gamma^k_{ij} \right) \partial_k
+.\end{align*}
+Hence if we know Christoffel symbols we know how to calculate. We need formula for $\Gamma^k_{ij}$. Using (\ref{chris}), we have
+\begin{align*}
+  2\ipd{\nabla _{\partial_i}\partial_j}{\partial_p}&=2\ipd{\Gamma^k_{ij}\partial_k}{\partial_p}
+.\end{align*}
+Using (\ref{connection}), we have
+\begin{align*}
+  2\ipd{\nabla _{\partial_i}\partial_j}{\partial_p}&= \partial_i g_{jp}+\partial_j g_{ip}-\partial_p g_{ij}
+.\end{align*}
+Then
+\[
+2\Gamma_{ij}^{k} g_{kp}=\partial_{i}g_{jp}+\partial_{j}g_{ip}-\partial_pg_{ij}.
+\] 
+Define $g^{ij}$ the inverse metric to $g_{ij}$. Multiply the above equation by $g^{pq}$ and change indexes, we obtain
+\begin{equation}
+  \Gamma_{ij}^{k}=\frac{1}{2}g^{kl}\left( \partial_i g_{jl}+\partial_jg_{il}-\partial_l g_{ij} \right). 
+\end{equation}
+$\Gamma$'s depend on $g$ and its first derivative. If $\partial g=0$, then $\Gamma=0$.
+Christoffel symbol is NOT a tensor.
+
+Connection is also named covariant derivative.
+
+\section{Parallel transports, geodesics and exponential maps}
+This section we concern about the following question: when is a vector field constant(parallel) through a curve?
+
+Let $\gamma:I\to M$, $\gamma'=\mathrm{d}\gamma(t)$. Let $\mathbf{v}$ be a vector field on $M$, then $\nabla _{\gamma'}\mathbf{v}$ makes sense. We need to do this more generally. Consider $\mathbf{v}$ a vector field along $\gamma$ such that $\mathbf{v}(t)\in T_{\gamma(t)}M$. Define 
+\begin{align*}
+  \nabla _{\gamma'}\mathbf{v}&= \nabla _{\gamma'}\left( v^j\partial_j \right) \\
+  &= \nabla _{\gamma'}\left( v^j\partial_j \right) \\
+  &= \frac{\mathrm{d}v^j}{\mathrm{d}t}\partial_j +v^j\nabla _{\gamma'}\partial_j
+.\end{align*}
+This is well-defined and does not depend on how $I$ extend $v^j(t)$ off of $\gamma$. This definition agrees weith the case where $\mathbf{v}$ is restriction of a vector field on $M$. Moreover, it also has Leibniz rule and satisfies metric compatible conditon. We can rewrite the above equation more concisely by using (\ref{chris})
+\begin{equation}
+  \nabla _{\gamma'}\mathbf{v}=\left( \frac{\mathrm{d}v^k}{\mathrm{d}t}+v^j \frac{\mathrm{d}\gamma^i}{\mathrm{d}t}\Gamma_{ij}^k \right) \partial_k.\label{auxi}
+\end{equation}
+
+\begin{definition}
+  Let $\mathbf{v}$ be a vector field along $\gamma$. If 
+  \[
+  \nabla _{\gamma'}\mathbf{v}=0,
+  \] 
+  we say $\mathbf{v}$ is \textit{parallel} along $\gamma$.
+\end{definition}
+Suppose $\mathbf{v},\mathbf{w}$ are parallel through $\gamma$, then
+\[
+\partial_t \ipd{\mathbf{v}}{\mathbf{w}}=\ipd{\nabla _{\gamma'}\mathbf{v}}{\mathbf{w}}+\ipd{\mathbf{v}}{\nabla _{\gamma'}\mathbf{w}}=0.
+\] 
+So $\ipd{\mathbf{v}}{\mathbf{w}}$ is const, i.e., isometry.
+\begin{definition}
+  Let $M$ be a Riemannian manifold, $p\in M$, $\mathbf{v}_p\in T_pM$. Suppose $\mathbf{v}(t)$ solves the ODE
+  \[
+  \begin{cases}
+    \nabla _{\gamma'}\mathbf{v}=0,&\\
+    \mathbf{v}(0)=\mathbf{v}_p.&
+  \end{cases}
+  \] 
+  We call $\mathbf{v}(t)$ the \textit{parallel transport}  through $\gamma$.
+\end{definition}
+\begin{figure}[ht]
+    \centering
+    \incfig{parallel-transport}
+    \caption{parallel transport}
+    \label{fig:parallel-transport}
+\end{figure}
+Using (\ref{auxi}), we get
+\begin{equation}
+  \frac{\mathrm{d}v^k}{\mathrm{d}t}+\Gamma^k_{ij}v^j \frac{\mathrm{d}\gamma^i}{\mathrm{d}t}=0,\quad k=1,2,\cdots ,n.\label{odes}
+\end{equation}
+$n$ first order odes in $n$ unknowns $v^j(t)$ implies there exists a unique $\mathbf{v}(t)$ which solves the ODE.
+\begin{definition}
+  Let $\gamma$ be a curve in $(M,g)$, then it is a  \textit{geodesic} if 
+  \begin{equation}
+    \nabla _{\gamma'}\gamma'=0.
+  \end{equation}
+\end{definition}
+If $\gamma$ is a geodesic, then
+\[
+\partial_t \ipd{\gamma'}{\gamma'}=2\ipd{\nabla_{\gamma'} \gamma'}{\gamma'}=0.
+\] 
+This implies $|\gamma'|$ is const on a geodesic. On $\R^n$, geodesics are straight lines at constant speed.
+
+Using (\ref{odes}), geodesic equations in local coordinates can be wriiten as
+\begin{equation}
+  \frac{\mathrm{d}^2x^k}{\mathrm{d}t^2}+ \Gamma_{ij}^k \frac{\mathrm{d}x^i}{\mathrm{d}t} \frac{\mathrm{d}x^j}{\mathrm{d}t}=0.
+\end{equation}
+Given the intial value and initial tangent vector $\gamma(0)$ and $\gamma'(0)$, it can be solbed locally.
+
+Let $p\in M$ and $\mathbf{v}\in T_pM$, we denote $\gamma(t,p,\mathbf{v})$ the geodesic starting at $p$ and direction $\mathbf{v}$. By ODE knowledge, we have
+\[
+  \gamma(t,p,\mathbf{v})=\gamma(1,p,t\mathbf{v}).
+\] 
+\begin{definition}
+  Let $p\in M$, define the \textit{exponential map} $\exp_p:T_pM\to M$ with 
+  \[
+    \exp_p(\mathbf{v})=\gamma(1,p,\mathbf{v})
+  \] 
+  on a neighborhood of $0\in T_pM$.
+\end{definition}
+\begin{figure}[ht]
+    \centering
+    \incfig{exponential-map}
+    \caption{exponential map}
+    \label{fig:exponential-map}
+\end{figure}
+Since $\exp_p:T_pM\to M$, we have 
+\[
+\mathrm{d}\exp_p:T_pM\to T_pM.
+\] 
+\begin{align*}
+  \left( \mathrm{d}\exp_p \right)_0(\mathbf{v})=&\left. \frac{\mathrm{d}~}{\mathrm{d}t}\right|_{t=0}\exp_p(t\mathbf{v})\\
+    =& \left.\frac{\mathrm{d}~}{\mathrm{d}t}\right|_{t=0}\gamma(1,p,t\mathbf{v})\\
+      =& \left.\frac{\mathrm{d}~}{\mathrm{d}t}\right|_{t=0}\gamma(t,p,\mathbf{v})\\
+	=& \mathbf{v}
+.\end{align*}
+By inverse function theorem, there exists a neighborhood where $\exp_p$ is a local  diffeomorphism. If $q\in M$ is in this neighborhood of $p$, then there exists a unique geodesic from $p$ to $q$ (unique within the neighborhood).
+\begin{theorem}[Gauss Lemma]
+  Let $\mathbf{v}\in T_pM$ and $\mathbf{w}\in T_{\mathbf{v}}T_pM=T_pM$, then 
+  \begin{equation}
+    \ipd{(\mathrm{d}\exp_p)_{\mathbf{v}}(\mathbf{v})}{(\mathrm{d}\exp_p)_{\mathbf{v}}(\mathbf{w})}=\ipd{\mathbf{v}}{\mathbf{w}}.
+  \end{equation}
+\end{theorem}
+\begin{proof}
+  Let $F(t,s)=\exp_p\left( t\left( \mathbf{v}+s\mathbf{w} \right)  \right) $. At $(1,0)$, $F(1,0)=\exp_p\left( \mathbf{v} \right) $, and 
+  \begin{align*}
+    \partial_t=\mathbf{v}&\to F_t = (\mathrm{d}\exp_p)_{\mathbf{v}}(\mathbf{v}) \left( \text{at } (1,0) \right) \\
+    \partial_s=\mathbf{w}&\to F_s = \left( \mathrm{d}\exp_p \right) _{\mathbf{v}}(\mathbf{w})\left( \text{at }(1,0) \right)  
+  .\end{align*}
+  In this language, Gauss lemma is equivalent to 
+  \begin{equation}
+    \ipd{\mathbf{v}}{\mathbf{w}}=\ipd{F_t(1,0}{F_s(1,0)}.
+  \end{equation}
+  First we want to figure out how the right hand side of this equation depend on $t$. If $s$ is fixed, then by the definition of the exponential map we know $F(\cdot ,s)$ is a geodesic, hence
+  \begin{equation*}
+    \nabla _{F_t}F_t(t,s)=0.
+  \end{equation*}
+  Do the partial derivative of $\ipd{F_t}{F_s}$ with respect to $t$
+  \begin{align*}
+    \partial_t\ipd{F_t}{F_s}=& \ipd{\nabla _{F_t}F_t}{F_s}+\ipd{F_t}{\nabla _{F_t}F_s}\\
+    =& \ipd{F_t}{\nabla _{F_t}F_s}
+  .\end{align*}
+  Write $F_s=\frac{\partial x^i}{\partial_s}\partial_{i}$ and $F_t= \frac{\partial x^j}{\partial t}\partial_j$. Then 
+  \[
+    \nabla _{F_s}F_t= \left( \frac{\partial^2 x^k}{\partial s\partial t}+\Gamma^k_{ij} \frac{\partial x^i}{\partial s} \frac{\partial x^j}{\partial t} \right) \partial_{k}.
+  \] 
+  $t$ and $s$ are cleraly symmetric above, hence 
+   \[
+  \nabla _{F_s}F_t=\nabla _{F_t}F_s
+  \] 
+  or 
+  \[
+    [F_s,F_t]=0.
+  \] 
+  Then we obtain
+  \begin{equation*}
+    \partial_t\ipd{F_t}{F_s}=\ipd{F_t}{\nabla_{F_s} F_t}= \frac{1}{2}\partial_s \ipd{F_t}{F_t}.
+  \end{equation*}
+  $|F_t|^2$ depends on $(t,s)$ but constant in $t$ given a fixed $s$ since $F\left( \cdot ,s \right) $ is a geodesic. At $t=0$, $F_t=\mathbf{v}+s\mathbf{w}$. Then 
+  \begin{align*}
+    & |F_t|^2=|\mathbf{v}|^2+2s \ipd{\mathbf{v}}{\mathbf{w}}+s^2|\mathbf{w}|^2\\
+    \Rightarrow & \frac{1}{2}\partial_s |F_t|^2=\ipd{\mathbf{v}}{\mathbf{w}}+s|\mathbf{w}|^2\\
+    \Rightarrow & \partial_t \ipd{F_t}{F_s}(t,0)=\ipd{\mathbf{v}}{\mathbf{w}}\\
+    \Rightarrow & \ipd{F_t}{F_s}(1,0)=\ipd{\mathbf{v}}{\mathbf{w}}
+  .\end{align*}
+\end{proof}
+
+Now we use the exponential map to denote a curve in  $M$ by 
+\[
+  \gamma(t)=\exp_p\left( r(t)\mathbf{v}(t) \right), \quad |\mathbf{v}|=1.
+\]
+\begin{proposition}  
+See Figure \ref{fig:polar-coordinate-of-a-curve}, suppose $\gamma$ goes from $r(0)=0$ to $r(1)=R$. Then the length of $\gamma$ is no less than $R$ and equal to if and only if $\mathbf{v}$ is constant and $r$ is monotone. 
+\end{proposition}
+\begin{figure}[ht]
+    \centering
+    \incfig{polar-coordinate-of-a-curve}
+    \caption{polar coordinate of a curve}
+    \label{fig:polar-coordinate-of-a-curve}
+\end{figure}
+\begin{proof}
+  \[
+    \gamma'=\mathrm{d}\exp_p\left( r'\mathbf{v}+r\mathbf{v}' \right) =r'\mathrm{d}\exp_p(\mathbf{v})+r\mathrm{d}\exp_p(\mathbf{v}').
+  \] 
+  Note that $\mathbf{v}\perp \mathbf{v}'$ in $T_pM$, Gauss lemma tells $\mathrm{d}\exp_p(\mathbf{v})\perp \mathrm{d}\exp_p\left( \mathbf{v}' \right) $. Hence 
+  \begin{align*}
+    |\gamma'|^2&=(r')^2\left( \mathrm{d}\exp_p(\mathbf{v}) \right) ^2+r^2\left( \mathrm{d}\exp_p(\mathbf{v}') \right) ^2\\
+    &\ge (r')^2|\mathrm{d}\exp_p(\mathbf{v})|^2\\
+    &=|r'|^2
+  .\end{align*}
+This says
+\[
+  L(\gamma)=\int_0^{1}|\gamma'|\,\mathrm{d}t\ge \int_0^{1}|r'|\,\mathrm{d}t\ge r(1)-r(0)=R.
+\]
+To make $L(\gamma)=R$, we need $\mathbf{v}'=0$ and $r$ monotone.
+\end{proof}
+
+\begin{definition}
+  Let $(M,g)$ be a Riemannian manifold, $p,q\in M$, we define 
+  \[
+    {d}(p,q)\equiv \inf_{\tiny \begin{matrix}
+      &\text{piecewise curve }\gamma\\
+      & \text{from }p \text{ to }q
+  \end{matrix}}L(\gamma).
+  \] 
+  ${d}(p,q)$ is the \textit{distance}  between two points $p$ and $q$.
+\end{definition}
+The Riemannian manifold within the above definition of distance comprise a metric space.
+
+\begin{proposition}
+  Given $p\in M$, there exists an open set $V\subset  M$, $p\in V$, numbers $\delta>0$ and $\varepsilon _1>0$ and a $C^{\infty}$ mapping
+  \[
+    \gamma:[-\delta,\delta)\times \mathcal{U}\to M,\quad \mathcal{U}=\left\{(q,\mathbf{v}):q\in V,\mathbf{v}\in T_q M,|\mathbf{v}|<\epsilon \right\},
+  \] 
+  such that the curve $t\to \gamma(t,q,\mathbf{v}),t\in(-\delta,\delta)$is the unique geodesic of $M$ which at the instant $t=0$ passing through $q$ with velocity for each $q\in V$ and for each $\mathbf{v}\in T_q M$ with $|\mathbf{v}|<\epsilon_1 $.
+\end{proposition}
+
+\begin{corollary}\label{crc-1}
+  Let $p\in M$, there exists a neighborhood $V$ of $p$ in $M$, $\epsilon >0$ and a $C^\infty$ mapping $\gamma:(-2,2)\times \mathcal{U}\to M$, $\mathcal{U}=\left\{(q,\mathbf{w})\in TM:q\in V,\mathbf{w}\in T_qM,|\mathbf{w}|<\epsilon \right\} $ such that $t\to \gamma(t,q,\mathbf{w}),t\in(-2,2)$ is the unique geodesic of $M$ which at the instant $t=0$ passing through  $q$ with velocity $\mathbf{w}$ for every $q\in V$ and for every $\mathbf{w}\in T_aM$ with $|\mathbf{w}|<\epsilon $.
+\end{corollary}
+
+It is necessary to introduce some notions about neighborhoods.
+\begin{definition}
+  Here are some definitions for some types of neighborhoods:
+  \begin{enumerate}
+    \item If $\exp_p$ is a diffeomorphism of a neighborhood $V$ of the origin in $T_pM$, $\exp_pV=U$ is called a \textit{normal neighborhood} of $p$.
+    \item If $B_\epsilon (0)$ is such that $B_{\epsilon }(0)\subset V$, we call $\exp_p B_\epsilon (0)=B_\epsilon (p)$ the \textit{normal ball} with center $p$ and radius $\epsilon $.
+  \end{enumerate}
+\end{definition}
+\begin{proposition}
+  Let $p\in M$, $U$ a normal neighborhood of $p$ and $B\subset U$ a normal ball of center $p$. Let $\gamma:[0,1]\to B$ be a geodesic segment with $\gamma(0)=p$. If $c[0,1]\to M$ is any piecewise differentiable curve joining $\gamma(0)$ to $\gamma(1)$ then $l(\gamma)\le l(c)$ and if equality holds then $\gamma\left( [0,1] \right) =c\left( [0,1] \right) $.
+\end{proposition}
+
+\begin{proof}
+  Suppose $c([0,1])\subset B$.
+  Write 
+  \[
+    c(t)=\exp_p(r(t)\mathbf{v}(t))=f(r(t),t),
+  \] 
+  where $|\mathbf{v}(t)|=1$. Except for a finite number of points,
+  \[
+    \frac{\mathrm{d}c}{\mathrm{d}t}= \frac{\partial f}{\partial r}r'(t)+ \frac{\partial f}{\partial t} .
+  \] 
+  From the Gauss lemma, $\ipd{\frac{\partial f}{\partial r} }{\frac{\partial f}{\partial t} }=0$. Since $\left| \frac{\partial f}{\partial r}  \right| =1$,
+  \[
+    \left| \frac{\mathrm{d}c}{\mathrm{d}t} \right| ^2=|r'(t)|^2+\left| \frac{\partial f}{\partial t} \right| ^2\ge |r'(t)|^2
+  \] 
+  and so 
+  \[
+    \int_{\epsilon }^{1}\left| \frac{\mathrm{d}c}{\mathrm{d}t} \right| \,\mathrm{d}t\ge \int_\epsilon ^{1}|r'(t)|\mathrm{d}t\ge \int_{\epsilon }^{1}r'(t)\,\mathrm{d}t=r(1)-r(\epsilon ).
+  \] 
+  Taking $\epsilon \to 0$ we obtain $l(c)\ge l(\gamma)$ because $r(1)=l(\gamma)$. If $l(c)=l(\gamma)$, then $\left| \frac{\partial f}{\partial t}  \right| =0$, i.e., $\mathbf{v}(t)$ is constant, and $|r'(t)|=r'(t)>0$. It follows that $c$ is a monotonic reparametrization of $\gamma$, hence $c([0,1])=\gamma\left( [0,1] \right) $.
+
+  If $c\left( [0,1] \right) $ is not contained in $B$, set  $t_1\in (0,1)$ the first point for which  $c(t_1)$ belongs to the boundary of $B$. If $\rho$ is the radius of the geodesic ball $B$, we have
+  \[
+    l(c)\ge l_{[0,t_1]}(c)\ge \rho> l(\gamma).
+  \] 
+\end{proof}
+\begin{theorem}
+  For any  $p\in M$ there exists a neighborhood $W$ of $p$ and a number $\delta>0$ such that for every $q\in W$, $\exp_q$ is a diffeomorphism on $B_{\delta}(0)\subset T_qM$ and $\exp_q(B_{\delta}(0)\supset W$, that is, $W$ is a normal neighborhood of each of its points. 
+\end{theorem}
+$W$ like this is called a \textit{totally normal neighborhood} of $p\in M$.
+\begin{figure}[ht]
+    \centering
+    \incfig{totally-normal-neighborhood}
+    \caption{totally normal neighborhood}
+    \label{fig:totally-normal-neighborhood}
+\end{figure}
+\begin{corollary}\label{crc-2}
+  If a piecewise differentiable curve $\gamma:[a,b]\to M$ with parameter propotional to arc length, has length less or equal to the length of any other piecewise differentiable curve joining $\gamma(a)$ to $\gamma(b)$ then $\gamma$ is a geodesic. In particular, $\gamma$ is regular.
+\end{corollary}
+\section{Curvature}
+\begin{definition}
+  The curvature $R$ of a Riemannian manifold $(M,g)$ is a $(1,3)$ tensor, or a trilinear $C^\infty(M)$ map from 3 spaces of vector fields to 1 space of vector fields, such that 
+  \begin{equation}
+    R(X,Y)Z=\nabla _Y \nabla _X Z-\nabla _X\nabla _Y Z+\nabla _{[X,Y]}Z.
+  \end{equation}
+\end{definition}
+\begin{proposition}
+  \begin{itemize}
+    \item [(0)] $R(X,Y)Z$ is skew in $X,Y$,
+      \[
+	R(Y,x)Z=-R(X,Y)Z.
+      \] 
+    \item [(1)] $\ipd{R(X,Y)Z}{W}$ is skew in $Z,W$,
+      \[
+	\ipd{R(X,Y)W}{Z}=-\ipd{R(X,Y)Z}{W}.
+      \] 
+    \item [(2)] (Bianchi identity)
+      \[
+	R(X,Y)Z+R(Y,Z)X+R(Z,X)Y=0.
+      \] 
+    \item [(3)] (Pair symmetry)
+      \[
+	\ipd{R(X,Y)Z}{W}=\ipd{R(Z,W)X}{Y}.
+      \] 
+    \item [(4)] (Second Bianchi identity)
+      \[
+	\left( \nabla _Z R\right)(X,Y)+(\nabla _X R)(Y,Z)+(\nabla _Y R)(Z,X)=0. 
+      \] 
+  \end{itemize}
+
+\end{proposition}
+
+Let $B$ be a $(0,2)$ tensor, then for any $X,Y\in X(M)$, $B(X,Y)$ is in $C^\infty(M)$. We can view $B$ as a $(1,1)$ tensor by the following argument:  Consider the map $X\mapsto B(X,\cdot )$, view $B(X,\cdot )$ as a vector field such that 
+\[
+  \ipd{B(X,\cdot )}{Y}=B(X,Y).
+\] 
+This change of viewpoint is called \textit{raising and lowering indicies}.
+
+Let $f\in C^\infty(M)$, then $\mathrm{d}f= \frac{\partial f}{\partial x^i}\mathrm{d}x^i$ is a $1$-form, i.e., a $(0,1)$ tensor. We want to view it as a $(1,0)$ tensor(i.e., a vector field) $\nabla f$, by defining
+\[
+  \ipd{\nabla f}{X}=X(f)=\mathrm{d}f(X).
+\] 
+Suppose $\nabla f=a^j\partial_j$, by definition
+\[
+\ipd{\nabla f}{\partial_i}=\partial_if= \frac{\partial f}{\partial x_i}.
+\]
+\[
+\ipd{\nabla  f}{\partial_i}=\ipd{a^j\partial_j}{\partial_i}=a^jg_{ij}.
+\] 
+Combining the above two equations we obtain
+\[
+a^j=g^{ij} \frac{\partial f}{\partial x_i}.
+\]
+Hence 
+\begin{equation}
+\nabla f = g^{ij} \frac{\partial f}{\partial x_i} \partial_j.
+\end{equation}
+This is called the  \textit{gradient} of $f$.
+
+\begin{definition}
+  \textit{Hessian} $\mathrm{Hess}_f$ of $f$ is a $(0,2)$ tensor such that for any $X,Y\in X(M)$ 
+  \begin{equation}
+    \mathrm{Hess}_f(X,Y)=\ipd{\nabla _X\nabla f}{Y}.
+  \end{equation}
+  \textit{Laplacian} $\Delta f$ of $f$ is the trace of $\mathrm{Hess}_f$, i.e., for an orthonormal frame $\left\{e_i\right\} _{i=1}^n$,
+  \begin{equation}
+    \Delta f=\mathrm{Tr}\left( \mathrm{Hess}_f \right) =\sum_{i=1}^{n} \ipd{\nabla _{e_i}\nabla f}{e_i}.
+  \end{equation}
+\end{definition}
+\begin{lemma}
+  $\mathrm{Hess}_f$ is symmetric.
+\end{lemma}
+\begin{proof}
+  Suppose $\mathbf{v},\mathbf{w}\in X(M)$,
+  \begin{align*}
+    \ipd{\nabla _{\mathbf{v}}\nabla f}{\mathbf{w}}&= \mathbf{v}\ipd{\nabla f}{\mathbf{w}}-\ipd{\nabla f}{\nabla _{\mathbf{v}}\mathbf{w}}\\
+    &=\mathbf{v}\left( \mathbf{w}(f) \right) -(\nabla _{\mathbf{v}}\mathbf{w})(f)
+  .\end{align*}
+  Then 
+  \begin{align*}
+    \mathrm{Hess}_f(\mathbf{v},\mathbf{w})-\mathrm{Hess}_f(\mathbf{w},\mathbf{v})&= \mathbf{v}\left( \mathbf{w}(f) \right) -\mathbf{w}\left( \mathbf{v}(f) \right) -\left( \nabla _{\mathbf{v}}\mathbf{w} \right) (f)+\left( \nabla _{\mathbf{w}}\mathbf{v} \right) (f)\\
+    &=0. \quad \left( \text{by symmetry of }\nabla  \right) 
+ \end{align*}
+\end{proof}
+In local coordinates, 
+\begin{align*}
+  f_{ij}&\equiv \mathrm{Hess}_f\left( \partial_i,\partial_j \right) \\
+  &= \ipd{\nabla _{\partial_i}\nabla f}{\partial_j}\\
+  &= \partial_i \ipd{\nabla f}{\partial_j}-\ipd{\nabla f}{\nabla _i \partial_j}\\
+  &= \frac{\partial ^2 f}{\partial x^i\partial x^j} -\Gamma^k_{ij} \frac{\partial f}{\partial x^k} 
+.\end{align*}
+Then 
+\begin{align*}
+  \Delta f&=\sum_{i=1}^{n} g^{ij}f_{ij}\\
+  &= g^{ij} \frac{\partial^2 f}{x^ix^j}-g^{ij} \Gamma^k_{ij} \frac{\partial f}{\partial x^k}
+.\end{align*}
+Let $M^{n}$ be a submanifold of  $\left( \overline{M}^{n+m},\overline{g} \right) $, $\overline{\nabla }$ the Levi-Civita connection on $\overline{M}$. Then it induces a $\nabla $ on $M$ such that for $X,Y\in X(M)$, 
+\[
+  \nabla _XY=\left( \overline{\nabla }_XY \right) ^{T}.
+\] 
+\begin{definition}
+  The \textit{second fundamental form} is defined by
+  \begin{equation}
+    A(X,Y)=\left( \overline{\nabla }_XY \right) ^{\perp}=\overline{\nabla }_XY-\nabla _XY.
+  \end{equation}
+\end{definition}
+
+\begin{lemma}
+  The second fundamental form  $A$ is a well-defined $(0,2)$ tensor in $X,Y$ and symmetric.
+\end{lemma}
+\begin{proof}
+  The ``hard'' part is $C^\infty(M)$ linear in $Y$.
+  \begin{align*}
+    \left( \overline{\nabla }_XY \right) ^\perp = & \left( f \overline{\nabla }_XY+X(f)Y \right) ^{\perp}\\
+    = & f\left( \overline{\nabla }_XY \right) ^{\perp}
+  .\end{align*}
+  $A$ is symmetric because
+  \[
+    \overline{\nabla }_XY-\overline{\nabla }_YX=[X,Y].
+  \] 
+\end{proof}
+\begin{theorem}
+  Let $X,Y,Z\in T_pM\subset T_p\overline{M}$, then 
+  \begin{equation}
+    \overline{R}(X,Y,Z,W)=R(X,Y,Z,W)+\ipd{A(Y,Z)}{A(X,W)}-\ipd{A(Y,W)}{A(X,Z)}.\label{gauss}
+  \end{equation}
+\end{theorem}
+\begin{proof}
+  \begin{align*}
+    \overline{R}(X,Y,Z,W)&= \ipd{\overline{R}(X,Y)Z}{W}\\
+    &= \ipd{\overline{\nabla }_Y \overline{\nabla }_X Z- \overline{\nabla }_X \overline{\nabla }_Y Z +\overline{\nabla }_{[X,Y]}Z}{W}\\
+    &= \ipd{\overline{\nabla }_Y^{T} \overline{\nabla }_X Z- \overline{\nabla }_X^{T} \overline{\nabla }_Y Z}{W}+\ipd{\overline{\nabla }_{[X,Y]}^TZ}{W}\\
+    &= \ipd{\overline{\nabla }_Y^T\left( \overline{\nabla }_X^T Z+ \overline{\nabla }_X^{\perp}Z \right) }{W}-\ipd{\overline{\nabla }_X^{T}\left( \overline{\nabla }_Y^TZ+ \overline{\nabla }_Y^\perp Z \right) }{W}\\
+    &+\ipd{\nabla _{[X,Y]}Z}{W}\\
+    &= R\left( X,Y,Z,W \right) +\ipd{\overline{\nabla }_Y^T A(X,Z)}{W}-\ipd{\overline{\nabla }_X^{T}A(Y,Z)}{W}\\
+   &= R(X,Y,Z,W)-\ipd{A(X,Z)}{\overline{\nabla }_{Y}^{\perp}W}+\ipd{A(Y,Z)}{\overline{\nabla }_{X}^{\perp}W}\\
+   &= R(X,Y,Z,W)+\ipd{A(Y,Z)}{A(X,W)}-\ipd{A(Y,W)}{A(X,Z)}
+  .\end{align*}
+\end{proof}
+\begin{corollary}
+  Let $e_1,e_2$ be orthonormal in $T_pM$, the \textit{sectional curvature} of $e_1-e_2$ plane in $M$ defined by 
+  \[
+    K_{12}\equiv R\left( e_1,e_2,e_1,e_2 \right) 
+  \] 
+  and 
+  \[
+    \overline{K}_{12}\equiv \overline{R}\left( e_1,e_2,e_1,e_2 \right) 
+  \] 
+  have the relation
+  \begin{equation}
+    \overline{K}_{12}=K_{12}+\ipd{A_{12}}{A_{12}}-\ipd{A_{22}}{A_{11}}.
+  \end{equation}
+\end{corollary}
+\begin{example}
+  Let $\overline{M}=\R^{n}$, then $\overline{R}=0$, this implies $\overline{K}_{12}=0$, hence
+  \[
+  K_{12}=\ipd{A_{22}}{A_{11}}-|A_{12}|^2.
+  \]
+  In particular, let $n=3$, $M$ be a two dimensional surface. Let $\mathbf{v},\mathbf{w}\in T_pM$, two curves $v$ and $w$ with  $v'(0)=\mathbf{v}$ and $w'(0)=\mathbf{w}$, 
+  \begin{align*}
+    A\left( \mathbf{v},\mathbf{w} \right) =&(\overline{\nabla} _{\mathbf{v}}\mathbf{w})^{\perp}=\left( \left.\frac{\mathrm{d}\mathbf{w}}{\mathrm{d}t}\left( v(t) \right) \right|_{t=0}\right)^\perp
+  .\end{align*}
+  \begin{align*} 
+    &\left( \left.\frac{\mathrm{d}\mathbf{w}}{\mathrm{d}t}\left( v(t) \right) \right|_{t=0}\right)^\perp \cdot \mathbf{N}\\
+     = &\left( \left.\frac{\mathrm{d}\mathbf{w}}{\mathrm{d}t}\left( v(t) \right) \right|_{t=0}\right) \cdot \mathbf{N}\\
+       =& - \mathbf{w}\cdot \mathrm{d}\mathbf{N}_p\left( \mathbf{v} \right) 
+  .\end{align*}
+  This is exactly the second fundamental form in classical differential geometry. Hence $K_{12}$ is the Gaussian curvature in this classical condition.
+\end{example}
+
+\begin{definition}
+  A submanifold is \textit{minimal} if $\mathrm{Tr}(A)=0$.
+\end{definition}
+To a surface, if it is minimal, then $A_{11}=-A_{22}\Rightarrow K_{12}=-|A_{11}|^2-|A_{12}|^2\le 0$.
+\begin{example}
+  Let $S^n\hookrightarrow \R^{n+1}$. We notice that for a position vector  $\mathbf{x}\in \R^{n+1}$, we have
+  \begin{equation}
+    \overline{\nabla }_{\mathbf{v}}\mathbf{x}=\mathbf{x}.
+  \end{equation}
+  For $|\mathbf{x}|=1$, at position $\mathbf{x}$, we have
+  \begin{align*}
+    A(\mathbf{v},\mathbf{w})&= \ipd{A(\mathbf{v},\mathbf{w})}{\mathbf{x}}\mathbf{x}
+  .\end{align*}
+  \begin{align*}
+    &\ipd{A(\mathbf{v},\mathbf{w}}{\mathbf{x}}\\
+    =& \ipd{\overline{\nabla }_{\mathbf{v}}^{\perp}\mathbf{w}}{\mathbf{x}}\\
+    =& \ipd{\overline{\nabla }_{\mathbf{v}}\mathbf{w}}{\mathbf{x}}\\
+    =&-\ipd{\mathbf{w}}{\overline{\nabla }_{\mathbf{v}}\mathbf{x}}\\
+    =&-\ipd{\mathbf{w}}{\mathbf{v}}
+  .\end{align*}
+  Hence 
+  \[
+    A(\mathbf{v},\mathbf{w})=-\ipd{\mathbf{v}}{\mathbf{w}}\mathbf{x}.
+  \] 
+  Use this in (\ref{gauss}), 
+  \[
+    R(X,Y,Z,W)=\ipd{Y}{W}\ipd{X}{Z}-\ipd{Y}{Z}\ipd{X}{W}.
+  \] 
+  Let $X=Z=e_1,Y=W=e_2$, then  $K_{12}=1-0=1$. Hence $S^n$ has constant sectional curvature $1$.
+
+  In fact, for any Riemannian manifold $(M,g)$, when $$R(X,Y,Z,W)=k \left( \ipd{Y}{W}\ipd{X}{Z}-\ipd{Y}{Z}\ipd{X}{W} \right), $$ then $M$ has constant sectional curvature $k$.
+\end{example}
+
+From now on, $\left\{e_i\right\} _{i=1}^n$ is always an orthonormal basis of $T_p M$ at some point  $p\in M$.
+\begin{definition}
+  The \textit{Ricci tensor} is
+  \begin{equation}
+    \mathrm{Ric}(\mathbf{v},\mathbf{w})=\sum_{i=1}^{n} R(\mathbf{v},e_i,\mathbf{w},e_i).
+  \end{equation}
+  The \textit{Ricci curvature} of point $p$ in the direction $\mathbf{x}$ is
+  \begin{equation}
+    \mathrm{Ric}_p(\mathbf{x})= \sum_{i=1}^{n} \ipd{R(\mathbf{x},e_i)\mathbf{x}}{e_i}.
+  \end{equation}
+\end{definition}
+ 
+Ricci tensor of $S^n$ is
+  \begin{align*}
+    \mathrm{Ric}(X,Z)=&\sum_{i=1}^{n} R(X,e_i,Z,e_i)\\
+    =& \sum_{i=1}^{n} \left( \ipd{e_i}{e_i}\ipd{X}{Z}-\ipd{e_i}{X}\ipd{e_i}{Z} \right) \\
+    =& n\ipd{X}{Z}-\ipd{X}{Z}\\
+    =& (n-1)\ipd{X}{Z}
+  .\end{align*}
+  Hence for $M=S^n$, we have 
+  \[
+    \mathrm{Ric}=(n-1)g.
+  \] 
+Any manifold where $\mathrm{Ric}=\lambda g,\lambda\in \R$ is called \textit{Einstein}.
+\begin{definition}
+  The \textit{scalar curvature} $K$ is defined as
+  \begin{equation}
+    K(p)=\sum_{i=1}^{n} \mathrm{Ric}\left( e_i,e_i \right). 
+  \end{equation}
+\end{definition}
+
+The scalar curvature of $S^n$ is
+\begin{align*}
+  K(p)&=\sum_{i=1}^{n} \mathrm{Ric}(e_i,e_i)\\
+  &=(n-1)\sum_{i=1}^{n} \ipd{e_i}{e_i}\\
+  &=n(n-1)
+.\end{align*}
+
+\begin{definition}
+  The \textit{mean curvature vector} is defined as
+  \begin{equation}
+    H=-\mathrm{Tr}(A)=-\sum_{i=1}^{n} \left( \overline{\nabla }_{e_i}e_i \right) ^{\perp}.
+  \end{equation}
+\end{definition}
+
+By definition we know that a submanifold is minimal if and only if $H=0$.
+
+ \begin{theorem}
+  Let $M^n\hookrightarrow \R^{N}$ be a minimal submanifold, then coordinate functions are harmonic, i.e., 
+  \[
+  \Delta x_i=0,\quad i=1,2,\cdots ,N.
+  \] 
+\end{theorem}
+\begin{proof}
+  \begin{align*}
+    \Delta x_i &= \sum_{j=1}^{n} \ipd{\overline{\nabla }_{e_j}^T \overline{\nabla }^T x_i}{e_j}\\
+    &=\sum_{j=1}^{n}  \ipd{\overline{\nabla }_{e_j}\left( \overline{\nabla }x_i-\overline{\nabla }^\perp x_i \right) }{e_j}\\
+    &=-\sum_{j=1}^{n} \ipd{\overline{\nabla }_{e_j}\overline{\nabla }^\perp x_i}{e_j}\\
+    &=\sum_{j=1}^{n}  \ipd{\overline{\nabla }^{\perp}x_i}{\overline{\nabla }_{e_j}^{\perp}e_j}\\
+    &= \ipd{\overline{\nabla }^{\perp}x_i}{-H}\\
+    &=0.
+  .\end{align*}
+\end{proof}
+
+\begin{example}
+  Let $M^n\hookrightarrow \R^{n+1}$ be oriented with unit normal vector field $\mathbf{n}$. Then 
+  \[
+  \mathbf{n}:M^n\to S^n.
+  \] 
+  It is called the Gauss map. For example, if $M^n=S^n$,  then the Gauss map is identity. If $M^n=\R^n$, or any hyperplane, then the Gauss map is constant(in fact the statement can be strengthen to if and only if).
+
+  Let $\mathbf{v},\mathbf{w}\in X(M)$,
+  \[
+    \ipd{\overline{\nabla }_{\mathbf{v}}\mathbf{n}}{\mathbf{w}}=-\ipd{\mathbf{n}}{\overline{\nabla }_{\mathbf{v}}\mathbf{w}}=-\ipd{\mathbf{n}}{A(\mathbf{v},\mathbf{w})}.
+  \]
+  Hence $A$ measures change of $\mathbf{n}$ intangent directions.
+
+  \[
+  \ipd{\overline{\nabla }_{\mathbf{v}}\mathbf{n}}{\mathbf{n}}=\frac{1}{2}\mathbf{v}\ipd{\mathbf{n}}{\mathbf{n}}=0.
+  \]
+Since $\mathbf{n}:M^n\to S^n$,
+\[
+  \mathrm{d}\mathbf{n}_p:T_pM\to T_{\mathbf{n}(p)}S^n= T_pM.
+\]
+Let $\mathbf{v}\in T_pM$, choose a curve $\gamma:I\to M$ such that $\gamma(0)=p$ and $\gamma'(0)=\mathbf{v}$. Then we can get a curve $\mathbf{n}\left( \gamma(t) \right) $ in $S^n$ and $\mathbf{n}(\gamma(0))=\mathbf{n}(p)$. Define
+\[
+  \mathrm{d}\mathbf{n}_p(\mathbf{v})=\left.\frac{\mathrm{d}~}{\mathrm{d}t}\right|_{t=0}\mathbf{n}\left( \gamma(t) \right) .
+\] 
+What is $\ipd{\mathrm{d}\mathbf{n}_p\left( \mathbf{v} \right) }{\mathbf{w}}$? For any $\mathbf{v},\mathbf{w}\in T_pM$, we calculate
+\begin{align*}
+  \ipd{\mathrm{d}\mathbf{n}_p(\mathbf{v})}{\mathbf{w}}&= \ipd{\left.\frac{\mathrm{d}~}{\mathrm{d}t}\right|_{t=0}\mathbf{n}\left( \gamma(t) \right) }{\mathbf{w}}\\
+    &= \ipd{\overline{\nabla }_{\mathbf{v}}\mathbf{n}}{\mathbf{w}}\\
+    &= -\ipd{A(\mathbf{v},\mathbf{w})}{\mathbf{n}}
+.\end{align*}
+Hence the change in $\mathbf{n}$ is measured by $A(\cdot ,\cdot )$. If $\mathbf{n}=\text{const}$, then $A(\cdot ,\cdot )=0$.
+\end{example}
+
+\begin{definition}
+  Let $\mathbf{v}\in T_p M$, $\mathbf{\eta}\perp T_p M$, define 
+  \begin{equation}
+    \nabla _{\mathbf{v}}^{\perp}\eta\equiv \left( \overline{\nabla }_{\mathbf{v}}\mathbf{\eta} \right) ^{\perp}
+  \end{equation}
+  be a \textit{connection on normal bundle}. It is easy to check that  $\nabla _{\mathbf{v}}^{\perp}\eta$ is $C^\infty(M)$ linear in $\mathbf{v}$ and satisfies Leibniz rule in $\eta$. It is also metric compatible.
+\end{definition}
+
+Let $\mathbf{v},X,Y$ be tangent, we define
+\begin{equation}
+  \left( \nabla _{\mathbf{v}}A \right) (X,Y)\equiv \nabla _{\mathbf{v}}^{\perp}\left( A(X,Y) \right) -A\left( \nabla _{\mathbf{v}}X,Y \right) -A\left( X,\nabla _{\mathbf{v}}Y \right). 
+\end{equation}
+This definition also satisfies Leibniz rule.
+
+\begin{theorem}[Codazzi Equation]
+  Let $V,W,X$ be tengent vector fields, then 
+  \begin{equation}
+    \left( \overline{R}(V,W)X \right) ^\perp=\left( \nabla _W A \right) (V,X)-(\nabla _{V}A)(W,X).
+  \end{equation}
+\end{theorem}
+\begin{proof}
+  \begin{align*}
+    \left( \overline{R}(V,W)X \right) ^{\perp} &= \overline{\nabla}^{\perp}_W \overline{\nabla }_{V}X-\overline{\nabla }^{\perp}_{V} \overline{\nabla }_{W}X+\overline{\nabla }^{\perp}_{[V,W]}X\\
+    &= A(W,\nabla _VX)+\nabla^{\perp}_{W}\left( A(V,X) \right) -A\left( V,\nabla _{W}X \right) \\
+    &-\nabla_{V}^{\perp}\left( A(W,X) \right) +A\left( [V,W],X \right)\\
+    &= \left( \nabla _{W}A \right) (V,X)+A\left( \nabla _W V,X \right) -\left( \nabla _{V}A \right) (W,X)\\
+    &- A\left( \nabla _VW,X \right) +A\left( [V,W],X \right) \\
+    &=\left( \nabla _W A \right) (V,X)-\left( \nabla _VA \right) (W,X)
+  .\end{align*}
+\end{proof}
+\begin{corollary}
+  Let $\overline{M}=\R^{n+1}$, then $(\nabla_{\cdot }A)(\cdot ,\cdot ) $ is fully symmetric in all three entries.
+\end{corollary}
+\begin{proof}
+  Notice $\overline{R}=0$.
+\end{proof}
+\begin{remark}
+  $3$-tensor that is fully symetric is called a Codazzi tensor. There are very few such tensors.
+\end{remark}
+
+\begin{example}
+  Let $M\hookrightarrow S^{n+1}$, then 
+\[
+  \overline{R}(X,Y,Z,W)=\ipd{Y}{W}\ipd{X}{Z}-\ipd{Y}{Z}\ipd{X}{W}.
+\] 
+If $3$ are tengent and one is $\perp$, then this is $0$. This implies that $\nabla _{\cdot }A(\cdot ,\cdot )$ is fully symmetric for submanifolds of $S^{n+1}$.
+\end{example}
+Back to hypersurfaces, let $\mathbf{n}$ be the unit normal vector, $\ipd{A(X,Y)}{\mathbf{n}}$ is symmetric at each point in $X,Y\in X(M)$. View it as a bilinear form, then it has eigenvalues. If at point $p$ there exists only one eigenvalue, we say the point $p$ is \textit{umbillic}. If every point of the  submanifold is umbillic, we call it umbillic submanifold. For this cse, we have
+\[
+  \ipd{A(X,Y)}{\mathbf{n}}_p=f(p)\ipd{X}{Y},\quad p\in M.
+\] 
+\begin{theorem}
+  Let $M^n\hookrightarrow \R^{n+1}$ be umbillic and $n\ge 2$, then $M$ is a sphere or plane(or part of them).
+\end{theorem}
+\begin{proof}
+  Write 
+  \[
+  \ipd{A}{\mathbf{n}}=fg.
+  \] 
+
+   Step 1, show $f$ is constant.
+   \begin{equation}
+     \nabla _{X}(fg)=X(f)g+f\nabla _Xg=X(f)g\label{auxi-2}
+   \end{equation}
+   Since $(\nabla _{\cdot }A)(\cdot ,\cdot )$ is fully symmetric by Codazzi equation, the term $\left( \nabla _X(fg) \right) (Y,Z)=\ipd{(\nabla _X A)(Y,Z)}{\mathbf{n}}$ is also fully symmetric. Use (\ref{auxi-2}) we know $X(f)g(Y,Z)$ is fully symmetric.
+
+   Choose orthonormal frame $\left\{e_i\right\} _{i=1}^{n}$, Let $e_1=\frac{\nabla f}{|\nabla f|}$. Then $e_i(f)\delta_{jk}$ is symmetric to $i,j,k$, hence $e_i(f)=e_i(f)\delta_{jj}=e_j(f)\delta_{ij}=0$ for $i\neq j$. Hence $\nabla f=0$, i.e., $f$ is a constant.
+
+   In the first step we use the conditon $n\ge 2$ since for $n=1$  $M$ has no intrinsic metric structure.
+
+   Step 2, Let $f=c$, we need two split it into two cases
+   \begin{itemize}
+     \item [(1)] $c=0$. Then 
+       \begin{align*}
+	 & \ipd{A(\cdot ,\cdot )}{\mathbf{n}}=0\\
+	 \Rightarrow & \ipd{\overline{\nabla }^{\perp}_XY}{\mathbf{n}}=0\\
+	 \Rightarrow & \ipd{\overline{\nabla }_XY}{\mathbf{n}}=0\\
+       \Rightarrow & \ipd{Y}{\overline{\nabla }_X \mathbf{n}}\\
+       \Rightarrow & \mathbf{n}=\text{const}
+       .\end{align*}
+       This means $M$ is a plane or part of the plane.
+     \item [(2)] $c\neq 0$. Let $\eta(p) \in T_p M^{\perp}$ for any $p\in M$ and $|\eta|=1$. Assume $X\in T_pM$,
+       \begin{align*}
+	 & \ipd{\overline{\nabla }_X \eta}{\eta}=0\\
+	 \Rightarrow & \ipd{\overline{\nabla }_X\eta}{Y}=-\ipd{\eta}{\overline{\nabla }_XY}\\
+	 \Rightarrow & \ipd{\overline{\nabla }_X\eta}{Y}=-\ipd{\eta}{\overline{\nabla }_X^{\perp}Y}\\
+	 \Rightarrow & \ipd{\overline{\nabla }_X\eta}{Y}=-\ipd{\eta}{A(X,Y)}\\
+	 \Rightarrow& \ipd{\overline{\nabla }_X\eta}{Y}=-c g(X,Y)\\
+	 \Rightarrow & \overline{\nabla }_X\eta=-cX
+       .\end{align*}
+       Define a map $F:M\to \R^{n+1}$ such that 
+       \[
+	 F(p)\equiv p+ \frac{1}{c}\eta(p).
+       \] 
+       We want to show $F=\text{const}$ (this constant vector is the centre of the sphere). Lets do the covariant derivative of $F$,
+       \begin{align*}
+	 \overline{\nabla }_XF=& \overline{\nabla }_X p+\frac{1}{c}\overline{\nabla }_X\eta\\
+	 =& X+ \frac{1}{c}(-cX)\\
+	 = & 0
+       .\end{align*}
+   \end{itemize}
+\end{proof}
+
+\section{Jacobi Fields}
+Suppose $\gamma(s,t)$ maps to $M$. Assume for each $s$, $t\to \gamma(s,t)$ is a geodesic. Then we may get two vector fields along the curve,
+\begin{align*}
+  \gamma_s=&\mathrm{d}\gamma\left( \frac{\partial}{\partial s} \right) \\
+  \gamma_t = & \mathrm{d}\gamma\left( \frac{\partial V}{\partial t}  \right) 
+.\end{align*}
+Since for a fixed  $s$, $\gamma(s,\cdot )$ is a geodesic, we obtain 
+\[
+\nabla _{\gamma_t}\gamma_t=0.
+\] 
+This is true for any  $s$, hence 
+ \[
+\nabla _{\gamma_s}\nabla _{\gamma_t}\gamma_t=0
+.\]
+How about reorder $\nabla _{\gamma_s}\nabla _{\gamma_t}$ to $\nabla _{\gamma_t}\nabla _{\gamma_s}$? Remember that $[\gamma_t,\gamma_s]=0$ we have 
+\[
+  R(\gamma_t,\gamma_s)\gamma_t = \nabla _{\gamma_s}\nabla _{\gamma_t}\gamma_t-\nabla _{\gamma_t}\nabla _{\gamma_s}\gamma_t.
+\] 
+Hence 
+\[
+  \nabla _{\gamma_t}\nabla _{\gamma_s}\gamma_s=-R\left( \gamma_t,\gamma_s \right) \gamma_t.
+\] 
+Replace $\gamma_s$ with $J$ and $\gamma(s,t)$ with $\gamma(t)$(still a geodesic), we get 
+\begin{equation}
+  \nabla_{\gamma_t}\nabla _{\gamma_t}J=-R(\gamma_t, J)\gamma_t.\label{jacob}
+\end{equation}
+This equation is called the \textit{Jacobi equation}.
+The solution of (\ref{jacob}) is called the \textit{Jacobi filed} along the curve $\gamma(t)$.
+
+Note that it is a second order linear ODE along $\gamma$, hence specify $J$ and $J'$ at $0$ we get unique solution. Choose parallel frame $e_i$ along $\gamma$ with $e_1= \frac{\gamma_t}{|\gamma_t|}$, write $J=J^ie_i$. Then 
+\[
+\nabla _{\gamma_t}J=\frac{\mathrm{d}J^i}{\mathrm{d}t}e_i.
+\] 
+Do the covariant derivative again
+\begin{align*}
+  \nabla _{\gamma_t}\nabla _{\gamma_t}J&= \frac{\mathrm{d}^2 J^i}{\mathrm{d}t^2}e_i\\
+  &=-R\left( \gamma_t,J \right) \gamma_t\\
+  &=-|\gamma_t|^2R\left( e_1,J^ie_i \right) e_1\\
+  &=-|\gamma_t|^2 J^i R\left( e_1,e_i \right) e_1
+.\end{align*}
+Since $R(e_1,e_i)e_1=\tensor[]{R}{_1_i_1^k}e_k=-\tensor[]{R}{^k_1_1_i}e_k $, we have
+\begin{equation}
+  \frac{\mathrm{d}^2J^k}{\mathrm{d}t^2}=-|\gamma_t|^2J^i \tensor[]{R}{_1_i_1^k}. 
+\end{equation}
+We consider the simplist case that $J^2=J^3=\cdots J^n=0$, then 
+\[
+\frac{\mathrm{d}^2J^1}{\mathrm{d}t^2}=0\Rightarrow J^1=a+bt.
+\] 
+\begin{example}
+  Let $M=\R^{n}$, then the solution is linear for every $J^i$. Let $M=S^n$, then 
+  \[
+  R_{ijkl}=\delta_{ik}\delta_{jl}-\delta_{jk}\delta_{il}\Rightarrow R_{1i1j}=\delta_{ij}-\delta_{i1}\delta_{j 1}.
+  \] 
+  Assume $|\gamma_t|=1$, then for $k>1$, we obtain
+   \[
+  \frac{\mathrm{d}^2J^k}{\mathrm{d}t^2}=-J^k.
+  \]
+  Hence for  $k>1$, 
+  \[
+    J^k(t)=a\cos t+b \sin t.
+  \] 
+  Since $J^k(0)=0$, we have 
+  \[
+    J^k(t)=b^k \sin t.
+  \] 
+  We can see they vanish again at $t=\pi$.
+\end{example}
+\begin{proposition}
+Let $\gamma:[0,a]\to M$ be a geodesic and $J$ be a Jacobi field along $\gamma$ with $J(0)=0$. Put $\nabla _{\gamma_t}J(0)=\mathbf{w}$ and $\gamma'(0)=\mathbf{v}$. Consider $\mathbf{w}$ as an element of $T_{a\mathbf{v}}\left( T_{\gamma(0)}M \right) $ and construct a curve $v(s)$ in $T_{\gamma(0)}M$ with $v(0)=a\mathbf{v},v'(0)=\mathbf{w}$. Put $f(s,t)=\exp_p\left(  \frac{t}{a}v(s) \right) $, $p=\gamma(0)$, and define a Jacobi field $\overline{J}$ by $\overline{J}(t)= \frac{\partial f}{\partial s} (0,t)$. Then $\overline{J}=J$ on $[0,a]$.
+\end{proposition}
+
+\begin{figure}[ht]
+    \centering
+    \incfig{jacobi-field}
+    \caption{Jacobi field}
+    \label{fig:jacobi-field}
+\end{figure}
+
+\begin{proof}
+  \begin{align*}
+    \frac{\partial f}{\partial s} =& \frac{\partial \exp_p\left( \frac{t}{a}v(s) \right) }{\partial s}=(\mathrm{d}\exp_p)_{ \frac{t}{a}v(s)} \frac{t}{a}v'(s) 
+  .\end{align*}
+  Let $s=0$ we obtain
+  \[
+    \overline{J}(t)=t\left( \mathrm{d}\exp_p \right) _{t \mathbf{v}}\mathbf{w}.
+  \] 
+  Then
+  \begin{align*}
+    \nabla _{\gamma_t} \frac{\partial f}{\partial s} &= \nabla _{\gamma_t}\left( t\left( \mathrm{d}\exp_p \right) _{t\mathbf{v}}\mathbf{w} \right)  \\
+    &= \left( \mathrm{d}\exp_p \right) _{t\mathbf{v}} \mathbf{w}+ t \nabla _{\gamma_t}\left( \left( \mathrm{d}\exp_p \right) _{t\mathbf{v}}\mathbf{w} \right)    \\
+  .\end{align*}
+  Let $t=0$, we obtain $\nabla _{\gamma_t} \overline{J}(0)=\mathbf{w}$. Since $J(0)=\overline{J}(0)=0$ and $\nabla _{\gamma_t}J(0)=\nabla _{\gamma_t}\overline{J}(0)=\mathbf{w}$, we conclude form the uniqueness theorem that $J=\overline{J}$ on $[0,a]$.
+\end{proof}
+\begin{corollary}
+  Let $\gamma:[0,a]\to M$ be a geodesic. Then a Jacobi field $J$ along $\gamma$ with $J(0)=0$ is given by 
+  \begin{equation}
+    J(t)=\left( \mathrm{d}\exp_p \right) _{t\gamma'(0)}\left( tJ'(0) \right),\quad t\in[0,a]. 
+  \end{equation}
+\end{corollary}
+\begin{definition}
+  Let $\gamma:[0,a]\to M$ be a geodesic, $\gamma(t_0)$ is said to be conjugate to $\gamma(0)$ along $\gamma$,$t_0\in[0,a]$, if there exists a Jacobi field $J$ along $\gamma$ not identically $0$ with $J(0)=0=J(t_0)$. THe maximum number of such linearly independent fields is caleed multiplicity of the conjugate point $\gamma(t_0)$.
+\end{definition}
+\begin{example}
+  \begin{itemize}
+    \item $M=\R^{n}$, no conjugate points.
+    \item $M=S^n$, antipodal points of conjugate multiplicity of $n-1$.
+  \end{itemize}
+\end{example}
+\begin{proposition}
+  Let $\gamma(0)$ and $\gamma(l)$ be conjuegate. Then $l\left( \gamma'(0) \right) $ is a critical point for $\exp_{\gamma(0)}(\cdot )$. In fact, the multiplicity is equal to $\mathrm{dim}{Ker}[\mathrm{d}\exp_{\gamma(0)}]_{l\gamma'(0)}$.
+\end{proposition}
+
+\begin{proof}
+  Let  \[
+    J(t)=\left( \mathrm{d}\exp_{\gamma(0)} \right) _{t\gamma'(0)}(tJ'(0)).
+  \] 
+  $J(l)=0$ implies
+  \[
+    \left( \mathrm{d}\exp_{\gamma(0)} \right) _{l\gamma'(0)}\left( lJ'(0) \right) =0.
+  \] 
+  Since $J'(0)\neq 0$, the point is critical.
+\end{proof}
+
+
+
+\section{Hopf-Rinow Theorem}
+From now on, except when explicitly mentioned otherwise, all manifolds will be supposed connected.
+\begin{definition}
+  A Riemanian manifold $M$ is \textit{geodesically complete} if for all  $p\in M$, the exponential map $\exp_p$ is defined for all $\mathbf{v}\in T_pM$, i.e., if any geodesic $\gamma(t)$ starting from $p$ is defined for all values of the parameter $t\in \R$.
+\end{definition}
+
+\begin{theorem}[Hopf-Rinow Theorem]
+  Let $M$ be a Riemannian manifold and let  $p\in M$. The following assertions are equivalent:
+  \begin{enumerate}
+    \item $\exp_p$ is defined on all of $T_pM$.
+    \item The closed and bounded sets of $M$ are compact.
+    \item $M$ is complete as a metric space.
+    \item $M$ is geodesically complete.
+    \item There exists a sequence of compact subsets  $K_n\subset M$, $K_n\subset K_{n+1}$ and $\bigcup_{n} K_n=M$, such taht if $q_n\notin  K_n$ then ${d}(p,q_n)\to \infty$.
+  \end{enumerate}
+  In addition, any of the statements above implies that 
+  \begin{enumerate}
+    \item [\rm{f}.]For any $q\in M$ there exists a geodesic $\gamma$ joining $p$ to $q$ with $l(\gamma)={d}(p,q)$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  The critical point is to prove $(a)\Rightarrow(f)$.
+
+  Let $B_{\delta}(p)=$ be a normal ball and $q\notin B_{\delta}(p)$. There exists a point  $x_0\in \partial B_{\delta}(\delta)$ which is closest to $q $.
+\begin{figure}[ht]
+    \centering
+    \incfig{the-closest-point--in-the-boundary}
+    \caption{the closest point $x_0$ in the boundary}
+    \label{fig:the-closest-point--in-the-boundary}
+\end{figure}
+Let $|\mathbf{v}|=1$ and $\exp_p(\delta \mathbf{v})=x_0$. Then $r={d}(p,q)>\delta$. Define $\gamma:[0,r]\to M$ by 
+\[
+  \gamma(s)=\exp_p(s\mathbf{v}).
+\] 
+Then $\gamma(0)=p$ and $\gamma(\delta)=p$.
+We need to show $\gamma(r)=q$. To accomplish this, we define 
+ \[
+   A=\left\{s|{d}(q,\gamma(s))+s=r\right\}.
+ \]
+ Then $\gamma(r)=q$ is equivalent to $r\in A$. Since ${d}(q,\gamma(s))+s$ is continuous function of $s$, $A$ is closed. Since $0\in A$, $A$ is nonempty.
+
+ Since $[0,r]$ is connected, we just have to show $A$ is open. 
+ 
+ \textbf{Claim}: If  $s\in A$, then $[0,s]\subset  A$.
+
+ By triangular inequality we obtain for any $t<s$ 
+ \[
+  {d}(q,\gamma(t))+t\ge r. 
+ \] 
+ We need the opposite inequality for $t<s$. By triangular inequality again
+ \begin{align*}
+   {d}(q,\gamma(t)) &\le d(q,\gamma(s))+d(\gamma(s),\gamma(t))\\
+   &\le d(q,\gamma(s))+s-t\\
+   &=r-s+s-t=r-t
+ .\end{align*}
+ Hence $t\in A$. The claim is proved.
+
+ \textbf{Claim}:  $\delta \in A$.
+
+ The inequality $d(q,\gamma(\delta))+\delta \ge r$ is trivial. We need to show the inverse inequality. Let $\sigma$ be a curve from $p$ to $q$, it must hit $\partial B_\delta(p)$. Let $w\in \partial B_{\delta}(p)\cap \sigma$. Then 
+ \begin{align*}
+   L(\sigma) &\ge d(p,w)+d(w,q)\\
+	     &=\delta+d(w,q)\\
+	     &\ge t+d(x_0,q)
+ .\end{align*}
+ Since $\sigma$ is arbitrary, we obtain
+ \begin{align*}
+   r=d(p,q)\ge \delta+d(\gamma(\delta),q)
+ .\end{align*}
+ Hence $\delta\in A$.
+
+ \textbf{Claim}: $A$ is open.
+
+ Assume $s\in A$. Choose a normal ball $B_t(\gamma(s))$ such that $q\notin \overline{B_t}\left( \gamma(s) \right) $. Suppose $z$ is the closest point to $q$ in the boundary of the normal ball. see Figure \ref{fig:openness-of-a}.
+
+\begin{figure}[ht]
+    \centering
+    \incfig{openness-of-a}
+    \caption{A normal ball $B_t(\gamma(s))$ such that $q\notin \overline{B_t}\left( \gamma(s) \right)$}
+    \label{fig:openness-of-a}
+\end{figure}
+By the claim before, we know 
+\[
+  d(q,z)+t=d(\gamma(s),q)=r-s.
+\] 
+Then 
+\[
+  d(q,z)=r-(s+t)\Rightarrow d(p,z)\ge s+t.
+\]
+But $d(p,z)\le s+t$, hence
+ \[
+   d(p,z)=s+t.
+\] 
+But doing $\gamma$ from $p$ to $\gamma(s)$ and then a ray from $\gamma(s)$ to $z$ has length $s+t$, this possibly broken curve is minimizing $\Rightarrow$ It's a smooth geodesic(by Corollary \ref{crc-2}) $\Rightarrow$ It's just $\gamma$ itself $\Rightarrow$ $\gamma(s+t)=z$ and we are done.
+
+So it's open $\Rightarrow$ $[0,r]=A$ and $(a)\Rightarrow (f)$.
+
+
+$(a)\Rightarrow(b)$. Let $K$ be a closed and bounded set, then $K\subset B_R(p)$ for some $R>0$. Hence $K\subset \exp_p(\overline{B}_R(0))$. Hence $K$ is a subset of continuous image of a compact set. But closed subsets of compact sets are compact, this implies $K$ is compact.
+
+$(b)\Rightarrow(c)$. Assume $\left\{p_n\right\} $ is Cauchy, then $\left\{p_n\right\} $ is bounded. By $(b)$ it is contained in a compact set. Hence there exists a subsequence $\left\{p_{n'}\right\} $ that converges. Then the whole sequence converges.
+
+$(c)\Rightarrow(d)$. Suppose that $M$ is not geodesically complete, then there exists some normalised geodesic $\gamma$ defined for $s<s_0$ but not for $s_0$. Let $\left\{s_n\right\} $ be a convergent sequence converging to $s_0$ with $s_n<s_0$. Given $\epsilon >0$, there exists an index $n_0$ such that if $n,m>n_0$, then $|s_n-s_m|<\epsilon $. It follows that 
+\[
+  d(\gamma(s_n),\gamma(s_m))\le |s_n-s_m|<\epsilon,
+\] 
+and hence the sequence $\left\{\gamma(s_n)\right\} $ is a Cauchy sequence in $M$. Since $M$ is complete in the metric $d$, $\left\{\gamma(s_n)\right\} \to p_0\in M$.
+
+Let $(W,\delta)$ be a totally normal neighborhood of $p_0$. Choose $n_1$ such that if $n,m>n_1$, then $|s_m-s_n|<\delta$ and $\gamma(s_n),\gamma(s_m)\in W$. Then there exists a unique geodesic $g$ whose length is less than $\delta$ joining $\gamma(s_n)$ to $\gamma(s_m)$. It is clear that $g$ coincides with $\gamma$, whenever $\gamma$ is defined. Since $\exp_{\gamma(s_n)}$ is a diffeomorphism on $B_\delta(0)$ and $\exp_{\gamma(s_n)}(B_\delta(0))\supset W$, $g$ extends $\gamma$ beyond $s_0$.
+
+$(d)\Rightarrow (a)$ is obvious and $(b)\Leftrightarrow (e)$ is general topology.
+\end{proof}
+
+\begin{definition}
+  $F:M\to N$ is a \textit{covering map} if it's a local diffeomorphism and for each point $q\in N$, there is an opens set $U$ of $q$ such that 
+  \[
+    f^{-1}(U)=\bigcup_{\alpha} V_\alpha\subset M
+  \] and $U\simeq V_\alpha$for each $\alpha$.
+\end{definition}
+The biggest cover of $N$ is called the \textit{universal cover}. Let $\widetilde{M}$ be a universal cover of $M$, then $\pi_1(\widetilde{M})=\left\{0\right\} $ and the degree of covering $=\left| \pi_1(M) \right| $.
+
+\begin{theorem}[Hadamard]
+  Let $M$ be complete, sectional curvature $\le 0$ and $\pi_1(M)=\left\{0\right\} $. Then $\exp_p$ is global diffeomorphism. In particular, $M$ is diffeomorphic to $\R^{n}$.
+\end{theorem}
+\begin{corollary}
+  Let $M$ be complete, sectional curvature $\le 0$. Then the universal cover $\widetilde{M}$ is diffeomorphic to $\R^{n}$. In particular, if $\pi_1(M)=\left\{0\right\} $, then $M$ is diffeomorphic to $\R^{n}$. 
+\end{corollary}
+
+\begin{lemma}\label{lma-1}
+  Let $M$ be complete with $K(p,\sigma)\le 0$ for all $p\in M$ and all two dimensional vector subspace $\sigma\subset T_pM$. Then for all $p\in M$, then conjugate locus $C(p)=\emptyset$. In particular, the map $\exp_p :T_pM\to M$ is a local diffeomorphism.
+\end{lemma}
+  \begin{proof}
+    Let $J$ be a non-trivial Jacobi field along $\gamma:[0,+\infty)\to M$ where $\gamma(0)=p$ and $J(0)=0$. Then from the hypothesis on the curvature and from the Jacobi equation
+    \begin{align*}
+      \ipd{J}{J}''=&2\ipd{J'}{J'}+2\ipd{J''}{J}\\
+      =& 2\ipd{J'}{J'}-2\ipd{R(\gamma',J)\gamma'}{J}\\
+      =&2|J'|^2-2K(\gamma',J)|\gamma'\wedge J|^2\ge 0
+    .\end{align*}
+    Therefore $\ipd{J}{J}'(t_2)\ge \ipd{J}{J}'(t_1)$ whenever $t_2>t_1$. Since $J'(0)\neq 0$ and $\ipd{J}{J}'(0)=0$, it follows that for $t$ sufficiently small positive number
+    \[
+      \ipd{J}{J}(t)>\ipd{J}{J}(0)=0.
+    \] 
+    It follows that for all $t>0$, $\ipd{J}{J}(t)>0$ and $\gamma(t)$ is not conjugate to $\gamma(0)$ along $\gamma$. 
+  \end{proof}
+
+  \begin{lemma}\label{lma-2}
+  Let $F:M\to N$ be local isomertry between complete manifolds. Then $F$ is a covering map.
+\end{lemma}
+The proof of Lemma \label{lma-2} use the path lifting property.
+
+\noindent
+\textit{Proof of the Hadamard theorem.} Since $M$ is complete, $\exp_p$ is defined for all $p\in M$ and is surjective. By Lemma \ref{lma-1}, $\exp_p$ is a local diffeomorphism. This allows us to introduce a Riemannian metric on $T_pM$ in such a way that $\exp_p$ is a local isometry. Such a metric is complete, since the geodesic of $T_pM$ passing through the origin are straight lines. From Lemma \ref{lma-2}, $\exp_p$ is a covering map. Since $M$ is simply connected, $\exp_p$ is a diffeomorphism.
+\hfill$\square$
+
+\section{Calculus of variations}
+Philosophy: we see space of curves as an $\infty$-dimensional manifold. 
+\begin{definition}
+  Let $\gamma:[0,l]\to M$ be a piecewise differentiable curve in a manifold $M$. A \textit{variation} of $\gamma$ is a continuous map
+  \[
+    f:(-\epsilon ,\epsilon )\times [0,l]\to M
+  \] 
+  such that:
+  \begin{itemize}
+    \item [(a)]$f(0,t)=\gamma(t)$.
+    \item [(b)]there exists a subdivision of $[0,l]$ by points $0=t_0<t_1<\cdots <t_{k+1}=l$ such that the restriction of $f$ to each $(-\epsilon ,\epsilon )\times [t_i,t_{i+1}]$ is differentiable.
+  \end{itemize}
+  A variation is said to be is \textit{proper} if the endpoints are fixed, i.e.,
+\[
+  f(s,0)=\gamma(0),\quad f(s,l)=\gamma(l)
+\] 
+for all $s\in (-\epsilon ,\epsilon )$. If $f$ is differentiable, the variation is ssaid to be differentiable.
+\end{definition}
+
+ \begin{definition}
+   The \textit{tangent vector to a curve} in the space of curves is a vector field along the curve.
+ \end{definition}
+
+ Consider a variation $f(s,t)$ of a curve $\gamma:[0,l]\to M$, $f(0,t)=\gamma(t)$ and assume the variation is proper. Let 
+ \[
+   \mathbf{v}(t)=\left.\mathrm{d}f\left( \frac{\partial ~}{\partial s}  \right) \right|_{(0,t)}=f_s.
+ \] Since the variation is proper, we have
+  \[
+    \mathbf{v}(0)=\mathbf{v}(l)=0.
+ \] 
+ We'd like to allow $\gamma$ to be piecewise smooth, then $f_s$ is piecewise differentiable.
+
+ Fix $0=t_0<t_1<\cdots <t_k<l=t_{k+1}$. 
+
+ Let's look at some functions and find their critical points. There are two favoriate functions:
+ \begin{itemize}
+   \item $L(\gamma)=\int_0^{l}|\gamma'(t)|\,\mathrm{d}t$.
+   \item $E(\gamma)=\int_0^{l}|\gamma'(t)|^2\,\mathrm{d}t$.
+ \end{itemize}
+ Use Cauchy-Schwartz inequality we obtain
+ \[
+   \left( \int_0^{l}|u|^2\,\mathrm{d}t \right) \le l \int_0^{l}|u|^2\,\mathrm{d}t.
+ \] 
+ Hence $L^2(\gamma)\le l E(\gamma)$. The equality is true for $\gamma$ has constant speed, $|\gamma'|= \frac{L}{l}$.
+
+ \begin{proposition}[Formula for the first variation of the energy of a curve]
+   Let $\gamma:[0,l]\to M$ be a piecewise differentiable curve and let  $f:(-\epsilon ,\epsilon )\times [0,l]\to M$ be a variation of $\gamma$. Then 
+   \begin{align}
+     \frac{1}{2}E'(0)=& -\int_0^{l}\ipd{\mathbf{v}(t)}{\nabla _{\gamma'(t)}\gamma'(t)}\,\mathrm{d}t\notag\\
+     -& \sum_{i=1}^{k} \ipd{\mathbf{v}(t_i)}{\gamma'(t_i^+)-\gamma'(t_i^-)}\notag\\
+     -& \ipd{\mathbf{v}(0)}{\gamma'(0)}+\ipd{\mathbf{v}(l)}{\gamma'(l)}\label{var-1}
+   .\end{align}
+\end{proposition}
+
+\begin{proof}
+  By definition,
+  \[
+    E(s)=\int_0^{l}\ipd{\frac{\partial f}{\partial t} }{\frac{\partial f}{\partial t} }\,\mathrm{d}t=\sum_{i=0}^{k} \int_{t_i}^{t_{i+1}}\ipd{\frac{\partial f}{\partial t} }{\frac{\partial f}{\partial t} }\,\mathrm{d}t.
+  \] 
+  Differentiating under the integral sign and using the symmetry of the Riemannian connection, we obtain
+  \begin{align*}
+    & \frac{\mathrm{d}~}{\mathrm{d}s}\int_{t_{i+1}}^{t_{i+1}}\ipd{\frac{\partial f}{\partial t} }{\frac{\partial f}{\partial t} }\,\mathrm{d}t=\int_{t_{i}}^{t_{i+1}}2\ipd{\nabla _{\partial/\partial s} \frac{\partial f}{\partial t} }{\frac{\partial f}{\partial t} }\,\mathrm{d}t\\
+    &= 2\int_{t_{i}}^{t_{i+1}}\ipd{\nabla _{\gamma'} \frac{\partial f}{\partial s} }{\frac{\partial f}{\partial t} }\,\mathrm{d}t \\
+    &=2\int_{t_{i}}^{t_{i+1}}\frac{\partial~}{\partial t}\ipd{\frac{\partial f}{\partial s} }{\frac{\partial f}{\partial t} }\,\mathrm{d}t-2\int_{t_{i}}^{t_{i+1}}\ipd{\frac{\partial f}{\partial s} }{\nabla _{\gamma'} \frac{\partial f}{\partial t} }\,\mathrm{d}t\\
+    &=\left.2\ipd{\frac{\partial f}{\partial s} }{\frac{\partial f}{\partial t} }\right|_{t_{i}}^{t_{i+1}}-2\int_{t_{i}}^{t_{i+1}}\ipd{\frac{\partial f}{\partial s} }{\nabla _{\gamma'} \frac{\partial f}{\partial t}}\,\mathrm{d}t
+  .\end{align*}
+  Therefore,
+  \begin{equation}
+    \frac{1}{2} \frac{\mathrm{d}E}{\mathrm{d}s}=\left.\sum_{i=0}^{k} \ipd{\frac{\partial f}{\partial s} }{\frac{\partial f}{\partial t} }\right|_{t_i}^{t_{i+1}}-\int_0^{a}\ipd{\frac{\partial f}{\partial s} }{\nabla _{\gamma'}\frac{\partial f}{\partial t} }\,\mathrm{d}t.\label{11}
+  \end{equation}
+  Putting $s=0$ in (\ref{11}), this yields (\ref{var-1}).
+\end{proof}
+
+\begin{proposition}[Formula for the second variation]
+  Let $\gamma$ be a geodesic and let $f:(-\epsilon ,\epsilon )\times [0,a]\to M$ be a proper variation of $\gamma$.  Then
+  \begin{align}
+    \frac{1}{2}E''(0)&=-\int_0^{l}\ipd{\mathbf{v}(t)}{\nabla _{\gamma'(t)}\nabla _{\gamma'(t)}\mathbf{v}(t)+R\left( \gamma'(t),\mathbf{v}(t) \right) \gamma'(t)}\,\mathrm{d}t\notag\\
+    &-\sum_{i=1}^{k} \ipd{\mathbf{v}(t_i)}{\nabla _{\gamma'(t_i^+)}\mathbf{v}(t_i^+)-\nabla _{\gamma'(t_i^{-}}\mathbf{v}(t_i^{-})}\label{var-2}
+  .\end{align}
+\end{proposition}
+\begin{proof}
+Taking the deriative of (\ref{11}), we obtain
+\begin{align*}
+  \frac{1}{2}\frac{\mathrm{d}^2E}{\mathrm{d}s^2}&= \sum_{i=0}^{k} \left.\ipd{\nabla _{\partial /\partial s} \frac{\partial f}{\partial s} }{\frac{\partial f}{\partial t} }\right|_{t_i}^{t_{i+1}}+\sum_{i=0}^{k} \left.\ipd{\frac{\partial f}{\partial s} }{\nabla _{\partial /\partial_s} \frac{\partial f}{\partial t} }\right|_{t_{i}}^{t_{i+1}}\\
+      &- \int_0^{a}\ipd{\nabla _{\partial /\partial s} \frac{\partial f}{\partial s} }{\nabla _{\gamma'} \frac{\partial f}{\partial t} }\,\mathrm{d}t-\int_0^{a}\ipd{\frac{\partial f}{\partial s} }{\nabla _{\partial /\partial s} \nabla _{\gamma'} \frac{\partial f}{\partial t} }\,\mathrm{d}t
+.\end{align*}
+Putting $s=0$ in the expression above, we obtain that the first and the third terms are zero, since $f$ is proper and $\gamma$ is geodesic. Since
+\[
+  \nabla _{\partial /\partial s}\nabla _{\gamma'} \frac{\partial f}{\partial t} =\nabla _{\gamma'}\nabla _{\partial / \partial s}\frac{\partial f}{\partial t} +R\left( \frac{\partial f}{\partial t} ,\frac{\partial f}{\partial s}  \right) \frac{\partial f}{\partial t} ,
+\] 
+we have at $s=0$,
+\[
+  \nabla _{ \partial /\partial s}\nabla _{\gamma'} \frac{\partial f}{\partial t} = \nabla _{\gamma'}\nabla _{\gamma'}\mathbf{v}+R\left( \gamma',\mathbf{v} \right) \gamma'.
+\] 
+Further use of the fact that the variation is proper yields
+\begin{equation}
+  \sum_{i=0}^{k} \left.\ipd{\frac{\partial f}{\partial s} }{\nabla _{\partial /\partial s}\frac{\partial f}{\partial t} }\right|_{t_{i}}^{t_{i+1}}=-\sum_{i=1}^{k} \ipd{\mathbf{v}(t_i)}{\nabla _{\gamma'}(t_{i}^{+})-\nabla _{\gamma'}\mathbf{v}(t_i^{-})}.
+\end{equation}
+Putting all these together, we obtain (\ref{var-2}).
+
+\end{proof}
+ \begin{lemma}
+   If $\gamma$ minimises $E $, then it is a geodesic. In fact, $\gamma$ is a critical point for $E$,
+   \[
+     \left.\frac{\mathrm{d}~}{\mathrm{d}s}\right|_{s=0}E(s)=0.
+   \] 
+ \end{lemma}
+
+ \begin{theorem}[Bonnet-Myers Theorem]
+   Let $M$ be a complete Riemannian manifold. Suppose 
+   \[
+     \mathrm{Ric}_p(\mathbf{v})\ge \frac{n-1}{r^2}>0
+   \] 
+   for all $p\in M$ and for all $\mathbf{v}\in T_pM$. Then $\mathrm{diam}(M)\le \pi r$ and $M$ is compact.
+ \end{theorem}
+ \begin{proof}
+   To show the diameter bound, we need to show any length-minimise geodesic $\gamma$ has $L(\gamma)\le \pi r$. Since $\gamma$ is a geodesic that minimises the length, it also minimises the energy  $E(\gamma)$. Hence $E''(0)\ge 0$ for a minimiser. Let $\left\{e_i\right\} $ be a parallel frame with $|\gamma'|=1$ and $e_1=\gamma'$.
+
+   Set $\mathbf{v}_j=\sin\left( \frac{\pi t}{l} \right) e_j$ for $j=2,\cdots ,n$. Then 
+   \[
+     \nabla _{\gamma'}\mathbf{v}_j=\frac{\pi}{l}\cos\left( \frac{\pi t}{l} \right) e_j \text{ and }\nabla _{\gamma'}\nabla _{\gamma'}\mathbf{v}_j=- \left( \frac{\pi}{l} \right) ^2\mathbf{v}_j.
+   \] 
+ \[
+   R\left( \gamma',\mathbf{v}_j \right) \gamma'=\left( R(e_1,e_j)e_1 \right) \sin\left( \frac{\pi t}{l} \right) .
+ \] 
+ Then  
+ \[
+   \frac{1}{2}E''(0)=-\int_0^{l}\left[ -\left( \frac{\pi}{l} \right) ^2\sin^2\left( \frac{\pi t}{l} \right) +R_{1j1j}\sin^2\left( \frac{\pi t}{l} \right)  \right] \ge 0.
+ \]
+ Sum over $j=2,\cdots ,n$,
+ \[
+   \sum_{j=2}^{n} R_{1j1j}=\mathrm{Ric}(e_1,e_1)\ge \frac{n-1}{r^2}.
+ \] 
+ Hence 
+ \begin{align*}
+   \frac{n-1}{r^2}\int_0^{l}\sin^2 \frac{\pi t}{l}  \,\mathrm{d}t&\le (n-1) \left( \frac{\pi}{l} \right) ^2\int_0^{l}\sin^2 \frac{\pi t}{l}\,\mathrm{d}t\\
+   \Rightarrow l&\le \pi r
+ .\end{align*}
+ \end{proof}
+
+
+ Consider 
+ \begin{equation}
+   \frac{1}{2}E''(0)=-\int_0^{l}\ipd{\nabla _{\gamma}\nabla _\gamma \mathbf{v}+R(\gamma',\mathbf{v})\gamma'}{\mathbf{v}}.\label{sec7-1}
+  \end{equation}
+ The operator
+ \[
+   J(\mathbf{v})=\nabla _{\gamma'}\nabla _{\gamma'}\mathbf{v}+R(\gamma',\mathbf{v})\gamma'
+ \] 
+ is called the \textit{Jacobi operator}.
+ Then the equation (\ref{sec7-1}) can be written as
+   \begin{equation}
+     \frac{1}{2}E''(0)=-\int_{0}^{l} \ipd{J(\mathbf{v})}{\mathbf{v}}.
+   \end{equation}
+   Define the $L^2$ inner product
+   \[
+     \langle\langle\mathbf{v},\mathbf{w}\rangle\rangle=\int_0^{l}\ipd{\mathbf{v}}{\mathbf{w}}.
+   \]
+\begin{proposition}
+   $J$ is symmetric w.r.t $\langle\langle \cdot ,\cdot \rangle\rangle$, i.e.
+   \[
+     \langle\langle J(\mathbf{v}),\mathbf{w}\rangle\rangle=\langle\langle \mathbf{v},J(\mathbf{w})\rangle\rangle.
+   \] 
+\end{proposition}
+
+\begin{proof}
+  It is because
+  \[
+    \int_0^{l}\partial_t\left( \ipd{\nabla _{\gamma'}\mathbf{v}}{\mathbf{w}}-\ipd{\mathbf{v}}{\nabla _{\gamma'}\mathbf{w}} \right) \,\mathrm{d}t=0.
+  \] 
+\end{proof}
+Write 
+\begin{align*}
+  \langle\langle J(\mathbf{v}),\mathbf{v}\rangle\rangle &= -\int_0^{l}\ipd{\nabla _{\gamma'}\nabla _{\gamma'}\mathbf{v}}{\mathbf{v}}\,\mathrm{d}t\\
+  &- \int_0^{l}\ipd{R\left( \gamma',\mathbf{v} \right) \gamma'}{\mathbf{v}}\,\mathrm{d}t
+.\end{align*}
+Notice 
+\[
+0=\int_{0}^{l}\partial_t \ipd{\nabla _{\gamma' \mathbf{v}}}{\mathbf{v}}\,\mathrm{d}t=\int_{0}^{l}\ipd{\nabla _{\gamma'}\nabla _{\gamma'}\mathbf{v}}{\mathbf{v}}\,\mathrm{d}t+\int_0^{l}\ipd{\nabla _{\gamma'}\mathbf{v}}{\nabla _{\gamma'}\mathbf{v}}\,\mathrm{d}t,
+\] 
+substitute it into previous equation we obtain
+\[
+  \langle\langle J(\mathbf{v}),\mathbf{v}\rangle\rangle =\int_0^{l}\left(\left| \nabla _{\gamma'}\mathbf{v} \right| ^2-\ipd{R(\gamma'\mathbf{v})\gamma'}{\mathbf{v}}\right)\,\mathrm{d}t.
+\]
+The first term is obviously positive definite, the sign of the second term is unknown but it's a bounded operator.
+
+
+\section{The Morse Index Theorem}
+
+\begin{definition}
+  Let $\gamma$ be a geodesic with $|\gamma'|=1$ on $[0,l]$. Define the \textit{index form} 
+  \begin{equation}
+    I(\mathbf{v},\mathbf{w})=\int_0^{l}\left(\ipd{\mathbf{v}'}{\mathbf{w}'}-\ipd{R(\gamma',\mathbf{v})\gamma'}{\mathbf{w}}\right)\,\mathrm{d}t,
+  \end{equation}
+  where $\mathbf{v},\mathbf{w}$ are continuous and piecewise differentiable. Here $\mathbf{v}'=\nabla _{\gamma'}\mathbf{v}$ and $\mathbf{w}'=\nabla _{\gamma'}\mathbf{w}$.
+\end{definition}
+\begin{lemma}\label{lma8-2}
+  \begin{equation}
+    I(\mathbf{v},\mathbf{w})=-\int_0^{l}\ipd{J(\mathbf{v})}{\mathbf{w}}\,\mathrm{d}t+\ipd{\mathbf{v}'}{\mathbf{w}}(l)-\ipd{\mathbf{v}'}{\mathbf{w}}\left( 0 \right) -\sum_{i=1}^{k} \ipd{\mathbf{v}'(t_{j}^{+})-\mathbf{v}'(t_j^{-})}{\mathbf{w}(t_j)}.
+  \end{equation}
+\end{lemma}
+\begin{lemma}[The Index Lemma]
+  Let $\gamma$ be a geodesic on $[0,l]$ without conjugate points. Let $\mathbf{v}$ be a vector field with $\mathbf{v}(0)=0$. Let $\mathbf{w}$ be a Jacobi field with $\mathbf{w}(0)=0$ and $\mathbf{w}(l)=\mathbf{v}(l)$. Then 
+  \[
+    I(\mathbf{v},\mathbf{v})\ge I(\mathbf{w},\mathbf{w}).
+  \] 
+  In particular, the equality holds  if and only if $\mathbf{v}=\mathbf{w}$.
+\end{lemma}
+
+\begin{remark}
+  Before we prove the lemma, we consider a baby version: Let $\phi$ be a function on $[0,l]$, define 
+  \[
+    I(u,v)=\int_0^{l}\left( u'v'-\phi uv \right)\,\mathrm{d}t.
+  \] 
+  If $u''=-\phi u$, and $f$ is any function such that $u=0$ at $0$ and $l$, then 
+  \[
+    \int_0^{l}\left( \left| (fu)' \right| ^2-\phi(fu)^2 \right)\,\mathrm{d}t\ge 0
+  \] 
+  and the equality holds if and only if $f=\text{const}$ ($\int|f'|^2u=0$).
+
+  Observing that $(f^2uu')$ vanishes at $0$ and $l$, we obtain
+  \[
+    \int (f^2uu')'=0.
+  \] 
+  Then 
+  \begin{align*}
+    0&= \int \left[ 2ff'uu'+f^2(u')^2+f^2uu'' \right] \\
+     &=\int \left[ 2ff'uu'+f^2(u')^2-\phi f^2 u^2 \right]
+  .\end{align*}
+  The first two terms show up in $\left| (fu)' \right| ^2=2ff'uu'+(f'u)^2+(fu')^2$. Then 
+  \[
+    0=\int \left[ |(fu)'|^2-(f'u)^2-\phi f^2 u^2 \right]\Rightarrow 0\le \int (f'u)^2=I(fu,fu) .
+  \] 
+\end{remark}
+\textit{Proof of the Index Lemma}. Let $v_1,v_2,\cdots ,v_n$ be a basis of Jacobi fields with $v_i(0)=0$ and $v_i'(0)=e_i$, and $\left\{e_i\right\} $ is the unit basis at $\gamma(0)$.
+They do not vanish again on $[0,l]$ since the geodesic $\gamma$ has not conjugate points on $[0,l]$. In fact, they have full rank $n$ at each point of $\gamma$ on $(0,l]$.
+Any vector field with $\mathbf{v}(0)=0$ can be written as 
+\[
+  \mathbf{v}(t)=\sum_{i=1}^{n} f_i(t)v_i(t).
+\] 
+Then we can write 
+\[
+  \mathbf{w}(t)=\sum_{i=1}^{n} f_i(l)v_i(t).
+\] 
+
+Differentiating the term $f_i f_j\ipd{v_i'}{v_j}$, we obtain
+\[
+  \left( f_if_j\ipd{v_i'}{v_j} \right)'=\underbrace{f_i'f_j\ipd{v_i'}{v_j}}_{(1)}+\underbrace{f_if_j'\ipd{v_i'}{v_j}}_{(2)}+\underbrace{f_if_j \ipd{v_i'}{v_j'}}_{(3)}+\underbrace{f_if_j\ipd{v_i''}{v_j}}_{(4)}.
+\]
+Write $I(\mathbf{v},\mathbf{v})$ explicitly, we obtain
+\begin{align*}
+  I(\mathbf{v},\mathbf{v})&= I\left( \sum_{i=1}^{n} f_iv_i,\sum_{j=1}^{n} f_jv_j \right)\\
+  &= \sum_{i j}^{} I\left( f_iv_i,f_jv_j \right) .
+\end{align*}
+\begin{align*}
+  I(f_iv_i,f_jv_j)=&\int \left[ \ipd{f_i'v_i+f_iv_i'}{f_j'v_j+f_jv_j'}-\ipd{R(\gamma',f_iv_i)\gamma'}{f_jv_j} \right]\\
+  =& \int \left[ \underbrace{f_i'f_j'\ipd{v_i}{v_j}}_{(A)}+\underbrace{f_i'f_j\ipd{v_i}{v_j'}}_{(B)}+\underbrace{f_if_j'\ipd{v_i'}{v_j}}_{(2)}\right.\\
+  +&\left.\underbrace{f_if_j\ipd{v_i'}{v_j'}}_{(3)}+\underbrace{f_if_j\ipd{R(\gamma',v_i)\gamma'}{v_j}}_{(C)} \right] 
+.\end{align*}
+Since 
+\begin{align*}
+  \left( \ipd{v_i'}{v_j}-\ipd{v_i}{v_j'} \right) '&=\ipd{v_i''}{v_j}-\ipd{v_i}{v_j''}\\
+  &= -\ipd{R(\gamma',v_i)\gamma'}{v_j}+\ipd{R(\gamma',v_j)\gamma'}{v_i}\\
+  &=0,
+\end{align*}
+then we obtain $(B)=(1)$. Then 
+ \[
+   I(\mathbf{v},\mathbf{v})=\sum_{i,j}^{} \int(1)+(2)+(3)+(A)-(C).
+\] 
+\begin{align*}
+  \sum_{i,j}^{} \int\left( f_if_j\ipd{v_i'}{v_j} \right) '&=\sum_{i,j}^{} \int(1)+(2)+(3)+(4)\\
+  &=\sum_{i,j}^{} f_if_j\ipd{v_i'}{v_j}(l)\\
+  &=I(\mathbf{w},\mathbf{w}) \quad (\text{by Lemma \ref{lma8-2}})
+.\end{align*}
+Observing that $(4)=-(C)$, we obtain
+\begin{align*}
+  I(\mathbf{v},\mathbf{v})&=\sum_{i,j}\int (1)+(2)+(3)+(4)+(A)\\
+  &=I(\mathbf{w},\mathbf{w})+\sum_{i,j}^{} \int f_i'f_j'\ipd{v_i}{v_j}\\
+  & \ge I(\mathbf{w},\mathbf{w})
+.\end{align*}
+\hfill $\square$
+
+Let $\gamma:[0,l]\to M$ be a geodesic. Denote by $\mathcal{V}$ the vector space formed by vector fields $\mathbf{v}$ along $\gamma$, which are piecewise differentiable and vanish at the endpoints of $\gamma$, that is,  $\mathbf{v}(0)=\mathbf{v}(l)=0$.
+
+Given a symmetric bilinear form $B$ over a vector space $\mathcal{V}$, we define the \textit{index} of $B$ as the maximal dimension of all subspaces of $\mathcal{V}$ on which the quadratic form associated to $B$ is negative definite. The  \textit{nullity} of $B$ is defined to be the dimension of the subspace of $\mathcal{V}$ formed by the elements $\mathbf{v}\in \mathcal{V}$ such that $B(\mathbf{v},\mathbf{w})=0$ for all $\mathbf{w}\in \mathcal{V}$.
+
+Let 
+ \[
+   I_l(\mathbf{v},\mathbf{w})= \int_0^{l}\left[\ipd{\mathbf{v}'}{\mathbf{w}'}-\ipd{R(\gamma',\mathbf{v})\gamma'}{\mathbf{w}}\right]\,\mathrm{d}t,\quad \mathbf{v},\mathbf{w}\in \mathcal{V}.
+\] 
+
+\begin{theorem}[The Morse Index Theorem]
+  The index of the form $I_l$ is finite and equals the number of points $\gamma(t),0<t<l$, conjugate to $\gamma(0)$, each counted with its multiplicity.
+\end{theorem}
+
+\begin{proposition}
+  \[
+    Ker(I)= \text{Jacobi fields that vanish at }0,l.
+  \] 
+\end{proposition}
+\begin{proof}
+  By Lemma \ref{lma8-2}, we have 
+  \[
+    I(\mathbf{v},\mathbf{w})=-\int_0^{l}\ipd{\mathbf{v}''+R(\gamma',\mathbf{v})\gamma'}{\mathbf{w}}\,\mathrm{d}t-\sum_{j=1}^{k} \ipd{\mathbf{v}'(t_{j}^+)-\mathbf{v}'\left( t_{j}^- \right) }{\mathbf{w}(t_j)}.
+  \]
+  If $\mathbf{v}$ is a Jacobi field, then by the above equation, $\mathbf{v}$ is in the null spce of $I_l$. 
+  
+  COnversely, suppose that $I_l(\mathbf{v},\mathbf{w})=0$ for all $\mathbf{w}\in \mathcal{V}$. Let 
+  \[ 
+  0=t_0<t_1<\cdots <t_k<t_{k+1}=l
+  \] 
+  be a subdivision of $[0,l]$ such that the restriction $\mathbf{v}|_{\left[ t_{j-1},t_j \right] }$ is differentiable, $j=1,\cdots ,k+1$. Let $f:\left[ 0,l \right] \to \R$ be a differentiable function with $f(t)>0$ for $t\neq t_j$ and $f(t)=0$ for $t=t_j$. Define $\mathbf{w}$ by
+  \[
+    \mathbf{w}(t)=f(t)\left( \mathbf{v}''+R\left( \gamma',\mathbf{v} \right) \gamma' \right) .
+  \] 
+  Then 
+  \[
+    0=I_l(\mathbf{v},\mathbf{w})=-\int_0^{l}f(t)\|\mathbf{v}''+R(\gamma',\mathbf{v})\gamma'\|^2\,\mathrm{d}t.
+  \] 
+  It follows that the integrand is zero and therefore the restriction $\mathbf{v}|_{\left[ t_{j-1},t_j \right] }$ is a Jacobi field. Choose $\mathbf{t}\in \mathcal{V}$ in such a way that
+  \[
+    \mathbf{t}(t_j)=\mathbf{v}'(t_j^+)-\mathbf{v}'\left( t_{j}^{-} \right) ,\quad j=1,\cdots ,k.
+  \] 
+  Since 
+   \[
+     0=I_l(\mathbf{v},\mathbf{t})=-\sum_{j=1}^{k} \|\mathbf{v}'\left( t_j^{+} \right) -\mathbf{v}\left( t_j^{-} \right) \|^2,
+  \] 
+  we conclude that $\mathbf{v}$ is of class $C^1$ at each $t_j$. By the uniqueness of the solution to an ODE, $\mathbf{v}$ is $C^\infty$. Therefore $\mathbf{v}$ is a Jacobi field.
+\end{proof}
+  Set 
+  \[
+    i(t):= \text{index of }I \text{ on }[0,t],
+  \] 
+  and
+  \[
+    d(t):= \text{nullity of }I \text{ on }[0,t].
+  \] 
+  Here $t\le l$.
+\begin{corollary}
+  $I_l$ is degenerate if and only if $\gamma(0)$ and $\gamma(a)$ are conjugate along $\gamma$. Further more, the nullity of $I_l$ is equal to the multiplicity of $\gamma(l)$ as a conjugate point.
+\end{corollary}
+
+Fix a subdivision
+\[
+0=t_0<t_1<\cdots <t_k<t_{k+1}=l
+\] 
+of $[0,l]$ such that $\gamma|_{[t_{j-1},t_j]},j=1,\cdots ,k+1$, is contained in a totally normal neighborhood.
+We denote by $\mathcal{V}^{-}$ the subspace of $\mathcal{V}$ formed from the fields $\mathbf{v}\in \mathcal{V}$ such that $\mathbf{v} |_{\left( t_{i-1},t_i \right) },i=1,\cdots ,k+1,$ is a Jacobi field. $\mathcal{V}^{-}$ has finite dimension. We denote by $\mathcal{V}^{+}$ be the subspace of $\mathcal{V}$ consisting of vector fields $\mathbf{w}$ such that $\mathbf{w}(t_1)=\mathbf{w}(t_2)=\cdots \mathbf{w}(t_k)=0$.
+
+\begin{proposition}
+  $\mathcal{V}=\mathcal{V}^{-}\oplus \mathcal{V}^{+}$ and the subspaces $\mathcal{V}^{+}$ and $\mathcal{V}^{-}$ are orthogonal with respect to $I_l$. In addition, $I_l$ restricted to $\mathcal{V}^{+}$ is positive definite.
+\end{proposition}
+
+\begin{proof}
+  Given $\mathbf{v}\in \mathcal{V}$, let $\mathbf{w}$ be a vector field in $\mathcal{V}^{-}$ given by $\mathbf{w}(t_j)=\mathbf{v}(t_j)$. Since $\gamma |_{\left[ t_{j-1},t_j \right] }$ does not have any conjugate points, such a $\mathbf{w}$ exists and unique. Hence $\mathbf{v}-\mathbf{w}\in \mathcal{V}^{+}$ and, therefore 
+  \[
+  \mathcal{V}=\mathcal{V}^{-}\oplus \mathcal{V}^{+}.
+  \] 
+  In addition, if $X\in \mathcal{V}^{-}$ and $Y\in \mathcal{V}^{+}$, we have
+  \[
+  I_l(X,Y)=-\sum_{j=1}^{k} \ipd{0}{ \nabla _{\gamma'}X\left( t_j^+ \right) -\nabla _{\gamma'}X\left( t_j^- \right) }=0.
+\] This proves the first part the proposition.
+
+Since $\gamma|_{\left[ t_{j-1},t_j \right] }$ are minimizing geodesics, they have less energy than any other paths between their endpoints. Therefore, if $\mathbf{v}\in \mathcal{V}^{+}$, then $I_l(\mathbf{v},\mathbf{v})\ge 0$.
+
+It remains to show that $I_l(\mathbf{v},\mathbf{v})>0$ if $\mathbf{v}\in \mathcal{V}^{+}-\left\{0\right\} $. This can be obtained by the index lemma.
+\end{proof}
+
+\begin{lemma}
+  \[
+    i(t)+d(t)\le nk.
+  \] 
+  
+\end{lemma}
+\begin{proof}
+  If not, let $W$ be $(nk+1)$-dimensional subspace of  $\mathcal{V}$ such that $I_t(\mathbf{v},\mathbf{v})\le 0$ for any $\mathbf{v}\in W\backslash \left\{0\right\} $. Define a mapping
+  $\psi:W\to \R^{nk}$ such that 
+  \[
+    \psi(\mathbf{v})=\left( \mathbf{v}(t_1),\cdots ,\mathbf{v}(t_k) \right) .
+  \] 
+  It is a linear map. Since 
+  \[
+    \mathrm{dim}\Im \mathrm{dim}Ker=nK+1
+  \] 
+  and $\mathrm{dim}\Im\le nk$, we obtain 
+  \[
+  \mathrm{dim}Ker \ge 1.
+  \] 
+  Hence there exists $\mathbf{v}\neq 0 $ and $\mathbf{v}\in Ker\psi\Rightarrow \mathbf{v} \in W\cap \mathcal{V}^{+}$, this makes a contradiction.
+\end{proof}
+
+Observe that $i(t)$ does not depend on the choice of normal subdivision of $[0,l]$, we can therefore choose such subdivisions in a way that $t\in (t_{j-1},t_j)$. The index of $I_t$ is the index of the restriction of $I_t$ to the subspace $\mathcal{V}^{-}(0,t)$. Such a restriction will be again denoted by $I_t$. Since each element of $\mathcal{V}^{-}(0,t)$ is determined by its value at the points $\gamma(t_1),\cdots ,\gamma(t_{j-1})$, we have 
+\[
+  \mathcal{V}^{-}(0,t)\simeq T_{\gamma(t_1)}M\oplus\cdots \oplus T_{\gamma(t_{j-1})}M=:S_j.
+\] 
+
+\begin{lemma}
+  If $\epsilon >0$ is sufficiently small, $i(t-\epsilon )=i(t)$.
+\end{lemma}
+\begin{proof}
+  Since $i(t)$ is non-decreasing, $i(t-\epsilon )\le i(t)$ for all $\epsilon $. On the other hand, if $I_t$ is negative definite on a subspace $\overline{S}\subset S_j$ with $\mathrm{dim}\overline{S}=i(t)$, then, by continuity of $I_t$, there exists $\epsilon >0$ such that $I_{t-\epsilon }$ is still negative definite on $\overline{S}$, hence $i(t-\epsilon )\ge i(t)$.\\
+\end{proof}
+
+\begin{lemma}
+  If $\epsilon >0$ is small enough, then \[
+    i(t+\epsilon )=i(t)+d(t).
+  \] 
+\end{lemma}
+\begin{proof}
+  We first show that $i(t+\epsilon )\le i(t)+d(t)$. Indeed, since $\mathrm{dim}S_j=n(j-1)$, $I_t$ is positive definite on a subspace of dimension $n(j-1)-i(t)-d(t)$. By continuity, $I_{t+\epsilon }$ is still positive definite on this subspace, for $\epsilon >0$ sufficiently small. Hence
+  \[
+    i(t+\epsilon )\le n(j-1)-\left( n(j-1)-i(t)-d(t) \right) =i(t)+d(t).
+  \] 
+
+  Now we show the converse inequality. Let $\mathbf{v}\in S_j$ with $\mathbf{v}(t_{j-1})\neq 0$ and denote by $\mathbf{v}_{t_0}$ the ``broken'' Jacobi field which coincides with $\mathbf{v}(t_i)$ at $t_i,i=1,\cdots ,j-1$, and which vanishes at the point $t_0\in (t_{j-1},t_j)$.  We claim 
+  that 
+  \[
+    I_{t_0}\left( \mathbf{v}_{t_0},\mathbf{v}_{t_0} \right) >I_{t_0+\epsilon }\left( \mathbf{v}_{t_0+\epsilon },\mathbf{v}_{t_0+\epsilon } \right).
+  \]
+  In fact, if we denote by $W_{t_0}$ (see Fig \ref{fig:broken-jacobi-field}) the vector field defined along $\gamma\left( [0,t_0+\epsilon  \right) $ by
+  \[
+    W_{t_0}(t)=\begin{cases}
+      V_{t_0}(t), & t\in [0,t_0],\\
+      0,& t\in \left[ t_0,t_0+\epsilon  \right], 
+    \end{cases}
+  \] 
+  we have, from the Index Lemma,
+  \[
+    I_{t_0}\left( \mathbf{v}_{t_0},\mathbf{v}_{t_0} \right) =I_{t_0+\epsilon }\left( \mathbf{w}_{t_0},\mathbf{w}_{t_0} \right) > I_{t_0+\epsilon }\left( \mathbf{v}_{t_0+\epsilon },\mathbf{v}_{t_0+\epsilon } \right) .
+  \] 
+
+  Therefore, if $\mathbf{v}\in S_j$ and $I_t(\mathbf{v},\mathbf{v})\le 0$, then $I_{t+\epsilon }(\mathbf{v},\mathbf{v})<0$. Hence, if $I_t$ is negative definite on a subspace $\overline{S}\subset S_j$, $I_{t+\epsilon }$ will still be negative definite on the direct sum of $\overline{S}$ with the null space of $I_t$. Therefore,
+  \[
+    i(t+\epsilon )\ge i(t)+d(t).
+  \] 
+\begin{figure}[ht]
+    \centering
+    \incfig{broken-jacobi-field}
+    \caption{``broken'' Jacobi field}
+    \label{fig:broken-jacobi-field}
+\end{figure}
+\end{proof}
+\begin{figure}[ht]
+    \centering
+    \incfig{the-function}
+    \caption{the function $i(t)$}
+    \label{fig:the-function}
+\end{figure}

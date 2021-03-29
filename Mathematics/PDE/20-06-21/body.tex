@@ -1,0 +1,722 @@
+
+\begin{frame}[t]
+  \tableofcontents
+\end{frame}
+
+
+\AtBeginSection[]{
+  \begin{frame}
+    \vfill
+    \centering
+    \begin{beamercolorbox}[sep=8pt, center, shadow=true,rounded=true]{title}
+      \usebeamerfont{title}\insertsectionhead\par%
+    \end{beamercolorbox}
+    \vfill
+  \end{frame}
+}
+\section{半群及其基本性质}
+\begin{frame}[t]
+  设$X$ 为实Banach空间,考虑下面的常微分方程
+  \begin{equation}\label{1}
+    \left\{
+      \begin{aligned}
+	{u}'(t)=&Au(t)\quad (t\ge 0)\\
+	{u}(0)=&u,
+      \end{aligned}
+      \right.
+  \end{equation}
+  其中$'=\frac{\mathrm{d}}{\mathrm{d}t},u\in X$,$A$是一个线性算子.我们考虑上述方程解
+  \[
+    {u}(t):[0,\infty)\to X
+  \] 的存在性和唯一性.根据解和初值的依赖关系,可以把解写成
+\[
+  {u}(t):=S(t)u\quad (t\ge 0).
+\] 
+这里$S(t)$是一个从 $X$到 $X$的映射.
+半群理论就是把解的存在性问题通过上述表示,转化为 $S(t)$ 的存在性问题.假设方程的解存在且唯一,那么$\left\{S(t)\right\} _{t\ge 0}$ 肯定满足下述条件
+\begin{equation}
+  S(0)u=u\quad (u\in X),\label{2}
+\end{equation}
+\begin{equation}
+  S(t+s)u=S(t)S(s)u=S(s)S(t)u \quad (t,s\ge 0, u\in X).\label{3}
+\end{equation}
+\end{frame}
+\begin{frame}[t]
+  条件(\ref{3})是由解的唯一性给出.另一方面,我们还希望解随时间的变化具有连续性,也就是
+  \begin{equation}
+    \text{映射 }t\to S(t)u \text{ 是从 }[0,\infty)\text{ 到 }X  \text{ 的连续映射}.\label{4}
+  \end{equation}
+  根据上面的分析,我们给出半群的具体定义:
+  \begin{definition}
+    \begin{enumerate}
+      \item 一族从$X$ 到$X$ 的线性映射$\left\{S(t)\right\} _{t\ge 0}$ 被称为半群,如果其满足条件(\ref{2}),(\ref{3})和(\ref{4}).
+      \item 如果$\left\{S(t)\right\} _{t\ge 0}$ 还额外满足
+	\begin{equation}
+	  \|S(t)\|\le 1\quad (t\ge 0),
+	\end{equation}
+	则其被称为压缩半群.
+    \end{enumerate}
+  \end{definition}
+\end{frame}
+\begin{frame}[t]{生成元}
+  \begin{definition}
+    定义
+    \begin{equation}
+      D(A):=\left\{u\in X: \lim_{t\to 0^{+}}\frac{S(t)u-u}{t}\text{ 在 } X  \text{ 中存在 }\right\}
+    \end{equation}
+    以及
+    \begin{equation}
+      Au:=\lim_{t\to 0^{+}}\frac{S(t)u-u}{t}\quad (u\in D(A)).
+    \end{equation}
+    我们称$A:D(A)\to X$ 为半群$\left\{S(t)\right\} _{t\ge 0}$ 的(无穷小)生成元,$D(A)$为 $A$ 的定义域.
+  \end{definition}
+  从生成元的定义可以看出,生成元相当于算子$S(t)$的导数,刻画的是算子本身随时间的变化率. 
+\end{frame}
+\begin{frame}[t]{半群的微分性质}
+  \begin{theorem}
+    设$u\in D(A)$,则
+    \begin{enumerate}
+      \item 对任意的$t\ge 0$,有$S(t)u \in D(A)$.
+      \item 对任意的$t\ge 0$, 有$AS(t)u=S(t)Au$.
+      \item 对任意的$t>0$, 映射 $t\mapsto S(t)u$是可微的.
+      \item  $\frac{\mathrm{d}}{\mathrm{d}t}S(t)u=AS(t)u \quad (t>0)$.
+    \end{enumerate}
+  \end{theorem}
+  性质(1),(2)和(4)的证明都可以根据定义经过简单的计算得到,(3)其实就是(4)的推论.
+\end{frame}
+\begin{frame}[t]{生成元的性质}
+  \begin{theorem}
+    \begin{enumerate}
+      \item 定义域$D(A)$ 在$X$ 中稠密.
+      \item $A$是闭算子.
+    \end{enumerate}
+  \end{theorem}
+  证明:(1)只需要说明$u^{t}\in D(A),t>0$,其中$u^{t}:=\int_0^{t}S(s)u\,\mathrm{d}s$.这是因为
+  \[
+    \frac{u^{t}}{t}\to u\quad(t\to 0^{+}).
+  \] 
+  (2)假设$u_k \in D(A),k=1,2,\cdots,$并且
+  \begin{equation}
+    u_k\to u,Au_k\to v.
+  \end{equation}
+  我们需要证明$u\in D(A)$并且$v=Au$.根据上一页半群的性质(2)和(4),我们有
+   \[
+     S(t)u_k-u_k=\int_0^{t}S(s)Au_k\,\mathrm{d}s.
+  \] 
+\end{frame}
+\begin{frame}[t]
+  令$k\to \infty$可得
+  \[
+    S(t)u-u=\int_0^{t}S(s)v\,\mathrm{d}s.
+  \] 
+  因此
+  \[
+    \lim_{t\to 0^{+}}\frac{S(t)u-u}{t}=\lim_{t\to 0^{+}}\frac{1}{t}\int_0^{t}S(s)v\,\mathrm{d}s=v.
+  \]
+  根据定义可得$u\in D(A),v=Au$.
+\end{frame}
+
+\begin{frame}[t]{预解集}
+  \begin{definition}
+    \begin{enumerate}
+      \item 设$\rho(A)$是所有满足
+	 \[
+	   \lambda I-A:D(A)\to X
+	\] 
+	是一一映射且满射的实数$\lambda$ 的集合, $\rho(A)$称为 $A$的预解集.
+      \item 若 $\lambda \in \rho(A)$,则预解算子$R_\lambda:X\to X$被定义为
+	\[
+	  R_\lambda u:=(\lambda I-A)^{-1}u.
+	\] 
+    \end{enumerate}
+  \end{definition}
+  根据闭图像定理,预解算子是有界线性算子.易知
+  \[
+    AR_\lambda u= R_\lambda A u\quad u \in D(A).
+  \] 
+\end{frame}
+
+\begin{frame}[t]{预解算子的性质}
+  \begin{theorem}
+  	\begin{enumerate}
+   	 \item 若$\lambda,\mu \in \rho(A)$,则有
+     	 \begin{equation}
+	   R_\lambda-R_\mu=\left( \mu-\lambda \right) R_\lambda R_\mu\label{9}
+     	 \end{equation}以及
+     	 \begin{equation}
+	   R_\lambda R_\mu=R_\mu R_\lambda.\label{10}
+     	 \end{equation}
+  	 \item 若$\lambda>0$并且$\left\{S(t)\right\} _{t\ge 0}$ 是压缩半群,则$\lambda \in \rho (A)$,
+     	 \begin{equation}
+	   R_\lambda u = \int_0^{\infty}e^{-\lambda t}S(t)u\,\mathrm{d}t \quad (u\in X),\label{11}
+     	 \end{equation}
+      并且$\|R_\lambda\|\le \frac{1}{\lambda}$.因此预解算子是该半群的拉普拉斯变换.
+ 	 \end{enumerate}
+	\end{theorem}
+\end{frame}
+\begin{frame}[t]{预解算子的性质:证明}
+  (1) 等式(\ref{9})成立是因为
+  \begin{align*}
+    (\mu-\lambda)R_\lambda R_\mu = & \left( \mu I-A-\lambda I +A \right) R_\lambda R_\mu\\
+    = & \left( \mu I-A \right) R_\lambda R_\mu -R_\mu\\
+    =& R_\lambda (\mu I-A) R_\mu -R_\mu\\
+    =& R_\lambda -R_\mu
+  .\end{align*}
+  等式(\ref{10})可以由等式(\ref{9})直接得到.\\
+  (2)因为$\lambda>0$ 以及$\|S(t)\|\le 1$,等式(\ref{11})右边由意义.我们用 $\widetilde{R}_\lambda u$ 来表示右边的积分.对任意的$h>0$ 以及$u \in X$,我们有
+\end{frame}
+\begin{frame}[t]
+  \begin{align*}
+    \frac{S(h)\widetilde{R}_\lambda u-\widetilde{R}_\lambda u}{h}=& \frac{1}{h}\left\{ \int_0^{\infty}e^{-\lambda t}[S(t+h)u-S(t)u]\,\mathrm{d}t\right\} \\
+    =& -\frac{1}{h}\int_0^{h}e^{-\lambda(t-h)}S(t)u\,\mathrm{d}t\\
+    &+ \frac{1}{h}\int_0^{\infty}(e^{-\lambda(t-h)}-e^{-\lambda t})S(t)u\,\mathrm{d}t\\
+    = & -e^{\lambda h}\frac{1}{h}\int_0^{h}e^{-\lambda t }S(t)u\,\mathrm{d}t\\
+    &+\left( \frac{e^{\lambda h}-1}{h} \right) \int_0^{\infty}e^{-\lambda t}S(t)u\,\mathrm{d}t
+  .\end{align*}
+  所以
+  \[
+    \lim_{h\to 0^{+}}\frac{S(h)\widetilde{R}_\lambda u-\widetilde{R}_\lambda u}{h}=-u +\lambda \widetilde{R}_\lambda u.
+  \]
+\end{frame}
+\begin{frame}[t]
+  根据$A$ 的定义可得$A \widetilde{R}_\lambda u=-u+\lambda \widetilde{R}_\lambda u$,也就是
+  \begin{equation}
+    \left( \lambda I-A \right) \widetilde{R}_\lambda u =u \quad (u\in X).\label{12}
+  \end{equation}
+  另一方面,若$u\in D(A)$,
+  \begin{align*}
+    A\widetilde{R}_\lambda u = & A\int_0^{\infty}e^{-\lambda t}S(t)u\,\mathrm{d}t=\int_0^{\infty}e^{-\lambda t}AS(t)u\,\mathrm{d}t\\
+    = & \int_0^{\infty}e^{-\lambda t}S(t)Au\,\mathrm{d}t=\widetilde{R}_\lambda A u.
+  \end{align*}
+第二个等号利用了$A$是闭算子这一事实.因此
+ \[
+   \widetilde{R}_\lambda \left( \lambda I-A \right) u=u \left( u\in D(A) \right) .
+ \] 因为$\lambda I-A$是一一映射且是满射,所以结合上面的等式以及(\ref{12})可得
+  \begin{equation}
+    \widetilde{R}_\lambda=(\lambda I-A)^{-1}=R_\lambda.
+ \end{equation}
+\end{frame}
+\section{Hille-Yosida定理}
+\begin{frame}[t]{Hille-Yosida定理}
+  \begin{theorem}[Hille-Yosida Theorem]
+  设$A$是闭且在 $X$上稠密定义的线性算子.则 $A$是一个压缩半群的生成元当且仅当
+   \begin{equation}
+     (0,\infty)\subset \rho(A) \text{ 并且 }\|R_\lambda\|\le \frac{1}{\lambda}, \lambda>0.\label{14}
+  \end{equation}
+\end{theorem}
+证明:必要性由前一定理的性质(2)得到.下证充分性.设$A$ 是闭且在$X$ 上稠密定义的线性算子并且满足条件(\ref{14}).我们需要构造一个压缩半群,使得$A$是它的生成元.
+
+定义
+ \[
+A_\lambda := -\lambda I +\lambda ^2 R_\lambda =\lambda A R_\lambda.
+\]
+下面说明证明的具体思路:
+\end{frame}
+\begin{frame}[t]
+\begin{enumerate}
+  \item [(1)] 当$\lambda\to \infty$时有
+    \[
+    A_\lambda u\to Au,u\in D(A).
+  \]
+  实际上,因为$\lambda R_\lambda u - u=AR_\lambda u =R_\lambda A u$,所以
+    \[
+    \|\lambda R_\lambda u -u\|\le \|R_\lambda\|\|Au\|\le \frac{1}{\lambda}\|Au\|\to 0.
+    \] 
+    因此当$\lambda\to \infty$ 时有$\lambda R_\lambda u\to u,u\in D(A)$.但是因为$\|\lambda R_\lambda\|\le 1$ 
+    并且$D(A)$稠密,所以当$\lambda\to \infty$ 时有
+    \begin{equation}\label{n-1}
+    \lambda R_\lambda u \to u, u\in X.
+  \end{equation} 
+    设$u\in D(A)$,则
+    \[
+    A_\lambda u =\lambda AR_\lambda u=\lambda R_\lambda Au.
+    \] 
+   再利用(\ref{n-1})即可.
+  \item [(2)] 定义
+    \[
+      S_\lambda(t):=e^{t A_\lambda}=e^{-\lambda t}e^{\lambda^2 t R_\lambda}=e^{-\lambda t}\sum_{k=0}^{\infty} \frac{(\lambda^2 t)^{k}}{k!}R_\lambda^{k}.
+    \]
+\end{enumerate}
+\end{frame}
+\begin{frame}[t]
+  \begin{enumerate}
+    \item []  根据$\|R_\lambda\|\le \lambda^{-1}$ 可以推出$\|S_\lambda (t)\|\le 1$,简单的验证可知$A_\lambda$是压缩半群$\left\{S_\lambda(t)\right\} _{t\ge 0}$ 的生成元且$D(A)=X$.
+  \item [(3)] 根据预解算子的性质$R_\lambda R_\mu =R_\mu R_\lambda$,我们可以得到$A_\lambda A_\mu = A_\mu A_\lambda$,所以
+    \[
+      A_\mu S_\lambda(t)=S_\lambda (t)A_\mu.
+    \] 
+    计算
+    \begin{equation}
+      \begin{aligned}
+	S_\lambda(t)u-S_\mu(t)u=& \int_0^{t}\frac{\mathrm{d}}{\mathrm{d}s}[S_\mu(t-s)S_\lambda(s)u]\,\mathrm{d}s\\
+	=& \int_0^{t}S_\mu(t-s)S_\lambda(s)(A_\lambda u-A_\mu u)\,\mathrm{d}s
+      .\end{aligned}
+    \end{equation}
+    再利用步骤(1)和(2)得到的结论,可得当$u \in D(A)$ 时,有
+  \[
+    \|S_\lambda(t)u-S_\mu(t)u\|\le t \|A_\lambda u-A_\mu u\|\to 0 \left(\lambda,\mu\to \infty  \right) .
+  \] 
+  因此对任意的$u\in D(A),t\ge 0$,我们可以定义
+  \begin{equation}
+    S(t):=\lim_{\lambda\to \infty}S_\lambda(t)u.
+  \end{equation}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[t]
+\begin{enumerate}
+  \item [] 直接验证可得$\left\{S(t)\right\} _{t\ge 0}$ 是在$X$上的压缩半群.
+  \item[(4)] 最后我们要证明$A$是压缩半群 $\left\{S(t)\right\} _{t\ge 0}$ 的生成元.设$B$ 为其生成元.注意到
+    \begin{equation}
+      S(t)u-u=\lim_{\lambda\to \infty} S_\lambda(t)u-u=\lim_{\lambda\to \infty}\int_0^{t}S_\lambda(s)A_\lambda u\,\mathrm{d}s
+    \end{equation}
+    以及当$\lambda\to \infty$时有
+    \[
+      \|S_\lambda(s)A_\lambda u-S(s)A u\|\le \|S_\lambda(s)\|\|A_\lambda u -Au\|+\|(S_\lambda(s)-S(s))Au\|\to 0.
+    \]
+    从而
+    \[
+      S(t)u-u=\int_0^{t}S(s)Au\,\mathrm{d}s,\quad u\in D(A).
+    \] 
+    因此$D(A)\subset D(B)$并且
+    \[
+      Bu=\lim_{t\to 0^{+}}\frac{S(t)u-u}{t}=Au,\quad u\in D(A).
+    \]
+    当$\lambda>0,\lambda\in \rho(A)\cap \rho(B)$ 时,有
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[t]
+\begin{enumerate}
+  \item []\[
+      \left( \lambda I-B \right) (D(A))=\left( \lambda I-A \right) \left(D \left( A \right)  \right) =X.
+  \] 
+  从而$\left( \lambda I-B \right) |_{D(A)}$是一一对应并且满射,该事实立刻可以得到$D(A)=D(B)$.因此 $A=B$.
+\end{enumerate}  
+\end{frame}
+
+\begin{frame}[t]{Hille-Yosida定理的推广形式}
+  \begin{theorem}
+    设$\omega \in \R$.一个半群$\left\{S(t)\right\} _{t\ge 0}$ 被称为$\omega$-压缩,如果其满足$\|S(t)\|\le e^{\omega t}(t\ge 0)$. 设$A$ 是闭且在 $X$上稠密定义的线性算子,则 $A$是一个 $\omega$-压缩半群的生成元当且仅当
+    \begin{equation}
+      (\omega,\infty)\subset \rho(A) \text{ 并且 } \|R_\lambda\|\le \frac{1}{\lambda - \omega},\lambda>\omega.\label{15}
+    \end{equation}
+  \end{theorem}
+  令$\widetilde{S}(t)=e^{-\omega t}S(t)$,则$\left\{\widetilde{S}(t)\right\}_{t\ge 0} $ 是压缩半群.如果$A$生成了 $\left\{S(t)\right\} _{t\ge 0}$,则
+  \begin{align*}
+  \lim_{t\to 0^{+}}\frac{\widetilde{S}(t)u-u}{t}=&\lim_{t\to 0^{+}} \frac{e^{-\omega t }S(t)u - u}{t} \\
+  = & \lim_{t\to 0^{+}} \frac{e^{-\omega t}(S(t)u-u)+(e^{-\omega t}-1)u}{t}\\
+  = & (A-\omega I)u
+  .\end{align*}
+\end{frame}
+
+\section{应用举例}
+\begin{frame}[t]{二阶抛物PDE}
+  考虑下面的初边值问题
+  \begin{equation}
+    \left\{
+      \begin{aligned}
+	u_t+Lu=&0   \text{ in }U_T\\
+	u=&0 \text{ on  } \partial U\times [0,T]\\
+	u=&g \text{ on }U\times\{t=0\}.
+      \end{aligned}
+    \right.
+  \end{equation}
+  这里$L$ 是散度形一致椭圆PDE算子,系数光滑且不依赖于$t$.另外我们还要求 $U$ 有光滑边界.
+  
+  设$X=L^2(U)$ 以及
+  \begin{equation}
+    D(A):= H_0^{1}(U)\cap H^2(U).\label{17}
+  \end{equation}
+  定义
+\begin{equation}
+  Au:=-Lu \quad u \in D(A).\label{18}
+\end{equation}
+\end{frame}
+
+\begin{frame}[t]{二阶抛物PDE的半群}
+  \begin{theorem}
+    由{\normalfont(\ref{18})}式定义的算子$A$生成一个$L^2(U)$上的 $\gamma$-压缩半群$\left\{S(t)\right\} _{t\ge 0}$.
+  \end{theorem}
+  证明:我们需要验证$A$满足推广后的Hille-Yosida定理的条件.
+  \begin{enumerate}
+    \item [(1)] 显然由(\ref{17})式给出的$D(A)$在 $L^2(U)$中稠密.
+    \item [(2)] 说明$A$是闭算子.设 $\left\{u_k\right\} _{k=1}^{\infty}\subset  D(A)$ 并且在$L^2(U)$中满足
+      \begin{equation}
+	u_k\to u,\quad Au_k\to f.\label{19} 
+      \end{equation}
+      根据椭圆PDE的正则性定理,对任意的$k,l=1,2,\cdots$有
+      \[
+	\|u_k-u_l\|_{H^2(U)}\le C \left( \|Au_k-Au_l\|_{L^2(U)}+\|u_k-u_l\|_{L^2(U)} \right) 
+      .\] 结合(\ref{19})式可得$\left\{u_k\right\} _{k=1}^{\infty}$ 是$H^2(U)$ 中的柯西列,所以在$H^2(U)$中有$u_k\to u$,因此$u\in D(A)$,$Au_k\to Au$(这是因为在 $H^2(U)$上$u_k\to u$),$f=Au$.
+  \end{enumerate}
+\end{frame}
+\begin{frame}[t]
+  \begin{enumerate}
+    \item [(3)] 验证预解条件(\ref{15})(其中的$\omega$被$\gamma$ 代替).在椭圆PDE中,我们有能量估计
+      \begin{equation}
+	\beta \|u\|^2_{H_0^{1}(U)}\le B[u,u] +\gamma \|u\|^2_{L^2(U)}.\label{20}
+      \end{equation}
+      对$\lambda\ge \gamma$,考虑边值问题
+      \begin{equation}\label{21}
+        \left\{
+	  \begin{aligned}
+	    Lu+\lambda u= & f \text{ in }U\\
+	    u=&0 \text{ in }\partial U.
+	  \end{aligned}
+	  \right.
+      \end{equation}
+      该问题对任意的$f\in L^2(U)$有唯一的弱解$u\in H_0^{1}(U)$. 根据正则性理论,$u \in H^2(U)\cap  H_0^{1}(U)$. 因此$u\in D(A)$.我们可以重写问题(\ref{21})为
+      \begin{equation}
+        \lambda u -A u=f.
+      \end{equation}
+      因此当$\lambda\ge \gamma$的时候,$(\lambda I-A):D(A)\to X$是一一映射并且是满射.所以$\rho(A)\supset[\gamma,\infty)$.
+    \item [(4)]考虑边值问题(\ref{21})的弱形式
+      \[
+	B[u,v]+\lambda (u,v)=(f,v), \forall v \in  H_0^{1}(U).
+      \] 
+  \end{enumerate}
+\end{frame}
+\begin{frame}[t]
+  \begin{enumerate}
+    \item [] 令$v=u$,并利用估计式(\ref{20})可得
+       \[
+	 \left( \lambda-\gamma \right) \|u\|^2_{L^2(U)}\le \|f\|_{L^2(U)}\|u\|_{L^2(U)}.
+      \]
+      因此,由$u=R_\lambda f$可得
+      \[
+	\|R_\lambda f\|_{L^2(U)}\le \frac{1}{\lambda-\gamma}\|f\|_{L^2(U)}.
+      \]
+      由$f\in L^2(U)$ 的任意性可得
+      \begin{equation}
+	\|R_\lambda\|\le \frac{1}{\lambda-\gamma}\quad \left( \lambda>\gamma \right) .
+      \end{equation} 
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[t]{二阶双曲PDE}
+  考虑下面的初边值问题
+  \begin{equation}\label{24}
+    \left\{
+      \begin{aligned}
+	u_{tt}+Lu=&0 \text{ in }U_{T}\\
+	u=&0 \text{ on }\partial U\times [0,T]\\
+	u=g,u_t=&h \text{ on } U\times \left\{t=0\right\} .
+      \end{aligned}
+      \right.
+  \end{equation}
+  通过设$v:=u_t$,把问题(\ref{24})转化为
+   \begin{equation}
+    \left\{
+      \begin{aligned}
+	u_t=v,v_t+Lu=&0 \text{ in }U_T\\
+	u=&0 \text{ on }\partial U\times [0,T]\\
+	u=g,v=&h \text{ on } U\times \left\{t=0\right\} .
+      \end{aligned}
+      \right.
+  \end{equation}
+  $L=-\left( a^{ij}u_{x_i} \right) _{x_j}+cu$除了满足抛物PDE中的条件,进一步设其满足$c\ge 0$,$a^{ij}=a^{ji} (i,j=1,\cdots,n)$.从而对于某个$\beta>0$,有
+\end{frame}
+
+\begin{frame}[t]
+  \begin{equation}\label{26}
+    \beta\|u\|^2_{H^{1}_0(U)}\le B[u,u]\quad \forall u \in H_0^{1}(U).
+  \end{equation}
+  取
+   \[
+     X=H_0^{1}(U)\times L^2(U),
+  \] 
+  相应的范数定义为
+  \begin{equation}\label{27}
+    \|(u,v)\|:=(B[u,u]+\|v\|^2_{L^2(u)})^{1 /2}.
+  \end{equation}
+  定义
+  \[
+    D(A):=[H^2(U)\cap H_0^{1}(U)]\times H_0^{1}(U)
+  \] 
+  并且设
+  \begin{equation}\label{28}
+    A(u,v):=(v,-Lu) \quad \forall (u,v)\in D(A).
+  \end{equation}
+\end{frame}
+\begin{frame}[t]{二阶双曲PDE的半群}
+  \begin{theorem}
+    由{\normalfont (\ref{28})}式定义的算子$A$生成一个$H_0^{1}(U)\times L^2(U)$ 上的压缩半群 $\left\{S(t)\right\} _{t\ge 0}$.
+\end{theorem}
+证明:
+\begin{enumerate}
+  \item [(1)] 首先$A$的定义域显然在 $H_0^{1}(U)\times L^2(U)$中稠密.
+  \item [(2)] 为了说明$A$是闭线性算子,设 $\left\{(u_k,v_k)\right\} _{k=1}^{\infty}\subset D(A)$且
+    \[
+      (u_k,v_k)\to (u,v), A(u_k,v_k)\to (f,g), \text{ in } H_0^{1}(U)\times L^2(U).
+    \] 
+    因为$A(u_k,v_k)=(v_k,-Lu_k)$,所以 $f=v$并且在$L^2(U)$范数下 $Lu_k\to -g$.和上一个证明一样,可以得到在$H^2(U)$中$u_k\to u$以及 $g=-Lu$,因此 $(u,v)\in D(A)$, $A(u,v)=(v,-Lu)=(f,g)$.
+  \item [(3)] 现在设$\lambda>0$,$(f,g)\in X:=H_0^{1}(U)\times L^2(U)$并考虑方程
+\end{enumerate}
+\end{frame}
+
+\begin{frame}[t]
+  \begin{enumerate}
+    \item []
+      \begin{equation}\label{29}
+      \lambda(u,v)-A(u,v)=(f,g).
+    \end{equation}
+    这等价于下面的方程组
+    \begin{equation}\label{30}
+      \left\{
+	\begin{aligned}
+	  \lambda u-v=&f \quad \left( u\in H^2(U)\cap H_0^{1}(U) \right) \\
+	  \lambda v +Lu=&g\quad \left(v\in H_0^{1}(U)  \right) .
+	\end{aligned}
+	\right.
+    \end{equation}
+    由方程组(\ref{30})可以得到
+    \begin{equation}\label{31}
+      \lambda^2u+Lu=\lambda f+g \quad \left( u\in H^2(U)\cap H_0^{1}(U) \right) .
+    \end{equation}
+    因为$\lambda^2>0$,由估计式(\ref{26})和这则性理论可得方程(\ref{31})有唯一的解$u$. 再设 $v:=\lambda u -f\in H_0^{1}(U)$,我们就得到了方程(\ref{29})的唯一解$(u,v)$.所以$\rho(A)\supset (0,\infty)$.
+  \item [(4)] $(u,v)=R_\lambda(f,g)$,从方程组(\ref{30})的第二个方程可得
+    \[
+      \lambda \|v\|^2_{L^2}+B[u,v]=(g,v)_{L^2}.
+    \] 
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[t]
+  \begin{enumerate}
+  \item [] 将$v=\lambda u-f$ 代入可得
+    \begin{align*}
+      \lambda \left( \|v\|^2_{L^2}+B[u,u] \right) =& (g,v)_{L^2}+B[u,f]\\
+      \le & \left( \|g\|_{L^2}^2+B[f,f] \right) ^{1 /2}\left( \|v\|^2_{L^2}+B[u,u] \right) ^{1 /2}  
+    .\end{align*}
+    这里根据系数满足$a^{ij}=a^{ji}$ 的假设,用到了广义的Cauchy-Schwarz不等式.
+    根据范数定义(\ref{27}),可得
+    \[
+      \|(u,v)\|\le \frac{1}{\lambda}\|(f,g)\|.
+    \] 进而
+    \[
+      \|R_\lambda\|\le \frac{1}{\lambda}\quad (\lambda>0).
+    \] 
+\end{enumerate}
+\end{frame}
+
+\section{解的正则性}
+\begin{frame}[t]{初始条件的正则性表示}
+  对于抽象常微分方程(\ref{1}),如果初始函数$u$ 正则性越高,那么解的正则性一般也会提高.如果没有特殊声明,以下的讨论都是对抽象常微分方程(\ref{1})的讨论,并且假定$A$是压缩算子的生成元.
+\begin{definition}
+ 定义
+  \begin{equation}
+   \begin{aligned}
+     D(A^{k}):= & \left\{u:u\in D(A^{k-1}),Au\in D(A^{k-1}),k\in \N\right\} \\
+     =& \left\{u: A^{j}u \in  X,j=0,\cdots,k,A^{0}u=u\right\}
+   \end{aligned}
+ \end{equation}
+ 以及相应的范数
+ \begin{equation}
+   \|u\|_{D(A^{k})}=\left( \sum_{j=0}^{k} \|A^{j}u\|^2 \right) ^{1 /2}.
+ \end{equation}
+\end{definition}
+\end{frame}
+
+\begin{frame}[t]{正则性定理}
+  \begin{theorem}
+    设$u\in D(A^{k})$ 并且$A$ 为压缩半群的生成元.则方程{\normalfont(\ref{1})}的解 $u$属于
+     \[
+       \bigcap_{j=0} ^{k}C^{k-j}\left( [0,+\infty),D(A^{j}) \right) .
+    \] 
+  \end{theorem}
+  证明:我们利用归纳法证明该定理.首先$k=1$的情形肯定成立.现在假设小于等于$k-1$时的情形成立,我们需要证明 $k$的时候也成立.
+  考虑方程
+   \begin{equation}
+    \left\{
+      \begin{aligned}
+      \frac{\mathrm{d}{v}}{\mathrm{d}t}=&A {v}\\
+      {v}(0)=&Au \in D(A^{k-1}),
+    \end{aligned}
+      \right.
+  \end{equation}
+  其中$u\in  D(A^{k})$.根据归纳假设,上述方程有唯一的解:
+    \end{frame}
+   
+
+\begin{frame}[t]
+  \begin{equation}
+    {v}(t)=S(t)Au \in \bigcap_{j=0} ^{k-1}C^{k-1-j}\left( [0,+\infty),D(A^{j}) \right) .
+  \end{equation}
+ 令
+  \begin{equation}
+    \overline{u}(t)=u+\int_0^{t}v(\tau )\,\mathrm{d}\tau =u+\int_0^{t}S(\tau )Au\,\mathrm{d}\tau .
+ \end{equation}
+ 显然
+ \begin{equation}
+   \frac{\mathrm{d} \overline{u}}{\mathrm{d}t}=v(t) \in  \bigcap_{j=0} ^{k-1}C^{k-1-j}\left( [0,+\infty),D(A^{j}) \right) .
+ \end{equation}
+ 另一方面
+\begin{equation}
+  \overline{u}(t)=u+\int_0^{t}AS(\tau )u\,\mathrm{d}\tau =u+\int_0^{t}\frac{\mathrm{d}u}{\mathrm{d}\tau }\,\mathrm{d}\tau =u(t).
+\end{equation}
+所以
+\begin{equation}
+  Au(t)=\frac{\mathrm{d}u}{\mathrm{d}t} \in  \bigcap_{j=0} ^{k-1}C^{k-1-j}\left( [0,+\infty),D(A^{j}) \right) .	 
+\end{equation}
+
+\end{frame}
+
+\section{非齐次方程}
+
+\begin{frame}[t]{非齐次方程的解}
+  \begin{theorem}
+    考虑初值问题
+    \begin{equation}
+      \left\{
+	\begin{aligned}
+	  \frac{\mathrm{d}u}{\mathrm{d}t}=&Au+f(t),\\
+	  u(0)=&u.
+	\end{aligned}
+	\right.
+    \end{equation}
+    其中$A$是压缩半群的生成元.假设 $f(t)\in C^{1}\left( [0,+\infty),X \right) ,u\in D(A)$,则上述初值问题有唯一的经典解
+    \[
+      u\in C^{1}\left( [0,+\infty),X \right) \cap C\left( [0,+\infty),D(A) \right)  
+    \] 
+    并可以表示为
+    \begin{equation}\label{41}
+      u(t)=S(t)u+\int_0^{t}S(t-\tau )f(\tau )\,\mathrm{d}\tau .
+    \end{equation}
+  \end{theorem}
+\end{frame}
+
+
+\begin{frame}[t]
+  证明:因为$S(t)u$ 满足齐次方程的解和非齐次方程的初值条件,所以我们只需要证明
+  \[
+    w(t)=\int_0^{t}S(t-\tau )f(\tau )\,\mathrm{d}\tau 
+  \] 
+  属于
+  \[
+    C^{1}\left( [0,+\infty),X \right) \cap C\left( [0,+\infty),D(A) \right) 
+  \] 
+  并且满足非齐次方程.考虑差商
+  \begin{equation}
+    \begin{aligned}
+      \frac{w(t+h)-w(t)}{h}=& \frac{1}{h}\left( \int_0^{h}S(t+h-\tau )f(\tau )\,\mathrm{d}\tau -\int_0^{t}S(t-\tau )f(\tau )\,\mathrm{d}\tau  \right) \\
+      = & \frac{1}{h}\int_t ^{t+h}S\left( t+h-\tau  \right) f(\tau )\,\mathrm{d}\tau \\
+      &+\frac{1}{h}\int_0^{t}\left( S(t+h-\tau )-S(t-\tau ) \right) f(\tau )\,\mathrm{d}\tau\\
+      \to & S(0)f(t)+Aw(t)=f(t)+Aw(t)\quad\left( h\to 0 \right) .
+    \end{aligned}
+  \end{equation}
+\end{frame}
+
+\begin{frame}[t]
+  通过对积分变量$\tau $ 的替换,上式可以改写为
+  \begin{equation}
+    \begin{aligned}
+    \frac{w(t+h)-w(t)}{h}=& \frac{1}{h}\int_t ^{t+h}S(z)f(t+h-z)\,\mathrm{d}z\\
+    &+\frac{1}{h}\int_0^{t}S(z)\left( f(t+h-z)-f(t-z) \right) \,\mathrm{d}z\\
+    \to & S(t) f(0)+\int_0^{t}S(z)f'(t-z)\,\mathrm{d}z\in C\left( [0,+\infty),X \right) .
+    \end{aligned}
+  \end{equation}
+  这说明$w\in C^{1}\left( [0,+\infty),X \right) $.
+\end{frame}
+
+\begin{frame}[t]
+   \begin{corollary}
+    若
+    \[
+      f(t)\in C\left( [0,+\infty),D(A) \right) , \quad u\in D(A),
+    \] 
+    则通过{\normalfont(\ref{41})}式给定的$u(t)$是其经典解.
+   \end{corollary}
+   证明:回忆之前半群的性质,当函数属于$D(A)$时,其被半群作用后是关于时间可微的,这条性质代替了前面定理中 $f(t)$的连续可微性,其余证明一样.
+   \begin{corollary}
+     设
+     \[
+       u\in D(A),\quad f\in C\left( [0,+\infty),X \right) 
+     \] 
+     以及对于任意的$T>0$,都有
+      \[
+	f' \in L^{1}\left( [0,T],X \right) .
+     \] 
+     则通过{\normalfont(\ref{41})}式给定的$u(t)$是其经典解.
+   \end{corollary}
+\end{frame}
+
+
+\begin{frame}{温和解}
+  当$u$ 不属于$D(A)$ 或者$f(t)$ 的性质不够强的时候,我们依然可以定义解为(\ref{41})式的形式,但此时的解不一定是经典解,称其为温和解.通过半群理论解决具体的方程问题,不管是齐次还是非齐次,线性还是半线性,可以先给出温和解,再证明温和解在一定条件下是经典解.这和先给出弱解再证明弱解的正则性是类似的.
+\end{frame}
+
+\section{解析半群}
+\begin{frame}{为什么需要解析半群}
+之前讨论的半群又叫$C_0$-半群或者强连续半群.如果我们想提高解的正则性,那么反映在半群上就是半群的性质变得更好.解析半群便是起到这样的作用,它可以为初值问题提供更高正则性的解.
+\end{frame}
+
+\begin{frame}[t]{解析半群的定义}
+  \begin{definition}
+    设
+    \[
+    \Delta = \left\{z: \phi_1<\arg z <\phi_2\right\},\quad \phi_1<0<\phi_2. 
+    \]
+    设$\left\{S(z)\right\}_{z\in \Delta} $ 是$X$上的有界线性算子集合.若$\left\{S(z)\right\} _{z\in \Delta}$ 满足下述条件
+    \begin{enumerate}
+      \item $z\to S(z)$ 在$\Delta$ 上解析.
+      \item $S(0)=I$ 并且对任意的$x\in X$,有
+	\[
+	  \lim_{z\to 0,z\in \Delta}S(z)x=x.
+	\] 
+      \item 对任意的$z_1,z_2\in \Delta$有$S(z_1+z_2)=S(z_1)S(z_2)$.
+    \end{enumerate}
+    则称$\left\{S(z)\right\} _{z\in \Delta}$ 为$\Delta$ 上的解析半群.
+  \end{definition}
+  一个半群$\left\{S(t)\right\} _{t\ge 0}$是解析的,如果其在$\Delta$上的延拓是解析的.
+\end{frame}
+
+
+\begin{frame}[t]
+  \begin{theorem}[解析半群的性质]
+    设$\left\{S(t)\right\} _{t\ge 0}$ 是一致有界的$C_0$-半群,$0\in \rho (A)$,则下面的陈述等价:
+\begin{enumerate}
+  \item [(1)]$\left\{S(t)\right\} _{t\ge 0}$可以被延拓为在区域
+    \[
+    \Delta_{\delta}=\left\{z:|\arg z|<\delta\right\} 
+    \] 
+    上的解析半群并且在每一个闭子区域$\overline{\Delta}_{\delta'},\delta'<\delta$ 上都一致有界.
+  \item [(2)] 存在常数$C$ 使得对任意$\sigma>0,\tau \neq 0$,有
+    \begin{equation}
+      \|R_{\sigma+i\tau }\|=\|(\left( \sigma+i\tau  \right) I-A)^{-1}\|\le \frac{C}{|\tau |}.
+    \end{equation}
+  \item [(3)] 存在$0<\delta<\frac{\pi}{2}$ 以及$M>0$ 使得
+    \begin{equation}
+      \rho(A)\supset \Sigma = \left\{\lambda: |\arg \lambda|<\frac{\pi}{2}+\delta\right\} \cup \left\{0\right\} 
+    \end{equation}
+    以及对任意的$\lambda \in \Sigma,\lambda\neq 0$有
+    \begin{equation}
+      \|R_{\lambda}\|\le \frac{M}{|\lambda|}.
+    \end{equation}
+\end{enumerate}
+  \end{theorem}
+\end{frame}
+
+\begin{frame}[t]
+  \begin{block}{}
+    \begin{enumerate}
+      \item [(4)] $\left\{S(t)\right\} _{t\ge 0}$ 对任意$t>0$ 都是可微的并且存在一个常数$C$ 使得
+	\begin{equation}
+	  \|AS(t)\|\le \frac{C}{t},\quad \forall t>0.
+	\end{equation}
+    \end{enumerate}
+  \end{block}
+  类似于Hille-Yosida定理的一般形式,我们也可以得到上述定理的的推广,考虑$\|S(t)\|\le Me^{\omega t}$,则相当于对谱点进行平移,例如第三个条件就可以改写为
+  \begin{block}{}
+    \begin{enumerate}
+      \item [(3')] 
+	\begin{equation}
+	  \rho(A)\supset \Sigma =\left\{\lambda:|\arg \left( \lambda-\omega \right)|<\frac{\pi}{2}+\delta \right\}\cup \left\{\lambda=\omega\right\}.
+	\end{equation}
+	以及
+	\begin{equation}
+	  \|R_\lambda\|\le \frac{M}{|\lambda-\omega|}.
+	\end{equation}
+    \end{enumerate}
+  \end{block}
+\end{frame}

@@ -1,0 +1,451 @@
+\AtBeginSection[]{
+  \begin{frame}
+    \vfill
+    \centering
+    \begin{beamercolorbox}[sep=8pt, center, shadow=true,rounded=true]{title}
+      \usebeamerfont{title}\insertsectionhead\par%
+    \end{beamercolorbox}
+    \vfill
+  \end{frame}
+}
+
+\begin{frame}[t]
+  \tableofcontents
+\end{frame}
+\section{How to choose the solution map}
+\begin{frame}[t]{Choose the orbits rather than the trajectories}
+  \begin{exampleblock}{Example}
+    \begin{equation}
+      \dot{x}(t)=-x\left( t-\frac{\pi}{2} \right) 
+    \end{equation}
+  \end{exampleblock}
+  Obviously, it has a unique solution through each $\left( \sigma,\phi \right) \in \R\times C$. 
+  Consider two solutions:
+  \begin{equation}\label{eqn-2}
+    x(t)=\sin t \quad\text{ and }\quad x(t)=\cos t.
+  \end{equation}
+  \begin{figure}
+    \centering
+  \begin{tikzpicture}[scale=0.4]
+     % draw the axis
+    \draw[eaxis] (-\num,0) -- (8*\num,0) node[below] {$x$};
+    \draw[eaxis] (0,-2) -- (0,2) node[above] {$f(x)$};
+     % draw the function (piecewise)
+    %\draw[elegant,domain=-\num:-1/\num] plot(\x,{1/\x});
+    %\draw[elegant,domain=1/\num:\num] plot(\x,{1/\x});
+    \draw[elegant,domain=-\num:8*\num] plot(\x,{cos(\x r)});
+    \draw[elegant,orange,domain=-\num:8*\num] plot(\x,{sin(\x r)});
+\end{tikzpicture}
+\label{fig-1}
+\caption{Two solutions intersect an infinite number of times on any interval $[\sigma,\infty)$ and yet are not identical on any interval.}
+\end{figure}
+\end{frame}
+\begin{frame}[t]
+  It is not a good way to represent these two solutions. In fact, given a $\frac{\pi}{2}$ phase shift of the solution $x(t)=\sin(t)$ we get 
+  \[
+    \sin (t+\frac{\pi}{2})=\cos t.
+  \] 
+  It's better to consider an orbit of solutions rather than the trajectories. Further more, we need to choose a phase space that the above two solutions are in the same orbit.
+\only<1>{ 
+  \begin{exampleblock}{Example: phase space $\R$ and the orbits $\bigcup_{t\ge 0} x(0,\phi)(t)$}
+    The orbits of two solutions (\ref{eqn-2}) coincide and are equal to the interval $[-1,1]$.\\
+    The difficulty is: the orbit of the solution  $x=\cos t$ contain the orbit of another solution $x=0$ and not be related in any way to a phase shift.
+  \end{exampleblock}
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}[scale=1]
+      % draw the axis
+      \draw[eaxis] (-5,0)--(5,0) node[below] {$x=x(t)$};
+      \draw[red, thick] (-1,0) node[below] {$x=\cos(\pi)$} --(1,0) node[below] {$x=\cos(0)$};
+    \end{tikzpicture}
+    \label{fig-2}
+    \caption{Orbits $\bigcup_{t\ge 0} x(0,\phi)(t)$ in phase space $\R$, $\phi=\cos (t+\theta),\forall \theta \in \R$.}
+\end{figure}}
+\only<2>{
+  \begin{exampleblock}{Example: phase space $C=C([-\pi /2,0],\R)$}
+    The orbit of the solution $\sin t$ is the set 
+    \begin{equation}
+      \Gamma = \left\{\psi:\psi(\theta)=\sin(t+\theta), -\frac{\pi}{2}\le \theta \le 0, \text{ for }t\in [0,\infty)\right\} 
+    \end{equation}
+    of points in $C$. Then $\Gamma$ is determined by phase shifts of a solution. $\Gamma$ is a closed curve in $C$ since $\sin t $ is periodic. This condition cannot be pictured since the dimension of $\Gamma$ is infinite.
+  \end{exampleblock}
+}
+\end{frame}
+
+\begin{frame}[t]{Purpose of this presentation}
+  The purpose of the following content is to discuss some good or bad properties of the solution map $T_f(t,\sigma)$ of and RFDE($f$) defined by 
+  \[
+    T_f(t,\sigma)\phi=x_t(\sigma,\phi,f).
+  \]
+  We will assume that $f$ is continuous and there is a unique solution of the RFDE($f$) through $(\sigma,\phi)$.
+\end{frame}
+\section{Finite- or infinite-dimensional problem?}
+\begin{frame}[t]
+  The continuation theorem:
+  \begin{theorem}[Theorem 3.2 of Section 2.3]
+    Suppose $\Omega$ is an open set in $\R\times C$, $f:\Omega\to \R^{n}$ is completely continuous, and $x$ is a noncontinuable solution of 
+    \begin{equation}\label{eqn-main}
+       \dot{x}(t)=f(t,x_t)
+    \end{equation}
+    on $[\sigma-r,b)$. Then, for any closed bounded set $U$ in $\R\times C$, $U \in \Omega$, there exists a $t_{U}$ such that $(t,x_t)\notin U$ for $t_{U}\le t<b$.
+  \end{theorem}
+  {\noindent \itshape Proof}.
+  Consider the first case $r=0$ (an ordinary equation). Since  $U\subset  \left\{\sigma\right\} \times C\simeq C$ is a closed bounded set, the existence theorem implies there is an $\alpha>0$ such that the equation has a solution through any $(c,y)\in U$ that exists at least on $[c,c+\alpha]$.  Now suppose the assertion of the theorem is false, that is, there is a sequence $(t_k,x_{t_k} \in U,y \in \R^{n}$, $(b,y) \in  U$ such that $t_k\to b^{-},x_{t_k}\to y$ as $k\to \infty$.
+\end{frame}
+\begin{frame}[t]
+  Using the fact that $f$ is bounded in a neighborhood of $(b,y)$, the function $x$ is uniformly continuous on $[\sigma,b)$ and $x(t)\to y$ as $t\to b^{-}$. There is obviously an extension of $x$ to the interval $[\sigma,b+\alpha]$. Since $b+\alpha>b$, this is a contradiction. 
+
+  Consider the second case $r>0$. Suppose the conclusion of the theorem is not true. Then there is a sequence of real numbers $t_k\to b^{-}$ such that $(t_k,x_{t_k}) \in U$ for all $k$. Since $t>0$, this implies that $x(t),\sigma-r\le t <b$ is bounded. Consiquently, there is a constant $M$ such that $|f(\tau ,\phi)|\le M$ for $(\tau ,\phi)$ in the closure of $\left\{(t,x_t):\sigma\le t<b\right\} $. The integral equation for the solution of Equation (\ref{eqn-main}) imply
+  \[
+    |x(t+\tau )-x(t)|=\lvert \int_t ^{t+\tau }f(s,x_s)\mathrm{d}x \rvert \le M\tau 
+  \] 
+  for all $t,t+\tau <b$. Thus, $x$ is uniformly continuous on $[\sigma-r,b)$. This implies $\left\{(t,x_t):\sigma \le t < b\right\} $ belongs to a compact set in $\Omega$. This contradicts Theorem 3.1 of Section 2.3 and proves the theorem.
+  \hfill $\square$ \par
+\end{frame}
+\begin{frame}[t]
+  \begin{alertblock}{Property 1}
+     The continuation theorem is not valid if $f$ is not a completely continuous map.
+   \end{alertblock}
+   {\noindent\itshape Proof}.
+   Let $\Delta(t)=t^2$ and 
+   \[
+   a_1<b_1<a_2<b_2<a_3<b_3\cdots, a_k\to 0, b_k\to 0 \text{ as }k\to \infty.
+   \] 
+   For example, choose $b_k=-2^{-k}$.
+   Define $\psi(t)$ as the following:
+   \begin{figure}
+     \centering
+     \begin{tikzpicture}
+       \draw[eaxis] (-5,0) -- (5,0) node[below] {$t$};
+       \draw[eaxis] (0,-2) -- (0,2) node[above] {$x(t)$};
+     \end{tikzpicture}
+   \end{figure}
+ \end{frame}
+ \begin{frame}[t]
+   Let 
+   \[
+     h(t-\Delta(t),\psi(t-\Delta(t)))=\psi'(t).
+   \] 
+   Now consider the equation 
+   \[
+     \dot{x}(t)=h(t-\Delta(t),x(t-\Delta(t))),\quad t<0 \text{ and }\Delta(t)=t^2.
+   \] 
+   \hfill $\square$\par
+\end{frame}
+\begin{frame}[t]
+  \begin{alertblock}{Property 2}
+    $T(t,\sigma)$ is locally bounded for $t\ge \sigma$.
+  \end{alertblock}
+ {\noindent \itshape Proof}.
+ Since $T(t,\sigma)\phi$ is assumed to be continuous in $(t,\sigma,\phi)$, it follows that for any $t\ge \sigma,\phi \in C$ for which $(\sigma,\phi) \in \Omega$ and $T(t,\sigma)\phi$ is defined, there is a neighborhood $V(t,\sigma,\phi)$ of $\phi$ in $C$ such that $T(t,\sigma)V(t,\sigma,\phi)$ is bounded.\hfill $\square$\par
+\end{frame}
+  \begin{frame}[t]
+    \begin{alertblock}{Property 3}
+    $T(t,\sigma)$ may not be a bounded map.
+    \end{alertblock}
+    {\noindent \itshape Proof}.
+    Let $r=\frac{1}{4}$, $C=C\left( [-r,0],\R \right) $, consider the equation
+    \begin{equation}\label{prp-5}
+      \dot{x}(t)=f(t,x_t):=x^2(t)-\int_{\min(t-r,0)}^{0}|x(s)|\mathrm{d}s.
+    \end{equation}
+    Let $B=\left\{\phi \in C:|\phi|\le 1\right\} $ and  $x(b)$ be the solution. For $b\neq 0$,$x(b)(0)\le 1$, then 
+    \[
+      \dot{x}(b)(t)<x^2(t)
+    \] 
+    for all $t$. Let $\dot{y}=y^2(t),y(0)=1$, then $x(t)<y(t)$ for all $0<t<1$,
+    \[
+      x(b)(t)<y(t)=\frac{1}{1-t}.
+    \] 
+    Hence $x(b)(r)<(1-r)^{-1}$ for all $b\in B$. For $t\ge r$, $\dot{x}(b)(t)=x^2(b)(t)$ and the fact that $x(b)(r)<(1-r)^{-1}$ implies $x(b)(t)$ exists for $-r\le t\le 1$.
+
+    If we show that for any  $\varepsilon >0$ there is a $b\in B$ such that
+  \end{frame}
+  
+\begin{frame}[t]
+     \[
+       x(b)(r)\ge(1-r)^{-1}-\varepsilon ,
+    \] 
+    then the set $x(B)(1)$ is  not bounded.
+
+    Let $\psi =y-x$, we need to find $x$ such that  $\psi\le \varepsilon $ for $0< t < r$. Let $C=(1-r)^{-1}$,$\lambda=\int_{-r}^{0}|b(s)|\mathrm{d}s$ then
+    \begin{align*}
+      \dot{\psi}(t)=&\dot{y}(t)-\dot{x}(t)\\
+      =&y^2(t)-x^2(t)+\int_{\min(t-r,0)}^{0}|b(s)|\mathrm{d}s\\
+      \le & \left( y(t)+x(t) \right) \psi(t)+\int_{-r}^{0}|b(s)|\mathrm{d}s\\
+      \le & 2 C \psi(t)+\lambda\\
+      \le & 2C\left( \psi(t)+\frac{\lambda}{2C} \right) 
+    .\end{align*}
+\end{frame}
+
+\begin{frame}[t]
+  Since $\psi(0)=0$,
+  \[
+    \psi(t)+\frac{\lambda}{2C}\le \frac{\lambda}{2C} e^{2Ct}.
+  \] 
+  To obtain $\psi\le \varepsilon $, it is enough to get 
+  \begin{align*}
+    &(e^{2Ct}-1)\frac{\lambda}{2C}\le \varepsilon \\
+    \Leftarrow & \lambda \le  \frac{2C}{e^{2Ct}-1}\varepsilon \\
+    \Leftarrow & \lambda\le 2C\varepsilon  \text{ since }e^{ \frac{2r}{1-r}}-1 <1.
+  \end{align*}\hfill $\square$\par
+\end{frame}
+
+\begin{frame}[t]
+  \begin{alertblock}{Property 4}
+    Bang-bang controls are not always possible for RFDE.
+  \end{alertblock}
+  {\noindent\itshape Proof}.
+  Suppose 
+  \[
+  \phi=0
+  \] and consider 
+  \begin{equation}
+    \dot{x}(t)=x(t-1)+u(t),\quad |u|\le 1.
+  \end{equation}
+  Then 
+  \[
+    x(0,u)(t)=\int_0^{t}u(s)\mathrm{d}s 
+  \] 
+  for $0\le t\le 1$ and  $\mathcal{A}(1,0)$ contains zero since the control $u(t)=0,0\le t\le 1$, gives  $x_1(0,u)=0$. On the other hand, there is no way to reach zero with a bang-bang control.
+  \hfill $\square$\par
+\end{frame}
+
+\section{Equivalence class of solutions}
+\begin{frame}[t]
+  \begin{alertblock}{Property 1}
+    The map $T(t,\sigma)$ may not be one-to-one.
+  \end{alertblock}
+  {\noindent \itshape Proof}. Consider the equation
+  \begin{equation}\label{eqn-5}
+    \dot{x}(t)=-x(t-r)[1-x^2(t)].
+  \end{equation} 
+  Equation (\ref{eqn-5}) has the solution $x(t)=1$ for all $t$ in $(-\infty,\infty)$. If $r=1,\sigma=0,$ and $\phi \in C$, then there is a unique solution $x(0,\phi)$ of Equation (\ref{eqn-5}) through $(0,\phi)$ that depends continuously on $\phi$. If $-1\le \phi(0)\le 1$, these solutions are actually defined on $[-1,\infty)$. On the other hand, if $\phi \in C, \phi(0)=1$, then $x(0,\phi)(t)=1$ for all $t\ge 0$. Therefore, for all such initial values, $x_t(0,\phi),t\ge 1$, is the constant function 1. A translation of a subspace of $C$ of codimension one is mapped into a point by $T(t,0)$ for all $t\ge 1$.\hfill $\square$ \par
+\end{frame}
+
+\begin{frame}[t]{Equivalence class of solutions}
+  \begin{definition}
+    Suppose $\Omega=\R\times C$ and all solutions $x(\sigma,\phi)$ of the RFDE($f$ ) are defined on $[\sigma-r,\infty)$. We say $(\sigma,\phi)\in \R\times C$ is \textit{equivalent} to $(\sigma,\psi)\in \R\times C$, if there is a $\tau \ge \sigma$ such that $x_{\tau }(\sigma,\phi)=x_{\tau }(\sigma,\psi)$.
+  \end{definition}
+  Be careful of the difference between equivalence relation defined here and orbits defined before.
+
+  Then the space can be decomposed into equivalence classes $\left\{V_\alpha\right\} $ for each fixed $\sigma$. 
+\end{frame}
+
+\begin{frame}[t]
+  \begin{figure}
+    \centering
+    \begin{tikzpicture}
+      \draw[eaxis] (-5,0)--(5,0) node[below] {$t$};
+      \draw[eaxis] (0,-3)--(0,3) node[above] {$x(t)$};
+    \end{tikzpicture}
+  \end{figure}
+\end{frame}
+
+\begin{frame}[t]{Choose the representation element} 
+  For each equivalence class $V_\alpha$, choose a representation element $\phi^{\sigma,\alpha}$ and let 
+  \begin{equation}
+    W(\sigma)=\bigcup_{\alpha} \phi^{\sigma,\alpha}.
+  \end{equation}
+  It is important to choose an appropriate $\phi^{\sigma,\alpha} \in V_{\alpha}$.
+  \begin{exampleblock}{Example: Equation (\ref{eqn-5})}
+    A good choice for $W(0)$ in Equation (\ref{eqn-5}) would be 
+    \[
+      C\setminus \left\{\left( C_1\setminus \left\{1\right\}  \right) \cup \left( C_{-1}\setminus \left\{-1\right\}  \right) \right\} 
+    \]
+    where $C_a = \left\{f\in C:\phi(0)=a\right\} $.
+  \end{exampleblock}
+\end{frame}
+
+\begin{frame}[t]{Determined in finite time }
+  \begin{definition}
+    We say that an \textit{equivalence class} $V_\alpha$ is \textit{determined in a finite time } if there exists $\tau >0$ such that for any $\phi,\psi\in V_\alpha,x_{\sigma+t}(\sigma,\phi)=x_{\sigma+t}(\sigma,\psi)$ for $t\ge \tau $.
+  \end{definition}
+  Given two fixed $\phi,\psi \in V_\alpha$, there must exists $\tau >0$ such that $x_{\sigma+t }(\sigma,\phi)=x_{\sigma+t}(\sigma,\psi)$ for $t\ge \tau $. The choice of $\tau $ here may be relevant to $\phi$ and $\psi $. \textit{Determined in a finite time} means the choice of $\tau $ can be chosen as the same number, i.e., irrelevant to the choice of $\phi$ and $\psi$. 
+  \begin{alertblock}{Property 2}
+    The equivalence classes may not be determined in finite time.
+  \end{alertblock}
+\end{frame}
+
+\begin{frame}[t]
+  To prove the Property 2, we consider the equation
+  \begin{equation}\label{eqn-7}
+    \dot{x}(t)=\beta[|x_t|-x(t)],\quad \beta>0.
+  \end{equation}
+We first establish some lemmas.
+
+\begin{lemma}\label{lma-4}
+  Suppose $\phi(0)\ge 0$, then the solution  $x(t)$ of Equation (\ref{eqn-7}) is a constant for $t\ge 1$. Further more, for any positive constant function, the corresponding equivalence class contains more than one element and equivalence classs corresponding to the constant function zero contains only zero.
+\end{lemma}
+{\noindent \itshape Proof.}
+If $\phi(0)\ge 0,\phi\neq 0$, combined with $\dot{x}(t)\ge 0$ by Equation (\ref{eqn-7}), then $|x_t|=x(t)$ for $t\ge 1$ and implies $x(t)$ is a constant $\ge \phi(0)$ for $t\ge 1$. 
+If  $\phi(0)=0$ and $\phi\neq 0$, then $\dot{x}(0)>0$ and $x(t)>0$ for $t\ge 1$. Therefore, for any positive constant function, the corresponding equivalence class contains more than one
+\end{frame}
+\begin{frame}[t]
+element. If  $x(t)=0,t\ge a>0$, then $x(t)$ must be zero at $[a-1,a]$ by preceding
+argument, hence the equivalence class corresponding to the constant function zero contains only zero.\hfill $\square$\par
+\begin{lemma}\label{lma-5}
+  Suppose $\phi(0)<0$ and $x(\phi,\beta)(t)$ has a zero $z(\phi,\beta)$. Then it must be simple.
+\end{lemma}
+{\noindent \itshape Proof}.
+Given $\phi(0)<0$, it is clear that $x(\phi,\beta)(t)$ approaches a constant as $t\to \infty$. If $x(\phi,\beta)(t)$ has a zero $z=z(\phi,\beta)$, then $x(t)\neq 0$ as a function in $C([z-1,z],\R)$, hence $\dot{x}(z)=\beta|x_t|>0$, i.e., $z$ is simple. This lemma can also be proved by using the last part of Lemma \ref{lma-4}.\hfill $\square$ \par
+\end{frame}
+
+\begin{frame}[t]
+  \begin{lemma}
+    For any $\beta>0$, there is a $\phi \in C$,$\phi(0)<0$ such that $z(\phi,\beta)$ exists.
+  \end{lemma}
+  {\noindent \itshape Proof}.
+Let $\phi(0)=-1,\phi(\theta)=-\gamma,\gamma>1,-1\le \theta\le-\frac{1}{2}$ and let $\phi(\theta)$ be a monotone increasing function for $-\frac{1}{2}\le \theta \le 0$. As long as $x(t)\le 0$ and $0\le t\le \frac{1}{2}$, we have
+$|x_t|=\gamma$ and 
+\[
+  \dot{x}(t)=\beta[\gamma-x(t)]\ge \beta\gamma.
+\] 
+Therefore, $x(t)\ge \beta\gamma t-1$ if $x(t)\le 0$ and $0\le t\le \frac{1}{2}$. For $\beta\gamma /2>1$, $x(\frac{1}{2})\ge\frac{\beta\gamma}{2}-1>0$, hence $x$ must have a zero $z(\phi,\beta)<\frac{1}{2}$.\hfill $\square$\par
+\end{frame}
+
+\begin{frame}[t]
+\noindent {\itshape Proof of Property 2}.  Define 
+\begin{align*}
+  C_{-1}=&\left\{\phi \in C:\phi(0)=-1\right\} \\
+  C_{-1^{0}}=& \left\{\phi \in C_{-1}:z(\phi,\beta) \text{ exists}\right\} \\
+  C_{-1^{n}}=& \left\{\phi \in C_{-1}:z(\phi,\beta) \text{ does not exist}\right\} 
+.\end{align*}
+Since $z(\phi,\beta)$ is continuous, the set $C_{-1^{0}}$ is open and  $C_{-1^{n}}$ is closed. If $C_{-1^{n}}$ is not empty, set $\phi \in C_{-1^{n}}$ and the corresponding solution  $x(t)\to 0\left( t\to \infty \right) $ by Lemma \ref{lma-5}. Then there is $\phi_j \in C_{-1^{0}}$, $\phi_j \to \phi \in C_{-1^{n}}$ as $j\to \infty$ and $z(\phi_j,\beta)\to \infty$.
+
+Now we claim that $C_{-1^{n}}$ is not empty. To prove it, choose $\beta_0>0$ less than or equal to the value $\beta$ for which the equation
+\[
+\lambda+\beta=-\beta e^{-\lambda}
+\] 
+has a real root $\lambda_0$ of multiplicity two. For this $\beta_0$, the equation $\lambda+\beta=-\beta e^{-\lambda}$ has two real negative roots. If $-\lambda_0$ is one of these roots, then $x(t)=-e^{-\lambda_0 t}$ 
+\end{frame}
+
+\begin{frame}[t]
+is a solution of Equation (\ref{eqn-7}) with initial value $\phi_0(\theta)=-e^{-\lambda_0\theta}$,$-1\le \theta\le 0$, $\phi_0 \in C_{-1}$. Therefore $C_{-1^{n}}$ is not empty. It follows that 
+\[
+  \delta(\beta_0):=\sup \left\{z(\phi,\beta_0):\phi \in C_{-1^{0}}\right\} =\infty.
+\] 
+Since the original equation is positive homogeneous of degree $1$ in $x$, it follows that, for any positive constants $a$ and $t_0$, there exists $\phi \in C$, such that $x(\phi,\beta_0)(t)=a,t\ge t_0$, and $x(\phi,\beta_0)(t)<a$ for $0\le t<t_0$.\hfill $\square$\par 
+\end{frame}
+
+\section{Small solutions for linear equations}
+
+\begin{frame}[t]{Small solution}
+  \begin{definition}
+    A \textit{small solution} $x$ is a solution such that 
+    \begin{equation}
+      \lim_{t\to \infty}e^{kt}x(t)=0  \text{ for all }k\in \R.
+    \end{equation}
+  \end{definition}
+In this section we study the existence of small solutions of linear autonomous RFDE(L)
+\begin{equation}\label{sys}
+  \left\{
+    \begin{aligned} 
+     & \dot{x}(t)=\int_{-r}^{0}\mathrm{d}[\eta(\theta)]x(t+\theta) \\
+     & x_0=\phi. 
+    \end{aligned} 
+    \right.
+\end{equation}
+\end{frame}
+
+\begin{frame}[t]{Nontrivial small solutions}
+  \begin{definition}
+    If there are initial conditions $\phi\neq 0$ such that $x(\cdot ,\phi)$ to System (\ref{sys}) is a small solution, then such solutions are called  \textit{nontrivial} small solutions.
+  \end{definition}
+  \begin{exampleblock}{Example}
+    Consider the system 
+    \begin{equation}
+      \begin{aligned}
+	\dot{x}_1(t)&=x_2(t-1)\\
+	\dot{x}_2(t)&=x_1(t).
+      \end{aligned}
+    \end{equation}
+  \end{exampleblock}
+  Any initial condition $\phi=(\phi_1,\phi_2)^{T}$ with $\phi_1(0)=0$ and $\phi_2=0$ yields a small solution $x_1(t)=x_2(t)=0,t\ge 0$.
+\end{frame}
+
+\begin{frame}[t]
+\end{frame}
+
+\begin{frame}[t]
+\end{frame}
+
+\begin{frame}[t]
+\end{frame}
+
+\begin{frame}[t]
+\end{frame}
+
+\begin{frame}[t]
+\end{frame}
+
+\begin{frame}[t]
+\end{frame}
+
+\begin{frame}[t]
+\end{frame}
+
+\begin{frame}[t]
+\end{frame}
+
+\begin{frame}[t]
+\end{frame}
+
+\begin{frame}[t]
+\end{frame}
+
+\begin{frame}[t]
+\end{frame}
+
+\begin{frame}[t]
+\end{frame}
+
+\begin{frame}[t]
+\end{frame}
+
+\begin{frame}[t]
+\end{frame}
+
+\begin{frame}[t]
+\end{frame}
+
+\begin{frame}[t]
+\end{frame}
+
+\begin{frame}[t]
+\end{frame}
+
+\begin{frame}[t]
+\end{frame}
+
+\begin{frame}[t]
+\end{frame}
+
+\begin{frame}[t]
+\end{frame}
+
+\begin{frame}[t]
+\end{frame}
+
+\begin{frame}[t]
+\end{frame}
+
+\begin{frame}[t]
+\end{frame}
+
+\begin{frame}[t]
+\end{frame}
+
+\begin{frame}[t]
+\end{frame}
+
+\begin{frame}[t]
+\end{frame}
+
+\begin{frame}[t]
+\end{frame}
+
+\begin{frame}[t]
+\end{frame}
+
+\begin{frame}[t]
+\end{frame}

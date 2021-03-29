@@ -1,0 +1,9 @@
+[0] Config.pm:304> INFO - This is Biber 2.13
+[0] Config.pm:307> INFO - Logfile is 'hartshorne.blg'
+[21] biber:315> INFO - === Wed Oct 21, 2020, 01:45:16
+[33] Biber.pm:375> INFO - Reading 'hartshorne.bcf'
+[83] Biber.pm:905> INFO - Found 0 citekeys in bib section 0
+[87] Utils.pm:300> WARN - The file 'hartshorne.bcf' does not contain any citations!
+[93] bbl.pm:648> INFO - Writing 'hartshorne.bbl' with encoding 'UTF-8'
+[93] bbl.pm:751> INFO - Output to hartshorne.bbl
+[93] Biber.pm:110> INFO - WARNINGS: 1

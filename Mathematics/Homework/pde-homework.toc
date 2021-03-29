@@ -3,3 +3,9 @@
 \contentsline {section}{\numberline {1}Sobolev空间}{1}{section.1}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2}Fourier分析}{7}{section.2}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3}椭圆方程}{13}{section.3}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4}抛物方程}{16}{section.4}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5}半群理论}{18}{section.5}% 

@@ -494,3 +494,239 @@ $x=-1$时同理.
   \|f\|^2_{L^2(\R)}\le 2 \|\xi f\|_{L^2(\R)}\|xf\|_{L^2(\R)}.
 \] 
 \end{proof}
+\section{椭圆方程}
+\begin{exercise}
+  设$f\in  L^2(\R^{n}),u\in W^{1,2}(\R^{n})$是方程
+  \[
+    (1+\Delta)u=f,\quad x\in \R^{n}
+  \] 
+  的弱解.证明:对于任意有界开集$\Omega \subset \R^{n}$,有$u\in W^{2,2}(\Omega)$.
+\end{exercise}
+\begin{proof}
+  根据弱解的定义,我们有
+  \begin{equation}\label{10}
+    \int_{\R^{n}}\sum_{i=1}^{n} \partial_i u \partial_i v\mathrm{d}x=\int_{\R^{n}}(u-f)v\mathrm{d}x\quad\forall v\in W_0^{1}(\R^{n}).
+  \end{equation}
+  对任意的函数$f(x)$,定义在$x$ 点的$e^{i}$ 方向步长为$h$的差分为
+   \[
+     \Delta_i^{h}f(x):= \frac{f(x+he^{i})-f(x)}{h}.
+  \]
+  则对任意的$j=1,2,\cdots,n$,设$\Omega$ 是任意的有界开集,设$\Omega \subset  \subset  \Omega'$,$\Omega'$也是一个有界开集.设$v$ 的支撑在$\Omega'$中, 则有
+  \begin{align*}
+    \int_{\R^{n}}\sum_{i=1}^{n} \Delta_j^{h}\partial_i u\partial_iv\mathrm{d}x=& -\int_{\R^{n}}\sum_{i=1}^{n} \partial_i u \partial_i \Delta^{-h}_j v \mathrm{d}x\\
+    =& -\int_{\R^{n}}(u-f)\Delta^{-h}_j v\mathrm{d}x\\
+    \le & C(n) \left( \|u\|_{L^2(\R^{n})} + \|f\|_{L^2(\R^{n})} \right) \|\nabla v\|_{L^2(\Omega')}
+  .\end{align*}
+  其中第二个等号是将(\ref{10})式中的$v$ 替换成$\Delta^{-h}_j v$.为了得到$u$ 的二阶弱导数的存在性,设$\eta \in C_0^{1}(\Omega')$并且满足$0\le \eta\le 1$,令$v=\eta^2 \Delta_k^{h}u$,则
+  \begin{align*}
+    \int_{\R^{n}}| \eta \nabla \Delta_k^{h}u|^2\mathrm{d}x
+      = & \int_{\R^{n}}\sum_{i=1}^{n} \eta^2 \Delta_k^{h} \partial_i u \Delta_k^{h}\partial_iu\mathrm{d}x\\
+      = & \int_{\R^{n}}\sum_{i=1}^{n}  \Delta^{h}_k \partial_i u \left( \partial_i v-2 \Delta^{h}_k u \eta \partial_i \eta \right) \mathrm{d}x\\
+     = & \int_{\R^{n}}\sum_{i=1}^{n} \Delta_k^{h}\partial_i u \partial_iv \mathrm{d}x-2\int_{\R^{n}}\sum_{i=1}^{n} \Delta_k^{h}\partial_i u \Delta_k^{h}u \eta \partial_i\eta \mathrm{d}x\\
+     \le & C(n)\left( \|u\|_{L^2(\R^{n})}+\|f\|_{L^2(\R^{n})} \right) \|\nabla v\|_{L^2(\Omega')}\\
+     + & 2\|\eta \nabla  \Delta^{h}_k u\|_{L^2(\Omega')}\|\Delta^{h}_k u \nabla u\|_{L^2(\Omega')}
+  .\end{align*}
+  注意到
+  \[
+    \|\nabla v\|_{L^2(\Omega')}= \|2\eta\nabla\eta \Delta^{h}_ku +\eta^2\nabla \Delta^{h}_ku \|_{L^2(\Omega')}\le \|2\eta \nabla \eta \Delta^{h}_k u\|_{L^2(\Omega')}+\|\eta \nabla \Delta^{h}_ku\|_{L^2(\Omega')}
+  \]
+  所以
+  \begin{align*}
+    \int_{\Omega'}|\eta \nabla  \Delta^{h}_k u|^2\mathrm{d}x\le & C(n)\left( \|u\|_{L^2(\R^{n})}+\|f\|_{L^2(\R^{n})} \right) \left( 2\|\eta  \Delta^{h}_ku \nabla \eta\|_{L^2(\Omega')}+\|\eta \nabla  \Delta^{h}_k u\|_{L^2(\Omega')} \right) \\
+    + & 2 \|\eta \nabla \Delta^{h}_ku\|_{L^2(\Omega')}\|\Delta^{h}_ku \nabla \eta\|_{L^2(\Omega')}
+  .\end{align*}
+注意到$0\le \eta\le 1$,
+  所以
+  \begin{align*}
+    \int_{\Omega'}|\eta\nabla \Delta^{h}_ku|^2\mathrm{d}x\le & C \left( \|u\|_{L^2(\R^{n})}+\|f\|_{L^2(\R^{n})} \right)\|\Delta_k^{h}u\nabla \eta\|_{L^2(\Omega')} \\
+    + & C\left( \|u\|_{L^2(\R^{n})}+\|f\|_{L^2(\R^{n})} +\|\Delta_k^{h}u \nabla \eta\|_{L^2(\Omega')}\right) \|\eta \nabla \Delta^{h}_ku\|_{L^2(\Omega')}.
+  \end{align*}
+  第一项小于等于$C\left( \|u\|_{L^2(\R^{n})}+\|f\|_{L^2(\R^{n})} +\|\Delta^{h}_ku \nabla \eta\|_{L^2(\Omega')}\right)^2 $.对第二项利用Young不等式$ab\le\varepsilon a^{p}+\varepsilon ^{-q /p}b^{q}$ 可得
+  \begin{align*}
+    &C\left( \|u\|_{L^2(\R^{n})}+\|f\|_{L^2(\R^{n})}+\|\Delta^{h}_k u\nabla \eta\|_{L^2(\Omega')} \right) \|\eta \nabla  \Delta^{h}_k u\|_{L^2(\Omega')}\\
+    \le & \varepsilon  \|\eta \nabla \Delta^{h}_k u \|_{L^2(\Omega')}^2\\
+    + & \frac{1}{\varepsilon } C^2 \left( \|u\|_{L^2(\R^{n})}+\|f\|_{L^2(\R^{n})}+\|\Delta^{h}_k u\nabla \eta\|_{L^2(\Omega')} \right)^2 
+  .\end{align*}
+  代入上面的不等式可得($C$在不同的不等式中可以是不同的常数)
+  \[
+    \|\eta\nabla \Delta^{h}_k u\|_{L^2(\Omega')}\le C \left( \|u\|_{L^2(\R^{n})}+\|f\|_{L^2(\R^{n})}+\|\Delta^{h}_ku\nabla \eta\|_{L^2(\Omega')} \right) 
+  \]
+设$\eta$ 在$\Omega$ 上为$1$,并且在 $\Omega'$ 上有$\sup|\nabla \eta|\le \frac{2}{d}$,其中$d= \mathrm{dist}\left( \Omega,\partial \Omega' \right) $.则由上述不等式可得
+\[
+  \|\nabla  \Delta^{h}_k u\|_{L^2(\Omega)}\le C(1+\sup|\nabla \eta|)\left(\|u\|_{L^2(\R^{n})}+\|f\|_{L^2(\R^{n})}+\|\Delta^{h}_ku\|_{L^2(\Omega')}  \right) .
+\] 
+上述式子对于$|h|<d$ 的所有差分都成立,所以由差分和微分的关系可得$\|\Delta^{h}_k u\|_{L^2(\Omega')}\sim \|\nabla u\|_{L^2(\Omega')}\le \|\nabla u\|_{L^2(\R^{n})}$,所以
+\[
+  \|\nabla \Delta^{h}_ku\|_{L^2(\Omega)}\le C\left( 1+\sup|\nabla \eta| \right) \left( \|u\|_{W^{1,2}(\R^{n})}+\|f\|_{L^2(\R^{n})}\right). 
+\] 
+这说明对任意$|h|<d$ 的差分,$\|\nabla \Delta^{h}_ku\|_{L^2(\Omega)}$都有共同的上界,是有界集.因为Hilbert空间的有界集必有弱收敛的子列,所以根据弱导数的定义可知$\nabla u$的弱导数必定存在.
+\end{proof}
+
+\begin{exercise}
+  设$I=(0,1)$.证明以下结论:
+  \begin{enumerate}
+    \item [(1)] 若$u\in H^{1}(I)$,则$u_{+}=\max(u(x),0)\in H^{1}(I)$.
+    \item [(2)] 存在常数$c>0$,使得对任意$u\in H^{1}_0(I)$ 有
+      \[
+      \int_{I}|u|^2\mathrm{d}x\le c \int_{I}|\partial_xu|^2\mathrm{d}x.
+      \] 
+  \end{enumerate}
+\end{exercise}
+ 
+\begin{proof}
+  \begin{enumerate}
+    \item [(1)] 因为$u\in H^{1}(I)$,所以$u_{+}\in L^2(I)$,我们只需要证明$u_{+}$ 存在一阶弱导数.设函数序列$\left\{u_n\right\} $ 依$H^{1}(I)$ 中的范数收敛于$u$,并且 $u_n\in C^{1}(I)$.设$u_{n+}=\max(u_n(x),0)$.对任意的$v\in C_0^{\infty}(I)$,有
+      \begin{align*}
+	\int_{I}u_{+}Dv\mathrm{d}x=&\lim_{n\to \infty} \int_{I}u_{n+}Dv\mathrm{d}x\\
+	=& -\lim_{n\to \infty}\int_{I}Du_{n+}v\mathrm{d}x\\
+      .\end{align*}
+      因为$\left\{Du_{n+}\right\} $ 在$L^2(I)$中有界,所以必定存在弱收敛的子列,这里不妨设该序列本身就弱收敛,所以一定存在函数$w$ 使得
+      \[
+      \lim_{n\to \infty}\int_{I}Du_{n+}v\mathrm{d}x=\lim_{n\to \infty}\int_I w v\mathrm{d}x,
+      \] 
+      进而
+      \[
+      \int_{I}u_+ Dv\mathrm{d}x=-\int_I w v\mathrm{d}x.
+      \] 
+      所以$u_+$的弱导数存在且 $u_{+}=w$.
+    \item [(2)] 不妨令$u\in C_0^{1}(I)$,则
+      \begin{align*}
+	\int_{I}|u|^2\mathrm{d}x= & \int_{I} \left| \int_0^{x} Du(y)\mathrm{d}y\right|^2\mathrm{d}x\\
+	\le & \int_{I}\left(\int_0^{x}1^2\mathrm{d}y\right)\left( \int_0^{x}|Du(y)|^2\mathrm{d}y \right) \mathrm{d}x\\
+	\le & \int_I x\mathrm{d}x \int_I|Du(y)|^2\mathrm{d}y \\
+	= & \frac{1}{2}\int_{I}|\partial_x u|^2\mathrm{d}x
+      .\end{align*}
+  \end{enumerate}
+\end{proof}
+\section{抛物方程}
+\begin{exercise}
+  简单叙述Galerkin方法的思路.
+\end{exercise}
+\begin{proof}
+\begin{enumerate}
+  \item 首先Galerkin方法是寻求抽象微分方程
+  \[
+    \frac{\partial u}{\partial t} +Au=f(t),\quad u(0)=u_0
+  \] 
+  的一个弱解,这是一个常微分方程,只是函数$u$的象的取值是无穷维的函数空间$H^{1}_0$,可以在该函数空间选择适当的基底,先把函数投影到有限维子空间上,把问题转化为常微分方程组来解决.选择基底最简单的方式是通过计算算子$A$的特征函数.$A$的特征函数能够组成一个基底需要满足一定的条件,这样的条件由Hilbert-Schimidt定理给出.
+  \item 通过有限维投影,例如$n$ 维,我们把原问题转化为比较弱的求解
+    \[
+      \frac{\mathrm{d}\,}{\mathrm{d}t}(u,\phi_j)=\lambda_j(u,\phi_j)=(f(t),\phi_j)\quad j=1,\cdots,n
+    \] 
+    常微分方程组的问题.根据常微分方程组的解的存在唯一性定理可知,该方程组有唯一的解$u_n$.也就是存在唯一的解满足
+    \[
+      \frac{\mathrm{d}\,}{\mathrm{d}t}u_n+A u_n=P_n f(t).
+    \] 
+  \item 因为$\left\{u_n\right\} $ 在$L^2(0,T;H_0^{1})$ 上一致有界,因此存在弱收敛的子列,不妨仍然记为$\left\{u_n\right\} $,使得
+    \[
+      u_n \rightharpoonup u \text{ in } L^2(0,T;H^{1}_0).
+    \] 
+    类似可得
+    \begin{equation*}
+      \begin{aligned}
+	\frac{\partial u_n}{\partial t} & \rightharpoonup \frac{\partial u}{\partial t}  \text{ in }L^2(0,T;H^{-1})\\
+	\Delta u_n & \rightharpoonup \Delta u \text{ in }L^2(0,T;H^{-1})\\
+	P_nf & \rightharpoonup f \text{ in }L^2(0,T;H^{-1}).
+      \end{aligned}
+    \end{equation*}
+  \item 我们需要说明上述的弱极限就是我们要得到的弱解.通过简单的极限操作可得
+    \[
+      \langle \frac{\mathrm{d}\,}{\mathrm{d}t}u,v\rangle+\langle Au,v\rangle=\langle f,v\rangle.\quad \forall v \in L^2(0,T;H_0^{1}).
+    \] 
+    以上说明了极限函数$u$ 使得方程
+    \[
+      \frac{\partial u}{\partial t} +Au=f(t)
+    \] 
+    在$L^2(0,T;H^{-1})$ 中成立.
+    由于弱极限$u$ 满足
+    \[
+      \|u\|_{L^2(0,T;H^{1}_0})+\|\frac{\partial u}{\partial t} \|_{L^2(0,T;H^{-1})}\le C.
+    \] 
+    由向量值嵌入定理得$u\in C([0,T],L^2(\Omega))$.因此初值$u(0,x)$ 在$L^2(\Omega)$ 上有意义. 边界条件已经包含在算子$A$的定义域中.所以弱极限就是我们要求的弱解.弱解的唯一性则利用到了 $A$的正定性质.
+
+\end{enumerate}
+\end{proof}
+\section{半群理论}
+\begin{exercise}
+  设$A$是Banach空间 $X$上的压缩半群的生成元,求证
+   \begin{enumerate}
+     \item [(1)] $D(A)$ 在$X$中稠密;
+     \item [(2)] $A$ 是闭算子;
+     \item [(3)] 对任意 $\lambda>0$,有$\|(\lambda I-A)^{-1}\|\le \frac{1}{\lambda}$.
+  \end{enumerate}
+\end{exercise}
+\begin{proof}
+  \begin{enumerate}
+    \item [(1)] 对任意的$t>0,u \in X$,定义
+      \[
+	u^{t}:=\int_0^{t}S(t)u(t)\,\mathrm{d}t.
+      \] 
+      因为在$X$ 上有$\frac{u(t)}{t}\to 0$,我们只要证明对任意的$t>0$,都有$u^{t}\in D(A)$ 即可.实际上,
+      \begin{equation}
+        \begin{aligned}
+	  \frac{S(h)u^{t}-u^{t}}{h}&=\frac{S(h)\int_0^{t}S(\tau )u\,\mathrm{d}\tau -\int_0^{t}S(\tau )\,\mathrm{d}\tau }{h}\\
+	  = &\frac{1}{h} \int_0^{t}S(\tau +h) u\,\mathrm{d}\tau - \frac{1}{h}\int_0^{t}S(\tau )u\,\mathrm{d}\tau\\
+	  = & \frac{1}{h}\int_h^{h+t }S(\tau )u\,\mathrm{d}\tau - \frac{1}{h}\int_0^{t}S(\tau )u \,\mathrm{d}\tau \\
+	  = & \frac{1}{h}\left( \int_h^{h+t}-\int_0^{t} \right) S(\tau )u\,\mathrm{d}\tau \\
+	  = & \frac{1}{h}\left( \int_t ^{t+h}+\int_h^{t}-\int_0^{t} \right) S(\tau )u\,\mathrm{d}\tau\\
+	  = & \frac{1}{h}\left( \int_t ^{t+h} -\int_0^{h} \right) S(\tau )u\,\mathrm{d}\tau \\
+	  = & \frac{1}{h}\int_t ^{t+h}S(\tau )u\,\mathrm{d}\tau -\frac{1}{h}\int_0^{h}S(\tau )u\,\mathrm{d}\tau \\
+	  \to & S(t)u-u\quad \left( h\to 0 \right) .
+        \end{aligned}
+      \end{equation}
+      这说明$u^{t}\in D(A)$,所以$D(A)$ 在$X$ 中稠密.
+    \item 设$u_k\in  D(A) (l=1,2,\cdots)$ 并假设在$X$中
+      \begin{equation}\label{eqn-12}
+         u_k\to u, A u_k\to v.
+       \end{equation}
+       因为
+       \[
+	 S(t)u_k -u_k=\int_0^{t}S(s)Au_k\,\mathrm{d}s.
+       \] 
+       令$k\to \infty$ 并利用(\ref{eqn-12})可得
+       \[
+	 S(t)u-u=\int_0^{t}S(s)v\,\mathrm{d}s.
+       \] 
+       因此
+       \[
+	 \lim_{t\to 0^{+}} \frac{S(t)u-u}{t}=\lim_{t\to 0^{+}}\frac{1}{t}\int_0^{t}S(s)v \,\mathrm{d}s=v.
+       \] 
+       这说明$u\in D(A)$ 并且$v=Au$. 
+     \item 设$R_\lambda=\left( \lambda I-A \right) ^{-1}$我们首先证明
+       \begin{equation}\label{eqn-13}
+	 R_\lambda =\int_0^{\infty}e^{-\lambda t}S(t) u \, \mathrm{d}t \quad \left( u\in X \right) .
+       \end{equation}
+       因为$\lambda>0$ 以及$\|S(t)\|\le 1$,等式(\ref{eqn-13})右边有意义.我们用 $\widetilde{R}_\lambda u$ 来表示右边的积分.对任意的$h>0$ 以及$u \in X$,我们有
+  \begin{align*}
+    \frac{S(h)\widetilde{R}_\lambda u-\widetilde{R}_\lambda u}{h}=& \frac{1}{h}\left\{ \int_0^{\infty}e^{-\lambda t}[S(t+h)u-S(t)u]\,\mathrm{d}t\right\} \\
+    =& -\frac{1}{h}\int_0^{h}e^{-\lambda(t-h)}S(t)u\,\mathrm{d}t\\
+    &+ \frac{1}{h}\int_0^{\infty}(e^{-\lambda(t-h)}-e^{-\lambda t})S(t)u\,\mathrm{d}t\\
+    = & -e^{\lambda h}\frac{1}{h}\int_0^{h}e^{-\lambda t }S(t)u\,\mathrm{d}t\\
+    &+\left( \frac{e^{\lambda h}-1}{h} \right) \int_0^{\infty}e^{-\lambda t}S(t)u\,\mathrm{d}t
+  .\end{align*}
+  所以
+  \[
+    \lim_{h\to 0^{+}}\frac{S(h)\widetilde{R}_\lambda u-\widetilde{R}_\lambda u}{h}=-u +\lambda \widetilde{R}_\lambda u.
+  \]
+  根据$A$ 的定义可得$A \widetilde{R}_\lambda u=-u+\lambda \widetilde{R}_\lambda u$,也就是
+  \begin{equation}
+    \left( \lambda I-A \right) \widetilde{R}_\lambda u =u \quad (u\in X).\label{eqn-14}
+  \end{equation}
+  另一方面,若$u\in D(A)$,
+  \begin{align*}
+    A\widetilde{R}_\lambda u = & A\int_0^{\infty}e^{-\lambda t}S(t)u\,\mathrm{d}t=\int_0^{\infty}e^{-\lambda t}AS(t)u\,\mathrm{d}t\\
+    = & \int_0^{\infty}e^{-\lambda t}S(t)Au\,\mathrm{d}t=\widetilde{R}_\lambda A u.
+  \end{align*}
+第二个等号利用了$A$是闭算子这一事实.因此
+ \[
+   \widetilde{R}_\lambda \left( \lambda I-A \right) u=u \left( u\in D(A) \right) .
+ \] 因为$\lambda I-A$是一一映射且是满射,所以结合上面的等式以及(\ref{eqn-14})可得
+  \begin{equation}
+    \widetilde{R}_\lambda=(\lambda I-A)^{-1}=R_\lambda.
+ \end{equation}
+ 因此
+ \[
+ \|R_\lambda u\|\le \int_0^{\infty}e^{-\lambda t}u\,\mathrm{d}t \|u\|\le \frac{1}{\lambda}\|u\|.
+ \] 
+  \end{enumerate}
+\end{proof}

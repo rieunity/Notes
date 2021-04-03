@@ -1,0 +1,163 @@
+\documentclass{amsart}
+\usepackage{amssymb,latexsym}
+\usepackage{graphicx}
+\usepackage{color}
+ \definecolor{MyDarkBlue}{rgb}{0,0.08,0.45}\definecolor{yellow}{rgb}{0.99,0.99,0.70}\definecolor{white}{rgb}{1.0,1.0,1.0}\definecolor{black}{rgb}{0.00,0.00,0.00}
+ %\pagecolor{yellow}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem*{main}{Main~Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{notation}{Notation}
+\newtheorem*{proofofnullstellensatz}{Proof of Nullstellensatz}
+\newtheorem*{proofofproductsofaffinevarieties}{Proof of Theorem \ref{15}}
+\numberwithin{equation}{section}
+\begin{document}
+\title[Complete-simple distributive lattices]
+{Algebraic Geometry - Lothar G\"{o}ttsche \\
+	Lecture 13}
+\author{Wang Yunlei}
+%\address{Harbin Institute of Technology\\
+%	Harbin}
+\email{wcghdpwyl@126.com}
+%\urladdr{http://math.uwinnebago.edu/menuhin/}
+%\thanks{Research supported by the NSF under grant number
+%	23466.}
+%\keywords{Complete lattice, distributive lattice,
+%	complete congruence, congruence lattice}
+%\subjclass[2010]{Primary: 06B10; Secondary: 06D05}
+\date{June 19, 2017}
+ 
+\maketitle
+
+\begin{definition}[Finiteness]
+	Let $ A\subset B $ be $ k $-algebras. $ B $ is called finite over $ A $ if there exist finite many elements $ b_1,\dots,b_n\in B $ such that 
+	$$
+	B=b_1 A+\dots+b_n A:=\lbrace \sum b_ia_i|a_i\in A \rbrace.
+	$$
+\end{definition}
+\begin{definition}[$ R $-module]
+	Let $ R $. An abelian group $ B $ together with the composition $ \cdot:R\cdot B\to B $ is called an $ R $-module if and only if for arbitrary $ r,r_1,r_2\in R $ and arbitrary $ b,b_1,b_2 \in B$, the following conditions are satisfied\begin{enumerate}
+		\item $ (r_1\cdot r_2)\cdot b = r_1\cdot (r_2\cdot b) $;
+		\item $ r_1\cdot(b_1+b_2)=r\cdot b_1+r\cdot b_2 $;
+		\item $ 1\cdot b = b $.
+	\end{enumerate}
+\end{definition}
+\begin{definition}[Finitely generated module]
+	An $ R $-module $ B $ is called finitely generated if there exist $ b_1,\dots,b_n\in B $ such that 
+	$$
+	B=b_1R+\cdot b_n R.
+	$$
+\end{definition}
+ \begin{example}
+ 	\begin{enumerate}
+ 		\item Let $ R $ be a ring, $ I\subset R $ be an ideal, then $ I $ is an $ R $-module via multiplication in $ R $;
+ 		\item If $ I\subset R $ is an ideal and we put $ A=R\slash I $, then $ A $ is an $ R $-module via multiplication in quotient ring;
+ 		\item If $ A\subset B $ is a subring, then $ B $ is an $ A $-module via multiplication in $ B $;
+ 	\end{enumerate}
+ \end{example}
+ If $ A $ and $ B $ are $ k $-algebras and $ A\subset B $, then $ B $ is also an $ A $-module. By definition, it is equivalent between $ B $ is a finite $ A $-algebra and $ B $ is a finitely generated $ A $-module. For $ k $-algebras, it has a different definition from modules about finitely generating. 
+ \begin{definition}
+ 	Let $ A\subset B $ and $ A,B $ are $ k $-algebra. For $ b_1,\dots,b_n\in B $, if we can denote $ B $ as 
+ 	$$
+ 	B=\lbrace g(b_1,\dots,b_n)|g\in A[x_1,\dots,x_n] \rbrace
+ 	$$
+ 	then we call $ B $ a finitely generated $ A $-algebra.
+ \end{definition} 
+ By definition, a finite $ A $-algebra is a finitely generated $ A $-algebra, but the converse is not true. For example $ k[x] $ is finitely generated $ k $-algebra but not finite over $ k $.
+ \begin{proposition}
+ 	Let $ A,B,C $ be $ k $-algebras and $ A\subset B\subset C $, then we have
+ 	\begin{enumerate}
+ 		\item if $ B $ is finite over $ A $ and $ C $ is finite over $ B $, then $ C $ is finite over $ A $.If $ C $ is finite over $ A $, then $ C $ is finite over $ B $;
+ 		\item let $ B\supset A $ be a finite $ A $-algebra and assume $ B $ is an integral domain, then every element  $ x\in B $ satisfies a monic equation
+ 		$$
+ 		x^n+a_{n-1}x^{n-1}+\dots+a_0=0
+ 		$$
+ 		with $ a_i\in A $ for $ i=0,\dots,n-1 $;
+ 		\item assume $ b $ satifies a monic equation over $ A $, then $ A[b] $ is finite over $ A $.
+ 	\end{enumerate}
+ \end{proposition}
+ \begin{proof}
+ 	\begin{enumerate}
+ 		\item  We can write $ B=b_1A+\dotsb_mA $, $ b_i\in B $ and $ C=c_1B+\dots+c_nB $, $ c_i\in C $, then we get $ C=\sum b_ic_j A $, hence $ C $ is finite over $ A $. If $ C=c_1A+\dots+c_mA $, since $ A\subset B $, we get $ C=c_1B+\dots+c_mB $.
+ 		\item Assume $ B=\sum\limits_{i=1}^{n}Ab_i $ for $ b_1,\dots,b_n\in B $, then for any element $ x $ in $ B $, we can write $ xb_i $ as 
+ 		$$
+ 		xb_i=\sum\limits_{j=1}^{n}d_{ij}b_j
+ 		$$
+ 		with $ d_{ij}\in A $. It can be rewritten as
+ 		$ \sum\limits_{j=1}^{n}(x\delta_{ij}-d_{ij})b_j=0 $. Thus $ (b_1,\dots,b_n)^{T}\in \text{ker}M $ and $ M=(x\delta_{ij}-d_{ij})_{i,j=1}^{n} $. Since $ B $ is an integral domain, we can view $ b_i $ as elements in the quotient field $ Q(B) $, then we get $ \text{det}M=0 $. Since $ \text{det}M $ is a monic equation for $ x $, we finish the proof.
+ 		\item If $ b^n+a_{n-1}b^{n-1}+\dots+a_0=0 $ and $ a_i\in A $ for $ i=0,\dots,n $, then every power of $ b $ bigger than  or equal to $ n $ is a linear combination of $ 1,b,\dots,b^{n-1} $, i.e., $ A[b]=A+Ab+\dots +Ab^{n-1} $ is finite. 
+ 	\end{enumerate}
+ \end{proof}
+ \begin{definition}
+ 	Let $ X,Y $ be affine varieties. A morphism $ \varphi:X\to Y $ is called finite if $ A(X) $ is a finite $ \varphi^{\ast}(A(Y)) $-algebra.
+ \end{definition}
+ \begin{remark}
+ 	\begin{enumerate}
+ 		\item (Definition of finite morphisms for general cases)By definition, we only define the finiteness of morphisms between affine varieties. In general, a morphism $ \varphi:X\to Y $ of varieties is called finite if and only if $ Y $ has an open affine cover $ U_1,\dots,u_n $, $ Y=U_1\cup\dots U_n $ such that $ \varphi^{-1}(U_i)=W_i $ is affine for $i=1,\dots,n  $ and the morphism $ \varphi|_{W_i}:W_i\to U_i $ is finite.
+ 		\item If $ Y $ is a closed subvariety of an affine variety $ X $, the inclusion $ i:Y\to X $ is a finite morphism(Because $ i^\ast :A(X)\to A(Y) $ is surjective).
+ 		\item Let $ \varphi:X\to Y $ and $ \psi:Y\to Z $ be morphisms of affine varieties 
+ 		\begin{enumerate}
+ 			\item if $ \varphi $ and $ \psi $ are both finite, then the composition $ \psi\circ\varphi $ is finite;
+ 			\item if $ \psi\circ \varphi  $ is finite, then $ \varphi $ is finite. In particular, if $ \varphi:X\to Y $ is finite and $ \varphi(X) $ is a subset of aclosed subvariety $ W $ of $ Y $, then $ \varphi:X\to W $ is finite.
+ 		\end{enumerate} 
+  	\end{enumerate}
+ \end{remark}
+
+ \begin{theorem}\label{13-3}
+ 	Finite morphisms are closed.
+ \end{theorem}
+ Before we prove this theorem, we need to prove two lemmas we need to use.
+  \begin{lemma}\label{13-1}
+  	If $ X $ is an affine variety, $ I\subsetneqq A(X) $ is a proper ideal, then $ Z(I):= \lbrace p\in X|f(p)=0, \forall f\in I \rbrace\neq \emptyset $.
+  \end{lemma}
+  \begin{proof}
+  	Let 
+  	$$
+  	\pi:k[x_1,\dots,x_n] \to A(X)
+  	$$
+  	be a conanical map, then it is surjective. So $ \pi^{-1}(I) $ is a proper ideal in $ k[x_1,\dots,x_n] $. By Nullstellensatz we know $ Z(\pi^{-1}(I))\neq \emptyset $. By definition, $ Z(I)=Z(\pi^{-1}(I))\cap X $, but $ \pi^{-1}(I)\supset I(X) $, so $ Z(\pi^{-1}(I))\subset X $, hence we get $ Z(I)=Z(\pi^{-1}(X))\neq \emptyset $.
+  \end{proof}
+  
+  \begin{lemma}\label{13-2}
+  	Let $ B $ be a finite $ A $-algebra and $ B $ be an integral domain, let $ I\subsetneqq A $ be a proper ideal of $ A $, then $ IB\subsetneqq B $ is a proper ideal of $ B $.
+  \end{lemma}
+  \begin{proof}
+  	Assume $ IB = B$, since $ B $ is finite over $ A $, we can write $ B=Ab_1+\dots+Ab_n $, $ b_1,\dots,b_n\in B $. Then $ B=IB=I(Ab_1+Ab_n)=Ib_1+Ib_n $. In particular, $ b_i=\sum\limits_{j=1}^{n}a_{ij}b_j $, $ a_{ij}\in I $. Then we get $ M\cdot (b_1,\dots,b_n)^{T}=(0,\dots,0)^{T} $ with $ M=(\delta_{ij}-a_{ij})_{i,j=1}^{n} $. Again view $ M $ as a matrix in $ Q(B) $ we get $ \text{det}M=0 $, hence 
+  	$$
+  	0=\text{det}M=1+\sum\limits_{l}c_l 
+  	$$
+  	with $ c_l\in I $, it implies $ 1\in I $ and hence $ I $ is not a proper ideal in $ A $. By this contradiction we know $ IB\neq B $.
+  \end{proof}
+ \begin{proof}[Proof of theorem \ref{13-3}]
+ 	Let $ \varphi :X\to Y $ be a finite morphism of affine varieties, and let $ W $ be a closed subvariety of $ X $. We need  to show $ \varphi(W) $ closed in $ Y $. Let $ Z $ be the closure of $ \varphi(W) $ in $ Y $, then we have to show $ Z=\varphi(W) $. Replacing $ X $ by $ W $ and $ Y $ by $ Z $, then our aim has changed to show a finite morphism $ \varphi:X\to Y $ of varieties with dense image is surjective.
+ 	As $ \varphi (X) $ is dense in $ Y $, we have that 
+ 	$$
+ 	\varphi^{\ast}:A(Y)\to A(X)
+ 	$$
+ 	is injective, hence we can identify $ A(Y) $ with the image $ \varphi^{\ast}(A(Y))\subset A(X)$. Let $ Y\subset \mathbb{A}^n $, we take $ x_1,\dots,x_n $ coordinates on $ \mathbb{A}^n $. For any element $ p=(a_1,\dots,a_n)\in Y $, define an ideal in $ A(Y) $  
+ 	$$ M:=\langle x_1-a_1,\dots,x_n-a_n \rangle. $$
+ 	Now we identify elements in $ M $ with the corresponding elements in $ A(X) $, let $ A(X)\cdot M $ be an ideal generated by $ M $ in $ A(X) $. In addition, 
+ 	$$
+ 	\begin{array}{ccc}
+ 	\varphi^{-1}(p)  & = & \lbrace q\in X|\varphi(q)=p \rbrace\\
+ 	{ } & = & \lbrace q\in X|(x_i-a_i)(f(q))=0 \forall i=1,\dots,n \rbrace\\
+ 	{ } & = & \lbrace q\in X|(x_i-a_i)\circ \varphi (q)=0,\forall i=1,\dots,n \rbrace\\
+ 	{ } & = & \lbrace q\in X|\varphi^\ast(x_i-a_i)(q)=0,\forall i=1,\dots,n  \rbrace\\
+ 	{ } & = & Z(A(X)\cdot M).
+ 	\end{array}
+ 	$$
+ 	Thus by lemma \ref{13-1} we only need to show $ A(X)\cdot M \subsetneqq A(X)$, this is done by lemma \ref{13-2}, hence we finish the proof.
+ \end{proof}
+% \begin{thebibliography}{9}
+ %    \bibitem{a} bibitem
+% \end{thebibliography}
+\end{document}

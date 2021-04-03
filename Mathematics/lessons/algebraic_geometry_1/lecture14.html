@@ -1,0 +1,94 @@
+ 
+<blockquote class="thm"><b>Theorem 1 (Noether Normalization)</b> <a name="14-1"></a> 	
+
+<ol> 		<li> Let $latex { Z(F) \subset \mathbb{A}^n}$ be a hyperplane, then there exists a finite surjective morphism 		<p align=center>$latex \displaystyle  		\Pi:Z(F)\rightarrow \mathbb{A}^{n-1}. 		$</p>
+ 		<li> If $latex { X\neq \emptyset }$ is an affine variety, then there exists a finite surjective morphism 		<p align=center>$latex \displaystyle  		\Pi:X\rightarrow \mathbb{A}^k 		$</p>
+ 		for some positive integer $latex { k }$. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Lemma 2</b>  	Let $latex { F }$ be a nonzero polynomial in $latex { k[x_1,\dots,x_n] }$, then there exists a point $latex { p\in\mathbb{A}^n }$ s.t. $latex { f(p)\neq 0 }$. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	Prove it by induction. For $latex { n=0 }$ and $latex { n=1 }$, it is obvious. Now assume $latex { n-1 }$ is true , for $latex { f\in k[x_1,\dots,x_n] }$ we can write $latex { f=\sum\limits_{i}f_ix_n^i }$ with $latex { f_i\in k[x_1,\dots,x_{n-1}] }$. There exists $latex { j }$ such that $latex { f_j\neq 0}$, by induction on $latex { n }$, there exists $latex { (b_1,\dots,b_{n-1})\in \mathbb{A}^{n-1} }$ such that $latex { f_j(b_1,\dots,b_{n-1})\neq 0 }$. Then we get $latex { g(X):=f(b_1,\dots,b_n,x) }$ in $latex { k[x]\lbrace 0 \rbrace }$. Of course there exists $latex { b_n }$ such that $latex { g(b_n)\neq 0 }$, i.e. $latex { f(b_1,\dots,b_n)\neq 0 }$. $latex \Box$
+
+ <em>Proof:</em> } 	
+
+<ol> 		<li> Let $latex { F^{(d)} }$ be the homogeneous part of $latex { F }$ with the top degree., then $latex { F^{(d)}(x_1,\dots,x_{n-1})\neq 0 }$. Thus there exists $latex { (b_1,\dots,b_{n-1})\in \mathbb{A}^{n-1} }$ such that $latex { F^{(d)}(b_1,\dots,b_{n-1},1)\neq 0 }$. By change of coordinates and multiplying $latex { F }$ by a constant, we can get $latex { F^{(d)}(0,\dots,0,1)=1 }$, it is equivalent to say the coefficient of $latex { x_n^d }$ in $latex { F }$ is $latex { 1 }$. Let $latex { \Pi=(x_1,\dots,x_{n-1}):Z(F)\rightarrow \mathbb{A}^{n-1} }$ and $latex { w_n\in A(Z(F)) }$ be the class of the last variable $latex { x_n }$. Then we have 		<p align=center>$latex \displaystyle  		A(Z(F))=\Pi^\ast (k[x_1,\dots,x_{n-1}])[w_n]. 		$</p>
+ 		Since $latex { F=x_n^d+\sum\limits_{i=1}^{d-1}a_ix_n^i }$ with $latex { a_i\in k[x_1,\dots,x_{n-1}] }$, in $latex { A(Z(F)) }$ we can get 		<p align=center>$latex \displaystyle  		0=w_n^d+\sum\limits_{i=1}^{d-1}\Pi^\ast (a_i)w_n^i. 		$</p>
+ 		Thus $latex { A(Z(F)) }$ is finite over $latex { \Pi^\ast(k[x_1,\dots,x_{n-1}]) }$, i.e $latex { \Pi:Z(F)\rightarrow \mathbb{A}^{n-1} }$ is finite. Let $latex { b=(b_1,\dots,b_{n-1})\in \mathbb{A}^{n-1} }$, to see $latex { \Pi^{-1}(b)\neq \emptyset }$. Put $latex { g(x):=F(b_1,\dots,b_{n-1},x)\in k[x] }$, the coefficient of $latex { x_n }$ of $latex { F }$ is $latex { 1 }$, then $latex { g(x) }$ is not constant. Hence $latex { g }$ has a zero $latex { b_n\in k }$, 		<p align=center>$latex \displaystyle  		\Pi^{-1}(b)=\lbrace (b_1,\dots,b_{n-1},b_n)|F(b_1,\dots,b_{n-1},b_n)=0 \rbrace \neq \emptyset. 		$</p>
+ 		So the morphism is surjective. 		<li> If $latex { X=\mathbb{A}^{n} }$, then it is clear. Assume $latex { \emptyset\neq X\subsetneqq\mathbb{A}^n }$ is a closed subvariety, we prove the statement by induction on $latex { n }$. Let $latex { F\in I(X)\backslash\lbrace 0 \rbrace }$ be irreducible. By (1) there exists a finite surjective morphism 		<p align=center>$latex \displaystyle  		\Pi:Z(F)\rightarrow \mathbb{A}^{n-1} 		$</p>
+ 		where $latex { X\subset Z(F) }$ is closed. The embedding of $latex { i:X\rightarrow Z(F) }$ is finite, so $latex { \tilde{\Pi}=\Pi\circ i:X\rightarrow \mathbb{A}^{n-1} }$ is a finite morphism. Let $latex { Y\subset \mathbb{A}^{n-1} }$ be the image of $latex { X }$. By induction on $latex { n }$ there is a finite surjective morphism $latex { \varphi:Y\rightarrow \mathbb{A}^{k} }$ for some $latex { k }$, then $latex { \varphi\circ\Pi\circ i }$ is a finite surjective morphism from $latex { X\rightarrow \mathbb{A}^{k} }$ for some $latex { k }$. 	
+</ol>
+
+ $latex \Box$
+
+ 
+<blockquote class="thm"><b>Lemma 3</b> <a name="14-2"></a> 	Let $latex { \varphi:X\rightarrow Y }$ be a finite surjective morphism, let $latex { Z,W }$ be closed subvarieties of $latex { X }$ and $latex { Z\subsetneqq W }$, then $latex { \varphi(Z)\subsetneqq \varphi(W) }$. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	We can assume $latex { X=W }$ and $latex { Y=f(W) }$, thus the lemma is equivalent to : if $latex { Z\subsetneqq X }$ is a closed subvariety, then $latex { f(Z)\subsetneqq Y }$. Let $latex { g\in A(X)\backslash\lbrace 0 \rbrace }$ such that $latex { g|Z=0 }$, since $latex { \varphi }$ is finite, $latex { g }$ satisfies a monic equation 	<p align=center>$latex \displaystyle  	g^n+\sum\limits_{i=0}^{n-1}\varphi^\ast (a_i)g^i=0 	$</p>
+ 	with $latex { a_{i}\in Y }$. Take the one with the smallest degree $latex { n }$, then $latex { \varphi^\ast (a_0)\neq 0 }$(otherwise divide by $latex { g }$), then we get 	<p align=center>$latex \displaystyle  	0\neq \varphi^\ast(a_0)=-g(g^{n-1}+\sum\limits_{i=1}^{n-1}\varphi^\ast(a_i)g^{i-1}). 	$</p>
+ 	The right hand side of the equation is in $latex { \langle g \rangle }$, thus $latex { \varphi^\ast (a_0)|Z=0 \Rightarrow a_0|_{\varphi(Z)}=0}$ $latex { \varphi(Z)\subsetneqq Y }$(if $latex { \varphi(Z)=Y }$, then $latex { a_0=0\in A(Y)\Rightarrow \varphi^\ast(a_0)= }$, it makes a contradiction). $latex \Box$
+
+ 
+<blockquote class="thm"><b>Corollary 4</b>  	Let $latex { \varphi:X\rightarrow Y }$ be a finite surjective morphism, then all the fibres of $latex { \varphi }$ are finite. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	It is enough to show that every irreducible component $latex { Z }$ of $latex { \varphi^{-1}(y) }$ is a point. Let $latex { z\in Z }$ be a point, then $latex { \varphi(z)=y=\varphi(Z) }$, by lemma <a href="#14-2">3</a> we get $latex { \lbrace 0 \rbrace= Z }$. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Definition 5 (Dimension of Varieties)</b>  	Let $latex { X }$ be a variety, $latex { \emptyset\neq X_0\subsetneqq X_1\subsetneqq\dots\subsetneqq X_n=X }$ be a chain of irreducible closed subsets on $latex { X }$, we call it a chain in $latex { X }$, $latex { n }$ is called length of the chain. The dimension of $latex { X }$ is the maximal $latex { n }$ such that there exists a chain of length $latex { n }$ in $latex { X }$ or $latex { \infty }$ if this maximum does not exist. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Lemma 6</b>  	
+
+<ol> 		<li> Let $latex { Y\subset X }$ be a closed subvariety, then $latex { \text{dim}Y\leq \text{dim}X }$. If $latex { Y\subsetneqq X }$ and $latex { \text{dim}Y &lt;\infty}$, then $latex { \text{dim} Y&lt;\text{dim}X }$. 		<li> Let $latex { f:X\rightarrow Y }$ be a surjective closd morphism, then $latex { \text{dim}X\geq \text{dim}Y }$. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	
+
+<ol> 		<li> Let $latex { Y_0\subsetneqq Y_1\subsetneqq\dots\subsetneqq Y_k }$ be a chain in $latex { Y }$, it is also a chain in $latex { X }$, thus $latex { \text{dim}X\supset \text{dim}Y }$. If $latex { Y\subsetneqq X }$, then $latex { Y_0\subsetneqq Y_1\subsetneqq \dots\subsetneqq Y_k\subsetneqq X }$ is a chain in $latex { X }$, hence if the dimension of $latex { Y }$ is finite, we get $latex { \text{dim}Y&lt;\text{dim}X }$. 		<li> Let $latex { Y_0\subsetneqq \dots\subsetneqq Y_n }$ be a chain in $latex { Y }$, we need to show that there exists a chain $latex { X_0\subsetneqq X_1\subsetneqq \dots\subsetneqq X_n }$ in $latex { X }$ such that $latex { \varphi(X_i)=Y_i }$ for all $latex { i }$. Use induction on $latex { n }$, it is obvious for $latex { n=0 }$. Let $latex { Z_1,\dots,Z_r }$ be irreducible components of $latex { f^{-1}(Y_{n-1}) }$, then $latex { \mathop{\cup}\limits_{i=1}^{r}\varphi(Z_i)=Y_{n-1} }$,$latex { f(Z_i) }$ are closed, $latex { Y_{n-1} }$ is irreducible. Thus one of the $latex { f(Z_i) }$ is equal to $latex { Y_{n-1} }$. Since $latex { \varphi :Z_i\rightarrow Y_{n-1} }$ is a surjective closed morphism, by induction we get a chain $latex { X_0\subsetneqq X_1\subsetneqq \dots\subsetneqq X_{n-1}=Z_i }$ in $latex { X }$ with $latex { f(X_i)=Y_i }$ for $latex { i=0,\dots,n-1 }$, then $latex { X_0\subsetneqq X_1\subsetneqq \dots\subsetneqq X_{n-1}\subsetneqq X_n=X }$ is a chian with $latex { f(X_i)=Y_i }$ for all $latex { i }$. 	
+</ol>
+
+ $latex \Box$
+
+ 
+<blockquote class="thm"><b>Theorem 7</b>  	Let $latex { \varphi:X\rightarrow Y }$ be a finite surjective morphism of varieties, then $latex { \text{dim}X=\text{dim}Y }$. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	We already know $latex { \text{dim}X\geq \text{dim}Y }$ because $latex { \varphi }$ is surjective and closed. To show $latex { \text{dim}Y\geq \text{dim}X }$, let $latex { X_0\subsetneqq \dots,\subsetneqq X_n }$ be a chain in $latex { X }$, for $latex { i }$ let $latex { Y_i=f(X_i) }$, then by lemma <a href="#14-2">3</a> $latex { Y_0\subsetneqq Y_1\subsetneqq \dots\subsetneqq Y_n }$ is also a chain in $latex { Y }$. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Theorem 8</b>  	
+
+<ol> 		<li> $latex { \text{dim}\mathbb{A}^n=n }$. 		<li> Let $latex { F\in k[x_1,\dots,x_n]\backslash k }$ be a irreducible polynomial, then $latex { \text{dim}Z(F)=n-1 }$. 		<li> Conversely any subvariety $latex { X\subset \mathbb{A}^n }$ of dimension $latex { n-1 }$ is a hypersurface, i.e. $latex { X=Z(F) }$ with $latex { F }$ irreducible. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	We first prove $latex { \text{dim} Z(F)=\text{dim}\mathbb{A}^{n-1} }$ for $latex { F\in k[x_1,\dots,x_n]\backslash k }$. By theorem <a href="#14-1">1</a> we know therre exists a surjective finite morphism from $latex { Z(F) }$ to $latex { \mathbb{A}^{n-1} }$, thus $latex { \text{dim}Z(F)=\text{dim}\mathbb{A}^{n-1}}$. 	
+
+<ol> 		<li> Let $latex { Z_i=Z(x_{i+1},\dots, x_{n})\subset \mathbb{A}^{n} }$, then $latex { Z_i\simeq \mathbb{A}^i }$ and thus 		<p align=center>$latex \displaystyle  		Z_0\subsetneqq Z_1\subsetneqq Z_2\subsetneqq \dots\subsetneqq Z_n=\mathbb{A}^n 		$</p>
+ 		is a chain in $latex { \mathbb{A}^n }$ of length $latex { n }$, it implies $latex { \text{dim}\mathbb{A}^n\geq n }$. Now we prove the opposite inequality by induction on $latex { n }$. For $latex { n=0 }$, it is true, let $latex { X_0\subsetneqq X_1\subsetneqq \dots\subsetneqq X_{k-1}=X\subsetneqq \mathbb{A}^n }$ be a chain in $latex { \mathbb{A}^n }$. Then $latex { X\subsetneqq \mathbb{A}^{n} }$ is a closed subvariety, we can choose $latex { F\in I(X) }$ and $latex { F }$ is irreducible, then $latex { X\subset Z(F) }$. Thus $latex { k-1\leq \text{dim}Z(F)=\text{dim}\mathbb{A}^{n-1}=n-1 }$ by induction. Since the chain we choose is arbitrary, we get $latex { \text{dim}\mathbb{A}^{n}\leq n }$. Hence $latex { \text{dim}\mathbb{A}^n=n }$. 		<li> It follows from (1) immediately. 		<li> Let $latex { \emptyset \neq X\subsetneqq \mathbb{A}^n }$ and $latex { \text{dim}X=n-1 }$, then there exists $latex { F\in I(X)\backslash k }$ being irreducible, thus $latex { X\subset Z(F) }$, $latex { X }$ and $latex { Z(F) }$ are both irreducible of the same dimension, hence $latex { X=Z(F) }$. 	
+</ol>
+
+ $latex \Box$
+
+ 

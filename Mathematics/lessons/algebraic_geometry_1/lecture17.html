@@ -1,0 +1,102 @@
+ 
+<blockquote class="thm"><b>Theorem 1 (Existence of a Primitive Element)</b> <a name="17-1"></a> 	Let $latex { k }$ be a field of characteristic $latex { 0 }$, $latex { L/k }$ is a finite field extension. Then $latex { \exists b\in L }$ such that $latex { L=k(b) }$. </blockquote>
+
+<p>
+
+ <em>Proof:</em> } 	$latex { K(X) }$ is function field of $latex { X }$, let $latex { a_1,\dots,a_r }$ be a transcendence basis of $latex { K(X)/k }$, then $latex { K(X)/k(a_1,\dots,a_r) }$ is a finite algebraic extension. By theorem <a href="#17-1">1</a>, there exists a primitive element $latex { b\in K(X) }$ such that $latex { K(X)=k(a_,\dots,a_r)(b) }$ and $latex { b }$ is algebraic over $latex { k(a_1,\dots,a_r) }$. Since $latex { b }$ is algebraic, there exists a polynomial $latex { F\in k(a_1,\dots,a_r)[x] }$ such that $latex { F(b)=0 }$. Write 	<p align=center>$latex \displaystyle  	F=\sum\limits_{l}\frac{G_l(a_1,\dots,a_r)}{H_l(a_1,\dots,a_r)}x^l 	$</p>
+ 	where $latex { G_l(x_1,\dots,x_r),H_l(x_1,\dots,x_r)\in k[x_1,\dots,x_r] }$. 	 	Now we view it as $latex { F(x_1,\dots,x_r,x)\in k(x_1,\dots,x_r,x) }$. Multiply $latex { F }$ by producting $latex { H_l }$'s and then divide it by the greatest common devisor of the new coefficients. We get $latex { f=\tilde{h}F\in k[x_1,\dots,x_r,x] }$, it is a primitive polynomial. Let $latex { Y=Z(f)\subset \mathbb{A}^{r+1} }$, it is a irreducible hypersurface. Then $latex { A(Y)=k[x_1,\dots,x_r,x]/\langle f\rangle }$, $latex { K(Y)=Q(k[x_1,\dots,x_r,x]/\langle f\rangle)\simeq Q(k[a_1,\dots,a_r,x]/\langle f(x) \rangle) }$ $latex { \simeq k(a_1,\dots,a_r)[x]/\langle f\rangle}$ $latex {\simeq k(a_1,\dots,a_r)(b) }$ $latex { \simeq K(X) }$. Then $latex { X }$ is birational to $latex { Y }$. $latex \Box$
+
+ This proof also implies $latex { \text{dim}X=\text{trdeg}K(X) }$.
+<p>
+
+<p align=center><b> &mdash;  1. Tangent Space, Singular And Nonsingular Points  &mdash; </b></p>
+
+ First we talk about cases of hypersurfaces in $latex { \mathbb{A}^n }$. 
+<blockquote class="thm"><b>Definition 2</b>  	Let $latex { X=Z(f)\subset \mathbb{A}^n }$ be a hypersurface, assume $latex { I(X)=\langle f \rangle }$. A point $latex { p\in X }$ is called a singular point if and only if $latex { \frac{\partial f}{\partial x_i}(p)=0 }$ for $latex { i=1,\dots,n }$. Otherwise, $latex { p }$ is called a nonsingular point. Let 	<p align=center>$latex \displaystyle  	X_{\mathrm{reg}}:=\lbrace p\in X|p\text{ is nonsingular}. \rbrace. 	$</p>
+ 	$latex { X }$ is called smooth or nonsingular if and only if $latex { X=X_{\mathrm{reg}} }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Example 1</b>  	
+
+<ol> 		<li> $latex { X=Z(y-x^2) }$ is nonsingular. 		<li> $latex { X=Z(y^2-x^2(x+1)) }$ has a singular point $latex { (0,0) }$. 		<li> $latex { X=Z(y^2-x^3) }$ has a nonsingular point $latex { (0,0) }$. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Proposition 3</b>  	Let $latex { X\subset \mathbb{A}^n }$ be an irreducible hypersurface and $latex { \text{char}k=0 }$, then $latex { X_{\mathrm{reg}} }$ is open and dense in $latex { X }$. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	Let $latex { F\in k[x_1,\dots,x_n] }$ be irreducible such that $latex { X=Z(F) }$, then $latex { I(X)=\langle F \rangle }$. Define 	<p align=center>$latex \displaystyle  	X_{\mathrm{sing}}:=\lbrace \text{singular points of } X \rbrace. 	$</p>
+ 	By definition $latex { X_{\mathrm{sing}}= Z(F,\frac{\partial F}{\partial x_1},\dots,\frac{\partial F}{\partial x_n}) \subset X}$ is closed. Since $latex { Z(F) }$ is irreducible, the only thing we have to show is $latex { X\neq X_{\mathrm{sing}} }$. Assume $latex { X=X_{\mathrm{sing}} }$ $latex { \Rightarrow }$ $latex { Z(\frac{\partial F}{\partial x_i})\supset X }$ $latex { \forall i=1,\dots,n }$ $latex { \Rightarrow }$ $latex { \frac{\partial F}{\partial x_i}=0 }$ $latex { \forall i=1,\dots,n }$. Since $latex { \text{char}k=0 }$, we get $latex { F }$ is constant, it si impossible. $latex \Box$
+
+ Second we talk about cases of affine algebraic sets. 
+<blockquote class="thm"><b>Definition 4</b>  	Let $latex { f\in k[x_1,\dots,x_n] }$, $latex { p\in\mathbb{A}^n }$. The differential of $latex { f }$ at $latex { p }$ is defined as 	<p align=center>$latex \displaystyle  	\text{d}_p f=\sum\limits_{i=1}^{n}\frac{\partial f}{\partial x_i}(p)x_i. 	$</p>
+ 	Let $latex { X\subset \mathbb{A}^n }$ be an affine algebraic set, the tangent space to $latex { X }$ at $latex { p\in X }$ is defined as 	<p align=center>$latex \displaystyle  	T_p(X)=Z(\mathrm{d}_p f| f\in I(X)). 	$</p>
+ 	$latex { p\in X }$ is called nonsingular if 	<p align=center>$latex \displaystyle  	\mathrm{dim}T_p(X)= \mathrm{dim}_pX 	$</p>
+ 	where $latex { \mathrm{dim}_pX }$ is the maximu of dimensions of irreducible components of $latex { X }$ passing through $latex { p }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 1</b>  	If $latex { I(X)=\langle f_1,\dots,f_r\rangle }$, then $latex { T_p(X)=Z(\mathrm{d}_pf_1,\dots,d_p f_r) }$. By definition, $latex { T_p(X)\subset Z(\mathrm{d}_pf_1,\dots,\mathrm{d}_pf_r) }$. If $latex { h\in I(X) }$, we can write $latex { h=\sum\limits_{i=1}^{r}h_if_i }$ with $latex { h_i\in k[x_1,\dots,x_n] }$. Using Leibniz rule we get 	<p align=center>$latex \displaystyle  	\mathrm{d}_p h=\sum\limits_{i=1}^{r}(\mathrm{d}_ph_i\cdot f_i(p)+h_i(p)\cdot \mathrm{d}_pf_i). 	$</p>
+ 	Since $latex { f_i(p)=0 }$, we get $latex { \mathrm{d}_p h \in \langle \mathrm{d}_pf_1,\dots,\mathrm{d}_pf_r \rangle }$. Hence $latex { T_p(X)=Z(\mathrm{d}_pf_1,\dots,d_p f_r) }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Example 2</b>  	If $latex { X=Z(F) \subset \mathbb{A}^n}$ and $latex { I(X)=\langle F \rangle }$, then $latex { T_p(X)=Z(\mathrm{d}_pF) }$ and $latex { \mathrm{d}_pF=\sum\limits_{i=1}^{n}\frac{\partial F}{\partial x_i}x_i }$. Let $latex { \frac{\partial F}{\partial x_i}(p)=0 }$ $latex { \forall i=1,\dots,n }$ for some point $latex { p\in X }$, $latex { \forall i=1,\dots,n }$, then $latex { T_p(X)=\mathbb{A}^n }$. Since $latex { \mathrm{dim}T_p(X)\neq \mathrm{dim}_pX }$, $latex { p }$ is a singular point. If $latex { \frac{\partial F}{\partial x_i}(p)\neq 0 }$ for some $latex { i }$, then $latex { \mathrm{dim}T_p(X)=n-1 }$ and $latex { p }$ is nonsingular. </blockquote>
+
+<p>
+
+
+<p>
+Third we talk about cases of general affine varieties. 
+<blockquote class="thm"><b>Definition 5 (Jacobian)</b>  	Jacobian of $latex { f_1,\dots,f_r\in k[x_1,\dots,x_n] }$ is a matrix defined as 	<p align=center>$latex \displaystyle  	J(f_1,\dots,f_r)=\left(\begin{matrix} 	\frac{\partial f_1}{\partial x_1} & \frac{\partial f_1}{\partial x_2} &\cdots &\frac{\partial f_1}{\partial x_n}\\ 	\frac{\partial f_2}{\partial x_1} & \frac{\partial f_2}{\partial x_2} & \cdots & \frac{\partial f_2}{\partial x_n}\\ 	\vdots & \vdots & \ddots & \vdots\\ 	\frac{\partial f_r}{\partial x_1} & \frac{\partial f_r}{\partial x_2} & \cdots & \frac{\partial f_r}{\partial x_n} 	\end{matrix}\right) . 	$</p>
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 6</b>  	Let $latex { X\subset \mathbb{A}^n }$, $latex { Y\subset \mathbb{A}^m }$ be closed subvarieties. Let $latex { p\in X }$, $latex { q\in Y }$ and $latex { \varphi = (f_1,\dots,f_m):X\rightarrow Y }$ with $latex { f_i\in k[x_1,\dots,x_n] }$ for $latex { i=1,\dots,m }$. Assume $latex { \varphi(p)=q }$. The differential of $latex { \varphi }$ at $latex { p }$ is 	<p align=center>$latex \displaystyle  	\mathrm{d}_p\varphi = (\mathrm{d}_pf_1,\dots,\mathrm{d}_pf_m). 	$</p>
+ </blockquote>
+
+<p>
+
+ One can verify that $latex { \mathrm{d}_p\varphi }$ maps $latex { T_p(X) }$ into $latex { T_q(Y) }$. We can wirte $latex { \mathrm{d}_p\varphi = J(f_1,\dots,f_m)(p)\cdot x }$, but now we change the definition of $latex { \mathrm{d}_p\varphi }$ a little <p align=center>$latex \displaystyle  \mathrm{d}_p\varphi =J(f_1,\dots,f_m). $</p>
+ By using this new definition, we get 
+<blockquote class="thm"><b>Proposition 7</b>  	
+
+<ol> 		<li> $latex { \mathrm{d}_p\mathrm{Id}=\mathrm{Id} }$. 		<li> $latex { \mathrm{d}_p(\psi\circ\varphi)=\mathrm{d}_{\varphi(p)}\psi \circ\mathrm{d}_p\varphi }$. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+
+<p>
+At last we talk about tengent spaces for general varieties. 
+<blockquote class="thm"><b>Definition 8</b>  	Let $latex { X }$ be a variety, $latex { p\in X }$ be a point. The tangent space $latex { T_p(X) }$ is 	<p align=center>$latex \displaystyle  	T_p(X):=(\mathfrak{m}_p/\mathfrak{m}_p^2)^{\ast} 	$</p>
+ 	where $latex { \mathfrak{m}_p }$ is the maximal ideal of the local ring $latex { \mathcal{O}_{X,p} }$, the symbol $latex { \ast }$ denotes the dual of vector space. In other words, 	<p align=center>$latex \displaystyle  	T_p(X)=\lbrace k \text{ linear maps }\nu: \mathfrak{m}_p/\mathfrak{m}_p^2\rightarrow k \rbrace 	$</p>
+ 	or 	<p align=center>$latex \displaystyle  	T_p(X)=\lbrace k \text{ linear maps }\nu: \mathfrak{m}_p\rightarrow k \text{ with } \nu|_{\mathfrak{m}_p^2}=0 \rbrace 	$</p>
+ 	$latex { p\in X }$ is called nonsingular if $latex { \mathrm{dim}T_p(X)=\mathrm{dim}X }$. Similarly we have definition of $latex { X_{\mathrm{sing}} }$ and $latex { X_{\mathrm{reg}}.}$ If $latex { X=X_{\mathrm{reg}} }$, $latex { X }$ is called nonsingular or regular. </blockquote>
+
+<p>
+
+ 
+<p align=center><b> &mdash;  2. Conclusions We Need From Previous Lectures  &mdash; </b></p>
+
+ In lecture 16: 
+<blockquote class="thm"><b>Theorem 9</b> <a name="16-2"></a> 	Every variety $latex { X }$ is birational to a hypersurface in $latex { \mathbb{A}^{\text{dim}X+1} }$. </blockquote>
+
+<p>
+
+
+<p>
+ 

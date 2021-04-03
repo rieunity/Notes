@@ -1,0 +1,228 @@
+\documentclass{amsart}
+\usepackage{amssymb,latexsym}
+\usepackage{color}
+ \definecolor{MyDarkBlue}{rgb}{0,0.08,0.45}\definecolor{yellow}{rgb}{0.99,0.99,0.70}\definecolor{white}{rgb}{1.0,1.0,1.0}\definecolor{black}{rgb}{0.00,0.00,0.00}
+ %\pagecolor{yellow}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem*{main}{Main~Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{notation}{Notation}
+\newtheorem*{proofofnullstellensatz}{Proof of Nullstellensatz}
+\newtheorem*{productsofaffinevarieties}{Proof of Theorem \ref{15}}
+\numberwithin{equation}{section}
+\begin{document}
+\title[Complete-simple distributive lattices]
+{Algebraic Geometry - Lothar G\"{o}ttsche \\
+	Lecture 03}
+\author{Wang Yunlei}
+%\address{Harbin Institute of Technology\\
+%	Harbin}
+\email{wcghdpwyl@126.com}
+%\urladdr{http://math.uwinnebago.edu/menuhin/}
+%\thanks{Research supported by the NSF under grant number
+%	23466.}
+%\keywords{Complete lattice, distributive lattice,
+%	complete congruence, congruence lattice}
+%\subjclass[2010]{Primary: 06B10; Secondary: 06D05}
+\date{June 19, 2017}
+ 
+\maketitle
+
+  
+  
+  \begin{definition}
+  	Let $ \mathfrak{a} $ be an ideal in a ring $ R $. The radical of $ \mathfrak{a} $ is
+  	$$
+  	\sqrt{\mathfrak{a}}=\{ r\in R|\exists n>0, r^n\in \mathfrak{a} \}.
+  	$$
+  	$ \sqrt{\mathfrak{a}} $ is an ideal in $ R $.
+  	$ \mathfrak{a} $ is called radical ideal if $ \mathfrak{a}=\sqrt{\mathfrak{a}} $.
+  \end{definition}
+  \begin{remark}
+  	If $ X\subset \mathbb{A}^n $ is an affine algebraic set, then $ I(X) $ is a radical ideal.
+  \end{remark}
+  \begin{theorem}[Nullstallensatz]
+  	Let $ \mathfrak{a}\subset k[x_1,\dots,x_n] $, then $ I(Z(\mathfrak{a}))=\sqrt{\mathfrak{a}} $.
+  \end{theorem}
+  \begin{definition}
+  	$ R $ is an integral domain, the quotient field $ Q(R) $ is the set of equivalent classes of pairs $ (f,g), f,g\in R, g\neq 0 $, which satisfy the equivalent relation
+  	$$
+  	(f,g)\cong (f',g') \Leftrightarrow fg'-f'g=0.
+  	$$
+  	We denote it by $ \frac{f}{g} $.
+  \end{definition}
+  \begin{remark}
+  	$ Q(R) $ is a field. We always identify $ r\in R $ with $ \frac{r}{1}\in Q(R) $, then we can say $ R $ is the subring of $ Q(R) $.$ Q(k[x_1,\dots,x_n]):=k(x_1,\dots,x_n) $ is called field of rational functions in $ x_1,x_2,\dots,x_n $.
+  \end{remark}
+  Now we prove the Nullstellensatz:
+  \begin{proof}[Proof of Nullstellensatz]
+  	Let $ \mathfrak{a} = \langle f_1,\dots, f_r\rangle, f_i\in \mathfrak{a} $. Then $ I(Z(\mathfrak{a}))  $ is a radical ideal containing $ \mathfrak{a} $, so we get
+  	$$
+  	I(Z(\mathfrak{a}))\supset \sqrt{\mathfrak{a}}.
+  	$$
+  	Let$ f\in I(Z(\mathfrak{a})) $. To show $ \exists N>0 $, s.t. $ f^N\in \mathfrak{a} $, we use the weak Nullstellensatz in $ k[x_1,\dots,x_n] $.
+  	
+  	Let
+  	\begin{equation}
+  	\mathfrak{b}:=\langle f_1,\dots,f_r,f\cdot t -1\rangle\subset k[x_1,\dots,x_n,t]
+  	\end{equation}
+  	Let $ (p,a)\in \mathbb{A}^{n+1}, p\in \mathbb{A}^n, a\in k $.
+  	\begin{center}
+  		$ (p,a)\in Z(\mathfrak{b}) $ $ \Leftrightarrow $ $ f_1(p)=\dots=f_r(p)=0 $ and $ f(p)\cdot a=1 $.
+  	\end{center}
+  	But $ f(p)=0 $, so we know $ Z(\mathfrak{b})=\emptyset $. By the weak Nullstellensatz, $ 1\in \mathfrak{b} $, we can write
+  	\begin{equation}
+  	1=g_0\cdot (ft-1)+\sum\limits_{i=1}^{r}g_i\cdot f_i\label{3}
+  	\end{equation}
+  	Back to $ k[x_1,\dots,x_n] $ in $ k(x_1,\dots,x_n) $, define homomorphism:
+  	$$
+  	\begin{array}{cc}
+  	\varphi: k[x_1,\dots,x_n,t] & \to k(x_1,\dots,x_n)\\
+  	g(x_1,\dots,x_n,t) & \to g(x_1,\dots,x_n,\frac{1}{f})
+  	\end{array}
+  	$$
+  	Use $ \varphi $ to equation \ref{3} we get
+  	\begin{equation}
+  	1=\sum\limits_{i=1}^{r}\varphi (g_i)\cdot f_i\label{4}
+  	\end{equation}
+  	where $ \varphi(g_i)=\frac{G_i}{f^{n_i}},G_i\in k[x_1,\dots,x_n] $. Let $ N:=\max\limits_{1\leq i\leq r}n_i $, multiply equation \ref{4} by $ f^N $:
+  	\begin{equation}
+  	f^N=\sum\limits_{i=1}^{r}G_if^{N-n_i}\cdot f_i\in \mathfrak{a}
+  	\end{equation}
+  \end{proof}
+  \begin{corollary}
+  	\begin{enumerate}
+  		\item If $ \mathfrak{a}\subset k[x_1,\dots,x_n] $ is a prime ideal, then $ Z(\mathfrak{a}) $ is irreducible;
+  		\item If $ f\in k[x_1,\dots,x_n] $ is irreducible, then $ Z(f) $ is irreducible.
+  	\end{enumerate}
+  \end{corollary}
+  \begin{proof}
+  	(1) Set $ X=Z(\mathfrak{a}) $. Prime ideals are radical, so we get $ I(X)=\mathfrak{a} $ and $ \mathfrak{a} $ is prime, use proposition \ref{5} we know that $ X $ is irreducible.
+  	
+  	(2) Since $ k[x_1,\dots,x_n] $ is a UFD, we get
+  	\begin{center}
+  		$ f\in k[x_1,\dots,x_n] $ is irreducible $ \Rightarrow $ $ \langle f\rangle $ is a prime ideal.
+  	\end{center}
+  	So $ Z(f)=Z(\langle f\rangle) $ is irreducible.
+  \end{proof}
+  
+ 
+  \begin{definition}
+  	Define an equivalence relation$ \sim $ in $ k^{n+1}\backslash \{0\} $:
+  	\begin{center}
+  		$ (a_0,\dots,a_n)\sim(b_0,\dots,b_n) $ $ \Leftrightarrow $ $ \exists \lambda\in k\backslash \{0\} $ s.t.$ (a_0,\dots,a_n) = (\lambda b_0,\dots,\lambda b_n)$.
+  	\end{center}
+  	Then we call $  k^{n+1}\backslash \{0\} $ with this relation the projective $ n $-space and write it as $ (k^{n+1}\backslash\{0\})/\sim = \mathbb{P}^n $.
+  \end{definition}
+  \begin{definition}
+  	Let $ U_i:=\{[a_0,\dots,a_n]\in \mathbb{P}^n|a_i\neq 0 \} $. $ \varphi_i: U_i\to \mathbb{A}^n $, $ [a_0,\dots,a_n]\to (\frac{a_0}{a_i},\dots,\hat{\frac{a_i}{a_i}},\dots,\frac{a_n}{a_i}) $ is a projection, write inverse $ u_i:\mathbb{A}^n\to U_i $, $ (b_0,\dots,\hat{b_i},\dots,b_n)\to [b_0,\dots,1,\dots,b_n] $.
+  	
+  	Usually we fix $ i=0 $, view $ \mathbb{A}^n $ as a subset of $ \mathbb{P}^n $ by identify the point $ (a_1,\dots,a_n)\in\mathbb{A}^n $ with $ [1,a_1,\dots,a_n]\in \mathbb{P}^n $. With this identification we have
+  	\begin{equation}
+  	\mathbb{P}^n=\mathbb{A}^n\cup H_{\infty}
+  	\end{equation}
+  	where $ H_{\infty} :=\{ [a_0,\dots,a_n]\in \mathbb{P}^n|a_0=0 \} $ is called hyperplane at infinity.
+  \end{definition}
+  \begin{remark}
+  	Define projective algebraic sets are zero sets of polynomials in $ k[x_0,\dots,x_n] $, but $ f\in k[x_0,\dots,x_n] $ does not define a function on $ \mathbb{P}^n $:
+  	\begin{equation}
+  	f(a_0,\dots,a_n)\neq f(\lambda a_0,\dots,\lambda a_n).
+  	\end{equation}
+  	However if $ f $ is homogeneous we can still see whether $ p\in \mathbb{P}^n $ is a zero point of $ f $ or not. $ f $ is homogeneous if
+  	\begin{equation}
+  	f(\lambda a_0,\dots,\lambda a_n)=\lambda^d f(a_0,\dots,a_n).
+  	\end{equation}
+  	Thus whether $ f=0 $ is decided only on $ [a_0,\dots,a_n] $.
+  \end{remark}
+  \begin{definition}
+  	Let $ g\in k[x_0,\dots,x_n] $ be homogeneous, a point $ p=[a_0,\dots,a_n] $ is a zero point of $ g $ if $ g(a_0,\dots,a_n)=0 $. Let $ S\subset k[x_0,\dots,x_n] $,
+  	\begin{equation}
+  	Z(S):=\{ p\in\mathbb{P}^n|f(p)=0 \forall f\in S \}.
+  	\end{equation}
+  	A subset of $ \mathbb{P}^n $ of the form $ Z(S) $ is called a projective algebraic set.
+  \end{definition}
+  \begin{example}
+  	\begin{enumerate}
+  		\item $ \emptyset=Z(1) $, $ \mathbb{P}^n=Z(\emptyset) $;
+  		\item Any point $ p=[a_0,\dots,a_n]\in\mathbb{P}^n $ is a projective algebraic set
+  		$$\begin{array}{cc}
+  		\{ p \}= & Z(a_1x_0-a_0x_1,a_2x_0-a_0x_2,\dots,a_nx_0-a_0x_n,\\
+  		{} & a_2x_1-a_1x_2,\dots,a_nx_1-a_1x_n,\\
+  		{} & \dots).
+  		\end{array}$$
+  	\end{enumerate}
+  \end{example}
+  \begin{definition}
+  	A polynomial $ f\in k[x_0,\dots,x_n] $ cab be written uniquely as $ f=f^{(0)}+f^{(1)}+\dots+ f^{(d)} $, with $ f^{(i)} $ homoegeneous of degree $ i $. $ f^{(i)} $ is called homogeneous component if $ f $.
+  	
+  	An ideal $ \mathfrak{a}\subset k[x_0,\dots,x_n] $ is called homogeneous if for every $ f\in \mathfrak{a} $ all homogeneous components $ f^{(i)} $ are in $ \mathfrak{a} $.
+  \end{definition}
+  \begin{proposition}
+  	An ideal $ \mathfrak{a}\subset k[x_0,\dots,x_n] $ is homogeneous $ \Leftrightarrow $ It is generated by the homogeneous polynomials.
+  \end{proposition}
+  \begin{proof}
+  	$ \Rightarrow $: Assume $ I $ homogeneous, let $ (f_\alpha)_\alpha $ be a set of generators, then $ (f^{(i)}_\alpha)_{\alpha,i} $ is a set of homogeneous generators.
+  	
+  	$ \Leftarrow $: Let $ \mathfrak{a} =\langle g_i\rangle $ and $ g_i $ be homogeneous. Let $ f\in \mathfrak{a}$, then we can write
+  	\begin{equation}
+  	f=\sum\limits_{i}a_ig_i.
+  	\end{equation}
+  	Note $ g_i $ is homogeneous, thus the homogeneous part of $ a_ig_i $ of degree $ d $ is just $ a_i^{(d-deg(g_i))}g_i $, so
+  	\begin{equation}
+  	f^{(d)}=\sum\limits_{i} a_i^{(d-deg(g_i))}g_i.
+  	\end{equation}
+  	Since $ g_i\in \mathfrak{a} $ we get $ f^{(d)}\in \mathfrak{a} $.
+  \end{proof}
+  \begin{definition}
+  	Let $ \mathfrak{a}\subset k[x_0,\dots,x_n] $ be a homogeneous ideal, the zero set of $ \mathfrak{a} $ is written as
+  	\begin{equation}
+  	Z(\mathfrak{a}):=\{ p\in \mathbb{P}^n|f(p)=0 \text{ for all homogeneous elements } f\in \mathfrak{a} \}.\label{6}
+  	\end{equation}
+  	For a subset $ X\subset \mathbb{P}^n $, the homogeneous ideal of $ X $ is
+  	\begin{align}
+  	I(X):= \text{ ideal generated by } \{ f\in k[x_0,\dots,x_n]|f \label{7}\\
+  	\text{ be homogeneous and } f(p)=0 \forall p\in X \}\notag
+  	\end{align}
+  	By definition this is a homogeneous ideal.
+  \end{definition}
+  \begin{remark}
+  	If $ f\in k[x_0,\dots,x_n] $ is not homogeneous, we can define
+  	\begin{equation}
+  	Z(f):=\{ p\in\mathbb{P}^n| f(a_0,\dots,a_n)=0\text{ for all representative } (a_0,\dots,a_n) \text{ of } p \}
+  	\end{equation}
+  	In fact, if $ f=f^{(0)}+f^{(1)}\dots +f^{(d)} $, then we have
+  	\begin{equation}
+  	Z(f)=\mathop{\cap}\limits_{i=0}^{d}Z(f^{(i)})
+  	\end{equation}
+  	With this property, if $ \mathfrak{a} \subset k[x_0,\dots,x_n]$ is a homogeneous ideal then formula \ref{6} can be written as
+  	\begin{equation}
+  	Z(\mathfrak{a})=\{ p\in \mathbb{P}^n| f(p)=0 \forall f\in \mathfrak{a} \}
+  	\end{equation}
+  	and formula \ref{7} can be written as
+  	\begin{equation}
+  	I(X)=\{ f\in k[x_0,\dots,x_n]|f(p)=0 \forall p\in X \}
+  	\end{equation}
+  \end{remark}
+
+ \section{Conclusions We Need From Previous Lectures}
+ In lecture 02:
+  \begin{proposition}\label{5}
+  	$ X\subset \mathbb{A}^n $ is an affine algebraic set. Then we have the following equivalent relations:
+  	\begin{enumerate}
+  		\item $ X $ is irreducible;
+  		\item $ I(X) $ is a prime ideal.
+  	\end{enumerate}
+  \end{proposition}
+% \begin{thebibliography}{9}
+ %    \bibitem{a} bibitem
+% \end{thebibliography}
+\end{document}

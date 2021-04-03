@@ -1,0 +1,108 @@
+
+<p>
+
+<blockquote class="thm"><b>Definition 1 (Finiteness)</b>  	Let $latex { A\subset B }$ be $latex { k }$-algebras. $latex { B }$ is called finite over $latex { A }$ if there exist finite many elements $latex { b_1,\dots,b_n\in B }$ such that 	<p align=center>$latex \displaystyle  	B=b_1 A+\dots+b_n A:=\lbrace \sum b_ia_i|a_i\in A \rbrace. 	$</p>
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 2 ($latex { R }$-module)</b>  	Let $latex { R }$. An abelian group $latex { B }$ together with the composition $latex { \cdot:R\cdot B\rightarrow B }$ is called an $latex { R }$-module if and only if for arbitrary $latex { r,r_1,r_2\in R }$ and arbitrary $latex { b,b_1,b_2 \in B}$, the following conditions are satisfied
+
+<ol> 		<li> $latex { (r_1\cdot r_2)\cdot b = r_1\cdot (r_2\cdot b) }$; 		<li> $latex { r_1\cdot(b_1+b_2)=r\cdot b_1+r\cdot b_2 }$; 		<li> $latex { 1\cdot b = b }$. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 3 (Finitely generated module)</b>  	An $latex { R }$-module $latex { B }$ is called finitely generated if there exist $latex { b_1,\dots,b_n\in B }$ such that 	<p align=center>$latex \displaystyle  	B=b_1R+\cdot b_n R. 	$</p>
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Example 1</b>  	
+
+<ol> 		<li> Let $latex { R }$ be a ring, $latex { I\subset R }$ be an ideal, then $latex { I }$ is an $latex { R }$-module via multiplication in $latex { R }$; 		<li> If $latex { I\subset R }$ is an ideal and we put $latex { A=R\slash I }$, then $latex { A }$ is an $latex { R }$-module via multiplication in quotient ring; 		<li> If $latex { A\subset B }$ is a subring, then $latex { B }$ is an $latex { A }$-module via multiplication in $latex { B }$; 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ If $latex { A }$ and $latex { B }$ are $latex { k }$-algebras and $latex { A\subset B }$, then $latex { B }$ is also an $latex { A }$-module. By definition, it is equivalent between $latex { B }$ is a finite $latex { A }$-algebra and $latex { B }$ is a finitely generated $latex { A }$-module. For $latex { k }$-algebras, it has a different definition from modules about finitely generating. 
+<blockquote class="thm"><b>Definition 4</b>  	Let $latex { A\subset B }$ and $latex { A,B }$ are $latex { k }$-algebra. For $latex { b_1,\dots,b_n\in B }$, if we can denote $latex { B }$ as 	<p align=center>$latex \displaystyle  	B=\lbrace g(b_1,\dots,b_n)|g\in A[x_1,\dots,x_n] \rbrace 	$</p>
+ 	then we call $latex { B }$ a finitely generated $latex { A }$-algebra. </blockquote>
+
+<p>
+
+ By definition, a finite $latex { A }$-algebra is a finitely generated $latex { A }$-algebra, but the converse is not true. For example $latex { k[x] }$ is finitely generated $latex { k }$-algebra but not finite. 
+<blockquote class="thm"><b>Proposition 5</b>  	Let $latex { A,B,C }$ be $latex { k }$-algebras and $latex { A\subset B\subset C }$,then we have 	
+
+<ol> 		<li> if $latex { B }$ is finite over $latex { A }$ and $latex { C }$ is finite over $latex { B }$, then $latex { C }$ is finite over $latex { A }$.If $latex { C }$ is finite over $latex { A }$, then $latex { C }$ is finite over $latex { B }$; 		<li> let $latex { B\supset A }$ be a finite $latex { A }$-algebra and assume $latex { B }$ is an integral domain, then every element $latex { x\in B }$ satisfies a monic equation 		<p align=center>$latex \displaystyle  		x^n+a_{n-1}x^{n-1}+\dots+a_0=0 		$</p>
+ 		with $latex { a_i\in A }$ for $latex { i=0,\dots,n-1 }$; 		<li> assume $latex { b }$ satifies a monic equation over $latex { A }$, then $latex { A[b] }$ is finite over $latex { A }$. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	
+
+<ol> 		<li> We can write $latex { B=b_1A+\dotsb_mA }$, $latex { b_i\in B }$ and $latex { C=c_1B+\dots+c_nB }$, $latex { c_i\in C }$, then we get $latex { C=\sum b_ic_j A }$, hence $latex { C }$ is finite over $latex { A }$. If $latex { C=c_1A+\dots+c_mA }$, since $latex { A\subset B }$, we get $latex { C=c_1B+\dots+c_mB }$. 		<li> Assume $latex { B=\sum\limits_{i=1}^{n}Ab_i }$ for $latex { b_1,\dots,b_n\in B }$, then for any element $latex { x }$ in $latex { B }$, we can write $latex { xb_i }$ as 		<p align=center>$latex \displaystyle  		xb_i=\sum\limits_{j=1}^{n}d_{ij}b_j 		$</p>
+ 		with $latex { d_{ij}\in A }$. It can be rewritten as 		$latex { \sum\limits_{j=1}^{n}(x\delta_{ij}-d_{ij})b_j=0 }$. Thus $latex { (b_1,\dots,b_n)^{T}\in \text{ker}M }$ and $latex { M=(x\delta_{ij}-d_{ij})_{i,j=1}^{n} }$. Since $latex { B }$ is an integral domain, we can view $latex { b_i }$ as elements in the quotient field $latex { Q(B) }$, then we get $latex { \text{det}M=0 }$. Since $latex { \text{det}M }$ is a monic equation for $latex { x }$, we finish the proof. 		<li> If $latex { b^n+a_{n-1}b^{n-1}+\dots+a_0=0 }$ and $latex { a_i\in A }$ for $latex { i=0,\dots,n }$, then every power of $latex { b }$ bigger than or equal to $latex { n }$ is a linear combination of $latex { 1,b,\dots,b^{n-1} }$, i.e., $latex { A[b]=A+Ab+\dots +Ab^{n-1} }$ is finite. 	
+</ol>
+
+ $latex \Box$
+
+ 
+<blockquote class="thm"><b>Definition 6</b>  	Let $latex { X,Y }$ be affine varieties. A morphism $latex { \varphi:X\rightarrow Y }$ is called finite if $latex { A(X) }$ is a finite $latex { \varphi^{\ast}(A(Y)) }$-algebra. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 1</b>  	
+
+<ol> 		<li> (Definition of finite morphisms for general cases)By definition, we only define the finiteness of morphisms between affine varieties. In general, a morphism $latex { \varphi:X\rightarrow Y }$ of varieties is called finite if and only if $latex { Y }$ has an open affine cover $latex { U_1,\dots,u_n }$, $latex { Y=U_1\cup\dots U_n }$ such that $latex { \varphi^{-1}(U_i)=W_i }$ is affine for $latex {i=1,\dots,n }$ and the morphism $latex { \varphi|_{W_i}:W_i\rightarrow U_i }$ is finite. 		<li> If $latex { Y }$ is a closed subvariety of an affine variety $latex { X }$, the inclusion $latex { i:Y\rightarrow X }$ is a finite morphism(Because $latex { i^\ast :A(X)\rightarrow A(Y) }$ is surjective). 		<li> Let $latex { \varphi:X\rightarrow Y }$ and $latex { \psi:Y\rightarrow Z }$ be morphisms of affine varieties 		
+
+<ol> 			<li> if $latex { \varphi }$ and $latex { \psi }$ are both finite, then the composition $latex { \psi\circ\varphi }$ is finite; 			<li> if $latex { \psi\circ \varphi }$ is finite, then $latex { \varphi }$ is finite. In particular, if $latex { \varphi:X\rightarrow Y }$ is finite and $latex { \varphi(X) }$ is a subset of aclosed subvariety $latex { W }$ of $latex { Y }$, then $latex { \varphi:X\rightarrow W }$ is finite. 		
+</ol>
+
+ 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+
+<p>
+ 
+<blockquote class="thm"><b>Theorem 7</b> <a name="13-3"></a> 	Finite morphisms are closed. </blockquote>
+
+<p>
+
+ Before we prove this theorem, we need to prove two lemmas we need to use. 
+<blockquote class="thm"><b>Lemma 8</b> <a name="13-1"></a> 	If $latex { X }$ is an affine variety, $latex { I\subsetneqq A(X) }$ is a proper ideal, then $latex { Z(I):= \lbrace p\in X|f(p)=0, \forall f\in I \rbrace\neq \emptyset }$. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	Let 	<p align=center>$latex \displaystyle  	\pi:k[x_1,\dots,x_n] \rightarrow A(X) 	$</p>
+ 	be a conanical map, then it is surjective. So $latex { \pi^{-1}(I) }$ is a proper ideal in $latex { k[x_1,\dots,x_n] }$. By Nullstellensatz we know $latex { Z(\pi^{-1}(I))\neq \emptyset }$. By definition, $latex { Z(I)=Z(\pi^{-1}(I))\cap X }$, but $latex { \pi^{-1}(I)\supset I(X) }$, so $latex { Z(\pi^{-1}(I))\subset X }$, hence we get $latex { Z(I)=Z(\pi^{-1}(X))\neq \emptyset }$. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Lemma 9</b> <a name="13-2"></a> 	Let $latex { B }$ be a finite $latex { A }$-algebra and $latex { B }$ be an integral domain, let $latex { I\subsetneqq A }$ be a proper ideal of $latex { A }$, then $latex { IB\subsetneqq B }$ is a proper ideal of $latex { B }$. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	Assume $latex { IB = B}$, since $latex { B }$ is finite over $latex { A }$, we can write $latex { B=Ab_1+\dots+Ab_n }$, $latex { b_1,\dots,b_n\in B }$. Then $latex { B=IB=I(Ab_1+Ab_n)=Ib_1+Ib_n }$. In particular, $latex { b_i=\sum\limits_{j=1}^{n}a_{ij}b_j }$, $latex { a_{ij}\in I }$. Then we get $latex { M\cdot (b_1,\dots,b_n)^{T}=(0,\dots,0)^{T} }$ with $latex { M=(\delta_{ij}-a_{ij})_{i,j=1}^{n} }$. Again view $latex { M }$ as a matrix in $latex { Q(B) }$ we get $latex { \text{det}M=0 }$, hence 	<p align=center>$latex \displaystyle  	0=\text{det}M=1+\sum\limits_{l}c_l 	$</p>
+ 	with $latex { c_l\in I }$, it implies $latex { 1\in I }$ and hence $latex { I }$ is not a proper ideal in $latex { A }$. By this contradiction we know $latex { IB\neq B }$. $latex \Box$
+
+ <em>Proof:</em> } 	Let $latex { \varphi :X\rightarrow Y }$ be a finite morphism of affine varieties, and let $latex { W }$ be a closed subvariety of $latex { X }$. We need to show $latex { \varphi(W) }$ closed in $latex { Y }$. Let $latex { Z }$ be the closure of $latex { \varphi(W) }$ in $latex { Y }$, then we have to show $latex { Z=\varphi(W) }$. Replacing $latex { X }$ by $latex { W }$ and $latex { Y }$ by $latex { Z }$, then our aim has changed to show a finite morphism $latex { \varphi:X\rightarrow Y }$ of varieties with dense image is surjective. 	As $latex { \varphi (X) }$ is dense in $latex { Y }$, we have that 	<p align=center>$latex \displaystyle  	\varphi^{\ast}:A(Y)\rightarrow A(X) 	$</p>
+ 	is injective, hence we can identify $latex { A(Y) }$ with the image $latex { \varphi^{\ast}(A(Y))\subset A(X)}$. Let $latex { Y\subset \mathbb{A}^n }$, we take $latex { x_1,\dots,x_n }$ coordinates on $latex { \mathbb{A}^n }$. For any element $latex { p=(a_1,\dots,a_n)\in Y }$, define an ideal in $latex { A(Y) }$ 	<p align=center>$latex \displaystyle  M:=\langle x_1-a_1,\dots,x_n-a_n \rangle. $</p>
+ 	Now we identify elements in $latex { M }$ with the corresponding elements in $latex { A(X) }$, let $latex { A(X)\cdot M }$ be an ideal generated by $latex { M }$ in $latex { A(X) }$. In addition, 	<p align=center>$latex \displaystyle  	\begin{array}{ccc} 	\varphi^{-1}(p) & = & \lbrace q\in X|\varphi(q)=p \rbrace\\ 	{ } & = & \lbrace q\in X|(x_i-a_i)(f(q))=0 \forall i=1,\dots,n \rbrace\\ 	{ } & = & \lbrace q\in X|(x_i-a_i)\circ \varphi (q)=0,\forall i=1,\dots,n \rbrace\\ 	{ } & = & \lbrace q\in X|\varphi^\ast(x_i-a_i)(q)=0,\forall i=1,\dots,n \rbrace\\ 	{ } & = & Z(A(X)\cdot M). 	\end{array} 	$</p>
+ 	Thus by lemma <a href="#13-1">8</a> we only need to show $latex { A(X)\cdot M \subsetneqq A(X)}$, this is done by lemma <a href="#13-2">9</a>, hence we finish the proof. $latex \Box$
+
+ 

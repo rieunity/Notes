@@ -1,0 +1,62 @@
+
+<p>
+
+<blockquote class="thm"><b>Theorem 1</b> <a name="12"></a> 	Let $latex { X,Y }$ be varieties, assume $latex { Y\subset \mathbb{A}^m }$ be a closed affine variety. Then there is a bijection between morphisms $latex { X\rightarrow Y }$ and $latex { k }$-algebra homomorphisms $latex { A(Y)\rightarrow \mathcal{O}_X(X) }$: 	<p align=center>$latex \displaystyle \begin{array}{cc} 	\{ \text{morphisms } X\rightarrow Y \} & \xrightarrow{bijection}\{ \text{homomorphisms }A(Y)\rightarrow \mathcal{O}_X(X) \} \\ 	\varphi & \xrightarrow{\qquad\quad} \varphi^\ast 	\end{array}$</p>
+ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	$latex { \Rightarrow }$: Let $latex { \varphi :X\rightarrow Y }$ be a morphism, then $latex { \varphi^\ast: A(Y)\rightarrow \mathcal{O}_X(X) }$ is a $latex { k }$-algebra homomorphism. 	 	$latex { \Leftarrow }$: Let $latex {\phi:A(Y)\rightarrow \mathcal{O}_X(X) }$ be a $latex { k }$-algebraic homomorphism, let $latex { y_1,\dots,y_n\in A(Y) }$ be the coordinate functions. We set 	<p align=center>$latex \displaystyle  	f_i=\phi(y_i)\in \mathcal{O}_X(X). 	$</p>
+ 	Let $latex { \varphi=(f_1,\dots,f_m):X\rightarrow \mathbb{A}^m }$. 	This is a morphism from $latex { X }$ to $latex { Y }$. To see it is a morphism we have to show $latex { \varphi(X)\subset Y }$. Let $latex { h\in I(Y) }$, $latex { h\circ \varphi =h(f_1,\dots,f_m)=h(\phi(y_1),\dots,\phi(y_m))=\phi (h(y_1,\dots,y_m)) }$. The second equality is based on the homomorphic property of $latex { \phi }$, for example, if $latex { h(x_1,x_2)=x_1^2-x_2^3 }$, then $latex { h(\phi(y_1),\phi(y_2))=\phi(y_1)^2-\phi(y_2)^3= \phi(y_1^2)-\phi(y_2^3)=\phi(y_1^2-y_2^3)=\phi(h(y_1,y_2)) }$. So $latex { h(y_1,\dots,y_m)\in A(Y) }$, we choose an arbitrary element $latex { p=(a_1,\dots,a_m)\in Y }$, then $latex { h(y_1,\dots,y_m)(p)=h(a_1,\dots,a_m)=0 }$ because $latex { h\in I(Y) }$. So for arbitrary $latex { h\in I(Y) }$, we get $latex { h\circ\varphi=0 }$, it implies $latex { \varphi(X)\subset \mathop{\cap}_{h\in I(Y)} Z(h)= Y }$. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Example 1</b>  	A bijective polynomial map need not to be an isomorphism. For example, let$latex { X=\mathbb{A}^1 }$, $latex { Y=Z(x_2^2-x_1^3) \subset \mathbb{A}^2 }$. Then 	<p align=center>$latex \displaystyle  	\varphi=(t^2,t^3):X\rightarrow Y 	$</p>
+ 	is a morphism and bijective and the inverse is 	<p align=center>$latex \displaystyle  	\varphi^{-1}(a,b)=\left\lbrace \begin{matrix} 	\frac{b}{a} & \text{ if } a\neq 0\\ 	0 & \text{ if } (a,b)=0 	\end{matrix}\right. 	$</p>
+ 	$latex { \varphi }$ is not an isomorphism($latex { \varphi^{-1} }$ is not a morphism). To show this we see the pull back: 	<p align=center>$latex \displaystyle  	\varphi^\ast : A(Y)\rightarrow \mathcal{O}_X(X) 	$</p>
+ 	where $latex { A(Y)=k[x_1,x_2]/\langle x_2^2-x_1^3\rangle }$ and $latex { A(X)=k[t] }$. $latex { \varphi^\ast }$ makes $latex { x_1\rightarrow t^2 }$ and $latex { x_2\rightarrow t^3 }$. Since $latex { \varphi^\ast }$ is not surjective(there is no element maps into $latex { t }$), $latex { \varphi^\ast }$ is not an isomorphism. By theorem <a href="#12">1</a> we know $latex { \varphi }$ is not an isomorphism. So bijective morphism is not necessary to be an isomorphism. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 2</b>  	Let $latex { X\subset \mathbb{A}^n }$ be a closed variety, $latex { F\in k[x_1,\dots,x_n]\backslash I(X) }$. The principal open defined by $latex { F }$ is $latex { X_F:=X\backslash Z(F) }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Proposition 3</b> <a name="14"></a> 	$latex { X_F }$ is an affine variety. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	Let $latex { Z:=Z(\langle I(X),F\cdot x_{n+1}-1\rangle )\subset \mathbb{A}^{n+1} }$. We need to prove $latex { Z }$ is a closed subvariety of $latex { \mathbb{A}^{n+1} }$ isomorphic to $latex { X_F }$. Let $latex { \varphi:(x_1,\dots,x_n,\frac{1}{F}):X_F\rightarrow \mathbb{A}^{n+1} }$, it is a bijective morphism and $latex { \varphi(X_F)=Z }$. As $latex { X_F }$ is irreducible, $latex { Z }$ is also irreducible. So $latex { Z }$ is closed variety of $latex { \mathbb{A}^{n+1} }$. On the other hand, the inverse of $latex { \varphi }$ is 	<p align=center>$latex \displaystyle  	\varphi^{-1}=(x_1,\dots,x_n):Z\rightarrow X_F 	$</p>
+ 	is a morphism, so $latex { \varphi }$ is an isomorphism. $latex \Box$
+
+
+<p>
+
+<blockquote class="thm"><b>Definition 4</b>  	Let $latex { X\subset \mathbb{P}^n,Y\subset \mathbb{P}^m }$ be quasi-projective algebraic sets. A map $latex { \varphi:X\rightarrow Y }$ is called a polynomial map if there exists homogeneous polynomials $latex { F_0,\dots,F_m\in k[x_0,\dots,x_n] }$ of the same degree with no common zero on $latex { X }$ s.t. 	$latex { \varphi(p)=[F_0(p),\dots,F_m(p)] }$, $latex { \forall p\in X }$, write $latex { \varphi=[F_0,\dots,F_m] }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 5</b>  	The homogenization of $latex { F\in k[x_0,\dots,x_n] }$ is: 	<p align=center>$latex \displaystyle  	F_a:=F(1,x_1,\dots,x_n). 	$</p>
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Theorem 6</b> <a name="13"></a> 	$latex { \varphi_i=(\frac{x_0}{x_i},\dots,\hat{\frac{x_i}{x_i}},\dots,\frac{x_n}{x_i}):U_i\rightarrow \mathbb{A}^n }$ is an isomorphism. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	We can assume $latex { i=0 }$, $latex { \varphi:=\varphi_0 }$, $latex { U:=U_0 }$, then $latex { \varphi=(\frac{x_1}{x_0},\dots,\frac{x_n}{x_0}) }$. $latex { \frac{x_i}{x_0} }$ is a regular function in $latex { \mathcal{O}_{\mathbb{P}^n}(\mathbb{P}^n) }$, so $latex { \varphi }$ is a morphism. We need to show that $latex { u=\varphi^{-1}(x_1,\dots,x_n)=[1,x_1,\dots,x_n] }$ is a morphism. 	 	(a) $latex { u=\varphi^{-1} }$ is continuous. Let $latex { W=Z(F_1,\dots,F_m)\cap U }$ be closed in $latex { U }$, $latex { F_i\in k[x_0,\dots,x_n] }$ are homogeneous, then 	<p align=center>$latex \displaystyle \begin{array}{cc} 	u^{-1}(W)= & \{ (a_1,\dots,a_n)\in \mathbb{A}^n|[1,a_1,\dots,a_n]\in W \}\\ 	= & \{ (a_1,\dots,a_n)\in \mathbb{A}^n|F_i(1,a_1\dots,a_n)=0, \forall i=1,\dots,m \} \\ 	= & Z(F_{1a},\dots,F_{ma}) 	\end{array}$</p>
+ 	where $latex { F_{ia} }$ is homogenization of $latex { F_i }$, it shows that $latex { u^{-1}(W) }$ is closed in $latex { \mathbb{A}^n }$. 	 	(b) Let $latex { V\subset U }$ be open, $latex { h\in \mathcal{O}_U(V) }$, we need to show $latex { u^\ast h\in \mathcal{O}_{\mathbb{A}^n}(u^{-1}(V)) }$. Making $latex { V }$ smaller necessary, we can assume $latex { h=\frac{F}{G} }$, $latex { F,G \in k[x_0,\dots,x_n]}$ are homogeneous polynomials of the same degree. 	<p align=center>$latex \displaystyle  	u^\ast h = h\circ u=\frac{F\circ u}{G\circ u}=\frac{F(1,x_1,\dots,x_n)}{G(1,x_1,\dots,x_n)}. 	$</p>
+ 	Thus $latex { u^\ast h\in \mathcal{O}_{\mathbb{A}^n}(u^{-1}(V)) }$, $latex { phi:\mathbb{A}^n\rightarrow u }$ is an isomorphism. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Remark 1</b>  	From theorem <a href="#13">6</a> we find that if we identify $latex { \mathbb{A}^n }$ with $latex { u_0\subset \mathbb{P}^n }$, the Zariski topology on $latex { \mathbb{A}^n }$ is equivalent to the induced topology of $latex { u_0 }$ from $latex { \mathbb{P}^n }$. </blockquote>
+
+<p>
+
+
+<p>
+ 

@@ -1,0 +1,98 @@
+
+<p>
+
+<blockquote class="thm"><b>Remark 1</b>  	Let $latex { X\subset \mathbb{P}^n,Y\subset \mathbb{P}^m }$ be subvarieties, $latex { X\times Y }$ does not lie rationally in some projective space. Thus we need to find an embedding $latex { \sigma :\mathbb{P}^n\times \mathbb{P}^m \rightarrow \mathbb{P}^N}$ to denote the products of quasi-projective varieties. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 1 ()</b> ] 	We put $latex { N:=(n+1)\cdot (m+1)-1 }$, let $latex { x_0,\dots,x_n }$ be coordinates on $latex { \mathbb{P}^n }$, $latex { y_0,\dots,y_m }$ be coordinates on $latex { \mathbb{P}^m }$. Let $latex { z_{ij}, i=0,\dots,n, j=0,\dots,m }$ be coordinates on $latex { \mathbb{P}^N }$. Define a map 	<p align=center>$latex \displaystyle \begin{array}{cc} 	\sigma:\mathbb{P}^n\times \mathbb{P}^m & \rightarrow \mathbb{P}^N\\ 	([x_0,\dots,x_n],[y_0,\dots,y_m]) & \rightarrow [z_{ij}]=[x_iy_j] 	\end{array}$</p>
+ 	$latex { \sigma }$ is called the Segre embedding. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 2</b>  	We define the image of $latex { \sigma }$ as 	<p align=center>$latex \displaystyle  	\Sigma := \sigma(\mathbb{P}^n\times \mathbb{P}^m)\subset \mathbb{P}^N. 	$</p>
+ 	For $latex { i=0,\dots,n }$, put 	<p align=center>$latex \displaystyle  	U_i:=\{ [x_0,\dots,x_n]\in \mathbb{P}^n|x_i\neq 0 \}. 	$</p>
+ 	For $latex { j=0,\dots,m }$, put 	<p align=center>$latex \displaystyle  	U_j:=\{ [y_0,\dots,y_m]\in\mathbb{P}^m|y_j\neq 0 \}. 	$</p>
+ 	And for $latex { i=0,\dots,n,j=0,\dots,m }$, put 	<p align=center>$latex \displaystyle  	U_{ij}:=\{ [z_{kl}]\in \mathbb{P}^{N}|z_{ij}\neq =0 \}. 	$</p>
+ </blockquote>
+
+<p>
+
+ there are isomorphisms: <p align=center>$latex \displaystyle \begin{array}{cc} \mathbb{A}^n & \mathop{\rightleftarrows}\limits_{\varphi_i}^{u_i} U_i\\ \mathbb{A}^m & \mathop{\rightleftarrows}\limits_{\varphi_j}^{u_j} U_j\\ \mathbb{A}^N & \mathop{\rightleftarrows}\limits_{\varphi_{ij}}^{u_{ij}} U_{ij}. \end{array}$</p>
+ Since $latex { \mathbb{P}^N=\mathop{\cup}_{i,j}U_{ij} }$, we get $latex { \Sigma = \mathop{\cup}_{i,j}(\Sigma \cap U_{ij}) }$, define <p align=center>$latex \displaystyle  \Sigma^{ij}=\Sigma \cap U_{ij}. $</p>
+ Define the map $latex { \sigma^{ij} }$ <p align=center>$latex \displaystyle \begin{array}{cc} \sigma^{ij}:\mathbb{A}^{n+m} & \rightarrow U_{ij}\\ (p,q) & \rightarrow \sigma (u_i(p),u_j(q)). \end{array}$</p>
+ By definition we know $latex { \sigma^{ij}(\mathbb{A}^{n+m})=\Sigma^{ij} }$. 
+<blockquote class="thm"><b>Theorem 3</b>  	
+
+<ol> 		<li> $latex { \sigma:\mathbb{P}^n\times\mathbb{P}^m\rightarrow \mathbb{P}^N }$ is injective and $latex { \Sigma }$ is closed in $latex { \mathbb{P}^N }$: 		<a name="17"><p align=center>$latex \displaystyle  		\Sigma=Z\left(\left\lbrace z_{ij}z_{kl}-z_{il}z_{kj}|\begin{matrix} 		i,k & =0,\dots,n\\ 		j,l & =0,\dots,m 		\end{matrix} \right\rbrace\right). 		\ \ \ \ \ (1)$</p>
+</a> 		<li> $latex { \sigma^{ij}:\mathbb{A}^{n+m}\rightarrow \Sigma^{ij} }$ is an isomorphism. 		<li> $latex { \forall q\in\mathbb{P}^m }$, the map 		<p align=center>$latex \displaystyle \begin{array}{cc} 		\bar{i_q}: \mathbb{P}^n & \rightarrow \mathbb{P}^N\\ 		p & \rightarrow \sigma(p,q) 		\end{array}$</p>
+ 		is a morphism. Similarly, $latex { j_p=\sigma(p,q):\mathbb{P}^m\rightarrow \mathbb{P}^N }$ is a morphism. 		<li> Let $latex { X\subset \mathbb{P}^n,Y\subset \mathbb{P}^m }$ be quasi-projective varieties, then $latex { \sigma(X\times Y)\subset \mathbb{P}^N }$ is also a quasi-projective variety. What's more, if $latex { X }$ and $latex { Y }$ are both projective varieties, then $latex { \sigma(X\times Y) }$ is a projective variety. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	(1) If $latex { \sigma( [a_0,\dots,a_n],[b_0,\dots,b_m] )=\sigma( [ {a_0}',\dots,{a_n}' ],[ {b_0}',\dots,{b_m}' ] ) }$, then $latex { \exists \lambda\in k\backslash \{ 0 \} }$, s.t. $latex { \lambda a_i'b_j'=\lambda a_ib_j }$ $latex { \forall i,j }$. Choose $latex { i_0,j_0 }$ s.t. $latex { a_{i_0}b_{j_0}\neq 0 }$, then $latex { \forall i=0,\dots,n }$, $latex { a_ib_{j_0}=\lambda a_i'b_{j_0}' }$ $latex { \Rightarrow }$ $latex { a_i=\left(\frac{\lambda b_{j_0}'}{b_{j_0}}\right)a_i' }$ $latex { \Rightarrow }$ $latex { [a_0,\dots,a_n]=[{a_0}',\dots,{a_n}'] }$. The same way can be used to prove $latex { [b_0,\dots,b_m]=[{b_0}',\dots,{b_m}'] }$. Let $latex { W }$ be the zero set on the right hand side of the equation <a href="#17">1</a>, clearly we have the relation $latex { \Sigma\subset W }$. Now let $latex { [a_{ij}]\in W }$, choose $latex { i_0,j_0 }$ s.t. $latex { a_{i_0j_0}\neq 0 }$, then we get $latex { [a_{ij}]=[a_{i_0j_0}a_{ij}]=[a_{i_0j}a_{ij_0}]=[a_{ij_0}a_{i_0j}]=\sigma([a_{0j_0},\dots,a_{nj_0}],[a_{i_00},\dots,a_{i_0m}])\subset \Sigma }$. 	 	(2) Assume $latex { i=j=0 }$, then 	<p align=center>$latex \displaystyle \begin{array}{cc} 	\varphi_{00}\circ\sigma^{00}(a_1,\dots,a_n,b_1,\dots,b_m) & =\varphi_{00}(\sigma([1,a_1,\dots,a_n],[1,b_1,\dots,b_m]))\\ 	& =(z_{ij})_{(i,j)\neq(0,0)} 	\end{array}$</p>
+ 	where $latex { z_{i0}=a_i }$ for $latex { i=1,\dots,n }$, $latex { z_{0j}=b_j }$ for $latex { j=1,\dots,m }$, $latex { z_{ij}=a_ib_j }$ for $latex { i,j\geq 1 }$. These are all regular functions, so $latex { \varphi_{00}\circ \sigma^{00} }$ is a morphism, so $latex { \sigma^{00} }$ is a morphism. Finally, $latex { \sigma^{00} }$ is an isomorphism because the inverse map is 	<p align=center>$latex \displaystyle  	(\sigma^{00})^{-1}=\left(\frac{z_{10}}{z_{00}},\dots,\frac{z_{n0}}{z_{00}},\frac{z_{01}}{z_{00}},\dots,\frac{z_{0m}}{z_{00}}\right). 	$</p>
+ 	
+<blockquote class="thm"><b>Remark 2</b>  		In fact, $latex { \Sigma^{ij} }$ is a quasi-projective variety. Because $latex { \mathbb{A}^{n+m} }$ is irreducible, $latex { \Sigma^{ij} }$ is irreducible, hence a quasi-projective variety. 	</blockquote>
+
+<p>
+
+ 	 	(3) Let $latex { q=[b_0,\dots,b_m] }$, then $latex { i_{q}=[x_ib_j] }$, $latex { x_ib_j }$'s are homogeneous polynomials, so it is a morphism. 	 	(4) Let $latex { X\subset \mathbb{P}^n,Y\subset \mathbb{P}^m }$ be projective varieties. We can decompose the map into the following: 	<p align=center>$latex \displaystyle \begin{array}{cc} 	\sigma(X\times Y) &=\mathop{\cup}\limits_{i,j}\sigma(X\times Y)\cap U_{ij}\\ 	&=\mathop{\cup}\limits_{i,j}\sigma^{ij}(\varphi_i(X\cap{U_i})\times \varphi_j(Y\cap{U_j})) 	\end{array}$</p>
+ 	$latex { \varphi_i(X\cap U_i) }$ and $latex { \varphi_j(Y\cap U_j) }$ are closed subsets of $latex { \mathbb{A}^n }$ and $latex { \mathbb{A}^m }$ respectively, thus $latex { \varphi_i(X\cap{U_i})\times \varphi_j(Y\cap{U_j}) }$ is closed in $latex { \mathbb{A}^{n+m} }$. Since $latex { \sigma^{ij} }$ is an isomorphism, then $latex { \sigma^{ij}(\varphi_i(X\cap{U_i})\times \varphi_j(Y\cap{U_j})) }$ is closed in $latex { \Sigma^{ij}=\Sigma\cap U_{ij}}$. So $latex { \sigma(X\times Y) }$ is closed in $latex { \Sigma }$, hence closed in $latex { \mathbb{P}^N }$ because $latex { \Sigma }$ itself is closed. To show its irreducible, we use the lemma <a href="#16">6</a>. Since $latex { \sigma }$ is injective we can endow $latex { \mathbb{P}^n\times\mathbb{P}^m }$ with the topological structure of $latex { \mathbb{P}^N }$, hence we can identify $latex { \mathbb{P}^n\times\mathbb{P}^m }$ with $latex { \Sigma }$ provided with the topology induced from $latex { \mathbb{P}^N }$. Now we can use the lemma <a href="#16">6</a>, we have known $latex { i_q }$ and $latex { j_p }$ are continuous, so $latex { \sigma(X\times Y) }$ is irreducible. For quasi-projective conditions ,we just get the conclusion by simply difference two projective varieties. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Remark 3</b>  	For $latex { X\subset \mathbb{P}^n }$ and $latex { Y\subset\mathbb{P}^m }$ we can now identify $latex { X\times Y }$ with $latex { \sigma(X\times Y)\subset \mathbb{P}^N}$. In particular we can identify $latex { \mathbb{P}^n\times\mathbb{P}^m }$ with $latex { \Sigma }$. 	 	From this perspective, part (2) of the theorem just says $latex { U_i\times U_j\subset \mathbb{P}^n\times \mathbb{P}^m }$ is open and $latex { \varphi_i\times \varphi_j:U_i\times U_j\rightarrow \mathbb{A}^{n+m} }$ is an isomorphism. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Proposition 4 (Universal Property)</b>  	Let $latex { X,Y }$ be quasi-projective varieties, then 	
+
+<ol> 		<li> The projections 		<p align=center>$latex \displaystyle \begin{array}{cc} 		p_1 & =(x_1,\dots,x_n): X\times Y\rightarrow X\\ 		p_2 & =(y_1,\dots,y_m): X\times Y\rightarrow Y 		\end{array}$</p>
+ 		are morphisms. 		<li> Let $latex { Z }$ be a variety. The morphism $latex { \varphi : Z\rightarrow X \times Y }$ are precisely the 		<p align=center>$latex \displaystyle  		(f,g):Z\rightarrow X\times Y,\quad p\rightarrow (f(p),g(p))\quad\forall p\in Z 		$</p>
+ 		where $latex { f:Z\rightarrow X }$ and $latex { g:Z\rightarrow Y }$ are morphisms. In other words, $latex { \varphi:Z\rightarrow X\times Y }$ is a morphism if and only if both $latex { p_1\circ \varphi }$ and $latex { p_2\circ\varphi }$ are morphisms. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	(1) It is enough to show $latex { p_1|_{U_i\times U_j} }$ is a morphism from $latex { U_i\times U_j }$ to $latex { U_i }$. Identify $latex { U_i\times u_j }$ with $latex { \mathbb{A}^{n+m} }$ and $latex { U_i }$ with $latex { \mathbb{A}^{n} }$, then we can see that $latex { p_1 }$ is the same as the projection defined by the proposition <a href="#19">7</a>, so it is a morphism. 	 	(2) $latex { \Rightarrow }$: Let $latex { \varphi:Z\rightarrow X\times Y }$ be a morphism. Then $latex { f:=p_1\circ \varphi }$ and $latex { g:=p_2\circ \varphi }$ are morphisms. 	 	$latex { \Leftarrow }$: Let $latex { f:Z\rightarrow X }$ and $latex { g:Z\rightarrow Y }$ be morphisms. Define 	<p align=center>$latex \displaystyle  	Z^{ij}:=f^{-1}(U_i)\cap g^{-1}(U_j). 	$</p>
+ 	Then $latex { (f,g) }$ is a morphism $latex { \Leftrightarrow }$ $latex { (f,g)|_{Z^{ij}} }$ is a morphism for $latex { i=1,\dots,n,j=1,\dots,m }$. Consider the following mapping chain 	<p align=center>$latex \displaystyle  	Z^{ij}\xrightarrow{(f,g)} (X\times Y)\cap (U_i\times U_j)\xrightarrow{\varphi_i\times \varphi_j}\varphi_i(X\cap U_i)\times \varphi_j(Y\cap U_j)\subset \mathbb{A}^{n+m}. 	$</p>
+ 	the whole chain $latex { (\varphi_i\circ f,\varphi_j\circ g):Z^{ij}\rightarrow \mathbb{A}^{n+m} }$ is a morphism, so $latex { (f,g) }$ is a morphism. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Corollary 5</b>  	Let $latex { X_1,X_2,Y_1,Y_2 }$ be varieties. If $latex { f:X_1\rightarrow Y_1 }$ and $latex { X_2\rightarrow Y_2 }$ are morphisms, then the map: 	<p align=center>$latex \displaystyle \begin{array}{cc} 	f\times g :X_1\times X_2 & \rightarrow Y_1\times Y_2\\ 	(p,q)\rightarrow (f(p),g(q)) 	\end{array}$</p>
+ 	is a morphism. In particular, if $latex { X_1 }$ is isomorphic to $latex { Y_1 }$ and $latex { X_2 }$ is isomorphic to $latex { Y_2 }$, then $latex { X_1\times X_2 }$ is isomorphic to $latex { Y_1\times Y_2 }$ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	We can write $latex { f\times g }$ as $latex { f\circ p_1 }$ and $latex { g\circ p_2 }$, both $latex { f\circ p_1 }$ and $latex { g\circ p_2 }$ are morphisms, so $latex { f\times g =(f\circ p_1,g\circ p_2) }$ is a morphism. $latex \Box$
+
+ 
+<p align=center><b> &mdash;  1. Conclusions We Need From Previous Lectures  &mdash; </b></p>
+
+ In Lecture 08: 
+<blockquote class="thm"><b>Lemma 6</b> <a name="16"></a> 	Let $latex { X,Y }$ be irreducible topological spaces. Assume we have a topology on the product $latex { X\times Y }$ s.t.: 	<p align=center>$latex \displaystyle \begin{array}{cc} 	y_p: & Y\rightarrow X\times Y, \quad q\rightarrow (p,q) \text{ is continuous }\forall p\in X;\\ 	l_q: & X\rightarrow X\times Y, \quad p\rightarrow (p,q) \text{is continuous }\forall q\in Y. 	\end{array}$</p>
+ 	Then $latex { X\times Y }$ is irreducible. 	</blockquote>
+
+<p>
+
+ 	 	
+<blockquote class="thm"><b>Proposition 7 (Universal Property)</b> <a name="19"></a> 		Let $latex { X\subset\mathbb{A}^n,Y \subset \mathbb{A}^m}$ be varieties, then 		
+
+<ol> 			<li> The projections 			<p align=center>$latex \displaystyle \begin{array}{cc} 			p_1 & =(x_1,\dots,x_n): X\times Y\rightarrow X\\ 			p_2 & =(y_1,\dots,y_m): X\times Y\rightarrow Y 			\end{array}$</p>
+ 			are morphisms. 			<li> Let $latex { Z }$ be a variety. The morphism $latex { \varphi : Z\rightarrow X \times Y }$ are precisely the 			<p align=center>$latex \displaystyle  			(f,g):Z\rightarrow X\times Y,\quad p\rightarrow (f(p),g(p))\quad\forall p\in Z 			$</p>
+ 			where $latex { f:Z\rightarrow X }$ and $latex { g:Z\rightarrow Y }$ are morphisms. In other words, $latex { \varphi:Z\rightarrow X\times Y }$ is a morphism if and only if both $latex { p_1\circ \varphi }$ and $latex { p_2\circ\varphi }$ are morphisms. 		
+</ol>
+
+ 	</blockquote>
+
+<p>
+
+ 

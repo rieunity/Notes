@@ -1,0 +1,110 @@
+
+<p>
+ 
+<blockquote class="thm"><b>Corollary 1</b>  	Every affine algebraic set $latex { X\subset \mathbb{A}^n }$ is the zero set of finite algebraic polynomials. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	Every affine algebraic set is the zero set of some polynomial set $latex { S }$, i.e. $latex { Z(S) }$. Since $latex { Z(S)=Z(\langle S \rangle) }$, it is a zero set of an ideal, we choose the generators of the ideal, name $latex { T }$, then $latex { Z(S)=Z(T) }$. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Definition 2</b>  	A topological space $latex { X }$ is reducible if $latex { X=X_1\cup X_2 }$, where $latex { X_1 }$,$latex { X_2 }$ are closed subsets and $latex { X_1\subsetneqq X,X_2\subsetneqq X }$. $latex { X }$ is called irreducible if it is not reducible,i.e., if $latex { X=X_1\cup X_2, X_i\subset }$ is closed for $latex { i=1,2 }$, then we have $latex { X=X_1 }$ or $latex { X=X_2 }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 1</b>  	When we talk about whether a set is irreducible, it refers to its induced topology from the space where the set is on. 	
+
+<ol> 		<li> Let $latex { X }$ be irreducible, $latex { \emptyset\neq U\subset X }$, $latex { U }$ is an open subset of $latex { X }$. Then $latex { U }$ is dense in $latex { X }$. Because if it is not dense, we can write $latex { X=(X\backslash U )\cup \overline{U} }$, so $latex { X }$ is not irreducible. 		<li> $latex { U }$ itself is also irreducible. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 3</b>  	A topological space is called noetherian if every descending chain:$latex { X\supset X_1\supset X_2\supset \dots }$ of closed subsets becomes stationary(i.e., $latex { X_N=X_{N+1}=\dots }$ for some $latex { N\in \mathbb{N}^+ }$). </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Proposition 4</b>  	Any subspace $latex { Y }$ of noetherian topological space $latex { X }$ is noetherian. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	Assume $latex { Y\supset Y_1\supset Y_2\supset \dots }$ a chain of closed subsets. 	Then $latex { \forall i, Y_i=Y\cap X_i, X_i\subset X }$ is closed. 	Let $latex { X_{i}' = \cap_{1\leq j \leq i} X_j }$, $latex { X_i'\cap Y = Y_i }$. Then $latex { X\supset X_1'\supset X_2'\supset \dots }$ is a descending chain. Since $latex { X }$ is noetherian, $latex { \exists N }$ s.t. $latex { X_N'=X_{N+1}'=\dots }$. It follows $latex { Y_N=Y_{N+1}=\dots }$. Thus $latex { Y\supset Y_1\supset Y_2\supset \dots }$ is stationary. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Proposition 5</b>  	$latex { \mathbb{A}^n }$ is noetherian topological space. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	Let $latex { \mathbb{A}^n=X\supset X_1\supset X_2\supset \dots }$ be a chain of closed subsets. Then we have $latex { I(X_1)\subset I(X_2)\subset \dots }$. Since $latex { k[x_1,x_2,\dots,x_n] }$ is noetherian, $latex { \exists N, I(X_N)=I(X_{N+1})=\dots }$. Note that$latex { X_i=Z(I(X_i)) }$, we get $latex { X_N=X_{N+1}=\dots }$. It shows that $latex { \mathbb{A}^n }$ is a noetherian topological space. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Theorem 6</b>  	Let $latex { X }$ be a noetherian topological space. 	
+
+<ol> 		<li> $latex { X }$ is a union of finitely many irreducible closed subsets: $latex {X=X_1\cup\dots\cup X_r }$; 		<li> If we require $latex { X_i\not\subset X_j }$ for $latex { i\neq j }$, then this decomposition is unique. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	(1) Assume $latex { X }$ does not have a decomposition with finitely many closed subsets. In particular, $latex { X }$ is reducible: $latex { X=X_1\cup Y_1 }$, $latex { X_1,Y_1 }$ are closed subsets. so one of the two sets does not have decomposition, say $latex { X_1 }$. Repeat the argument we ge a descending chain 	<p align=center>$latex \displaystyle  	X\supsetneqq X_1\supsetneqq X_2\supsetneqq \dots 	$</p>
+ 	which is not stationary, it contradicts our existing condition.<br/>
+ 	(2)Let $latex { X=X_1\cup \dots\cup X_t = Y_1\cup\dots\cup Y_s}$. Then we have $latex { X_i = \mathop{\cup}\limits_{j=1}^{s}(X_i\cap Y_j)}$. Since $latex { X_i }$ is irreducible, $latex { \exists j, X_i=X_i\cap Y_j }$, thus $latex { X_i\subset Y_j }$.Similarly, we can get $latex { Y_j\subset X_k }$ for some $latex { k }$. Then we have $latex { X_i\subset X_k }$, it implies $latex { i=k }$ and thus $latex { X_i = Y_j }$. So we get the conclusion: each $latex { X_i }$ is equal to some $latex { Y_j }$ and each $latex { Y_j }$ is equal to some $latex { X_i }$. So $latex { r=s }$ and the $latex { Y_j }$'s are permutations of $latex { X_i }$'s. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Definition 7</b>  	An affine variety is an irreducible affine algebraic set. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Proposition 8</b> <a name="5"></a> 	$latex { X\subset \mathbb{A}^n }$ is an affine algebraic set. Then we have the following equivalent relations: 	
+
+<ol> 		<li> $latex { X }$ is irreducible; 		<li> $latex { I(X) }$ is a prime ideal. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	(1)$latex { \Rightarrow }$ (2): let $latex { X }$ be irreducible, $latex { f,g }$ some polynomials s.t. $latex { fg\in I(X) }$. Then we have $latex { X\subset Z(fg)=Z(f)\cup Z(g) }$, hence $latex { X=(X\cap Z(f))\cup (X\cap Z(g)) }$. Since $latex { X }$ is irreducible, we get $latex { X=X\cap Z(f) }$ or $latex { X=X\cap Z(g) }$, so $latex { X\subset Z(f) }$ or $latex { X\subset Z(g) }$, i.e. $latex { f\in I(X) }$ or $latex { g\in I(X) }$. 	 	(2)$latex { \Leftarrow }$ (1): Assume $latex { X }$ is reducible, then we have $latex { X=X_1\cup X_2 }$ and $latex { X_i\subsetneqq X }$ are closed subsets. 	Since $latex { Z(I(X_i))=X_i\subsetneqq X=Z(I(X)) }$, we get $latex { I(X_i)\supsetneqq I(X) }$. Let $latex { f\in I(X_1)\backslash I(X) }$, $latex { g\in I(X_2)\backslash I(X_2) }$, $latex { fg }$ vanishes on $latex { X_1\cup X_2=X }$, then $latex { fg\in I(X) }$, i.e., $latex { I(X) }$ is not prime. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Example 1</b>  	$latex { \mathbb{A}^n }$ is irreducible because $latex { I(\mathbb{A}^n) = \{ 0\} }$ is a prime ideal. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 9</b>  	Let $latex { X\neq \emptyset }$ be an irreducible topological space. The dimension of $latex { X }$ is the largest $latex { n\in\mathbb{Z} }$ s.t. there is an ascending chain 	<p align=center>$latex \displaystyle  	\emptyset \neq X_0\subsetneqq X_1\subsetneqq X_2\subsetneqq \dots\subsetneqq X_n=X 	$</p>
+ 	of irreducible closed subsets. If $latex { X }$ is a noetherian topological space then 	<p align=center>$latex \displaystyle  	\text{dim}X=\text{ maximum of dimension of irreducible components of } X. 	$</p>
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 2</b>  	
+
+<ol> 		<li> The point $latex { p\in\mathbb{A}^n }$ has dimension $latex { 0 }$; 		<li> $latex { \mathbb{A}^1 }$ has dimension $latex { 1 }$; 		<li> In the moment, we still cannot prove but true is $latex { \text{dim}\mathbb{A}^n=n }$ 	
+</ol>
+
+ 	It is easy to verify $latex { \text{dim}\mathbb{A}^n\geq n }$ because we have a chain: 	<p align=center>$latex \displaystyle  	\{(0,0,\dots,0)\}\subsetneqq Z(x_2,x_3,\dots,x_n)\subsetneqq Z(x_3,\dots,x_n)\subsetneqq\dots\subsetneqq Z(x_n)\subsetneqq \mathbb{A}^n. 	$</p>
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Theorem 10 (The Weak Form Hilbert's Nullstellensatz)</b> <a name="2"></a> 	Let $latex { \mathfrak{a}\subsetneqq k[x_1,\dots,x_n] }$ be a proper ideal, then $latex { Z(\mathfrak{a})\neq \emptyset }$ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 3</b>  	We usually use the following form: 	<p align=center>$latex \displaystyle  	\mathfrak{a}\subset k[x_1,\dots,x_n] \text{ and } Z(\mathfrak{a})=\emptyset\Rightarrow 1\in I. 	$</p>
+ 	It is true when $latex { k }$ is algebraically closed, otherwise the theorem <a href="#2">10</a> is wrong: 	<p align=center>$latex \displaystyle  	\mathfrak{a}=\langle x^2+1\rangle \in \mathbb{R}[x], Z(\mathfrak{a})=\emptyset. 	$</p>
+ </blockquote>
+
+<p>
+
+ 

@@ -1,0 +1,194 @@
+\documentclass{amsart}
+\usepackage{amssymb,latexsym}
+\usepackage{color}
+ \definecolor{MyDarkBlue}{rgb}{0,0.08,0.45}\definecolor{yellow}{rgb}{0.99,0.99,0.70}\definecolor{white}{rgb}{1.0,1.0,1.0}\definecolor{black}{rgb}{0.00,0.00,0.00}
+ %\pagecolor{yellow}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem*{main}{Main~Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{notation}{Notation}
+\newtheorem*{proofofnullstellensatz}{Proof of Nullstellensatz}
+\newtheorem*{proofofproductsofaffinevarieties}{Proof of Theorem \ref{15}}
+\numberwithin{equation}{section}
+\begin{document}
+\title[Complete-simple distributive lattices]
+{Algebraic Geometry - Lothar G\"{o}ttsche \\
+	Lecture 06}
+\author{Wang Yunlei}
+%\address{Harbin Institute of Technology\\
+%	Harbin}
+\email{wcghdpwyl@126.com}
+%\urladdr{http://math.uwinnebago.edu/menuhin/}
+%\thanks{Research supported by the NSF under grant number
+%	23466.}
+%\keywords{Complete lattice, distributive lattice,
+%	complete congruence, congruence lattice}
+%\subjclass[2010]{Primary: 06B10; Secondary: 06D05}
+\date{June 19, 2017}
+ 
+\maketitle
+
+ 
+ \begin{definition}
+ 	Let $ f= [F]\in S(X) $,$ F\in k[x_0,\dots,x_n] $. The homogeneous part $ f^{(d)} $ of $ f $ is $ [F^{(d)}]\in S(X) $, and
+ 	$ S^{(d)}(X) = \{ f^{(d)}\in S(X) \} $.
+ \end{definition}
+ \begin{definition}
+ 	$ X $ is a quasi-projective variety, the field of rational functions on $ X $(on $ V \subset X$ open subset) is
+ 	$ K(V):=K(X):=\{ \frac{f}{g}\in Q(S(X))|f,g \text{ both in } S^{(d)}(X) \text{ for some d} \} $.
+ 	Elements of $ K(X) $($ K(V) $) are called rational functions on $ X $(on $ V $).
+ \end{definition}
+ \begin{definition}
+ 	Let $ p\in V\subset\mathbb{P}^n $, the local ring of $ V $ at $ p $ is
+ 	\begin{equation}
+ 	\mathcal{O}_{V,p}:=\{ \frac{f}{g}\in K(V)|g(p)\neq 0 \}.
+ 	\end{equation}
+ 	If $ U\subset V $ is open, the ring of regular functions on $ U $ is
+ 	\begin{equation}
+ 	\mathcal{O}_V(U):=\mathop{\cap}\limits_{p\in U}\mathcal{O}_{V,p}.
+ 	\end{equation}
+ \end{definition}
+ \begin{proposition}\label{8}
+ 	\begin{enumerate}
+ 		\item ($ k $-algebra)Constant functions $ a\in k $ are regular on $ U $. If $ f,g\in \mathcal{O}_V(U) $, then $ f+g $ and $ fg $ are regular on $ U $, and if $ g $ has no zero in $ U $, then $ \frac{f}{g} \in \mathcal{O}_{V}(U)$.
+ 		\item (Local)Let $ (U_i) $ be a open cover of $ U $. A function $ f:U\to k $ is regular if and only if $ f|_{U_i} $ is regular for all $ i $.
+ 		\item Regular functions are continuous. i.e., let $ h\in \mathcal{O}_V(U) $, then $ h:U\to k=\mathbb{A}^1 $ is continuous($ k=\mathbb{A}^1 $ is given Zariski topology).
+ 	\end{enumerate}
+ \end{proposition}
+ \begin{proof}
+ 	(1) By definition, $ \mathcal{O}_V(U)=\mathop{\cap}\limits_{p\in U} \mathcal{O}_{V,p} $, thus enough to show if $ f,g\in \mathcal{O}_{V,p} $, then $ f+g, fg \in \mathcal{O}_{V,p}$, and it is obvious. Assume $ g $ has no zero on $ U $, then $ g\frac{1}{g}\in \mathcal{O}_V(U) $, then $ \frac{f}{g}\in \mathcal{O}_V(U) $.
+ 	
+ 	(2) $ h:U\to k $ is regular $ \Leftrightarrow $ $ h\in \mathcal{O}_{V,p} \forall p\in U$ $ \Leftrightarrow $ $ h\in \mathcal{O}_{V,p} \forall p\in U_i \forall i$.
+ 	
+ 	(3) $ h:U\to k  $ is continuous $ \Leftrightarrow $ $ h|_{U_i} $ is continuous for all $ U_i $ of an open cover of $ U $. We just replace $ U $ by a suitable $ U_i $ and show $ h $ is continuous in $ U_i $. From the definition of regular functions, we can simply assume $ h=\frac{f}{g}, f,g\in k[x_0,\dots,x_n] $ are homogeneous of the same degree, and $ g $ has no zero on $ U_i $. Zariski topology on $ \mathbb{A}^1 $ has closed subsets $ \emptyset,k $ and finite points subsets. Thus we only have to show $ h^{-1}(a) $ is closed in $ U_i $ for all $ a $ in $ k $,
+ 	\begin{equation}
+ 	h^{-1}(a)=\{ p\in U_i|h(p)=a \}= \{ p\in U_i|(f-ag)(p)=0 \}.
+ 	\end{equation}
+ 	This is the zero set $ Z(f-ag)\cap U $, hence the inverse of the closed sets are closed, hence $ h $ is continuous in $ U_i \forall i$, hence continuous in $ U $.
+ \end{proof}
+ \begin{definition}[Polynomial Map]
+ 	Let $ X\subset \mathbb{A}^n, Y\subset \mathbb{A}^m $ be affine algebraic sets. A map
+ 	$$
+ 	(F_1,\dots,F_m):X\to Y,p\to (F_1(p),\dots,F_m(p)),F_1,\dots,F_m\in k[x_1,\dots,x_n]
+ 	$$
+ 	is called a polynomial map. A surjective polynomial map whose inverse is also a polynomial map is an isomorphism.
+ \end{definition}
+ \begin{example}
+ 	\begin{enumerate}
+ 		\item If $ X $ is an affine algebraic set, the polynomial map $ f:X\to k $ is the polynomial function in $ A(X) $.
+ 		\item Let $ X=\mathbb{A}^1 $, $ Y=Z(y-x^2)\subset \mathbb{A}^2 $, the polynomial map
+ 		$$
+ 		(t,t^2):\mathbb{A}^2\to Y
+ 		$$
+ 		is isomorphism.
+ 	\end{enumerate}
+ \end{example}
+ \begin{definition}
+ 	Let $ X\subset \mathbb{A}^n $, $ Y\subset \mathbb{A}^m $ be affine algebraic sets. Let
+ 	$$
+ 	\varphi:X\to Y
+ 	$$
+ 	be a polynomial map.
+ 	The pull back of $ h\in A(Y) $ is $ \varphi^\ast h:=h\circ \varphi \in A(X) $. If $ h=H|_Y, H\in k[y_1,\dots,y_m] $, $ \varphi =(F_1,\dots,F_m) $, then
+ 	$$
+ 	\varphi^\ast h(a_1,\dots,a_n)=h(F_1(a_1,\dots,a_n),\dots, F_m(a_1,\dots,a_n ).
+ 	$$
+ 	i.e.,
+ 	$$
+ 	\varphi^\ast h = H( F_1(x_1,\dots,x_n),\dots, F_m(x_1,\dots,x_n) )|_X\in A(X).
+ 	$$
+ 	The pull back $ \varphi^\ast:A(Y)\to A(X) $ is obviously a ring homomorphism. If $ \varphi:X\to Y $ is an isomorphism, then $ \varphi^\ast:A(Y)\to A(X) $ is an isomorphism of $ k $-algebra.
+ \end{definition}
+ \begin{definition}\label{11}
+ 	Let $ X,Y $ be varieties, a map $ \varphi :X\to Y $ is a morphism(regular map) if :\begin{enumerate}
+ 		\item $ \varphi $ is continuous;
+ 		\item for all open subsets $ U\in Y $, all regular functions $ f\in \mathcal{O}_Y(U) $, we have
+ 		$$
+ 		\varphi^\ast := f\circ \varphi \in \mathcal{O}_X(\varphi^{-1}(U)).
+ 		$$
+ 	\end{enumerate}
+ \end{definition}
+ \begin{remark}
+ 	Thus for each open subset $ U\in Y $,
+ 	$$
+ 	\varphi^\ast :\mathcal{O}_Y(U)\to \mathcal{O}_X(\varphi^{-1}(U))
+ 	$$
+ 	is a $ k $-algebra homomorphism. $ \varphi $ is called an isomorphism if $ \varphi $ is bijective and $ \varphi^{-1} $ is also a morphism.
+ 	\begin{enumerate}
+ 		\item $ \text{id}_X $ is a morphism form $ X $ itself.
+ 		\item If $ \varphi:X\to Y,\psi :Y\to Z $ are morphisms, then
+ 		$$
+ 		(\psi\circ\varphi)^\ast = \varphi^\ast \circ \psi^\ast
+ 		$$.
+ 		\item If $ \varphi : X\to Y $ is isomorphism, then $ \varphi^\ast: \mathcal{O}_Y\to \mathcal{O}_X(\varphi^{-1}(U)) $ is an  isomorphism for all $ U\subset Y $.
+ 	\end{enumerate}
+ \end{remark}
+ \begin{proposition}
+ 	\begin{enumerate}
+ 		\item Let $ \varphi :X\to Y $ and $ (U_i)_{i\in I} $ be an open cover of $ X $ s.t. $ \varphi |_{U_i}:U_i\to Y $ is a morphism. Then $ \varphi  $ is a morphism.
+ 		\item Let $ Z\subset X, W\subset Y $ be varieties, let $ \varphi:X\to Y $ be a morphism with $ \varphi(Z)\subset W $. Then $ \varphi|_Z:Z\to W $ is a morphism.
+ 	\end{enumerate}
+ \end{proposition}
+ \begin{proof}
+ 	(1) Let $ W\subset Y $ be open, then we can write $ \varphi^{-1}(W)=\mathop{\cup}\limits_{i\in I}(\varphi|_{U_i}^{-1}(W)) $, it is open so $ \varphi $ is continuous. Let $ h\in \mathcal{O}_{Y}(W) $ then the pull back of regular functions $ h $ from $ \mathcal{O}_Y(W) $ to $ \mathcal{O}_X(U_i\cap \varphi^{-1}(W)) $ is $ \varphi|_{U_i}^\ast h=\varphi^\ast h|_{U_i\cap \varphi^{-1}(W)} $, since $ \varphi|_{U_i} $ is a morphism we get that $ U_i\cap \varphi^{-1}(W) $ is open. Then
+ 	\begin{equation}
+ 	\varphi^{-1}(W)=\mathop{\cup}\limits_{i\in I} U_i\cap \varphi^{-1}(W)
+ 	\end{equation}
+ 	and $ (U_i\cap \varphi^{-1}(W) )_{i\in I}$ is an open cover of $ \varphi^{-1}(W) $, then we can get the conclusion that $ \varphi $ is a morphism by proposition \ref{8}.
+ 	
+ 	(2) First, $ \varphi|_Z $ is continuous as a restriction of a continuous map. Let $ U\subset W $ be open, let $ h\in \mathcal{O}_W(U) $. Replace if necessary $ U $ by a smaller open subset sucht that we can assume $ h=\frac{F}{G} $. This quotient also defines a regular function $ H $ on open subset $ \tilde{U}\subset Y $ s.t. $ U\subset \tilde{U} $, then $ \varphi^\ast H\in \mathcal{O}_X(\varphi^{-1}(\tilde{U}))  $ is regular. Then $ \varphi^\ast h= \varphi^\ast H|_{\varphi^{-1}(U)\cap Z} $ is regular on $ \varphi^{-1}(U)\cap Z $.
+ \end{proof}
+ \begin{definition}
+ 	An affine variety is a variety which is isomorphis to irreducible closed subset of some $ \mathbb{A}^n $.
+ \end{definition}
+ \begin{theorem}\label{9}
+ 	Let $ X,Y $ be subvarieties, assume $ Y\subset \mathbb{A}^n $. A map $ \varphi:X\to Y $ is a morphism if and only if $ \exists f_1,\dots,f_n\in \mathcal{O}_X(X) $ s.t.
+ 	\begin{equation}
+ 	\varphi(p)=(f_1(p),\dots,f_n(p)),\forall p\in X.
+ 	\end{equation}
+ 	We can write $ \varphi = ( f_1,\dots,f_n ) $.
+ \end{theorem}
+ \begin{proof}
+ 	$ \Rightarrow $: Let $ \varphi :X\to Y $ be a morphism. Let $ y_1,\dots, y_n \in \mathcal{O}_Y(Y)$ be restrictions of the coordinates on $ \mathbb{A}^n $ to $ Y $, i.e., if $ q=(a_1,\dots,a_n)\in Y $, then $ a_i=y_i(q) $. The pull back of $ y_i $ is
+ 	\begin{equation}
+ 	f_i:=\varphi^\ast y_i=y_i\circ \varphi \in \mathcal{O}_X(X).
+ 	\end{equation}
+ 	Let $ p\in X $, $ \varphi(p)=(b_1,\dots,b_n) $, $ b_i=y_i(\varphi(p))=f_i(p) $, thus
+ 	$$
+ 	\varphi= (f_1,\dots,f_n)
+ 	$$
+ 	where $ f_i\in \mathcal{O}_X(X) $.
+ 	
+ 	$ \Leftarrow $ Let $ \varphi :=(f_1,\dots,f_n),f_i\in \mathcal{O}_X(X) $. First we show $ \varphi  $  is continuous. Let $ B\in Y $ be closed, it is equivalent to $ B=Y\cap Z(G_1,\dots,G_m) $ and $ G_i\in k[x_1,\dots,x_n] $. Since
+ 	$ G_i\circ \varphi = G(f_1,\dots,f_n)\in \mathcal{O}_X(X) $, we get $ \varphi^{-1}(B)=Z(G_1\circ \varphi,\dots,G_m\circ\varphi) $ and it is closed in $ X $. So $ \varphi $ is continuous. Let $ h\in \mathcal{O}_Y(U) $, write $ W=\varphi^{-1}(U)\subset Y $. we need to show $ h\circ \varphi \in \mathcal{O}_X(W) $. We can always make $ U $ smaller and assume $ h(q)=\frac{F(q)}{G(q)} ,\forall q\in U$, $ F $ and $ G $ are some polynomials and $ G $ has no zero on $ U $. Then we have
+ 	\begin{equation}
+ 	h\circ \varphi =\frac{F\circ \varphi}{G\circ \varphi}=\frac{F(f_1,\dots,f_n)}{G(f_1,\dots,f_n)}
+ 	\end{equation}
+ 	where $ F(f_1,\dots,f_n) $ and $ G(f_1,\dots,f_n) $ are regular on $ \mathcal{O}_X(W) $. Since $ \varphi(W)=U $ and $ G $ has no zero on $ U $, $ G(f_1,\dots,f_n) $ also has no zero on $ W $, i.e., $ h\circ \varphi\in \mathcal{O}_X(W) $.
+ \end{proof}
+ \begin{remark}
+ 	The regular functions on a variety $ X $ are the same as the morphisms $ X\to \mathbb{A}^1 $.
+ \end{remark}
+ \begin{corollary}
+ 	Let $ X\subset \mathbb{A}^n $ and $ Y\subset \mathbb{A}^m $ be closed subvarieties. The morphisms
+ 	$$
+ 	\varphi:X\to Y
+ 	$$
+ 	are precisely the polynomial map.
+ \end{corollary}
+ \begin{proof}
+ 	We know $ \varphi=(f_1,\dots,f_m) $ and $ f_i\in \mathcal{O}_X(X) \forall i$. Since $ \mathcal{O}_X(X)=A(X) $, $ \varphi $ is a polynomial map.
+ \end{proof}
+% \begin{thebibliography}{9}
+ %    \bibitem{a} bibitem
+% \end{thebibliography}
+\end{document}

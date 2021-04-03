@@ -1,0 +1,95 @@
+ 
+<blockquote class="thm"><b>Remark 1</b>  	In (2) of theorem <a href="#14-3">10</a>，we can drop the assumption that $latex { F }$ on $latex { X }$ is irreducible. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Corollary 1</b>  	Every affine variety is finite dimensional. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Proposition 2</b> <a name="15-1"></a> 	Let $latex { X\subset \mathbb{A}^N }$ be an affine variety of dimension $latex { n }$ and $latex { F\in k[x_1,\dots,x_N]\backslash I(X) }$. If $latex { Z(F)\cap X\neq \emptyset }$, then $latex { \text{dim}(Z(F)\cap X)=n-1 }$.($latex { Z(F)\cap X }$ may not be irreducible). </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	We need to show for all irreducible components $latex { Y_i }$ of $latex { Z(F)\cap X }$, $latex { \text{dim} Y_i\leq n-1 }$ and there exists a component $latex { Y_j }$ with $latex { \text{dim}Y_j=n-1 }$(later we will show that all irreducible components have dimension $latex { n-1 }$). By Noether normalization theorem, there is a finite surjective morphism $latex { \Pi:X\rightarrow \mathbb{A}^n }$. Identify $latex { k[x_1,\dots,x_n] }$ with $latex { \Pi^\ast(k[x_1,\dots,x_n])\subset A(X) }$. Let $latex { \bar{F} }$ be the class of $latex { F }$ in $latex { A(X) }$, there exists a nonzero polynomial 	<p align=center>$latex \displaystyle  	H=x_{n+1}^d + \sum\limits_{i=0}^{d-1}a_ix_{n+1}^i 	$</p>
+ 	with $latex { a_i\in k[x_1,\dots,x_n] }$ such that $latex { H(x_1,\dots,x_n,\bar{F})=0 }$. Replacing $latex { H }$ by an irreducible factor if necessary, we can assume $latex { H }$ is irreducible. Let $latex { \varphi =(\Pi,F):X\rightarrow \mathbb{A}^{n+1} }$, $latex { \Pi = (x_1,\dots,x_n)\circ\varphi }$ is finite, thus $latex { \varphi }$ is finite. By definition $latex { \varphi (X)\subset Z(H) }$, then $latex { \varphi(X) }$ is a closed subvariety of dimension $latex { n }$ in $latex { Z(H) }$. Thus $latex { \varphi(X)=Z(H) }$, $latex { \varphi :X\rightarrow Z(H) }$ is a finite surjective morphism. By definition, $latex { Z(F)\cap X= \varphi^{-1}(Z(H,x_{n+1}))=\varphi^{-1}(Z(a_0)\times \lbrace 0\rbrace) }$, thus $latex { \text{dim}(Z(F)\cap X)=\text{dim} Z(a_0) }$ where $latex { a_0\in k[x_1,\dots,x_n] }$. If $latex { a_0 }$ is constant, then $latex { Z(F)\cap X=\emptyset }$, contradict with the condition, so drop it. Now we know $latex { a_0 }$ is nonconstant polynomial , hence $latex { \text{dim}Z(a_0)=n-1 }$. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Theorem 3</b>  	Let $latex { X }$ be a variety, $latex { \emptyset\neq U\subset X }$, $latex { U }$ is an open subset of $latex { X }$. Then $latex { \text{dim}U=\text{dim}X }$. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	Let $latex { U_0\subsetneqq U_1\subsetneqq \dots\subsetneqq U_n=U }$ be a chain in $latex { U }$, let $latex { X_i=\bar{U} }$ the closure of $latex { U_i }$ in $latex { X }$. By definition $latex { U_i=U\cap X_i }$, thus 	<p align=center>$latex \displaystyle  	X_0\subsetneqq X_1\subsetneqq \dots \subsetneqq X_n=X 	$</p>
+ 	is a chain in $latex { X }$, thus $latex { \text{dim}U\leq \text{dim}X }$. 	 	Let $latex { X_0\subsetneqq X_1\subsetneqq \dots\subsetneqq X_n=X }$ be a chain of largest length in $latex { X }$ and $latex { X_0=\lbrace x_0\rbrace }$ be a point, let $latex { W\subset X }$ be an open subset with $latex { x_0\in W }$. Then we set $latex { W_i=X_i\cap W }$ for all $latex { i }$. Since $latex { W_{i+1} }$ is dense in $latex { X_{i+1} }$, we have $latex { W_{i+1}\supsetneqq W_i }$ for all $latex { i }$. Thus $latex { W_0=\lbrace x_0\rbrace\subsetneqq W_1\subsetneqq \dots\subsetneqq W_n }$ is a chain in $latex { W }$, we get $latex { \text{dim}X=\text{dim}W }$. Thus we can replace $latex { X }$ by $latex { W }$ and $latex { U }$ by $latex { W\cap U }$. Now we reduce to the case $latex { X }$ is affine. 	
+
+<ol> 		<li> If $latex { X=\mathbb{A}^n }$, let $latex { x_0 }$ be a point in $latex { U }$, $latex { X_i }$ be affine linear subspaces containing $latex { X_{i-1} }$ for all $latex { i }$. Put $latex { U_i=X_i\cap U }$, $latex { U_0\subsetneqq U_1\subsetneqq \dots\subsetneqq U_n }$ is a chain in $latex { U }$, then $latex { \text{dim}U=n=\text{dim}X }$. 		<li> If $latex { X }$ is affine, there exists a finite surjective morphism $latex { \varphi:X\rightarrow \mathbb{A}^n }$. $latex { \varphi(X\backslash U)\subsetneqq \mathbb{A}^n }$ is closed, let $latex { f\in I(\varphi(X\backslash U)) }$ and $latex { V=\mathbb{A}^n\backslash Z(f) }$, $latex { V }$ is open and dense in $latex { \mathbb{A}^n }$, $latex { \text{dim}V=n }$. Let $latex { W=\varphi^{-1}(V)\subset X }$, then $latex { \varphi|_W:W\rightarrow V }$ is surjective and closed, thus $latex { \text{dim}W\geq \text{dim}V=n }$, but $latex { U\supset W }$, hence $latex { \text{dim}U\geq \text{dim}W\geq n }$. 	
+</ol>
+
+ $latex \Box$
+
+ 
+<blockquote class="thm"><b>Corollary 4</b>  	All varieties are finite dimensional. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Corollary 5</b>  	If $latex { X }$ and $latex { Y }$ are birational, then $latex { \text{dim}=\text{dim}Y }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Corollary 6</b>  	
+
+<ol> 		<li> $latex { \text{dim}\mathbb{P}^n=n }$. 		<li> If $latex { F\in k[x_0,\dots,x_n] }$ is a homogeneous polynomial of positive degree, then $latex { \text{dim}Z(F)=n-1 }$. 		<li> If $latex { X\subset \mathbb{P}^n }$ is a closed subvariety of dimension $latex { n-1 }$, then $latex { X=Z(F) }$ for some homogeneous polynomial $latex { F\in k[x_0,\dots,x_n] }$. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	
+
+<ol> 		<li> It is obvious since $latex { U_i\simeq \mathbb{A}^n }$ is open dense in $latex { \mathbb{P}^n }$. 		<li> By projective transformation we can set $latex { Z(F)\not\subset H_{\infty} }$, then $latex { Z(F)\cap \mathbb{A}^n=Z(F(1,x_1,\dots,x_n)) }$. It has dimension $latex { n-1 }$ and is open in $latex { Z(F) }$, so $latex { \text{dim}Z(F)=n-1 }$. 		<li> Same as the affine condition in theorem <a href="#14-3">10</a>. 	
+</ol>
+
+ $latex \Box$
+
+ 
+<blockquote class="thm"><b>Theorem 7</b>  	Let $latex { X\subset \mathbb{A}^n }$ be an affine variety, $latex { F\in k[x_1,\dots,x_n]\backslash I(X) }$, then every irreducible component(if there is any) of $latex { Z(F)\cap X }$ has dimension $latex { \text{dim}X-1 }$. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	Let $latex { Z }$ be a irreducible component of $latex { Z(F)\cap X }$. Take $latex { W }$ be the union of all the other irreducible components of $latex { Z(F)\cap X }$. Take $latex { g\in I(W)\backslash I(Z) }$ and $latex { U:=X\backslash Z(g) }$, then $latex { U }$ can be viewed as an affine variety in $latex { \mathbb{A}^{n+1} }$. Since $latex { Z(g)\supset W }$, we get $latex { U\subset Z }$. Hence $latex { U\cap Z(F)=U\cap Z }$. Viewing $latex { F }$ as a polynomial function on $latex { U }$(since $latex { U=X\backslash Z(g) }$ is open and dense in $latex { X }$, $latex { F }$ is not zero in $latex { U }$, otherwise it is zero in the whole set $latex { X }$, contradicts with $latex { F\notin I(X) }$), then we get 	$latex { \text{dim}Z=\text{dim}(Z\cap U)=\text{dim}U-1=\text{dim}X-1 }$. The second equality $latex { \text{dim}(Z\cap U)=\text{dim}U-1 }$ is from proposition <a href="#15-1">2</a> by viewing it in $latex { \mathbb{A}^{n+1} }$ $latex \Box$
+
+ 
+<blockquote class="thm"><b>Proposition 8</b>  	Let $latex { \varphi:X\rightarrow Y }$ be a morphism of varietise. Assume there exists a nonempty open subset $latex { U\subset Y }$ such that for all $latex { p\in U }$, $latex { \text{dim}(\varphi^{-1}(p))=n }$, then we have 	<p align=center>$latex \displaystyle  	\text{dim}X=\text{dim}Y+n. 	$</p>
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Theorem 9</b>  	Let $latex { \varphi:X\rightarrow Y }$ be a surjective morphism, assume $latex { \text{dim}X=\text{dim}Y+n }$, then 	
+
+<ol> 		<li> for all points $latex { p\in X }$, $latex { \text{dim}(\varphi^{-1}(p))\geq n }$; 		<li> there is a nonempty open subset $latex { U\subset Y }$ such that for all $latex { p\in U }$, $latex { \text{dim}\varphi^{-1}(p)=U }$. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ 
+<p align=center><b> &mdash;  1.  Conclusions We Need From Previous Lectures   &mdash; </b></p>
+
+ In lecture 14: 
+<blockquote class="thm"><b>Theorem 10</b> <a name="14-3"></a> 	
+
+<ol> 		<li> $latex { \text{dim}\mathbb{A}^n=n }$. 		<li> Let $latex { F\in k[x_1,\dots,x_n]\backslash k }$ be a irreducible polynomial, then $latex { \text{dim}Z(F)=n-1 }$. 		<li> Conversely any subvariety $latex { X\subset \mathbb{A}^n }$ of dimension $latex { n-1 }$ is a hypersurface, i.e. $latex { X=Z(F) }$ with $latex { F }$ irreducible. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ 

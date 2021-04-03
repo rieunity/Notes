@@ -1,6 +1,6 @@
 import os
 from shutil import copyfile
-from_path = r"/home/rieunity/Documents/Notes" # 原路经
+from_path = r"/home/rieunity/Notes" # 原路经
 to_path = r"/home/rieunity/blog/source/download/Notes" # 目标路径
 filetype = '.pdf' # 需要复制的文件类型
 def copy_pdf(from_path, to_path, filetype):

@@ -1,0 +1,130 @@
+
+<p>
+ 
+<blockquote class="thm"><b>Definition 1</b>  	Let $latex { \mathfrak{a} }$ be an ideal in a ring $latex { R }$. The radical of $latex { \mathfrak{a} }$ is 	<p align=center>$latex \displaystyle  	\sqrt{\mathfrak{a}}=\{ r\in R|\exists n&gt;0, r^n\in \mathfrak{a} \}. 	$</p>
+ 	$latex { \sqrt{\mathfrak{a}} }$ is an ideal in $latex { R }$. 	$latex { \mathfrak{a} }$ is called radical ideal if $latex { \mathfrak{a}=\sqrt{\mathfrak{a}} }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 1</b>  	If $latex { X\subset \mathbb{A}^n }$ is an affine algebraic set, then $latex { I(X) }$ is a radical ideal. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Theorem 2 (Nullstallensatz)</b>  	Let $latex { \mathfrak{a}\subset k[x_1,\dots,x_n] }$, then $latex { I(Z(\mathfrak{a}))=\sqrt{\mathfrak{a}} }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 3</b>  	$latex { R }$ is an integral domain, the quotient field $latex { Q(R) }$ is the set of equivalent classes of pairs $latex { (f,g), f,g\in R, g\neq 0 }$, which satisfy the equivalent relation 	<p align=center>$latex \displaystyle  	(f,g)\cong (f',g') \Leftrightarrow fg'-f'g=0. 	$</p>
+ 	We denote it by $latex { \frac{f}{g} }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 2</b>  	$latex { Q(R) }$ is a field. We always identify $latex { r\in R }$ with $latex { \frac{r}{1}\in Q(R) }$, then we can say $latex { R }$ is the subring of $latex { Q(R) }$.$latex { Q(k[x_1,\dots,x_n]):=k(x_1,\dots,x_n) }$ is called field of rational functions in $latex { x_1,x_2,\dots,x_n }$. </blockquote>
+
+<p>
+
+ Now we prove the Nullstellensatz: <em>Proof:</em>  	Let $latex { \mathfrak{a} = \langle f_1,\dots, f_r\rangle, f_i\in \mathfrak{a} }$. Then $latex { I(Z(\mathfrak{a})) }$ is a radical ideal containing $latex { \mathfrak{a} }$, so we get 	<p align=center>$latex \displaystyle  	I(Z(\mathfrak{a}))\supset \sqrt{\mathfrak{a}}. 	$</p>
+ 	Let$latex { f\in I(Z(\mathfrak{a})) }$. To show $latex { \exists N&gt;0 }$, s.t. $latex { f^N\in \mathfrak{a} }$, we use the weak Nullstellensatz in $latex { k[x_1,\dots,x_n] }$. 	 	Let 	<p align=center>$latex \displaystyle  	\mathfrak{b}:=\langle f_1,\dots,f_r,f\cdot t -1\rangle\subset k[x_1,\dots,x_n,t] 	\ \ \ \ \ (1)$</p>
+ 	Let $latex { (p,a)\in \mathbb{A}^{n+1}, p\in \mathbb{A}^n, a\in k }$. 	<p align=center> 		$latex { (p,a)\in Z(\mathfrak{b}) }$ $latex { \Leftrightarrow }$ $latex { f_1(p)=\dots=f_r(p)=0 }$ and $latex { f(p)\cdot a=1 }$. 	</p> 	But $latex { f(p)=0 }$, so we know $latex { Z(\mathfrak{b})=\emptyset }$. By the weak Nullstellensatz, $latex { 1\in \mathfrak{b} }$, we can write 	<a name="3"><p align=center>$latex \displaystyle  	1=g_0\cdot (ft-1)+\sum\limits_{i=1}^{r}g_i\cdot f_i 	\ \ \ \ \ (2)$</p>
+</a> 	Back to $latex { k[x_1,\dots,x_n] }$ in $latex { k(x_1,\dots,x_n) }$, define homomorphism: 	<p align=center>$latex \displaystyle  	\begin{array}{cc} 	\varphi: k[x_1,\dots,x_n,t] & \rightarrow k(x_1,\dots,x_n)\\ 	g(x_1,\dots,x_n,t) & \rightarrow g(x_1,\dots,x_n,\frac{1}{f}) 	\end{array} 	$</p>
+ 	Use $latex { \varphi }$ to equation <a href="#3">2</a> we get 	<a name="4"><p align=center>$latex \displaystyle  	1=\sum\limits_{i=1}^{r}\varphi (g_i)\cdot f_i 	\ \ \ \ \ (3)$</p>
+</a> 	where $latex { \varphi(g_i)=\frac{G_i}{f^{n_i}},G_i\in k[x_1,\dots,x_n] }$. Let $latex { N:=\max\limits_{1\leq i\leq r}n_i }$, multiply equation <a href="#4">3</a> by $latex { f^N }$: 	<p align=center>$latex \displaystyle  	f^N=\sum\limits_{i=1}^{r}G_if^{N-n_i}\cdot f_i\in \mathfrak{a} 	\ \ \ \ \ (4)$</p>
+ $latex \Box$
+
+ 
+<blockquote class="thm"><b>Corollary 4</b>  	
+
+<ol> 		<li> If $latex { \mathfrak{a}\subset k[x_1,\dots,x_n] }$ is a prime ideal, then $latex { Z(\mathfrak{a}) }$ is irreducible; 		<li> If $latex { f\in k[x_1,\dots,x_n] }$ is irreducible, then $latex { Z(f) }$ is irreducible. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	(1) Set $latex { X=Z(\mathfrak{a}) }$. Prime ideals are radical, so we get $latex { I(X)=\mathfrak{a} }$ and $latex { \mathfrak{a} }$ is prime, use proposition <a href="#5">11</a> we know that $latex { X }$ is irreducible. 	 	(2) Since $latex { k[x_1,\dots,x_n] }$ is a UFD, we get 	<p align=center> 		$latex { f\in k[x_1,\dots,x_n] }$ is irreducible $latex { \Rightarrow }$ $latex { \langle f\rangle }$ is a prime ideal. 	</p> 	So $latex { Z(f)=Z(\langle f\rangle) }$ is irreducible. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Definition 5</b>  	Define an equivalence relation$latex { \sim }$ in $latex { k^{n+1}\backslash \{0\} }$: 	<p align=center> 		$latex { (a_0,\dots,a_n)\sim(b_0,\dots,b_n) }$ $latex { \Leftrightarrow }$ $latex { \exists \lambda\in k\backslash \{0\} }$ s.t.$latex { (a_0,\dots,a_n) = (\lambda b_0,\dots,\lambda b_n)}$. 	</p> 	Then we call $latex { k^{n+1}\backslash \{0\} }$ with this relation the projective $latex { n }$-space and write it as $latex { (k^{n+1}\backslash\{0\})/\sim = \mathbb{P}^n }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 6</b>  	Let $latex { U_i:=\{[a_0,\dots,a_n]\in \mathbb{P}^n|a_i\neq 0 \} }$. $latex { \varphi_i: U_i\rightarrow \mathbb{A}^n }$, $latex { [a_0,\dots,a_n]\rightarrow (\frac{a_0}{a_i},\dots,\hat{\frac{a_i}{a_i}},\dots,\frac{a_n}{a_i}) }$ is a projection, write inverse $latex { u_i:\mathbb{A}^n\rightarrow U_i }$, $latex { (b_0,\dots,\hat{b_i},\dots,b_n)\rightarrow [b_0,\dots,1,\dots,b_n] }$. 	 	Usually we fix $latex { i=0 }$, view $latex { \mathbb{A}^n }$ as a subset of $latex { \mathbb{P}^n }$ by identify the point $latex { (a_1,\dots,a_n)\in\mathbb{A}^n }$ with $latex { [1,a_1,\dots,a_n]\in \mathbb{P}^n }$. With this identification we have 	<p align=center>$latex \displaystyle  	\mathbb{P}^n=\mathbb{A}^n\cup H_{\infty} 	\ \ \ \ \ (5)$</p>
+ 	where $latex { H_{\infty} :=\{ [a_0,\dots,a_n]\in \mathbb{P}^n|a_0=0 \} }$ is called hyperplane at infinity. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 3</b>  	Define projective algebraic sets are zero sets of polynomials in $latex { k[x_0,\dots,x_n] }$, but $latex { f\in k[x_0,\dots,x_n] }$ does not define a function on $latex { \mathbb{P}^n }$: 	<p align=center>$latex \displaystyle  	f(a_0,\dots,a_n)\neq f(\lambda a_0,\dots,\lambda a_n). 	\ \ \ \ \ (6)$</p>
+ 	However if $latex { f }$ is homogeneous we can still see whether $latex { p\in \mathbb{P}^n }$ is a zero point of $latex { f }$ or not. $latex { f }$ is homogeneous if 	<p align=center>$latex \displaystyle  	f(\lambda a_0,\dots,\lambda a_n)=\lambda^d f(a_0,\dots,a_n). 	\ \ \ \ \ (7)$</p>
+ 	Thus whether $latex { f=0 }$ is decided only on $latex { [a_0,\dots,a_n] }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 7</b>  	Let $latex { g\in k[x_0,\dots,x_n] }$ be homogeneous, a point $latex { p=[a_0,\dots,a_n] }$ is a zero point of $latex { g }$ if $latex { g(a_0,\dots,a_n)=0 }$. Let $latex { S\subset k[x_0,\dots,x_n] }$, 	<p align=center>$latex \displaystyle  	Z(S):=\{ p\in\mathbb{P}^n|f(p)=0 \forall f\in S \}. 	\ \ \ \ \ (8)$</p>
+ 	A subset of $latex { \mathbb{P}^n }$ of the form $latex { Z(S) }$ is called a projective algebraic set. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Example 1</b>  	
+
+<ol> 		<li> $latex { \emptyset=Z(1) }$, $latex { \mathbb{P}^n=Z(\emptyset) }$; 		<li> Any point $latex { p=[a_0,\dots,a_n]\in\mathbb{P}^n }$ is a projective algebraic set 		<p align=center>$latex \displaystyle \begin{array}{cc} 		\{ p \}= & Z(a_1x_0-a_0x_1,a_2x_0-a_0x_2,\dots,a_nx_0-a_0x_n,\\ 		{} & a_2x_1-a_1x_2,\dots,a_nx_1-a_1x_n,\\ 		{} & \dots). 		\end{array}$</p>
+ 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 8</b>  	A polynomial $latex { f\in k[x_0,\dots,x_n] }$ cab be written uniquely as $latex { f=f^{(0)}+f^{(1)}+\dots+ f^{(d)} }$, with $latex { f^{(i)} }$ homoegeneous of degree $latex { i }$. $latex { f^{(i)} }$ is called homogeneous component if $latex { f }$. 	 	An ideal $latex { \mathfrak{a}\subset k[x_0,\dots,x_n] }$ is called homogeneous if for every $latex { f\in \mathfrak{a} }$ all homogeneous components $latex { f^{(i)} }$ are in $latex { \mathfrak{a} }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Proposition 9</b>  	An ideal $latex { \mathfrak{a}\subset k[x_0,\dots,x_n] }$ is homogeneous $latex { \Leftrightarrow }$ It is generated by the homogeneous polynomials. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	$latex { \Rightarrow }$: Assume $latex { I }$ homogeneous, let $latex { (f_\alpha)_\alpha }$ be a set of generators, then $latex { (f^{(i)}_\alpha)_{\alpha,i} }$ is a set of homogeneous generators. 	 	$latex { \Leftarrow }$: Let $latex { \mathfrak{a} =\langle g_i\rangle }$ and $latex { g_i }$ be homogeneous. Let $latex { f\in \mathfrak{a}}$, then we can write 	<p align=center>$latex \displaystyle  	f=\sum\limits_{i}a_ig_i. 	\ \ \ \ \ (9)$</p>
+ 	Note $latex { g_i }$ is homogeneous, thus the homogeneous part of $latex { a_ig_i }$ of degree $latex { d }$ is just $latex { a_i^{(d-deg(g_i))}g_i }$, so 	<p align=center>$latex \displaystyle  	f^{(d)}=\sum\limits_{i} a_i^{(d-deg(g_i))}g_i. 	\ \ \ \ \ (10)$</p>
+ 	Since $latex { g_i\in \mathfrak{a} }$ we get $latex { f^{(d)}\in \mathfrak{a} }$. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Definition 10</b>  	Let $latex { \mathfrak{a}\subset k[x_0,\dots,x_n] }$ be a homogeneous ideal, the zero set of $latex { \mathfrak{a} }$ is written as 	<a name="6"><p align=center>$latex \displaystyle  	Z(\mathfrak{a}):=\{ p\in \mathbb{P}^n|f(p)=0 \text{ for all homogeneous elements } f\in \mathfrak{a} \}. 	\ \ \ \ \ (11)$</p>
+</a> 	For a subset $latex { X\subset \mathbb{P}^n }$, the homogeneous ideal of $latex { X }$ is 	 	I(X):= \text{ ideal generated by } \{ f\in k[x_0,\dots,x_n]|f <a name="7"></a><br/>
+ 	\text{ be homogeneous and } f(p)=0 \forall p\in X \}\notag 	 	By definition this is a homogeneous ideal. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 4</b>  	If $latex { f\in k[x_0,\dots,x_n] }$ is not homogeneous, we can define 	<p align=center>$latex \displaystyle  	Z(f):=\{ p\in\mathbb{P}^n| f(a_0,\dots,a_n)=0\text{ for all representative } (a_0,\dots,a_n) \text{ of } p \} 	\ \ \ \ \ (12)$</p>
+ 	In fact, if $latex { f=f^{(0)}+f^{(1)}\dots +f^{(d)} }$, then we have 	<p align=center>$latex \displaystyle  	Z(f)=\mathop{\cap}\limits_{i=0}^{d}Z(f^{(i)}) 	\ \ \ \ \ (13)$</p>
+ 	With this property, if $latex { \mathfrak{a} \subset k[x_0,\dots,x_n]}$ is a homogeneous ideal then formula <a href="#6">11</a> can be written as 	<p align=center>$latex \displaystyle  	Z(\mathfrak{a})=\{ p\in \mathbb{P}^n| f(p)=0 \forall f\in \mathfrak{a} \} 	\ \ \ \ \ (14)$</p>
+ 	and formula <a href="#7">10</a> can be written as 	<p align=center>$latex \displaystyle  	I(X)=\{ f\in k[x_0,\dots,x_n]|f(p)=0 \forall p\in X \} 	\ \ \ \ \ (15)$</p>
+ </blockquote>
+
+<p>
+
+
+<p>
+ 
+<p align=center><b> &mdash;  1. Conclusions We Need From Previous Lectures  &mdash; </b></p>
+
+ In lecture 02: 
+<blockquote class="thm"><b>Proposition 11</b> <a name="5"></a> 	$latex { X\subset \mathbb{A}^n }$ is an affine algebraic set. Then we have the following equivalent relations: 	
+
+<ol> 		<li> $latex { X }$ is irreducible; 		<li> $latex { I(X) }$ is a prime ideal. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ 

@@ -1,5 +1,5 @@
 %TEX program = xelatex
-\documentclass[a4paper,12pt]{amsart}
+\documentclass[a4paper,12pt]{article}
 \usepackage{geometry}
 \geometry{a4paper,scale=0.7}
 %\usepackage{ctex}
@@ -7,10 +7,16 @@
            linkcolor=red,
            anchorcolor=blue,
            citecolor=green
-           ]{hyperref} 
+           ]{hyperref}
+
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\lhead{\emph{\nouppercase{\leftmark}}}
+\rhead{Complex Algebraic Geometry}
 %少量中文时使用
 %\usepackage{xeCJK}
-%\usepackage[center]{titlesec}
+\usepackage{titlesec}
+\newcommand{\sectionbreak}{\clearpage}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
@@ -56,16 +62,16 @@
 \newcommand\Sph{\ensuremath{\mathbb{S}}}
 
 % Some theorem environment settings
-%\usepackage{ntheorem}
-%\theoremseparator{.}
+\usepackage{ntheorem}
+\theoremseparator{.}
 \newtheorem{theorem}{Theorem}[section]
-%\newenvironment{proof}{{\noindent\itshape Proof}.}{\hfill $\square$\par}
+\newenvironment{proof}{{\noindent\itshape Proof}.}{\hfill $\square$\par}
 \newtheorem*{remark}{Remark}
 \newtheorem*{question}{Question}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{lemma}[theorem]{Lemma}
-\theoremstyle{definition}
+\theorembodyfont{\upshape}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{exercise}{Exercise}[section]
 \newtheorem*{solution}{Solution}
@@ -106,7 +112,8 @@
 
 \begin{document}
 \title{Complex Algebraic Geometry}
-\author{Notes taken by Rieunity}
+\author{{Based on lectures by Pierre Albin}\\
+\small Notes taken by Rieunity}
 \date{March 28, 2021 --- ?, 2020}  
 \maketitle
 \begin{abstract}

@@ -1,0 +1,146 @@
+\documentclass{amsart}
+\usepackage{amssymb,latexsym}
+\usepackage{color}
+ \definecolor{MyDarkBlue}{rgb}{0,0.08,0.45}\definecolor{yellow}{rgb}{0.99,0.99,0.70}\definecolor{white}{rgb}{1.0,1.0,1.0}\definecolor{black}{rgb}{0.00,0.00,0.00}
+ %\pagecolor{yellow}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem*{main}{Main~Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{notation}{Notation}
+\newtheorem*{proofofnullstellensatz}{Proof of Nullstellensatz}
+\newtheorem*{proofofproductsofaffinevarieties}{Proof of Theorem \ref{15}}
+\numberwithin{equation}{section}
+\begin{document}
+\title[Complete-simple distributive lattices]
+{Algebraic Geometry - Lothar G\"{o}ttsche \\
+	Lecture 02}
+\author{Wang Yunlei}
+%\address{Harbin Institute of Technology\\
+%	Harbin}
+\email{wcghdpwyl@126.com}
+%\urladdr{http://math.uwinnebago.edu/menuhin/}
+%\thanks{Research supported by the NSF under grant number
+%	23466.}
+%\keywords{Complete lattice, distributive lattice,
+%	complete congruence, congruence lattice}
+%\subjclass[2010]{Primary: 06B10; Secondary: 06D05}
+\date{June 19, 2017}
+ 
+\maketitle
+
+
+ \begin{corollary}
+ 	Every affine algebraic set $ X\subset \mathbb{A}^n $ is the zero set of finite algebraic polynomials.
+ \end{corollary}
+ \begin{proof}
+ 	Every affine algebraic set is the zero set of some polynomial set $ S $, i.e. $ Z(S) $. Since $ Z(S)=Z(\langle S \rangle) $, it is a zero set of an ideal, we choose the generators of the ideal, name $ T $, then $ Z(S)=Z(T) $.
+ \end{proof}
+ \begin{definition}
+ 	A topological space $ X $ is reducible if $ X=X_1\cup X_2 $, where $ X_1 $,$ X_2 $ are closed subsets and $ X_1\subsetneqq X,X_2\subsetneqq X $. $ X $ is called irreducible if it is not reducible,i.e., if $ X=X_1\cup X_2, X_i\subset  $ is closed for $ i=1,2 $, then we have $ X=X_1 $ or $ X=X_2 $.
+ \end{definition}
+ \begin{remark}
+ 	When we talk about whether a set is irreducible, it refers to its induced topology from the space where the set is on.
+ 	\begin{enumerate}
+ 		\item Let $ X $ be irreducible, $ \emptyset\neq U\subset X $, $ U $ is an open subset of $ X $. Then $ U $ is dense in $ X $. Because if it is not dense, we can write $ X=(X\backslash U )\cup \overline{U} $, so $ X $ is not irreducible.
+ 		\item $ U $ itself is also irreducible.
+ 	\end{enumerate}
+ \end{remark}
+ \begin{definition}
+ 	A topological space is called noetherian if every descending chain:$ X\supset X_1\supset X_2\supset \dots $ of closed subsets becomes stationary(i.e., $ X_N=X_{N+1}=\dots $ for some $ N\in \mathbb{N}^+ $).
+ \end{definition}
+ \begin{proposition}
+ 	Any subspace $ Y $ of noetherian topological space $ X $ is noetherian.
+ \end{proposition}
+ \begin{proof}
+ 	Assume $ Y\supset Y_1\supset Y_2\supset \dots $ a chain of closed subsets.
+ 	Then $ \forall i, Y_i=Y\cap X_i, X_i\subset X $ is closed.
+ 	Let $ X_{i}' = \cap_{1\leq j \leq i} X_j $, $ X_i'\cap Y = Y_i $. Then $ X\supset X_1'\supset X_2'\supset \dots $ is a descending chain. Since $ X $ is noetherian, $ \exists N $ s.t. $ X_N'=X_{N+1}'=\dots $. It follows $ Y_N=Y_{N+1}=\dots $. Thus $ Y\supset Y_1\supset Y_2\supset \dots $ is stationary.
+ \end{proof}
+ \begin{proposition}
+ 	$ \mathbb{A}^n $ is noetherian topological space.
+ \end{proposition}
+ \begin{proof}
+ 	Let $ \mathbb{A}^n=X\supset X_1\supset X_2\supset \dots $ be a chain of closed subsets. Then we have $ I(X_1)\subset I(X_2)\subset \dots $. Since $ k[x_1,x_2,\dots,x_n] $ is noetherian, $ \exists N, I(X_N)=I(X_{N+1})=\dots $. Note that$ X_i=Z(I(X_i)) $, we get $ X_N=X_{N+1}=\dots $. It shows that $ \mathbb{A}^n $ is a noetherian topological space.
+ \end{proof}
+ \begin{theorem}
+ 	Let $ X $ be a noetherian topological space.
+ 	\begin{enumerate}
+ 		\item $ X $ is a union of finitely many irreducible closed subsets: $X=X_1\cup\dots\cup X_r  $;
+ 		\item If we require $ X_i\not\subset X_j  $ for $ i\neq j $, then this decomposition is unique.
+ 	\end{enumerate}
+ \end{theorem}
+ \begin{proof}
+ 	(1) Assume $ X $ does not have a decomposition with finitely many closed subsets. In particular, $ X $ is reducible: $ X=X_1\cup Y_1 $, $ X_1,Y_1 $ are closed subsets. so one of the two sets does not have decomposition, say $ X_1 $. Repeat the argument we ge a descending chain
+ 	$$
+ 	X\supsetneqq X_1\supsetneqq X_2\supsetneqq \dots
+ 	$$
+ 	which is not stationary, it contradicts our existing condition.\\
+ 	(2)Let $ X=X_1\cup \dots\cup X_t = Y_1\cup\dots\cup Y_s$. Then we have $ X_i = \mathop{\cup}\limits_{j=1}^{s}(X_i\cap Y_j)$. Since $ X_i $ is irreducible, $ \exists j, X_i=X_i\cap Y_j $, thus $ X_i\subset Y_j $.Similarly, we can get $ Y_j\subset X_k $ for some $ k $. Then we have $ X_i\subset X_k $, it implies $ i=k $ and thus $ X_i = Y_j $. So we get the conclusion: each $ X_i $ is equal to some $ Y_j $ and each $ Y_j $ is equal to some $ X_i $. So $ r=s $ and the $ Y_j $'s are permutations of $ X_i $'s.
+ \end{proof}
+ \begin{definition}
+ 	An affine variety is an irreducible affine algebraic set.
+ \end{definition}
+ \begin{proposition}\label{5}
+ 	$ X\subset \mathbb{A}^n $ is an affine algebraic set. Then we have the following equivalent relations:
+ 	\begin{enumerate}
+ 		\item $ X $ is irreducible;
+ 		\item $ I(X) $ is a prime ideal.
+ 	\end{enumerate}
+ \end{proposition}
+ \begin{proof}
+ 	(1)$ \Rightarrow $ (2): let $ X $ be irreducible, $ f,g $ some polynomials s.t. $ fg\in I(X) $. Then we have $ X\subset Z(fg)=Z(f)\cup Z(g) $, hence $ X=(X\cap Z(f))\cup (X\cap Z(g)) $. Since $ X $ is irreducible, we get $ X=X\cap Z(f) $ or $ X=X\cap Z(g) $, so $ X\subset Z(f) $ or $ X\subset Z(g) $, i.e. $ f\in I(X) $ or $ g\in I(X) $.
+ 	
+ 	(2)$ \Leftarrow $ (1): Assume $ X $ is reducible, then we have $ X=X_1\cup X_2 $ and $ X_i\subsetneqq X $ are closed subsets.
+ 	Since $ Z(I(X_i))=X_i\subsetneqq X=Z(I(X)) $, we get $ I(X_i)\supsetneqq I(X) $. Let $ f\in I(X_1)\backslash I(X) $, $ g\in I(X_2)\backslash I(X_2) $, $ fg $ vanishes on $ X_1\cup X_2=X $, then $ fg\in I(X) $, i.e., $ I(X) $ is not prime.
+ \end{proof}
+ \begin{example}
+ 	$ \mathbb{A}^n $ is irreducible because $ I(\mathbb{A}^n) = \{ 0\} $ is a prime ideal.
+ \end{example}
+ \begin{definition}
+ 	Let $ X\neq \emptyset $ be an irreducible topological space. The dimension of $ X $ is the largest $ n\in\mathbb{Z} $ s.t. there is an ascending chain
+ 	$$
+ 	\emptyset \neq X_0\subsetneqq X_1\subsetneqq X_2\subsetneqq \dots\subsetneqq X_n=X
+ 	$$
+ 	of irreducible closed subsets. If $ X $ is a noetherian topological space then
+ 	$$
+ 	\text{dim}X=\text{ maximum of dimension of irreducible components of } X.
+ 	$$
+ \end{definition}
+ \begin{remark}
+ 	\begin{enumerate}
+ 		\item The point $ p\in\mathbb{A}^n $ has dimension $ 0 $;
+ 		\item $ \mathbb{A}^1 $ has dimension $ 1 $;
+ 		\item In the moment, we still cannot prove but true is $ \text{dim}\mathbb{A}^n=n $
+ 	\end{enumerate}
+ 	It is easy to verify $ \text{dim}\mathbb{A}^n\geq n $ because we have a chain:
+ 	$$
+ 	\{(0,0,\dots,0)\}\subsetneqq Z(x_2,x_3,\dots,x_n)\subsetneqq Z(x_3,\dots,x_n)\subsetneqq\dots\subsetneqq Z(x_n)\subsetneqq \mathbb{A}^n.
+ 	$$
+ \end{remark}
+ \begin{theorem}[The Weak Form Hilbert's Nullstellensatz]\label{2}
+ 	Let $ \mathfrak{a}\subsetneqq k[x_1,\dots,x_n] $ be a proper ideal, then $ Z(\mathfrak{a})\neq \emptyset $
+ \end{theorem}
+ \begin{remark}
+ 	We usually use the following form:
+ 	$$
+ 	\mathfrak{a}\subset k[x_1,\dots,x_n] \text{ and } Z(\mathfrak{a})=\emptyset\Rightarrow 1\in I.
+ 	$$
+ 	It is true when $ k $ is algebraically closed, otherwise the theorem \ref{2} is wrong:
+ 	$$
+ 	\mathfrak{a}=\langle x^2+1\rangle \in \mathbb{R}[x], Z(\mathfrak{a})=\emptyset.
+ 	$$
+ \end{remark}
+  
+% \begin{thebibliography}{9}
+ %    \bibitem{a} bibitem
+% \end{thebibliography}
+\end{document}

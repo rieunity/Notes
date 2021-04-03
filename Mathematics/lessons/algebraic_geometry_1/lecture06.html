@@ -1,0 +1,123 @@
+
+<p>
+ 
+<blockquote class="thm"><b>Definition 1</b>  	Let $latex { f= [F]\in S(X) }$,$latex { F\in k[x_0,\dots,x_n] }$. The homogeneous part $latex { f^{(d)} }$ of $latex { f }$ is $latex { [F^{(d)}]\in S(X) }$, and 	$latex { S^{(d)}(X) = \{ f^{(d)}\in S(X) \} }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 2</b>  	$latex { X }$ is a quasi-projective variety, the field of rational functions on $latex { X }$(on $latex { V \subset X}$ open subset) is 	$latex { K(V):=K(X):=\{ \frac{f}{g}\in Q(S(X))|f,g \text{ both in } S^{(d)}(X) \text{ for some d} \} }$. 	Elements of $latex { K(X) }$($latex { K(V) }$) are called rational functions on $latex { X }$(on $latex { V }$). </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 3</b>  	Let $latex { p\in V\subset\mathbb{P}^n }$, the local ring of $latex { V }$ at $latex { p }$ is 	<p align=center>$latex \displaystyle  	\mathcal{O}_{V,p}:=\{ \frac{f}{g}\in K(V)|g(p)\neq 0 \}. 	\ \ \ \ \ (1)$</p>
+ 	If $latex { U\subset V }$ is open, the ring of regular functions on $latex { U }$ is 	<p align=center>$latex \displaystyle  	\mathcal{O}_V(U):=\mathop{\cap}\limits_{p\in U}\mathcal{O}_{V,p}. 	\ \ \ \ \ (2)$</p>
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Proposition 4</b> <a name="8"></a> 	
+
+<ol> 		<li> ($latex { k }$-algebra)Constant functions $latex { a\in k }$ are regular on $latex { U }$. If $latex { f,g\in \mathcal{O}_V(U) }$, then $latex { f+g }$ and $latex { fg }$ are regular on $latex { U }$, and if $latex { g }$ has no zero in $latex { U }$, then $latex { \frac{f}{g} \in \mathcal{O}_{V}(U)}$. 		<li> (Local)Let $latex { (U_i) }$ be a open cover of $latex { U }$. A function $latex { f:U\rightarrow k }$ is regular if and only if $latex { f|_{U_i} }$ is regular for all $latex { i }$. 		<li> Regular functions are continuous. i.e., let $latex { h\in \mathcal{O}_V(U) }$, then $latex { h:U\rightarrow k=\mathbb{A}^1 }$ is continuous($latex { k=\mathbb{A}^1 }$ is given Zariski topology). 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	(1) By definition, $latex { \mathcal{O}_V(U)=\mathop{\cap}\limits_{p\in U} \mathcal{O}_{V,p} }$, thus enough to show if $latex { f,g\in \mathcal{O}_{V,p} }$, then $latex { f+g, fg \in \mathcal{O}_{V,p}}$, and it is obvious. Assume $latex { g }$ has no zero on $latex { U }$, then $latex { g\frac{1}{g}\in \mathcal{O}_V(U) }$, then $latex { \frac{f}{g}\in \mathcal{O}_V(U) }$. 	 	(2) $latex { h:U\rightarrow k }$ is regular $latex { \Leftrightarrow }$ $latex { h\in \mathcal{O}_{V,p} \forall p\in U}$ $latex { \Leftrightarrow }$ $latex { h\in \mathcal{O}_{V,p} \forall p\in U_i \forall i}$. 	 	(3) $latex { h:U\rightarrow k }$ is continuous $latex { \Leftrightarrow }$ $latex { h|_{U_i} }$ is continuous for all $latex { U_i }$ of an open cover of $latex { U }$. We just replace $latex { U }$ by a suitable $latex { U_i }$ and show $latex { h }$ is continuous in $latex { U_i }$. From the definition of regular functions, we can simply assume $latex { h=\frac{f}{g}, f,g\in k[x_0,\dots,x_n] }$ are homogeneous of the same degree, and $latex { g }$ has no zero on $latex { U_i }$. Zariski topology on $latex { \mathbb{A}^1 }$ has closed subsets $latex { \emptyset,k }$ and finite points subsets. Thus we only have to show $latex { h^{-1}(a) }$ is closed in $latex { U_i }$ for all $latex { a }$ in $latex { k }$, 	<p align=center>$latex \displaystyle  	h^{-1}(a)=\{ p\in U_i|h(p)=a \}= \{ p\in U_i|(f-ag)(p)=0 \}. 	\ \ \ \ \ (3)$</p>
+ 	This is the zero set $latex { Z(f-ag)\cap U }$, hence the inverse of the closed sets are closed, hence $latex { h }$ is continuous in $latex { U_i \forall i}$, hence continuous in $latex { U }$. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Definition 5 (Polynomial Map)</b>  	Let $latex { X\subset \mathbb{A}^n, Y\subset \mathbb{A}^m }$ be affine algebraic sets. A map 	<p align=center>$latex \displaystyle  	(F_1,\dots,F_m):X\rightarrow Y,p\rightarrow (F_1(p),\dots,F_m(p)),F_1,\dots,F_m\in k[x_1,\dots,x_n] 	$</p>
+ 	is called a polynomial map. A surjective polynomial map whose inverse is also a polynomial map is an isomorphism. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Example 1</b>  	
+
+<ol> 		<li> If $latex { X }$ is an affine algebraic set, the polynomial map $latex { f:X\rightarrow k }$ is the polynomial function in $latex { A(X) }$. 		<li> Let $latex { X=\mathbb{A}^1 }$, $latex { Y=Z(y-x^2)\subset \mathbb{A}^2 }$, the polynomial map 		<p align=center>$latex \displaystyle  		(t,t^2):\mathbb{A}^2\rightarrow Y 		$</p>
+ 		is isomorphism. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 6</b>  	Let $latex { X\subset \mathbb{A}^n }$, $latex { Y\subset \mathbb{A}^m }$ be affine algebraic sets. Let 	<p align=center>$latex \displaystyle  	\varphi:X\rightarrow Y 	$</p>
+ 	be a polynomial map. 	The pull back of $latex { h\in A(Y) }$ is $latex { \varphi^\ast h:=h\circ \varphi \in A(X) }$. If $latex { h=H|_Y, H\in k[y_1,\dots,y_m] }$, $latex { \varphi =(F_1,\dots,F_m) }$, then 	<p align=center>$latex \displaystyle  	\varphi^\ast h(a_1,\dots,a_n)=h(F_1(a_1,\dots,a_n),\dots, F_m(a_1,\dots,a_n ). 	$</p>
+ 	i.e., 	<p align=center>$latex \displaystyle  	\varphi^\ast h = H( F_1(x_1,\dots,x_n),\dots, F_m(x_1,\dots,x_n) )|_X\in A(X). 	$</p>
+ 	The pull back $latex { \varphi^\ast:A(Y)\rightarrow A(X) }$ is obviously a ring homomorphism. If $latex { \varphi:X\rightarrow Y }$ is an isomorphism, then $latex { \varphi^\ast:A(Y)\rightarrow A(X) }$ is an isomorphism of $latex { k }$-algebra. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 7</b> <a name="11"></a> 	Let $latex { X,Y }$ be varieties, a map $latex { \varphi :X\rightarrow Y }$ is a morphism(regular map) if :
+
+<ol> 		<li> $latex { \varphi }$ is continuous; 		<li> for all open subsets $latex { U\in Y }$, all regular functions $latex { f\in \mathcal{O}_Y(U) }$, we have 		<p align=center>$latex \displaystyle  		\varphi^\ast := f\circ \varphi \in \mathcal{O}_X(\varphi^{-1}(U)). 		$</p>
+ 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 1</b>  	Thus for each open subset $latex { U\in Y }$, 	<p align=center>$latex \displaystyle  	\varphi^\ast :\mathcal{O}_Y(U)\rightarrow \mathcal{O}_X(\varphi^{-1}(U)) 	$</p>
+ 	is a $latex { k }$-algebra homomorphism. $latex { \varphi }$ is called an isomorphism if $latex { \varphi }$ is bijective and $latex { \varphi^{-1} }$ is also a morphism. 	
+
+<ol> 		<li> $latex { \text{id}_X }$ is a morphism form $latex { X }$ itself. 		<li> If $latex { \varphi:X\rightarrow Y,\psi :Y\rightarrow Z }$ are morphisms, then 		<p align=center>$latex \displaystyle  		(\psi\circ\varphi)^\ast = \varphi^\ast \circ \psi^\ast 		$</p>
+. 		<li> If $latex { \varphi : X\rightarrow Y }$ is isomorphism, then $latex { \varphi^\ast: \mathcal{O}_Y\rightarrow \mathcal{O}_X(\varphi^{-1}(U)) }$ is an isomorphism for all $latex { U\subset Y }$. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Proposition 8</b>  	
+
+<ol> 		<li> Let $latex { \varphi :X\rightarrow Y }$ and $latex { (U_i)_{i\in I} }$ be an open cover of $latex { X }$ s.t. $latex { \varphi |_{U_i}:U_i\rightarrow Y }$ is a morphism. Then $latex { \varphi }$ is a morphism. 		<li> Let $latex { Z\subset X, W\subset Y }$ be varieties, let $latex { \varphi:X\rightarrow Y }$ be a morphism with $latex { \varphi(Z)\subset W }$. Then $latex { \varphi|_Z:Z\rightarrow W }$ is a morphism. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	(1) Let $latex { W\subset Y }$ be open, then we can write $latex { \varphi^{-1}(W)=\mathop{\cup}\limits_{i\in I}(\varphi|_{U_i}^{-1}(W)) }$, it is open so $latex { \varphi }$ is continuous. Let $latex { h\in \mathcal{O}_{Y}(W) }$ then the pull back of regular functions $latex { h }$ from $latex { \mathcal{O}_Y(W) }$ to $latex { \mathcal{O}_X(U_i\cap \varphi^{-1}(W)) }$ is $latex { \varphi|_{U_i}^\ast h=\varphi^\ast h|_{U_i\cap \varphi^{-1}(W)} }$, since $latex { \varphi|_{U_i} }$ is a morphism we get that $latex { U_i\cap \varphi^{-1}(W) }$ is open. Then 	<p align=center>$latex \displaystyle  	\varphi^{-1}(W)=\mathop{\cup}\limits_{i\in I} U_i\cap \varphi^{-1}(W) 	\ \ \ \ \ (4)$</p>
+ 	and $latex { (U_i\cap \varphi^{-1}(W) )_{i\in I}}$ is an open cover of $latex { \varphi^{-1}(W) }$, then we can get the conclusion that $latex { \varphi }$ is a morphism by proposition <a href="#8">4</a>. 	 	(2) First, $latex { \varphi|_Z }$ is continuous as a restriction of a continuous map. Let $latex { U\subset W }$ be open, let $latex { h\in \mathcal{O}_W(U) }$. Replace if necessary $latex { U }$ by a smaller open subset sucht that we can assume $latex { h=\frac{F}{G} }$. This quotient also defines a regular function $latex { H }$ on open subset $latex { \tilde{U}\subset Y }$ s.t. $latex { U\subset \tilde{U} }$, then $latex { \varphi^\ast H\in \mathcal{O}_X(\varphi^{-1}(\tilde{U})) }$ is regular. Then $latex { \varphi^\ast h= \varphi^\ast H|_{\varphi^{-1}(U)\cap Z} }$ is regular on $latex { \varphi^{-1}(U)\cap Z }$. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Definition 9</b>  	An affine variety is a variety which is isomorphis to irreducible closed subset of some $latex { \mathbb{A}^n }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Theorem 10</b> <a name="9"></a> 	Let $latex { X,Y }$ be subvarieties, assume $latex { Y\subset \mathbb{A}^n }$. A map $latex { \varphi:X\rightarrow Y }$ is a morphism if and only if $latex { \exists f_1,\dots,f_n\in \mathcal{O}_X(X) }$ s.t. 	<p align=center>$latex \displaystyle  	\varphi(p)=(f_1(p),\dots,f_n(p)),\forall p\in X. 	\ \ \ \ \ (5)$</p>
+ 	We can write $latex { \varphi = ( f_1,\dots,f_n ) }$. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	$latex { \Rightarrow }$: Let $latex { \varphi :X\rightarrow Y }$ be a morphism. Let $latex { y_1,\dots, y_n \in \mathcal{O}_Y(Y)}$ be restrictions of the coordinates on $latex { \mathbb{A}^n }$ to $latex { Y }$, i.e., if $latex { q=(a_1,\dots,a_n)\in Y }$, then $latex { a_i=y_i(q) }$. The pull back of $latex { y_i }$ is 	<p align=center>$latex \displaystyle  	f_i:=\varphi^\ast y_i=y_i\circ \varphi \in \mathcal{O}_X(X). 	\ \ \ \ \ (6)$</p>
+ 	Let $latex { p\in X }$, $latex { \varphi(p)=(b_1,\dots,b_n) }$, $latex { b_i=y_i(\varphi(p))=f_i(p) }$, thus 	<p align=center>$latex \displaystyle  	\varphi= (f_1,\dots,f_n) 	$</p>
+ 	where $latex { f_i\in \mathcal{O}_X(X) }$. 	 	$latex { \Leftarrow }$ Let $latex { \varphi :=(f_1,\dots,f_n),f_i\in \mathcal{O}_X(X) }$. First we show $latex { \varphi }$ is continuous. Let $latex { B\in Y }$ be closed, it is equivalent to $latex { B=Y\cap Z(G_1,\dots,G_m) }$ and $latex { G_i\in k[x_1,\dots,x_n] }$. Since 	$latex { G_i\circ \varphi = G(f_1,\dots,f_n)\in \mathcal{O}_X(X) }$, we get $latex { \varphi^{-1}(B)=Z(G_1\circ \varphi,\dots,G_m\circ\varphi) }$ and it is closed in $latex { X }$. So $latex { \varphi }$ is continuous. Let $latex { h\in \mathcal{O}_Y(U) }$, write $latex { W=\varphi^{-1}(U)\subset Y }$. we need to show $latex { h\circ \varphi \in \mathcal{O}_X(W) }$. We can always make $latex { U }$ smaller and assume $latex { h(q)=\frac{F(q)}{G(q)} ,\forall q\in U}$, $latex { F }$ and $latex { G }$ are some polynomials and $latex { G }$ has no zero on $latex { U }$. Then we have 	<p align=center>$latex \displaystyle  	h\circ \varphi =\frac{F\circ \varphi}{G\circ \varphi}=\frac{F(f_1,\dots,f_n)}{G(f_1,\dots,f_n)} 	\ \ \ \ \ (7)$</p>
+ 	where $latex { F(f_1,\dots,f_n) }$ and $latex { G(f_1,\dots,f_n) }$ are regular on $latex { \mathcal{O}_X(W) }$. Since $latex { \varphi(W)=U }$ and $latex { G }$ has no zero on $latex { U }$, $latex { G(f_1,\dots,f_n) }$ also has no zero on $latex { W }$, i.e., $latex { h\circ \varphi\in \mathcal{O}_X(W) }$. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Remark 2</b>  	The regular functions on a variety $latex { X }$ are the same as the morphisms $latex { X\rightarrow \mathbb{A}^1 }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Corollary 11</b>  	Let $latex { X\subset \mathbb{A}^n }$ and $latex { Y\subset \mathbb{A}^m }$ be closed subvarieties. The morphisms 	<p align=center>$latex \displaystyle  	\varphi:X\rightarrow Y 	$</p>
+ 	are precisely the polynomial map. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	We know $latex { \varphi=(f_1,\dots,f_m) }$ and $latex { f_i\in \mathcal{O}_X(X) \forall i}$. Since $latex { \mathcal{O}_X(X)=A(X) }$, $latex { \varphi }$ is a polynomial map. $latex \Box$
+
+ 

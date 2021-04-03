@@ -1,0 +1,111 @@
+\documentclass{amsart}
+\usepackage{amssymb,latexsym}
+\usepackage{graphicx}
+\usepackage{color}
+ \definecolor{MyDarkBlue}{rgb}{0,0.08,0.45}\definecolor{yellow}{rgb}{0.99,0.99,0.70}\definecolor{white}{rgb}{1.0,1.0,1.0}\definecolor{black}{rgb}{0.00,0.00,0.00}
+ %\pagecolor{yellow}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem*{main}{Main~Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{notation}{Notation}
+\newtheorem*{proofofnullstellensatz}{Proof of Nullstellensatz}
+\newtheorem*{proofofproductsofaffinevarieties}{Proof of Theorem \ref{15}}
+\numberwithin{equation}{section}
+\begin{document}
+\title[Complete-simple distributive lattices]
+{Algebraic Geometry - Lothar G\"{o}ttsche \\
+	Lecture 15}
+\author{Wang Yunlei}
+%\address{Harbin Institute of Technology\\
+%	Harbin}
+\email{wcghdpwyl@126.com}
+%\urladdr{http://math.uwinnebago.edu/menuhin/}
+%\thanks{Research supported by the NSF under grant number
+%	23466.}
+%\keywords{Complete lattice, distributive lattice,
+%	complete congruence, congruence lattice}
+%\subjclass[2010]{Primary: 06B10; Secondary: 06D05}
+\date{June 19, 2017}
+ 
+\maketitle
+\begin{remark}
+	In (2) of theorem \ref{14-3}，we can drop the assumption that $ F $ on $ X $ is irreducible.
+\end{remark}
+\begin{corollary}
+	Every affine variety is finite dimensional.
+\end{corollary}
+\begin{proposition}\label{15-1}
+	Let $ X\subset \mathbb{A}^N $ be an affine variety of dimension $ n $ and $ F\in k[x_1,\dots,x_N]\backslash I(X) $. If $ Z(F)\cap X\neq \emptyset $, then $ \text{dim}(Z(F)\cap X)=n-1 $.($ Z(F)\cap X $ may not be irreducible).
+\end{proposition}
+\begin{proof}
+	We need to show for all irreducible components $ Y_i $ of $ Z(F)\cap X $, $ \text{dim} Y_i\leq n-1 $ and there exists a component $ Y_j $ with $ \text{dim}Y_j=n-1 $(later we will show that all irreducible components have dimension $ n-1 $). By Noether normalization theorem, there is a finite surjective morphism $ \Pi:X\to \mathbb{A}^n $. Identify $ k[x_1,\dots,x_n] $ with $ \Pi^\ast(k[x_1,\dots,x_n])\subset A(X) $. Let $ \bar{F} $ be the class of $ F $ in $ A(X) $, there exists a nonzero polynomial 
+	$$
+	H=x_{n+1}^d + \sum\limits_{i=0}^{d-1}a_ix_{n+1}^i
+	$$
+	with $ a_i\in k[x_1,\dots,x_n] $ such that $ H(x_1,\dots,x_n,\bar{F})=0 $. Replacing $ H $ by an irreducible  factor if necessary, we can assume $ H $ is  irreducible. Let $ \varphi =(\Pi,F):X\to \mathbb{A}^{n+1} $, $ \Pi = (x_1,\dots,x_n)\circ\varphi $ is finite, thus $ \varphi $ is finite. By definition $ \varphi (X)\subset Z(H) $, then $ \varphi(X) $ is a closed subvariety of dimension $ n $ in $ Z(H) $. Thus $ \varphi(X)=Z(H) $, $ \varphi :X\to Z(H) $ is a finite surjective morphism. By definition, $ Z(F)\cap X= \varphi^{-1}(Z(H,x_{n+1}))=\varphi^{-1}(Z(a_0)\times \lbrace 0\rbrace) $, thus $ \text{dim}(Z(F)\cap X)=\text{dim} Z(a_0) $ where $ a_0\in k[x_1,\dots,x_n] $. If $ a_0 $ is constant, then $ Z(F)\cap X=\emptyset $, contradict with the condition, so drop it. Now we know $ a_0 $ is a nonconstant polynomial , hence $ \text{dim}Z(a_0)=n-1 $.
+\end{proof}
+\begin{theorem}\label{15-2}
+	Let $ X $ be a variety, $ \emptyset\neq U\subset X $, $ U $ is an open subset of $ X $. Then $ \text{dim}U=\text{dim}X $.
+\end{theorem}
+\begin{proof}
+	Let $ U_0\subsetneqq U_1\subsetneqq \dots\subsetneqq U_n=U $ be a chain in $ U $, let $ X_i=\bar{U} $ the closure of $ U_i $ in $ X $. By definition $ U_i=U\cap X_i $, thus 
+	$$
+	X_0\subsetneqq X_1\subsetneqq \dots \subsetneqq  X_n=X
+	$$
+	is a chain in $ X $, thus $ \text{dim}U\leq \text{dim}X $.
+	
+	Let $ X_0\subsetneqq X_1\subsetneqq \dots\subsetneqq X_n=X $ be a chain of largest length in $ X $ and $ X_0=\lbrace x_0\rbrace $ be a point, let $ W\subset X $ be an open subset with $ x_0\in W $. Then we set $ W_i=X_i\cap W $ for all $ i $. Since $ W_{i+1} $ is dense in $ X_{i+1} $, we have $ W_{i+1}\supsetneqq W_i $ for all $ i $. Thus $ W_0=\lbrace x_0\rbrace\subsetneqq W_1\subsetneqq \dots\subsetneqq W_n $ is a chain in $ W $, we get $ \text{dim}X=\text{dim}W $. Thus we can replace $ X $ by $ W $ and $ U $ by $ W\cap U $. Now we reduce to the case $ X $ is affine.
+	\begin{enumerate}
+		\item If $ X=\mathbb{A}^n $, let $ x_0 $ be a point in $ U $, $ X_i $ be affine linear subspaces containing $ X_{i-1} $ for all $ i $. Put $ U_i=X_i\cap U $,  $ U_0\subsetneqq U_1\subsetneqq \dots\subsetneqq U_n $ is a chain in $ U $, then $ \text{dim}U=n=\text{dim}X $.
+		\item If $ X $ is affine, there exists a finite surjective morphism $ \varphi:X\to \mathbb{A}^n $. $ \varphi(X\backslash U)\subsetneqq \mathbb{A}^n $ is closed, let $ f\in I(\varphi(X\backslash U)) $ and $ V=\mathbb{A}^n\backslash Z(f) $, $ V $ is open and dense in $ \mathbb{A}^n $, $ \text{dim}V=n $. Let $ W=\varphi^{-1}(V)\subset X $, then $ \varphi|_W:W\to V $ is surjective and closed, thus $ \text{dim}W\geq \text{dim}V=n $, but $ U\supset W $, hence $ \text{dim}U\geq \text{dim}W\geq n $. 
+	\end{enumerate} 
+\end{proof}
+\begin{corollary}
+	All varieties are finite dimensional.
+\end{corollary}
+\begin{corollary}
+	If $ X $ and $ Y $ are birational, then $ \text{dim}=\text{dim}Y $.
+\end{corollary}
+\begin{corollary}
+	\begin{enumerate}
+		\item $ \text{dim}\mathbb{P}^n=n $.
+		\item If $ F\in k[x_0,\dots,x_n] $ is a homogeneous polynomial of positive degree, then $ \text{dim}Z(F)=n-1 $.
+		\item If $ X\subset \mathbb{P}^n $ is a closed subvariety of dimension $ n-1 $, then $ X=Z(F) $ for some homogeneous polynomial $ F\in k[x_0,\dots,x_n] $.
+	\end{enumerate}
+\end{corollary}
+\begin{proof}
+	\begin{enumerate}
+		\item It is obvious since $ U_i\simeq \mathbb{A}^n $ is open dense in $ \mathbb{P}^n $.
+		\item By projective transformation we can set $ Z(F)\not\subset H_{\infty} $, then $ Z(F)\cap \mathbb{A}^n=Z(F(1,x_1,\dots,x_n)) $. It has dimension $ n-1 $ and is open in $ Z(F) $, so $ \text{dim}Z(F)=n-1 $.
+		\item Same as the affine condition in theorem \ref{14-3}.  
+	\end{enumerate}
+\end{proof}
+\begin{theorem}\label{15-3}
+	Let $ X\subset \mathbb{A}^n $ be an affine variety, $ F\in k[x_1,\dots,x_n]\backslash I(X) $, then every irreducible component(if there is any) of $ Z(F)\cap X $ has dimension $ \text{dim}X-1 $.
+\end{theorem}
+\begin{proof}
+	Let $ Z $ be a irreducible component of $ Z(F)\cap X $. Take $ W $ be the union of all the other irreducible components of $ Z(F)\cap X $. Take $ g\in I(W)\backslash I(Z) $ and $ U:=X\backslash Z(g) $, then $ U $ can be viewed as an affine variety in $ \mathbb{A}^{n+1} $. Since $ Z(g)\supset W $, we get $ U\subset Z $. Hence $ U\cap Z(F)=U\cap Z $. Viewing  $ F $ as a polynomial function on $ U $(since $ U=X\backslash Z(g) $ is open and dense in $ X $, $ F $ is not zero in $ U $, otherwise it is zero in the whole set $ X $, contradicts with  $ F\notin I(X) $), then we get 
+	$ \text{dim}Z=\text{dim}(Z\cap U)=\text{dim}U-1=\text{dim}X-1 $. The second equality $ \text{dim}(Z\cap U)=\text{dim}U-1 $ is from  proposition \ref{15-1} by viewing it in $ \mathbb{A}^{n+1} $
+\end{proof}
+\section{ Conclusions We Need From Previous Lectures }
+In lecture 14:
+\begin{theorem}\label{14-3}
+	\begin{enumerate}
+		\item $ \text{dim}\mathbb{A}^n=n $.
+		\item Let $ F\in k[x_1,\dots,x_n]\backslash k $ be a irreducible polynomial, then $ \text{dim}Z(F)=n-1 $.
+		\item Conversely any subvariety $ X\subset \mathbb{A}^n $ of dimension $ n-1 $ is a hypersurface, i.e. $ X=Z(F) $ with $ F $ irreducible.
+	\end{enumerate}
+\end{theorem}
+% \begin{thebibliography}{9}
+ %    \bibitem{a} bibitem
+% \end{thebibliography}
+\end{document}

@@ -1,0 +1,181 @@
+\documentclass{amsart}
+\usepackage{amssymb,latexsym}
+\usepackage{color}
+ \definecolor{MyDarkBlue}{rgb}{0,0.08,0.45}\definecolor{yellow}{rgb}{0.99,0.99,0.70}\definecolor{white}{rgb}{1.0,1.0,1.0}\definecolor{black}{rgb}{0.00,0.00,0.00}
+ %\pagecolor{yellow}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem*{main}{Main~Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{notation}{Notation}
+\newtheorem*{proofofnullstellensatz}{Proof of Nullstellensatz}
+\newtheorem*{proofofproductsofaffinevarieties}{Proof of Theorem \ref{15}}
+\numberwithin{equation}{section}
+\begin{document}
+\title[Complete-simple distributive lattices]
+{Algebraic Geometry - Lothar G\"{o}ttsche \\
+	Lecture 11}
+\author{Wang Yunlei}
+%\address{Harbin Institute of Technology\\
+%	Harbin}
+\email{wcghdpwyl@126.com}
+%\urladdr{http://math.uwinnebago.edu/menuhin/}
+%\thanks{Research supported by the NSF under grant number
+%	23466.}
+%\keywords{Complete lattice, distributive lattice,
+%	complete congruence, congruence lattice}
+%\subjclass[2010]{Primary: 06B10; Secondary: 06D05}
+\date{June 19, 2017}
+\maketitle
+$$
+\varphi^{-1}(a,b)=\left\lbrace \begin{matrix}
+\frac{b}{a} & \text{ if } a\neq 0\\
+0 & \text{ if } (a,b)=0
+\end{matrix}\right.
+$$
+\begin{corollary}
+	\noindent\begin{enumerate}
+		\item Let $ X $ be a projective variety, then $ \mathcal{O}_X(X)=k $, i.e., any regular functions on the whole of $ X $ is constant;		
+		\item Let $ X $ be a projective variety, $ Y $ be an affine variety, then every morphism $ \varphi:X\to Y $ maps $ X $ to a point.
+	\end{enumerate}
+\end{corollary}
+\begin{proof}
+	\noindent\begin{enumerate}
+		\item Let $ f\in\mathcal{O}_X(X) $, then $ f:X\to \mathbb{A}^1 $ is a morphism. Since $ X $ is complete, we get $ f(X) $ is closed in $ \mathbb{A}^1 $. Hence $ f(X) $ is a point or $ f(X)=\mathbb{A}^1 $. Via embedding $ \mathbb{A}^1 $ in $ \mathbb{P}^1 $, $ f $ is a morphism from $ X $ to $ \mathbb{P}^1 $. Since $ \mathbb{A}^1 $ is not closed in $ \mathbb{P}^1 $, $ f(X) $ is a point.
+		\item By the definition of affine variety, we know $ Y $ is isomorphic to a closed subvariety of $ \mathbb{A}^n $. Thus we can simply assume $ Y $ is a closed subvariety of $ \mathbb{A}^n $, then we can write the morphism as $ \varphi=(f_1,\dots,f_n) $ with $ f_i\in \mathcal{O}_X(X) $ for $ i=1,\dots,n $. By (1) we just proved, we have $ f_i =a_i$ for some $ a_i\in k $. Thus $ \varphi(x)=(a_1,\dots,a_n)\in k^n $ for arbitrary $ x\in X $.
+	\end{enumerate}
+\end{proof}
+\begin{remark}
+	From this corollary we know that morphisms from projective varieties to affine varieties are quite boring. In the following, we introduce morphisms from projective varieties to projective varieties, called Veronese embedding.
+\end{remark}
+\begin{definition}[Veronese Embedding]
+	Given fixed integer $ d,n>0 $ and $ N:=\binom{n+d}{d}-1 $, we construct the map
+	\begin{equation}
+		\begin{array}{ccc}
+		\nu_d:\mathbb{P}^n & \to & \mathbb{P}^N\\
+		 {}[x_0,\dots,x_n] & \to & [ M_0,\dots,M_N ]
+		\end{array}
+	\end{equation}
+	where $ M_i\in k[x_0,\dots,x_n], 0\leq i\leq N $ are all monomials of degree $ d $.
+	This is a morphism(note that monomials $ x_0^d,x_1^d,\dots,x_n^d $ have no common zero), so $ \nu_d(\mathbb{P}^n) $ is a closed subvariety of $ \mathbb{P}^N $.  
+\end{definition}
+\begin{proposition}
+	$ \nu_d:\mathbb{P}^n\to \nu_d(\mathbb{P}^N) $ is an isomorphism.
+\end{proposition}
+\begin{proof}
+	The open subsets $ U_i=\{ [a_0,\dots,a_n]\in \mathbb{P}^n |a_i\neq 0 \} $ form an open cover of $ \mathbb{P}^n $. For any monomial $ M_i $ of degree $ d $ in $ x_0,\dots,x_n $, we denote the corresponding coordinate on $ \mathbb{P}^N $ by $ z_{M_i} $.  $ \tilde{U_i}:= \nu_d(\mathbb{P}^n)\backslash Z(z_{M_i}) $ are open subsets of $ \nu_d(\mathbb{P}^n) $ and form an open cover of $ \nu_d(\mathbb{P}^n) $. For every piece $ U_i $ of $ \mathbb{P}^n $, the map 
+	$$
+	\nu_d|_{U_i}:U_i\to \tilde{U_i}
+	$$
+	is a morphism and the inverse of $ \nu_d|_{U_i} $ is given by 
+	$$
+	\nu_d^{-1}|_{\tilde{U_i}}=[z_{x_0^d},z_{x_0^{d-1}x_1},\dots,z_{x_0^{d-1}x_n}].
+	$$
+\end{proof}
+\begin{example}
+	\noindent\begin{enumerate}
+		\item Let $ n=1 $, then we get the simplest Veronese embedding
+		$$
+			\begin{array}{ccc}
+			 \nu_d:\mathbb{P}^1  \to & \mathbb{P}^d & {}\\
+			 {}[x_0,x_1]  \to &  [x_0^d,x_0^{d-1}x_1,\dots,x_1^d] & {}.
+			\end{array}
+		$$
+		$ \nu_d(\mathbb{P}^1) $ is called a rational normal curve.
+			\item Let $ n=2,d=2 $, we get the embedding
+		$$
+			\begin{array}{ccc}
+			\nu_2:\mathbb{P}^2\to & \mathbb{P}^5 & {}
+			\end{array}
+		$$
+	\end{enumerate}
+	$ \nu_2(\mathbb{P}^2) $ is called Veronese surface.
+\end{example}
+\begin{remark}
+	Let $ F=\sum\limits_{i=0}^{N}a_iM_i $ be a homogeneous polynomial of degree $ d $ in $ x_0,\dots,x_n $, $ X\subset\mathbb{P}^n $ be a closed subvariety. Then we can get 
+	\begin{equation}
+		\nu_d(X\cap Z(F))=\nu_d(X)\cap Z(\sum\limits_i^{N}a_iz_{M_i}).
+	\end{equation}
+	Thus we can use the isomorphism between $ \mathbb{P}^n $ and $ \nu_d(\mathbb{P}^n)\subset \mathbb{P}^N $ to reduce questions about intersections with hypersurfaces to intersections with hyperplanes.
+\end{remark}
+\begin{corollary}
+	Let $ X\subset \mathbb{P}^n $ be a projective variety, $ F\in k[x_0,\dots,x_n] $ be a homogeneous polynomial of degree $ d>0 $. Then we have the following properties
+	\begin{enumerate}
+		\item $ X\backslash Z(F) $ is an affine variety;
+		\item if $ X $ is not a point, then $ X\cap Z(F)\neq \emptyset $. 
+	\end{enumerate}
+\end{corollary}
+\begin{proof}
+	\noindent\begin{enumerate}
+		\item We identify $ X\backslash Z(F) $ with $ \nu_d(X)\backslash \nu_d(\tilde{F}) $ where $ \tilde{F}=\sum\limits_{i=0}^{N}z_{M_i} $ is a linear polynomial in $ z_0,\dots,z_N $. We can apply projective transformation $ [A]:\mathbb{P}^N\to \mathbb{P}^N $ such that $ [A](Z(F))=Z(z_0) $. Then we get $ \mathbb{P}^N\backslash Z(z_0)=\mathbb{A}^N $, thus $ X\backslash Z(z_0) =X\cap\mathbb{A}^N$ is an affine variety.
+		\item If $ X\cap Z(F)=\emptyset $, then $ X\ Z(F)=X $ is both affine and projective, then $ X $ is a point, we get a contradiction.	
+		\end{enumerate}
+\end{proof}
+\begin{lemma}
+	Let $ \varphi,\psi $ be morphisms of varieties from $ X $ to $ Y $. If there is a normally open subset $ U\subset X $ such that $ \varphi|_U=\psi|_U $, then $ \varphi=\psi $
+\end{lemma}
+\begin{proof}
+	Since $ X $ is a variety, we get that $ U $ is dense in $ X $. Consider the morphism $ l=\varphi-\psi $, it is $ 0 $ in $ U $, from the continuity of the morphism, it is $ 0 $ in $ \bar{U} $ the closure of $ U $, which is $ X $.
+\end{proof}
+\begin{definition}[Rational Map]
+	A rational map 
+$$
+		\varphi:X\dashrightarrow Y
+$$
+	is an equivalence class $ \langle U,\varphi\rangle $ of pairs $ (U,\varphi) $ where $ \emptyset\neq U\subset X $ is open and $ \varphi :U\to Y $ is a morphism. Here $ (U,\varphi)\sim(V,\psi) $ $ \Leftrightarrow $ $ \varphi|_{U\cap V}=\psi|_{U\cap V} $. We say $ \langle U,\varphi\rangle $ is defined by $ (V,\psi) $ if $ (V,\psi)\in \langle U,\varphi\rangle $.
+\end{definition}
+\begin{remark}
+	\noindent\begin{enumerate}
+		\item 	Let $ \varphi:X\dashrightarrow Y $ be a rational map defined by $ (U,\varphi) $, then $ \varphi $ defines a morphism 
+		$$
+		\varphi:\text{dom}\varphi\to Y
+		$$
+		with $ \text{dom}\varphi=\mathop{\cup}\limits_{(V,\psi)\sim(U,\varphi)} V $ open in $ X $. Define $ \varphi(p):=\psi(p) $ if $ (V,\psi)\sim(U,\varphi) $ for $ p\in V $. We called $ \varphi $ a rational map defined on $ \text{dom}\varphi $.
+		\item  Rational maps $ f:X\dashrightarrow \mathbb{A}^1 $ are equivalent to  rational functions $ f\in K(X) $. If $ f\in K(X) $, then $ f\in \mathcal{O}_X(U) $ is a rational map from $ X $ to $ \mathbb{A}^1 $. Conversely, if $ f $ is a rational map from $ X $ to $ Y $, then it is a morphism from an open set $ U\subset X $ to $ Y $, hence $ f\in \mathcal{O}_X(U) $ $ \Leftrightarrow $ $ f\in K(X) $.
+		\item Let $ X $ be a variety, $ f_i\in K(X) $ for  $ i=1,\dots,n $. Then $ (f_1,\dots,f_n):X\dashrightarrow \mathbb{A}^n $ is a rational map. It is a morphism from $ \mathop{\cap}\limits_{i=1}^{n}\text{dom}f_i\to \mathbb{A}^n $.
+		\item Let $ X\subset \mathbb{P}^n $ be quasi-projective variety, $ f_0,\dots,f_m\in S(X) $ not all $ 0 $. Then $ [f_0,\dots,f_m]:X\dashrightarrow \mathbb{P}^m $ is a rational map. We can also construct it in a different way: let $ F_0,\dots,F_m\in k[x_0,\dots,x_n] $ be homogeneous of the same degree and not all of them are in $ I(X) $, then $ [F_0,\dots,F_m]:X\dashrightarrow \mathbb{P}^m $ is a rational map. For example,  for $ p=[0,\dots,0,1]\in \mathbb{P}^n $, the projection from $ p $ 
+		$$
+			\Pi_p=[x_0,\dots,x_{n-1}]:\mathbb{P}^n\to \mathbb{P}^{n-1}
+		$$
+		is a rational map and a morphism  from $ \text{dom}\Pi_p=\mathbb{P}^n\ \{ p \} $.
+	\end{enumerate}
+\end{remark}
+\begin{definition}
+	A rational map $$
+		\varphi:X\dashrightarrow Y
+	$$
+	is dominant if $ \varphi(\text{dom}\varphi) $ is dense in $ Y $. (This is equivalent to: $ \varphi $ is dominant if $ \psi(V) $ is dense in $ Y $ for some pair $ (V,\psi)\in\langle U,\varphi\rangle $.)
+\end{definition}
+\begin{remark}
+		Let $ \varphi:X\dashrightarrow Y $  be a dominant rational map defined on $ U\subset X $, $ \psi:Y\dashrightarrow Z $ be a rational map defined on $ V\subset Y $, then $ U\cap \varphi^{-1}(V) $ is a nonempty open subset of $ X $. Then we get a composition $ \psi\circ\varphi:X\dashrightarrow Y $. This allows us to define the pullback of rational functions. Let $ \varphi:X\dashrightarrow Y $ be a dominant rational map, then $ \varphi^\ast f:=f\circ\varphi :X\dashrightarrow \mathbb{A}^1\in K(X)$. It is easy to see $ \varphi^\ast:K(Y)\to K(X) $ is a homomorphism. 
+\end{remark}
+\begin{definition}
+	A dominant rational map $ \varphi:X\dashrightarrow Y $ is called a birational map if and only if there exists a dominant rational map $ \varphi^{-1}:Y\dashrightarrow X $ such that $ \varphi^{-1}\circ \varphi=\text{id}_X $ and $ \varphi\circ\varphi^{-1=\text{id}_Y} $ are both rational maps. $ X $ and $ Y $ are called birational or birational equivalent if there exists a birational map $ \varphi:X\dashrightarrow Y $.
+\end{definition}
+\begin{definition}
+	A variety is called rational if it is birational to $ \mathbb{A}^n $ for some $ n $.
+\end{definition}
+\begin{example}
+	\noindent\begin{enumerate}
+		\item $ \mathbb{P}^n $ is rational because $ u_i:\mathbb{A}^n\to U_i $ is birational.
+		\item $ C=Z(x_2^2-x_1^3)\subset \mathbb{A}^2 $ is rational because the map $ (t^2,t^3): \mathbb{A}^1\to C $ is birational.
+		\item $ \mathbb{P}^n\times\mathbb{P}^m $ is also rational because it contains an open subset $ U_{ij}\simeq \mathbb{A}^{n+m} $.
+	\end{enumerate}
+\end{example}
+\begin{remark}
+	If $ F\in k [x_0,x_1,x_2] $ is a general homogeneous polynomial of degree $ d\geq 3 $, then $ Z(F) $ is not rational.
+\end{remark}
+
+
+% \begin{thebibliography}{9}
+ %    \bibitem{a} bibitem
+% \end{thebibliography}
+\end{document}

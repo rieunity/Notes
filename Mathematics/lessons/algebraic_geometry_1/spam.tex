@@ -1,0 +1,1211 @@
+\documentclass{amsart}
+\usepackage{amssymb,latexsym}
+\usepackage{color}
+ \definecolor{MyDarkBlue}{rgb}{0,0.08,0.45}\definecolor{yellow}{rgb}{0.99,0.99,0.70}\definecolor{white}{rgb}{1.0,1.0,1.0}\definecolor{black}{rgb}{0.00,0.00,0.00}
+ %\pagecolor{yellow}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem*{main}{Main~Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{notation}{Notation}
+\newtheorem*{proofofnullstellensatz}{Proof of Nullstellensatz}
+\newtheorem*{proofofproductsofaffinevarieties}{Proof of Theorem \ref{15}}
+\numberwithin{equation}{section}
+\begin{document}
+\title[Complete-simple distributive lattices]
+{Algebraic Geometry \\
+	Part I}
+\author{Wang Yunlei}
+%\address{Harbin Institute of Technology\\
+%	Harbin}
+\email{wcghdpwyl@126.com}
+%\urladdr{http://math.uwinnebago.edu/menuhin/}
+%\thanks{Research supported by the NSF under grant number
+%	23466.}
+%\keywords{Complete lattice, distributive lattice,
+%	complete congruence, congruence lattice}
+%\subjclass[2010]{Primary: 06B10; Secondary: 06D05}
+\date{June 19, 2017}
+\begin{abstract}
+It is a note when I study algebraic geometry myself in YouTube from th channel ICTP Math, the speaker of the videos is  Lothar G\"{o}ttsche. I only writes notes for first 10 lectures because I can't view YouTube any more for some unknown reason. One day I fix the problem I will maybe  finish it. 
+\end{abstract}
+\maketitle
+\tableofcontents
+
+\section{Affine Varieties}
+\begin{definition}[Zariski Topology]
+	Let $ S $ be a set of arbitrary polynomials of $ k[x_1,\dots,x_n] $, $ k $ be an algebraic closed field. We define the common zero set of polynomials in $ S $ as a closed subset of $ k^n $. The topology defined by this is called  Zariski topology and denote the space as $ \mathbb{A}^n $.  
+\end{definition}
+\begin{remark}
+	In all the conditions of the note, we always take $ k $ to be algebraic closed.
+\end{remark}
+\begin{proposition}
+	Let $ X $ be a set of $ \mathbb{A}^n $ and $ S $ be a set of $ k[x_1,\dots,x_n] $, we define 
+	\begin{equation*}
+		I(X):=\{ f\in k[x_1,\dots,x_n]| f(p)=0 \text{ for all } p\in \mathbb{A}^n \}
+	\end{equation*}
+	and 
+	\begin{equation*}
+		Z(S):=\{ p\in\mathbb{A}^n| f(p)=0 \text{ for all } f\in S \}.
+	\end{equation*}
+	Then we have
+	$$ Z(I(X)) = \bar{X}. $$
+\end{proposition}
+\begin{proof}
+	First, it is obvious that $ X \subset Z(I(X)) $. To show the inverse inclusion, assume a closed set $ Y $ who satisfies $ X\subset Y $, then we have an ideal $ \mathfrak{a} $ that satisfies $ Y=Z(\mathfrak{a}) $. Then $ Z(\mathfrak{a})\supset X $, hence $ \mathfrak{a}\subset I(Z(\mathfrak{a}))\subset I(X) $, hence $ Y=Z(\mathfrak{a})\supset  Z(I(X))$.  
+\end{proof}
+\begin{proposition}[Noetherian Ring]
+	Let $ R $ be a ring,the following are equivalent:
+	\begin{enumerate}
+		\item Every ideal $ I\subset R $ is finitely generated;
+		\item $ R $ satisfies the ascending chain condition: if $ I_1\subset I_2\subset \dots  $ is a chain of ideals, this chain becomes stationary, i.e.,
+		\begin{equation*}
+		\exists N, \text{s.t.} I_{N}=I_{N+1}=\dots 
+		\end{equation*}
+	\end{enumerate}
+	If $ R $ fullfills these properties, it is called noetherian. 
+\end{proposition}
+\begin{proof}
+	$ \Rightarrow $: Let $ I_1\subset I_2\subset\dots  $ be a chain of ideals. Let $ I=\cup_{i>0} I_i $, I is an ideal. So by (1) $ I $ is finitely generated:
+	$$ I=<f_1, f_2, \dots, f_s> $$
+	where $ f_j $ contained in $ I_{k_j} $. Let $ N = \max_{j}k_j $, we have $ I\subset I_N\subset I $, so the chain is stationary.
+	
+	$ \Leftarrow $: Assume a ring $ I\subset R $ is not finitely generated, choose an element $ f_1\in I $, $ f_2\in I\backslash\langle f_1\rangle $, $ f_3\in I\backslash \langle f_1, f_2 \rangle $, \dots.
+	Then we have a chain who is not stationary:
+	$$
+	\langle f_1\rangle \subsetneqq \langle f_1, f_2\rangle \subsetneqq \dots
+	$$
+	 
+\end{proof}
+\begin{theorem}[Hilbert Base Theorem]
+	$ R $ is a noetherian ring $ \Rightarrow $ The polynomial ring $ R[x_1, x_2, \dots, x_n] $ is a noetherian ring.
+\end{theorem}
+\begin{proof}
+	Since $ R[x_1,x_2,\dots,x_n] = R[x_1,x_2,\dots,x_{n-1}][x_n] $, we only need to prove $ R[x] $ is a noetherian ring for a noetherian ring $ R $.
+	Assume $ R[x] $ is not noetherian, let $ I $ be an ideal which is not finitely generated. Choose $ f_1\in I\backslash \{ 0\} $, $ f_2\in I\backslash \langle f_1\rangle $, \dots, $ f_{i+1}\in I\backslash \langle f_1,\dots,f_i\rangle $, s.t. the degree of $ f_i \in I\backslash \langle f_1,\dots,f_{i-1}\rangle $ is minimal.
+	Let $ n_i:= deg(f_i) $, $ a_i $ the leading coefficient of $ f_i $. Then we have $ n_1\leq n_2\leq \dots $ and an ascending chain 
+	\begin{equation}
+			\langle a_1\rangle \subset \langle a_1, a_2 \rangle \subset \dots \label{1}
+	\end{equation}
+	of ideals in $ R $.
+	If it is stationary, then for some $ k $ we have 
+	$$
+	\langle a_1,\dots,a_k\rangle = \langle a_1,\dots,a_k,a_{k+1}\rangle
+	$$
+	This implies $ a_{k+1}\in \langle a_1,\dots,a_k\rangle $. So we can write
+	\begin{equation}
+		a_{k+1}=\sum_{i=1}^{k} b_i a_i b_i\in R
+	\end{equation}
+	Let $ g:=f_{k+1}-\sum_{i=1}^{k}b_ix^{n_{k+1}-n_i}f_i $, then$ g\in I\backslash \langle f_1,\dots,f_k\rangle $(otherwise $ f_{k+1}=g+\sum_{i+1}^{k}b_1x^{n_{k+1}-n_i}f_i $ would be in $ \langle f_1,\dots,f_k\rangle $). The sum of the leading term in the right hand side is 
+	$$
+	a_{k+1}-\sum_{i=1}^{k}b_ia_i=0.
+	$$
+	It shows that $ deg(g)<n_{k+1} $, which contradicts to the choose of $ f_i $, so the chain \ref{1} is not stationary, the ring $ R $ is not noetherian.
+\end{proof}
+\begin{corollary}
+	Every affine algebraic set $ X\subset \mathbb{A}^n $ is the zero set of finite algebraic polynomials. 
+\end{corollary}
+\begin{proof}
+	Every affine algebraic set is the zero set of some polynomial set $ S $, i.e. $ Z(S) $. Since $ Z(S)=Z(\rangle S \langle) $, it is a zero set of an ideal, we choose the generators of the ideal, name $ T $, then $ Z(S)=Z(T) $.
+\end{proof}
+\begin{definition}
+	A topological space $ X $ is reducible if $ X=X_1\cup X_2 $, where $ X_1 $,$ X_2 $ are closed subsets and $ X_1\subsetneqq X,X_2\subsetneqq X $. $ X $ is called irreducible if it is not reducible,i.e., if $ X=X_1\cup X_2, X_i\subset  $ is closed for $ i=1,2 $, then we have $ X=X_1 $ or $ X=X_2 $.
+\end{definition}
+\begin{remark}
+	When we talk about whether a set is irreducible, it refers to its induced topology from the space where the set is on. 
+	\begin{enumerate}
+		\item Let $ X $ be irreducible, $ \emptyset\neq U\subset X $, $ U $ is an open subset of $ X $. Then $ U $ is dense in $ X $. Because if it is not dense, we can write $ X=(X\backslash U )\cup \overline{U} $, so $ X $ is not irreducible.
+		\item $ U $ itself is also irreducible.
+	\end{enumerate}
+\end{remark}
+\begin{definition}
+	A topological space is called noetherian if every descending chain:$ X\supset X_1\supset X_2\supset \dots $ of closed subsets becomes stationary(i.e., $ X_N=X_{N+1}=\dots $ for some $ N\in \mathbb{N}^+ $).
+\end{definition}
+\begin{proposition}
+	Any subspace $ Y $ of noetherian topological space $ X $ is noetherian.
+\end{proposition}
+\begin{proof}
+	Assume $ Y\supset Y_1\supset Y_2\supset \dots $ a chain of closed subsets.
+	Then $ \forall i, Y_i=Y\cap X_i, X_i\subset X $ is closed.
+	Let $ X_{i}' = \cap_{1\leq j \leq i} X_j $, $ X_i'\cap Y = Y_i $. Then $ X\supset X_1'\supset X_2'\supset \dots $ is a descending chain. Since $ X $ is noetherian, $ \exists N $ s.t. $ X_N'=X_{N+1}'=\dots $. It follows $ Y_N=Y_{N+1}=\dots $. Thus $ Y\supset Y_1\supset Y_2\supset \dots $ is stationary. 
+\end{proof}
+\begin{proposition}
+	$ \mathbb{A}^n $ is noetherian topological space.
+\end{proposition}
+\begin{proof}
+	Let $ \mathbb{A}^n=X\supset X_1\supset X_2\supset \dots $ be a chain of closed subsets. Then we have $ I(X_1)\subset I(X_2)\subset \dots $. Since $ k[x_1,x_2,\dots,x_n] $ is noetherian, $ \exists N, I(X_N)=I(X_{N+1})=\dots $. Note that$ X_i=Z(I(X_i)) $, we get $ X_N=X_{N+1}=\dots $. It shows that $ \mathbb{A}^n $ is a noetherian topological space.
+\end{proof}
+\begin{theorem}
+	Let $ X $ be a noetherian topological space.
+	\begin{enumerate}
+		\item $ X $ is a union of finitely many irreducible closed subsets: $X=X_1\cup\dots\cup X_r  $;
+		\item If we require $ X_i\not\subset X_j  $ for $ i\neq j $, then this decomposition is unique.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	(1) Assume $ X $ does not have a decomposition with finitely many closed subsets. In particular, $ X $ is reducible: $ X=X_1\cup Y_1 $, $ X_1,Y_1 $ are closed subsets. so one of the two sets does not have decomposition, say $ X_1 $. Repeat the argument we ge a descending chain
+	$$
+	X\supsetneqq X_1\supsetneqq X_2\supsetneqq \dots
+	$$
+	which is not stationary, it contradicts our existing condition.\\
+	(2)Let $ X=X_1\cup \dots\cup X_t = Y_1\cup\dots\cup Y_s$. Then we have $ X_i = \mathop{\cup}\limits_{j=1}^{s}(X_i\cap Y_j)$. Since $ X_i $ is irreducible, $ \exists j, X_i=X_i\cap Y_j $, thus $ X_i\subset Y_j $.Similarly, we can get $ Y_j\subset X_k $ for some $ k $. Then we have $ X_i\subset X_k $, it implies $ i=k $ and thus $ X_i = Y_j $. So we get the conclusion: each $ X_i $ is equal to some $ Y_j $ and each $ Y_j $ is equal to some $ X_i $. So $ r=s $ and the $ Y_j $'s are permutations of $ X_i $'s.
+\end{proof}
+\begin{definition}
+	An affine variety is an irreducible affine algebraic set.
+\end{definition}
+\begin{proposition}\label{5}
+	$ X\subset \mathbb{A}^n $ is an affine algebraic set. Then we have the following equivalent relations:
+	\begin{enumerate}
+		\item $ X $ is irreducible;
+		\item $ I(X) $ is a prime ideal.
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	(1)$ \Rightarrow $ (2): let $ X $ be irreducible, $ f,g $ some polynomials s.t. $ fg\in I(X) $. Then we have $ X\subset Z(fg)=Z(f)\cup Z(g) $, hence $ X=(X\cap Z(f))\cup (X\cap Z(g)) $. Since $ X $ is irreducible, we get $ X=X\cap Z(f) $ or $ X=X\cap Z(g) $, so $ X\subset Z(f) $ or $ X\subset Z(g) $, i.e. $ f\in I(X) $ or $ g\in I(X) $.
+	
+	(2)$ \Leftarrow $ (1): Assume $ X $ is reducible, then we have $ X=X_1\cup X_2 $ and $ X_i\subsetneqq X $ are closed subsets.
+	Since $ Z(I(X_i))=X_i\subsetneqq X=Z(I(X)) $, we get $ I(X_i)\supsetneqq I(X) $. Let $ f\in I(X_1)\backslash I(X) $, $ g\in I(X_2)\backslash I(X_2) $, $ fg $ vanishes on $ X_1\cup X_2=X $, then $ fg\in I(X) $, i.e., $ I(X) $ is not prime.
+\end{proof}
+\begin{example}
+	$ \mathbb{A}^n $ is irreducible because $ I(\mathbb{A}^n) = \{ 0\} $ is a prime ideal. 
+\end{example}
+\begin{definition}
+	Let $ X\neq \emptyset $ be an irreducible topological space. The dimension of $ X $ is the largest $ n\in\mathbb{Z} $ s.t. there is an ascending chain 
+	$$
+	\emptyset \neq X_0\subsetneqq X_1\subsetneqq X_2\subsetneqq \dots\subsetneqq X_n=X 
+	$$
+	of irreducible closed subsets. If $ X $ is a noetherian topological space then
+	$$
+	\text{dim}X=\text{ maximum of dimension of irreducible components of } X.
+	$$ 
+\end{definition}
+\begin{remark}
+	\begin{enumerate}
+		\item The point $ p\in\mathbb{A}^n $ has dimension $ 0 $;
+		\item $ \mathbb{A}^1 $ has dimension $ 1 $;
+		\item In the moment, we still cannot prove but true is $ \text{dim}\mathbb{A}^n=n $
+	\end{enumerate}
+	It is easy to verify $ \text{dim}\mathbb{A}^n\geq n $ because we have a chain:
+	$$
+	\{(0,0,\dots,0)\}\subsetneqq Z(x_2,x_3,\dots,x_n)\subsetneqq Z(x_3,\dots,x_n)\subsetneqq\dots\subsetneqq Z(x_n)\subsetneqq \mathbb{A}^n.
+	$$
+\end{remark}
+\begin{theorem}[The Weak Form Hilbert's Nullstellensatz]\label{2}
+	Let $ \mathfrak{a}\subsetneqq k[x_1,\dots,x_n] $ be a proper ideal, then $ Z(\mathfrak{a})\neq \emptyset $
+\end{theorem}
+\begin{remark}
+	We usually use the following form:
+	$$
+	\mathfrak{a}\subset k[x_1,\dots,x_n] \text{ and } Z(\mathfrak{a})=\emptyset\Rightarrow 1\in I.
+	$$
+	It is true when $ k $ is algebraically closed, otherwise the theorem \ref{2} is wrong:
+	$$
+	\mathfrak{a}=\langle x^2+1\rangle \in \mathbb{R}[x], Z(\mathfrak{a})=\emptyset.
+	$$
+\end{remark}
+\begin{definition}
+	Let $ \mathfrak{a} $ be an ideal in a ring $ R $. The radical of $ \mathfrak{a} $ is 
+	$$
+	\sqrt{\mathfrak{a}}=\{ r\in R|\exists n>0, r^n\in \mathfrak{a} \}.
+	$$
+	$ \sqrt{\mathfrak{a}} $ is an ideal in $ R $.
+	$ \mathfrak{a} $ is called radical ideal if $ \mathfrak{a}=\sqrt{\mathfrak{a}} $.
+\end{definition}
+\begin{remark}
+	If $ X\subset \mathbb{A}^n $ is an affine algebraic set, then $ I(X) $ is a radical ideal.
+\end{remark}
+\begin{theorem}[Nullstallensatz]
+	Let $ \mathfrak{a}\subset k[x_1,\dots,x_n] $, then $ I(Z(\mathfrak{a}))=\sqrt{\mathfrak{a}} $.
+\end{theorem}
+\begin{definition}
+	$ R $ is an integral domain, the quotient field $ Q(R) $ is the set of equivalent classes of pairs $ (f,g), f,g\in R, g\neq 0 $, which satisfy the equivalent relation
+	$$
+	(f,g)\cong (f',g') \Leftrightarrow fg'-f'g=0.
+	$$
+	We denote it by $ \frac{f}{g} $. 
+\end{definition}
+\begin{remark}
+	$ Q(R) $ is a field. We always identify $ r\in R $ with $ \frac{r}{1}\in Q(R) $, then we can say $ R $ is the subring of $ Q(R) $.$ Q(k[x_1,\dots,x_n]):=k(x_1,\dots,x_n) $ is called field of rational functions in $ x_1,x_2,\dots,x_n $.
+\end{remark}
+\begin{proofofnullstellensatz}
+	Let $ \mathfrak{a} = \langle f_1,\dots, f_r\rangle, f_i\in \mathfrak{a} $. Then $ I(Z(\mathfrak{a}))  $ is a radical ideal containing $ \mathfrak{a} $, so we get
+	$$
+	I(Z(\mathfrak{a}))\supset \sqrt{\mathfrak{a}}.
+	$$
+	Let$ f\in I(Z(\mathfrak{a})) $. To show $ \exists N>0 $, s.t. $ f^N\in \mathfrak{a} $, we use the weak Nullstellensatz in $ k[x_1,\dots,x_n] $. 
+	
+	Let
+	\begin{equation}
+	\mathfrak{b}:=\langle f_1,\dots,f_r,f\cdot t -1\rangle\subset k[x_1,\dots,x_n,t]
+	\end{equation}
+	Let $ (p,a)\in \mathbb{A}^{n+1}, p\in \mathbb{A}^n, a\in k $.
+	\begin{center}
+		$ (p,a)\in Z(\mathfrak{b}) $ $ \Leftrightarrow $ $ f_1(p)=\dots=f_r(p)=0 $ and $ f(p)\cdot a=1 $.
+	\end{center}
+	But $ f(p)=0 $, so we know $ Z(\mathfrak{b})=\emptyset $. By the weak Nullstellensatz, $ 1\in \mathfrak{b} $, we can write
+	\begin{equation}
+	1=g_0\cdot (ft-1)+\sum\limits_{i=1}^{r}g_i\cdot f_i\label{3}
+	\end{equation}
+	Back to $ k[x_1,\dots,x_n] $ in $ k(x_1,\dots,x_n) $, define homomorphism:
+\begin{align*}
+\varphi: k[x_1,\dots,x_n,t]&\to k(x_1,\dots,x_n)\\
+g(x_1,\dots,x_n,t)&\to g(x_1,\dots,x_n,\frac{1}{f})
+\end{align*}
+Use $ \varphi $ to equation \ref{3} we get
+\begin{equation}
+1=\sum\limits_{i=1}^{r}\varphi (g_i)\cdot f_i\label{4}
+\end{equation}
+where $ \varphi(g_i)=\frac{G_i}{f^{n_i}},G_i\in k[x_1,\dots,x_n] $. Let $ N:=\max\limits_{1\leq i\leq r}n_i $, multiply equation \ref{4} by $ f^N $:
+\begin{equation}
+f^N=\sum\limits_{i=1}^{r}G_if^{N-n_i}\cdot f_i\in \mathfrak{a}
+\end{equation}
+\end{proofofnullstellensatz}
+\begin{corollary}
+	\begin{enumerate}
+		\item If $ \mathfrak{a}\subset k[x_1,\dots,x_n] $ is a prime ideal, then $ Z(\mathfrak{a}) $ is irreducible;
+		\item If $ f\in k[x_1,\dots,x_n] $ is irreducible, then $ Z(f) $ is irreducible.
+	\end{enumerate}
+\end{corollary}
+\begin{proof}
+	(1) Set$ X=Z(\mathfrak{a}) $. Prime ideals are radical, so we get $ I(X)=\mathfrak{a} $ and $ \mathfrak{a} $ is prime, use proposition \ref{5} we know that $ X $ is irreducible.
+	
+	(2) Since $ k[x_1,\dots,x_n] $ is a UFD, we get 
+	\begin{center}
+		$ f\in k[x_1,\dots,x_n] $ is irreducible $ \Rightarrow $ $ \langle f\rangle $ is a prime ideal.
+	\end{center}
+	So $ Z(f)=Z(\langle f\rangle) $ is irreducible.
+\end{proof}
+
+\section{Projective Varieties}
+\begin{definition}
+	Define an equivalence relation$ \sim $ in $ k^{n+1}\backslash \{0\} $:
+	\begin{center}
+		$ (a_0,\dots,a_n)\sim(b_0,\dots,b_n) $ $ \Leftrightarrow $ $ \exists \lambda\in k\backslash \{0\} $ s.t.$ (a_0,\dots,a_n) = (\lambda b_0,\dots,\lambda b_n)$.
+	\end{center} 
+Then we call $  k^{n+1}\backslash \{0\} $ with this relation the projective $ n $-space and write it as $ (k^{n+1}\backslash\{0\})/\sim = \mathbb{P}^n $. 
+\end{definition}
+\begin{definition}
+	Let $ U_i:=\{[a_0,\dots,a_n]\in \mathbb{P}^n|a_i\neq 0 \} $. $ \varphi_i: U_i\to \mathbb{A}^n $, $ [a_0,\dots,a_n]\to (\frac{a_0}{a_i},\dots,\hat{\frac{a_i}{a_i}},\dots,\frac{a_n}{a_i}) $ is a projection, write inverse $ u_i:\mathbb{A}^n\to U_i $, $ (b_0,\dots,\hat{b_i},\dots,b_n)\to [b_0,\dots,1,\dots,b_n] $.
+	
+	Usually we fix $ i=0 $, view $ \mathbb{A}^n $ as a subset of $ \mathbb{P}^n $ by identify the point $ (a_1,\dots,a_n)\in\mathbb{A}^n $ with $ [1,a_1,\dots,a_n]\in \mathbb{P}^n $. With this identification we have 
+	\begin{equation}
+	\mathbb{P}^n=\mathbb{A}^n\cup H_{\infty}
+	\end{equation} 
+where $ H_{\infty} :=\{ [a_0,\dots,a_n]\in \mathbb{P}^n|a_0=0 \} $ is called hyperplane at infinity.
+\end{definition}
+\begin{remark}
+	Define projective algebraic sets are zero sets of polynomials in $ k[x_0,\dots,x_n] $, but $ f\in k[x_0,\dots,x_n] $ does not define a function on $ \mathbb{P}^n $:
+	\begin{equation}
+	f(a_0,\dots,a_n)\neq f(\lambda a_0,\dots,\lambda a_n).
+	\end{equation}
+	However if $ f $ is homogeneous we can still see whether $ p\in \mathbb{P}^n $ is a zero point of $ f $ or not. $ f $ is homogeneous if 
+	\begin{equation}
+	f(\lambda a_0,\dots,\lambda a_n)=\lambda^d f(a_0,\dots,a_n).
+	\end{equation}
+	Thus whether $ f=0 $ is decided only on $ [a_0,\dots,a_n] $.
+\end{remark}
+\begin{definition}
+	Let $ g\in k[x_0,\dots,x_n] $ be homogeneous, apoint $ p=[a_0,\dots,a_n] $ is a zero point of $ g $ if $ g(a_0,\dots,a_n)=0 $. Let $ S\subset k[x_0,\dots,x_n] $,
+	\begin{equation}
+	Z(S):=\{ p\in\mathbb{P}^n|f(p)=0 \forall f\in S \}.
+	\end{equation}
+	A subset of $ \mathbb{P}^n $ of the form $ Z(S) $ is called a projective algebraic set.
+\end{definition}
+\begin{example}
+	\begin{enumerate}
+		\item $ \emptyset=Z(1) $, $ \mathbb{P}^n=Z(\emptyset) $;
+		\item Any point $ p=[a_0,\dots,a_n]\in\mathbb{P}^n $ is a projective algebraic set
+		\begin{align*}
+		\{ p \}=Z(a_1x_0-a_0x_1,a_2x_0-a_0x_2,\dots,a_nx_0-a_0x_n,\\
+		a_2x_1-a_1x_2,\dots,a_nx_1-a_1x_n,\\
+		\dots).
+		\end{align*}
+	\end{enumerate}
+\end{example}
+\begin{definition}
+	A polynomial $ f\in k[x_0,\dots,x_n] $ cab be written uniquely as $ f=f^{(0)}+f^{(1)}+\dots+ f^{(d)} $, with $ f^{(i)} $ homoegeneous of degree $ i $. $ f^{(i)} $ is called homogeneous component if $ f $.
+	
+	An ideal $ \mathfrak{a}\subset k[x_0,\dots,x_n] $ is called homogeneous if for every $ f\in \mathfrak{a} $ all homogeneous components $ f^{(i)} $ are in $ \mathfrak{a} $.
+\end{definition}
+\begin{proposition}
+	An ideal $ \mathfrak{a}\subset k[x_0,\dots,x_n] $ is homogeneous $ \Leftrightarrow $ It is generated by the homogeneous polynomials.
+\end{proposition}
+\begin{proof}
+	$ \Rightarrow $: Assume $ I $ homogeneous, let $ (f_\alpha)_\alpha $ be a set of generators, then $ (f^{(i)}_\alpha)_{\alpha,i} $ is a set of homogeneous generators.
+	
+	$ \Leftarrow $: Let $ \mathfrak{a} =\langle g_i\rangle $ and $ g_i $ be homogeneous. Let $ f\in \mathfrak{a}$, then we can write 
+	\begin{equation}
+	f=\sum\limits_{i}a_ig_i.
+	\end{equation}
+	Note $ g_i $ is homogeneous, thus the homogeneous part of $ a_ig_i $ of degree $ d $ is just $ a_i^{(d-deg(g_i))}g_i $, so
+	\begin{equation}
+	f^{(d)}=\sum\limits_{i} a_i^{(d-deg(g_i))}g_i.
+	\end{equation}
+	Since $ g_i\in \mathfrak{a} $ we get $ f^{(d)}\in \mathfrak{a} $.
+\end{proof}
+\begin{definition}
+	Let $ \mathfrak{a}\subset k[x_0,\dots,x_n] $ be a homogeneous ideal, the zero set of $ \mathfrak{a} $ is written as
+	\begin{equation}
+	Z(\mathfrak{a}):=\{ p\in \mathbb{P}^n|f(p)=0 \text{ for all homogeneous elements } f\in \mathfrak{a} \}.\label{6}
+	\end{equation} 
+	For a subset $ X\subset \mathbb{P}^n $, the homogeneous ideal of $ X $ is 
+	\begin{align}
+	I(X):= \text{ ideal generated by } \{ f\in k[x_0,\dots,x_n]|f \label{7}\\
+	\text{ be homogeneous and } f(p)=0 \forall p\in X \}\notag
+	\end{align}
+	By definition this is a homogeneous ideal.
+\end{definition}
+\begin{remark}
+	If $ f\in k[x_0,\dots,x_n] $ is not homogeneous, we can define 
+	\begin{equation}
+	Z(f):=\{ p\in\mathbb{P}^n| f(a_0,\dots,a_n)=0\text{ for all representative } (a_0,\dots,a_n) \text{ of } p \}
+	\end{equation}
+	In fact, if $ f=f^{(0)}+f^{(1)}\dots +f^{(d)} $, then we have 
+	\begin{equation}
+	Z(f)=\mathop{\cap}\limits_{i=0}^{d}Z(f^{(i)})
+	\end{equation}
+	With this property, if $ \mathfrak{a} \subset k[x_0,\dots,x_n]$ is a homogeneous ideal then formula \ref{6} can be written as
+	\begin{equation}
+	Z(\mathfrak{a})=\{ p\in \mathbb{P}^n| f(p)=0 \forall f\in \mathfrak{a} \}
+	\end{equation}
+	and formula \ref{7} can be written as
+	\begin{equation}
+	I(X)=\{ f\in k[x_0,\dots,x_n]|f(p)=0 \forall p\in X \}
+	\end{equation}
+\end{remark}
+\begin{proposition}
+	Same as an affine space, in a projective space we have the following propositions:
+\begin{enumerate}
+		\item $ X\subset Y\subset \mathbb{P}^n $ are projective algebraic sets, then 
+		$ I(X)\supset I(Y) $;
+		\item $ X\subset \mathbb{P}^n $ is a projective algebraic set, then $ Z(I(X))=X $;
+		\item $ \mathfrak{a}\subset k[x_0,\dots,x_n] $ is a homogeneous ideal, then $ I(Z(\mathfrak{a}))\supset \mathfrak{a} $;
+		\item If $ S\subset k[x_0,\dots,x_n] $ is a set of homogeneous polynomials, then $ Z(S)=Z(\langle S \rangle ) $;
+		\item For a family $ \{ S_\alpha \} $ of sets of homogeneous polynomials, $ Z(\mathop{\cup}\limits_\alpha S_\alpha) = \mathop{\cap}\limits_alpha Z(S_\alpha)$;
+		\item If $ T,S\subset k[x_0,\dots,x_n] $ are sets of homogeneous polynomials, then $ Z(ST)=Z(S)\cup Z(T) $.
+	\end{enumerate}
+\end{proposition}
+\begin{remark}
+	From the proposition (5) and (6) we know that arbitrary intersections and finite unions  of projective algebraic sets are projective algebraic sets, then we can define a topology through these two propositions.
+\end{remark}
+\begin{definition}
+	The Zariski topology on $ \mathbb{P}^n $ is the topology whose closed sets are the projective algebraic sets.
+	
+	If $ X\subset \mathbb{P}^n $ is a subset, we give it the induced topology, called Zariski topology on $ X $.
+\end{definition}
+\begin{definition}
+	A quasi-projective algebraic set is an open subset of a projective algebraic set. Fro example, let $ U $ and $ V $ be closed subsets, then $ Y=U\backslash V\neq \emptyset $ is a quasi-projective algebraic set.  
+\end{definition}
+\begin{proposition}
+	We jnow $ k[x_0,\dots,x_n] $ is noetherian, then follows the same proof as in affine case shows that $ \mathbb{P}^n $ is a noetherian topological sapce.
+\end{proposition}
+\begin{remark}
+	Every subspace of $ \mathbb{P}^n $ is noetherian. In particular, quasi-projective algebraic sets are noetherian, hence have unique decompositions into irreducible components.
+\end{remark}
+\begin{definition}
+	A quasi-projective variety is an irreducible quasi-projective algebraic set.
+\end{definition}
+\begin{remark}
+	If we use the identification $ \mathbb{A}^n=U_0\subset \mathbb{P}^n $, then $ \mathbb{A}^n $ is an open set $ \mathbb{A}^n=\mathbb{P}^n\backslash Z(x_0) $, i.e. $ \mathbb{A}^n $ is a quasi-projective variety.  
+\end{remark}
+\begin{definition}
+	A nonempty algebraic set $ X\subset \mathbb{A}^{n+1} $ is called a cone if for all $ p=(a_0,\dots,a_n)\in X $ and all $ \lambda \in k $, we have $ (\lambda a_0,\dots,\lambda a_n)=\lambda p\in X $.
+	
+	If $ X\subset \mathbb{P}^n $ is a projective algebraic set, its affine cone is 
+	\begin{equation}
+	C(X):=\{ (a_0,\dots,a_n)\in \mathbb{A}^{n+1}|[a_0,\dots,a_n]\in X \}\cup\{ 0 \}
+	\end{equation}
+\end{definition}
+\begin{lemma}
+	Let $ X\neq\emptyset $ be a projective algebraic set, then :
+	\begin{enumerate}
+		\item $ X=Z_p(\mathfrak{a}) $, for $ \mathfrak{a}\subset k[x_0,\dots,x_n]$ a   homogeneous ideal $ \Rightarrow $ $ C(X)=Z_a(\mathfrak{a})\subset \mathbb{A}^{n+1} $;
+		\item $ I_a(C(X))=I_H(X) $.
+	\end{enumerate}
+\end{lemma}
+\begin{theorem}[Projective Nullstellensatz]
+	Let $ \mathfrak{a}\subset k[x_0,\dots,x_n] $ be a homogeneous ideal:
+	\begin{enumerate}
+	\item $ Z_p(\mathfrak{a})=\emptyset $ $ \Leftrightarrow $ $ \mathfrak{a} $ contains all homogeneous polynomials of degree $ N $ for some $ N\in \mathbb{N} $;
+	\item If $ Z_p(\mathfrak{a})\neq \emptyset $, then $ I_p(Z_p(\mathfrak{a}))=\sqrt{\mathfrak{a}} $.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	Let $ X=Z_p(\mathfrak{a}) $.
+	
+	(1) $ X=\emptyset $ $ \Leftrightarrow $ $ C(X)=\{ 0 \} $. Since $ C(X)=Z_a(\mathfrak{a})\cup \{0\} $, we get
+	\begin{center}
+		$ X=\emptyset $ $ \Leftrightarrow $ $ Z_a(\mathfrak{a})=\emptyset $ or $ Z_a(\mathfrak{a})=\{0\} $.
+	\end{center}
+	By affine Nullstellensatz, we get 
+	\begin{center}
+		$ \sqrt{\mathfrak{a}}=k[x_0,\dots,x_n] $ or $ \sqrt{\mathfrak{a}}=\langle x_0,\dots,x_n\rangle $.
+	\end{center}
+	So $ \sqrt{\mathfrak{a}}\supset \langle x_0,\dots,x_n\rangle $. Thus for any $ i=0,\dots,n $, $ \exists m_i $ s.t. $ x_i^{m_i}\in \mathfrak{a} $. Let $ N=m_1+\dots+m_n $, then any monomial of degree $ N $ in $ k[x_0,\dots,x_n] $ lies in $ \mathfrak{a} $.
+	
+	(2)Let $ X=Z_p(\mathfrak{a}\neq \emptyset $, then 
+		\begin{equation}
+		I_H(X)=I_a(C(X))=I_a(Z_a(\mathfrak{a}))=\sqrt{\mathfrak{a}}.
+		\end{equation}
+\end{proof}
+\begin{remark}
+	$ \langle x_0,\dots,x_n \rangle $ is called the irrelevant ideal, an ideal different from $ \langle x_0,\dots,x_n \rangle $ is called relevant.
+\end{remark}
+\begin{corollary}
+	There is a one-to-one correspondence between homogeneous relevant radical ideals and projective algebraic sets:
+	\begin{center}
+		$ Z_p $: homogeneous relevant radical ideals in $ k[x_0,\dots,x_n] $ $ \to $  projective algebraic sets in  $ \mathbb{P}^n $\\
+		$ I_H $: projective algebraic sets in $ \mathbb{P}^n $ $ \to $ homogeneous relevant radical ideals in $ k[x_0,\dots,x_n] $.
+	\end{center}
+\end{corollary}
+\begin{remark}
+	We use subscripts to recognize affine spaces and projective spaces, such as $ Z_p(\mathfrak{a}),Z_a(\mathfrak{a}) $. Sometimes we can infer the difference from the context, so we usually write briefly as $ Z(\mathfrak{a}) $.
+\end{remark}
+\begin{proposition}
+	\begin{enumerate}
+		\item A projective algebraic set $ X\neq \emptyset\subset \mathbb{P}^n $ is irreducible if and only if $ I=I_H(X) $ is a homogeneous prime ideal;
+		\item If $ f\in k[x_0,\dots,x_n] $ is a homogeneous polynomial and irreducible, then $ Z_p(f) $ is irreducible.
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	(1) $ \Leftarrow $: Assume $ X $ reducible, then $ X=X_1\cup X_2 $,$ X_1,X_2\subsetneqq X $b are closed subsets. Then we get $ C(X)=C(X_1)\cup C(X_2) $, $ C(X_1)\subsetneqq C(X) $,$ C(X_2)\subsetneqq C(X) $ are closed, hence  $ C(X) $ is reducible, $ I_H(X)=I(C(X)) $ is not prime.
+	
+	$ \Rightarrow $: Assume $ I_H(X) $ not prime, it means $ \exists f,g\in k[x_0,\dots,x_n] $, $ fg\in I_H(X) $ and $ f,g\not\in I_H(X) $. Let $ i,j\in\mathbb{Z}\geq 0 $ be minimal such that $ f^{(i)}\not\in I $ and $ g^{(j)}\not\in I $. Subtract homogeneous components of lower degrees from $ f $ and $ g $, we can assume $ f $ starts in degree $ i $ and $ g $ starts in degree $ j $. Thus $ f^{(i)}g^{(j)} $  is homogeneous component of minimal degree in $ fg\in I $. Because $ I $ is homogeneous,  we get $ f^{(i)}g^{(j)} \in I$. Let
+	$ X_1:=Z(I)\cap Z(f^(i)) $ and $ X_2:=Z(I)\cap Z(g^{(j)}) $, then $ X_1,X_2\subsetneqq X $, $ X=X_1\cup X_2 $, thus $ X $ is reducible.
+	
+	(2) If $ I\subset k[x_0,\dots,x_n] $ is homogeneous and prime with $ Z(I)\neq\emptyset $ , then follow the result from (1) we know $ Z(f) $ is irreducible.
+\end{proof}
+
+\section{Functions And Morphisms}
+\begin{definition}
+	Let $ X\subset \mathbb{A}^n $ be an affine algebraic set, the affine coordinate ring of $ X $ is 
+	\begin{equation}
+	A(X):=k[x_0,\dots,x_n]/I(X).
+	\end{equation}
+	It is a ring, also a $ k $-algebra.
+\end{definition}
+\begin{definition}
+	A polynomial function on $ X $ is a function $ f:X\to k $ s.t. $ f=F|_X $ for $ F\in k[x_0,\dots,x_n] $. This is the ring with pointwise addition and multiplication:
+	\begin{equation*}
+		(f+g)(p)=f(p)+g(p), fg(p)=f(p)g(p),\forall p\in X.
+	\end{equation*}
+	There is a ring homomorphism:
+	\begin{center}
+		$ k[x_0,\dots,x_n] \to $ \{polynomial functions on $ X $\}\\
+		$ F\to F|_X $
+	\end{center}
+	It is surjective and its kernel is $ I(X) $. Thus we have the isomorphism:
+	\begin{center}
+		$ A(X)\cong \{ \text{polynomial functions on } X \} $.
+	\end{center}
+	We will not distinguish them.
+\end{definition}
+\begin{remark}
+	The zero set of a polynomial function is closed.Let $ X $ be an affine algebraic set, $ f\in A(X) $, then 
+	\begin{equation}
+	Z(f)=\{ p\in X|f(p)=0 \}
+	\end{equation}
+	is closed in $ X $. $ f\in A(X) $ means $ f=F|_X $ for some $ F\in k[x_1,\dots,x_n] $, then 
+	\begin{equation}
+	Z(f)=\{ p\in X|F(p)=0 \}=X\cap Z(F)
+	\end{equation}
+	so it is closed.
+\end{remark}
+\begin{definition}
+	Let $ X $ be an affine variety, then $ I(X) $ is prime, then $ A(X) $ is integral.
+	The quotient field $ Q(A(X)) $ is a field of rational functions on $ X $ and denoted by $ K(X) $. Let $ V\subset X $ be a quasi-affine variety, since $ I(V)=I(X) $, we can denote its field of rational functions by $ K(V):=K(X) $.
+\end{definition}
+\begin{definition}
+	Let $ p\in V $, the local ring of $ V $ at $ p $ is 
+	\begin{equation}
+	\mathcal{O}_{V,p}:=\{h \in K(V)|\exists f,g\in A(V), \text{ s.t. } h=\frac{f}{g} \text{ and } g(p)\neq 0 \}
+	\end{equation}
+	For simplicity in future we can write this:
+	\begin{equation}
+	\mathcal{O}_{V,p}=\{ \frac{f}{g}\in K(V)|g(p)\neq 0 \}.
+	\end{equation}
+	If $ U\subset V $ is an open subset, the regular functions on $ U $ are defined by
+	\begin{equation}
+	\mathcal{O}_V(U)=\mathop{\cap}\limits_{V,p}\subset K(V).
+	\end{equation}
+\end{definition}
+\begin{proposition}
+	We have an injective ring homomorphism:\begin{center}
+		$ \mathcal{O}_V(U) $ $ \to $ $ \{ \text{functions from }U \text{ to } k \} $. 
+	\end{center}
+	For $ h\in \mathcal{O}_V(U),p\in U $, there exists an open subset $ W $ and $ p\in W\subset U $, s.t. $ h=\frac{f}{g} $ with $ g(p)\neq 0 $. We define the homomorphism by setting $ h(p)=\frac{f(p)}{g(p)} $, the homomorphism is
+	\begin{center}
+		$ h\in \mathcal{O}_V(U)\to h(p)=\frac{f(p)}{g(p)}, p\in U $.
+	\end{center}
+\end{proposition}
+\begin{proof}
+	It is well defined: if $ h=\frac{f}{g}=\frac{f'}{g'} $ with $ g(p)\neq 0,g'(p)\neq 0 $.Then $ fg'=f'g \Rightarrow f(p)g'(p)=f'(p)g(p)$ $ \Rightarrow \frac{f(p)}{g(p)}=\frac{f'(p)}{g'(p)} $.
+	
+	Injective: Let $ h,h'\in \mathcal{O}_V(U) $ such that $ h(p)=h'(p) \forall p\in U$.
+	Define $ l=h-h'\in \mathcal{O}_V(U) $, then $ l(p)=0 ,\forall p\in U$. There exists an open subset $ W $, s.t. $ l=\frac{f}{g} $ with $ g(p)\neq 0 \forall p\in W $. For $ p\in W $, $ l(p)=\frac{f(p)}{g(p)}=0\Rightarrow f(p)=0 \forall p\in W $.As zero set $ Z(f) $ of $ f $ is closed, we get $ f=0\in A(V) $, then $ l=0 $ and hence $ h=h' $.
+\end{proof}
+\begin{remark}
+	We had called $ \mathcal{O}_{V,p} $ a local ring of $ V $ at $ p $. The maximal ideal at $ p $ is $ \mathfrak{m}(p):=\{ h\in \mathcal{O}_{V,p}|h(p)=0 \} $, this is a maximal ideal in $ \mathcal{O}_{V,p} $. It is easy to verify that the local ring of a variety is alocal ring.
+\end{remark}
+\begin{proposition}\label{10}
+	For an affine variety $ X $, functions which are regular functions everywhere are polynomial functions, i.e., $ \mathcal{O}_X(X)=A(X) $.
+\end{proposition}
+\begin{proof}
+	Obviously, $ A(X)\subset \mathcal{O}_X(X) $. We have to show the other inclusion. Let $ h\in \mathcal{O}_X(X) $, $ \forall p\in X $, $ \exists F_p,G_p\in k[x_1,\dots,x_n] $ s.t.
+	$ h=\frac{[F_p]}{[G_p]} $ and $ G_p(p)\neq 0 $. It is equivalent to: $ \forall p\in X $, $ \exists G_p\in k[x_1,\dots,x_n] $ s.t. $ h\cdot [G_p] \in A(X)$ and $ [G_p(p)]\neq 0 $. Let
+	\begin{equation}
+	\mathcal{G}:=\{ G\in k[x_1,\dots,x_n]|h\cdot [G_p]\in A(X) \}
+	\end{equation}
+	$ \mathcal{G} $ is an ideal and $ \mathcal{G}\supset I(X) $, so $ Z(\mathcal{G})\subset X $. But $ Z(\mathcal{G})\cap X=\emptyset $, so $ Z(\mathcal{G})=\emptyset $. By Nullstellensatz $ 1\in\mathcal{G} $, so $ h=h\cdot 1\in A(X) $.
+\end{proof}
+
+\begin{definition}
+	Let $ X\subset\mathbb{P}^n $ be a projective algebraic set. The homogeneous coordinate ring of $ X $ is defined as
+	\begin{equation}
+	S(X):=k[x_0,\dots,x_n]/I_H(X)
+	\end{equation}
+	If $ X $ is irreducible, then $ S(X) $ is an integral domain, $ Q(S(X)) $ is its quotient field.
+\end{definition}
+\begin{remark}
+	$ X\subset \mathbb{P}^n$ is a quasi-projective variety, then polynomial $ F\in k[x_0,\dots,x_n] $ will not define a function $ X\to k $. But we can take quotients of homogeneous polynomials of the same degree and get a well defined function.
+\end{remark}
+\begin{definition}
+	Let $ f= [F]\in S(X) $,$ F\in k[x_0,\dots,x_n] $. The homogeneous part $ f^{(d)} $ of $ f $ is $ [F^{(d)}]\in S(X) $, and
+	$ S^{(d)}(X) = \{ f^{(d)}\in S(X) \} $. 
+\end{definition}
+\begin{definition}
+	$ X $ is a quasi-projective variety, the field of rational functions on $ X $(on $ V \subset X$ open subset) is 
+	$ K(V):=K(X):=\{ \frac{f}{g}\in Q(S(X))|f,g \text{ both in } S^{(d)}(X) \text{ for some d} \} $.
+	Elements of $ K(X) $($ K(V) $) are called rational functions on $ X $(on $ V $).
+\end{definition}
+\begin{definition}
+	Let $ p\in V\subset\mathbb{P}^n $, the local ring of $ V $ at $ p $ is 
+	\begin{equation}
+	\mathcal{O}_{V,p}:=\{ \frac{f}{g}\in K(V)|g(p)\neq 0 \}.
+	\end{equation}
+	If $ U\subset V $ is open, the ring of regular functions on $ U $ is 
+	\begin{equation}
+	\mathcal{O}_V(U):=\mathop{\cap}\limits_{p\in U}\mathcal{O}_{V,p}.
+	\end{equation}
+\end{definition}
+\begin{proposition}\label{8}
+	\begin{enumerate}
+		\item ($ k $-algebra)Constant functions $ a\in k $ are regular on $ U $. If $ f,g\in \mathcal{O}_V(U) $, then $ f+g $ and $ fg $ are regular on $ U $, and if $ g $ has no zero in $ U $, then $ \frac{f}{g} \in \mathcal{O}_{V}(U)$.
+		\item (Local)Let $ (U_i) $ be a open cover of $ U $. A function $ f:U\to k $ is regular if and only if $ f|_{U_i} $ is regular for all $ i $.
+		\item Regular functions are continuous. i.e., let $ h\in \mathcal{O}_V(U) $, then $ h:U\to k=\mathbb{A}^1 $ is continuous($ k=\mathbb{A}^1 $ is given Zariski topology).  
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	(1) By definition, $ \mathcal{O}_V(U)=\mathop{\cap}\limits_{p\in U} \mathcal{O}_{V,p} $, thus enough to show if $ f,g\in \mathcal{O}_{V,p} $, then $ f+g, fg \in \mathcal{O}_{V,p}$, and it is obvious. Assume $ g $ has no zero on $ U $, then $ g\frac{1}{g}\in \mathcal{O}_V(U) $, then $ \frac{f}{g}\in \mathcal{O}_V(U) $.
+	
+	(2) $ h:U\to k $ is regular $ \Leftrightarrow $ $ h\in \mathcal{O}_{V,p} \forall p\in U$ $ \Leftrightarrow $ $ h\in \mathcal{O}_{V,p} \forall p\in U_i \forall i$.
+	
+	(3) $ h:U\to k  $ is continuous $ \Leftrightarrow $ $ h|_{U_i} $ is continuous for all $ U_i $ of an open cover of $ U $. We just replace $ U $ by a suitable $ U_i $ and show $ h $ is continuous in $ U_i $. From the definition of regular functions, we can simply assume $ h=\frac{f}{g}, f,g\in k[x_0,\dots,x_n] $ are homogeneous of the same degree, and $ g $ has no zero on $ U_i $. Zariski topology on $ \mathbb{A}^1 $ has closed subsets $ \emptyset,k $ and finite points subsets. Thus we only have to show $ h^{-1}(a) $ is closed in $ U_i $ for all $ a $ in $ k $,
+	\begin{equation}
+	h^{-1}(a)=\{ p\in U_i|h(p)=a \}= \{ p\in U_i|(f-ag)(p)=0 \}.
+	\end{equation}
+	This is the zero set $ Z(f-ag)\cap U $, hence the inverse of the closed sets are closed, hence $ h $ is continuous in $ U_i \forall i$, hence continuous in $ U $.
+\end{proof}
+\begin{definition}[Polynomial Map]
+	Let $ X\subset \mathbb{A}^n, Y\subset \mathbb{A}^m $ be affine algebraic sets. A map 
+	$$
+	(F_1,\dots,F_m):X\to Y,p\to (F_1(p),\dots,F_m(p)),F_1,\dots,F_m\in k[x_1,\dots,x_n]
+	$$
+	is called a polynomial map. A surjective polynomial map whose inverse is also a polynomial map is an isomorphism.
+\end{definition}
+\begin{example}
+	\begin{enumerate}
+		\item If $ X $ is an affine algebraic set, the polynomial map $ f:X\to k $ is the polynomial function in $ A(X) $.
+		\item Let $ X=\mathbb{A}^1 $, $ Y=Z(y-x^2)\subset \mathbb{A}^2 $, the polynomial map 
+		$$
+		(t,t^2):\mathbb{A}^2\to Y
+		$$
+		is isomorphism.
+	\end{enumerate}
+\end{example}
+\begin{definition}
+	Let $ X\subset \mathbb{A}^n $, $ Y\subset \mathbb{A}^m $ be affine algebraic sets. Let 
+	$$
+	\varphi:X\to Y
+	$$
+	be a polynomial map.
+	The pull back of $ h\in A(Y) $ is $ \varphi^\ast h:=h\circ \varphi \in A(X) $. If $ h=H|_Y, H\in k[y_1,\dots,y_m] $, $ \varphi =(F_1,\dots,F_m) $, then 
+	$$
+	\varphi^\ast h(a_1,\dots,a_n)=h(F_1(a_1,\dots,a_n),\dots, F_m(a_1,\dots,a_n ).
+	$$
+	i.e., 
+	$$
+	\varphi^\ast h = H( F_1(x_1,\dots,x_n),\dots, F_m(x_1,\dots,x_n) )|_X\in A(X).
+	$$
+	The pull back $ \varphi^\ast:A(Y)\to A(X) $ is obviously a ring homomorphism. If $ \varphi:X\to Y $ is an isomorphism, then $ \varphi^\ast:A(Y)\to A(X) $ is an isomorphism of $ k $-algebra.
+\end{definition}
+\begin{definition}\label{11}
+	Let $ X,Y $ be varieties, a map $ \varphi :X\to Y $ is a morphism(regular map) if :\begin{enumerate}
+		\item $ \varphi $ is continuous;
+		\item for all open subsets $ U\in Y $, all regular functions $ f\in \mathcal{O}_Y(U) $, we have 
+		$$
+		\varphi^\ast := f\circ \varphi \in \mathcal{O}_X(\varphi^{-1}(U)).
+		$$
+	\end{enumerate}
+\end{definition}
+\begin{remark}
+			Thus for each open subset $ U\in Y $, 
+			$$
+			\varphi^\ast :\mathcal{O}_Y(U)\to \mathcal{O}_X(\varphi^{-1}(U))
+			$$
+			is a $ k $-algebra homomorphism. $ \varphi $ is called an isomorphism if $ \varphi $ is bijective and $ \varphi^{-1} $ is also a morphism.
+				\begin{enumerate}
+					\item $ \text{id}_X $ is a morphism form $ X $ itself.
+					\item If $ \varphi:X\to Y,\psi :Y\to Z $ are morphisms, then 
+					$$
+					(\psi\circ\varphi)^\ast = \varphi^\ast \circ \psi^\ast
+					$$.
+					\item If $ \varphi : X\to Y $ is isomorphism, then $ \varphi^\ast: \mathcal{O}_Y\to \mathcal{O}_X(\varphi^{-1}(U)) $ is an  isomorphism for all $ U\subset Y $.
+ 				\end{enumerate}
+\end{remark}
+\begin{proposition}
+	\begin{enumerate}
+		\item Let $ \varphi :X\to Y $ and $ (U_i)_{i\in I} $ be an open cover of $ X $ s.t. $ \varphi |_{U_i}:U_i\to Y $ is a morphism. Then $ \varphi  $ is a morphism.
+		\item Let $ Z\subset X, W\subset Y $ be varieties, let $ \varphi:X\to Y $ be a morphism with $ \varphi(Z)\subset W $. Then $ \varphi|_Z:Z\to W $ is a morphism.
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	(1) Let $ W\subset Y $ be open, then we can write $ \varphi^{-1}(W)=\mathop{\cup}\limits_{i\in I}(\varphi|_{U_i}^{-1}(W)) $, it is open so $ \varphi $ is continuous. Let $ h\in \mathcal{O}_{Y}(W) $ then the pull back of regular functions $ h $ from $ \mathcal{O}_Y(W) $ to $ \mathcal{O}_X(U_i\cap \varphi^{-1}(W)) $ is $ \varphi|_{U_i}^\ast h=\varphi^\ast h|_{U_i\cap \varphi^{-1}(W)} $, since $ \varphi|_{U_i} $ is a morphism we get that $ U_i\cap \varphi^{-1}(W) $ is open. Then 
+	\begin{equation}
+	\varphi^{-1}(W)=\mathop{\cup}\limits_{i\in I} U_i\cap \varphi^{-1}(W)
+	\end{equation}
+and $ (U_i\cap \varphi^{-1}(W) )_{i\in I}$ is an open cover of $ \varphi^{-1}(W) $, then we can get the conclusion that $ \varphi $ is a morphism by proposition \ref{8}.
+
+(2) First, $ \varphi|_Z $ is continuous as a restriction of a continuous map. Let $ U\subset W $ be open, let $ h\in \mathcal{O}_W(U) $. Replace if necessary $ U $ by a smaller open subset sucht that we can assume $ h=\frac{F}{G} $. This quotient also defines a regular function $ H $ on open subset $ \tilde{U}\subset Y $ s.t. $ U\subset \tilde{U} $, then $ \varphi^\ast H\in \mathcal{O}_X(\varphi^{-1}(\tilde{U}))  $ is regular. Then $ \varphi^\ast h= \varphi^\ast H|_{\varphi^{-1}(U)\cap Z} $ is regular on $ \varphi^{-1}(U)\cap Z $.
+\end{proof}
+\begin{definition}
+	An affine variety is a variety which is isomorphis to irreducible closed subset of some $ \mathbb{A}^n $.
+\end{definition}
+\begin{theorem}\label{9}
+	Let $ X,Y $ be subvarieties, assume $ Y\subset \mathbb{A}^n $. A map $ \varphi:X\to Y $ is a morphism if and only if $ \exists f_1,\dots,f_n\in \mathcal{O}_X(X) $ s.t.
+	\begin{equation}
+	\varphi(p)=(f_1(p),\dots,f_n(p)),\forall p\in X.
+	\end{equation}
+	We can write $ \varphi = ( f_1,\dots,f_n ) $.
+\end{theorem}
+\begin{proof}
+	$ \Rightarrow $: Let $ \varphi :X\to Y $ be a morphism. Let $ y_1,\dots, y_n \in \mathcal{O}_Y(Y)$ be restrictions of the coordinates on $ \mathbb{A}^n $ to $ Y $, i.e., if $ q=(a_1,\dots,a_n)\in Y $, then $ a_i=y_i(q) $. The pull back of $ y_i $ is 
+	\begin{equation}
+	f_i:=\varphi^\ast y_i=y_i\circ \varphi \in \mathcal{O}_X(X).
+	\end{equation}
+	Let $ p\in X $, $ \varphi(p)=(b_1,\dots,b_n) $, $ b_i=y_i(\varphi(p))=f_i(p) $, thus
+	$$
+	\varphi= (f_1,\dots,f_n)
+	$$
+	where $ f_i\in \mathcal{O}_X(X) $.
+	
+	$ \Leftarrow $ Let $ \varphi :=(f_1,\dots,f_n),f_i\in \mathcal{O}_X(X) $. First we show $ \varphi  $  is continuous. Let $ B\in Y $ be closed, it is equivalent to $ B=Y\cap Z(G_1,\dots,G_m) $ and $ G_i\in k[x_1,\dots,x_n] $. Since 
+	$ G_i\circ \varphi = G(f_1,\dots,f_n)\in \mathcal{O}_X(X) $, we get $ \varphi^{-1}(B)=Z(G_1\circ \varphi,\dots,G_m\circ\varphi) $ and it is closed in $ X $. So $ \varphi $ is continuous. Let $ h\in \mathcal{O}_Y(U) $, write $ W=\varphi^{-1}(U)\subset Y $. we need to show $ h\circ \varphi \in \mathcal{O}_X(W) $. We can always make $ U $ smaller and assume $ h(q)=\frac{F(q)}{G(q)} ,\forall q\in U$, $ F $ and $ G $ are some polynomials and $ G $ has no zero on $ U $. Then we have
+	\begin{equation}
+	h\circ \varphi =\frac{F\circ \varphi}{G\circ \varphi}=\frac{F(f_1,\dots,f_n)}{G(f_1,\dots,f_n)}
+	\end{equation}   
+	where $ F(f_1,\dots,f_n) $ and $ G(f_1,\dots,f_n) $ are regular on $ \mathcal{O}_X(W) $. Since $ \varphi(W)=U $ and $ G $ has no zero on $ U $, $ G(f_1,\dots,f_n) $ also has no zero on $ W $, i.e., $ h\circ \varphi\in \mathcal{O}_X(W) $.
+\end{proof}
+\begin{remark}
+	The regular functions on a variety $ X $ are the same as the morphisms $ X\to \mathbb{A}^1 $.
+\end{remark}
+\begin{corollary}
+	Let $ X\subset \mathbb{A}^n $ and $ Y\subset \mathbb{A}^m $ be closed subvarieties. The morphisms 
+	$$
+	\varphi:X\to Y
+	$$
+	are precisely the polynomial map.
+\end{corollary}
+\begin{proof}
+ From theorem \ref{9} we know $ \varphi=(f_1,\dots,f_m) $ and $ f_i\in \mathcal{O}_X(X) \forall i$. From theorem \ref{10} we know $ f_i\in A(X) $, so $ \varphi $ is a polynomial map.
+\end{proof}
+\begin{theorem}\label{12}
+	Let $ X,Y $ be varieties, assume $ Y\subset \mathbb{A}^m $ be a closed affine variety. Then there is a bijection between morphisms $ X\to Y $ and $ k $-algebra homomorphisms $ A(Y)\to \mathcal{O}_X(X) $:
+\begin{align*}
+	\{ \text{morphisms } X\to Y \} & \xrightarrow{bijection}\{ \text{homomorphisms }A(Y)\to \mathcal{O}_X(X) \} \\
+	\varphi & \xrightarrow{\qquad\quad}  \varphi^\ast
+\end{align*}
+\end{theorem}
+\begin{proof}
+	$ \Rightarrow $: Let $ \varphi :X\to Y $ be a morphism, then $ \varphi^\ast: A(Y)\to \mathcal{O}_X(X) $ is a $ k $-algebra homomorphism by definition \ref{11}.
+	
+	$ \Leftarrow $: Let $\phi:A(Y)\to \mathcal{O}_X(X)  $ be a $ k $-algebraic homomorphism, let $ y_1,\dots,y_n\in A(Y) $ be the coordinate functions. We set
+	$$
+	f_i=\phi(y_i)\in \mathcal{O}_X(X).
+	$$
+	Let $ \varphi=(f_1,\dots,f_m):X\to \mathbb{A}^m $.
+	This is a morphism from $ X $ to $ Y $. To see it is a morphism we have to show $ \varphi(X)\subset Y $. Let $ h\in I(Y) $, $ h\circ \varphi =h(f_1,\dots,f_m)=h(\phi(y_1),\dots,\phi(y_m))=\phi (h(y_1,\dots,y_m)) $. The second equality is based on the homomorphic property of $ \phi $, for example, if $ h(x_1,x_2)=x_1^2-x_2^3 $, then $ h(\phi(y_1),\phi(y_2))=\phi(y_1)^2-\phi(y_2)^3= \phi(y_1^2)-\phi(y_2^3)=\phi(y_1^2-y_2^3)=\phi(h(y_1,y_2)) $. So $ h(y_1,\dots,y_m)\in A(Y) $, we choose an arbitrary element $ p=(a_1,\dots,a_m)\in Y $, then $ h(y_1,\dots,y_m)(p)=h(a_1,\dots,a_m)=0 $ because $ h\in I(Y) $. So for arbitrary $ h\in I(Y) $, we get $ h\circ\varphi=0 $, it implies $ \varphi(X)\subset \mathop{\cap}_{h\in I(Y)} Z(h)= Y $.
+\end{proof}
+\begin{example}
+	A bijective polynomial map need not to be an isomorphism. For example, let$ X=\mathbb{A}^1 $, $ Y=Z(x_2^2-x_1^3) \subset \mathbb{A}^2 $. Then 
+	$$
+	\varphi=(t^2,t^3):X\to Y
+	$$
+	is a morphism and bijective and the inverse is 
+	\begin{equation*}
+		\varphi^{-1}(a,b)=\left\lbrace \begin{matrix}
+		\frac{b}{a} & \text{ if } a\neq 0\\ 
+		0 & \text{ if } (a,b)=0
+		\end{matrix}\right.   
+	\end{equation*}
+	$ \varphi $ is not an isomorphism($ \varphi^{-1} $ is not a morphism). To show this we see the pull back:
+	\begin{equation*}
+		\varphi^\ast : A(Y)\to \mathcal{O}_X(X)
+	\end{equation*}
+	where $ A(Y)=k[x_1,x_2]/\langle x_2^2-x_1^3\rangle $ and $ A(X)=k[t] $. $ \varphi^\ast $ makes $ x_1\to t^2 $ and $ x_2\to t^3 $. Since $ \varphi^\ast $ is not surjective(there is no element maps into $ t $), $ \varphi^\ast $ is not an isomorphism. By theorem \ref{12} we know $ \varphi $ is not an isomorphism. So bijective morphism is not necessary to be an isomorphism.
+\end{example}
+\begin{definition}
+	Let $ X\subset \mathbb{A}^n $ be a closed variety, $ F\in k[x_1,\dots,x_n]\backslash I(X) $. The principal open defined by $ F $ is $ X_F:=X\backslash Z(F) $.
+\end{definition}
+\begin{proposition}\label{14}
+	$ X_F $ is an affine variety.
+\end{proposition}
+\begin{proof}
+	Let $ Z:=Z(\langle I(X),F\cdot x_{n+1}-1\rangle )\subset \mathbb{A}^{n+1} $. We need to prove $ Z $ is a closed subvariety of $ \mathbb{A}^{n+1} $ isomorphic to $ X_F $. Let $ \varphi:(x_1,\dots,x_n,\frac{1}{F}):X_F\to \mathbb{A}^{n+1} $, it is a bijective morphism and $ \varphi(X_F)=Z $. As $ X_F $ is irreducible, $ Z $ is also irreducible. So $ Z $ is closed variety of $ \mathbb{A}^{n+1} $. On the other hand, the inverse of $ \varphi $ is 
+	$$
+	\varphi^{-1}=(x_1,\dots,x_n):Z\to X_F
+	$$
+	is a morphism, so $ \varphi $ is an isomorphism. 
+\end{proof}
+
+\section{Morphisms of Quasi-projective varieties}
+\begin{definition}
+	Let $ X\subset \mathbb{P}^n,Y\subset \mathbb{P}^m $ be quasi-projective algebraic sets. A map $ \varphi:X\to Y $ is called a polynomial map if there exists homogeneous polynomials $ F_0,\dots,F_m\in k[x_0,\dots,x_n] $ of the same degree with no common zero on $ X $ s.t.
+	$ \varphi(p)=[F_0(p),\dots,F_m(p)] $, $ \forall p\in X $, write $ \varphi=[F_0,\dots,F_m] $.
+\end{definition}
+\begin{definition}
+	The homogenization of $ F\in k[x_0,\dots,x_n] $ is: 
+	$$
+	F_a:=F(1,x_1,\dots,x_n).
+	$$
+\end{definition}
+\begin{theorem}\label{13}
+	$ \varphi_i=(\frac{x_0}{x_i},\dots,\hat{\frac{x_i}{x_i}},\dots,\frac{x_n}{x_i}):U_i\to \mathbb{A}^n $ is an isomorphism.
+\end{theorem}
+\begin{proof}
+	We can assume $ i=0 $, $ \varphi:=\varphi_0 $, $ U:=U_0 $, then $ \varphi=(\frac{x_1}{x_0},\dots,\frac{x_n}{x_0}) $. $ \frac{x_i}{x_0} $ is a regular function in $ \mathcal{O}_{\mathbb{P}^n}(\mathbb{P}^n) $, so $ \varphi $ is a morphism. We need to show that $ u=\varphi^{-1}(x_1,\dots,x_n)=[1,x_1,\dots,x_n] $ is a morphism. 
+	
+	(a) $ u=\varphi^{-1} $ is continuous. Let $ W=Z(F_1,\dots,F_m)\cap U $ be closed in $ U $, $ F_i\in k[x_0,\dots,x_n] $ are homogeneous, then
+	\begin{align*}
+	u^{-1}(W)= & \{ (a_1,\dots,a_n)\in \mathbb{A}^n|[1,a_1,\dots,a_n]\in W \}\\
+	= & \{ (a_1,\dots,a_n)\in \mathbb{A}^n|F_i(1,a_1\dots,a_n)=0, \forall i=1,\dots,m \} \\
+	= & Z(F_{1a},\dots,F_{ma})
+	\end{align*}
+	where $ F_{ia} $ is homogenization of $ F_i $, it shows that $ u^{-1}(W) $ is closed in $ \mathbb{A}^n  $.
+	
+	(b) Let $ V\subset U $ be open, $ h\in \mathcal{O}_U(V) $, we need to show $ u^\ast h\in \mathcal{O}_{\mathbb{A}^n}(u^{-1}(V)) $. Making $ V $ smaller necessary, we can assume $ h=\frac{F}{G} $, $ F,G \in k[x_0,\dots,x_n]$ are homogeneous polynomials of the same degree.
+	$$
+	u^\ast h = h\circ u=\frac{F\circ u}{G\circ u}=\frac{F(1,x_1,\dots,x_n)}{G(1,x_1,\dots,x_n)}.
+	$$ 
+	Thus $ u^\ast h\in \mathcal{O}_{\mathbb{A}^n}(u^{-1}(V)) $, $ phi:\mathbb{A}^n\to u $ is an isomorphism.
+\end{proof}
+\begin{remark}
+	From theorem \ref{13} we find that if we identify $ \mathbb{A}^n $ with $ u_0\subset \mathbb{P}^n $, the Zariski topology on $ \mathbb{A}^n $ is equivalent to the induced topology of $ u_0 $ from $ \mathbb{P}^n $.
+\end{remark}
+\begin{corollary}
+	\begin{enumerate}
+		\item Every variety is isomorphic to a quasi-projective variety.
+		\item Every variety has an open cover by affine varieties.
+	\end{enumerate}
+\end{corollary}
+\begin{proof}
+	(1) Let $ X $ be a variety, if $ X $ is locally closed in $ \mathbb{P}^n $,
+	then it is  a quasi-projective variety, so we only need to consider the condition in $ \mathbb{A}^n $. Assume $ X $ be locally closed in $ \mathbb{A}^n $. $ Y=\varphi ^{-1}_0 (X) \subset \mathbb{P}^n$ is locally closed subvariety and $ \varphi^{-1}_0 :X\to Y $ is an isomorphism.
+	
+	(2) For varieties in $ \mathbb{A}^n $, it is trivial. Let $ X\subset \mathbb{P}^n $ be a quasi-projective variety, then $ X=\mathop{\cup}\limits_{i=0}^{n}X\cap U_i $. $ X\cap U_i $ is isomorphic to locally closed subvariety in $ \mathbb{A}^n $. We can regard $ X\cap U_i $ simply as $ X \subset \mathbb{A}^n$, where $ X $ is locally closed. It is equivalent to prove:
+	\begin{center}
+		For every point $ p\in X $, there exists a neighborhood $ U\subset X $ and $ U $ is an affine variety.
+	\end{center}
+	Since $ X $ is locally closed, there exist $ Y,Z\subset \mathbb{A}^n $ closed in $ \mathbb{A}^n $ s.t. $ X=Y\backslash Z $. For any point $ p\in X $, $ \exists F_p\in I(Z) $ with $ F_p(p)\neq 0 $. Then we have $ Y_{F_p}=Y\backslash Z(F_p)\subset X $. According to proposition \ref{14}, $ Y_{F_p} $ is an affine variety.
+\end{proof}
+\begin{theorem}\label{18}
+	Let $ X\subset \mathbb{P}^m $, $ Y\subset \mathbb{P}^n $ be quasi-projective varieties. Let $ \varphi :X\to Y $ be a map. The following conditions are equivalent:
+	\begin{enumerate}
+		\item $ \varphi $ is a morphism;
+		\item $ \varphi $ is locally given by regular functions, i.e., for all $ p\in X $, there exists a neighborhood $ U\subset X $, $ h_0,\dots,h_n\in \mathcal{O}_X(U) $ with no common zero on $ U $, s.t.
+		\begin{equation*}
+		\varphi(q)=[h_0(q),\dots,h_n(q)],\quad \forall q\in U.
+		\end{equation*} 
+		We write $ \varphi = [h_0,\dots,h_n] $ on $ U $;
+		\item $ \varphi $ is locally a polynomial map, i.e.:
+		\begin{center}
+			$ \forall p\in X $, $ \exists  $ open neighborhood $ U\subset X $, $ F_0,\dots,F_n\in k[x_0,\dots,x_,] $ homogeneous of the same degree with no common zero s.t.
+			\begin{equation*}
+				\varphi(q)=[F_(q),\dots,F_n(q)] \quad \forall q\in U.
+			\end{equation*}
+		\end{center}
+			We write $ \varphi = [F_0,\dots,F_n] $ on $ U $.
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	(1) $ \Rightarrow $ (2): If $ \varphi:X\to \mathbb{P}^n $ is amorphism, then $ \forall p\ in X $, $ \exists i $, s.t. $ \varphi (p) \in U_i$. Assume $ i=0 $ and then $ \varphi(p)\in U_0 $. Let $ U $ be an open neighborhood of$ p $ in $ X $ s.t. $ \varphi (U)\subset U_0 $. Then  $ \varphi _0\circ \varphi :U\to \mathbb{A}^n $ is a morphism,  so $ \varphi_0\circ\varphi = (h_1,\dots,h_n) $ with $ h_i\in \mathcal{O}_X(U) $. Since the inverse of $ \varphi_0 $ is $ u_0 $ we get 
+	\begin{equation}
+	\varphi = u_0\circ \varphi_0\circ\varphi = [1,h_1,\dots,h_n].
+	\end{equation}
+	
+	(2) $ \Rightarrow $ (3): Assume $ \varphi = [h_0,\dots,h_n] $ on $ U\subset X $, where $ h_i \in \mathcal{O}_X(U)$ with no common zeros on $ U $. By making $ U $ possibly smaller we can further assume $ h_i=\frac{F_i}{G_i} $, $ F_i,G_i\in k[x_0,\dots,x_m] $ are homogeneous of the same degree($ F_i $ and $ G_i $ are of the same degree, it is not necessary that $ F_i $ and $ G_j $ are of the same degree for $ i\neq j $), $ G_i $ has no zeros on $ U $. Let $ L_i= F_i\cdot G_0\cdot \hat{G_i}\cdot G_n $, $ L_i $ are homogeneous of the same degree, we get 
+	\begin{equation}
+	\varphi = [h_0,\dots,h_n]=[L_0,\dots,L_n].
+	\end{equation}  
+	
+	(3) $ \Rightarrow $ (1): Let $ \varphi |_U=[L_0,\dots,L_n] $, $ L_i\in k[x_0,\dots,x_m] $ are homogeneous of the same degree with no common zero. Making $ U $ smaller, we can assume one of $ L_i $(say $ L_0 $) has no zero in $ U $. Then for  $ i=1,\dots,n $, let $ h_i=\frac{L_i}{L_0}\in \mathcal{O}_X (U) $. Rewrite the map as 
+	\begin{equation}
+	\varphi = [1,h_1,\dots,h_n]
+	\end{equation}
+	\begin{equation}
+	\Rightarrow	\varphi_0\circ\varphi = (h_1,\dots,h_n).
+	\end{equation}
+	So$ \varphi_0\circ\varphi $ is amorphism, then $ \varphi = u_0\circ\varphi_0\circ\varphi $ is a morphism.
+\end{proof}
+\begin{definition}[Projective Transformation]
+	Let \begin{equation}
+	A=\left[\begin{matrix}
+	a_{00} & a_{01} & \cdots & a_{0n}\\
+	a_{10} & a_{11} & \cdots & a_{1n}\\
+	\vdots & \vdots & \ddots & \vdots\\
+	a_{n0} & a_{n1} & \cdots & a_{nn}
+	\end{matrix}\right]
+	\end{equation}
+	be a $ (n+1)\times (n+1) $ matrix  in $ k $, then we can construct a map from $ \mathbb{P}^n  \to  \mathbb{P}^n $:
+	\begin{equation*}
+	[A]:	[b_0,\dots,b_n]\to [b_0,\dots,b_n]\left[\begin{matrix}
+		a_{00} & a_{01} & \cdots & a_{0n}\\
+		a_{10} & a_{11} & \cdots & a_{1n}\\
+		\vdots & \vdots & \ddots & \vdots\\
+		a_{n0} & a_{n1} & \cdots & a_{nn}
+		\end{matrix}\right]^{T}.
+	\end{equation*}
+	It is called a projective transformation. This is a morphism and if $ A $ is inverse then it is an isomorphism.
+\end{definition}
+\begin{remark}
+	All automorphisms of $ \mathbb{P}^n $  are projective transformations. It is not so easy to prove.
+\end{remark}
+\begin{definition}[Projection]
+	Let $ X\subset\mathbb{P}^n  $ be a variety, $ W\subset \mathbb{P}^n $ be a projective subspace of $ \mathbb{P}^n $ of $ \text{dim}W=k $. Assume $ X\cap W= \emptyset $ and there exist linear forms $ H_0,\dots,H_{n-k-1} $ such that $ W=Z(H_0,\dots,H_{n-k-1}) $. The projection from $ W $ is 
+	\begin{equation*}
+		\Pi_W=[H_0,\dots,H_{n-k-1}]:X\to \mathbb{P}^{n-k-1}.
+	\end{equation*}
+	This is a morphism($ H_i $ have no common zero on $ X $ because $ W\cap X=\emptyset $).
+ \end{definition}
+ \begin{remark}
+ 	$ \Pi_W $ depends on $ H_0,\dots,H_{n-k-1} $, but if we have another relation $ W=Z(L_0,\dots,L_{n-k-1}) $ , then there exists a projection transformation $ [A]:\mathbb{P}^{n-k-1}\to \mathbb{P}^{n-k-1} $ . In particular, if $ p\in \mathbb{P}^n\backslash X $, for example, $ p=[0,\dots,0,1] $, then $ \Pi_p=[x_0,\dots,x_{n_1}] :X\to \mathbb{P}^{n-1}$. 
+ \end{remark}
+ \section{Products of Varieties}
+\begin{theorem}[Products of Affine Varieties]\label{15}
+	If $ X\subset \mathbb{A}^n,Y\subset \mathbb{A}^m $ are closed subvarieties, then $ X\times Y\subset \mathbb{A}^n\times \mathbb{A}^m=\mathbb{A}^{n+m} $ is a closed subvariety.
+\end{theorem}
+Before we prove it, we need to prove a conclusion in topology.
+\begin{lemma}\label{16}
+	Let $ X,Y $ be irreducible topological spaces. Assume we have a topology on the product $ X\times Y $ s.t.:
+	\begin{align*}
+		y_p: & Y\to X\times Y, \quad q\to (p,q) \text{ is continuous }\forall p\in X;\\
+		l_q: & X\to X\times Y, \quad p\to (p,q) \text{is continuous }\forall q\in Y.
+	\end{align*}
+	Then $ X\times Y $ is irreducible.
+\end{lemma}
+\begin{proof}
+	Assume $ X\times Y=S_1\cup S_2 $, $ S_i\subsetneqq X\times Y $ are closed. For $ i=1,2 $, set $ T_i=\mathop{\cap}\limits_{q\in Y}l_q^{-1}(S_i)=\{ p\in X|(p,q)\in S_i \quad\forall q\in Y \} $. It is the same as $ T_i=\{ p\in X|\{ p \}\times Y\subset S_i \} $. Since $ y_p $ is continuous and $ Y $ is irreducible, we get $ y_p(Y)=\{p\}\times Y $ is irreducible. So we get $ \{p\}\times Y\subset S_1 $ or $ \{p\}\times Y\subset S_2 \quad\forall p\in X$(it implies $ T_1\cap T_2=\emptyset $ and $ T_i\subsetneqq X $). Hence $ X=T_1\cup T_2 $. Since $ l_q $ is continuous, $ T_i $ are closed, then $ X $ is reducible.
+\end{proof}
+\begin{proofofproductsofaffinevarieties}
+	Let $ X\subset \mathbb{A}^n,Y\subset \mathbb{A}^m $ be closed subvarieties, the product of $ X $ and $ Y $ is just 
+	\begin{equation*}
+		X\times Y=\{ (p,q)\in \mathbb{A}^n\times \mathbb{A}^m=\mathbb{A}^{n+m}|p\in X \text{ and }q\in Y \}.
+	\end{equation*}
+	Let $ x_1,\dots,x_n $ be coordinates in $ \mathbb{A}^n $ and $ y_1,\dots,y_m $ be coordinates in $ \mathbb{A}^m $, we can assume $ X=Z(F_1,\dots,F_k) $ and $ Y=Z(G_1,\dots,G_l) $ where $ F_i\in k[x_1,\dots,x_n],G_j\in k[y_1,\dots,y_m] $. Then 
+	\begin{equation}
+	X\times Y= Z(F_1,\dots,F_k,G_1,\dots,G_l)\subset \mathbb{A}^{n+m}
+	\end{equation}
+	is a closed subset. By lemma \ref{16} we only need to check  $\forall  q\in Y $, $ l_q:X\to Y $ is continuous. Write $ q=(b_1,\dots,b_m) $, then $ l_q=(x_1,\dots,x_n,b_1,\dots,b_m) $. It is a morphism, so it is continuous, thus we finish the whole proof.
+\end{proofofproductsofaffinevarieties}
+\begin{proposition}[Universal Property]\label{19}
+	Let $ X\subset\mathbb{A}^n,Y \subset \mathbb{A}^m$ be varieties, then  
+	\begin{enumerate}
+		\item The projections
+		\begin{align*}
+			p_1 & =(x_1,\dots,x_n): X\times Y\to X\\
+			p_2 & =(y_1,\dots,y_m): X\times Y\to Y
+		\end{align*}
+		are morphisms.
+		\item Let $ Z $ be a variety. The morphism $ \varphi : Z\to X \times Y $ are precisely the 
+		\begin{equation*}
+		(f,g):Z\to X\times Y,\quad p\to (f(p),g(p))\quad\forall p\in Z
+		\end{equation*}
+		where $ f:Z\to X $ and $ g:Z\to Y $ are morphisms. In other words, $ \varphi:Z\to X\times Y $ is a morphism if and only if both $ p_1\circ \varphi $ and $ p_2\circ\varphi  $ are morphisms.
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	The first is obvious, we only check the second.
+	
+	$ \Rightarrow $: Let $ \varphi:Z\to X\times Y $ be a morphism, then $ f=p_1\circ\varphi $ and $ g=p_2\circ\varphi $ are morphisms and $ \varphi=(f,g) $.
+	
+	$ \Leftarrow $: Assume $ f:Z\to X $ and $ g:Z\to Y $ are both morphisms. then there exist $ f_1,\dots,f_n\in \mathcal{O}_Z(Z) $ and $ g_1,\dots,g_m\in \mathcal{O}_Z(Z) $ s.t.
+	$ f=(f_1,\dots,f_n),\quad g=(g_1,\dots,g_m) $. Then $ (f,g)=(f_1,\dots,f_n,g_1,\dots,g_m) $ is a morphism.
+\end{proof}
+\begin{remark}
+	Let $ X\subset \mathbb{P}^n,Y\subset \mathbb{P}^m $ be subvarieties, $ X\times Y $ does not lie rationally in some projective space. Thus we need to find an embedding $ \sigma :\mathbb{P}^n\times \mathbb{P}^m \to \mathbb{P}^N$ to denote the products of quasi-projective varieties.
+\end{remark}
+\begin{definition}[[Segre Embedding]]
+	We put $ N:=(n+1)\cdot (m+1)-1 $, let $ x_0,\dots,x_n $ be coordinates on $ \mathbb{P}^n $, $ y_0,\dots,y_m $ be coordinates on $ \mathbb{P}^m $. Let $ z_{ij}, i=0,\dots,n, j=0,\dots,m $ be coordinates on $ \mathbb{P}^N $. Define a map
+	\begin{align*}
+	\sigma:\mathbb{P}^n\times \mathbb{P}^m & \to  \mathbb{P}^N\\
+	([x_0,\dots,x_n],[y_0,\dots,y_m]) & \to  [z_{ij}]=[x_iy_j]
+	\end{align*}
+	$ \sigma $ is called the Segre embedding.
+\end{definition}
+\begin{definition}
+	We define the image of $ \sigma $ as
+	\begin{equation*}
+	\Sigma := \sigma(\mathbb{P}^n\times \mathbb{P}^m)\subset \mathbb{P}^N.
+	\end{equation*}
+	For $ i=0,\dots,n $, put
+	\begin{equation*}
+	 U_i:=\{ [x_0,\dots,x_n]\in \mathbb{P}^n|x_i\neq 0 \}.
+	\end{equation*}
+	 For $ j=0,\dots,m $, put 
+	 \begin{equation*}
+	 U_j:=\{ [y_0,\dots,y_m]\in\mathbb{P}^m|y_j\neq 0 \}.
+	 \end{equation*}
+	 And for $ i=0,\dots,n,j=0,\dots,m $, put 
+	 \begin{equation*}
+	 U_{ij}:=\{ [z_{kl}]\in \mathbb{P}^{N}|z_{ij}\neq =0 \}.
+	 \end{equation*}
+\end{definition}
+there are isomorphisms:
+	 \begin{align*}
+	 \mathbb{A}^n & \mathop{\rightleftarrows}\limits_{\varphi_i}^{u_i}  U_i\\
+	 \mathbb{A}^m & \mathop{\rightleftarrows}\limits_{\varphi_j}^{u_j} U_j\\
+	 \mathbb{A}^N & \mathop{\rightleftarrows}\limits_{\varphi_{ij}}^{u_{ij}} U_{ij}.
+	 \end{align*}
+Since $ \mathbb{P}^N=\mathop{\cup}_{i,j}U_{ij} $, we get $ \Sigma = \mathop{\cup}_{i,j}(\Sigma \cap U_{ij}) $, define 
+\begin{equation*}
+\Sigma^{ij}=\Sigma \cap U_{ij}.
+\end{equation*}
+Define the map $ \sigma^{ij} $
+\begin{align*}
+	\sigma^{ij}:\mathbb{A}^{n+m} & \to U_{ij}\\
+	(p,q) & \to \sigma (u_i(p),u_j(q)). 
+\end{align*}
+By definition we know $ \sigma^{ij}(\mathbb{A}^{n+m})=\Sigma^{ij} $.
+\begin{theorem}
+	\begin{enumerate}
+		\item $ \sigma:\mathbb{P}^n\times\mathbb{P}^m\to \mathbb{P}^N $ is injective and $ \Sigma $ is closed in $ \mathbb{P}^N $:
+		\begin{equation}\label{17}
+		\Sigma=Z\left(\left\lbrace z_{ij}z_{kl}-z_{il}z_{kj}|\begin{matrix}
+		i,k & =0,\dots,n\\
+		j,l & =0,\dots,m
+		\end{matrix} \right\rbrace\right).
+		\end{equation}
+		\item $ \sigma^{ij}:\mathbb{A}^{n+m}\to \Sigma^{ij} $ is an isomorphism.
+		\item $ \forall q\in\mathbb{P}^m $, the map 
+		\begin{align*}
+			\bar{i_q}:  \mathbb{P}^n & \to \mathbb{P}^N\\
+			p & \to \sigma(p,q) 
+		\end{align*}
+		is a morphism. Similarly, $ j_p=\sigma(p,q):\mathbb{P}^m\to \mathbb{P}^N $ is a morphism.
+		\item Let $ X\subset \mathbb{P}^n,Y\subset \mathbb{P}^m $ be quasi-projective varieties, then $ \sigma(X\times Y)\subset \mathbb{P}^N $ is also a quasi-projective variety. What's more, if $ X $ and $ Y $ are both projective varieties, then $ \sigma(X\times Y) $ is a projective variety.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	(1) If $ \sigma\left( \left[a_0,\dots,a_n\right],\left[b_0,\dots,b_m\right] \right)=\sigma\left( \left[ a_0',\dots,a_n' \right],\left[ b_0',\dots,b_m' \right] \right) $, then $ \exists \lambda\in k\backslash \{ 0 \} $, s.t. $ \lambda a_i'b_j'=\lambda a_ib_j $ $ \forall i,j $. Choose $ i_0,j_0 $ s.t. $ a_{i_0}b_{j_0}\neq 0 $, then $ \forall i=0,\dots,n $, $ a_ib_{j_0}=\lambda a_i'b_{j_0}' $ $ \Rightarrow $ $ a_i=\left(\frac{\lambda b_{j_0}'}{b_{j_0}}\right)a_i' $ $ \Rightarrow $ $ [a_0,\dots,a_n]=[a_0',\dots,a_n'] $. The same way can be used to prove $ [b_0,\dots,b_m]=[b_0',\dots,b_m'] $. Let $ W $ be the zero set on the right hand side of the equation \ref{17}, clearly we have the relation $ \Sigma\subset W $. Now let $ [a_{ij}]\in W $, choose $ i_0,j_0 $ s.t. $ a_{i_0j_0}\neq 0 $, then we get $ [a_{ij}]=[a_{i_0j_0}a_{ij}]=[a_{i_0j}a_{ij_0}]=[a_{ij_0}a_{i_0j}]=\sigma([a_{0j_0},\dots,a_{nj_0}],[a_{i_00},\dots,a_{i_0m}])\subset \Sigma $.
+	
+	(2) Assume $ i=j=0 $, then  
+	\begin{align*}
+		\varphi_{00}\circ\sigma^{00}(a_1,\dots,a_n,b_1,\dots,b_m) & =\varphi_{00}(\sigma([1,a_1,\dots,a_n],[1,b_1,\dots,b_m]))\\
+		& =(z_{ij})_{(i,j)\neq(0,0)} 
+	\end{align*}
+	where $ z_{i0}=a_i $ for $ i=1,\dots,n $, $ z_{0j}=b_j $ for $ j=1,\dots,m $, $ z_{ij}=a_ib_j $ for $ i,j\geq 1 $. These are all regular functions, so  $ \varphi_{00}\circ \sigma^{00} $ is a morphism, so $ \sigma^{00} $ is a morphism. Finally, $ \sigma^{00} $ is an isomorphism because the inverse map is 
+	\begin{equation*}
+	(\sigma^{00})^{-1}=\left(\frac{z_{10}}{z_{00}},\dots,\frac{z_{n0}}{z_{00}},\frac{z_{01}}{z_{00}},\dots,\frac{z_{0m}}{z_{00}}\right).
+	\end{equation*}
+	\begin{remark}
+		In fact,  $ \Sigma^{ij} $ is a quasi-projective  variety. Because $ \mathbb{A}^{n+m} $ is irreducible, $ \Sigma^{ij} $ is irreducible, hence a quasi-projective variety. 
+	\end{remark}
+	
+	(3) Let $ q=[b_0,\dots,b_m] $, then $ i_{q}=[x_ib_j] $, $ x_ib_j $'s are homogeneous polynomials, so by theorem \ref{18} we know it is a morphism.
+	
+	(4) Let $ X\subset \mathbb{P}^n,Y\subset \mathbb{P}^m $ be projective varieties. We can decompose the map into the following:
+	\begin{align*}
+		\sigma(X\times Y) &=\mathop{\cup}\limits_{i,j}\sigma(X\times Y)\cap U_{ij}\\
+		&=\mathop{\cup}\limits_{i,j}\sigma^{ij}(\varphi_i(X\cap{U_i})\times \varphi_j(Y\cap{U_j}))
+	\end{align*}
+	$ \varphi_i(X\cap U_i) $ and $ \varphi_j(Y\cap U_j) $ are closed subsets of $ \mathbb{A}^n $ and $ \mathbb{A}^m $ respectively. By the theorem \ref{15} $ \varphi_i(X\cap{U_i})\times \varphi_j(Y\cap{U_j}) $ is closed in $ \mathbb{A}^{n+m} $. Since $ \sigma^{ij} $ is an isomorphism, then  $ \sigma^{ij}(\varphi_i(X\cap{U_i})\times \varphi_j(Y\cap{U_j})) $ is closed in $ \Sigma^{ij}=\Sigma\cap U_{ij}$. So $ \sigma(X\times Y) $ is closed in $ \Sigma $, hence closed in $ \mathbb{P}^N $ because $ \Sigma $ itself is closed. To show its irreducible, we use the lemma \ref{16}. Since $ \sigma $ is injective we can endow $ \mathbb{P}^n\times\mathbb{P}^m $ with the topological structure of $ \mathbb{P}^N $, hence we can identify $ \mathbb{P}^n\times\mathbb{P}^m $ with $ \Sigma $ provided with the topology induced from $ \mathbb{P}^N $. Now we can use the lemma \ref{16}, we have known $ i_q $ and $ j_p $ are continuous, so $ \sigma(X\times Y) $ is irreducible. For quasi-projective conditions ,we just get the conclusion by simply difference two projective varieties.
+\end{proof}
+\begin{remark}
+For $ X\subset \mathbb{P}^n $ and $ Y\subset\mathbb{P}^m $ we can now identify $ X\times Y $ with $ \sigma(X\times Y)\subset \mathbb{P}^N$. In particular we can identify $ \mathbb{P}^n\times\mathbb{P}^m $ with $ \Sigma $.
+
+From this perspective, part (2) of the theorem just says $ U_i\times U_j\subset \mathbb{P}^n\times \mathbb{P}^m $ is open and $ \varphi_i\times \varphi_j:U_i\times U_j\to \mathbb{A}^{n+m} $ is an isomorphism. 
+\end{remark}
+\begin{proposition}[Universal Property]
+	Let $ X,Y $ be quasi-projective varieties, then 
+	\begin{enumerate}
+		\item The projections
+			\begin{align*}
+			p_1 & =(x_1,\dots,x_n): X\times Y\to X\\
+			p_2 & =(y_1,\dots,y_m): X\times Y\to Y
+			\end{align*}
+			are morphisms.
+		\item Let $ Z $ be a variety. The morphism $ \varphi : Z\to X \times Y $ are precisely the 
+		\begin{equation*}
+		(f,g):Z\to X\times Y,\quad p\to (f(p),g(p))\quad\forall p\in Z
+		\end{equation*}
+		where $ f:Z\to X $ and $ g:Z\to Y $ are morphisms. In other words, $ \varphi:Z\to X\times Y $ is a morphism if and only if both $ p_1\circ \varphi $ and $ p_2\circ\varphi  $ are morphisms.
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	(1) It is enough to show $ p_1|_{U_i\times U_j} $ is a morphism from $ U_i\times U_j $ to $ U_i $. Identify $ U_i\times u_j $ with $ \mathbb{A}^{n+m} $ and $ U_i $ with $ \mathbb{A}^{n} $, then we can see that $ p_1 $ is the same as  the projection defined by the proposition \ref{19}, so it is a morphism.
+	
+	(2) $ \Rightarrow $: Let $ \varphi:Z\to X\times Y $ be a morphism. Then $ f:=p_1\circ \varphi $ and $ g:=p_2\circ \varphi $ are morphisms.
+	
+	$ \Leftarrow $: Let $ f:Z\to X $ and $ g:Z\to Y $ be morphisms. Define 
+	\begin{equation*}
+	Z^{ij}:=f^{-1}(U_i)\cap g^{-1}(U_j).
+	\end{equation*}
+	Then $ (f,g) $ is a morphism $ \Leftrightarrow $ $ (f,g)|_{Z^{ij}} $ is a morphism for $ i=1,\dots,n,j=1,\dots,m $. Consider the following mapping chain
+	\begin{equation*}
+		Z^{ij}\xrightarrow{(f,g)} (X\times Y)\cap (U_i\times U_j)\xrightarrow{\varphi_i\times \varphi_j}\varphi_i(X\cap U_i)\times \varphi_j(Y\cap U_j)\subset \mathbb{A}^{n+m}.
+	\end{equation*}
+	the whole chain $ (\varphi_i\circ f,\varphi_j\circ g):Z^{ij}\to \mathbb{A}^{n+m} $ is a morphism, so $ (f,g) $ is a morphism.
+\end{proof}
+\begin{corollary}
+	Let $ X_1,X_2,Y_1,Y_2 $ be varieties. If $ f:X_1\to Y_1 $ and $ X_2\to Y_2 $ are morphisms, then the map:
+	\begin{align*}
+		f\times g :X_1\times X_2 & \to Y_1\times Y_2\\
+		(p,q)\to (f(p),g(q))
+	\end{align*}
+	is a morphism. In particular, if $ X_1 $ is isomorphic to $ Y_1 $ and $ X_2 $ is isomorphic to $ Y_2 $, then $ X_1\times X_2 $ is isomorphic to $ Y_1\times Y_2 $
+\end{corollary}
+\begin{proof}
+	We can write $ f\times g $ as $ f\circ p_1 $ and $ g\circ p_2 $, both $ f\circ p_1 $ and $ g\circ p_2 $ are morphisms, so $ f\times g =(f\circ p_1,g\circ p_2) $ is a morphism. 
+\end{proof}
+\begin{lemma}
+	The closed subset in $ \mathbb{P}^n\times \mathbb{P}^m $ is the zero set of sets of polynomials of $ f_k(x_0,\dots,x_n,y_0,\dots,y_m) $ for $ k=1,\dots,r $ which are homogeneous in  $ x_i $ and $ y_j $, and the degree in $ x_i $ is equal to the degree in $ y_j $, we called it behomogeneous.
+\end{lemma}
+\begin{proof}
+	Let $ W\subset \mathbb{P}^n\times \mathbb{P}^m $ be closed. $ W=\sigma^{-1}(A) $, for $ A\subset \mathbb{P}^N $ closed.
+	Then $ A $ is the zero set of homogeneous polynomials in $ z_{ij} $, write it as $ A=(f_1(z_{ij}),\dots,f_r(z_{ij}) $. Then we get $ W=(f_1(x_iy_j),\dots,f_r(x_iy_j)) $.  For $ k=1,\dots,r $, $ f_k(x_iy_j) $ are bihomogeneous. Conversely, assume $$ W=Z( g_1(x_0,\dots,x_n,y_0,\dots,y_m),  \dots,g_l(x_0,\dots,x_n,y_0,\dots,y_m )) $$
+	where $ g_{k} $ are bihomogeneous. Then
+	\begin{equation*}
+	(\varphi_i\times\varphi_j)(W\cap (U_i\times U_j))=Z( g_1(x_0,\dots,x_i=1,\dots,x_n,y_0,\dots,y_j=1,\dots,y_m),\dots,g_l(x_0,\dots,x_i=1,\dots,x_n,y_0,\dots,y_j=1,\dots,y_m) )
+	\end{equation*} 
+	are closed in $\mathbb{A}^{n+m}  $. So $ W\cap (U_i\times U_j) $ are closed in $ U_i\times U_j $. $ U_i\times U_j $ form a finite open cover of $ \mathbb{P}^n\times \mathbb{P}^m $, so $ W $ is closed.
+\end{proof}
+\begin{definition}
+	Let $ X $ be a variety, the diagonal is 
+	\begin{equation*}
+	\Delta_X:=\{ (p,p)\in X\times X|p\in X \}\subset X\times X.
+	\end{equation*}
+	The diagonal morphism is 
+	\begin{align*}
+		\delta_X:X & \to \Delta_X\subset X\times X\\
+		p &\to (p,p).
+	\end{align*}
+\end{definition}
+\begin{lemma}\label{20}
+	$ \Delta_X $ is closed in $ X\times X $ and $ \delta_X:X\to \Delta_X $ is an isomorphism.
+\end{lemma}
+\begin{proof}
+	Any variety $ X $ is isomorphic to a locally closed subvariety of some projective space, so we can assume $ X\subset\mathbb{P}^n $ is locally closed, then 
+	\begin{equation*}
+		\Delta_X=\Delta_{\mathbb{P}^n}\cap (X\times X).
+	\end{equation*}
+	Thus we know if $ \Delta_{\mathbb{P}^n} $ is closed then $ \Delta_X $ is closed in $ X\times X $.
+	In fact $ \Delta_{\mathbb{P}^n}=Z\left( \left\lbrace x_iy_j-x_jy_i|i,j=0,\dots,n \right\rbrace \right) $ is closed.
+	
+	$ \delta_X:X\to \Delta_X $ is isomorphic because $ p_1:\Delta_X\to X $ is its inverse morphism. 
+\end{proof}
+\begin{remark}
+	The fact that $ \Delta_X\subset X\times X $ is closed replaces for us the Hausdorff property in topology.
+\end{remark}
+\begin{definition}
+	A variety is called separated if $ \Delta_X\subset X\times X $ is closed. By the lemma \ref{20} all varieties are separated.
+\end{definition}
+\begin{corollary}
+	Let $ \varphi,\psi:X\to Y $ be morphisms of varieties, then $ W=\{ p\in X|\varphi(p)=\psi(p) \} $ is closed in $ X $. In particular, if $ \varphi|_U=\psi|_U $ for an open subset of $ X $, then $ \varphi=\psi $. 
+\end{corollary}
+\begin{proof}
+	See the following chain
+	\begin{equation*}
+		X\xrightarrow{\delta_X} \Delta_X\xrightarrow{\varphi\times\psi} Y\times Y.
+	\end{equation*} 
+	So $ W=\delta^{-1}( (\varphi\times\psi)^{-1}(\Delta_Y) ) $ is closed. Because varieties are irreducible, the open set $ U $ is dense in $ X $, let $ \omega = \varphi-\psi $ and we get $ l(x)=0 $ in $ U $, hence $ l=0 $ in $ X $ because of the continuity of $ l $, hence $ \varphi=\psi $.
+\end{proof}
+\begin{definition}
+	Let $ \varphi :X\to Y $ be a morphism of varieties. The graph of $ \varphi $ is defined as 
+	\begin{equation}
+		\Gamma_{\varphi}:=\{ \left(p,\varphi\left(p\right)\right)| p\in X \}\subset X\times Y.
+	\end{equation}
+\end{definition}
+\begin{corollary}
+	$ \Gamma_\varphi $ is closed in $ X\times Y $.
+\end{corollary}
+\begin{proof}
+	Define the map 
+	\begin{align*}
+		\varphi\times\text{id}_Y : X\times Y & \to Y\times Y\\
+		(p,q) & \to (\varphi(p),q).
+	\end{align*}
+	Then we have $ \Gamma_\varphi = (\varphi\times\text{id}_Y)^{-1}(\Delta Y) $, so it is closed. In fact $ \Gamma_\varphi $ is isomorphic to $ X $. 
+\end{proof}
+\begin{definition}
+	A map $ \varphi:X\to Y $ of topological spaces is called closed if $ \varphi(Z) $ is closed in $ Y $ for all closed subsets $ Z\subset X $.
+\end{definition}
+\begin{definition}
+	A variety complete if the projection $ p_2:X\times Y\to Y $ is a closed map for all varieties $ Y $.
+\end{definition}
+\begin{remark}
+	Completeness replaces for us compactness in topology.
+\end{remark}
+\begin{example}
+	$ \mathbb{A}^1 $ is not complete. Let $ Z=Z(x_1y_1-1)\subset \mathbb{A}^2=\mathbb{A}^1\times \mathbb{A}^1 $, then $ p_2(Z)=\mathbb{A}^1\backslash\{ 0 \} $ is not closed in $ \mathbb{A}^1 $.
+\end{example}
+\begin{proposition}
+	Let $ X $ be a complete variety, $ \varphi:X\to Y $ be a morphism of varieties. Then $ \varphi(X) $ is closed in $ Y $.
+\end{proposition}
+\begin{proof}
+	Since $ \Gamma_\varphi\subset X\times Y $ is closed and $ \varphi(X)=p_2(\Gamma_\varphi) $, thus if $ X $ is complete, $ \varphi(X) $ is closed in $ Y $.
+\end{proof}
+\begin{theorem}
+	All projective varieties are complete.
+\end{theorem}
+\begin{proof}
+	We finish the proof by two steps.
+	
+	(1) Main step to show $ p_2:\mathbb{P}^n\times \mathbb{P}^m\to \mathbb{P}^m $ is closed. Let $ X\subset\mathbb{P}^n\times\mathbb{P}^m $ be closed, we can write it as
+	\begin{equation*}
+		X=Z(f_1(x,y),\dots,f_r(x,y)) 
+	\end{equation*} 
+	where $ f_i $ isbihomogeneous, $ x=(x_0,\dots,x_n),y=(y_0,\dots,y_m) $. We can assume all $ f_i $ have the same degree $ d $ in $ y $. If $ f_j $ has a lower degree $ l $, we can replace it by polynomials $ y_0^{d-l}f_j,y_1^{d-l}f_j,\dots,y_n^{d-l}f_j $. Fix a point $ q\in\mathbb{P}^m $, then $ q\in p_2(X) $ $ \Leftrightarrow $ $ Z(f_1(x,q),\dots,f_r(x,q))\neq \emptyset $. By the projective Nullstellensatz, this is equivalent to: 
+	\begin{center}
+		$ \forall s>0 $, $ (\ast) $ $ \mathfrak{a}:=\langle f_1(x,q),\dots,f_r(x,q)\rangle $ does not contain\\
+		 all monomials of degree $ s $ in $ x $.
+	\end{center} 
+	It is trival for $ s<d $, so it is enough to show:
+	\begin{center}
+		$ \forall s\geq d $, the set $X_s:= \{ q\in\mathbb{P}^m|q \text{ satisfies the condition } (\ast) \} $ \\
+		is closed in $ \mathbb{P}^m $.
+		 Hence $ p_2(X)=\mathop{\cap}\limits_{s\geq d} X_s $ is closed in $ \mathbb{P}^m $.
+	\end{center}
+	Denote monomials in $ x $ of degree $ s $ with $ M_i(x) $, $ i=1,\dots,\binom{n+s}{n} $. Denote monomials in $ x $ of degree $ s-d $ with $ N_j(x) $, $ j=1,\dots,\binom{n+s-d}{n} $. The elements of degree $ s $ in $ \mathfrak{a} $ are the linear span of $ \{N_i(x)f_j(x,q)|i=1,\dots,\binom{n+s-d}{n},j=0,\dots,r\} $. Define all  $ \{N_i(x)f_j(x,y)\} $ by $ \{ G_k(x,y),k=1,\dots,t \} $. The condition $ (\ast) $ is equivalent to:
+	\begin{center}
+		$ \{ G_k(x,q) \} $ does not equal to the whole space of degree $ s $ in $ x $.
+	\end{center}
+	We can write $ G_k(x,y)=\sum\limits_{i=1}^{\binom{n+s}{n}} A_{ik}(y)M_i(x) $. The dimension of the linear span of $ \{G_k(x,q),k=1,\dots,t \}$ is the rank of the matrix $ A:=(A_{ik}(q)) $. Thus the condition $ (\ast) $ is equivalent to $ \text{rank}(A)<\binom{n+s}{n} $. Thus 
+	\begin{equation*}
+		\{q\in\mathbb{P}^m|q \text{ satisfies the condition } (\ast) \}=\text{ zero set of all } \binom{n+s}{n}\times \binom{n+s}{n} \text{ minors of } A.
+	\end{equation*}
+	Thus $ p_2(X) $ is closed in $ \mathbb{P}^m $.\\
+	(2) General case. First show $ \mathbb{P}^n $ is completed. Let $ Y $ be a variety, we can assume $ Y\subset \mathbb{P}^m $ is locally closed subvariety. Let $ Z\subset \mathbb{P}^n\times Y $ be closed in $ \mathbb{P}\times Y $, $ \bar{Z} $ be the closure of $ Z $ in $ \mathbb{P}^n\times\mathbb{P}^m $. Then $ p_2(\bar{Z}) $ is closed in $ \mathbb{P}^m $, hence $ p_2(Z)=p_2(\bar{Z}\cap (\mathbb{P}^n\times Y))=p_2(\bar{Z})\cap Y $ is closed in $ Y $. Finally, let $ X\subset \mathbb{P}^n $ be closed subvariety, $ Z\subset X\times Y $  be closed, it follows that $ Z $ is also closed in $ \mathbb{P}^n\times Y $, therefore by trival step $ p_2(Z) $ is closed in Y.
+\end{proof}
+% \begin{thebibliography}{9}
+ %    \bibitem{a} bibitem
+% \end{thebibliography}
+\end{document}

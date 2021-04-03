@@ -1,0 +1,115 @@
+ 
+<blockquote class="thm"><b>Proposition 1</b>  	Let $latex { \varphi:X\rightarrow Y }$ be a morphism of varieties. Assume there exists a nonempty open subset $latex { U\subset Y }$ such that for all $latex { p\in U }$, $latex { \text{dim}(\varphi^{-1}(p))=n }$, then we have 	<p align=center>$latex \displaystyle  	\text{dim}X=\text{dim}Y+n. 	$</p>
+ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  We prove the statement by induction over $latex { \text{dim}Y }$. If $latex { Y }$ is a point, then it is trivial. If $latex { \text{dim}Y&gt;0 }$, replacing $latex { Y }$ by an open affine subset $latex { V }$(i.e. replace $latex { Y }$ by $latex { Y\cap \mathbb{A}^k }$ for some $latex { k }$) and $latex { X }$ by an open affine subset of $latex { \varphi^{-1}(V) }$, we can assume $latex { X,Y }$ are both affine by theorem <a href="#15-2">11</a>. In fact, $latex { X\subset \mathbb{A}^l }$ and $latex { Y\subset \mathbb{A}^m }$ for some $latex { l }$ and some $latex { m }$, are closed affine subvarieties. We can write $latex { \varphi=(F_1,\dots,F_m) }$ with $latex { F_i\in k[x_0,\dots,x_l] }$. Let $latex { g\in k[x_1,\dots,x_m] }$ such that $latex { \emptyset \neq Z(g)\cap Y\neq Y }$, then we set $latex { Y'=Z(g)\cap Y }$ and $latex { X'=\varphi^{-1}(Y') }$. By definition $latex { X'=X\cap Z(g(F_1,\dots,F_m)) }$ and it is not empty since its image $latex { Y' }$ is not empty. For any point $latex { p\in Y' }$, $latex { \varphi^{-1}(p) }$ in $latex { X }$ is also in $latex { X' }$, hence the dimension of fibres is still equal to $latex { n }$. By induction any irreducible component $latex { \tilde{X} }$ of $latex { X' }$ has the relation $latex { \text{dim}\tilde{X}=\text{dim}\tilde{Y}+n }$ with the corresponding $latex { \tilde{Y} }$ of $latex { Y' }$, hence $latex { \text{dim}X'=\text{dim}Y'+n }$. Since $latex { \text{dim}Y=\text{dim}Y'+1 }$ and $latex { \text{dim}X=\text{dim}X'+1 }$, we get $latex { \text{dim}X=\text{dim}Y+n }$. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Theorem 2 (without proof)</b>  	Let $latex { \varphi:X\rightarrow Y }$ be a surjective morphism, assume $latex { \text{dim}X=\text{dim}Y+n }$, then 	
+
+<ol> 		<li> for all points $latex { p\in X }$, $latex { \text{dim}(\varphi^{-1}(p))\geq n }$; 		<li> there is a nonempty open subset $latex { U\subset Y }$ such that for all $latex { p\in U }$, $latex { \text{dim}\varphi^{-1}(p)=U }$. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Example 1</b>  	
+
+<ol> 		<li> $latex { \text{dim}(X\times Y)=\text{dim}X+\text{dim}Y }$. Consider the projection map $latex { p:X\times Y\rightarrow Y }$, the inverse $latex { p^{-1}(q)=X\times \lbrace q \rbrace }$ has the dimension $latex { \text{dim}X }$. 		<li> Let $latex { X\subset \mathbb{P}^n }$ be a projective variety, then we have 		<p align=center>$latex \displaystyle  		\text{dim}C(X)=\text{dim}X+1. 		$</p>
+ 	
+</ol>
+
+ 	Consider the map $latex { \Pi:C(X)\backslash \lbrace 0 \rbrace\rightarrow X }$ that maps $latex { (x_0,\dots,x_n) }$ to $latex { [x_0,\dots,x_n] }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 3</b>  	If $latex { X\subset \mathbb{P}^n }$ has dimension $latex { n-k }$, we say codimension $latex { \text{codim}X=k }$. </blockquote>
+
+<p>
+
+
+<p>
+
+<blockquote class="thm"><b>Theorem 4</b> <a name="16-1"></a> 	
+
+<ol> 		<li> Let $latex { X,Y\subset \mathbb{A}^n }$ be closed subvarieties. Every irreducible component $latex { Z }$ of $latex { X\cap Y }$ has dimension $latex { \text{dim}Z\geq \text{dim}X+\text{dim}Y-n }$. 		<li> Let $latex { X,Y\subset \mathbb{P}^n }$ be closed subvarieties, every irreducible component $latex { Z }$ of $latex { X\cap Y }$ has dimension $latex { \text{dim}\geq \text{dim}X+\text{dim}Y-n }$. In particular, if $latex { \text{dim}X+\text{dim}Y\geq n }$, then $latex { X\cap Y\neq \emptyset }$. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+
+<p>
+
+<blockquote class="thm"><b>Remark 1</b>  	The fact that $latex { X\cap Y\neq \emptyset }$ if $latex {\text{dim}X+\text{dim}Y\geq n }$ is special for projective space. This can be used to prove that $latex { \mathbb{P}^1\times\mathbb{P}^1 }$ is not isomorphic to $latex { \mathbb{P}^2 }$. If $latex { \mathbb{P}^1\times\mathbb{P}^1 \simeq \mathbb{P}^2}$, then for any $latex { 1 }$-dimension subvarieties $latex { X,Y \subset \mathbb{P}^1\times \mathbb{P}^1}$, we have $latex { X\cap Y \neq \emptyset }$. But for $latex { X=\lbrace p\rbrace\times \mathbb{P}^1}$ and $latex { Y=\lbrace q\rbrace \times \mathbb{P}^1 }$ such that $latex { p\neq q }$, we have $latex { X\cap Y=\emptyset }$, which contradicts to the theorem, so $latex { \mathbb{P}^1\times\mathbb{P}^1 }$ is not isomorphic to $latex { \mathbb{P}^2 }$. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	
+
+<ol> 		<li> Trick: take the diagonal to reduce to the intersection with hyperplanes 		<p align=center>$latex \displaystyle  		\delta^{-1}(X\times Y)=\delta^{-1}((X\times Y)\cap \Delta)=X\cap Y. 		$</p>
+ 		Thus $latex { X\cap Y\simeq (X\times Y)\cap \Delta\subset \mathbb{A}^{2n} }$. In fact, 		<p align=center>$latex \displaystyle  		\Delta =Z(x_1-y_1,\dots,x_n-y_n). 		$</p>
+ 		By theorem <a href="#15-3">12</a>, $latex { \text{dim}(Z\cap Z(f))\geq \text{dim}Z-1 }$ where $latex { Z }$ is a variety. By induction, we can get $latex { \text{dim}(X\cap Y)=\text{dim}((X\times Y)\cap \Delta)\geq \text{dim}X+\text{dim}Y-n }$. 		<li> Reduce to (1) by using affine cones. By definition, $latex { C(X)\cap C(Y)=C(X\cap Y) }$, $latex { \text{dim}C(X)=\text{dim}X+1 }$ and same for $latex { Y }$ and $latex { X\cap Y }$. Let $latex { Z }$ be a irreducible component of $latex { X\cap Y }$, then $latex { C(Z) }$ is a irreducible component of $latex { C(X\cap Y) }$. By using the conclusion in (1) we get 		<p align=center>$latex \displaystyle  		\begin{array}{cccc} 		\text{dim}Z & = & \text{dim}C(Z)-1 & { }\\ 		{ } &\geq & \text{dim}C(X)+\text{dim}C(Y)-(n+1)-1 & { }\\ 		{ } & = & \text{dim}X+\text{dim}Y-n & { }. 		\end{array} 		$</p>
+ 	
+</ol>
+
+ 	Assume $latex { \text{dim}X+\text{dim}Y\geq n }$, we know $latex { C(X)\cap C(Y)\neq \emptyset }$ because $latex { 0\in C(X)\cap C(Y) }$. Every $latex { Z }$ irreducible component $latex { C(X)\cap C(Y) }$ satisfies $latex { \text{dim}Z=\text{dim}(C(X)\cap C(Y))\geq \text{dim}C(X)+\text{dim}C(Y)-(n+1)\geq 1 }$. Thus $latex { C(X)\cap C(Y)\neq \lbrace 0 \rbrace }$ $latex { \Rightarrow }$ $latex { X\cap Y\neq \emptyset }$. $latex \Box$
+
+ We know $latex { \text{dim}X=\text{dim}Y }$ if $latex { X }$ and $latex { Y }$ are birational, and $latex { K(X)\simeq K(Y) }$ if $latex { X }$ is birational to $latex { Y }$. Thus $latex { \text{dim}X }$ must be determined by $latex { K(X) }$. We will see $latex { \text{dim}X }$ is equal to the transcendence degree of $latex { K(X) }$ over $latex { k }$. 
+<blockquote class="thm"><b>Definition 5 (Field Extension and Finitely generated Field Extension)</b>  	Let $latex { K/k }$ be a field extension. For $latex { a_1,\dots,a_n\in K }$, denote $latex { k(a_1,\dots,a_n) }$ as the smallest subfield of $latex { K }$ containing $latex { k }$ and $latex { a_1,\dots,a_n }$. This is called field extension over $latex { k }$ by $latex { a_1,\dots,a_n }$. If there are $latex { a_1,\dots,a_n\in K }$ such that $latex { K=k(a_1,\dots,a_n) }$, we say $latex { K/k }$ is finitely generated. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 6 (Algebraically Independent sets)</b>  	Let $latex { K/k }$ be a finitely generated field extension, elements $latex { b_1,\dots,b_n\in K }$ are called algebraically independent over $latex { k }$ if there is no polynomial $latex { f\in k [x_1,\dots,x_n] }$ such that $latex { f(b_1,\dots,b_n)=0 }$. In particular, if $latex { b\in K }$ is algebraically independent over $latex { k }$, then $latex { b }$ is called transcendent over $latex { k }$. </blockquote>
+
+<p>
+
+ Let $latex { k(x_1,\dots,x_n) }$ be a field of rational functions in $latex { n }$ indeterminants, it is easy to see $latex { k(b_1,\dots,b_n)\simeq k(x_1,\dots,x_n) }$ if $latex { b_1,\dots,b_n }$ are algebraically independent over $latex { k }$. 
+<blockquote class="thm"><b>Definition 7 (Transcendence Basis)</b>  	A maximal set of algebraically independent elements of $latex { K }$ over $latex { k }$ is called a transcendence basis. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Theorem 8 (without proof)</b>  	Let $latex { K=k(a_1,\dots,a_n)/k }$ be a finitely generated field extension, then 
+
+<ol> 		<li> there exists a transcendence basis of $latex { K/k }$, it can be chosen as a subset of $latex { \lbrace a_1,\dots,a_n\rbrace }$; 		<li> every transcendence basis of elements of $latex { K/k }$ has the same number of elements, called the transcendence degree; 		<li> let $latex { b_1,\dots,b_r }$ be a transcendence basis of $latex { K/k }$, then $latex { K/k(b_1,\dots,b_r) }$ is a finite algebraic extension. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Theorem 9</b> <a name="16-2"></a> 	Every variety $latex { X }$ is birational to a hypersurface in $latex { \mathbb{A}^{\text{dim}X+1} }$. </blockquote>
+
+<p>
+
+ This theorem may be proved next time. 
+<blockquote class="thm"><b>Theorem 10</b>  	Let $latex { X }$ be a variety, then 	<p align=center>$latex \displaystyle  	\text{dim} X=\text{trdeg} K(X)/k. 	$</p>
+ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	By theorem <a href="#16-2">9</a>, we can assume $latex { X=Z(F)\subset \mathbb{A}^n }$ is a hypersurface, $latex { F\in k[x_1,\dots,x_n] }$ is irreducible. We know $latex { \text{dim}X=n-1 }$. To show $latex { \text{trdeg}K(X)/k=n-1 }$, let $latex { y_1,\dots,y_n\in A(X) }$ be coordinate functions. Then $latex { K(X)=k(y_1,\dots,y_n) }$, $latex { F(y_1,\dots,y_n)\in A(X)=k[x_1,\dots,x_n]/\langle F \rangle }$ and $latex { F(y_1,\dots,y_n)=0 }$ since $latex { X=Z(F) }$. Thus $latex { y_1,\dots,y_n }$ are algebraically dependent. It follows that $latex { \text{trdeg}K(X)/k\leq n-1 }$. To show the equality, we assume the last variable $latex { x_n }$ occurs in $latex { F }$, then we can get $latex { y_1,\dots,y_{n-1} }$ are algebraically independent. Otherwise, there exists a nonzero element $latex { G\in k[x_1,\dots,x_{n-1}] }$ with $latex { G(y_1,\dots,y_{n-1})=0 }$, then $latex { G(y_1,\dots,y_{n-1})\in \langle F\rangle }$. But it is impossible because $latex { F }$ contains $latex { x_n }$ $latex { \Rightarrow }$ $latex { G }$ contains $latex { x_n }$. Thus $latex { \text{trdeg}K(X)/k=n-1 }$. $latex \Box$
+
+ 
+<p align=center><b> &mdash;  1. Conclusions We Need From Previous Lectures  &mdash; </b></p>
+
+ In lecture 15: 
+<blockquote class="thm"><b>Theorem 11</b> <a name="15-2"></a> 	Let $latex { X }$ be a variety, $latex { \emptyset\neq U\subset X }$, $latex { U }$ is an open subset of $latex { X }$. Then $latex { \text{dim}U=\text{dim}X }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Theorem 12</b> <a name="15-3"></a> 	Let $latex { X\subset \mathbb{A}^n }$ be an affine variety, $latex { F\in k[x_1,\dots,x_n]\backslash I(X) }$, then every irreducible component(if there is any) of $latex { Z(F)\cap X }$ has dimension $latex { \text{dim}X-1 }$. </blockquote>
+
+<p>
+
+ 

@@ -8,9 +8,16 @@
            anchorcolor=blue,
            citecolor=green
            ]{hyperref} 
+	   
+\usepackage{fancyhdr}	  
+\pagestyle{fancyplain}
+\lhead{\emph{\nouppercase{\leftmark}}}
+\rhead{Geometry of Manifolds I
+}
 %少量中文时使用
 %\usepackage{xeCJK}
-\usepackage[center]{titlesec}
+\usepackage{titlesec}
+\newcommand{\sectionbreak}{\clearpage}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
@@ -102,13 +109,13 @@
 \DeclareMathOperator{\GL}{GL}
 
 \begin{document}
-\title{Riemannian Geometry}
-\author{\large Notes taken by Rieunity}
+\title{Geometry of Manifolds I}
+\author{Lectures given by Willian Philip  Mnicozzi II\\
+\small Notes taken by Rieunity}
 \date{March 4, 2021 --- March 26, 2020}  
 \maketitle
-\begin{abstract}
-  This is learning notes about Riemannian geometry. The learning resources I used are videos of a course: MIT18.965, Geometry of Manifolds, 2020 Fall. As an introduction course, the last 4 classes introduce some comparison geometry and geometric analysis which I omitted in my notes because of too much equations to type for humanity. Except this part, the notes arrange most topics the same order as the class did. Most part of the last section and some definitions come from Do Carmo's \textit{Riemannian Geometry}.
-\end{abstract}
+\thispagestyle{empty}
+  The learning notes are an introduction to riemannian geometry. The learning resources I used are videos of a course: MIT18.965, Geometry of Manifolds, 2020 Fall, given by Willian Philip Minicozzi II. As an introduction course, the last 4 classes introduce some comparison geometry and geometric analysis which I omitted in my notes because of too much equations to type for humanity. Except this part, the notes arrange most topics the same order as the class did. Most part of the last section and some definitions come from Do Carmo's \textit{Riemannian Geometry}.
 \tableofcontents
 \input{body}
 

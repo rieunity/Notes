@@ -1,0 +1,953 @@
+ \tableofcontents
+<p>
+
+<p align=center><b> &mdash;  1. Affine Varieties  &mdash; </b></p>
+
+ 
+<blockquote class="thm"><b>Definition 1 (Zariski Topology)</b>  	Let $latex { S }$ be a set of arbitrary polynomials of $latex { k[x_1,\dots,x_n] }$, $latex { k }$ be an algebraic closed field. We define the common zero set of polynomials in $latex { S }$ as a closed subset of $latex { k^n }$. The topology defined by this is called Zariski topology and denote the space as $latex { \mathbb{A}^n }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 1</b>  	In all the conditions of the note, we always take $latex { k }$ to be algebraic closed. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Proposition 2</b>  	Let $latex { X }$ be a set of $latex { \mathbb{A}^n }$ and $latex { S }$ be a set of $latex { k[x_1,\dots,x_n] }$, we define 	<p align=center>$latex \displaystyle  		I(X):=\{ f\in k[x_1,\dots,x_n]| f(p)=0 \text{ for all } p\in \mathbb{A}^n \} 	$</p>
+ 	and 	<p align=center>$latex \displaystyle  		Z(S):=\{ p\in\mathbb{A}^n| f(p)=0 \text{ for all } f\in S \}. 	$</p>
+ 	Then we have 	<p align=center>$latex \displaystyle  Z(I(X)) = \bar{X}. $</p>
+ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	First, it is obvious that $latex { X \subset Z(I(X)) }$. To show the inverse inclusion, assume a closed set $latex { Y }$ who satisfies $latex { X\subset Y }$, then we have an ideal $latex { \mathfrak{a} }$ that satisfies $latex { Y=Z(\mathfrak{a}) }$. Then $latex { Z(\mathfrak{a})\supset X }$, hence $latex { \mathfrak{a}\subset I(Z(\mathfrak{a}))\subset I(X) }$, hence $latex { Y=Z(\mathfrak{a})\supset Z(I(X))}$. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Proposition 3 (Noetherian Ring)</b>  	Let $latex { R }$ be a ring,the following are equivalent: 	
+
+<ol> 		<li> Every ideal $latex { I\subset R }$ is finitely generated; 		<li> $latex { R }$ satisfies the ascending chain condition: if $latex { I_1\subset I_2\subset \dots }$ is a chain of ideals, this chain becomes stationary, i.e., 		<p align=center>$latex \displaystyle  		\exists N, \text{s.t.} I_{N}=I_{N+1}=\dots 		$</p>
+ 	
+</ol>
+
+ 	If $latex { R }$ fullfills these properties, it is called noetherian. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	$latex { \Rightarrow }$: Let $latex { I_1\subset I_2\subset\dots }$ be a chain of ideals. Let $latex { I=\cup_{i&gt;0} I_i }$, I is an ideal. So by (1) $latex { I }$ is finitely generated: 	<p align=center>$latex \displaystyle  I=&lt;f_1, f_2, \dots, f_s&gt; $</p>
+ 	where $latex { f_j }$ contained in $latex { I_{k_j} }$. Let $latex { N = \max_{j}k_j }$, we have $latex { I\subset I_N\subset I }$, so the chain is stationary.
+<p>
+	$latex { \Leftarrow }$: Assume a ring $latex { I\subset R }$ is not finitely generated, choose an element $latex { f_1\in I }$, $latex { f_2\in I\backslash\langle f_1\rangle }$, $latex { f_3\in I\backslash \langle f_1, f_2 \rangle }$, \dots. 	Then we have a chain who is not stationary: 	<p align=center>$latex \displaystyle  	\langle f_1\rangle \subsetneqq \langle f_1, f_2\rangle \subsetneqq \dots 	$</p>
+
+<p>
+$latex \Box$
+
+ 
+<blockquote class="thm"><b>Theorem 4 (Hilbert Base Theorem)</b>  	$latex { R }$ is a noetherian ring $latex { \Rightarrow }$ The polynomial ring $latex { R[x_1, x_2, \dots, x_n] }$ is a noetherian ring. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	Since $latex { R[x_1,x_2,\dots,x_n] = R[x_1,x_2,\dots,x_{n-1}][x_n] }$, we only need to prove $latex { R[x] }$ is a noetherian ring for a noetherian ring $latex { R }$. 	Assume $latex { R[x] }$ is not noetherian, let $latex { I }$ be an ideal which is not finitely generated. Choose $latex { f_1\in I\backslash \{ 0\} }$, $latex { f_2\in I\backslash \langle f_1\rangle }$, \dots, $latex { f_{i+1}\in I\backslash \langle f_1,\dots,f_i\rangle }$, s.t. the degree of $latex { f_i \in I\backslash \langle f_1,\dots,f_{i-1}\rangle }$ is minimal. 	Let $latex { n_i:= deg(f_i) }$, $latex { a_i }$ the leading coefficient of $latex { f_i }$. Then we have $latex { n_1\leq n_2\leq \dots }$ and an ascending chain 	<a name="1"><p align=center>$latex \displaystyle  			\langle a_1\rangle \subset \langle a_1, a_2 \rangle \subset \dots  	\ \ \ \ \ (1)$</p>
+</a> 	of ideals in $latex { R }$. 	If it is stationary, then for some $latex { k }$ we have 	<p align=center>$latex \displaystyle  	\langle a_1,\dots,a_k\rangle = \langle a_1,\dots,a_k,a_{k+1}\rangle 	$</p>
+ 	This implies $latex { a_{k+1}\in \langle a_1,\dots,a_k\rangle }$. So we can write 	<p align=center>$latex \displaystyle  		a_{k+1}=\sum_{i=1}^{k} b_i a_i b_i\in R 	\ \ \ \ \ (2)$</p>
+ 	Let $latex { g:=f_{k+1}-\sum_{i=1}^{k}b_ix^{n_{k+1}-n_i}f_i }$, then$latex { g\in I\backslash \langle f_1,\dots,f_k\rangle }$(otherwise $latex { f_{k+1}=g+\sum_{i+1}^{k}b_1x^{n_{k+1}-n_i}f_i }$ would be in $latex { \langle f_1,\dots,f_k\rangle }$). The sum of the leading term in the right hand side is 	<p align=center>$latex \displaystyle  	a_{k+1}-\sum_{i=1}^{k}b_ia_i=0. 	$</p>
+ 	It shows that $latex { deg(g)&lt;n_{k+1} }$, which contradicts to the choose of $latex { f_i }$, so the chain <a href="#1">1</a> is not stationary, the ring $latex { R }$ is not noetherian. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Corollary 5</b>  	Every affine algebraic set $latex { X\subset \mathbb{A}^n }$ is the zero set of finite algebraic polynomials. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	Every affine algebraic set is the zero set of some polynomial set $latex { S }$, i.e. $latex { Z(S) }$. Since $latex { Z(S)=Z(\langle S \rangle) }$, it is a zero set of an ideal, we choose the generators of the ideal, name $latex { T }$, then $latex { Z(S)=Z(T) }$. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Definition 6</b>  	A topological space $latex { X }$ is reducible if $latex { X=X_1\cup X_2 }$, where $latex { X_1 }$,$latex { X_2 }$ are closed subsets and $latex { X_1\subsetneqq X,X_2\subsetneqq X }$. $latex { X }$ is called irreducible if it is not reducible,i.e., if $latex { X=X_1\cup X_2, X_i\subset }$ is closed for $latex { i=1,2 }$, then we have $latex { X=X_1 }$ or $latex { X=X_2 }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 2</b>  	When we talk about whether a set is irreducible, it refers to its induced topology from the space where the set is on. 	
+
+<ol> 		<li> Let $latex { X }$ be irreducible, $latex { \emptyset\neq U\subset X }$, $latex { U }$ is an open subset of $latex { X }$. Then $latex { U }$ is dense in $latex { X }$. Because if it is not dense, we can write $latex { X=(X\backslash U )\cup \overline{U} }$, so $latex { X }$ is not irreducible. 		<li> $latex { U }$ itself is also irreducible. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 7</b>  	A topological space is called noetherian if every descending chain:$latex { X\supset X_1\supset X_2\supset \dots }$ of closed subsets becomes stationary(i.e., $latex { X_N=X_{N+1}=\dots }$ for some $latex { N\in \mathbb{N}^+ }$). </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Proposition 8</b>  	Any subspace $latex { Y }$ of noetherian topological space $latex { X }$ is noetherian. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	Assume $latex { Y\supset Y_1\supset Y_2\supset \dots }$ a chain of closed subsets. 	Then $latex { \forall i, Y_i=Y\cap X_i, X_i\subset X }$ is closed. 	Let $latex { X_{i}' = \cap_{1\leq j \leq i} X_j }$, $latex { X_i'\cap Y = Y_i }$. Then $latex { X\supset X_1'\supset X_2'\supset \dots }$ is a descending chain. Since $latex { X }$ is noetherian, $latex { \exists N }$ s.t. $latex { X_N'=X_{N+1}'=\dots }$. It follows $latex { Y_N=Y_{N+1}=\dots }$. Thus $latex { Y\supset Y_1\supset Y_2\supset \dots }$ is stationary. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Proposition 9</b>  	$latex { \mathbb{A}^n }$ is noetherian topological space. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	Let $latex { \mathbb{A}^n=X\supset X_1\supset X_2\supset \dots }$ be a chain of closed subsets. Then we have $latex { I(X_1)\subset I(X_2)\subset \dots }$. Since $latex { k[x_1,x_2,\dots,x_n] }$ is noetherian, $latex { \exists N, I(X_N)=I(X_{N+1})=\dots }$. Note that$latex { X_i=Z(I(X_i)) }$, we get $latex { X_N=X_{N+1}=\dots }$. It shows that $latex { \mathbb{A}^n }$ is a noetherian topological space. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Theorem 10</b>  	Let $latex { X }$ be a noetherian topological space. 	
+
+<ol> 		<li> $latex { X }$ is a union of finitely many irreducible closed subsets: $latex {X=X_1\cup\dots\cup X_r }$; 		<li> If we require $latex { X_i\not\subset X_j }$ for $latex { i\neq j }$, then this decomposition is unique. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	(1) Assume $latex { X }$ does not have a decomposition with finitely many closed subsets. In particular, $latex { X }$ is reducible: $latex { X=X_1\cup Y_1 }$, $latex { X_1,Y_1 }$ are closed subsets. so one of the two sets does not have decomposition, say $latex { X_1 }$. Repeat the argument we ge a descending chain 	<p align=center>$latex \displaystyle  	X\supsetneqq X_1\supsetneqq X_2\supsetneqq \dots 	$</p>
+ 	which is not stationary, it contradicts our existing condition.<br/>
+ 	(2)Let $latex { X=X_1\cup \dots\cup X_t = Y_1\cup\dots\cup Y_s}$. Then we have $latex { X_i = \mathop{\cup}\limits_{j=1}^{s}(X_i\cap Y_j)}$. Since $latex { X_i }$ is irreducible, $latex { \exists j, X_i=X_i\cap Y_j }$, thus $latex { X_i\subset Y_j }$.Similarly, we can get $latex { Y_j\subset X_k }$ for some $latex { k }$. Then we have $latex { X_i\subset X_k }$, it implies $latex { i=k }$ and thus $latex { X_i = Y_j }$. So we get the conclusion: each $latex { X_i }$ is equal to some $latex { Y_j }$ and each $latex { Y_j }$ is equal to some $latex { X_i }$. So $latex { r=s }$ and the $latex { Y_j }$'s are permutations of $latex { X_i }$'s. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Definition 11</b>  	An affine variety is an irreducible affine algebraic set. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Proposition 12</b> <a name="5"></a> 	$latex { X\subset \mathbb{A}^n }$ is an affine algebraic set. Then we have the following equivalent relations: 	
+
+<ol> 		<li> $latex { X }$ is irreducible; 		<li> $latex { I(X) }$ is a prime ideal. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	(1)$latex { \Rightarrow }$ (2): let $latex { X }$ be irreducible, $latex { f,g }$ some polynomials s.t. $latex { fg\in I(X) }$. Then we have $latex { X\subset Z(fg)=Z(f)\cup Z(g) }$, hence $latex { X=(X\cap Z(f))\cup (X\cap Z(g)) }$. Since $latex { X }$ is irreducible, we get $latex { X=X\cap Z(f) }$ or $latex { X=X\cap Z(g) }$, so $latex { X\subset Z(f) }$ or $latex { X\subset Z(g) }$, i.e. $latex { f\in I(X) }$ or $latex { g\in I(X) }$.
+<p>
+	(2)$latex { \Leftarrow }$ (1): Assume $latex { X }$ is reducible, then we have $latex { X=X_1\cup X_2 }$ and $latex { X_i\subsetneqq X }$ are closed subsets. 	Since $latex { Z(I(X_i))=X_i\subsetneqq X=Z(I(X)) }$, we get $latex { I(X_i)\supsetneqq I(X) }$. Let $latex { f\in I(X_1)\backslash I(X) }$, $latex { g\in I(X_2)\backslash I(X_2) }$, $latex { fg }$ vanishes on $latex { X_1\cup X_2=X }$, then $latex { fg\in I(X) }$, i.e., $latex { I(X) }$ is not prime. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Example 1</b>  	$latex { \mathbb{A}^n }$ is irreducible because $latex { I(\mathbb{A}^n) = \{ 0\} }$ is a prime ideal. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 13</b>  	Let $latex { X\neq \emptyset }$ be an irreducible topological space. The dimension of $latex { X }$ is the largest $latex { n\in\mathbb{Z} }$ s.t. there is an ascending chain 	<p align=center>$latex \displaystyle  	\emptyset \neq X_0\subsetneqq X_1\subsetneqq X_2\subsetneqq \dots\subsetneqq X_n=X 	$</p>
+ 	of irreducible closed subsets. If $latex { X }$ is a noetherian topological space then 	<p align=center>$latex \displaystyle  	\text{dim}X=\text{ maximum of dimension of irreducible components of } X. 	$</p>
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 3</b>  	
+
+<ol> 		<li> The point $latex { p\in\mathbb{A}^n }$ has dimension $latex { 0 }$; 		<li> $latex { \mathbb{A}^1 }$ has dimension $latex { 1 }$; 		<li> In the moment, we still cannot prove but true is $latex { \text{dim}\mathbb{A}^n=n }$ 	
+</ol>
+
+ 	It is easy to verify $latex { \text{dim}\mathbb{A}^n\geq n }$ because we have a chain: 	<p align=center>$latex \displaystyle  	\{(0,0,\dots,0)\}\subsetneqq Z(x_2,x_3,\dots,x_n)\subsetneqq Z(x_3,\dots,x_n)\subsetneqq\dots\subsetneqq Z(x_n)\subsetneqq \mathbb{A}^n. 	$</p>
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Theorem 14 (The Weak Form Hilbert's Nullstellensatz)</b> <a name="2"></a> 	Let $latex { \mathfrak{a}\subsetneqq k[x_1,\dots,x_n] }$ be a proper ideal, then $latex { Z(\mathfrak{a})\neq \emptyset }$ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 4</b>  	We usually use the following form: 	<p align=center>$latex \displaystyle  	\mathfrak{a}\subset k[x_1,\dots,x_n] \text{ and } Z(\mathfrak{a})=\emptyset\Rightarrow 1\in I. 	$</p>
+ 	It is true when $latex { k }$ is algebraically closed, otherwise the theorem <a href="#2">14</a> is wrong: 	<p align=center>$latex \displaystyle  	\mathfrak{a}=\langle x^2+1\rangle \in \mathbb{R}[x], Z(\mathfrak{a})=\emptyset. 	$</p>
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 15</b>  	Let $latex { \mathfrak{a} }$ be an ideal in a ring $latex { R }$. The radical of $latex { \mathfrak{a} }$ is 	<p align=center>$latex \displaystyle  	\sqrt{\mathfrak{a}}=\{ r\in R|\exists n&gt;0, r^n\in \mathfrak{a} \}. 	$</p>
+ 	$latex { \sqrt{\mathfrak{a}} }$ is an ideal in $latex { R }$. 	$latex { \mathfrak{a} }$ is called radical ideal if $latex { \mathfrak{a}=\sqrt{\mathfrak{a}} }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 5</b>  	If $latex { X\subset \mathbb{A}^n }$ is an affine algebraic set, then $latex { I(X) }$ is a radical ideal. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Theorem 16 (Nullstallensatz)</b>  	Let $latex { \mathfrak{a}\subset k[x_1,\dots,x_n] }$, then $latex { I(Z(\mathfrak{a}))=\sqrt{\mathfrak{a}} }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 17</b>  	$latex { R }$ is an integral domain, the quotient field $latex { Q(R) }$ is the set of equivalent classes of pairs $latex { (f,g), f,g\in R, g\neq 0 }$, which satisfy the equivalent relation 	<p align=center>$latex \displaystyle  	(f,g)\cong (f',g') \Leftrightarrow fg'-f'g=0. 	$</p>
+ 	We denote it by $latex { \frac{f}{g} }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 6</b>  	$latex { Q(R) }$ is a field. We always identify $latex { r\in R }$ with $latex { \frac{r}{1}\in Q(R) }$, then we can say $latex { R }$ is the subring of $latex { Q(R) }$.$latex { Q(k[x_1,\dots,x_n]):=k(x_1,\dots,x_n) }$ is called field of rational functions in $latex { x_1,x_2,\dots,x_n }$. </blockquote>
+
+<p>
+
+  	Let $latex { \mathfrak{a} = \langle f_1,\dots, f_r\rangle, f_i\in \mathfrak{a} }$. Then $latex { I(Z(\mathfrak{a})) }$ is a radical ideal containing $latex { \mathfrak{a} }$, so we get 	<p align=center>$latex \displaystyle  	I(Z(\mathfrak{a}))\supset \sqrt{\mathfrak{a}}. 	$</p>
+ 	Let$latex { f\in I(Z(\mathfrak{a})) }$. To show $latex { \exists N&gt;0 }$, s.t. $latex { f^N\in \mathfrak{a} }$, we use the weak Nullstellensatz in $latex { k[x_1,\dots,x_n] }$.
+<p>
+	Let 	<p align=center>$latex \displaystyle  	\mathfrak{b}:=\langle f_1,\dots,f_r,f\cdot t -1\rangle\subset k[x_1,\dots,x_n,t] 	\ \ \ \ \ (3)$</p>
+ 	Let $latex { (p,a)\in \mathbb{A}^{n+1}, p\in \mathbb{A}^n, a\in k }$. 	<p align=center> 		$latex { (p,a)\in Z(\mathfrak{b}) }$ $latex { \Leftrightarrow }$ $latex { f_1(p)=\dots=f_r(p)=0 }$ and $latex { f(p)\cdot a=1 }$. 	</p> 	But $latex { f(p)=0 }$, so we know $latex { Z(\mathfrak{b})=\emptyset }$. By the weak Nullstellensatz, $latex { 1\in \mathfrak{b} }$, we can write 	<a name="3"><p align=center>$latex \displaystyle  	1=g_0\cdot (ft-1)+\sum\limits_{i=1}^{r}g_i\cdot f_i 	\ \ \ \ \ (4)$</p>
+</a> 	Back to $latex { k[x_1,\dots,x_n] }$ in $latex { k(x_1,\dots,x_n) }$, define homomorphism: <p align=center>$latex \displaystyle \begin{array}{cc} \varphi: k[x_1,\dots,x_n,t]&\rightarrow k(x_1,\dots,x_n)\\ g(x_1,\dots,x_n,t)&\rightarrow g(x_1,\dots,x_n,\frac{1}{f}) \end{array}$</p>
+ Use $latex { \varphi }$ to equation <a href="#3">4</a> we get <a name="4"><p align=center>$latex \displaystyle  1=\sum\limits_{i=1}^{r}\varphi (g_i)\cdot f_i \ \ \ \ \ (5)$</p>
+</a> where $latex { \varphi(g_i)=\frac{G_i}{f^{n_i}},G_i\in k[x_1,\dots,x_n] }$. Let $latex { N:=\max\limits_{1\leq i\leq r}n_i }$, multiply equation <a href="#4">5</a> by $latex { f^N }$: <p align=center>$latex \displaystyle  f^N=\sum\limits_{i=1}^{r}G_if^{N-n_i}\cdot f_i\in \mathfrak{a} \ \ \ \ \ (6)$</p>
+  
+<blockquote class="thm"><b>Corollary 18</b>  	
+
+<ol> 		<li> If $latex { \mathfrak{a}\subset k[x_1,\dots,x_n] }$ is a prime ideal, then $latex { Z(\mathfrak{a}) }$ is irreducible; 		<li> If $latex { f\in k[x_1,\dots,x_n] }$ is irreducible, then $latex { Z(f) }$ is irreducible. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	(1) Set$latex { X=Z(\mathfrak{a}) }$. Prime ideals are radical, so we get $latex { I(X)=\mathfrak{a} }$ and $latex { \mathfrak{a} }$ is prime, use proposition <a href="#5">12</a> we know that $latex { X }$ is irreducible.
+<p>
+	(2) Since $latex { k[x_1,\dots,x_n] }$ is a UFD, we get 	<p align=center> 		$latex { f\in k[x_1,\dots,x_n] }$ is irreducible $latex { \Rightarrow }$ $latex { \langle f\rangle }$ is a prime ideal. 	</p> 	So $latex { Z(f)=Z(\langle f\rangle) }$ is irreducible. $latex \Box$
+
+
+<p>
+
+<p align=center><b> &mdash;  2. Projective Varieties  &mdash; </b></p>
+
+ 
+<blockquote class="thm"><b>Definition 19</b>  	Define an equivalence relation$latex { \sim }$ in $latex { k^{n+1}\backslash \{0\} }$: 	<p align=center> 		$latex { (a_0,\dots,a_n)\sim(b_0,\dots,b_n) }$ $latex { \Leftrightarrow }$ $latex { \exists \lambda\in k\backslash \{0\} }$ s.t.$latex { (a_0,\dots,a_n) = (\lambda b_0,\dots,\lambda b_n)}$. 	</p> Then we call $latex { k^{n+1}\backslash \{0\} }$ with this relation the projective $latex { n }$-space and write it as $latex { (k^{n+1}\backslash\{0\})/\sim = \mathbb{P}^n }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 20</b>  	Let $latex { U_i:=\{[a_0,\dots,a_n]\in \mathbb{P}^n|a_i\neq 0 \} }$. $latex { \varphi_i: U_i\rightarrow \mathbb{A}^n }$, $latex { [a_0,\dots,a_n]\rightarrow (\frac{a_0}{a_i},\dots,\hat{\frac{a_i}{a_i}},\dots,\frac{a_n}{a_i}) }$ is a projection, write inverse $latex { u_i:\mathbb{A}^n\rightarrow U_i }$, $latex { (b_0,\dots,\hat{b_i},\dots,b_n)\rightarrow [b_0,\dots,1,\dots,b_n] }$.
+<p>
+	Usually we fix $latex { i=0 }$, view $latex { \mathbb{A}^n }$ as a subset of $latex { \mathbb{P}^n }$ by identify the point $latex { (a_1,\dots,a_n)\in\mathbb{A}^n }$ with $latex { [1,a_1,\dots,a_n]\in \mathbb{P}^n }$. With this identification we have 	<p align=center>$latex \displaystyle  	\mathbb{P}^n=\mathbb{A}^n\cup H_{\infty} 	\ \ \ \ \ (7)$</p>
+ where $latex { H_{\infty} :=\{ [a_0,\dots,a_n]\in \mathbb{P}^n|a_0=0 \} }$ is called hyperplane at infinity. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 7</b>  	Define projective algebraic sets are zero sets of polynomials in $latex { k[x_0,\dots,x_n] }$, but $latex { f\in k[x_0,\dots,x_n] }$ does not define a function on $latex { \mathbb{P}^n }$: 	<p align=center>$latex \displaystyle  	f(a_0,\dots,a_n)\neq f(\lambda a_0,\dots,\lambda a_n). 	\ \ \ \ \ (8)$</p>
+ 	However if $latex { f }$ is homogeneous we can still see whether $latex { p\in \mathbb{P}^n }$ is a zero point of $latex { f }$ or not. $latex { f }$ is homogeneous if 	<p align=center>$latex \displaystyle  	f(\lambda a_0,\dots,\lambda a_n)=\lambda^d f(a_0,\dots,a_n). 	\ \ \ \ \ (9)$</p>
+ 	Thus whether $latex { f=0 }$ is decided only on $latex { [a_0,\dots,a_n] }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 21</b>  	Let $latex { g\in k[x_0,\dots,x_n] }$ be homogeneous, apoint $latex { p=[a_0,\dots,a_n] }$ is a zero point of $latex { g }$ if $latex { g(a_0,\dots,a_n)=0 }$. Let $latex { S\subset k[x_0,\dots,x_n] }$, 	<p align=center>$latex \displaystyle  	Z(S):=\{ p\in\mathbb{P}^n|f(p)=0 \forall f\in S \}. 	\ \ \ \ \ (10)$</p>
+ 	A subset of $latex { \mathbb{P}^n }$ of the form $latex { Z(S) }$ is called a projective algebraic set. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Example 2</b>  	
+
+<ol> 		<li> $latex { \emptyset=Z(1) }$, $latex { \mathbb{P}^n=Z(\emptyset) }$; 		<li> Any point $latex { p=[a_0,\dots,a_n]\in\mathbb{P}^n }$ is a projective algebraic set 		<p align=center>$latex \displaystyle \begin{array}{cc} 		\{ p \}= & Z(a_1x_0-a_0x_1,a_2x_0-a_0x_2,\dots,a_nx_0-a_0x_n,\\ 		{} & a_2x_1-a_1x_2,\dots,a_nx_1-a_1x_n,\\ 		{} & \dots). 		\end{array}$</p>
+ 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 22</b>  	A polynomial $latex { f\in k[x_0,\dots,x_n] }$ cab be written uniquely as $latex { f=f^{(0)}+f^{(1)}+\dots+ f^{(d)} }$, with $latex { f^{(i)} }$ homoegeneous of degree $latex { i }$. $latex { f^{(i)} }$ is called homogeneous component if $latex { f }$.
+<p>
+	An ideal $latex { \mathfrak{a}\subset k[x_0,\dots,x_n] }$ is called homogeneous if for every $latex { f\in \mathfrak{a} }$ all homogeneous components $latex { f^{(i)} }$ are in $latex { \mathfrak{a} }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Proposition 23</b>  	An ideal $latex { \mathfrak{a}\subset k[x_0,\dots,x_n] }$ is homogeneous $latex { \Leftrightarrow }$ It is generated by the homogeneous polynomials. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	$latex { \Rightarrow }$: Assume $latex { I }$ homogeneous, let $latex { (f_\alpha)_\alpha }$ be a set of generators, then $latex { (f^{(i)}_\alpha)_{\alpha,i} }$ is a set of homogeneous generators.
+<p>
+	$latex { \Leftarrow }$: Let $latex { \mathfrak{a} =\langle g_i\rangle }$ and $latex { g_i }$ be homogeneous. Let $latex { f\in \mathfrak{a}}$, then we can write 	<p align=center>$latex \displaystyle  	f=\sum\limits_{i}a_ig_i. 	\ \ \ \ \ (11)$</p>
+ 	Note $latex { g_i }$ is homogeneous, thus the homogeneous part of $latex { a_ig_i }$ of degree $latex { d }$ is just $latex { a_i^{(d-deg(g_i))}g_i }$, so 	<p align=center>$latex \displaystyle  	f^{(d)}=\sum\limits_{i} a_i^{(d-deg(g_i))}g_i. 	\ \ \ \ \ (12)$</p>
+ 	Since $latex { g_i\in \mathfrak{a} }$ we get $latex { f^{(d)}\in \mathfrak{a} }$. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Definition 24</b>  	Let $latex { \mathfrak{a}\subset k[x_0,\dots,x_n] }$ be a homogeneous ideal, the zero set of $latex { \mathfrak{a} }$ is written as 	<a name="6"><p align=center>$latex \displaystyle  	Z(\mathfrak{a}):=\{ p\in \mathbb{P}^n|f(p)=0 \text{ for all homogeneous elements } f\in \mathfrak{a} \}. 	\ \ \ \ \ (13)$</p>
+</a> 	For a subset $latex { X\subset \mathbb{P}^n }$, the homogeneous ideal of $latex { X }$ is 	 	I(X):= \text{ ideal generated by } \{ f\in k[x_0,\dots,x_n]|f <a name="7"></a><br/>
+ 	\text{ be homogeneous and } f(p)=0 \forall p\in X \}\notag 	 	By definition this is a homogeneous ideal. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 8</b>  	If $latex { f\in k[x_0,\dots,x_n] }$ is not homogeneous, we can define 	<p align=center>$latex \displaystyle  	Z(f):=\{ p\in\mathbb{P}^n| f(a_0,\dots,a_n)=0\text{ for all representative } (a_0,\dots,a_n) \text{ of } p \} 	\ \ \ \ \ (14)$</p>
+ 	In fact, if $latex { f=f^{(0)}+f^{(1)}\dots +f^{(d)} }$, then we have 	<p align=center>$latex \displaystyle  	Z(f)=\mathop{\cap}\limits_{i=0}^{d}Z(f^{(i)}) 	\ \ \ \ \ (15)$</p>
+ 	With this property, if $latex { \mathfrak{a} \subset k[x_0,\dots,x_n]}$ is a homogeneous ideal then formula <a href="#6">13</a> can be written as 	<p align=center>$latex \displaystyle  	Z(\mathfrak{a})=\{ p\in \mathbb{P}^n| f(p)=0 \forall f\in \mathfrak{a} \} 	\ \ \ \ \ (16)$</p>
+ 	and formula <a href="#7">24</a> can be written as 	<p align=center>$latex \displaystyle  	I(X)=\{ f\in k[x_0,\dots,x_n]|f(p)=0 \forall p\in X \} 	\ \ \ \ \ (17)$</p>
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Proposition 25</b>  	Same as an affine space, in a projective space we have the following propositions: 
+
+<ol> 		<li> $latex { X\subset Y\subset \mathbb{P}^n }$ are projective algebraic sets, then 		$latex { I(X)\supset I(Y) }$; 		<li> $latex { X\subset \mathbb{P}^n }$ is a projective algebraic set, then $latex { Z(I(X))=X }$; 		<li> $latex { \mathfrak{a}\subset k[x_0,\dots,x_n] }$ is a homogeneous ideal, then $latex { I(Z(\mathfrak{a}))\supset \mathfrak{a} }$; 		<li> If $latex { S\subset k[x_0,\dots,x_n] }$ is a set of homogeneous polynomials, then $latex { Z(S)=Z(\langle S \rangle ) }$; 		<li> For a family $latex { \{ S_\alpha \} }$ of sets of homogeneous polynomials, $latex { Z(\mathop{\cup}\limits_\alpha S_\alpha) = \mathop{\cap}\limits_alpha Z(S_\alpha)}$; 		<li> If $latex { T,S\subset k[x_0,\dots,x_n] }$ are sets of homogeneous polynomials, then $latex { Z(ST)=Z(S)\cup Z(T) }$. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 9</b>  	From the proposition (5) and (6) we know that arbitrary intersections and finite unions of projective algebraic sets are projective algebraic sets, then we can define a topology through these two propositions. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 26</b>  	The Zariski topology on $latex { \mathbb{P}^n }$ is the topology whose closed sets are the projective algebraic sets.
+<p>
+	If $latex { X\subset \mathbb{P}^n }$ is a subset, we give it the induced topology, called Zariski topology on $latex { X }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 27</b>  	A quasi-projective algebraic set is an open subset of a projective algebraic set. Fro example, let $latex { U }$ and $latex { V }$ be closed subsets, then $latex { Y=U\backslash V\neq \emptyset }$ is a quasi-projective algebraic set. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Proposition 28</b>  	We jnow $latex { k[x_0,\dots,x_n] }$ is noetherian, then follows the same proof as in affine case shows that $latex { \mathbb{P}^n }$ is a noetherian topological sapce. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 10</b>  	Every subspace of $latex { \mathbb{P}^n }$ is noetherian. In particular, quasi-projective algebraic sets are noetherian, hence have unique decompositions into irreducible components. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 29</b>  	A quasi-projective variety is an irreducible quasi-projective algebraic set. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 11</b>  	If we use the identification $latex { \mathbb{A}^n=U_0\subset \mathbb{P}^n }$, then $latex { \mathbb{A}^n }$ is an open set $latex { \mathbb{A}^n=\mathbb{P}^n\backslash Z(x_0) }$, i.e. $latex { \mathbb{A}^n }$ is a quasi-projective variety. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 30</b>  	A nonempty algebraic set $latex { X\subset \mathbb{A}^{n+1} }$ is called a cone if for all $latex { p=(a_0,\dots,a_n)\in X }$ and all $latex { \lambda \in k }$, we have $latex { (\lambda a_0,\dots,\lambda a_n)=\lambda p\in X }$.
+<p>
+	If $latex { X\subset \mathbb{P}^n }$ is a projective algebraic set, its affine cone is 	<p align=center>$latex \displaystyle  	C(X):=\{ (a_0,\dots,a_n)\in \mathbb{A}^{n+1}|[a_0,\dots,a_n]\in X \}\cup\{ 0 \} 	\ \ \ \ \ (18)$</p>
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Lemma 31</b>  	Let $latex { X\neq\emptyset }$ be a projective algebraic set, then : 	
+
+<ol> 		<li> $latex { X=Z_p(\mathfrak{a}) }$, for $latex { \mathfrak{a}\subset k[x_0,\dots,x_n]}$ a homogeneous ideal $latex { \Rightarrow }$ $latex { C(X)=Z_a(\mathfrak{a})\subset \mathbb{A}^{n+1} }$; 		<li> $latex { I_a(C(X))=I_H(X) }$. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Theorem 32 (Projective Nullstellensatz)</b>  	Let $latex { \mathfrak{a}\subset k[x_0,\dots,x_n] }$ be a homogeneous ideal: 	
+
+<ol> 	<li> $latex { Z_p(\mathfrak{a})=\emptyset }$ $latex { \Leftrightarrow }$ $latex { \mathfrak{a} }$ contains all homogeneous polynomials of degree $latex { N }$ for some $latex { N\in \mathbb{N} }$; 	<li> If $latex { Z_p(\mathfrak{a})\neq \emptyset }$, then $latex { I_p(Z_p(\mathfrak{a}))=\sqrt{\mathfrak{a}} }$. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	Let $latex { X=Z_p(\mathfrak{a}) }$.
+<p>
+	(1) $latex { X=\emptyset }$ $latex { \Leftrightarrow }$ $latex { C(X)=\{ 0 \} }$. Since $latex { C(X)=Z_a(\mathfrak{a})\cup \{0\} }$, we get 	<p align=center> 		$latex { X=\emptyset }$ $latex { \Leftrightarrow }$ $latex { Z_a(\mathfrak{a})=\emptyset }$ or $latex { Z_a(\mathfrak{a})=\{0\} }$. 	</p> 	By affine Nullstellensatz, we get 	<p align=center> 		$latex { \sqrt{\mathfrak{a}}=k[x_0,\dots,x_n] }$ or $latex { \sqrt{\mathfrak{a}}=\langle x_0,\dots,x_n\rangle }$. 	</p> 	So $latex { \sqrt{\mathfrak{a}}\supset \langle x_0,\dots,x_n\rangle }$. Thus for any $latex { i=0,\dots,n }$, $latex { \exists m_i }$ s.t. $latex { x_i^{m_i}\in \mathfrak{a} }$. Let $latex { N=m_1+\dots+m_n }$, then any monomial of degree $latex { N }$ in $latex { k[x_0,\dots,x_n] }$ lies in $latex { \mathfrak{a} }$.
+<p>
+	(2)Let $latex { X=Z_p(\mathfrak{a}\neq \emptyset }$, then 		<p align=center>$latex \displaystyle  		I_H(X)=I_a(C(X))=I_a(Z_a(\mathfrak{a}))=\sqrt{\mathfrak{a}}. 		\ \ \ \ \ (19)$</p>
+ $latex \Box$
+
+ 
+<blockquote class="thm"><b>Remark 12</b>  	$latex { \langle x_0,\dots,x_n \rangle }$ is called the irrelevant ideal, an ideal different from $latex { \langle x_0,\dots,x_n \rangle }$ is called relevant. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Corollary 33</b>  	There is a one-to-one correspondence between homogeneous relevant radical ideals and projective algebraic sets: 	<p align=center> 		$latex { Z_p }$: homogeneous relevant radical ideals in $latex { k[x_0,\dots,x_n] }$ $latex { \rightarrow }$ projective algebraic sets in $latex { \mathbb{P}^n }$<br/>
+ 		$latex { I_H }$: projective algebraic sets in $latex { \mathbb{P}^n }$ $latex { \rightarrow }$ homogeneous relevant radical ideals in $latex { k[x_0,\dots,x_n] }$. 	</p> </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 13</b>  	We use subscripts to recognize affine spaces and projective spaces, such as $latex { Z_p(\mathfrak{a}),Z_a(\mathfrak{a}) }$. Sometimes we can infer the difference from the context, so we usually write briefly as $latex { Z(\mathfrak{a}) }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Proposition 34</b>  	
+
+<ol> 		<li> A projective algebraic set $latex { X\neq \emptyset\subset \mathbb{P}^n }$ is irreducible if and only if $latex { I=I_H(X) }$ is a homogeneous prime ideal; 		<li> If $latex { f\in k[x_0,\dots,x_n] }$ is a homogeneous polynomial and irreducible, then $latex { Z_p(f) }$ is irreducible. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	(1) $latex { \Leftarrow }$: Assume $latex { X }$ reducible, then $latex { X=X_1\cup X_2 }$,$latex { X_1,X_2\subsetneqq X }$b are closed subsets. Then we get $latex { C(X)=C(X_1)\cup C(X_2) }$, $latex { C(X_1)\subsetneqq C(X) }$,$latex { C(X_2)\subsetneqq C(X) }$ are closed, hence $latex { C(X) }$ is reducible, $latex { I_H(X)=I(C(X)) }$ is not prime.
+<p>
+	$latex { \Rightarrow }$: Assume $latex { I_H(X) }$ not prime, it means $latex { \exists f,g\in k[x_0,\dots,x_n] }$, $latex { fg\in I_H(X) }$ and $latex { f,g\not\in I_H(X) }$. Let $latex { i,j\in\mathbb{Z}\geq 0 }$ be minimal such that $latex { f^{(i)}\not\in I }$ and $latex { g^{(j)}\not\in I }$. Subtract homogeneous components of lower degrees from $latex { f }$ and $latex { g }$, we can assume $latex { f }$ starts in degree $latex { i }$ and $latex { g }$ starts in degree $latex { j }$. Thus $latex { f^{(i)}g^{(j)} }$ is homogeneous component of minimal degree in $latex { fg\in I }$. Because $latex { I }$ is homogeneous, we get $latex { f^{(i)}g^{(j)} \in I}$. Let 	$latex { X_1:=Z(I)\cap Z(f^(i)) }$ and $latex { X_2:=Z(I)\cap Z(g^{(j)}) }$, then $latex { X_1,X_2\subsetneqq X }$, $latex { X=X_1\cup X_2 }$, thus $latex { X }$ is reducible.
+<p>
+	(2) If $latex { I\subset k[x_0,\dots,x_n] }$ is homogeneous and prime with $latex { Z(I)\neq\emptyset }$ , then follow the result from (1) we know $latex { Z(f) }$ is irreducible. $latex \Box$
+
+
+<p>
+
+<p align=center><b> &mdash;  3. Functions And Morphisms  &mdash; </b></p>
+
+ 
+<blockquote class="thm"><b>Definition 35</b>  	Let $latex { X\subset \mathbb{A}^n }$ be an affine algebraic set, the affine coordinate ring of $latex { X }$ is 	<p align=center>$latex \displaystyle  	A(X):=k[x_0,\dots,x_n]/I(X). 	\ \ \ \ \ (20)$</p>
+ 	It is a ring, also a $latex { k }$-algebra. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 36</b>  	A polynomial function on $latex { X }$ is a function $latex { f:X\rightarrow k }$ s.t. $latex { f=F|_X }$ for $latex { F\in k[x_0,\dots,x_n] }$. This is the ring with pointwise addition and multiplication: 	<p align=center>$latex \displaystyle  		(f+g)(p)=f(p)+g(p), fg(p)=f(p)g(p),\forall p\in X. 	$</p>
+ 	There is a ring homomorphism: 	<p align=center> 		$latex { k[x_0,\dots,x_n] \rightarrow }$ \{polynomial functions on $latex { X }$\}<br/>
+ 		$latex { F\rightarrow F|_X }$ 	</p> 	It is surjective and its kernel is $latex { I(X) }$. Thus we have the isomorphism: 	<p align=center> 		$latex { A(X)\cong \{ \text{polynomial functions on } X \} }$. 	</p> 	We will not distinguish them. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 14</b>  	The zero set of a polynomial function is closed.Let $latex { X }$ be an affine algebraic set, $latex { f\in A(X) }$, then 	<p align=center>$latex \displaystyle  	Z(f)=\{ p\in X|f(p)=0 \} 	\ \ \ \ \ (21)$</p>
+ 	is closed in $latex { X }$. $latex { f\in A(X) }$ means $latex { f=F|_X }$ for some $latex { F\in k[x_1,\dots,x_n] }$, then 	<p align=center>$latex \displaystyle  	Z(f)=\{ p\in X|F(p)=0 \}=X\cap Z(F) 	\ \ \ \ \ (22)$</p>
+ 	so it is closed. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 37</b>  	Let $latex { X }$ be an affine variety, then $latex { I(X) }$ is prime, then $latex { A(X) }$ is integral. 	The quotient field $latex { Q(A(X)) }$ is a field of rational functions on $latex { X }$ and denoted by $latex { K(X) }$. Let $latex { V\subset X }$ be a quasi-affine variety, since $latex { I(V)=I(X) }$, we can denote its field of rational functions by $latex { K(V):=K(X) }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 38</b>  	Let $latex { p\in V }$, the local ring of $latex { V }$ at $latex { p }$ is 	<p align=center>$latex \displaystyle  	\mathcal{O}_{V,p}:=\{h \in K(V)|\exists f,g\in A(V), \text{ s.t. } h=\frac{f}{g} \text{ and } g(p)\neq 0 \} 	\ \ \ \ \ (23)$</p>
+ 	For simplicity in future we can write this: 	<p align=center>$latex \displaystyle  	\mathcal{O}_{V,p}=\{ \frac{f}{g}\in K(V)|g(p)\neq 0 \}. 	\ \ \ \ \ (24)$</p>
+ 	If $latex { U\subset V }$ is an open subset, the regular functions on $latex { U }$ are defined by 	<p align=center>$latex \displaystyle  	\mathcal{O}_V(U)=\mathop{\cap}\limits_{V,p}\subset K(V). 	\ \ \ \ \ (25)$</p>
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Proposition 39</b>  	We have an injective ring homomorphism:<p align=center> 		$latex { \mathcal{O}_V(U) }$ $latex { \rightarrow }$ $latex { \{ \text{functions from }U \text{ to } k \} }$. 	</p> 	For $latex { h\in \mathcal{O}_V(U),p\in U }$, there exists an open subset $latex { W }$ and $latex { p\in W\subset U }$, s.t. $latex { h=\frac{f}{g} }$ with $latex { g(p)\neq 0 }$. We define the homomorphism by setting $latex { h(p)=\frac{f(p)}{g(p)} }$, the homomorphism is 	<p align=center> 		$latex { h\in \mathcal{O}_V(U)\rightarrow h(p)=\frac{f(p)}{g(p)}, p\in U }$. 	</p> </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	It is well defined: if $latex { h=\frac{f}{g}=\frac{f'}{g'} }$ with $latex { g(p)\neq 0,g'(p)\neq 0 }$.Then $latex { fg'=f'g \Rightarrow f(p)g'(p)=f'(p)g(p)}$ $latex { \Rightarrow \frac{f(p)}{g(p)}=\frac{f'(p)}{g'(p)} }$.
+<p>
+	Injective: Let $latex { h,h'\in \mathcal{O}_V(U) }$ such that $latex { h(p)=h'(p) \forall p\in U}$. 	Define $latex { l=h-h'\in \mathcal{O}_V(U) }$, then $latex { l(p)=0 ,\forall p\in U}$. There exists an open subset $latex { W }$, s.t. $latex { l=\frac{f}{g} }$ with $latex { g(p)\neq 0 \forall p\in W }$. For $latex { p\in W }$, $latex { l(p)=\frac{f(p)}{g(p)}=0\Rightarrow f(p)=0 \forall p\in W }$.As zero set $latex { Z(f) }$ of $latex { f }$ is closed, we get $latex { f=0\in A(V) }$, then $latex { l=0 }$ and hence $latex { h=h' }$. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Remark 15</b>  	We had called $latex { \mathcal{O}_{V,p} }$ a local ring of $latex { V }$ at $latex { p }$. The maximal ideal at $latex { p }$ is $latex { \mathfrak{m}(p):=\{ h\in \mathcal{O}_{V,p}|h(p)=0 \} }$, this is a maximal ideal in $latex { \mathcal{O}_{V,p} }$. It is easy to verify that the local ring of a variety is alocal ring. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Proposition 40</b> <a name="10"></a> 	For an affine variety $latex { X }$, functions which are regular functions everywhere are polynomial functions, i.e., $latex { \mathcal{O}_X(X)=A(X) }$. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	Obviously, $latex { A(X)\subset \mathcal{O}_X(X) }$. We have to show the other inclusion. Let $latex { h\in \mathcal{O}_X(X) }$, $latex { \forall p\in X }$, $latex { \exists F_p,G_p\in k[x_1,\dots,x_n] }$ s.t. 	$latex { h=\frac{[F_p]}{[G_p]} }$ and $latex { G_p(p)\neq 0 }$. It is equivalent to: $latex { \forall p\in X }$, $latex { \exists G_p\in k[x_1,\dots,x_n] }$ s.t. $latex { h\cdot [G_p] \in A(X)}$ and $latex { [G_p(p)]\neq 0 }$. Let 	<p align=center>$latex \displaystyle  	\mathcal{G}:=\{ G\in k[x_1,\dots,x_n]|h\cdot [G_p]\in A(X) \} 	\ \ \ \ \ (26)$</p>
+ 	$latex { \mathcal{G} }$ is an ideal and $latex { \mathcal{G}\supset I(X) }$, so $latex { Z(\mathcal{G})\subset X }$. But $latex { Z(\mathcal{G})\cap X=\emptyset }$, so $latex { Z(\mathcal{G})=\emptyset }$. By Nullstellensatz $latex { 1\in\mathcal{G} }$, so $latex { h=h\cdot 1\in A(X) }$. $latex \Box$
+
+
+<p>
+
+<blockquote class="thm"><b>Definition 41</b>  	Let $latex { X\subset\mathbb{P}^n }$ be a projective algebraic set. The homogeneous coordinate ring of $latex { X }$ is defined as 	<p align=center>$latex \displaystyle  	S(X):=k[x_0,\dots,x_n]/I_H(X) 	\ \ \ \ \ (27)$</p>
+ 	If $latex { X }$ is irreducible, then $latex { S(X) }$ is an integral domain, $latex { Q(S(X)) }$ is its quotient field. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 16</b>  	$latex { X\subset \mathbb{P}^n}$ is a quasi-projective variety, then polynomial $latex { F\in k[x_0,\dots,x_n] }$ will not define a function $latex { X\rightarrow k }$. But we can take quotients of homogeneous polynomials of the same degree and get a well defined function. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 42</b>  	Let $latex { f= [F]\in S(X) }$,$latex { F\in k[x_0,\dots,x_n] }$. The homogeneous part $latex { f^{(d)} }$ of $latex { f }$ is $latex { [F^{(d)}]\in S(X) }$, and 	$latex { S^{(d)}(X) = \{ f^{(d)}\in S(X) \} }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 43</b>  	$latex { X }$ is a quasi-projective variety, the field of rational functions on $latex { X }$(on $latex { V \subset X}$ open subset) is 	$latex { K(V):=K(X):=\{ \frac{f}{g}\in Q(S(X))|f,g \text{ both in } S^{(d)}(X) \text{ for some d} \} }$. 	Elements of $latex { K(X) }$($latex { K(V) }$) are called rational functions on $latex { X }$(on $latex { V }$). </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 44</b>  	Let $latex { p\in V\subset\mathbb{P}^n }$, the local ring of $latex { V }$ at $latex { p }$ is 	<p align=center>$latex \displaystyle  	\mathcal{O}_{V,p}:=\{ \frac{f}{g}\in K(V)|g(p)\neq 0 \}. 	\ \ \ \ \ (28)$</p>
+ 	If $latex { U\subset V }$ is open, the ring of regular functions on $latex { U }$ is 	<p align=center>$latex \displaystyle  	\mathcal{O}_V(U):=\mathop{\cap}\limits_{p\in U}\mathcal{O}_{V,p}. 	\ \ \ \ \ (29)$</p>
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Proposition 45</b> <a name="8"></a> 	
+
+<ol> 		<li> ($latex { k }$-algebra)Constant functions $latex { a\in k }$ are regular on $latex { U }$. If $latex { f,g\in \mathcal{O}_V(U) }$, then $latex { f+g }$ and $latex { fg }$ are regular on $latex { U }$, and if $latex { g }$ has no zero in $latex { U }$, then $latex { \frac{f}{g} \in \mathcal{O}_{V}(U)}$. 		<li> (Local)Let $latex { (U_i) }$ be a open cover of $latex { U }$. A function $latex { f:U\rightarrow k }$ is regular if and only if $latex { f|_{U_i} }$ is regular for all $latex { i }$. 		<li> Regular functions are continuous. i.e., let $latex { h\in \mathcal{O}_V(U) }$, then $latex { h:U\rightarrow k=\mathbb{A}^1 }$ is continuous($latex { k=\mathbb{A}^1 }$ is given Zariski topology). 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	(1) By definition, $latex { \mathcal{O}_V(U)=\mathop{\cap}\limits_{p\in U} \mathcal{O}_{V,p} }$, thus enough to show if $latex { f,g\in \mathcal{O}_{V,p} }$, then $latex { f+g, fg \in \mathcal{O}_{V,p}}$, and it is obvious. Assume $latex { g }$ has no zero on $latex { U }$, then $latex { g\frac{1}{g}\in \mathcal{O}_V(U) }$, then $latex { \frac{f}{g}\in \mathcal{O}_V(U) }$.
+<p>
+	(2) $latex { h:U\rightarrow k }$ is regular $latex { \Leftrightarrow }$ $latex { h\in \mathcal{O}_{V,p} \forall p\in U}$ $latex { \Leftrightarrow }$ $latex { h\in \mathcal{O}_{V,p} \forall p\in U_i \forall i}$.
+<p>
+	(3) $latex { h:U\rightarrow k }$ is continuous $latex { \Leftrightarrow }$ $latex { h|_{U_i} }$ is continuous for all $latex { U_i }$ of an open cover of $latex { U }$. We just replace $latex { U }$ by a suitable $latex { U_i }$ and show $latex { h }$ is continuous in $latex { U_i }$. From the definition of regular functions, we can simply assume $latex { h=\frac{f}{g}, f,g\in k[x_0,\dots,x_n] }$ are homogeneous of the same degree, and $latex { g }$ has no zero on $latex { U_i }$. Zariski topology on $latex { \mathbb{A}^1 }$ has closed subsets $latex { \emptyset,k }$ and finite points subsets. Thus we only have to show $latex { h^{-1}(a) }$ is closed in $latex { U_i }$ for all $latex { a }$ in $latex { k }$, 	<p align=center>$latex \displaystyle  	h^{-1}(a)=\{ p\in U_i|h(p)=a \}= \{ p\in U_i|(f-ag)(p)=0 \}. 	\ \ \ \ \ (30)$</p>
+ 	This is the zero set $latex { Z(f-ag)\cap U }$, hence the inverse of the closed sets are closed, hence $latex { h }$ is continuous in $latex { U_i \forall i}$, hence continuous in $latex { U }$. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Definition 46 (Polynomial Map)</b>  	Let $latex { X\subset \mathbb{A}^n, Y\subset \mathbb{A}^m }$ be affine algebraic sets. A map 	<p align=center>$latex \displaystyle  	(F_1,\dots,F_m):X\rightarrow Y,p\rightarrow (F_1(p),\dots,F_m(p)),F_1,\dots,F_m\in k[x_1,\dots,x_n] 	$</p>
+ 	is called a polynomial map. A surjective polynomial map whose inverse is also a polynomial map is an isomorphism. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Example 3</b>  	
+
+<ol> 		<li> If $latex { X }$ is an affine algebraic set, the polynomial map $latex { f:X\rightarrow k }$ is the polynomial function in $latex { A(X) }$. 		<li> Let $latex { X=\mathbb{A}^1 }$, $latex { Y=Z(y-x^2)\subset \mathbb{A}^2 }$, the polynomial map 		<p align=center>$latex \displaystyle  		(t,t^2):\mathbb{A}^2\rightarrow Y 		$</p>
+ 		is isomorphism. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 47</b>  	Let $latex { X\subset \mathbb{A}^n }$, $latex { Y\subset \mathbb{A}^m }$ be affine algebraic sets. Let 	<p align=center>$latex \displaystyle  	\varphi:X\rightarrow Y 	$</p>
+ 	be a polynomial map. 	The pull back of $latex { h\in A(Y) }$ is $latex { \varphi^\ast h:=h\circ \varphi \in A(X) }$. If $latex { h=H|_Y, H\in k[y_1,\dots,y_m] }$, $latex { \varphi =(F_1,\dots,F_m) }$, then 	<p align=center>$latex \displaystyle  	\varphi^\ast h(a_1,\dots,a_n)=h(F_1(a_1,\dots,a_n),\dots, F_m(a_1,\dots,a_n ). 	$</p>
+ 	i.e., 	<p align=center>$latex \displaystyle  	\varphi^\ast h = H( F_1(x_1,\dots,x_n),\dots, F_m(x_1,\dots,x_n) )|_X\in A(X). 	$</p>
+ 	The pull back $latex { \varphi^\ast:A(Y)\rightarrow A(X) }$ is obviously a ring homomorphism. If $latex { \varphi:X\rightarrow Y }$ is an isomorphism, then $latex { \varphi^\ast:A(Y)\rightarrow A(X) }$ is an isomorphism of $latex { k }$-algebra. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 48</b> <a name="11"></a> 	Let $latex { X,Y }$ be varieties, a map $latex { \varphi :X\rightarrow Y }$ is a morphism(regular map) if :
+
+<ol> 		<li> $latex { \varphi }$ is continuous; 		<li> for all open subsets $latex { U\in Y }$, all regular functions $latex { f\in \mathcal{O}_Y(U) }$, we have 		<p align=center>$latex \displaystyle  		\varphi^\ast := f\circ \varphi \in \mathcal{O}_X(\varphi^{-1}(U)). 		$</p>
+ 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 17</b>  			Thus for each open subset $latex { U\in Y }$, 			<p align=center>$latex \displaystyle  			\varphi^\ast :\mathcal{O}_Y(U)\rightarrow \mathcal{O}_X(\varphi^{-1}(U)) 			$</p>
+ 			is a $latex { k }$-algebra homomorphism. $latex { \varphi }$ is called an isomorphism if $latex { \varphi }$ is bijective and $latex { \varphi^{-1} }$ is also a morphism. 				
+
+<ol> 					<li> $latex { \text{id}_X }$ is a morphism form $latex { X }$ itself. 					<li> If $latex { \varphi:X\rightarrow Y,\psi :Y\rightarrow Z }$ are morphisms, then 					<p align=center>$latex \displaystyle  					(\psi\circ\varphi)^\ast = \varphi^\ast \circ \psi^\ast 					$</p>
+. 					<li> If $latex { \varphi : X\rightarrow Y }$ is isomorphism, then $latex { \varphi^\ast: \mathcal{O}_Y\rightarrow \mathcal{O}_X(\varphi^{-1}(U)) }$ is an isomorphism for all $latex { U\subset Y }$. 				
+</ol>
+
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Proposition 49</b>  	
+
+<ol> 		<li> Let $latex { \varphi :X\rightarrow Y }$ and $latex { (U_i)_{i\in I} }$ be an open cover of $latex { X }$ s.t. $latex { \varphi |_{U_i}:U_i\rightarrow Y }$ is a morphism. Then $latex { \varphi }$ is a morphism. 		<li> Let $latex { Z\subset X, W\subset Y }$ be varieties, let $latex { \varphi:X\rightarrow Y }$ be a morphism with $latex { \varphi(Z)\subset W }$. Then $latex { \varphi|_Z:Z\rightarrow W }$ is a morphism. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	(1) Let $latex { W\subset Y }$ be open, then we can write $latex { \varphi^{-1}(W)=\mathop{\cup}\limits_{i\in I}(\varphi|_{U_i}^{-1}(W)) }$, it is open so $latex { \varphi }$ is continuous. Let $latex { h\in \mathcal{O}_{Y}(W) }$ then the pull back of regular functions $latex { h }$ from $latex { \mathcal{O}_Y(W) }$ to $latex { \mathcal{O}_X(U_i\cap \varphi^{-1}(W)) }$ is $latex { \varphi|_{U_i}^\ast h=\varphi^\ast h|_{U_i\cap \varphi^{-1}(W)} }$, since $latex { \varphi|_{U_i} }$ is a morphism we get that $latex { U_i\cap \varphi^{-1}(W) }$ is open. Then 	<p align=center>$latex \displaystyle  	\varphi^{-1}(W)=\mathop{\cup}\limits_{i\in I} U_i\cap \varphi^{-1}(W) 	\ \ \ \ \ (31)$</p>
+ and $latex { (U_i\cap \varphi^{-1}(W) )_{i\in I}}$ is an open cover of $latex { \varphi^{-1}(W) }$, then we can get the conclusion that $latex { \varphi }$ is a morphism by proposition <a href="#8">45</a>.
+<p>
+(2) First, $latex { \varphi|_Z }$ is continuous as a restriction of a continuous map. Let $latex { U\subset W }$ be open, let $latex { h\in \mathcal{O}_W(U) }$. Replace if necessary $latex { U }$ by a smaller open subset sucht that we can assume $latex { h=\frac{F}{G} }$. This quotient also defines a regular function $latex { H }$ on open subset $latex { \tilde{U}\subset Y }$ s.t. $latex { U\subset \tilde{U} }$, then $latex { \varphi^\ast H\in \mathcal{O}_X(\varphi^{-1}(\tilde{U})) }$ is regular. Then $latex { \varphi^\ast h= \varphi^\ast H|_{\varphi^{-1}(U)\cap Z} }$ is regular on $latex { \varphi^{-1}(U)\cap Z }$. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Definition 50</b>  	An affine variety is a variety which is isomorphis to irreducible closed subset of some $latex { \mathbb{A}^n }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Theorem 51</b> <a name="9"></a> 	Let $latex { X,Y }$ be subvarieties, assume $latex { Y\subset \mathbb{A}^n }$. A map $latex { \varphi:X\rightarrow Y }$ is a morphism if and only if $latex { \exists f_1,\dots,f_n\in \mathcal{O}_X(X) }$ s.t. 	<p align=center>$latex \displaystyle  	\varphi(p)=(f_1(p),\dots,f_n(p)),\forall p\in X. 	\ \ \ \ \ (32)$</p>
+ 	We can write $latex { \varphi = ( f_1,\dots,f_n ) }$. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	$latex { \Rightarrow }$: Let $latex { \varphi :X\rightarrow Y }$ be a morphism. Let $latex { y_1,\dots, y_n \in \mathcal{O}_Y(Y)}$ be restrictions of the coordinates on $latex { \mathbb{A}^n }$ to $latex { Y }$, i.e., if $latex { q=(a_1,\dots,a_n)\in Y }$, then $latex { a_i=y_i(q) }$. The pull back of $latex { y_i }$ is 	<p align=center>$latex \displaystyle  	f_i:=\varphi^\ast y_i=y_i\circ \varphi \in \mathcal{O}_X(X). 	\ \ \ \ \ (33)$</p>
+ 	Let $latex { p\in X }$, $latex { \varphi(p)=(b_1,\dots,b_n) }$, $latex { b_i=y_i(\varphi(p))=f_i(p) }$, thus 	<p align=center>$latex \displaystyle  	\varphi= (f_1,\dots,f_n) 	$</p>
+ 	where $latex { f_i\in \mathcal{O}_X(X) }$.
+<p>
+	$latex { \Leftarrow }$ Let $latex { \varphi :=(f_1,\dots,f_n),f_i\in \mathcal{O}_X(X) }$. First we show $latex { \varphi }$ is continuous. Let $latex { B\in Y }$ be closed, it is equivalent to $latex { B=Y\cap Z(G_1,\dots,G_m) }$ and $latex { G_i\in k[x_1,\dots,x_n] }$. Since 	$latex { G_i\circ \varphi = G(f_1,\dots,f_n)\in \mathcal{O}_X(X) }$, we get $latex { \varphi^{-1}(B)=Z(G_1\circ \varphi,\dots,G_m\circ\varphi) }$ and it is closed in $latex { X }$. So $latex { \varphi }$ is continuous. Let $latex { h\in \mathcal{O}_Y(U) }$, write $latex { W=\varphi^{-1}(U)\subset Y }$. we need to show $latex { h\circ \varphi \in \mathcal{O}_X(W) }$. We can always make $latex { U }$ smaller and assume $latex { h(q)=\frac{F(q)}{G(q)} ,\forall q\in U}$, $latex { F }$ and $latex { G }$ are some polynomials and $latex { G }$ has no zero on $latex { U }$. Then we have 	<p align=center>$latex \displaystyle  	h\circ \varphi =\frac{F\circ \varphi}{G\circ \varphi}=\frac{F(f_1,\dots,f_n)}{G(f_1,\dots,f_n)} 	\ \ \ \ \ (34)$</p>
+ 	where $latex { F(f_1,\dots,f_n) }$ and $latex { G(f_1,\dots,f_n) }$ are regular on $latex { \mathcal{O}_X(W) }$. Since $latex { \varphi(W)=U }$ and $latex { G }$ has no zero on $latex { U }$, $latex { G(f_1,\dots,f_n) }$ also has no zero on $latex { W }$, i.e., $latex { h\circ \varphi\in \mathcal{O}_X(W) }$. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Remark 18</b>  	The regular functions on a variety $latex { X }$ are the same as the morphisms $latex { X\rightarrow \mathbb{A}^1 }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Corollary 52</b>  	Let $latex { X\subset \mathbb{A}^n }$ and $latex { Y\subset \mathbb{A}^m }$ be closed subvarieties. The morphisms 	<p align=center>$latex \displaystyle  	\varphi:X\rightarrow Y 	$</p>
+ 	are precisely the polynomial map. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  From theorem <a href="#9">51</a> we know $latex { \varphi=(f_1,\dots,f_m) }$ and $latex { f_i\in \mathcal{O}_X(X) \forall i}$. From theorem <a href="#10">40</a> we know $latex { f_i\in A(X) }$, so $latex { \varphi }$ is a polynomial map. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Theorem 53</b> <a name="12"></a> 	Let $latex { X,Y }$ be varieties, assume $latex { Y\subset \mathbb{A}^m }$ be a closed affine variety. Then there is a bijection between morphisms $latex { X\rightarrow Y }$ and $latex { k }$-algebra homomorphisms $latex { A(Y)\rightarrow \mathcal{O}_X(X) }$: <p align=center>$latex \displaystyle \begin{array}{cc} 	\{ \text{morphisms } X\rightarrow Y \} & \xrightarrow{bijection}\{ \text{homomorphisms }A(Y)\rightarrow \mathcal{O}_X(X) \} \\ 	\varphi & \xrightarrow{\qquad\quad} \varphi^\ast \end{array}$</p>
+ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	$latex { \Rightarrow }$: Let $latex { \varphi :X\rightarrow Y }$ be a morphism, then $latex { \varphi^\ast: A(Y)\rightarrow \mathcal{O}_X(X) }$ is a $latex { k }$-algebra homomorphism by definition <a href="#11">48</a>.
+<p>
+	$latex { \Leftarrow }$: Let $latex {\phi:A(Y)\rightarrow \mathcal{O}_X(X) }$ be a $latex { k }$-algebraic homomorphism, let $latex { y_1,\dots,y_n\in A(Y) }$ be the coordinate functions. We set 	<p align=center>$latex \displaystyle  	f_i=\phi(y_i)\in \mathcal{O}_X(X). 	$</p>
+ 	Let $latex { \varphi=(f_1,\dots,f_m):X\rightarrow \mathbb{A}^m }$. 	This is a morphism from $latex { X }$ to $latex { Y }$. To see it is a morphism we have to show $latex { \varphi(X)\subset Y }$. Let $latex { h\in I(Y) }$, $latex { h\circ \varphi =h(f_1,\dots,f_m)=h(\phi(y_1),\dots,\phi(y_m))=\phi (h(y_1,\dots,y_m)) }$. The second equality is based on the homomorphic property of $latex { \phi }$, for example, if $latex { h(x_1,x_2)=x_1^2-x_2^3 }$, then $latex { h(\phi(y_1),\phi(y_2))=\phi(y_1)^2-\phi(y_2)^3= \phi(y_1^2)-\phi(y_2^3)=\phi(y_1^2-y_2^3)=\phi(h(y_1,y_2)) }$. So $latex { h(y_1,\dots,y_m)\in A(Y) }$, we choose an arbitrary element $latex { p=(a_1,\dots,a_m)\in Y }$, then $latex { h(y_1,\dots,y_m)(p)=h(a_1,\dots,a_m)=0 }$ because $latex { h\in I(Y) }$. So for arbitrary $latex { h\in I(Y) }$, we get $latex { h\circ\varphi=0 }$, it implies $latex { \varphi(X)\subset \mathop{\cap}_{h\in I(Y)} Z(h)= Y }$. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Example 4</b>  	A bijective polynomial map need not to be an isomorphism. For example, let$latex { X=\mathbb{A}^1 }$, $latex { Y=Z(x_2^2-x_1^3) \subset \mathbb{A}^2 }$. Then 	<p align=center>$latex \displaystyle  	\varphi=(t^2,t^3):X\rightarrow Y 	$</p>
+ 	is a morphism and bijective and the inverse is 	<p align=center>$latex \displaystyle  		\varphi^{-1}(a,b)=\left\lbrace \begin{matrix} 		\frac{b}{a} & \text{ if } a\neq 0\\ 		0 & \text{ if } (a,b)=0 		\end{matrix}\right. 	$</p>
+ 	$latex { \varphi }$ is not an isomorphism($latex { \varphi^{-1} }$ is not a morphism). To show this we see the pull back: 	<p align=center>$latex \displaystyle  		\varphi^\ast : A(Y)\rightarrow \mathcal{O}_X(X) 	$</p>
+ 	where $latex { A(Y)=k[x_1,x_2]/\langle x_2^2-x_1^3\rangle }$ and $latex { A(X)=k[t] }$. $latex { \varphi^\ast }$ makes $latex { x_1\rightarrow t^2 }$ and $latex { x_2\rightarrow t^3 }$. Since $latex { \varphi^\ast }$ is not surjective(there is no element maps into $latex { t }$), $latex { \varphi^\ast }$ is not an isomorphism. By theorem <a href="#12">53</a> we know $latex { \varphi }$ is not an isomorphism. So bijective morphism is not necessary to be an isomorphism. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 54</b>  	Let $latex { X\subset \mathbb{A}^n }$ be a closed variety, $latex { F\in k[x_1,\dots,x_n]\backslash I(X) }$. The principal open defined by $latex { F }$ is $latex { X_F:=X\backslash Z(F) }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Proposition 55</b> <a name="14"></a> 	$latex { X_F }$ is an affine variety. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	Let $latex { Z:=Z(\langle I(X),F\cdot x_{n+1}-1\rangle )\subset \mathbb{A}^{n+1} }$. We need to prove $latex { Z }$ is a closed subvariety of $latex { \mathbb{A}^{n+1} }$ isomorphic to $latex { X_F }$. Let $latex { \varphi:(x_1,\dots,x_n,\frac{1}{F}):X_F\rightarrow \mathbb{A}^{n+1} }$, it is a bijective morphism and $latex { \varphi(X_F)=Z }$. As $latex { X_F }$ is irreducible, $latex { Z }$ is also irreducible. So $latex { Z }$ is closed variety of $latex { \mathbb{A}^{n+1} }$. On the other hand, the inverse of $latex { \varphi }$ is 	<p align=center>$latex \displaystyle  	\varphi^{-1}=(x_1,\dots,x_n):Z\rightarrow X_F 	$</p>
+ 	is a morphism, so $latex { \varphi }$ is an isomorphism. $latex \Box$
+
+
+<p>
+
+<p align=center><b> &mdash;  4. Morphisms of Quasi-projective varieties  &mdash; </b></p>
+
+ 
+<blockquote class="thm"><b>Definition 56</b>  	Let $latex { X\subset \mathbb{P}^n,Y\subset \mathbb{P}^m }$ be quasi-projective algebraic sets. A map $latex { \varphi:X\rightarrow Y }$ is called a polynomial map if there exists homogeneous polynomials $latex { F_0,\dots,F_m\in k[x_0,\dots,x_n] }$ of the same degree with no common zero on $latex { X }$ s.t. 	$latex { \varphi(p)=[F_0(p),\dots,F_m(p)] }$, $latex { \forall p\in X }$, write $latex { \varphi=[F_0,\dots,F_m] }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 57</b>  	The homogenization of $latex { F\in k[x_0,\dots,x_n] }$ is: 	<p align=center>$latex \displaystyle  	F_a:=F(1,x_1,\dots,x_n). 	$</p>
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Theorem 58</b> <a name="13"></a> 	$latex { \varphi_i=(\frac{x_0}{x_i},\dots,\hat{\frac{x_i}{x_i}},\dots,\frac{x_n}{x_i}):U_i\rightarrow \mathbb{A}^n }$ is an isomorphism. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	We can assume $latex { i=0 }$, $latex { \varphi:=\varphi_0 }$, $latex { U:=U_0 }$, then $latex { \varphi=(\frac{x_1}{x_0},\dots,\frac{x_n}{x_0}) }$. $latex { \frac{x_i}{x_0} }$ is a regular function in $latex { \mathcal{O}_{\mathbb{P}^n}(\mathbb{P}^n) }$, so $latex { \varphi }$ is a morphism. We need to show that $latex { u=\varphi^{-1}(x_1,\dots,x_n)=[1,x_1,\dots,x_n] }$ is a morphism.
+<p>
+	(a) $latex { u=\varphi^{-1} }$ is continuous. Let $latex { W=Z(F_1,\dots,F_m)\cap U }$ be closed in $latex { U }$, $latex { F_i\in k[x_0,\dots,x_n] }$ are homogeneous, then 	<p align=center>$latex \displaystyle \begin{array}{cc} 	u^{-1}(W)= & \{ (a_1,\dots,a_n)\in \mathbb{A}^n|[1,a_1,\dots,a_n]\in W \}\\ 	= & \{ (a_1,\dots,a_n)\in \mathbb{A}^n|F_i(1,a_1\dots,a_n)=0, \forall i=1,\dots,m \} \\ 	= & Z(F_{1a},\dots,F_{ma}) 	\end{array}$</p>
+ 	where $latex { F_{ia} }$ is homogenization of $latex { F_i }$, it shows that $latex { u^{-1}(W) }$ is closed in $latex { \mathbb{A}^n }$.
+<p>
+	(b) Let $latex { V\subset U }$ be open, $latex { h\in \mathcal{O}_U(V) }$, we need to show $latex { u^\ast h\in \mathcal{O}_{\mathbb{A}^n}(u^{-1}(V)) }$. Making $latex { V }$ smaller necessary, we can assume $latex { h=\frac{F}{G} }$, $latex { F,G \in k[x_0,\dots,x_n]}$ are homogeneous polynomials of the same degree. 	<p align=center>$latex \displaystyle  	u^\ast h = h\circ u=\frac{F\circ u}{G\circ u}=\frac{F(1,x_1,\dots,x_n)}{G(1,x_1,\dots,x_n)}. 	$</p>
+ 	Thus $latex { u^\ast h\in \mathcal{O}_{\mathbb{A}^n}(u^{-1}(V)) }$, $latex { phi:\mathbb{A}^n\rightarrow u }$ is an isomorphism. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Remark 19</b>  	From theorem <a href="#13">58</a> we find that if we identify $latex { \mathbb{A}^n }$ with $latex { u_0\subset \mathbb{P}^n }$, the Zariski topology on $latex { \mathbb{A}^n }$ is equivalent to the induced topology of $latex { u_0 }$ from $latex { \mathbb{P}^n }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Corollary 59</b>  	
+
+<ol> 		<li> Every variety is isomorphic to a quasi-projective variety. 		<li> Every variety has an open cover by affine varieties. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	(1) Let $latex { X }$ be a variety, if $latex { X }$ is locally closed in $latex { \mathbb{P}^n }$, 	then it is a quasi-projective variety, so we only need to consider the condition in $latex { \mathbb{A}^n }$. Assume $latex { X }$ be locally closed in $latex { \mathbb{A}^n }$. $latex { Y=\varphi ^{-1}_0 (X) \subset \mathbb{P}^n}$ is locally closed subvariety and $latex { \varphi^{-1}_0 :X\rightarrow Y }$ is an isomorphism.
+<p>
+	(2) For varieties in $latex { \mathbb{A}^n }$, it is trivial. Let $latex { X\subset \mathbb{P}^n }$ be a quasi-projective variety, then $latex { X=\mathop{\cup}\limits_{i=0}^{n}X\cap U_i }$. $latex { X\cap U_i }$ is isomorphic to locally closed subvariety in $latex { \mathbb{A}^n }$. We can regard $latex { X\cap U_i }$ simply as $latex { X \subset \mathbb{A}^n}$, where $latex { X }$ is locally closed. It is equivalent to prove: 	<p align=center> 		For every point $latex { p\in X }$, there exists a neighborhood $latex { U\subset X }$ and $latex { U }$ is an affine variety. 	</p> 	Since $latex { X }$ is locally closed, there exist $latex { Y,Z\subset \mathbb{A}^n }$ closed in $latex { \mathbb{A}^n }$ s.t. $latex { X=Y\backslash Z }$. For any point $latex { p\in X }$, $latex { \exists F_p\in I(Z) }$ with $latex { F_p(p)\neq 0 }$. Then we have $latex { Y_{F_p}=Y\backslash Z(F_p)\subset X }$. According to proposition <a href="#14">55</a>, $latex { Y_{F_p} }$ is an affine variety. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Theorem 60</b> <a name="18"></a> 	Let $latex { X\subset \mathbb{P}^m }$, $latex { Y\subset \mathbb{P}^n }$ be quasi-projective varieties. Let $latex { \varphi :X\rightarrow Y }$ be a map. The following conditions are equivalent: 	
+
+<ol> 		<li> $latex { \varphi }$ is a morphism; 		<li> $latex { \varphi }$ is locally given by regular functions, i.e., for all $latex { p\in X }$, there exists a neighborhood $latex { U\subset X }$, $latex { h_0,\dots,h_n\in \mathcal{O}_X(U) }$ with no common zero on $latex { U }$, s.t. 		<p align=center>$latex \displaystyle  		\varphi(q)=[h_0(q),\dots,h_n(q)],\quad \forall q\in U. 		$</p>
+ 		We write $latex { \varphi = [h_0,\dots,h_n] }$ on $latex { U }$; 		<li> $latex { \varphi }$ is locally a polynomial map, i.e.: 		<p align=center> 			$latex { \forall p\in X }$, $latex { \exists }$ open neighborhood $latex { U\subset X }$, $latex { F_0,\dots,F_n\in k[x_0,\dots,x_,] }$ homogeneous of the same degree with no common zero s.t. 			<p align=center>$latex \displaystyle  				\varphi(q)=[F_(q),\dots,F_n(q)] \quad \forall q\in U. 			$</p>
+ 		</p> 			We write $latex { \varphi = [F_0,\dots,F_n] }$ on $latex { U }$. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+
+<p>
+<em>Proof:</em>  	(1) $latex { \Rightarrow }$ (2): If $latex { \varphi:X\rightarrow \mathbb{P}^n }$ is amorphism, then $latex { \forall p\ in X }$, $latex { \exists i }$, s.t. $latex { \varphi (p) \in U_i}$. Assume $latex { i=0 }$ and then $latex { \varphi(p)\in U_0 }$. Let $latex { U }$ be an open neighborhood of$latex { p }$ in $latex { X }$ s.t. $latex { \varphi (U)\subset U_0 }$. Then $latex { \varphi _0\circ \varphi :U\rightarrow \mathbb{A}^n }$ is a morphism, so $latex { \varphi_0\circ\varphi = (h_1,\dots,h_n) }$ with $latex { h_i\in \mathcal{O}_X(U) }$. Since the inverse of $latex { \varphi_0 }$ is $latex { u_0 }$ we get 	<p align=center>$latex \displaystyle  	\varphi = u_0\circ \varphi_0\circ\varphi = [1,h_1,\dots,h_n]. 	\ \ \ \ \ (35)$</p>
+
+<p>
+	(2) $latex { \Rightarrow }$ (3): Assume $latex { \varphi = [h_0,\dots,h_n] }$ on $latex { U\subset X }$, where $latex { h_i \in \mathcal{O}_X(U)}$ with no common zeros on $latex { U }$. By making $latex { U }$ possibly smaller we can further assume $latex { h_i=\frac{F_i}{G_i} }$, $latex { F_i,G_i\in k[x_0,\dots,x_m] }$ are homogeneous of the same degree($latex { F_i }$ and $latex { G_i }$ are of the same degree, it is not necessary that $latex { F_i }$ and $latex { G_j }$ are of the same degree for $latex { i\neq j }$), $latex { G_i }$ has no zeros on $latex { U }$. Let $latex { L_i= F_i\cdot G_0\cdot \hat{G_i}\cdot G_n }$, $latex { L_i }$ are homogeneous of the same degree, we get 	<p align=center>$latex \displaystyle  	\varphi = [h_0,\dots,h_n]=[L_0,\dots,L_n]. 	\ \ \ \ \ (36)$</p>
+
+<p>
+	(3) $latex { \Rightarrow }$ (1): Let $latex { \varphi |_U=[L_0,\dots,L_n] }$, $latex { L_i\in k[x_0,\dots,x_m] }$ are homogeneous of the same degree with no common zero. Making $latex { U }$ smaller, we can assume one of $latex { L_i }$(say $latex { L_0 }$) has no zero in $latex { U }$. Then for $latex { i=1,\dots,n }$, let $latex { h_i=\frac{L_i}{L_0}\in \mathcal{O}_X (U) }$. Rewrite the map as 	<p align=center>$latex \displaystyle  	\varphi = [1,h_1,\dots,h_n] 	\ \ \ \ \ (37)$</p>
+ 	<p align=center>$latex \displaystyle  	\Rightarrow	\varphi_0\circ\varphi = (h_1,\dots,h_n). 	\ \ \ \ \ (38)$</p>
+ 	So$latex { \varphi_0\circ\varphi }$ is amorphism, then $latex { \varphi = u_0\circ\varphi_0\circ\varphi }$ is a morphism. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Definition 61 (Projective Transformation)</b>  	Let <p align=center>$latex \displaystyle  	A=\left[\begin{matrix} 	a_{00} & a_{01} & \cdots & a_{0n}\\ 	a_{10} & a_{11} & \cdots & a_{1n}\\ 	\vdots & \vdots & \ddots & \vdots\\ 	a_{n0} & a_{n1} & \cdots & a_{nn} 	\end{matrix}\right] 	\ \ \ \ \ (39)$</p>
+ 	be a $latex { (n+1)\times (n+1) }$ matrix in $latex { k }$, then we can construct a map from $latex { \mathbb{P}^n \rightarrow \mathbb{P}^n }$: 	<p align=center>$latex \displaystyle  	[A]:	[b_0,\dots,b_n]\rightarrow [b_0,\dots,b_n]\left[\begin{matrix} 		a_{00} & a_{01} & \cdots & a_{0n}\\ 		a_{10} & a_{11} & \cdots & a_{1n}\\ 		\vdots & \vdots & \ddots & \vdots\\ 		a_{n0} & a_{n1} & \cdots & a_{nn} 		\end{matrix}\right]^{T}. 	$</p>
+ 	It is called a projective transformation. This is a morphism and if $latex { A }$ is inverse then it is an isomorphism. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 20</b>  	All automorphisms of $latex { \mathbb{P}^n }$ are projective transformations. It is not so easy to prove. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 62 (Projection)</b>  	Let $latex { X\subset\mathbb{P}^n }$ be a variety, $latex { W\subset \mathbb{P}^n }$ be a projective subspace of $latex { \mathbb{P}^n }$ of $latex { \text{dim}W=k }$. Assume $latex { X\cap W= \emptyset }$ and there exist linear forms $latex { H_0,\dots,H_{n-k-1} }$ such that $latex { W=Z(H_0,\dots,H_{n-k-1}) }$. The projection from $latex { W }$ is 	<p align=center>$latex \displaystyle  		\Pi_W=[H_0,\dots,H_{n-k-1}]:X\rightarrow \mathbb{P}^{n-k-1}. 	$</p>
+ 	This is a morphism($latex { H_i }$ have no common zero on $latex { X }$ because $latex { W\cap X=\emptyset }$). </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 21</b>  	$latex { \Pi_W }$ depends on $latex { H_0,\dots,H_{n-k-1} }$, but if we have another relation $latex { W=Z(L_0,\dots,L_{n-k-1}) }$ , then there exists a projection transformation $latex { [A]:\mathbb{P}^{n-k-1}\rightarrow \mathbb{P}^{n-k-1} }$ . In particular, if $latex { p\in \mathbb{P}^n\backslash X }$, for example, $latex { p=[0,\dots,0,1] }$, then $latex { \Pi_p=[x_0,\dots,x_{n_1}] :X\rightarrow \mathbb{P}^{n-1}}$. </blockquote>
+
+<p>
+
+ 
+<p align=center><b> &mdash;  5. Products of Varieties  &mdash; </b></p>
+
+ 
+<blockquote class="thm"><b>Theorem 63 (Products of Affine Varieties)</b> <a name="15"></a> 	If $latex { X\subset \mathbb{A}^n,Y\subset \mathbb{A}^m }$ are closed subvarieties, then $latex { X\times Y\subset \mathbb{A}^n\times \mathbb{A}^m=\mathbb{A}^{n+m} }$ is a closed subvariety. </blockquote>
+
+<p>
+
+ Before we prove it, we need to prove a conclusion in topology. 
+<blockquote class="thm"><b>Lemma 64</b> <a name="16"></a> 	Let $latex { X,Y }$ be irreducible topological spaces. Assume we have a topology on the product $latex { X\times Y }$ s.t.: 	<p align=center>$latex \displaystyle \begin{array}{cc} 		y_p: & Y\rightarrow X\times Y, \quad q\rightarrow (p,q) \text{ is continuous }\forall p\in X;\\ 		l_q: & X\rightarrow X\times Y, \quad p\rightarrow (p,q) \text{is continuous }\forall q\in Y. 	\end{array}$</p>
+ 	Then $latex { X\times Y }$ is irreducible. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	Assume $latex { X\times Y=S_1\cup S_2 }$, $latex { S_i\subsetneqq X\times Y }$ are closed. For $latex { i=1,2 }$, set $latex { T_i=\mathop{\cap}\limits_{q\in Y}l_q^{-1}(S_i)=\{ p\in X|(p,q)\in S_i \quad\forall q\in Y \} }$. It is the same as $latex { T_i=\{ p\in X|\{ p \}\times Y\subset S_i \} }$. Since $latex { y_p }$ is continuous and $latex { Y }$ is irreducible, we get $latex { y_p(Y)=\{p\}\times Y }$ is irreducible. So we get $latex { \{p\}\times Y\subset S_1 }$ or $latex { \{p\}\times Y\subset S_2 \quad\forall p\in X}$(it implies $latex { T_1\cap T_2=\emptyset }$ and $latex { T_i\subsetneqq X }$). Hence $latex { X=T_1\cup T_2 }$. Since $latex { l_q }$ is continuous, $latex { T_i }$ are closed, then $latex { X }$ is reducible. $latex \Box$
+
+  	Let $latex { X\subset \mathbb{A}^n,Y\subset \mathbb{A}^m }$ be closed subvarieties, the product of $latex { X }$ and $latex { Y }$ is just 	<p align=center>$latex \displaystyle  		X\times Y=\{ (p,q)\in \mathbb{A}^n\times \mathbb{A}^m=\mathbb{A}^{n+m}|p\in X \text{ and }q\in Y \}. 	$</p>
+ 	Let $latex { x_1,\dots,x_n }$ be coordinates in $latex { \mathbb{A}^n }$ and $latex { y_1,\dots,y_m }$ be coordinates in $latex { \mathbb{A}^m }$, we can assume $latex { X=Z(F_1,\dots,F_k) }$ and $latex { Y=Z(G_1,\dots,G_l) }$ where $latex { F_i\in k[x_1,\dots,x_n],G_j\in k[y_1,\dots,y_m] }$. Then 	<p align=center>$latex \displaystyle  	X\times Y= Z(F_1,\dots,F_k,G_1,\dots,G_l)\subset \mathbb{A}^{n+m} 	\ \ \ \ \ (40)$</p>
+ 	is a closed subset. By lemma <a href="#16">64</a> we only need to check $latex {\forall q\in Y }$, $latex { l_q:X\rightarrow Y }$ is continuous. Write $latex { q=(b_1,\dots,b_m) }$, then $latex { l_q=(x_1,\dots,x_n,b_1,\dots,b_m) }$. It is a morphism, so it is continuous, thus we finish the whole proof.  
+<blockquote class="thm"><b>Proposition 65 (Universal Property)</b> <a name="19"></a> 	Let $latex { X\subset\mathbb{A}^n,Y \subset \mathbb{A}^m}$ be varieties, then 	
+
+<ol> 		<li> The projections 		<p align=center>$latex \displaystyle \begin{array}{cc} 			p_1 & =(x_1,\dots,x_n): X\times Y\rightarrow X\\ 			p_2 & =(y_1,\dots,y_m): X\times Y\rightarrow Y 		\end{array}$</p>
+ 		are morphisms. 		<li> Let $latex { Z }$ be a variety. The morphism $latex { \varphi : Z\rightarrow X \times Y }$ are precisely the 		<p align=center>$latex \displaystyle  		(f,g):Z\rightarrow X\times Y,\quad p\rightarrow (f(p),g(p))\quad\forall p\in Z 		$</p>
+ 		where $latex { f:Z\rightarrow X }$ and $latex { g:Z\rightarrow Y }$ are morphisms. In other words, $latex { \varphi:Z\rightarrow X\times Y }$ is a morphism if and only if both $latex { p_1\circ \varphi }$ and $latex { p_2\circ\varphi }$ are morphisms. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	The first is obvious, we only check the second.
+<p>
+	$latex { \Rightarrow }$: Let $latex { \varphi:Z\rightarrow X\times Y }$ be a morphism, then $latex { f=p_1\circ\varphi }$ and $latex { g=p_2\circ\varphi }$ are morphisms and $latex { \varphi=(f,g) }$.
+<p>
+	$latex { \Leftarrow }$: Assume $latex { f:Z\rightarrow X }$ and $latex { g:Z\rightarrow Y }$ are both morphisms. then there exist $latex { f_1,\dots,f_n\in \mathcal{O}_Z(Z) }$ and $latex { g_1,\dots,g_m\in \mathcal{O}_Z(Z) }$ s.t. 	$latex { f=(f_1,\dots,f_n),\quad g=(g_1,\dots,g_m) }$. Then $latex { (f,g)=(f_1,\dots,f_n,g_1,\dots,g_m) }$ is a morphism. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Remark 22</b>  	Let $latex { X\subset \mathbb{P}^n,Y\subset \mathbb{P}^m }$ be subvarieties, $latex { X\times Y }$ does not lie rationally in some projective space. Thus we need to find an embedding $latex { \sigma :\mathbb{P}^n\times \mathbb{P}^m \rightarrow \mathbb{P}^N}$ to denote the products of quasi-projective varieties. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 66 ()</b> ] 	We put $latex { N:=(n+1)\cdot (m+1)-1 }$, let $latex { x_0,\dots,x_n }$ be coordinates on $latex { \mathbb{P}^n }$, $latex { y_0,\dots,y_m }$ be coordinates on $latex { \mathbb{P}^m }$. Let $latex { z_{ij}, i=0,\dots,n, j=0,\dots,m }$ be coordinates on $latex { \mathbb{P}^N }$. Define a map 	<p align=center>$latex \displaystyle \begin{array}{cc} 	\sigma:\mathbb{P}^n\times \mathbb{P}^m & \rightarrow \mathbb{P}^N\\ 	([x_0,\dots,x_n],[y_0,\dots,y_m]) & \rightarrow [z_{ij}]=[x_iy_j] 	\end{array}$</p>
+ 	$latex { \sigma }$ is called the Segre embedding. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 67</b>  	We define the image of $latex { \sigma }$ as 	<p align=center>$latex \displaystyle  	\Sigma := \sigma(\mathbb{P}^n\times \mathbb{P}^m)\subset \mathbb{P}^N. 	$</p>
+ 	For $latex { i=0,\dots,n }$, put 	<p align=center>$latex \displaystyle  	 U_i:=\{ [x_0,\dots,x_n]\in \mathbb{P}^n|x_i\neq 0 \}. 	$</p>
+ 	 For $latex { j=0,\dots,m }$, put 	 <p align=center>$latex \displaystyle  	 U_j:=\{ [y_0,\dots,y_m]\in\mathbb{P}^m|y_j\neq 0 \}. 	 $</p>
+ 	 And for $latex { i=0,\dots,n,j=0,\dots,m }$, put 	 <p align=center>$latex \displaystyle  	 U_{ij}:=\{ [z_{kl}]\in \mathbb{P}^{N}|z_{ij}\neq =0 \}. 	 $</p>
+ </blockquote>
+
+<p>
+
+ there are isomorphisms: 	 <p align=center>$latex \displaystyle \begin{array}{cc} 	 \mathbb{A}^n & \mathop{\rightleftarrows}\limits_{\varphi_i}^{u_i} U_i\\ 	 \mathbb{A}^m & \mathop{\rightleftarrows}\limits_{\varphi_j}^{u_j} U_j\\ 	 \mathbb{A}^N & \mathop{\rightleftarrows}\limits_{\varphi_{ij}}^{u_{ij}} U_{ij}. 	 \end{array}$</p>
+ Since $latex { \mathbb{P}^N=\mathop{\cup}_{i,j}U_{ij} }$, we get $latex { \Sigma = \mathop{\cup}_{i,j}(\Sigma \cap U_{ij}) }$, define <p align=center>$latex \displaystyle  \Sigma^{ij}=\Sigma \cap U_{ij}. $</p>
+ Define the map $latex { \sigma^{ij} }$ <p align=center>$latex \displaystyle \begin{array}{cc} 	\sigma^{ij}:\mathbb{A}^{n+m} & \rightarrow U_{ij}\\ 	(p,q) & \rightarrow \sigma (u_i(p),u_j(q)). \end{array}$</p>
+ By definition we know $latex { \sigma^{ij}(\mathbb{A}^{n+m})=\Sigma^{ij} }$. 
+<blockquote class="thm"><b>Theorem 68</b>  	
+
+<ol> 		<li> $latex { \sigma:\mathbb{P}^n\times\mathbb{P}^m\rightarrow \mathbb{P}^N }$ is injective and $latex { \Sigma }$ is closed in $latex { \mathbb{P}^N }$: 		<a name="17"><p align=center>$latex \displaystyle  		\Sigma=Z\left(\left\lbrace z_{ij}z_{kl}-z_{il}z_{kj}|\begin{matrix} 		i,k & =0,\dots,n\\ 		j,l & =0,\dots,m 		\end{matrix} \right\rbrace\right). 		\ \ \ \ \ (41)$</p>
+</a> 		<li> $latex { \sigma^{ij}:\mathbb{A}^{n+m}\rightarrow \Sigma^{ij} }$ is an isomorphism. 		<li> $latex { \forall q\in\mathbb{P}^m }$, the map 		<p align=center>$latex \displaystyle \begin{array}{cc} 			\bar{i_q}: \mathbb{P}^n & \rightarrow \mathbb{P}^N\\ 			p & \rightarrow \sigma(p,q) 		\end{array}$</p>
+ 		is a morphism. Similarly, $latex { j_p=\sigma(p,q):\mathbb{P}^m\rightarrow \mathbb{P}^N }$ is a morphism. 		<li> Let $latex { X\subset \mathbb{P}^n,Y\subset \mathbb{P}^m }$ be quasi-projective varieties, then $latex { \sigma(X\times Y)\subset \mathbb{P}^N }$ is also a quasi-projective variety. What's more, if $latex { X }$ and $latex { Y }$ are both projective varieties, then $latex { \sigma(X\times Y) }$ is a projective variety. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	(1) If $latex { \sigma( [a_0,\dots,a_n],[b_0,\dots,b_m] )=\sigma( [ a_0',\dots,a_n' ],[ b_0',\dots,b_m' ] ) }$, then $latex { \exists \lambda\in k\backslash \{ 0 \} }$, s.t. $latex { \lambda a_i'b_j'=\lambda a_ib_j }$ $latex { \forall i,j }$. Choose $latex { i_0,j_0 }$ s.t. $latex { a_{i_0}b_{j_0}\neq 0 }$, then $latex { \forall i=0,\dots,n }$, $latex { a_ib_{j_0}=\lambda a_i'b_{j_0}' }$ $latex { \Rightarrow }$ $latex { a_i=\left(\frac{\lambda b_{j_0}'}{b_{j_0}}\right)a_i' }$ $latex { \Rightarrow }$ $latex { [a_0,\dots,a_n]=[{a_0}',\dots,{a_n}'] }$. The same way can be used to prove $latex { [b_0,\dots,b_m]=[{b_0}',\dots,{b_m}'] }$. Let $latex { W }$ be the zero set on the right hand side of the equation <a href="#17">41</a>, clearly we have the relation $latex { \Sigma\subset W }$. Now let $latex { [a_{ij}]\in W }$, choose $latex { i_0,j_0 }$ s.t. $latex { a_{i_0j_0}\neq 0 }$, then we get $latex { [a_{ij}]=[a_{i_0j_0}a_{ij}]=[a_{i_0j}a_{ij_0}]=[a_{ij_0}a_{i_0j}]=\sigma([a_{0j_0},\dots,a_{nj_0}],[a_{i_00},\dots,a_{i_0m}])\subset \Sigma }$.
+<p>
+	(2) Assume $latex { i=j=0 }$, then 	<p align=center>$latex \displaystyle \begin{array}{cc} 		\varphi_{00}\circ\sigma^{00}(a_1,\dots,a_n,b_1,\dots,b_m) & =\varphi_{00}(\sigma([1,a_1,\dots,a_n],[1,b_1,\dots,b_m]))\\ 		& =(z_{ij})_{(i,j)\neq(0,0)} 	\end{array}$</p>
+ 	where $latex { z_{i0}=a_i }$ for $latex { i=1,\dots,n }$, $latex { z_{0j}=b_j }$ for $latex { j=1,\dots,m }$, $latex { z_{ij}=a_ib_j }$ for $latex { i,j\geq 1 }$. These are all regular functions, so $latex { \varphi_{00}\circ \sigma^{00} }$ is a morphism, so $latex { \sigma^{00} }$ is a morphism. Finally, $latex { \sigma^{00} }$ is an isomorphism because the inverse map is 	<p align=center>$latex \displaystyle  	(\sigma^{00})^{-1}=\left(\frac{z_{10}}{z_{00}},\dots,\frac{z_{n0}}{z_{00}},\frac{z_{01}}{z_{00}},\dots,\frac{z_{0m}}{z_{00}}\right). 	$</p>
+ 	
+<blockquote class="thm"><b>Remark 23</b>  		In fact, $latex { \Sigma^{ij} }$ is a quasi-projective variety. Because $latex { \mathbb{A}^{n+m} }$ is irreducible, $latex { \Sigma^{ij} }$ is irreducible, hence a quasi-projective variety. 	</blockquote>
+
+<p>
+
+
+<p>
+	(3) Let $latex { q=[b_0,\dots,b_m] }$, then $latex { i_{q}=[x_ib_j] }$, $latex { x_ib_j }$'s are homogeneous polynomials, so by theorem <a href="#18">60</a> we know it is a morphism.
+<p>
+	(4) Let $latex { X\subset \mathbb{P}^n,Y\subset \mathbb{P}^m }$ be projective varieties. We can decompose the map into the following: 	<p align=center>$latex \displaystyle \begin{array}{cc} 		\sigma(X\times Y) &=\mathop{\cup}\limits_{i,j}\sigma(X\times Y)\cap U_{ij}\\ 		&=\mathop{\cup}\limits_{i,j}\sigma^{ij}(\varphi_i(X\cap{U_i})\times \varphi_j(Y\cap{U_j})) 	\end{array}$</p>
+ 	$latex { \varphi_i(X\cap U_i) }$ and $latex { \varphi_j(Y\cap U_j) }$ are closed subsets of $latex { \mathbb{A}^n }$ and $latex { \mathbb{A}^m }$ respectively. By the theorem <a href="#15">63</a> $latex { \varphi_i(X\cap{U_i})\times \varphi_j(Y\cap{U_j}) }$ is closed in $latex { \mathbb{A}^{n+m} }$. Since $latex { \sigma^{ij} }$ is an isomorphism, then $latex { \sigma^{ij}(\varphi_i(X\cap{U_i})\times \varphi_j(Y\cap{U_j})) }$ is closed in $latex { \Sigma^{ij}=\Sigma\cap U_{ij}}$. So $latex { \sigma(X\times Y) }$ is closed in $latex { \Sigma }$, hence closed in $latex { \mathbb{P}^N }$ because $latex { \Sigma }$ itself is closed. To show its irreducible, we use the lemma <a href="#16">64</a>. Since $latex { \sigma }$ is injective we can endow $latex { \mathbb{P}^n\times\mathbb{P}^m }$ with the topological structure of $latex { \mathbb{P}^N }$, hence we can identify $latex { \mathbb{P}^n\times\mathbb{P}^m }$ with $latex { \Sigma }$ provided with the topology induced from $latex { \mathbb{P}^N }$. Now we can use the lemma <a href="#16">64</a>, we have known $latex { i_q }$ and $latex { j_p }$ are continuous, so $latex { \sigma(X\times Y) }$ is irreducible. For quasi-projective conditions ,we just get the conclusion by simply difference two projective varieties. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Remark 24</b>  For $latex { X\subset \mathbb{P}^n }$ and $latex { Y\subset\mathbb{P}^m }$ we can now identify $latex { X\times Y }$ with $latex { \sigma(X\times Y)\subset \mathbb{P}^N}$. In particular we can identify $latex { \mathbb{P}^n\times\mathbb{P}^m }$ with $latex { \Sigma }$.
+<p>
+From this perspective, part (2) of the theorem just says $latex { U_i\times U_j\subset \mathbb{P}^n\times \mathbb{P}^m }$ is open and $latex { \varphi_i\times \varphi_j:U_i\times U_j\rightarrow \mathbb{A}^{n+m} }$ is an isomorphism. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Proposition 69 (Universal Property)</b>  	Let $latex { X,Y }$ be quasi-projective varieties, then 	
+
+<ol> 		<li> The projections 			<p align=center>$latex \displaystyle \begin{array}{cc} 			p_1 & =(x_1,\dots,x_n): X\times Y\rightarrow X\\ 			p_2 & =(y_1,\dots,y_m): X\times Y\rightarrow Y 			\end{array}$</p>
+ 			are morphisms. 		<li> Let $latex { Z }$ be a variety. The morphism $latex { \varphi : Z\rightarrow X \times Y }$ are precisely the 		<p align=center>$latex \displaystyle  		(f,g):Z\rightarrow X\times Y,\quad p\rightarrow (f(p),g(p))\quad\forall p\in Z 		$</p>
+ 		where $latex { f:Z\rightarrow X }$ and $latex { g:Z\rightarrow Y }$ are morphisms. In other words, $latex { \varphi:Z\rightarrow X\times Y }$ is a morphism if and only if both $latex { p_1\circ \varphi }$ and $latex { p_2\circ\varphi }$ are morphisms. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	(1) It is enough to show $latex { p_1|_{U_i\times U_j} }$ is a morphism from $latex { U_i\times U_j }$ to $latex { U_i }$. Identify $latex { U_i\times u_j }$ with $latex { \mathbb{A}^{n+m} }$ and $latex { U_i }$ with $latex { \mathbb{A}^{n} }$, then we can see that $latex { p_1 }$ is the same as the projection defined by the proposition <a href="#19">65</a>, so it is a morphism.
+<p>
+	(2) $latex { \Rightarrow }$: Let $latex { \varphi:Z\rightarrow X\times Y }$ be a morphism. Then $latex { f:=p_1\circ \varphi }$ and $latex { g:=p_2\circ \varphi }$ are morphisms.
+<p>
+	$latex { \Leftarrow }$: Let $latex { f:Z\rightarrow X }$ and $latex { g:Z\rightarrow Y }$ be morphisms. Define 	<p align=center>$latex \displaystyle  	Z^{ij}:=f^{-1}(U_i)\cap g^{-1}(U_j). 	$</p>
+ 	Then $latex { (f,g) }$ is a morphism $latex { \Leftrightarrow }$ $latex { (f,g)|_{Z^{ij}} }$ is a morphism for $latex { i=1,\dots,n,j=1,\dots,m }$. Consider the following mapping chain 	<p align=center>$latex \displaystyle  		Z^{ij}\xrightarrow{(f,g)} (X\times Y)\cap (U_i\times U_j)\xrightarrow{\varphi_i\times \varphi_j}\varphi_i(X\cap U_i)\times \varphi_j(Y\cap U_j)\subset \mathbb{A}^{n+m}. 	$</p>
+ 	the whole chain $latex { (\varphi_i\circ f,\varphi_j\circ g):Z^{ij}\rightarrow \mathbb{A}^{n+m} }$ is a morphism, so $latex { (f,g) }$ is a morphism. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Corollary 70</b>  	Let $latex { X_1,X_2,Y_1,Y_2 }$ be varieties. If $latex { f:X_1\rightarrow Y_1 }$ and $latex { X_2\rightarrow Y_2 }$ are morphisms, then the map: 	<p align=center>$latex \displaystyle \begin{array}{cc} 		f\times g :X_1\times X_2 & \rightarrow Y_1\times Y_2\\ 		(p,q)\rightarrow (f(p),g(q)) 	\end{array}$</p>
+ 	is a morphism. In particular, if $latex { X_1 }$ is isomorphic to $latex { Y_1 }$ and $latex { X_2 }$ is isomorphic to $latex { Y_2 }$, then $latex { X_1\times X_2 }$ is isomorphic to $latex { Y_1\times Y_2 }$ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	We can write $latex { f\times g }$ as $latex { f\circ p_1 }$ and $latex { g\circ p_2 }$, both $latex { f\circ p_1 }$ and $latex { g\circ p_2 }$ are morphisms, so $latex { f\times g =(f\circ p_1,g\circ p_2) }$ is a morphism. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Lemma 71</b>  	The closed subset in $latex { \mathbb{P}^n\times \mathbb{P}^m }$ is the zero set of sets of polynomials of $latex { f_k(x_0,\dots,x_n,y_0,\dots,y_m) }$ for $latex { k=1,\dots,r }$ which are homogeneous in $latex { x_i }$ and $latex { y_j }$, and the degree in $latex { x_i }$ is equal to the degree in $latex { y_j }$, we called it behomogeneous. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	Let $latex { W\subset \mathbb{P}^n\times \mathbb{P}^m }$ be closed. $latex { W=\sigma^{-1}(A) }$, for $latex { A\subset \mathbb{P}^N }$ closed. 	Then $latex { A }$ is the zero set of homogeneous polynomials in $latex { z_{ij} }$, write it as $latex { A=(f_1(z_{ij}),\dots,f_r(z_{ij}) }$. Then we get $latex { W=(f_1(x_iy_j),\dots,f_r(x_iy_j)) }$. For $latex { k=1,\dots,r }$, $latex { f_k(x_iy_j) }$ are bihomogeneous. Conversely, assume <p align=center>$latex \displaystyle  W=Z( g_1(x_0,\dots,x_n,y_0,\dots,y_m), \dots,g_l(x_0,\dots,x_n,y_0,\dots,y_m )) $</p>
+ 	where $latex { g_{k} }$ are bihomogeneous. Then 	<p align=center>$latex \displaystyle  	(\varphi_i\times\varphi_j)(W\cap (U_i\times U_j))=Z( g_1(x_0,\dots,x_i=1,\dots,x_n,y_0,\dots,y_j=1,\dots,y_m),\dots,g_l(x_0,\dots,x_i=1,\dots,x_n,y_0,\dots,y_j=1,\dots,y_m) ) 	$</p>
+ 	are closed in $latex {\mathbb{A}^{n+m} }$. So $latex { W\cap (U_i\times U_j) }$ are closed in $latex { U_i\times U_j }$. $latex { U_i\times U_j }$ form a finite open cover of $latex { \mathbb{P}^n\times \mathbb{P}^m }$, so $latex { W }$ is closed. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Definition 72</b>  	Let $latex { X }$ be a variety, the diagonal is 	<p align=center>$latex \displaystyle  	\Delta_X:=\{ (p,p)\in X\times X|p\in X \}\subset X\times X. 	$</p>
+ 	The diagonal morphism is 	<p align=center>$latex \displaystyle \begin{array}{cc} 		\delta_X:X & \rightarrow \Delta_X\subset X\times X\\ 		p &\rightarrow (p,p). 	\end{array}$</p>
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Lemma 73</b> <a name="20"></a> 	$latex { \Delta_X }$ is closed in $latex { X\times X }$ and $latex { \delta_X:X\rightarrow \Delta_X }$ is an isomorphism. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	Any variety $latex { X }$ is isomorphic to a locally closed subvariety of some projective space, so we can assume $latex { X\subset\mathbb{P}^n }$ is locally closed, then 	<p align=center>$latex \displaystyle  		\Delta_X=\Delta_{\mathbb{P}^n}\cap (X\times X). 	$</p>
+ 	Thus we know if $latex { \Delta_{\mathbb{P}^n} }$ is closed then $latex { \Delta_X }$ is closed in $latex { X\times X }$. 	In fact $latex { \Delta_{\mathbb{P}^n}=Z\left( \left\lbrace x_iy_j-x_jy_i|i,j=0,\dots,n \right\rbrace \right) }$ is closed.
+<p>
+	$latex { \delta_X:X\rightarrow \Delta_X }$ is isomorphic because $latex { p_1:\Delta_X\rightarrow X }$ is its inverse morphism. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Remark 25</b>  	The fact that $latex { \Delta_X\subset X\times X }$ is closed replaces for us the Hausdorff property in topology. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 74</b>  	A variety is called separated if $latex { \Delta_X\subset X\times X }$ is closed. By the lemma <a href="#20">73</a> all varieties are separated. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Corollary 75</b>  	Let $latex { \varphi,\psi:X\rightarrow Y }$ be morphisms of varieties, then $latex { W=\{ p\in X|\varphi(p)=\psi(p) \} }$ is closed in $latex { X }$. In particular, if $latex { \varphi|_U=\psi|_U }$ for an open subset of $latex { X }$, then $latex { \varphi=\psi }$. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	See the following chain 	<p align=center>$latex \displaystyle  		X\xrightarrow{\delta_X} \Delta_X\xrightarrow{\varphi\times\psi} Y\times Y. 	$</p>
+ 	So $latex { W=\delta^{-1}( (\varphi\times\psi)^{-1}(\Delta_Y) ) }$ is closed. Because varieties are irreducible, the open set $latex { U }$ is dense in $latex { X }$, let $latex { \omega = \varphi-\psi }$ and we get $latex { l(x)=0 }$ in $latex { U }$, hence $latex { l=0 }$ in $latex { X }$ because of the continuity of $latex { l }$, hence $latex { \varphi=\psi }$. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Definition 76</b>  	Let $latex { \varphi :X\rightarrow Y }$ be a morphism of varieties. The graph of $latex { \varphi }$ is defined as 	<p align=center>$latex \displaystyle  		\Gamma_{\varphi}:=\{ \left(p,\varphi\left(p\right)\right)| p\in X \}\subset X\times Y. 	\ \ \ \ \ (42)$</p>
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Corollary 77</b>  	$latex { \Gamma_\varphi }$ is closed in $latex { X\times Y }$. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	Define the map 	<p align=center>$latex \displaystyle \begin{array}{cc} 		\varphi\times\text{id}_Y : X\times Y & \rightarrow Y\times Y\\ 		(p,q) & \rightarrow (\varphi(p),q). 	\end{array}$</p>
+ 	Then we have $latex { \Gamma_\varphi = (\varphi\times\text{id}_Y)^{-1}(\Delta Y) }$, so it is closed. In fact $latex { \Gamma_\varphi }$ is isomorphic to $latex { X }$. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Definition 78</b>  	A map $latex { \varphi:X\rightarrow Y }$ of topological spaces is called closed if $latex { \varphi(Z) }$ is closed in $latex { Y }$ for all closed subsets $latex { Z\subset X }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 79</b>  	A variety complete if the projection $latex { p_2:X\times Y\rightarrow Y }$ is a closed map for all varieties $latex { Y }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 26</b>  	Completeness replaces for us compactness in topology. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Example 5</b>  	$latex { \mathbb{A}^1 }$ is not complete. Let $latex { Z=Z(x_1y_1-1)\subset \mathbb{A}^2=\mathbb{A}^1\times \mathbb{A}^1 }$, then $latex { p_2(Z)=\mathbb{A}^1\backslash\{ 0 \} }$ is not closed in $latex { \mathbb{A}^1 }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Proposition 80</b>  	Let $latex { X }$ be a complete variety, $latex { \varphi:X\rightarrow Y }$ be a morphism of varieties. Then $latex { \varphi(X) }$ is closed in $latex { Y }$. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	Since $latex { \Gamma_\varphi\subset X\times Y }$ is closed and $latex { \varphi(X)=p_2(\Gamma_\varphi) }$, thus if $latex { X }$ is complete, $latex { \varphi(X) }$ is closed in $latex { Y }$. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Theorem 81</b>  	All projective varieties are complete. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	We finish the proof by two steps.
+<p>
+	(1) Main step to show $latex { p_2:\mathbb{P}^n\times \mathbb{P}^m\rightarrow \mathbb{P}^m }$ is closed. Let $latex { X\subset\mathbb{P}^n\times\mathbb{P}^m }$ be closed, we can write it as 	<p align=center>$latex \displaystyle  		X=Z(f_1(x,y),\dots,f_r(x,y)) 	$</p>
+ 	where $latex { f_i }$ isbihomogeneous, $latex { x=(x_0,\dots,x_n),y=(y_0,\dots,y_m) }$. We can assume all $latex { f_i }$ have the same degree $latex { d }$ in $latex { y }$. If $latex { f_j }$ has a lower degree $latex { l }$, we can replace it by polynomials $latex { y_0^{d-l}f_j,y_1^{d-l}f_j,\dots,y_n^{d-l}f_j }$. Fix a point $latex { q\in\mathbb{P}^m }$, then $latex { q\in p_2(X) }$ $latex { \Leftrightarrow }$ $latex { Z(f_1(x,q),\dots,f_r(x,q))\neq \emptyset }$. By the projective Nullstellensatz, this is equivalent to: 	<p align=center> 		$latex { \forall s&gt;0 }$, $latex { (\ast) }$ $latex { \mathfrak{a}:=\langle f_1(x,q),\dots,f_r(x,q)\rangle }$ does not contain<br/>
+ 		 all monomials of degree $latex { s }$ in $latex { x }$. 	</p> 	It is trival for $latex { s&lt;d }$, so it is enough to show: 	<p align=center> 		$latex { \forall s\geq d }$, the set $latex {X_s:= \{ q\in\mathbb{P}^m|q \text{ satisfies the condition } (\ast) \} }$ <br/>
+ 		is closed in $latex { \mathbb{P}^m }$. 		 Hence $latex { p_2(X)=\mathop{\cap}\limits_{s\geq d} X_s }$ is closed in $latex { \mathbb{P}^m }$. 	</p> 	Denote monomials in $latex { x }$ of degree $latex { s }$ with $latex { M_i(x) }$, $latex { i=1,\dots,\binom{n+s}{n} }$. Denote monomials in $latex { x }$ of degree $latex { s-d }$ with $latex { N_j(x) }$, $latex { j=1,\dots,\binom{n+s-d}{n} }$. The elements of degree $latex { s }$ in $latex { \mathfrak{a} }$ are the linear span of $latex { \{N_i(x)f_j(x,q)|i=1,\dots,\binom{n+s-d}{n},j=0,\dots,r\} }$. Define all $latex { \{N_i(x)f_j(x,y)\} }$ by $latex { \{ G_k(x,y),k=1,\dots,t \} }$. The condition $latex { (\ast) }$ is equivalent to: 	<p align=center> 		$latex { \{ G_k(x,q) \} }$ does not equal to the whole space of degree $latex { s }$ in $latex { x }$. 	</p> 	We can write $latex { G_k(x,y)=\sum\limits_{i=1}^{\binom{n+s}{n}} A_{ik}(y)M_i(x) }$. The dimension of the linear span of $latex { \{G_k(x,q),k=1,\dots,t \}}$ is the rank of the matrix $latex { A:=(A_{ik}(q)) }$. Thus the condition $latex { (\ast) }$ is equivalent to $latex { \text{rank}(A)&lt;\binom{n+s}{n} }$. Thus 	<p align=center>$latex \displaystyle  		\{q\in\mathbb{P}^m|q \text{ satisfies the condition } (\ast) \}=\text{ zero set of all } \binom{n+s}{n}\times \binom{n+s}{n} \text{ minors of } A. 	$</p>
+ 	Thus $latex { p_2(X) }$ is closed in $latex { \mathbb{P}^m }$.<br/>
+ 	(2) General case. First show $latex { \mathbb{P}^n }$ is completed. Let $latex { Y }$ be a variety, we can assume $latex { Y\subset \mathbb{P}^m }$ is locally closed subvariety. Let $latex { Z\subset \mathbb{P}^n\times Y }$ be closed in $latex { \mathbb{P}\times Y }$, $latex { \bar{Z} }$ be the closure of $latex { Z }$ in $latex { \mathbb{P}^n\times\mathbb{P}^m }$. Then $latex { p_2(\bar{Z}) }$ is closed in $latex { \mathbb{P}^m }$, hence $latex { p_2(Z)=p_2(\bar{Z}\cap (\mathbb{P}^n\times Y))=p_2(\bar{Z})\cap Y }$ is closed in $latex { Y }$. Finally, let $latex { X\subset \mathbb{P}^n }$ be closed subvariety, $latex { Z\subset X\times Y }$ be closed, it follows that $latex { Z }$ is also closed in $latex { \mathbb{P}^n\times Y }$, therefore by trival step $latex { p_2(Z) }$ is closed in Y. $latex \Box$
+
+ 

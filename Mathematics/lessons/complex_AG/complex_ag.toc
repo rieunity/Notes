@@ -1,7 +1,13 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\tocsection {}{1}{Introduction}}{1}{section.1}% 
+\contentsline {section}{\numberline {1}Introduction}{3}{section.1}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\tocsection {}{2}{Holomorphic functions}}{2}{section.2}% 
+\contentsline {section}{\numberline {2}Holomorphic functions}{4}{section.2}% 
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\tocsection {}{3}{Solving $\partial u = f$}}{4}{section.3}% 
+\contentsline {section}{\numberline {3}Solving $\partial u = f$}{7}{section.3}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4}Proof of Hartogs theorem}{10}{section.4}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5}Weierstrass preparation theorem}{12}{section.5}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6}Complex manifolds}{14}{section.6}% 

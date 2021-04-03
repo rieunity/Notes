@@ -1,0 +1,159 @@
+\documentclass{amsart}
+\usepackage{amssymb,latexsym}
+\usepackage{graphicx}
+\usepackage{color}
+ \definecolor{MyDarkBlue}{rgb}{0,0.08,0.45}\definecolor{yellow}{rgb}{0.99,0.99,0.70}\definecolor{white}{rgb}{1.0,1.0,1.0}\definecolor{black}{rgb}{0.00,0.00,0.00}
+ %\pagecolor{yellow}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem*{main}{Main~Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{notation}{Notation}
+\newtheorem*{proofofnullstellensatz}{Proof of Nullstellensatz}
+\newtheorem*{proofofproductsofaffinevarieties}{Proof of Theorem \ref{15}}
+\numberwithin{equation}{section}
+\begin{document}
+\title[Complete-simple distributive lattices]
+{Algebraic Geometry - Lothar G\"{o}ttsche \\
+	Lecture 17}
+\author{Wang Yunlei}
+%\address{Harbin Institute of Technology\\
+%	Harbin}
+\email{wcghdpwyl@126.com}
+%\urladdr{http://math.uwinnebago.edu/menuhin/}
+%\thanks{Research supported by the NSF under grant number
+%	23466.}
+%\keywords{Complete lattice, distributive lattice,
+%	complete congruence, congruence lattice}
+%\subjclass[2010]{Primary: 06B10; Secondary: 06D05}
+\date{June 19, 2017}
+ 
+\maketitle
+\begin{theorem}[Existence of a Primitive Element]\label{17-1}
+	Let $ k $ be a field of characteristic $ 0 $, $ L/k $ is a finite field extension. Then $ \exists b\in L $ such that $ L=k(b) $.
+\end{theorem}
+\begin{proof}[Proof of Theorem \ref{16-2}]
+	$ K(X) $ is function field of $ X $, let $ a_1,\dots,a_r $ be a transcendence basis of $ K(X)/k $, then $ K(X)/k(a_1,\dots,a_r) $ is a finite algebraic extension. By theorem  \ref{17-1}, there exists a primitive element $ b\in K(X) $ such that  $ K(X)=k(a_,\dots,a_r)(b) $ and $ b $ is algebraic over $ k(a_1,\dots,a_r) $. Since $ b $ is algebraic, there exists a polynomial $ F\in k(a_1,\dots,a_r)[x] $ such that $ F(b)=0 $. Write 
+	$$
+	F=\sum\limits_{l}\frac{G_l(a_1,\dots,a_r)}{H_l(a_1,\dots,a_r)}x^l
+	$$
+	where $ G_l(x_1,\dots,x_r),H_l(x_1,\dots,x_r)\in k[x_1,\dots,x_r] $. 
+	
+	Now we view it as $ F(x_1,\dots,x_r,x)\in k(x_1,\dots,x_r,x) $. Multiply $ F $ by producting $ H_l $'s and then  divide it by the greatest common devisor of the new coefficients. We get $ f=\tilde{h}F\in k[x_1,\dots,x_r,x] $, it is a primitive polynomial. Let $ Y=Z(f)\subset \mathbb{A}^{r+1} $, it is a irreducible hypersurface. Then $ A(Y)=k[x_1,\dots,x_r,x]/\langle f\rangle $, $ K(Y)=Q(k[x_1,\dots,x_r,x]/\langle f\rangle)\simeq Q(k[a_1,\dots,a_r,x]/\langle f(x) \rangle) $ $ \simeq k(a_1,\dots,a_r)[x]/\langle f\rangle$ $\simeq k(a_1,\dots,a_r)(b) $ $ \simeq K(X) $. Then $ X $ is birational to $ Y $.
+\end{proof}
+This proof also implies $ \text{dim}X=\text{trdeg}K(X) $.
+
+\section{Tangent Space, Singular And Nonsingular Points}
+First we talk about cases of hypersurfaces in $ \mathbb{A}^n $.
+\begin{definition}
+	Let $ X=Z(f)\subset \mathbb{A}^n $ be a hypersurface, assume $ I(X)=\langle f \rangle $. A point $ p\in X $ is called a singular point if and only if $ \frac{\partial f}{\partial x_i}(p)=0 $ for $ i=1,\dots,n $. Otherwise, $ p $ is called a nonsingular point. Let 
+	$$
+	X_{\mathrm{reg}}:=\lbrace p\in X|p\text{ is nonsingular}. \rbrace.
+	$$
+	$ X $ is called smooth or nonsingular if and only if $ X=X_{\mathrm{reg}} $.
+\end{definition}
+\begin{example}
+	\begin{enumerate}
+		\item $ X=Z(y-x^2) $ is nonsingular.
+		\item $ X=Z(y^2-x^2(x+1)) $ has a singular point $ (0,0) $.
+		\item $ X=Z(y^2-x^3) $ has a nonsingular point $ (0,0) $.
+	\end{enumerate}
+\end{example}
+\begin{proposition}
+	Let $ X\subset \mathbb{A}^n $ be an irreducible hypersurface and $ \text{char}k=0 $, then $ X_{\mathrm{reg}} $ is open and dense in $ X $.
+\end{proposition}
+\begin{proof}
+	Let $ F\in k[x_1,\dots,x_n] $ be irreducible such that $ X=Z(F) $, then $ I(X)=\langle F \rangle $. Define
+	$$
+	X_{\mathrm{sing}}:=\lbrace \text{singular points of } X \rbrace.
+	$$ 
+	By definition $ X_{\mathrm{sing}}= Z(F,\frac{\partial F}{\partial x_1},\dots,\frac{\partial F}{\partial x_n}) \subset X$ is closed. Since $ Z(F) $ is irreducible, the only thing we have to show is $ X\neq X_{\mathrm{sing}} $. Assume $ X=X_{\mathrm{sing}} $ $ \Rightarrow $ $ Z(\frac{\partial F}{\partial x_i})\supset X $ $ \forall i=1,\dots,n $ $ \Rightarrow $ $ \frac{\partial F}{\partial x_i}=0 $ $ \forall i=1,\dots,n $. Since $ \text{char}k=0 $, we get $ F $ is constant, it is impossible.
+\end{proof}
+Second we talk about cases of affine algebraic sets.
+\begin{definition}
+	Let $ f\in k[x_1,\dots,x_n] $, $ p\in\mathbb{A}^n $. The differential of $ f $ at $ p $ is defined as 
+	$$
+	\text{d}_p f=\sum\limits_{i=1}^{n}\frac{\partial f}{\partial x_i}(p)x_i.
+	$$
+	Let $ X\subset \mathbb{A}^n $ be an affine algebraic set, the tangent space to $ X $ at $ p\in X $ is defined as
+	$$
+	T_p(X)=Z(\mathrm{d}_p f| f\in I(X)).
+	$$
+	$ p\in X $ is called  nonsingular if 
+	$$
+	\mathrm{dim}T_p(X)= \mathrm{dim}_pX
+	$$ 
+	where $ \mathrm{dim}_pX $ is the maximum of dimensions of irreducible components of $ X $ passing through $ p $.
+\end{definition}
+\begin{remark}
+	If $ I(X)=\langle f_1,\dots,f_r\rangle $, then $ T_p(X)=Z(\mathrm{d}_pf_1,\dots,d_p f_r) $. By definition, $ T_p(X)\subset Z(\mathrm{d}_pf_1,\dots,\mathrm{d}_pf_r) $. If $ h\in I(X) $, we can write $ h=\sum\limits_{i=1}^{r}h_if_i $ with $ h_i\in k[x_1,\dots,x_n] $.  Using Leibniz rule we get 
+	$$
+	\mathrm{d}_p h=\sum\limits_{i=1}^{r}(\mathrm{d}_ph_i\cdot f_i(p)+h_i(p)\cdot \mathrm{d}_pf_i).
+	$$
+	Since $ f_i(p)=0 $, we get $ \mathrm{d}_p h \in \langle \mathrm{d}_pf_1,\dots,\mathrm{d}_pf_r \rangle $. Hence $ T_p(X)=Z(\mathrm{d}_pf_1,\dots,d_p f_r)  $.
+\end{remark}
+\begin{example}
+	If $ X=Z(F) \subset \mathbb{A}^n$ and $ I(X)=\langle F \rangle $, then $ T_p(X)=Z(\mathrm{d}_pF) $ and $ \mathrm{d}_pF=\sum\limits_{i=1}^{n}\frac{\partial F}{\partial x_i}x_i $. Let $ \frac{\partial F}{\partial x_i}(p)=0 $ $ \forall i=1,\dots,n $ for some point $ p\in X $, $ \forall i=1,\dots,n $, then $ T_p(X)=\mathbb{A}^n $. Since $ \mathrm{dim}T_p(X)\neq \mathrm{dim}_pX $, $ p $ is a singular point. If $ \frac{\partial F}{\partial x_i}(p)\neq 0 $ for some $ i $, then $ \mathrm{dim}T_p(X)=n-1 $ and $ p $ is nonsingular.
+\end{example}
+
+Third we talk about  cases of general affine varieties.
+\begin{definition}[Jacobian]
+	Jacobian of $ f_1,\dots,f_r\in k[x_1,\dots,x_n] $ is a matrix defined as
+	$$
+	J(f_1,\dots,f_r)=\left(\begin{matrix}
+	\frac{\partial f_1}{\partial x_1} & \frac{\partial f_1}{\partial x_2} &\cdots &\frac{\partial f_1}{\partial x_n}\\
+	\frac{\partial f_2}{\partial x_1} & \frac{\partial f_2}{\partial x_2} & \cdots & \frac{\partial f_2}{\partial x_n}\\
+	\vdots & \vdots & \ddots & \vdots\\
+	\frac{\partial f_r}{\partial x_1} & \frac{\partial f_r}{\partial x_2} & \cdots & \frac{\partial f_r}{\partial x_n} 
+	\end{matrix}\right) .
+	$$
+\end{definition}
+\begin{definition}
+	Let $ X\subset \mathbb{A}^n $, $ Y\subset \mathbb{A}^m $ be closed subvarieties. Let $ p\in X $, $ q\in Y $ and $ \varphi = (f_1,\dots,f_m):X\to Y $ with $ f_i\in k[x_1,\dots,x_n] $ for $ i=1,\dots,m $. Assume $ \varphi(p)=q $. The differential of $ \varphi $ at $ p $ is 
+	$$
+	\mathrm{d}_p\varphi = (\mathrm{d}_pf_1,\dots,\mathrm{d}_pf_m).
+	$$
+\end{definition}
+One can verify that $ \mathrm{d}_p\varphi $ maps $ T_p(X) $ into $ T_q(Y) $. We can write $ T_p(X) = \mathrm{ker}(J(f_1,\dots,f_m)(p)) $. $ \mathrm{d}_p\varphi  $ can also be written as $ J(f_1,\dots,f_m)\cdot x $.
+\begin{proposition}
+	\begin{enumerate}
+		\item $ \mathrm{d}_p\mathrm{Id}=\mathrm{Id} $.
+		\item $ \mathrm{d}_p(\psi\circ\varphi)=J_{\varphi(p)} \cdot\mathrm{d}_p\varphi $.
+	\end{enumerate}
+\end{proposition}
+
+At last we talk about tengent spaces for general varieties.
+\begin{definition}
+	Let $ X $ be a variety, $ p\in X $ be a point. The tangent space $ T_p(X) $ is 
+	$$
+	T_p(X):=(\mathfrak{m}_p/\mathfrak{m}_p^2)^{\ast}
+	$$
+	where $ \mathfrak{m}_p $ is the maximal ideal of the local ring $ \mathcal{O}_{X,p} $, the symbol $ \ast $ denotes the dual of vector space. In other words, 
+	$$
+	T_p(X)=\lbrace k \text{ linear maps }\nu: \mathfrak{m}_p/\mathfrak{m}_p^2\to k \rbrace
+	$$
+	or 
+	$$
+	T_p(X)=\lbrace k \text{ linear maps }\nu: \mathfrak{m}_p\to k \text{ with } \nu|_{\mathfrak{m}_p^2}=0  \rbrace
+	$$
+	$ p\in X $ is called nonsingular if $ \mathrm{dim}T_p(X)=\mathrm{dim}X $. Similarly we have definition of $ X_{\mathrm{sing}} $ and $ X_{\mathrm{reg}}.$ If $ X=X_{\mathrm{reg}} $, $ X $ is called nonsingular or regular.
+\end{definition}
+\section{Conclusions We Need From Previous Lectures}
+In lecture 16:
+\begin{theorem}\label{16-2}
+	Every variety $ X $ is birational to a hypersurface in $ \mathbb{A}^{\text{dim}X+1} $.
+\end{theorem}
+
+
+% \begin{thebibliography}{9}
+ %    \bibitem{a} bibitem
+% \end{thebibliography}
+\end{document}

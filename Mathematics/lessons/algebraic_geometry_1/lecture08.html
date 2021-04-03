@@ -1,0 +1,85 @@
+ 
+<blockquote class="thm"><b>Corollary 1</b>  	
+
+<ol> 		<li> Every variety is isomorphic to a quasi-projective variety. 		<li> Every variety has an open cover by affine varieties. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	(1) Let $latex { X }$ be a variety, if $latex { X }$ is locally closed in $latex { \mathbb{P}^n }$, 	then it is a quasi-projective variety, so we only need to consider the condition in $latex { \mathbb{A}^n }$. Assume $latex { X }$ be locally closed in $latex { \mathbb{A}^n }$. $latex { Y=\varphi ^{-1}_0 (X) \subset \mathbb{P}^n}$ is locally closed subvariety and $latex { \varphi^{-1}_0 :X\rightarrow Y }$ is an isomorphism. 	 	(2) For varieties in $latex { \mathbb{A}^n }$, it is trivial. Let $latex { X\subset \mathbb{P}^n }$ be a quasi-projective variety, then $latex { X=\mathop{\cup}\limits_{i=0}^{n}X\cap U_i }$. $latex { X\cap U_i }$ is isomorphic to locally closed subvariety in $latex { \mathbb{A}^n }$. We can regard $latex { X\cap U_i }$ simply as $latex { X \subset \mathbb{A}^n}$, where $latex { X }$ is locally closed. It is equivalent to prove: 	<p align=center> 		For every point $latex { p\in X }$, there exists a neighborhood $latex { U\subset X }$ and $latex { U }$ is an affine variety. 	</p> 	Since $latex { X }$ is locally closed, there exist $latex { Y,Z\subset \mathbb{A}^n }$ closed in $latex { \mathbb{A}^n }$ s.t. $latex { X=Y\backslash Z }$. For any point $latex { p\in X }$, $latex { \exists F_p\in I(Z) }$ with $latex { F_p(p)\neq 0 }$. Then we have $latex { Y_{F_p}=Y\backslash Z(F_p)\subset X }$ and $latex { Y_{F_p} }$ is an affine variety. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Theorem 2</b> <a name="18"></a> 	Let $latex { X\subset \mathbb{P}^m }$, $latex { Y\subset \mathbb{P}^n }$ be quasi-projective varieties. Let $latex { \varphi :X\rightarrow Y }$ be a map. The following conditions are equivalent: 	
+
+<ol> 		<li> $latex { \varphi }$ is a morphism; 		<li> $latex { \varphi }$ is locally given by regular functions, i.e., for all $latex { p\in X }$, there exists a neighborhood $latex { U\subset X }$, $latex { h_0,\dots,h_n\in \mathcal{O}_X(U) }$ with no common zero on $latex { U }$, s.t. 		<p align=center>$latex \displaystyle  		\varphi(q)=[h_0(q),\dots,h_n(q)],\quad \forall q\in U. 		$</p>
+ 		We write $latex { \varphi = [h_0,\dots,h_n] }$ on $latex { U }$; 		<li> $latex { \varphi }$ is locally a polynomial map, i.e.: 		<p align=center> 			$latex { \forall p\in X }$, $latex { \exists }$ open neighborhood $latex { U\subset X }$, $latex { F_0,\dots,F_n\in k[x_0,\dots,x_,] }$ homogeneous of the same degree with no common zero s.t. 			<p align=center>$latex \displaystyle  			\varphi(q)=[F_(q),\dots,F_n(q)] \quad \forall q\in U. 			$</p>
+ 		</p> 		We write $latex { \varphi = [F_0,\dots,F_n] }$ on $latex { U }$. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+
+<p>
+<em>Proof:</em>  	(1) $latex { \Rightarrow }$ (2): If $latex { \varphi:X\rightarrow \mathbb{P}^n }$ is amorphism, then $latex { \forall p\ in X }$, $latex { \exists i }$, s.t. $latex { \varphi (p) \in U_i}$. Assume $latex { i=0 }$ and then $latex { \varphi(p)\in U_0 }$. Let $latex { U }$ be an open neighborhood of$latex { p }$ in $latex { X }$ s.t. $latex { \varphi (U)\subset U_0 }$. Then $latex { \varphi _0\circ \varphi :U\rightarrow \mathbb{A}^n }$ is a morphism, so $latex { \varphi_0\circ\varphi = (h_1,\dots,h_n) }$ with $latex { h_i\in \mathcal{O}_X(U) }$. Since the inverse of $latex { \varphi_0 }$ is $latex { u_0 }$ we get 	<p align=center>$latex \displaystyle  	\varphi = u_0\circ \varphi_0\circ\varphi = [1,h_1,\dots,h_n]. 	\ \ \ \ \ (1)$</p>
+ 	 	(2) $latex { \Rightarrow }$ (3): Assume $latex { \varphi = [h_0,\dots,h_n] }$ on $latex { U\subset X }$, where $latex { h_i \in \mathcal{O}_X(U)}$ with no common zeros on $latex { U }$. By making $latex { U }$ possibly smaller we can further assume $latex { h_i=\frac{F_i}{G_i} }$, $latex { F_i,G_i\in k[x_0,\dots,x_m] }$ are homogeneous of the same degree($latex { F_i }$ and $latex { G_i }$ are of the same degree, it is not necessary that $latex { F_i }$ and $latex { G_j }$ are of the same degree for $latex { i\neq j }$), $latex { G_i }$ has no zeros on $latex { U }$. Let $latex { L_i= F_i\cdot G_0\cdot \hat{G_i}\cdot G_n }$, $latex { L_i }$ are homogeneous of the same degree, we get 	<p align=center>$latex \displaystyle  	\varphi = [h_0,\dots,h_n]=[L_0,\dots,L_n]. 	\ \ \ \ \ (2)$</p>
+ 	 	(3) $latex { \Rightarrow }$ (1): Let $latex { \varphi |_U=[L_0,\dots,L_n] }$, $latex { L_i\in k[x_0,\dots,x_m] }$ are homogeneous of the same degree with no common zero. Making $latex { U }$ smaller, we can assume one of $latex { L_i }$(say $latex { L_0 }$) has no zero in $latex { U }$. Then for $latex { i=1,\dots,n }$, let $latex { h_i=\frac{L_i}{L_0}\in \mathcal{O}_X (U) }$. Rewrite the map as 	<p align=center>$latex \displaystyle  	\varphi = [1,h_1,\dots,h_n] 	\ \ \ \ \ (3)$</p>
+ 	<p align=center>$latex \displaystyle  	\Rightarrow	\varphi_0\circ\varphi = (h_1,\dots,h_n). 	\ \ \ \ \ (4)$</p>
+ 	So$latex { \varphi_0\circ\varphi }$ is amorphism, then $latex { \varphi = u_0\circ\varphi_0\circ\varphi }$ is a morphism. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Definition 3 (Projective Transformation)</b>  	Let <p align=center>$latex \displaystyle  	A=\left[\begin{matrix} 	a_{00} & a_{01} & \cdots & a_{0n}\\ 	a_{10} & a_{11} & \cdots & a_{1n}\\ 	\vdots & \vdots & \ddots & \vdots\\ 	a_{n0} & a_{n1} & \cdots & a_{nn} 	\end{matrix}\right] 	\ \ \ \ \ (5)$</p>
+ 	be a $latex { (n+1)\times (n+1) }$ matrix in $latex { k }$, then we can construct a map from $latex { \mathbb{P}^n \rightarrow \mathbb{P}^n }$: 	<p align=center>$latex \displaystyle  	[A]:	[b_0,\dots,b_n]\rightarrow [b_0,\dots,b_n]\left[\begin{matrix} 	a_{00} & a_{01} & \cdots & a_{0n}\\ 	a_{10} & a_{11} & \cdots & a_{1n}\\ 	\vdots & \vdots & \ddots & \vdots\\ 	a_{n0} & a_{n1} & \cdots & a_{nn} 	\end{matrix}\right]^{T}. 	$</p>
+ 	It is called a projective transformation. This is a morphism and if $latex { A }$ is inverse then it is an isomorphism. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 1</b>  	All automorphisms of $latex { \mathbb{P}^n }$ are projective transformations. It is not so easy to prove. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 4 (Projection)</b>  	Let $latex { X\subset\mathbb{P}^n }$ be a variety, $latex { W\subset \mathbb{P}^n }$ be a projective subspace of $latex { \mathbb{P}^n }$ of $latex { \text{dim}W=k }$. Assume $latex { X\cap W= \emptyset }$ and there exist linear forms $latex { H_0,\dots,H_{n-k-1} }$ such that $latex { W=Z(H_0,\dots,H_{n-k-1}) }$. The projection from $latex { W }$ is 	<p align=center>$latex \displaystyle  	\Pi_W=[H_0,\dots,H_{n-k-1}]:X\rightarrow \mathbb{P}^{n-k-1}. 	$</p>
+ 	This is a morphism($latex { H_i }$ have no common zero on $latex { X }$ because $latex { W\cap X=\emptyset }$). </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 2</b>  	$latex { \Pi_W }$ depends on $latex { H_0,\dots,H_{n-k-1} }$, but if we have another relation $latex { W=Z(L_0,\dots,L_{n-k-1}) }$ , then there exists a projection transformation $latex { [A]:\mathbb{P}^{n-k-1}\rightarrow \mathbb{P}^{n-k-1} }$ . In particular, if $latex { p\in \mathbb{P}^n\backslash X }$, for example, $latex { p=[0,\dots,0,1] }$, then $latex { \Pi_p=[x_0,\dots,x_{n_1}] :X\rightarrow \mathbb{P}^{n-1}}$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Theorem 5 (Products of Affine Varieties)</b> <a name="15"></a> 	If $latex { X\subset \mathbb{A}^n,Y\subset \mathbb{A}^m }$ are closed subvarieties, then $latex { X\times Y\subset \mathbb{A}^n\times \mathbb{A}^m=\mathbb{A}^{n+m} }$ is a closed subvariety. </blockquote>
+
+<p>
+
+ Before we prove it, we need to prove a conclusion in topology. 
+<blockquote class="thm"><b>Lemma 6</b> <a name="16"></a> 	Let $latex { X,Y }$ be irreducible topological spaces. Assume we have a topology on the product $latex { X\times Y }$ s.t.: 	<p align=center>$latex \displaystyle \begin{array}{cc} 	y_p: & Y\rightarrow X\times Y, \quad q\rightarrow (p,q) \text{ is continuous }\forall p\in X;\\ 	l_q: & X\rightarrow X\times Y, \quad p\rightarrow (p,q) \text{is continuous }\forall q\in Y. 	\end{array}$</p>
+ 	Then $latex { X\times Y }$ is irreducible. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	Assume $latex { X\times Y=S_1\cup S_2 }$, $latex { S_i\subsetneqq X\times Y }$ are closed. For $latex { i=1,2 }$, set $latex { T_i=\mathop{\cap}\limits_{q\in Y}l_q^{-1}(S_i)=\{ p\in X|(p,q)\in S_i \quad\forall q\in Y \} }$. It is the same as $latex { T_i=\{ p\in X|\{ p \}\times Y\subset S_i \} }$. Since $latex { y_p }$ is continuous and $latex { Y }$ is irreducible, we get $latex { y_p(Y)=\{p\}\times Y }$ is irreducible. So we get $latex { \{p\}\times Y\subset S_1 }$ or $latex { \{p\}\times Y\subset S_2 \quad\forall p\in X}$(it implies $latex { T_1\cap T_2=\emptyset }$ and $latex { T_i\subsetneqq X }$). Hence $latex { X=T_1\cup T_2 }$. Since $latex { l_q }$ is continuous, $latex { T_i }$ are closed, then $latex { X }$ is reducible. $latex \Box$
+
+  	Let $latex { X\subset \mathbb{A}^n,Y\subset \mathbb{A}^m }$ be closed subvarieties, the product of $latex { X }$ and $latex { Y }$ is just 	<p align=center>$latex \displaystyle  	X\times Y=\{ (p,q)\in \mathbb{A}^n\times \mathbb{A}^m=\mathbb{A}^{n+m}|p\in X \text{ and }q\in Y \}. 	$</p>
+ 	Let $latex { x_1,\dots,x_n }$ be coordinates in $latex { \mathbb{A}^n }$ and $latex { y_1,\dots,y_m }$ be coordinates in $latex { \mathbb{A}^m }$, we can assume $latex { X=Z(F_1,\dots,F_k) }$ and $latex { Y=Z(G_1,\dots,G_l) }$ where $latex { F_i\in k[x_1,\dots,x_n],G_j\in k[y_1,\dots,y_m] }$. Then 	<p align=center>$latex \displaystyle  	X\times Y= Z(F_1,\dots,F_k,G_1,\dots,G_l)\subset \mathbb{A}^{n+m} 	\ \ \ \ \ (6)$</p>
+ 	is a closed subset. By lemma <a href="#16">6</a> we only need to check $latex {\forall q\in Y }$, $latex { l_q:X\rightarrow Y }$ is continuous. Write $latex { q=(b_1,\dots,b_m) }$, then $latex { l_q=(x_1,\dots,x_n,b_1,\dots,b_m) }$. It is a morphism, so it is continuous, thus we finish the whole proof.  
+<blockquote class="thm"><b>Proposition 7 (Universal Property)</b> <a name="19"></a> 	Let $latex { X\subset\mathbb{A}^n,Y \subset \mathbb{A}^m}$ be varieties, then 	
+
+<ol> 		<li> The projections 		<p align=center>$latex \displaystyle \begin{array}{cc} 		p_1 & =(x_1,\dots,x_n): X\times Y\rightarrow X\\ 		p_2 & =(y_1,\dots,y_m): X\times Y\rightarrow Y 		\end{array}$</p>
+ 		are morphisms. 		<li> Let $latex { Z }$ be a variety. The morphism $latex { \varphi : Z\rightarrow X \times Y }$ are precisely the 		<p align=center>$latex \displaystyle  		(f,g):Z\rightarrow X\times Y,\quad p\rightarrow (f(p),g(p))\quad\forall p\in Z 		$</p>
+ 		where $latex { f:Z\rightarrow X }$ and $latex { g:Z\rightarrow Y }$ are morphisms. In other words, $latex { \varphi:Z\rightarrow X\times Y }$ is a morphism if and only if both $latex { p_1\circ \varphi }$ and $latex { p_2\circ\varphi }$ are morphisms. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	The first is obvious, we only check the second. 	 	$latex { \Rightarrow }$: Let $latex { \varphi:Z\rightarrow X\times Y }$ be a morphism, then $latex { f=p_1\circ\varphi }$ and $latex { g=p_2\circ\varphi }$ are morphisms and $latex { \varphi=(f,g) }$. 	 	$latex { \Leftarrow }$: Assume $latex { f:Z\rightarrow X }$ and $latex { g:Z\rightarrow Y }$ are both morphisms. then there exist $latex { f_1,\dots,f_n\in \mathcal{O}_Z(Z) }$ and $latex { g_1,\dots,g_m\in \mathcal{O}_Z(Z) }$ s.t. 	$latex { f=(f_1,\dots,f_n),\quad g=(g_1,\dots,g_m) }$. Then $latex { (f,g)=(f_1,\dots,f_n,g_1,\dots,g_m) }$ is a morphism. $latex \Box$
+
+ 

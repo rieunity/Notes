@@ -1,0 +1,207 @@
+\documentclass{amsart}
+\usepackage{amssymb,latexsym}
+\usepackage{color}
+ \definecolor{MyDarkBlue}{rgb}{0,0.08,0.45}\definecolor{yellow}{rgb}{0.99,0.99,0.70}\definecolor{white}{rgb}{1.0,1.0,1.0}\definecolor{black}{rgb}{0.00,0.00,0.00}
+ %\pagecolor{yellow}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem*{main}{Main~Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{notation}{Notation}
+\newtheorem*{proofofnullstellensatz}{Proof of Nullstellensatz}
+\newtheorem*{proofofproductsofaffinevarieties}{Proof of Theorem \ref{15}}
+\numberwithin{equation}{section}
+\begin{document}
+\title[Complete-simple distributive lattices]
+{Algebraic Geometry - Lothar G\"{o}ttsche \\
+	Lecture 09}
+\author{Wang Yunlei}
+%\address{Harbin Institute of Technology\\
+%	Harbin}
+\email{wcghdpwyl@126.com}
+%\urladdr{http://math.uwinnebago.edu/menuhin/}
+%\thanks{Research supported by the NSF under grant number
+%	23466.}
+%\keywords{Complete lattice, distributive lattice,
+%	complete congruence, congruence lattice}
+%\subjclass[2010]{Primary: 06B10; Secondary: 06D05}
+\date{June 19, 2017}
+ 
+\maketitle
+
+
+\begin{remark}
+	Let $ X\subset \mathbb{P}^n,Y\subset \mathbb{P}^m $ be subvarieties, $ X\times Y $ does not lie rationally in some projective space. Thus we need to find an embedding $ \sigma :\mathbb{P}^n\times \mathbb{P}^m \to \mathbb{P}^N$ to denote the products of quasi-projective varieties.
+\end{remark}
+\begin{definition}[[Segre Embedding]]
+	We put $ N:=(n+1)\cdot (m+1)-1 $, let $ x_0,\dots,x_n $ be coordinates on $ \mathbb{P}^n $, $ y_0,\dots,y_m $ be coordinates on $ \mathbb{P}^m $. Let $ z_{ij}, i=0,\dots,n, j=0,\dots,m $ be coordinates on $ \mathbb{P}^N $. Define a map
+	$$\begin{array}{cc}
+	\sigma:\mathbb{P}^n\times \mathbb{P}^m & \to  \mathbb{P}^N\\
+	([x_0,\dots,x_n],[y_0,\dots,y_m]) & \to  [z_{ij}]=[x_iy_j]
+	\end{array}$$
+	$ \sigma $ is called the Segre embedding.
+\end{definition}
+\begin{definition}
+	We define the image of $ \sigma $ as
+	$$
+	\Sigma := \sigma(\mathbb{P}^n\times \mathbb{P}^m)\subset \mathbb{P}^N.
+	$$
+	For $ i=0,\dots,n $, put
+	$$
+	U_i:=\{ [x_0,\dots,x_n]\in \mathbb{P}^n|x_i\neq 0 \}.
+	$$
+	For $ j=0,\dots,m $, put
+	$$
+	U_j:=\{ [y_0,\dots,y_m]\in\mathbb{P}^m|y_j\neq 0 \}.
+	$$
+	And for $ i=0,\dots,n,j=0,\dots,m $, put
+	$$
+	U_{ij}:=\{ [z_{kl}]\in \mathbb{P}^{N}|z_{ij}\neq =0 \}.
+	$$
+\end{definition}
+there are isomorphisms:
+$$\begin{array}{cc}
+\mathbb{A}^n & \mathop{\rightleftarrows}\limits_{\varphi_i}^{u_i}  U_i\\
+\mathbb{A}^m & \mathop{\rightleftarrows}\limits_{\varphi_j}^{u_j} U_j\\
+\mathbb{A}^N & \mathop{\rightleftarrows}\limits_{\varphi_{ij}}^{u_{ij}} U_{ij}.
+\end{array}$$
+Since $ \mathbb{P}^N=\mathop{\cup}_{i,j}U_{ij} $, we get $ \Sigma = \mathop{\cup}_{i,j}(\Sigma \cap U_{ij}) $, define
+$$
+\Sigma^{ij}=\Sigma \cap U_{ij}.
+$$
+Define the map $ \sigma^{ij} $
+$$\begin{array}{cc}
+\sigma^{ij}:\mathbb{A}^{n+m} & \to U_{ij}\\
+(p,q) & \to \sigma (u_i(p),u_j(q)).
+\end{array}$$
+By definition we know $ \sigma^{ij}(\mathbb{A}^{n+m})=\Sigma^{ij} $.
+\begin{theorem}
+	\begin{enumerate}
+		\item $ \sigma:\mathbb{P}^n\times\mathbb{P}^m\to \mathbb{P}^N $ is injective and $ \Sigma $ is closed in $ \mathbb{P}^N $:
+		\begin{equation}\label{17}
+		\Sigma=Z\left(\left\lbrace z_{ij}z_{kl}-z_{il}z_{kj}|\begin{matrix}
+		i,k & =0,\dots,n\\
+		j,l & =0,\dots,m
+		\end{matrix} \right\rbrace\right).
+		\end{equation}
+		\item $ \sigma^{ij}:\mathbb{A}^{n+m}\to \Sigma^{ij} $ is an isomorphism.
+		\item $ \forall q\in\mathbb{P}^m $, the map
+		$$\begin{array}{cc}
+		\bar{i_q}:  \mathbb{P}^n & \to \mathbb{P}^N\\
+		p & \to \sigma(p,q)
+		\end{array}$$
+		is a morphism. Similarly, $ j_p=\sigma(p,q):\mathbb{P}^m\to \mathbb{P}^N $ is a morphism.
+		\item Let $ X\subset \mathbb{P}^n,Y\subset \mathbb{P}^m $ be quasi-projective varieties, then $ \sigma(X\times Y)\subset \mathbb{P}^N $ is also a quasi-projective variety. What's more, if $ X $ and $ Y $ are both projective varieties, then $ \sigma(X\times Y) $ is a projective variety.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	(1) If $ \sigma( [a_0,\dots,a_n],[b_0,\dots,b_m] )=\sigma( [ {a_0}',\dots,{a_n}' ],[ {b_0}',\dots,{b_m}' ] ) $, then $ \exists \lambda\in k\backslash \{ 0 \} $, s.t. $ \lambda a_i'b_j'=\lambda a_ib_j $ $ \forall i,j $. Choose $ i_0,j_0 $ s.t. $ a_{i_0}b_{j_0}\neq 0 $, then $ \forall i=0,\dots,n $, $ a_ib_{j_0}=\lambda a_i'b_{j_0}' $ $ \Rightarrow $ $ a_i=\left(\frac{\lambda b_{j_0}'}{b_{j_0}}\right)a_i' $ $ \Rightarrow $ $ [a_0,\dots,a_n]=[{a_0}',\dots,{a_n}'] $. The same way can be used to prove $ [b_0,\dots,b_m]=[{b_0}',\dots,{b_m}'] $. Let $ W $ be the zero set on the right hand side of the equation \ref{17}, clearly we have the relation $ \Sigma\subset W $. Now let $ [a_{ij}]\in W $, choose $ i_0,j_0 $ s.t. $ a_{i_0j_0}\neq 0 $, then we get $ [a_{ij}]=[a_{i_0j_0}a_{ij}]=[a_{i_0j}a_{ij_0}]=[a_{ij_0}a_{i_0j}]=\sigma([a_{0j_0},\dots,a_{nj_0}],[a_{i_00},\dots,a_{i_0m}])\subset \Sigma $.
+	
+	(2) Assume $ i=j=0 $, then
+	$$\begin{array}{cc}
+	\varphi_{00}\circ\sigma^{00}(a_1,\dots,a_n,b_1,\dots,b_m) & =\varphi_{00}(\sigma([1,a_1,\dots,a_n],[1,b_1,\dots,b_m]))\\
+	& =(z_{ij})_{(i,j)\neq(0,0)}
+	\end{array}$$
+	where $ z_{i0}=a_i $ for $ i=1,\dots,n $, $ z_{0j}=b_j $ for $ j=1,\dots,m $, $ z_{ij}=a_ib_j $ for $ i,j\geq 1 $. These are all regular functions, so  $ \varphi_{00}\circ \sigma^{00} $ is a morphism, so $ \sigma^{00} $ is a morphism. Finally, $ \sigma^{00} $ is an isomorphism because the inverse map is
+	$$
+	(\sigma^{00})^{-1}=\left(\frac{z_{10}}{z_{00}},\dots,\frac{z_{n0}}{z_{00}},\frac{z_{01}}{z_{00}},\dots,\frac{z_{0m}}{z_{00}}\right).
+	$$
+	\begin{remark}
+		In fact,  $ \Sigma^{ij} $ is a quasi-projective  variety. Because $ \mathbb{A}^{n+m} $ is irreducible, $ \Sigma^{ij} $ is irreducible, hence a quasi-projective variety.
+	\end{remark}
+	
+	(3) Let $ q=[b_0,\dots,b_m] $, then $ i_{q}=[x_ib_j] $, $ x_ib_j $'s are homogeneous polynomials, so  it is a morphism.
+	
+	(4) Let $ X\subset \mathbb{P}^n,Y\subset \mathbb{P}^m $ be projective varieties. We can decompose the map into the following:
+	$$\begin{array}{cc}
+	\sigma(X\times Y) &=\mathop{\cup}\limits_{i,j}\sigma(X\times Y)\cap U_{ij}\\
+	&=\mathop{\cup}\limits_{i,j}\sigma^{ij}(\varphi_i(X\cap{U_i})\times \varphi_j(Y\cap{U_j}))
+	\end{array}$$
+	$ \varphi_i(X\cap U_i) $ and $ \varphi_j(Y\cap U_j) $ are closed subsets of $ \mathbb{A}^n $ and $ \mathbb{A}^m $ respectively, thus $ \varphi_i(X\cap{U_i})\times \varphi_j(Y\cap{U_j}) $ is closed in $ \mathbb{A}^{n+m} $. Since $ \sigma^{ij} $ is an isomorphism, then  $ \sigma^{ij}(\varphi_i(X\cap{U_i})\times \varphi_j(Y\cap{U_j})) $ is closed in $ \Sigma^{ij}=\Sigma\cap U_{ij}$. So $ \sigma(X\times Y) $ is closed in $ \Sigma $, hence closed in $ \mathbb{P}^N $ because $ \Sigma $ itself is closed. To show its irreducible, we use the lemma \ref{16}. Since $ \sigma $ is injective we can endow $ \mathbb{P}^n\times\mathbb{P}^m $ with the topological structure of $ \mathbb{P}^N $, hence we can identify $ \mathbb{P}^n\times\mathbb{P}^m $ with $ \Sigma $ provided with the topology induced from $ \mathbb{P}^N $. Now we can use the lemma \ref{16}, we have known $ i_q $ and $ j_p $ are continuous, so $ \sigma(X\times Y) $ is irreducible. For quasi-projective conditions ,we just get the conclusion by simply difference two projective varieties.
+\end{proof}
+\begin{remark}
+	For $ X\subset \mathbb{P}^n $ and $ Y\subset\mathbb{P}^m $ we can now identify $ X\times Y $ with $ \sigma(X\times Y)\subset \mathbb{P}^N$. In particular we can identify $ \mathbb{P}^n\times\mathbb{P}^m $ with $ \Sigma $.
+	
+	From this perspective, part (2) of the theorem just says $ U_i\times U_j\subset \mathbb{P}^n\times \mathbb{P}^m $ is open and $ \varphi_i\times \varphi_j:U_i\times U_j\to \mathbb{A}^{n+m} $ is an isomorphism.
+\end{remark}
+\begin{proposition}[Universal Property]
+	Let $ X,Y $ be quasi-projective varieties, then
+	\begin{enumerate}
+		\item The projections
+		$$\begin{array}{cc}
+		p_1 & =(x_1,\dots,x_n): X\times Y\to X\\
+		p_2 & =(y_1,\dots,y_m): X\times Y\to Y
+		\end{array}$$
+		are morphisms.
+		\item Let $ Z $ be a variety. The morphism $ \varphi : Z\to X \times Y $ are precisely the
+		$$
+		(f,g):Z\to X\times Y,\quad p\to (f(p),g(p))\quad\forall p\in Z
+		$$
+		where $ f:Z\to X $ and $ g:Z\to Y $ are morphisms. In other words, $ \varphi:Z\to X\times Y $ is a morphism if and only if both $ p_1\circ \varphi $ and $ p_2\circ\varphi  $ are morphisms.
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	(1) It is enough to show $ p_1|_{U_i\times U_j} $ is a morphism from $ U_i\times U_j $ to $ U_i $. Identify $ U_i\times u_j $ with $ \mathbb{A}^{n+m} $ and $ U_i $ with $ \mathbb{A}^{n} $, then we can see that $ p_1 $ is the same as  the projection defined by the proposition \ref{19}, so it is a morphism.
+	
+	(2) $ \Rightarrow $: Let $ \varphi:Z\to X\times Y $ be a morphism. Then $ f:=p_1\circ \varphi $ and $ g:=p_2\circ \varphi $ are morphisms.
+	
+	$ \Leftarrow $: Let $ f:Z\to X $ and $ g:Z\to Y $ be morphisms. Define
+	$$
+	Z^{ij}:=f^{-1}(U_i)\cap g^{-1}(U_j).
+	$$
+	Then $ (f,g) $ is a morphism $ \Leftrightarrow $ $ (f,g)|_{Z^{ij}} $ is a morphism for $ i=1,\dots,n,j=1,\dots,m $. Consider the following mapping chain
+	$$
+	Z^{ij}\xrightarrow{(f,g)} (X\times Y)\cap (U_i\times U_j)\xrightarrow{\varphi_i\times \varphi_j}\varphi_i(X\cap U_i)\times \varphi_j(Y\cap U_j)\subset \mathbb{A}^{n+m}.
+	$$
+	the whole chain $ (\varphi_i\circ f,\varphi_j\circ g):Z^{ij}\to \mathbb{A}^{n+m} $ is a morphism, so $ (f,g) $ is a morphism.
+\end{proof}
+\begin{corollary}
+	Let $ X_1,X_2,Y_1,Y_2 $ be varieties. If $ f:X_1\to Y_1 $ and $ X_2\to Y_2 $ are morphisms, then the map:
+	$$\begin{array}{cc}
+	f\times g :X_1\times X_2 & \to Y_1\times Y_2\\
+	(p,q)\to (f(p),g(q))
+	\end{array}$$
+	is a morphism. In particular, if $ X_1 $ is isomorphic to $ Y_1 $ and $ X_2 $ is isomorphic to $ Y_2 $, then $ X_1\times X_2 $ is isomorphic to $ Y_1\times Y_2 $
+\end{corollary}
+\begin{proof}
+	We can write $ f\times g $ as $ f\circ p_1 $ and $ g\circ p_2 $, both $ f\circ p_1 $ and $ g\circ p_2 $ are morphisms, so $ f\times g =(f\circ p_1,g\circ p_2) $ is a morphism.
+\end{proof} 
+\section{Conclusions We Need From Previous Lectures}
+In Lecture 08:
+\begin{lemma}\label{16}
+	Let $ X,Y $ be irreducible topological spaces. Assume we have a topology on the product $ X\times Y $ s.t.:
+	$$\begin{array}{cc}
+	y_p: & Y\to X\times Y, \quad q\to (p,q) \text{ is continuous }\forall p\in X;\\
+	l_q: & X\to X\times Y, \quad p\to (p,q) \text{is continuous }\forall q\in Y.
+	\end{array}$$
+	Then $ X\times Y $ is irreducible.
+	\end{lemma}
+	
+	\begin{proposition}[Universal Property]\label{19}
+		Let $ X\subset\mathbb{A}^n,Y \subset \mathbb{A}^m$ be varieties, then
+		\begin{enumerate}
+			\item The projections
+			$$\begin{array}{cc}
+			p_1 & =(x_1,\dots,x_n): X\times Y\to X\\
+			p_2 & =(y_1,\dots,y_m): X\times Y\to Y
+			\end{array}$$
+			are morphisms.
+			\item Let $ Z $ be a variety. The morphism $ \varphi : Z\to X \times Y $ are precisely the
+			$$
+			(f,g):Z\to X\times Y,\quad p\to (f(p),g(p))\quad\forall p\in Z
+			$$
+			where $ f:Z\to X $ and $ g:Z\to Y $ are morphisms. In other words, $ \varphi:Z\to X\times Y $ is a morphism if and only if both $ p_1\circ \varphi $ and $ p_2\circ\varphi  $ are morphisms.
+		\end{enumerate}
+	\end{proposition}
+% \begin{thebibliography}{9}
+ %    \bibitem{a} bibitem
+% \end{thebibliography}
+\end{document}

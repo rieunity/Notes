@@ -1,0 +1,60 @@
+%EX program = xelatex
+\documentclass[paper,12pt]{article}
+\usepackage{geometry}
+\geometry{a4paper,scale=0.7}
+\usepackage[colorlinks,
+    linkcolor=red,
+    anchorcolor=blue,
+    citecolor=green
+    ]{hyperref}
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\lhead{\emph{\nouppercase{\leftmark}}}
+\rhead{Algebraic Geometry}
+\usepackage{titlesec}
+\usepackage{amssymb,amsmath,latexsym}
+\usepackage{graphicx}
+\usepackage{color}
+ \definecolor{MyDarkBlue}{rgb}{0,0.08,0.45}\definecolor{yellow}{rgb}{0.99,0.99,0.70}\definecolor{white}{rgb}{1.0,1.0,1.0}\definecolor{black}{rgb}{0.00,0.00,0.00}
+ %\pagecolor{yellow}
+\usepackage{ntheorem}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newenvironment{proof}{{\noindent\itshape Proof}.}{\hfill $\square$\par}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem*{main}{Main~Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{proposition}[theorem]{Proposition}
+\theorembodyfont{\upshape}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem*{remark}{Remark}
+\newtheorem*{notation}{Notation}
+\newtheorem*{proofofnullstellensatz}{Proof of Nullstellensatz}
+\newtheorem*{proofofproductsofaffinevarieties}{Proof of Theorem \ref{15}}
+%\numberwithin{equation}{section}
+
+\usepackage{titlesec}
+\newcommand{\sectionbreak}{\clearpage}
+\begin{document}
+\title{Algebraic Geometry}
+\author{Lectures given by Lothar G\"{o}ttsche\\
+\small Notes taken by Rieunity}
+%\address{Harbin Institute of Technology\\
+%	Harbin}
+%\email{wcghdpwyl@126.com}
+%\urladdr{http://math.uwinnebago.edu/menuhin/}
+%\thanks{Research supported by the NSF under grant number
+%	23466.}
+%\keywords{Complete lattice, distributive lattice,
+%	complete congruence, congruence lattice}
+%\subjclass[2010]{Primary: 06B10; Secondary: 06D05}
+\date{June 19, 2017. last update March 31, 2021}
+\maketitle
+\thispagestyle{empty}
+
+    These notes was written in 2017 when I studied algebraic geometry myself in YouTube from the channel ICTP Math, the speaker of the videos is  Lothar G\"{o}ttsche. The notes include all 20 lectures of the course.
+\tableofcontents
+\input{body}
+\end{document}

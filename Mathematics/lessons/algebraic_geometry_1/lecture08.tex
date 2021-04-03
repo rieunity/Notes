@@ -1,0 +1,182 @@
+\documentclass{amsart}
+\usepackage{amssymb,latexsym}
+\usepackage{color}
+ \definecolor{MyDarkBlue}{rgb}{0,0.08,0.45}\definecolor{yellow}{rgb}{0.99,0.99,0.70}\definecolor{white}{rgb}{1.0,1.0,1.0}\definecolor{black}{rgb}{0.00,0.00,0.00}
+ %\pagecolor{yellow}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem*{main}{Main~Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{notation}{Notation}
+\newtheorem*{proofofnullstellensatz}{Proof of Nullstellensatz}
+\newtheorem*{proofofproductsofaffinevarieties}{Proof of Theorem \ref{15}}
+\numberwithin{equation}{section}
+\begin{document}
+\title[Complete-simple distributive lattices]
+{Algebraic Geometry - Lothar G\"{o}ttsche \\
+	Lecture 05}
+\author{Wang Yunlei}
+%\address{Harbin Institute of Technology\\
+%	Harbin}
+\email{wcghdpwyl@126.com}
+%\urladdr{http://math.uwinnebago.edu/menuhin/}
+%\thanks{Research supported by the NSF under grant number
+%	23466.}
+%\keywords{Complete lattice, distributive lattice,
+%	complete congruence, congruence lattice}
+%\subjclass[2010]{Primary: 06B10; Secondary: 06D05}
+\date{June 19, 2017}
+ 
+\maketitle
+\begin{corollary}
+	\begin{enumerate}
+		\item Every variety is isomorphic to a quasi-projective variety.
+		\item Every variety has an open cover by affine varieties.
+	\end{enumerate}
+\end{corollary}
+\begin{proof}
+	(1) Let $ X $ be a variety, if $ X $ is locally closed in $ \mathbb{P}^n $,
+	then it is  a quasi-projective variety, so we only need to consider the condition in $ \mathbb{A}^n $. Assume $ X $ be locally closed in $ \mathbb{A}^n $. $ Y=\varphi ^{-1}_0 (X) \subset \mathbb{P}^n$ is locally closed subvariety and $ \varphi^{-1}_0 :X\to Y $ is an isomorphism.
+	
+	(2) For varieties in $ \mathbb{A}^n $, it is trivial. Let $ X\subset \mathbb{P}^n $ be a quasi-projective variety, then $ X=\mathop{\cup}\limits_{i=0}^{n}X\cap U_i $. $ X\cap U_i $ is isomorphic to locally closed subvariety in $ \mathbb{A}^n $. We can regard $ X\cap U_i $ simply as $ X \subset \mathbb{A}^n$, where $ X $ is locally closed. It is equivalent to prove:
+	\begin{center}
+		For every point $ p\in X $, there exists a neighborhood $ U\subset X $ and $ U $ is an affine variety.
+	\end{center}
+	Since $ X $ is locally closed, there exist $ Y,Z\subset \mathbb{A}^n $ closed in $ \mathbb{A}^n $ s.t. $ X=Y\backslash Z $. For any point $ p\in X $, $ \exists F_p\in I(Z) $ with $ F_p(p)\neq 0 $. Then we have $ Y_{F_p}=Y\backslash Z(F_p)\subset X $ and $ Y_{F_p} $ is an affine variety.
+\end{proof}
+\begin{theorem}\label{18}
+	Let $ X\subset \mathbb{P}^m $, $ Y\subset \mathbb{P}^n $ be quasi-projective varieties. Let $ \varphi :X\to Y $ be a map. The following conditions are equivalent:
+	\begin{enumerate}
+		\item $ \varphi $ is a morphism;
+		\item $ \varphi $ is locally given by regular functions, i.e., for all $ p\in X $, there exists a neighborhood $ U\subset X $, $ h_0,\dots,h_n\in \mathcal{O}_X(U) $ with no common zero on $ U $, s.t.
+		$$
+		\varphi(q)=[h_0(q),\dots,h_n(q)],\quad \forall q\in U.
+		$$
+		We write $ \varphi = [h_0,\dots,h_n] $ on $ U $;
+		\item $ \varphi $ is locally a polynomial map, i.e.:
+		\begin{center}
+			$ \forall p\in X $, $ \exists  $ open neighborhood $ U\subset X $, $ F_0,\dots,F_n\in k[x_0,\dots,x_,] $ homogeneous of the same degree with no common zero s.t.
+			$$
+			\varphi(q)=[F_(q),\dots,F_n(q)] \quad \forall q\in U.
+			$$
+		\end{center}
+		We write $ \varphi = [F_0,\dots,F_n] $ on $ U $.
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	(1) $ \Rightarrow $ (2): If $ \varphi:X\to \mathbb{P}^n $ is amorphism, then $ \forall p\ in X $, $ \exists i $, s.t. $ \varphi (p) \in U_i$. Assume $ i=0 $ and then $ \varphi(p)\in U_0 $. Let $ U $ be an open neighborhood of$ p $ in $ X $ s.t. $ \varphi (U)\subset U_0 $. Then  $ \varphi _0\circ \varphi :U\to \mathbb{A}^n $ is a morphism,  so $ \varphi_0\circ\varphi = (h_1,\dots,h_n) $ with $ h_i\in \mathcal{O}_X(U) $. Since the inverse of $ \varphi_0 $ is $ u_0 $ we get
+	\begin{equation}
+	\varphi = u_0\circ \varphi_0\circ\varphi = [1,h_1,\dots,h_n].
+	\end{equation}
+	
+	(2) $ \Rightarrow $ (3): Assume $ \varphi = [h_0,\dots,h_n] $ on $ U\subset X $, where $ h_i \in \mathcal{O}_X(U)$ with no common zeros on $ U $. By making $ U $ possibly smaller we can further assume $ h_i=\frac{F_i}{G_i} $, $ F_i,G_i\in k[x_0,\dots,x_m] $ are homogeneous of the same degree($ F_i $ and $ G_i $ are of the same degree, it is not necessary that $ F_i $ and $ G_j $ are of the same degree for $ i\neq j $), $ G_i $ has no zeros on $ U $. Let $ L_i= F_i\cdot G_0\cdot \hat{G_i}\cdot G_n $, $ L_i $ are homogeneous of the same degree, we get
+	\begin{equation}
+	\varphi = [h_0,\dots,h_n]=[L_0,\dots,L_n].
+	\end{equation}
+	
+	(3) $ \Rightarrow $ (1): Let $ \varphi |_U=[L_0,\dots,L_n] $, $ L_i\in k[x_0,\dots,x_m] $ are homogeneous of the same degree with no common zero. Making $ U $ smaller, we can assume one of $ L_i $(say $ L_0 $) has no zero in $ U $. Then for  $ i=1,\dots,n $, let $ h_i=\frac{L_i}{L_0}\in \mathcal{O}_X (U) $. Rewrite the map as
+	\begin{equation}
+	\varphi = [1,h_1,\dots,h_n]
+	\end{equation}
+	\begin{equation}
+	\Rightarrow	\varphi_0\circ\varphi = (h_1,\dots,h_n).
+	\end{equation}
+	So$ \varphi_0\circ\varphi $ is amorphism, then $ \varphi = u_0\circ\varphi_0\circ\varphi $ is a morphism.
+\end{proof}
+\begin{definition}[Projective Transformation]
+	Let \begin{equation}
+	A=\left[\begin{matrix}
+	a_{00} & a_{01} & \cdots & a_{0n}\\
+	a_{10} & a_{11} & \cdots & a_{1n}\\
+	\vdots & \vdots & \ddots & \vdots\\
+	a_{n0} & a_{n1} & \cdots & a_{nn}
+	\end{matrix}\right]
+	\end{equation}
+	be a $ (n+1)\times (n+1) $ matrix  in $ k $, then we can construct a map from $ \mathbb{P}^n  \to  \mathbb{P}^n $:
+	$$
+	[A]:	[b_0,\dots,b_n]\to [b_0,\dots,b_n]\left[\begin{matrix}
+	a_{00} & a_{01} & \cdots & a_{0n}\\
+	a_{10} & a_{11} & \cdots & a_{1n}\\
+	\vdots & \vdots & \ddots & \vdots\\
+	a_{n0} & a_{n1} & \cdots & a_{nn}
+	\end{matrix}\right]^{T}.
+	$$
+	It is called a projective transformation. This is a morphism and if $ A $ is inverse then it is an isomorphism.
+\end{definition}
+\begin{remark}
+	All automorphisms of $ \mathbb{P}^n $  are projective transformations. It is not so easy to prove.
+\end{remark}
+\begin{definition}[Projection]
+	Let $ X\subset\mathbb{P}^n  $ be a variety, $ W\subset \mathbb{P}^n $ be a projective subspace of $ \mathbb{P}^n $ of $ \text{dim}W=k $. Assume $ X\cap W= \emptyset $ and there exist linear forms $ H_0,\dots,H_{n-k-1} $ such that $ W=Z(H_0,\dots,H_{n-k-1}) $. The projection from $ W $ is
+	$$
+	\Pi_W=[H_0,\dots,H_{n-k-1}]:X\to \mathbb{P}^{n-k-1}.
+	$$
+	This is a morphism($ H_i $ have no common zero on $ X $ because $ W\cap X=\emptyset $).
+\end{definition}
+\begin{remark}
+	$ \Pi_W $ depends on $ H_0,\dots,H_{n-k-1} $, but if we have another relation $ W=Z(L_0,\dots,L_{n-k-1}) $ , then there exists a projection transformation $ [A]:\mathbb{P}^{n-k-1}\to \mathbb{P}^{n-k-1} $ . In particular, if $ p\in \mathbb{P}^n\backslash X $, for example, $ p=[0,\dots,0,1] $, then $ \Pi_p=[x_0,\dots,x_{n_1}] :X\to \mathbb{P}^{n-1}$.
+\end{remark}
+\begin{theorem}[Products of Affine Varieties]\label{15}
+	If $ X\subset \mathbb{A}^n,Y\subset \mathbb{A}^m $ are closed subvarieties, then $ X\times Y\subset \mathbb{A}^n\times \mathbb{A}^m=\mathbb{A}^{n+m} $ is a closed subvariety.
+\end{theorem}
+Before we prove it, we need to prove a conclusion in topology.
+\begin{lemma}\label{16}
+	Let $ X,Y $ be irreducible topological spaces. Assume we have a topology on the product $ X\times Y $ s.t.:
+	$$\begin{array}{cc}
+	y_p: & Y\to X\times Y, \quad q\to (p,q) \text{ is continuous }\forall p\in X;\\
+	l_q: & X\to X\times Y, \quad p\to (p,q) \text{is continuous }\forall q\in Y.
+	\end{array}$$
+	Then $ X\times Y $ is irreducible.
+\end{lemma}
+\begin{proof}
+	Assume $ X\times Y=S_1\cup S_2 $, $ S_i\subsetneqq X\times Y $ are closed. For $ i=1,2 $, set $ T_i=\mathop{\cap}\limits_{q\in Y}l_q^{-1}(S_i)=\{ p\in X|(p,q)\in S_i \quad\forall q\in Y \} $. It is the same as $ T_i=\{ p\in X|\{ p \}\times Y\subset S_i \} $. Since $ y_p $ is continuous and $ Y $ is irreducible, we get $ y_p(Y)=\{p\}\times Y $ is irreducible. So we get $ \{p\}\times Y\subset S_1 $ or $ \{p\}\times Y\subset S_2 \quad\forall p\in X$(it implies $ T_1\cap T_2=\emptyset $ and $ T_i\subsetneqq X $). Hence $ X=T_1\cup T_2 $. Since $ l_q $ is continuous, $ T_i $ are closed, then $ X $ is reducible.
+\end{proof}
+\begin{proofofproductsofaffinevarieties}
+	Let $ X\subset \mathbb{A}^n,Y\subset \mathbb{A}^m $ be closed subvarieties, the product of $ X $ and $ Y $ is just
+	$$
+	X\times Y=\{ (p,q)\in \mathbb{A}^n\times \mathbb{A}^m=\mathbb{A}^{n+m}|p\in X \text{ and }q\in Y \}.
+	$$
+	Let $ x_1,\dots,x_n $ be coordinates in $ \mathbb{A}^n $ and $ y_1,\dots,y_m $ be coordinates in $ \mathbb{A}^m $, we can assume $ X=Z(F_1,\dots,F_k) $ and $ Y=Z(G_1,\dots,G_l) $ where $ F_i\in k[x_1,\dots,x_n],G_j\in k[y_1,\dots,y_m] $. Then
+	\begin{equation}
+	X\times Y= Z(F_1,\dots,F_k,G_1,\dots,G_l)\subset \mathbb{A}^{n+m}
+	\end{equation}
+	is a closed subset. By lemma \ref{16} we only need to check  $\forall  q\in Y $, $ l_q:X\to Y $ is continuous. Write $ q=(b_1,\dots,b_m) $, then $ l_q=(x_1,\dots,x_n,b_1,\dots,b_m) $. It is a morphism, so it is continuous, thus we finish the whole proof.
+\end{proofofproductsofaffinevarieties}
+\begin{proposition}[Universal Property]\label{19}
+	Let $ X\subset\mathbb{A}^n,Y \subset \mathbb{A}^m$ be varieties, then
+	\begin{enumerate}
+		\item The projections
+		$$\begin{array}{cc}
+		p_1 & =(x_1,\dots,x_n): X\times Y\to X\\
+		p_2 & =(y_1,\dots,y_m): X\times Y\to Y
+		\end{array}$$
+		are morphisms.
+		\item Let $ Z $ be a variety. The morphism $ \varphi : Z\to X \times Y $ are precisely the
+		$$
+		(f,g):Z\to X\times Y,\quad p\to (f(p),g(p))\quad\forall p\in Z
+		$$
+		where $ f:Z\to X $ and $ g:Z\to Y $ are morphisms. In other words, $ \varphi:Z\to X\times Y $ is a morphism if and only if both $ p_1\circ \varphi $ and $ p_2\circ\varphi  $ are morphisms.
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	The first is obvious, we only check the second.
+	
+	$ \Rightarrow $: Let $ \varphi:Z\to X\times Y $ be a morphism, then $ f=p_1\circ\varphi $ and $ g=p_2\circ\varphi $ are morphisms and $ \varphi=(f,g) $.
+	
+	$ \Leftarrow $: Assume $ f:Z\to X $ and $ g:Z\to Y $ are both morphisms. then there exist $ f_1,\dots,f_n\in \mathcal{O}_Z(Z) $ and $ g_1,\dots,g_m\in \mathcal{O}_Z(Z) $ s.t.
+	$ f=(f_1,\dots,f_n),\quad g=(g_1,\dots,g_m) $. Then $ (f,g)=(f_1,\dots,f_n,g_1,\dots,g_m) $ is a morphism.
+\end{proof}
+ 
+% \begin{thebibliography}{9}
+ %    \bibitem{a} bibitem
+% \end{thebibliography}
+\end{document}

@@ -1,0 +1,65 @@
+ 
+<blockquote class="thm"><b>Definition 1</b>  	Let $latex { X\subset \mathbb{A}^n }$ be an affine algebraic set, the affine coordinate ring of $latex { X }$ is 	<p align=center>$latex \displaystyle  	A(X):=k[x_0,\dots,x_n]/I(X). 	\ \ \ \ \ (1)$</p>
+ 	It is a ring, also a $latex { k }$-algebra. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 2</b>  	A polynomial function on $latex { X }$ is a function $latex { f:X\rightarrow k }$ s.t. $latex { f=F|_X }$ for $latex { F\in k[x_0,\dots,x_n] }$. This is the ring with pointwise addition and multiplication: 	<p align=center>$latex \displaystyle  	(f+g)(p)=f(p)+g(p), fg(p)=f(p)g(p),\forall p\in X. 	$</p>
+ 	There is a ring homomorphism: 	<p align=center> 		$latex { k[x_0,\dots,x_n] \rightarrow }$ \{polynomial functions on $latex { X }$\}<br/>
+ 		$latex { F\rightarrow F|_X }$ 	</p> 	It is surjective and its kernel is $latex { I(X) }$. Thus we have the isomorphism: 	<p align=center> 		$latex { A(X)\cong \{ \text{polynomial functions on } X \} }$. 	</p> 	We will not distinguish them. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 1</b>  	The zero set of a polynomial function is closed.Let $latex { X }$ be an affine algebraic set, $latex { f\in A(X) }$, then 	<p align=center>$latex \displaystyle  	Z(f)=\{ p\in X|f(p)=0 \} 	\ \ \ \ \ (2)$</p>
+ 	is closed in $latex { X }$. $latex { f\in A(X) }$ means $latex { f=F|_X }$ for some $latex { F\in k[x_1,\dots,x_n] }$, then 	<p align=center>$latex \displaystyle  	Z(f)=\{ p\in X|F(p)=0 \}=X\cap Z(F) 	\ \ \ \ \ (3)$</p>
+ 	so it is closed. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 3</b>  	Let $latex { X }$ be an affine variety, then $latex { I(X) }$ is prime, then $latex { A(X) }$ is integral. 	The quotient field $latex { Q(A(X)) }$ is a field of rational functions on $latex { X }$ and denoted by $latex { K(X) }$. Let $latex { V\subset X }$ be a quasi-affine variety, since $latex { I(V)=I(X) }$, we can denote its field of rational functions by $latex { K(V):=K(X) }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 4</b>  	Let $latex { p\in V }$, the local ring of $latex { V }$ at $latex { p }$ is 	<p align=center>$latex \displaystyle  	\mathcal{O}_{V,p}:=\{h \in K(V)|\exists f,g\in A(V), \text{ s.t. } h=\frac{f}{g} \text{ and } g(p)\neq 0 \} 	\ \ \ \ \ (4)$</p>
+ 	For simplicity in future we can write this: 	<p align=center>$latex \displaystyle  	\mathcal{O}_{V,p}=\{ \frac{f}{g}\in K(V)|g(p)\neq 0 \}. 	\ \ \ \ \ (5)$</p>
+ 	If $latex { U\subset V }$ is an open subset, the regular functions on $latex { U }$ are defined by 	<p align=center>$latex \displaystyle  	\mathcal{O}_V(U)=\mathop{\cap}\limits_{V,p}\subset K(V). 	\ \ \ \ \ (6)$</p>
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Proposition 5</b>  	We have an injective ring homomorphism:<p align=center> 		$latex { \mathcal{O}_V(U) }$ $latex { \rightarrow }$ $latex { \{ \text{functions from }U \text{ to } k \} }$. 	</p> 	For $latex { h\in \mathcal{O}_V(U),p\in U }$, there exists an open subset $latex { W }$ and $latex { p\in W\subset U }$, s.t. $latex { h=\frac{f}{g} }$ with $latex { g(p)\neq 0 }$. We define the homomorphism by setting $latex { h(p)=\frac{f(p)}{g(p)} }$, the homomorphism is 	<p align=center> 		$latex { h\in \mathcal{O}_V(U)\rightarrow h(p)=\frac{f(p)}{g(p)}, p\in U }$. 	</p> </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	It is well defined: if $latex { h=\frac{f}{g}=\frac{f'}{g'} }$ with $latex { g(p)\neq 0,g'(p)\neq 0 }$.Then $latex { fg'=f'g \Rightarrow f(p)g'(p)=f'(p)g(p)}$ $latex { \Rightarrow \frac{f(p)}{g(p)}=\frac{f'(p)}{g'(p)} }$. 	 	Injective: Let $latex { h,h'\in \mathcal{O}_V(U) }$ such that $latex { h(p)=h'(p) \forall p\in U}$. 	Define $latex { l=h-h'\in \mathcal{O}_V(U) }$, then $latex { l(p)=0 ,\forall p\in U}$. There exists an open subset $latex { W }$, s.t. $latex { l=\frac{f}{g} }$ with $latex { g(p)\neq 0 \forall p\in W }$. For $latex { p\in W }$, $latex { l(p)=\frac{f(p)}{g(p)}=0\Rightarrow f(p)=0 \forall p\in W }$.As zero set $latex { Z(f) }$ of $latex { f }$ is closed, we get $latex { f=0\in A(V) }$, then $latex { l=0 }$ and hence $latex { h=h' }$. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Remark 2</b>  	We had called $latex { \mathcal{O}_{V,p} }$ a local ring of $latex { V }$ at $latex { p }$. The maximal ideal at $latex { p }$ is $latex { \mathfrak{m}(p):=\{ h\in \mathcal{O}_{V,p}|h(p)=0 \} }$, this is a maximal ideal in $latex { \mathcal{O}_{V,p} }$. It is easy to verify that the local ring of a variety is alocal ring. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Proposition 6</b> <a name="10"></a> 	For an affine variety $latex { X }$, functions which are regular functions everywhere are polynomial functions, i.e., $latex { \mathcal{O}_X(X)=A(X) }$. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	Obviously, $latex { A(X)\subset \mathcal{O}_X(X) }$. We have to show the other inclusion. Let $latex { h\in \mathcal{O}_X(X) }$, $latex { \forall p\in X }$, $latex { \exists F_p,G_p\in k[x_1,\dots,x_n] }$ s.t. 	$latex { h=\frac{[F_p]}{[G_p]} }$ and $latex { G_p(p)\neq 0 }$. It is equivalent to: $latex { \forall p\in X }$, $latex { \exists G_p\in k[x_1,\dots,x_n] }$ s.t. $latex { h\cdot [G_p] \in A(X)}$ and $latex { [G_p(p)]\neq 0 }$. Let 	<p align=center>$latex \displaystyle  	\mathcal{G}:=\{ G\in k[x_1,\dots,x_n]|h\cdot [G_p]\in A(X) \} 	\ \ \ \ \ (7)$</p>
+ 	$latex { \mathcal{G} }$ is an ideal and $latex { \mathcal{G}\supset I(X) }$, so $latex { Z(\mathcal{G})\subset X }$. But $latex { Z(\mathcal{G})\cap X=\emptyset }$, so $latex { Z(\mathcal{G})=\emptyset }$. By Nullstellensatz $latex { 1\in\mathcal{G} }$, so $latex { h=h\cdot 1\in A(X) }$. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Definition 7</b>  	Let $latex { X\subset\mathbb{P}^n }$ be a projective algebraic set. The homogeneous coordinate ring of $latex { X }$ is defined as 	<p align=center>$latex \displaystyle  	S(X):=k[x_0,\dots,x_n]/I_H(X) 	\ \ \ \ \ (8)$</p>
+ 	If $latex { X }$ is irreducible, then $latex { S(X) }$ is an integral domain, $latex { Q(S(X)) }$ is its quotient field. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 3</b>  	$latex { X\subset \mathbb{P}^n}$ is a quasi-projective variety, then polynomial $latex { F\in k[x_0,\dots,x_n] }$ will not define a function $latex { X\rightarrow k }$. But we can take quotients of homogeneous polynomials of the same degree and get a well defined function. </blockquote>
+
+<p>
+
+ 

@@ -1,0 +1,98 @@
+
+<p>
+ 
+<blockquote class="thm"><b>Lemma 1</b>  	The closed subset in $latex { \mathbb{P}^n\times \mathbb{P}^m }$ is the zero set of sets of polynomials of $latex { f_k(x_0,\dots,x_n,y_0,\dots,y_m) }$ for $latex { k=1,\dots,r }$ which are homogeneous in $latex { x_i }$ and $latex { y_j }$, and the degree in $latex { x_i }$ is equal to the degree in $latex { y_j }$, we called it behomogeneous. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	Let $latex { W\subset \mathbb{P}^n\times \mathbb{P}^m }$ be closed. $latex { W=\sigma^{-1}(A) }$, for $latex { A\subset \mathbb{P}^N }$ closed. 	Then $latex { A }$ is the zero set of homogeneous polynomials in $latex { z_{ij} }$, write it as $latex { A=(f_1(z_{ij}),\dots,f_r(z_{ij}) }$. Then we get $latex { W=(f_1(x_iy_j),\dots,f_r(x_iy_j)) }$. For $latex { k=1,\dots,r }$, $latex { f_k(x_iy_j) }$ are bihomogeneous. Conversely, assume <p align=center>$latex \displaystyle  W=Z( g_1(x_0,\dots,x_n,y_0,\dots,y_m), \dots,g_l(x_0,\dots,x_n,y_0,\dots,y_m )) $</p>
+ 	where $latex { g_{k} }$ are bihomogeneous. Then 	<p align=center>$latex \displaystyle  	\begin{array}{cc} 	 	{} & (\varphi_i\times\varphi_j)(W\cap (U_i\times U_j))=Z( g_1(x_0,\dots,x_i=1,\dots,x_n,y_0,\dots,y_j=1,\dots,y_m),\\ 	 	{} & \dots,g_l(x_0,\dots,x_i=1,\dots,x_n,y_0,\dots,y_j=1,\dots,y_m) ) 	\end{array} 	$</p>
+ 	are closed in $latex {\mathbb{A}^{n+m} }$. So $latex { W\cap (U_i\times U_j) }$ are closed in $latex { U_i\times U_j }$. $latex { U_i\times U_j }$ form a finite open cover of $latex { \mathbb{P}^n\times \mathbb{P}^m }$, so $latex { W }$ is closed. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Definition 2</b>  	Let $latex { X }$ be a variety, the diagonal is 	<p align=center>$latex \displaystyle  	\Delta_X:=\{ (p,p)\in X\times X|p\in X \}\subset X\times X. 	$</p>
+ 	The diagonal morphism is 	<p align=center>$latex \displaystyle \begin{array}{cc} 	\delta_X:X & \rightarrow \Delta_X\subset X\times X\\ 	p &\rightarrow (p,p). 	\end{array}$</p>
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Lemma 3</b> <a name="20"></a> 	$latex { \Delta_X }$ is closed in $latex { X\times X }$ and $latex { \delta_X:X\rightarrow \Delta_X }$ is an isomorphism. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	Any variety $latex { X }$ is isomorphic to a locally closed subvariety of some projective space, so we can assume $latex { X\subset\mathbb{P}^n }$ is locally closed, then 	<p align=center>$latex \displaystyle  	\Delta_X=\Delta_{\mathbb{P}^n}\cap (X\times X). 	$</p>
+ 	Thus we know if $latex { \Delta_{\mathbb{P}^n} }$ is closed then $latex { \Delta_X }$ is closed in $latex { X\times X }$. 	In fact $latex { \Delta_{\mathbb{P}^n}=Z\left( \left\lbrace x_iy_j-x_jy_i|i,j=0,\dots,n \right\rbrace \right) }$ is closed. 	 	$latex { \delta_X:X\rightarrow \Delta_X }$ is isomorphic because $latex { p_1:\Delta_X\rightarrow X }$ is its inverse morphism. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Remark 1</b>  	The fact that $latex { \Delta_X\subset X\times X }$ is closed replaces for us the Hausdorff property in topology. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 4</b>  	A variety is called separated if $latex { \Delta_X\subset X\times X }$ is closed. By the lemma <a href="#20">3</a> all varieties are separated. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Corollary 5</b>  	Let $latex { \varphi,\psi:X\rightarrow Y }$ be morphisms of varieties, then $latex { W=\{ p\in X|\varphi(p)=\psi(p) \} }$ is closed in $latex { X }$. In particular, if $latex { \varphi|_U=\psi|_U }$ for an open subset of $latex { X }$, then $latex { \varphi=\psi }$. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	See the following chain 	<p align=center>$latex \displaystyle  	X\xrightarrow{\delta_X} \Delta_X\xrightarrow{\varphi\times\psi} Y\times Y. 	$</p>
+ 	So $latex { W=\delta^{-1}( (\varphi\times\psi)^{-1}(\Delta_Y) ) }$ is closed. Because varieties are irreducible, the open set $latex { U }$ is dense in $latex { X }$, let $latex { \omega = \varphi-\psi }$ and we get $latex { l(x)=0 }$ in $latex { U }$, hence $latex { l=0 }$ in $latex { X }$ because of the continuity of $latex { l }$, hence $latex { \varphi=\psi }$. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Definition 6</b>  	Let $latex { \varphi :X\rightarrow Y }$ be a morphism of varieties. The graph of $latex { \varphi }$ is defined as 	<p align=center>$latex \displaystyle  	\Gamma_{\varphi}:=\{ \left(p,\varphi\left(p\right)\right)| p\in X \}\subset X\times Y. 	\ \ \ \ \ (1)$</p>
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Corollary 7</b>  	$latex { \Gamma_\varphi }$ is closed in $latex { X\times Y }$. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	Define the map 	<p align=center>$latex \displaystyle \begin{array}{cc} 	\varphi\times\text{id}_Y : X\times Y & \rightarrow Y\times Y\\ 	(p,q) & \rightarrow (\varphi(p),q). 	\end{array}$</p>
+ 	Then we have $latex { \Gamma_\varphi = (\varphi\times\text{id}_Y)^{-1}(\Delta Y) }$, so it is closed. In fact $latex { \Gamma_\varphi }$ is isomorphic to $latex { X }$. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Definition 8</b>  	A map $latex { \varphi:X\rightarrow Y }$ of topological spaces is called closed if $latex { \varphi(Z) }$ is closed in $latex { Y }$ for all closed subsets $latex { Z\subset X }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 9</b>  	A variety complete if the projection $latex { p_2:X\times Y\rightarrow Y }$ is a closed map for all varieties $latex { Y }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 2</b>  	Completeness replaces for us compactness in topology. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Example 1</b>  	$latex { \mathbb{A}^1 }$ is not complete. Let $latex { Z=Z(x_1y_1-1)\subset \mathbb{A}^2=\mathbb{A}^1\times \mathbb{A}^1 }$, then $latex { p_2(Z)=\mathbb{A}^1\backslash\{ 0 \} }$ is not closed in $latex { \mathbb{A}^1 }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Proposition 10</b>  	Let $latex { X }$ be a complete variety, $latex { \varphi:X\rightarrow Y }$ be a morphism of varieties. Then $latex { \varphi(X) }$ is closed in $latex { Y }$. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	Since $latex { \Gamma_\varphi\subset X\times Y }$ is closed and $latex { \varphi(X)=p_2(\Gamma_\varphi) }$, thus if $latex { X }$ is complete, $latex { \varphi(X) }$ is closed in $latex { Y }$. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Theorem 11</b>  	All projective varieties are complete. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	We finish the proof by two steps. 	 	(1) Main step to show $latex { p_2:\mathbb{P}^n\times \mathbb{P}^m\rightarrow \mathbb{P}^m }$ is closed. Let $latex { X\subset\mathbb{P}^n\times\mathbb{P}^m }$ be closed, we can write it as 	<p align=center>$latex \displaystyle  	X=Z(f_1(x,y),\dots,f_r(x,y)) 	$</p>
+ 	where $latex { f_i }$ isbihomogeneous, $latex { x=(x_0,\dots,x_n),y=(y_0,\dots,y_m) }$. We can assume all $latex { f_i }$ have the same degree $latex { d }$ in $latex { y }$. If $latex { f_j }$ has a lower degree $latex { l }$, we can replace it by polynomials $latex { y_0^{d-l}f_j,y_1^{d-l}f_j,\dots,y_n^{d-l}f_j }$. Fix a point $latex { q\in\mathbb{P}^m }$, then $latex { q\in p_2(X) }$ $latex { \Leftrightarrow }$ $latex { Z(f_1(x,q),\dots,f_r(x,q))\neq \emptyset }$. By the projective Nullstellensatz, this is equivalent to: 	<p align=center> 		$latex { \forall s&gt;0 }$, $latex { (\ast) }$ $latex { \mathfrak{a}:=\langle f_1(x,q),\dots,f_r(x,q)\rangle }$ does not contain<br/>
+ 		all monomials of degree $latex { s }$ in $latex { x }$. 	</p> 	It is trival for $latex { s&lt;d }$, so it is enough to show: 	<p align=center> 		$latex { \forall s\geq d }$, the set $latex {X_s:= \{ q\in\mathbb{P}^m|q \text{ satisfies the condition } (\ast) \} }$ <br/>
+ 		is closed in $latex { \mathbb{P}^m }$. 		Hence $latex { p_2(X)=\mathop{\cap}\limits_{s\geq d} X_s }$ is closed in $latex { \mathbb{P}^m }$. 	</p> 	Denote monomials in $latex { x }$ of degree $latex { s }$ with $latex { M_i(x) }$, $latex { i=1,\dots,\binom{n+s}{n} }$. Denote monomials in $latex { x }$ of degree $latex { s-d }$ with $latex { N_j(x) }$, $latex { j=1,\dots,\binom{n+s-d}{n} }$. The elements of degree $latex { s }$ in $latex { \mathfrak{a} }$ are the linear span of $latex { \{N_i(x)f_j(x,q)|i=1,\dots,\binom{n+s-d}{n},j=0,\dots,r\} }$. Define all $latex { \{N_i(x)f_j(x,y)\} }$ by $latex { \{ G_k(x,y),k=1,\dots,t \} }$. The condition $latex { (\ast) }$ is equivalent to: 	<p align=center> 		$latex { \{ G_k(x,q) \} }$ does not equal to the whole space of degree $latex { s }$ in $latex { x }$. 	</p> 	We can write $latex { G_k(x,y)=\sum\limits_{i=1}^{\binom{n+s}{n}} A_{ik}(y)M_i(x) }$. The dimension of the linear span of $latex { \{G_k(x,q),k=1,\dots,t \}}$ is the rank of the matrix $latex { A:=(A_{ik}(q)) }$. Thus the condition $latex { (\ast) }$ is equivalent to $latex { \text{rank}(A)&lt;\binom{n+s}{n} }$. Thus 	<p align=center>$latex \displaystyle  	\{q\in\mathbb{P}^m|q \text{ satisfies the condition } (\ast) \}=\text{ zero set of all } \binom{n+s}{n}\times \binom{n+s}{n} \text{ minors of } A. 	$</p>
+ 	Thus $latex { p_2(X) }$ is closed in $latex { \mathbb{P}^m }$.<br/>
+ 	(2) General case. First show $latex { \mathbb{P}^n }$ is completed. Let $latex { Y }$ be a variety, we can assume $latex { Y\subset \mathbb{P}^m }$ is locally closed subvariety. Let $latex { Z\subset \mathbb{P}^n\times Y }$ be closed in $latex { \mathbb{P}\times Y }$, $latex { \bar{Z} }$ be the closure of $latex { Z }$ in $latex { \mathbb{P}^n\times\mathbb{P}^m }$. Then $latex { p_2(\bar{Z}) }$ is closed in $latex { \mathbb{P}^m }$, hence $latex { p_2(Z)=p_2(\bar{Z}\cap (\mathbb{P}^n\times Y))=p_2(\bar{Z})\cap Y }$ is closed in $latex { Y }$. Finally, let $latex { X\subset \mathbb{P}^n }$ be closed subvariety, $latex { Z\subset X\times Y }$ be closed, it follows that $latex { Z }$ is also closed in $latex { \mathbb{P}^n\times Y }$, therefore by trival step $latex { p_2(Z) }$ is closed in Y. $latex \Box$
+
+ 

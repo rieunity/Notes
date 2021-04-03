@@ -1,0 +1,105 @@
+
+<p>
+
+<blockquote class="thm"><b>Proposition 1</b>  	Same as an affine space, in a projective space we have the following propositions: 	
+
+<ol> 		<li> $latex { X\subset Y\subset \mathbb{P}^n }$ are projective algebraic sets, then 		$latex { I(X)\supset I(Y) }$; 		<li> $latex { X\subset \mathbb{P}^n }$ is a projective algebraic set, then $latex { Z(I(X))=X }$; 		<li> $latex { \mathfrak{a}\subset k[x_0,\dots,x_n] }$ is a homogeneous ideal, then $latex { I(Z(\mathfrak{a}))\supset \mathfrak{a} }$; 		<li> If $latex { S\subset k[x_0,\dots,x_n] }$ is a set of homogeneous polynomials, then $latex { Z(S)=Z(\langle S \rangle ) }$; 		<li> For a family $latex { \{ S_\alpha \} }$ of sets of homogeneous polynomials, $latex { Z(\mathop{\cup}\limits_\alpha S_\alpha) = \mathop{\cap}\limits_alpha Z(S_\alpha)}$; 		<li> If $latex { T,S\subset k[x_0,\dots,x_n] }$ are sets of homogeneous polynomials, then $latex { Z(ST)=Z(S)\cup Z(T) }$. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 1</b>  	From the proposition (5) and (6) we know that arbitrary intersections and finite unions of projective algebraic sets are projective algebraic sets, then we can define a topology through these two propositions. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 2</b>  	The Zariski topology on $latex { \mathbb{P}^n }$ is the topology whose closed sets are the projective algebraic sets. 	 	If $latex { X\subset \mathbb{P}^n }$ is a subset, we give it the induced topology, called Zariski topology on $latex { X }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 3</b>  	A quasi-projective algebraic set is an open subset of a projective algebraic set. Fro example, let $latex { U }$ and $latex { V }$ be closed subsets, then $latex { Y=U\backslash V\neq \emptyset }$ is a quasi-projective algebraic set. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Proposition 4</b>  	We jnow $latex { k[x_0,\dots,x_n] }$ is noetherian, then follows the same proof as in affine case shows that $latex { \mathbb{P}^n }$ is a noetherian topological sapce. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 2</b>  	Every subspace of $latex { \mathbb{P}^n }$ is noetherian. In particular, quasi-projective algebraic sets are noetherian, hence have unique decompositions into irreducible components. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 5</b>  	A quasi-projective variety is an irreducible quasi-projective algebraic set. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 3</b>  	If we use the identification $latex { \mathbb{A}^n=U_0\subset \mathbb{P}^n }$, then $latex { \mathbb{A}^n }$ is an open set $latex { \mathbb{A}^n=\mathbb{P}^n\backslash Z(x_0) }$, i.e. $latex { \mathbb{A}^n }$ is a quasi-projective variety. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 6</b>  	A nonempty algebraic set $latex { X\subset \mathbb{A}^{n+1} }$ is called a cone if for all $latex { p=(a_0,\dots,a_n)\in X }$ and all $latex { \lambda \in k }$, we have $latex { (\lambda a_0,\dots,\lambda a_n)=\lambda p\in X }$. 	 	If $latex { X\subset \mathbb{P}^n }$ is a projective algebraic set, its affine cone is 	<p align=center>$latex \displaystyle  	C(X):=\{ (a_0,\dots,a_n)\in \mathbb{A}^{n+1}|[a_0,\dots,a_n]\in X \}\cup\{ 0 \} 	\ \ \ \ \ (1)$</p>
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Lemma 7</b>  	Let $latex { X\neq\emptyset }$ be a projective algebraic set, then : 	
+
+<ol> 		<li> $latex { X=Z_p(\mathfrak{a}) }$, for $latex { \mathfrak{a}\subset k[x_0,\dots,x_n]}$ a homogeneous ideal $latex { \Rightarrow }$ $latex { C(X)=Z_a(\mathfrak{a})\subset \mathbb{A}^{n+1} }$; 		<li> $latex { I_a(C(X))=I_H(X) }$. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Theorem 8 (Projective Nullstellensatz)</b>  	Let $latex { \mathfrak{a}\subset k[x_0,\dots,x_n] }$ be a homogeneous ideal: 	
+
+<ol> 		<li> $latex { Z_p(\mathfrak{a})=\emptyset }$ $latex { \Leftrightarrow }$ $latex { \mathfrak{a} }$ contains all homogeneous polynomials of degree $latex { N }$ for some $latex { N\in \mathbb{N} }$; 		<li> If $latex { Z_p(\mathfrak{a})\neq \emptyset }$, then $latex { I_p(Z_p(\mathfrak{a}))=\sqrt{\mathfrak{a}} }$. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	Let $latex { X=Z_p(\mathfrak{a}) }$. 	 	(1) $latex { X=\emptyset }$ $latex { \Leftrightarrow }$ $latex { C(X)=\{ 0 \} }$. Since $latex { C(X)=Z_a(\mathfrak{a})\cup \{0\} }$, we get 	<p align=center> 		$latex { X=\emptyset }$ $latex { \Leftrightarrow }$ $latex { Z_a(\mathfrak{a})=\emptyset }$ or $latex { Z_a(\mathfrak{a})=\{0\} }$. 	</p> 	By affine Nullstellensatz, we get 	<p align=center> 		$latex { \sqrt{\mathfrak{a}}=k[x_0,\dots,x_n] }$ or $latex { \sqrt{\mathfrak{a}}=\langle x_0,\dots,x_n\rangle }$. 	</p> 	So $latex { \sqrt{\mathfrak{a}}\supset \langle x_0,\dots,x_n\rangle }$. Thus for any $latex { i=0,\dots,n }$, $latex { \exists m_i }$ s.t. $latex { x_i^{m_i}\in \mathfrak{a} }$. Let $latex { N=m_1+\dots+m_n }$, then any monomial of degree $latex { N }$ in $latex { k[x_0,\dots,x_n] }$ lies in $latex { \mathfrak{a} }$. 	 	(2)Let $latex { X=Z_p(\mathfrak{a}\neq \emptyset }$, then 	<p align=center>$latex \displaystyle  	I_H(X)=I_a(C(X))=I_a(Z_a(\mathfrak{a}))=\sqrt{\mathfrak{a}}. 	\ \ \ \ \ (2)$</p>
+ $latex \Box$
+
+ 
+<blockquote class="thm"><b>Remark 4</b>  	$latex { \langle x_0,\dots,x_n \rangle }$ is called the irrelevant ideal, an ideal different from $latex { \langle x_0,\dots,x_n \rangle }$ is called relevant. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Corollary 9</b>  	There is a one-to-one correspondence between homogeneous relevant radical ideals and projective algebraic sets: 	<p align=center> 		$latex { Z_p }$: homogeneous relevant radical ideals in $latex { k[x_0,\dots,x_n] }$ $latex { \rightarrow }$ projective algebraic sets in $latex { \mathbb{P}^n }$<br/>
+ 		$latex { I_H }$: projective algebraic sets in $latex { \mathbb{P}^n }$ $latex { \rightarrow }$ homogeneous relevant radical ideals in $latex { k[x_0,\dots,x_n] }$. 	</p> </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 5</b>  	We use subscripts to recognize affine spaces and projective spaces, such as $latex { Z_p(\mathfrak{a}),Z_a(\mathfrak{a}) }$. Sometimes we can infer the difference from the context, so we usually write briefly as $latex { Z(\mathfrak{a}) }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Proposition 10</b>  	
+
+<ol> 		<li> A projective algebraic set $latex { X\neq \emptyset\subset \mathbb{P}^n }$ is irreducible if and only if $latex { I=I_H(X) }$ is a homogeneous prime ideal; 		<li> If $latex { f\in k[x_0,\dots,x_n] }$ is a homogeneous polynomial and irreducible, then $latex { Z_p(f) }$ is irreducible. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	(1) $latex { \Leftarrow }$: Assume $latex { X }$ reducible, then $latex { X=X_1\cup X_2 }$,$latex { X_1,X_2\subsetneqq X }$b are closed subsets. Then we get $latex { C(X)=C(X_1)\cup C(X_2) }$, $latex { C(X_1)\subsetneqq C(X) }$,$latex { C(X_2)\subsetneqq C(X) }$ are closed, hence $latex { C(X) }$ is reducible, $latex { I_H(X)=I(C(X)) }$ is not prime. 	 	$latex { \Rightarrow }$: Assume $latex { I_H(X) }$ not prime, it means $latex { \exists f,g\in k[x_0,\dots,x_n] }$, $latex { fg\in I_H(X) }$ and $latex { f,g\not\in I_H(X) }$. Let $latex { i,j\in\mathbb{Z}\geq 0 }$ be minimal such that $latex { f^{(i)}\not\in I }$ and $latex { g^{(j)}\not\in I }$. Subtract homogeneous components of lower degrees from $latex { f }$ and $latex { g }$, we can assume $latex { f }$ starts in degree $latex { i }$ and $latex { g }$ starts in degree $latex { j }$. Thus $latex { f^{(i)}g^{(j)} }$ is homogeneous component of minimal degree in $latex { fg\in I }$. Because $latex { I }$ is homogeneous, we get $latex { f^{(i)}g^{(j)} \in I}$. Let 	$latex { X_1:=Z(I)\cap Z(f^(i)) }$ and $latex { X_2:=Z(I)\cap Z(g^{(j)}) }$, then $latex { X_1,X_2\subsetneqq X }$, $latex { X=X_1\cup X_2 }$, thus $latex { X }$ is reducible. 	 	(2) If $latex { I\subset k[x_0,\dots,x_n] }$ is homogeneous and prime with $latex { Z(I)\neq\emptyset }$ , then follow the result from (1) we know $latex { Z(f) }$ is irreducible. $latex \Box$
+
+ 

@@ -1,0 +1,147 @@
+\documentclass{amsart}
+\usepackage{amssymb,latexsym}
+\usepackage{color}
+ \definecolor{MyDarkBlue}{rgb}{0,0.08,0.45}\definecolor{yellow}{rgb}{0.99,0.99,0.70}\definecolor{white}{rgb}{1.0,1.0,1.0}\definecolor{black}{rgb}{0.00,0.00,0.00}
+ %\pagecolor{yellow}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem*{main}{Main~Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{notation}{Notation}
+\newtheorem*{proofofnullstellensatz}{Proof of Nullstellensatz}
+\newtheorem*{proofofproductsofaffinevarieties}{Proof of Theorem \ref{15}}
+\numberwithin{equation}{section}
+\begin{document}
+\title[Complete-simple distributive lattices]
+{Algebraic Geometry - Lothar G\"{o}ttsche \\
+	Lecture 04}
+\author{Wang Yunlei}
+%\address{Harbin Institute of Technology\\
+%	Harbin}
+\email{wcghdpwyl@126.com}
+%\urladdr{http://math.uwinnebago.edu/menuhin/}
+%\thanks{Research supported by the NSF under grant number
+%	23466.}
+%\keywords{Complete lattice, distributive lattice,
+%	complete congruence, congruence lattice}
+%\subjclass[2010]{Primary: 06B10; Secondary: 06D05}
+\date{June 19, 2017}
+ 
+\maketitle
+
+
+\begin{proposition}
+	Same as an affine space, in a projective space we have the following propositions:
+	\begin{enumerate}
+		\item $ X\subset Y\subset \mathbb{P}^n $ are projective algebraic sets, then
+		$ I(X)\supset I(Y) $;
+		\item $ X\subset \mathbb{P}^n $ is a projective algebraic set, then $ Z(I(X))=X $;
+		\item $ \mathfrak{a}\subset k[x_0,\dots,x_n] $ is a homogeneous ideal, then $ I(Z(\mathfrak{a}))\supset \mathfrak{a} $;
+		\item If $ S\subset k[x_0,\dots,x_n] $ is a set of homogeneous polynomials, then $ Z(S)=Z(\langle S \rangle ) $;
+		\item For a family $ \{ S_\alpha \} $ of sets of homogeneous polynomials, $ Z(\mathop{\cup}\limits_\alpha S_\alpha) = \mathop{\cap}\limits_alpha Z(S_\alpha)$;
+		\item If $ T,S\subset k[x_0,\dots,x_n] $ are sets of homogeneous polynomials, then $ Z(ST)=Z(S)\cup Z(T) $.
+	\end{enumerate}
+\end{proposition}
+\begin{remark}
+	From the proposition (5) and (6) we know that arbitrary intersections and finite unions  of projective algebraic sets are projective algebraic sets, then we can define a topology through these two propositions.
+\end{remark}
+\begin{definition}
+	The Zariski topology on $ \mathbb{P}^n $ is the topology whose closed sets are the projective algebraic sets.
+	
+	If $ X\subset \mathbb{P}^n $ is a subset, we give it the induced topology, called Zariski topology on $ X $.
+\end{definition}
+\begin{definition}
+	A quasi-projective algebraic set is an open subset of a projective algebraic set. Fro example, let $ U $ and $ V $ be closed subsets, then $ Y=U\backslash V\neq \emptyset $ is a quasi-projective algebraic set.
+\end{definition}
+\begin{proposition}
+	We jnow $ k[x_0,\dots,x_n] $ is noetherian, then follows the same proof as in affine case shows that $ \mathbb{P}^n $ is a noetherian topological sapce.
+\end{proposition}
+\begin{remark}
+	Every subspace of $ \mathbb{P}^n $ is noetherian. In particular, quasi-projective algebraic sets are noetherian, hence have unique decompositions into irreducible components.
+\end{remark}
+\begin{definition}
+	A quasi-projective variety is an irreducible quasi-projective algebraic set.
+\end{definition}
+\begin{remark}
+	If we use the identification $ \mathbb{A}^n=U_0\subset \mathbb{P}^n $, then $ \mathbb{A}^n $ is an open set $ \mathbb{A}^n=\mathbb{P}^n\backslash Z(x_0) $, i.e. $ \mathbb{A}^n $ is a quasi-projective variety.
+\end{remark}
+\begin{definition}
+	A nonempty algebraic set $ X\subset \mathbb{A}^{n+1} $ is called a cone if for all $ p=(a_0,\dots,a_n)\in X $ and all $ \lambda \in k $, we have $ (\lambda a_0,\dots,\lambda a_n)=\lambda p\in X $.
+	
+	If $ X\subset \mathbb{P}^n $ is a projective algebraic set, its affine cone is
+	\begin{equation}
+	C(X):=\{ (a_0,\dots,a_n)\in \mathbb{A}^{n+1}|[a_0,\dots,a_n]\in X \}\cup\{ 0 \}
+	\end{equation}
+\end{definition}
+\begin{lemma}
+	Let $ X\neq\emptyset $ be a projective algebraic set, then :
+	\begin{enumerate}
+		\item $ X=Z_p(\mathfrak{a}) $, for $ \mathfrak{a}\subset k[x_0,\dots,x_n]$ a   homogeneous ideal $ \Rightarrow $ $ C(X)=Z_a(\mathfrak{a})\subset \mathbb{A}^{n+1} $;
+		\item $ I_a(C(X))=I_H(X) $.
+	\end{enumerate}
+\end{lemma}
+\begin{theorem}[Projective Nullstellensatz]
+	Let $ \mathfrak{a}\subset k[x_0,\dots,x_n] $ be a homogeneous ideal:
+	\begin{enumerate}
+		\item $ Z_p(\mathfrak{a})=\emptyset $ $ \Leftrightarrow $ $ \mathfrak{a} $ contains all homogeneous polynomials of degree $ N $ for some $ N\in \mathbb{N} $;
+		\item If $ Z_p(\mathfrak{a})\neq \emptyset $, then $ I_p(Z_p(\mathfrak{a}))=\sqrt{\mathfrak{a}} $.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	Let $ X=Z_p(\mathfrak{a}) $.
+	
+	(1) $ X=\emptyset $ $ \Leftrightarrow $ $ C(X)=\{ 0 \} $. Since $ C(X)=Z_a(\mathfrak{a})\cup \{0\} $, we get
+	\begin{center}
+		$ X=\emptyset $ $ \Leftrightarrow $ $ Z_a(\mathfrak{a})=\emptyset $ or $ Z_a(\mathfrak{a})=\{0\} $.
+	\end{center}
+	By affine Nullstellensatz, we get
+	\begin{center}
+		$ \sqrt{\mathfrak{a}}=k[x_0,\dots,x_n] $ or $ \sqrt{\mathfrak{a}}=\langle x_0,\dots,x_n\rangle $.
+	\end{center}
+	So $ \sqrt{\mathfrak{a}}\supset \langle x_0,\dots,x_n\rangle $. Thus for any $ i=0,\dots,n $, $ \exists m_i $ s.t. $ x_i^{m_i}\in \mathfrak{a} $. Let $ N=m_1+\dots+m_n $, then any monomial of degree $ N $ in $ k[x_0,\dots,x_n] $ lies in $ \mathfrak{a} $.
+	
+	(2)Let $ X=Z_p(\mathfrak{a}\neq \emptyset $, then
+	\begin{equation}
+	I_H(X)=I_a(C(X))=I_a(Z_a(\mathfrak{a}))=\sqrt{\mathfrak{a}}.
+	\end{equation}
+\end{proof}
+\begin{remark}
+	$ \langle x_0,\dots,x_n \rangle $ is called the irrelevant ideal, an ideal different from $ \langle x_0,\dots,x_n \rangle $ is called relevant.
+\end{remark}
+\begin{corollary}
+	There is a one-to-one correspondence between homogeneous relevant radical ideals and projective algebraic sets:
+	\begin{center}
+		$ Z_p $: homogeneous relevant radical ideals in $ k[x_0,\dots,x_n] $ $ \to $  projective algebraic sets in  $ \mathbb{P}^n $\\
+		$ I_H $: projective algebraic sets in $ \mathbb{P}^n $ $ \to $ homogeneous relevant radical ideals in $ k[x_0,\dots,x_n] $.
+	\end{center}
+\end{corollary}
+\begin{remark}
+	We use subscripts to recognize affine spaces and projective spaces, such as $ Z_p(\mathfrak{a}),Z_a(\mathfrak{a}) $. Sometimes we can infer the difference from the context, so we usually write briefly as $ Z(\mathfrak{a}) $.
+\end{remark}
+\begin{proposition}
+	\begin{enumerate}
+		\item A projective algebraic set $ X\neq \emptyset\subset \mathbb{P}^n $ is irreducible if and only if $ I=I_H(X) $ is a homogeneous prime ideal;
+		\item If $ f\in k[x_0,\dots,x_n] $ is a homogeneous polynomial and irreducible, then $ Z_p(f) $ is irreducible.
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	(1) $ \Leftarrow $: Assume $ X $ reducible, then $ X=X_1\cup X_2 $,$ X_1,X_2\subsetneqq X $b are closed subsets. Then we get $ C(X)=C(X_1)\cup C(X_2) $, $ C(X_1)\subsetneqq C(X) $,$ C(X_2)\subsetneqq C(X) $ are closed, hence  $ C(X) $ is reducible, $ I_H(X)=I(C(X)) $ is not prime.
+	
+	$ \Rightarrow $: Assume $ I_H(X) $ not prime, it means $ \exists f,g\in k[x_0,\dots,x_n] $, $ fg\in I_H(X) $ and $ f,g\not\in I_H(X) $. Let $ i,j\in\mathbb{Z}\geq 0 $ be minimal such that $ f^{(i)}\not\in I $ and $ g^{(j)}\not\in I $. Subtract homogeneous components of lower degrees from $ f $ and $ g $, we can assume $ f $ starts in degree $ i $ and $ g $ starts in degree $ j $. Thus $ f^{(i)}g^{(j)} $  is homogeneous component of minimal degree in $ fg\in I $. Because $ I $ is homogeneous,  we get $ f^{(i)}g^{(j)} \in I$. Let
+	$ X_1:=Z(I)\cap Z(f^(i)) $ and $ X_2:=Z(I)\cap Z(g^{(j)}) $, then $ X_1,X_2\subsetneqq X $, $ X=X_1\cup X_2 $, thus $ X $ is reducible.
+	
+	(2) If $ I\subset k[x_0,\dots,x_n] $ is homogeneous and prime with $ Z(I)\neq\emptyset $ , then follow the result from (1) we know $ Z(f) $ is irreducible.
+\end{proof}
+  
+% \begin{thebibliography}{9}
+ %    \bibitem{a} bibitem
+% \end{thebibliography}
+\end{document}

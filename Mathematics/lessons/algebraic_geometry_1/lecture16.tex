@@ -1,0 +1,144 @@
+\documentclass{amsart}
+\usepackage{amssymb,latexsym}
+\usepackage{graphicx}
+\usepackage{color}
+ \definecolor{MyDarkBlue}{rgb}{0,0.08,0.45}\definecolor{yellow}{rgb}{0.99,0.99,0.70}\definecolor{white}{rgb}{1.0,1.0,1.0}\definecolor{black}{rgb}{0.00,0.00,0.00}
+ %\pagecolor{yellow}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem*{main}{Main~Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{notation}{Notation}
+\newtheorem*{proofofnullstellensatz}{Proof of Nullstellensatz}
+\newtheorem*{proofofproductsofaffinevarieties}{Proof of Theorem \ref{15}}
+\numberwithin{equation}{section}
+\begin{document}
+\title[Complete-simple distributive lattices]
+{Algebraic Geometry - Lothar G\"{o}ttsche \\
+	Lecture 16}
+\author{Wang Yunlei}
+%\address{Harbin Institute of Technology\\
+%	Harbin}
+\email{wcghdpwyl@126.com}
+%\urladdr{http://math.uwinnebago.edu/menuhin/}
+%\thanks{Research supported by the NSF under grant number
+%	23466.}
+%\keywords{Complete lattice, distributive lattice,
+%	complete congruence, congruence lattice}
+%\subjclass[2010]{Primary: 06B10; Secondary: 06D05}
+\date{June 19, 2017}
+ 
+\maketitle
+\begin{proposition}
+	Let $ \varphi:X\to Y $ be a morphism of varieties. Assume there exists a nonempty open subset $ U\subset Y $ such that for all $ p\in U $, $ \text{dim}(\varphi^{-1}(p))=n $, then we have 
+	$$
+	\text{dim}X=\text{dim}Y+n.
+	$$ 
+\end{proposition}
+\begin{proof}
+We prove the statement by induction over $ \text{dim}Y $. If $ Y $ is a point, then it is trivial. If $ \text{dim}Y>0 $, replacing $ Y $ by an open affine subset $ V $(i.e. replace $ Y $ by $ Y\cap \mathbb{A}^k $ for some $ k $) and $ X $ by an open affine subset of $ \varphi^{-1}(V) $, we can assume $ X,Y $ are both affine by theorem \ref{15-2}. In fact, $ X\subset \mathbb{A}^l $ and $ Y\subset \mathbb{A}^m $ for some $ l $ and some $ m $, are closed affine subvarieties. We can write $ \varphi=(F_1,\dots,F_m) $ with $ F_i\in k[x_0,\dots,x_l] $. Let $ g\in k[x_1,\dots,x_m] $ such that $ \emptyset \neq Z(g)\cap Y\neq Y $, then we set $ Y'=Z(g)\cap Y $ and $ X'=\varphi^{-1}(Y') $. By definition $ X'=X\cap Z(g(F_1,\dots,F_m)) $ and it is not empty since its image $ Y' $ is not empty. For any point $ p\in Y' $, $ \varphi^{-1}(p) $ in $ X $ is also in $ X' $, hence the dimension of fibres is still equal to $ n $.  By induction any irreducible component $ \tilde{X} $ of $ X' $ has the relation $ \text{dim}\tilde{X}=\text{dim}\tilde{Y}+n $ with the corresponding $ \tilde{Y} $ of $ Y' $, hence $ \text{dim}X'=\text{dim}Y'+n $. Since $ \text{dim}Y=\text{dim}Y'+1 $ and $ \text{dim}X=\text{dim}X'+1 $, we get $ \text{dim}X=\text{dim}Y+n $.
+\end{proof}
+\begin{theorem}[without proof]
+	Let $ \varphi:X\to Y $ be a surjective morphism, assume $ \text{dim}X=\text{dim}Y+n $, then 
+	\begin{enumerate}
+		\item for all points $ p\in X $, $ \text{dim}(\varphi^{-1}(p))\geq n $;
+		\item there is a nonempty open subset $ U\subset Y $ such that for all $ p\in U $, $ \text{dim}\varphi^{-1}(p)=U $.
+	\end{enumerate}
+\end{theorem}
+\begin{example}
+	\begin{enumerate}
+		\item $ \text{dim}(X\times Y)=\text{dim}X+\text{dim}Y $. Consider the projection map $ p:X\times Y\to Y $, the inverse $ p^{-1}(q)=X\times \lbrace q \rbrace $ has the dimension $ \text{dim}X $.
+		\item Let $ X\subset \mathbb{P}^n $ be a projective variety, then we have 
+		$$
+		\text{dim}C(X)=\text{dim}X+1.
+		$$
+	\end{enumerate}
+	Consider the map $ \Pi:C(X)\backslash \lbrace 0 \rbrace\to X $ that maps $ (x_0,\dots,x_n) $ to $ [x_0,\dots,x_n] $.
+\end{example}
+\begin{definition}
+	If $ X\subset \mathbb{P}^n $ has dimension $ n-k $, we say codimension $ \text{codim}X=k $.
+\end{definition}
+
+\begin{theorem}\label{16-1}
+	\begin{enumerate}
+		\item Let $ X,Y\subset \mathbb{A}^n $ be closed subvarieties. Every irreducible component $ Z $ of $ X\cap Y $ has dimension $ \text{dim}Z\geq \text{dim}X+\text{dim}Y-n $.
+		\item Let $ X,Y\subset \mathbb{P}^n $ be closed subvarieties, every irreducible component $ Z $ of $ X\cap Y $ has dimension $ \text{dim}\geq \text{dim}X+\text{dim}Y-n $. In particular, if $ \text{dim}X+\text{dim}Y\geq n $, then $ X\cap Y\neq \emptyset $. 
+	\end{enumerate}
+\end{theorem}
+
+\begin{remark}
+	The fact that $ X\cap Y\neq \emptyset $ if $\text{dim}X+\text{dim}Y\geq n $ is special for projective space. This can be used to prove that $ \mathbb{P}^1\times\mathbb{P}^1 $ is not isomorphic to $ \mathbb{P}^2 $. If $ \mathbb{P}^1\times\mathbb{P}^1 \simeq \mathbb{P}^2$, then for any $ 1 $-dimension subvarieties $ X,Y \subset \mathbb{P}^1\times \mathbb{P}^1$, we have $ X\cap Y \neq \emptyset $. But for $ X=\lbrace p\rbrace\times \mathbb{P}^1$ and $ Y=\lbrace q\rbrace \times \mathbb{P}^1 $ such that $ p\neq q $, we have $ X\cap Y=\emptyset $, which contradicts to the theorem, so $ \mathbb{P}^1\times\mathbb{P}^1 $ is not isomorphic to $ \mathbb{P}^2 $.
+\end{remark}
+\begin{proof}[Proof of Theorem \ref{16-1}]
+	\begin{enumerate}
+		\item Trick: take the diagonal to reduce to the intersection with hyperplanes
+		$$
+		\delta^{-1}(X\times Y)=\delta^{-1}((X\times Y)\cap \Delta)=X\cap Y.
+		$$
+		Thus $ X\cap Y\simeq (X\times Y)\cap \Delta\subset \mathbb{A}^{2n} $. In fact, 
+		$$
+		\Delta =Z(x_1-y_1,\dots,x_n-y_n).
+		$$
+		By theorem \ref{15-3}, $ \text{dim}(Z\cap Z(f))\geq \text{dim}Z-1 $ where $ Z $ is a variety. By induction, we can get $ \text{dim}(X\cap Y)=\text{dim}((X\times Y)\cap \Delta)\geq \text{dim}X+\text{dim}Y-n $.
+		\item Reduce to (1) by using affine cones. By definition, $ C(X)\cap C(Y)=C(X\cap Y) $, $ \text{dim}C(X)=\text{dim}X+1 $ and same for $ Y $ and $ X\cap Y $. Let $ Z $ be a irreducible component of $ X\cap Y $, then $ C(Z) $ is a irreducible component of $ C(X\cap Y) $.  By using the conclusion in (1) we get 
+		$$
+		\begin{array}{cccc}
+		\text{dim}Z & = & \text{dim}C(Z)-1 & { }\\
+		{ } &\geq & \text{dim}C(X)+\text{dim}C(Y)-(n+1)-1 & { }\\
+		{ } & =  & \text{dim}X+\text{dim}Y-n & { }.
+		\end{array}
+		$$  
+	\end{enumerate}
+	Assume $ \text{dim}X+\text{dim}Y\geq n $, we know $ C(X)\cap C(Y)\neq \emptyset $ because $ 0\in C(X)\cap C(Y) $. Every $ Z $ irreducible component $ C(X)\cap C(Y) $ satisfies $ \text{dim}Z=\text{dim}(C(X)\cap C(Y))\geq \text{dim}C(X)+\text{dim}C(Y)-(n+1)\geq 1 $. Thus $ C(X)\cap C(Y)\neq \lbrace 0 \rbrace $ $ \Rightarrow $ $ X\cap Y\neq \emptyset $.
+\end{proof}
+We know $ \text{dim}X=\text{dim}Y $ if $ X $ and $ Y $ are birational, and $ K(X)\simeq K(Y) $ if $ X $ is birational to $ Y $. Thus $ \text{dim}X $ must be determined by $ K(X) $. We will see $ \text{dim}X $ is equal to the transcendence degree of $ K(X) $ over $ k $.
+\begin{definition}[Field Extension and Finitely generated Field Extension]
+	Let $ K/k $ be a field extension. For $ a_1,\dots,a_n\in K $, denote $ k(a_1,\dots,a_n) $ as the smallest subfield of $ K $ containing $ k $ and $ a_1,\dots,a_n $. This is called field extension over $ k $ by $ a_1,\dots,a_n $. If there are $ a_1,\dots,a_n\in K $ such that $ K=k(a_1,\dots,a_n) $, we say $ K/k $ is finitely generated.
+\end{definition}
+\begin{definition}[Algebraically Independent sets]
+	Let $ K/k $ be a finitely generated field extension, elements $ b_1,\dots,b_n\in K $ are called algebraically independent over $ k $ if there is no polynomial $ f\in k [x_1,\dots,x_n] $ such that $ f(b_1,\dots,b_n)=0 $. In particular, if $ b\in K $ is algebraically independent over $ k $, then $ b $ is called transcendent over $ k $.
+\end{definition}
+Let $ k(x_1,\dots,x_n) $ be a field of rational functions in $ n $ indeterminants, it is easy to see $ k(b_1,\dots,b_n)\simeq k(x_1,\dots,x_n) $ if $ b_1,\dots,b_n $ are algebraically independent over $ k $.
+\begin{definition}[Transcendence Basis]
+	A maximal set of algebraically independent elements of $ K $ over $ k $ is called a transcendence basis.
+\end{definition}
+\begin{theorem}[without proof]
+	Let $ K=k(a_1,\dots,a_n)/k $ be a finitely generated field extension, then \begin{enumerate}
+		\item there exists a transcendence basis of $ K/k $, it can be chosen as a subset of $ \lbrace a_1,\dots,a_n\rbrace $;
+		\item every transcendence basis of elements of $ K/k $ has the same number of elements, called the transcendence degree;
+		\item let $ b_1,\dots,b_r $ be a transcendence basis of $ K/k $, then $ K/k(b_1,\dots,b_r) $ is a finite algebraic extension.
+	\end{enumerate}
+\end{theorem}
+\begin{theorem}\label{16-2}
+	Every variety $ X $ is birational to a hypersurface in $ \mathbb{A}^{\text{dim}X+1} $.
+\end{theorem}
+This theorem may be proved next time.
+\begin{theorem}
+	Let $ X $ be a variety, then 
+	$$
+	\text{dim} X=\text{trdeg} K(X)/k.
+	$$
+\end{theorem}
+\begin{proof}
+	By theorem \ref{16-2}, we can assume $ X=Z(F)\subset \mathbb{A}^n $ is a hypersurface, $ F\in k[x_1,\dots,x_n] $ is irreducible. We know $ \text{dim}X=n-1 $. To show $ \text{trdeg}K(X)/k=n-1 $, let $ y_1,\dots,y_n\in A(X) $ be coordinate functions. Then $ K(X)=k(y_1,\dots,y_n) $, $ F(y_1,\dots,y_n)\in A(X)=k[x_1,\dots,x_n]/\langle F \rangle $ and $ F(y_1,\dots,y_n)=0 $ since $ X=Z(F) $. Thus $ y_1,\dots,y_n $ are algebraically dependent. It follows that $ \text{trdeg}K(X)/k\leq n-1 $. To show the equality, we assume the last variable $ x_n $ occurs in $ F $, then we can get $ y_1,\dots,y_{n-1} $ are algebraically independent. Otherwise, there exists a nonzero element $ G\in k[x_1,\dots,x_{n-1}] $ with $ G(y_1,\dots,y_{n-1})=0 $, then $ G(y_1,\dots,y_{n-1})\in \langle F\rangle  $. But it is impossible because $ F $ contains $ x_n $ $ \Rightarrow $ $ G $ contains $ x_n $. Thus $ \text{trdeg}K(X)/k=n-1 $.  
+\end{proof}
+\section{Conclusions We Need From Previous Lectures}
+In lecture 15:
+\begin{theorem}\label{15-2}
+	Let $ X $ be a variety, $ \emptyset\neq U\subset X $, $ U $ is an open subset of $ X $. Then $ \text{dim}U=\text{dim}X $.
+\end{theorem}
+\begin{theorem}\label{15-3}
+	Let $ X\subset \mathbb{A}^n $ be an affine variety, $ F\in k[x_1,\dots,x_n]\backslash I(X) $, then every irreducible component(if there is any) of $ Z(F)\cap X $ has dimension $ \text{dim}X-1 $.
+\end{theorem}
+% \begin{thebibliography}{9}
+ %    \bibitem{a} bibitem
+% \end{thebibliography}
+\end{document}

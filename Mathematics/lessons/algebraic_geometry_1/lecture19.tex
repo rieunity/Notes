@@ -1,0 +1,101 @@
+\documentclass{amsart}
+\usepackage{amssymb,latexsym}
+\usepackage{graphicx}
+\usepackage{color}
+ \definecolor{MyDarkBlue}{rgb}{0,0.08,0.45}\definecolor{yellow}{rgb}{0.99,0.99,0.70}\definecolor{white}{rgb}{1.0,1.0,1.0}\definecolor{black}{rgb}{0.00,0.00,0.00}
+ %\pagecolor{yellow}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem*{main}{Main~Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{exercise}{Exercise}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{notation}{Notation}
+\newtheorem*{proofofnullstellensatz}{Proof of Nullstellensatz}
+\newtheorem*{proofofproductsofaffinevarieties}{Proof of Theorem \ref{15}}
+\numberwithin{equation}{section}
+\begin{document}
+\title[Complete-simple distributive lattices]
+{Algebraic Geometry - Lothar G\"{o}ttsche \\
+	Lecture 19}
+\author{Wang Yunlei}
+%\address{Harbin Institute of Technology\\
+%	Harbin}
+\email{wcghdpwyl@126.com}
+%\urladdr{http://math.uwinnebago.edu/menuhin/}
+%\thanks{Research supported by the NSF under grant number
+%	23466.}
+%\keywords{Complete lattice, distributive lattice,
+%	complete congruence, congruence lattice}
+%\subjclass[2010]{Primary: 06B10; Secondary: 06D05}
+\date{June 19, 2017}
+ 
+\maketitle
+ \begin{lemma}[Nakayama]
+ 	Let $ A $ be a local ring and $ \mathfrak{m}\subset A $ be its maximal ideal. Let $ M $ be a finitely generated $ A $-module:
+ 	\begin{enumerate}
+ 		\item if $ M=\mathfrak{m}M $, then $ M=\lbrace 0 \rbrace $;
+ 		\item write $ k=A/\mathfrak{m} $, let $ f_1,\dots,f_r\in M $ such that $ \bar{f_1},\dots,\bar{f_r} $ generate $ M/\mathfrak{m}M $ as $ k $-vector space. Then $ f_1,\dots,f_r $ generate $ M $ as an  $ A $-module.
+ 	\end{enumerate}
+ \end{lemma}
+ \begin{proof}
+ 	(2) Let $ N:=\langle f_1,\dots,f_r \rangle\subset M $. To show $ N=M $ is equivalent to show $ M/N=\lbrace 0 \rbrace $. Since $ \bar{f_1},\dots,\bar{f_r} $ generate $ M/\mathfrak{m}M $, we have 
+ 	$$
+ 	 (N+\mathfrak{m}M)/\mathfrak{m}M=M/\mathfrak{m}M.
+ 	$$
+ 	This equation implies 
+ 	$$
+ 	N+\mathfrak{m}M=M.
+ 	$$ 
+ 	Then we get $ \mathfrak{m}\cdot (M/N)=(\mathfrak{m}M+n)/N=M/N $, it implies $ M/N=\lbrace 0\rbrace $ by using the first conclusion of the lemma.
+ \end{proof}
+ \begin{definition}[Discrete Valuation Ring]
+ 	Let $ A $ be a local ring, $ \mathfrak{m} $ be its maximal ideal. Further more, assume $ A $ is also an integral domain. Then $ A $ is called a discrete valuation ring(DVR)  if the following conditions hold:
+ 	\begin{enumerate}
+ 		\item $ \mathfrak{m} $ is a principal ideal, i.e. $ \mathfrak{m}=\langle t\rangle $ for some $ t\in \mathfrak{m} $(such a $ t $ is called a uniformizing parameter);
+ 		\item if $ t $ is a uniformizing parameter, then every element $ f\in A $ can be written as $ f=at^n $ for $ a\in A $ a unit and  $ n\in \mathbb{Z}^+ $.
+ 	\end{enumerate}
+ \end{definition}
+ \begin{remark}
+ 	If $ t $ is a uniformizing parameter, then $ \mathfrak{m}^n=\langle t^n\rangle $.
+ \end{remark}
+ This remark can be proved by induction. It is obvious that $ \langle t^n\rangle\subset \mathfrak{m}^n $. The opposite inclusion is true for $ n=0,1 $, assume $ \langle t^{n-1}\rangle =\mathfrak{m}^{n-1} $ is true. Then every element in $ \mathfrak{m} $ can be written as sum of elements of the form $ abt^n=at\cdot b t^{n-1} $ with $ a,b\in A $, hence $ \mathfrak{m}^n\subset \langle t^n\rangle $.
+ 
+ \begin{exercise}
+ 	Prove that for a curve $ C $ and a nonsingular point $ p\in C $, $ \mathcal{O}_{C,p} $ is a discrete valuation ring.
+ \end{exercise}
+ \begin{proposition}
+ 	\begin{enumerate}
+ 		\item Let $ A $ be a ring, $ I\subset A $ be an ideal, $ \pi:A\to A/I $ be a projective map. Then the map 
+ 		$$
+ 		\begin{array}{ccc}
+ 		\lbrace\text{ideals of }A/I \rbrace & \to &\lbrace \text{ideals of }A \text{ containing } I\rbrace\\
+ 		J &\to & \pi^{-1}(J)
+ 		\end{array}
+ 		$$
+ 		is injective.
+ 		\item If $ A $ is a noetherian ring, $ I\subset A$ is an ideal, then $ A/I $ is also noetherian.
+ 		\item Let $ X $ be a variety, $ p\in X $. Then $ \mathcal{O}_{X,p} $ is noetherian.
+ 	\end{enumerate}
+ \end{proposition}
+ \begin{proof}
+ 	(3) To show $ \mathcal{O}_{X,p} $ is noetherian, as $ \mathcal{O}_{X,p} $ only depends on a neighborhood of $ p $, we can assume $ X\subset \mathbb{A}^n $ is an affine variety. Then $ A(X) $ is noetherian. The map 
+ 	$$
+ 	\begin{array}{ccc}
+ 	\lbrace \text{ideals in }\mathcal{O}_{X,p} \rbrace & \to & \lbrace \text{ideals in }A(X) \rbrace\\
+ 	I & \to & I\cap A(X)
+ 	\end{array}
+ 	$$
+ 	is injective, hence $ \mathcal{O}_{X,p} $ is noetherian.
+ \end{proof}
+% \begin{thebibliography}{9}
+ %    \bibitem{a} bibitem
+% \end{thebibliography}
+\end{document}

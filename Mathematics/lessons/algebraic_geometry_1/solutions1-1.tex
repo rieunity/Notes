@@ -1,0 +1,68 @@
+\documentclass{amsart}
+\usepackage{amssymb,latexsym}
+\usepackage{graphicx}
+\usepackage{color}
+ \definecolor{MyDarkBlue}{rgb}{0,0.08,0.45}\definecolor{yellow}{rgb}{0.99,0.99,0.70}\definecolor{white}{rgb}{1.0,1.0,1.0}\definecolor{black}{rgb}{0.00,0.00,0.00}
+ %\pagecolor{yellow}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem*{main}{Main~Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{exercise}{Exercise}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{notation}{Notation}
+\numberwithin{equation}{section}
+
+\begin{document}
+\title{Algebraic Geometry\\
+	Affine Varieties}
+\author{Wang Yunlei}
+\email{wcghdpwyl@126.com}
+
+\date{June 19, 2017}
+\maketitle
+\begin{exercise}
+	     
+\end{exercise}
+\begin{proof}
+	\begin{itemize}
+		\item[ ]
+		\item[(a)] $ A(Y)= k[x,y]/(y-x^2)\simeq k[x,x^2]=k[x] $.
+		\item[(b)] $ A(Z)=k[x,y]/(xy-1)\simeq k[x,\frac{1}{x}]$. If $ A(Z) $ is isomorphic to some polynomial ring, then $ x $ is mapped to an element in $ k $ because $ x $ is invertible. Hence the map is not surjective, which contradicts to the isomorphism.
+		\item[(c)] The general form of a quadratic polynomial is $ f= x^2+axy+by^2+cx+dy+e $. We can use the invertible linear transformation to simplify this into $ f=x^2+ay^2+bx+cy+d $. If $ a\neq 0 $, we can use the translation and linear transformation to get $ f=x^2-y^2-d $ and $ d\neq 0 $, it can be transformed into $ f=xy-d $ with $ d\neq 0 $ at last. If $ a=0 $, we can transform this into $ x^2-y $. 
+	\end{itemize}
+\end{proof}
+ \begin{exercise}
+ 	
+ \end{exercise}
+ \begin{proof}
+ 	$ \mathrm{dim}Y=\mathrm{dim}A(Y)=1 $, since $ A(Y)=k[x,y,z]/(y-x^2,z-x^3)\simeq k[x,x^2,x^3]=k[x] $ has dimension $ 1 $.
+ \end{proof}
+ \begin{exercise}
+
+\end{exercise}
+\begin{proof}
+	\begin{equation}
+		\begin{array}{ccc}
+		Y & = & Z(x^2-yz,xz-x)\\
+		  & = & Z(x^2-yz)\cap (Z(x)\cup Z(z-1))\\
+		  & = & Z(x^2-yz,x)\cup Z(x^2-yz,z-1)\\
+		  & = & Z(yz,x)\cup Z(x^2-y,z-1)\\
+		  & = & Z(y,x)\cup Z(z,x)\cup (x^2-y,z-1)  
+		\end{array}
+	\end{equation}
+\end{proof}
+\begin{exercise}
+	
+\end{exercise}
+\begin{proof}
+	$ Z(xy-1) $ is not closed in $ \mathbb{A}^1\times\mathbb{A}^1 $.
+\end{proof}
+\end{document}

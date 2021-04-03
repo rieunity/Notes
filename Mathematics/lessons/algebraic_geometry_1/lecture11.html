@@ -1,0 +1,137 @@
+ <p align=center>$latex \displaystyle  \varphi^{-1}(a,b)=\left\lbrace \begin{matrix} \frac{b}{a} & \text{ if } a\neq 0\\ 0 & \text{ if } (a,b)=0 \end{matrix}\right. $</p>
+ 
+<blockquote class="thm"><b>Corollary 1</b>  	\noindent
+
+<ol> 		<li> Let $latex { X }$ be a projective variety, then $latex { \mathcal{O}_X(X)=k }$, i.e., any regular functions on the whole of $latex { X }$ is constant;		 		<li> Let $latex { X }$ be a projective variety, $latex { Y }$ be an affine variety, then every morphism $latex { \varphi:X\rightarrow Y }$ maps $latex { X }$ to a point. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	\noindent
+
+<ol> 		<li> Let $latex { f\in\mathcal{O}_X(X) }$, then $latex { f:X\rightarrow \mathbb{A}^1 }$ is a morphism. Since $latex { X }$ is complete, we get $latex { f(X) }$ is closed in $latex { \mathbb{A}^1 }$. Hence $latex { f(X) }$ is a point or $latex { f(X)=\mathbb{A}^1 }$. Via embedding $latex { \mathbb{A}^1 }$ in $latex { \mathbb{P}^1 }$, $latex { f }$ is a morphism from $latex { X }$ to $latex { \mathbb{P}^1 }$. Since $latex { \mathbb{A}^1 }$ is not closed in $latex { \mathbb{P}^1 }$, $latex { f(X) }$ is a point. 		<li> By the definition of affine variety, we know $latex { Y }$ is isomorphic to a closed subvariety of $latex { \mathbb{A}^n }$. Thus we can simply assume $latex { Y }$ is a closed subvariety of $latex { \mathbb{A}^n }$, then we can write the morphism as $latex { \varphi=(f_1,\dots,f_n) }$ with $latex { f_i\in \mathcal{O}_X(X) }$ for $latex { i=1,\dots,n }$. By (1) we just proved, we have $latex { f_i =a_i}$ for some $latex { a_i\in k }$. Thus $latex { \varphi(x)=(a_1,\dots,a_n)\in k^n }$ for arbitrary $latex { x\in X }$. 	
+</ol>
+
+ $latex \Box$
+
+ 
+<blockquote class="thm"><b>Remark 1</b>  	From this corollary we know that morphisms from projective varieties to affine varieties are quite boring. In the following, we introduce morphisms from projective varieties to projective varieties, called Veronese embedding. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 2 (Veronese Embedding)</b>  	Given fixed integer $latex { d,n&gt;0 }$ and $latex { N:=\binom{n+d}{d}-1 }$, we construct the map 	<p align=center>$latex \displaystyle  		\begin{array}{ccc} 		\nu_d:\mathbb{P}^n & \rightarrow & \mathbb{P}^N\\ 		 {}[x_0,\dots,x_n] & \rightarrow & [ M_0,\dots,M_N ] 		\end{array} 	\ \ \ \ \ (1)$</p>
+ 	where $latex { M_i\in k[x_0,\dots,x_n], 0\leq i\leq N }$ are all monomials of degree $latex { d }$. 	This is a morphism(note that monomials $latex { x_0^d,x_1^d,\dots,x_n^d }$ have no common zero), so $latex { \nu_d(\mathbb{P}^n) }$ is a closed subvariety of $latex { \mathbb{P}^N }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Proposition 3</b>  	$latex { \nu_d:\mathbb{P}^n\rightarrow \nu_d(\mathbb{P}^N) }$ is an isomorphism. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	The open subsets $latex { U_i=\{ [a_0,\dots,a_n]\in \mathbb{P}^n |a_i\neq 0 \} }$ form an open cover of $latex { \mathbb{P}^n }$. For any monomial $latex { M_i }$ of degree $latex { d }$ in $latex { x_0,\dots,x_n }$, we denote the corresponding coordinate on $latex { \mathbb{P}^N }$ by $latex { z_{M_i} }$. $latex { \tilde{U_i}:= \nu_d(\mathbb{P}^n)\backslash Z(z_{M_i}) }$ are open subsets of $latex { \nu_d(\mathbb{P}^n) }$ and form an open cover of $latex { \nu_d(\mathbb{P}^n) }$. For every piece $latex { U_i }$ of $latex { \mathbb{P}^n }$, the map 	<p align=center>$latex \displaystyle  	\nu_d|_{U_i}:U_i\rightarrow \tilde{U_i} 	$</p>
+ 	is a morphism and the inverse of $latex { \nu_d|_{U_i} }$ is given by 	<p align=center>$latex \displaystyle  	\nu_d^{-1}|_{\tilde{U_i}}=[z_{x_0^d},z_{x_0^{d-1}x_1},\dots,z_{x_0^{d-1}x_n}]. 	$</p>
+ $latex \Box$
+
+ 
+<blockquote class="thm"><b>Example 1</b>  	\noindent
+
+<ol> 		<li> Let $latex { n=1 }$, then we get the simplest Veronese embedding 		<p align=center>$latex \displaystyle  			\begin{array}{ccc} 			 \nu_d:\mathbb{P}^1 \rightarrow & \mathbb{P}^d & {}\\ 			 {}[x_0,x_1] \rightarrow & [x_0^d,x_0^{d-1}x_1,\dots,x_1^d] & {}. 			\end{array} 		$</p>
+ 		$latex { \nu_d(\mathbb{P}^1) }$ is called a rational normal curve. 			<li> Let $latex { n=2,d=2 }$, we get the embedding 		<p align=center>$latex \displaystyle  			\begin{array}{ccc} 			\nu_2:\mathbb{P}^2\rightarrow & \mathbb{P}^5 & {} 			\end{array} 		$</p>
+ 	
+</ol>
+
+ 	$latex { \nu_2(\mathbb{P}^2) }$ is called Veronese surface. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 2</b>  	Let $latex { F=\sum\limits_{i=0}^{N}a_iM_i }$ be a homogeneous polynomial of degree $latex { d }$ in $latex { x_0,\dots,x_n }$, $latex { X\subset\mathbb{P}^n }$ be a closed subvariety. Then we can get 	<p align=center>$latex \displaystyle  		\nu_d(X\cap Z(F))=\nu_d(X)\cap Z(\sum\limits_i^{N}a_iz_{M_i}). 	\ \ \ \ \ (2)$</p>
+ 	Thus we can use the isomorphism between $latex { \mathbb{P}^n }$ and $latex { \nu_d(\mathbb{P}^n)\subset \mathbb{P}^N }$ to reduce questions about intersections with hypersurfaces to intersections with hyperplanes. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Corollary 4</b>  	Let $latex { X\subset \mathbb{P}^n }$ be a projective variety, $latex { F\in k[x_0,\dots,x_n] }$ be a homogeneous polynomial of degree $latex { d&gt;0 }$. Then we have the following properties 	
+
+<ol> 		<li> $latex { X\backslash Z(F) }$ is an affine variety; 		<li> if $latex { X }$ is not a point, then $latex { X\cap Z(F)\neq \emptyset }$. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	\noindent
+
+<ol> 		<li> We identify $latex { X\backslash Z(F) }$ with $latex { \nu_d(X)\backslash \nu_d(\tilde{F}) }$ where $latex { \tilde{F}=\sum\limits_{i=0}^{N}z_{M_i} }$ is a linear polynomial in $latex { z_0,\dots,z_N }$. We can apply projective transformation $latex { [A]:\mathbb{P}^N\rightarrow \mathbb{P}^N }$ such that $latex { [A](Z(F))=Z(z_0) }$. Then we get $latex { \mathbb{P}^N\backslash Z(z_0)=\mathbb{A}^N }$, thus $latex { X\backslash Z(z_0) =X\cap\mathbb{A}^N}$ is an affine variety. 		<li> If $latex { X\cap Z(F)=\emptyset }$, then $latex { X\ Z(F)=X }$ is both affine and projective, then $latex { X }$ is a point, we get a contradiction.	 		
+</ol>
+
+ $latex \Box$
+
+ 
+<blockquote class="thm"><b>Lemma 5</b>  	Let $latex { \varphi,\psi }$ be morphisms of varieties from $latex { X }$ to $latex { Y }$. If there is a normally open subset $latex { U\subset X }$ such that $latex { \varphi|_U=\psi|_U }$, then $latex { \varphi=\psi }$ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	Since $latex { X }$ is a variety, we get that $latex { U }$ is dense in $latex { X }$. Consider the morphism $latex { l=\varphi-\psi }$, it is $latex { 0 }$ in $latex { U }$, from the continuity of the morphism, it is $latex { 0 }$ in $latex { \bar{U} }$ the closure of $latex { U }$, which is $latex { X }$. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Definition 6 (Rational Map)</b>  	A rational map <p align=center>$latex \displaystyle  		\varphi:X\dashrightarrow Y $</p>
+ 	is an equivalence class $latex { \langle U,\varphi\rangle }$ of pairs $latex { (U,\varphi) }$ where $latex { \emptyset\neq U\subset X }$ is open and $latex { \varphi :U\rightarrow Y }$ is a morphism. Here $latex { (U,\varphi)\sim(V,\psi) }$ $latex { \Leftrightarrow }$ $latex { \varphi|_{U\cap V}=\psi|_{U\cap V} }$. We say $latex { \langle U,\varphi\rangle }$ is defined by $latex { (V,\psi) }$ if $latex { (V,\psi)\in \langle U,\varphi\rangle }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 3</b>  	\noindent
+
+<ol> 		<li> 	Let $latex { \varphi:X\dashrightarrow Y }$ be a rational map defined by $latex { (U,\varphi) }$, then $latex { \varphi }$ defines a morphism 		<p align=center>$latex \displaystyle  		\varphi:\text{dom}\varphi\rightarrow Y 		$</p>
+ 		with $latex { \text{dom}\varphi=\mathop{\cup}\limits_{(V,\psi)\sim(U,\varphi)} V }$ open in $latex { X }$. Define $latex { \varphi(p):=\psi(p) }$ if $latex { (V,\psi)\sim(U,\varphi) }$ for $latex { p\in V }$. We called $latex { \varphi }$ a rational map defined on $latex { \text{dom}\varphi }$. 		<li> Rational maps $latex { f:X\dashrightarrow \mathbb{A}^1 }$ are equivalent to rational functions $latex { f\in K(X) }$. If $latex { f\in K(X) }$, then $latex { f\in \mathcal{O}_X(U) }$ is a rational map from $latex { X }$ to $latex { \mathbb{A}^1 }$. Conversely, if $latex { f }$ is a rational map from $latex { X }$ to $latex { Y }$, then it is a morphism from an open set $latex { U\subset X }$ to $latex { Y }$, hence $latex { f\in \mathcal{O}_X(U) }$ $latex { \Leftrightarrow }$ $latex { f\in K(X) }$. 		<li> Let $latex { X }$ be a variety, $latex { f_i\in K(X) }$ for $latex { i=1,\dots,n }$. Then $latex { (f_1,\dots,f_n):X\dashrightarrow \mathbb{A}^n }$ is a rational map. It is a morphism from $latex { \mathop{\cap}\limits_{i=1}^{n}\text{dom}f_i\rightarrow \mathbb{A}^n }$. 		<li> Let $latex { X\subset \mathbb{P}^n }$ be quasi-projective variety, $latex { f_0,\dots,f_m\in S(X) }$ not all $latex { 0 }$. Then $latex { [f_0,\dots,f_m]:X\dashrightarrow \mathbb{P}^m }$ is a rational map. We can also construct it in a different way: let $latex { F_0,\dots,F_m\in k[x_0,\dots,x_n] }$ be homogeneous of the same degree and not all of them are in $latex { I(X) }$, then $latex { [F_0,\dots,F_m]:X\dashrightarrow \mathbb{P}^m }$ is a rational map. For example, for $latex { p=[0,\dots,0,1]\in \mathbb{P}^n }$, the projection from $latex { p }$ 		<p align=center>$latex \displaystyle  			\Pi_p=[x_0,\dots,x_{n-1}]:\mathbb{P}^n\rightarrow \mathbb{P}^{n-1} 		$</p>
+ 		is a rational map and a morphism from $latex { \text{dom}\Pi_p=\mathbb{P}^n\ \{ p \} }$. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 7</b>  	A rational map <p align=center>$latex \displaystyle  		\varphi:X\dashrightarrow Y 	$</p>
+ 	is dominant if $latex { \varphi(\text{dom}\varphi) }$ is dense in $latex { Y }$. (This is equivalent to: $latex { \varphi }$ is dominant if $latex { \psi(V) }$ is dense in $latex { Y }$ for some pair $latex { (V,\psi)\in\langle U,\varphi\rangle }$.) </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 4</b>  		Let $latex { \varphi:X\dashrightarrow Y }$ be a dominant rational map defined on $latex { U\subset X }$, $latex { \psi:Y\dashrightarrow Z }$ be a rational map defined on $latex { V\subset Y }$, then $latex { U\cap \varphi^{-1}(V) }$ is a nonempty open subset of $latex { X }$. Then we get a composition $latex { \psi\circ\varphi:X\dashrightarrow Y }$. This allows us to define the pullback of rational functions. Let $latex { \varphi:X\dashrightarrow Y }$ be a dominant rational map, then $latex { \varphi^\ast f:=f\circ\varphi :X\dashrightarrow \mathbb{A}^1\in K(X)}$. It is easy to see $latex { \varphi^\ast:K(Y)\rightarrow K(X) }$ is a homomorphism. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 8</b>  	A dominant rational map $latex { \varphi:X\dashrightarrow Y }$ is called a birational map if and only if there exists a dominant rational map $latex { \varphi^{-1}:Y\dashrightarrow X }$ such that $latex { \varphi^{-1}\circ \varphi=\text{id}_X }$ and $latex { \varphi\circ\varphi^{-1=\text{id}_Y} }$ are both rational maps. $latex { X }$ and $latex { Y }$ are called birational or birational equivalent if there exists a birational map $latex { \varphi:X\dashrightarrow Y }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 9</b>  	A variety is called rational if it is birational to $latex { \mathbb{A}^n }$ for some $latex { n }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Example 2</b>  	\noindent
+
+<ol> 		<li> $latex { \mathbb{P}^n }$ is rational because $latex { u_i:\mathbb{A}^n\rightarrow U_i }$ is birational. 		<li> $latex { C=Z(x_2^2-x_1^3)\subset \mathbb{A}^2 }$ is rational because the map $latex { (t^2,t^3): \mathbb{A}^1\rightarrow C }$ is birational. 		<li> $latex { \mathbb{P}^n\times\mathbb{P}^m }$ is also rational because it contains an open subset $latex { U_{ij}\simeq \mathbb{A}^{n+m} }$. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 5</b>  	If $latex { F\in k [x_0,x_1,x_2] }$ is a general homogeneous polynomial of degree $latex { d\geq 3 }$, then $latex { Z(F) }$ is not rational. </blockquote>
+
+<p>
+
+
+<p>
+ 

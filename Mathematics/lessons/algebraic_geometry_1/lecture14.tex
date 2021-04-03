@@ -1,0 +1,144 @@
+\documentclass{amsart}
+\usepackage{amssymb,latexsym}
+\usepackage{graphicx}
+\usepackage{color}
+ \definecolor{MyDarkBlue}{rgb}{0,0.08,0.45}\definecolor{yellow}{rgb}{0.99,0.99,0.70}\definecolor{white}{rgb}{1.0,1.0,1.0}\definecolor{black}{rgb}{0.00,0.00,0.00}
+ %\pagecolor{yellow}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem*{main}{Main~Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{notation}{Notation}
+\newtheorem*{proofofnullstellensatz}{Proof of Nullstellensatz}
+\newtheorem*{proofofproductsofaffinevarieties}{Proof of Theorem \ref{15}}
+\numberwithin{equation}{section}
+\begin{document}
+\title[Complete-simple distributive lattices]
+{Algebraic Geometry - Lothar G\"{o}ttsche \\
+	Lecture 14}
+\author{Wang Yunlei}
+%\address{Harbin Institute of Technology\\
+%	Harbin}
+\email{wcghdpwyl@126.com}
+%\urladdr{http://math.uwinnebago.edu/menuhin/}
+%\thanks{Research supported by the NSF under grant number
+%	23466.}
+%\keywords{Complete lattice, distributive lattice,
+%	complete congruence, congruence lattice}
+%\subjclass[2010]{Primary: 06B10; Secondary: 06D05}
+\date{June 19, 2017}
+ 
+\maketitle
+\begin{theorem}[Noether Normalization]\label{14-1}
+	\begin{enumerate}
+		\item Let $ Z(F) \subset \mathbb{A}^n$ be a hyperplane, then there exists a finite surjective morphism
+		$$
+		\Pi:Z(F)\to \mathbb{A}^{n-1}.
+		$$
+		\item If $ X\neq \emptyset  $ is an affine variety, then there exists a finite surjective morphism
+		$$
+		\Pi:X\to \mathbb{A}^k
+		$$
+		for some positive integer $ k $.
+	\end{enumerate}
+\end{theorem}
+\begin{lemma}
+	Let $ F $ be a nonzero polynomial in $ k[x_1,\dots,x_n] $, then there exists a point $ p=(b_1,\dots,b_{n-1},1)\in\mathbb{A}^n $ s.t. $ f(p)\neq 0 $.
+\end{lemma}
+\begin{proof}
+	Prove it by induction. For $ n=0 $ and $ n=1 $, it is obvious. Now assume $ n-1 $ is true , for $ f\in k[x_1,\dots,x_n] $ we can write $ f=\sum\limits_{i}f_ix_1^i $ with $ f_i\in k[x_2,\dots,x_{n}] $. There exists $ j $ such that $ f_j\neq 0$, by induction on $ n-1 $, there exists $ (b_2,\dots,b_{n-1},1)\in \mathbb{A}^{n-1} $ such that $ f_j(b_2,\dots,b_{n-1},1)\neq 0 $. Then we get $ g(x):=f(x,b_1,\dots,b_{n-1},1) $ in $ k[x]\backslash\lbrace 0 \rbrace $. Of course there exists  $ b_1 $ such that $ g(b_1)\neq 0 $, i.e. $ f(b_1,\dots,b_{n-1},1)\neq 0 $.
+\end{proof}
+\begin{proof}[Proof of Theorem \ref{14-1}]
+	\begin{enumerate}
+		\item Let $ F^{(d)} $ be the homogeneous part of $ F $ with the top degree., then $ F^{(d)}(x_1,\dots,x_{n-1},1)\neq 0 $. Thus there exists $ (b_1,\dots,b_{n-1})\in \mathbb{A}^{n-1} $ such that $ F^{(d)}(b_1,\dots,b_{n-1},1)\neq 0 $. By change of coordinates and multiplying $ F $ by a constant, we can get $ F^{(d)}(0,\dots,0,1)=1 $, it is equivalent to say the coefficient of $ x_n^d $ in $ F $ is $ 1 $. Let $ \Pi=(x_1,\dots,x_{n-1}):Z(F)\to \mathbb{A}^{n-1} $ and $ w_n\in A(Z(F)) $ be the class of the last variable $ x_n $. Then we have 
+		$$
+		A(Z(F))=\Pi^\ast (k[x_1,\dots,x_{n-1}])[w_n].
+		$$ 
+		Since $ F=x_n^d+\sum\limits_{i=1}^{d-1}a_ix_n^i $ with $ a_i\in k[x_1,\dots,x_{n-1}] $, in $ A(Z(F)) $ we can get 
+		$$
+		0=w_n^d+\sum\limits_{i=1}^{d-1}\Pi^\ast (a_i)w_n^i.
+		$$
+		Thus $ A(Z(F)) $ is finite over $ \Pi^\ast(k[x_1,\dots,x_{n-1}]) $, i.e $ \Pi:Z(F)\to \mathbb{A}^{n-1} $ is finite. Let $ b=(b_1,\dots,b_{n-1})\in \mathbb{A}^{n-1} $, to see $ \Pi^{-1}(b)\neq \emptyset $. Put $ g(x):=F(b_1,\dots,b_{n-1},x)\in k[x] $, the coefficient of $ x_n $ of $ F $ is $ 1 $, then $ g(x) $ is not constant. Hence $ g $ has a zero $ b_n\in k $, 
+		$$
+		\Pi^{-1}(b)=\lbrace (b_1,\dots,b_{n-1},b_n)|F(b_1,\dots,b_{n-1},b_n)=0 \rbrace \neq \emptyset.
+		$$
+		So the morphism is surjective.
+		\item If $ X=\mathbb{A}^{n} $, then it is clear. Assume $ \emptyset\neq X\subsetneqq\mathbb{A}^n $ is a closed subvariety, we prove the statement by induction on $ n $. Let $ F\in I(X)\backslash\lbrace 0 \rbrace $ be irreducible. By (1) there exists a finite surjective morphism
+		$$
+		\Pi:Z(F)\to \mathbb{A}^{n-1}
+		$$
+		where $ X\subset Z(F) $ is closed. The embedding of $ i:X\to Z(F) $ is finite, so $ \tilde{\Pi}=\Pi\circ i:X\to \mathbb{A}^{n-1} $ is a finite morphism. Let $ Y\subset \mathbb{A}^{n-1} $ be the image of $ X $. By induction on $ n $ there is a finite surjective morphism $ \varphi:Y\to \mathbb{A}^{k} $ for some $ k $, then $ \varphi\circ\Pi\circ i $ is a finite surjective morphism from $ X\to \mathbb{A}^{k} $ for some $ k $.
+	\end{enumerate}
+\end{proof}
+\begin{lemma}\label{14-2}
+	Let $ \varphi:X\to Y $ be a finite surjective morphism, let $ Z,W $ be closed subvarieties of $ X $ and $ Z\subsetneqq W $, then $ \varphi(Z)\subsetneqq \varphi(W) $. 
+\end{lemma}
+\begin{proof}
+	We can assume $ X=W $ and $ Y=f(W) $, thus the lemma is equivalent to : if $ Z\subsetneqq X $ is a closed subvariety, then $ f(Z)\subsetneqq Y $. Let $ g\in A(X)\backslash\lbrace 0 \rbrace $ such that $ g|Z=0 $, since $ \varphi $ is finite, $ g $ satisfies a monic equation 
+	$$
+	g^n+\sum\limits_{i=0}^{n-1}\varphi^\ast (a_i)g^i=0
+	$$
+	with $ a_{i}\in Y $. Take the one with the smallest degree $ n $, then $ \varphi^\ast (a_0)\neq 0 $(otherwise divide by $ g $), then we get 
+	$$
+	0\neq \varphi^\ast(a_0)=-g(g^{n-1}+\sum\limits_{i=1}^{n-1}\varphi^\ast(a_i)g^{i-1}).
+	$$
+	The right hand side of the equation is in $ \langle g \rangle $, thus $ \varphi^\ast (a_0)|Z=0 \Rightarrow a_0|_{\varphi(Z)}=0$ $ \varphi(Z)\subsetneqq Y $(if $ \varphi(Z)=Y $, then $ a_0=0\in A(Y)\Rightarrow \varphi^\ast(a_0)= $, it makes a contradiction).
+\end{proof}
+\begin{corollary}
+	Let $ \varphi:X\to Y $ be a finite surjective morphism, then all the fibres of $ \varphi $ are finite.
+\end{corollary}
+\begin{proof}
+	It is enough to show that every irreducible component $ Z $ of $ \varphi^{-1}(y) $ is a point. Let $ z\in Z $ be a point, then $ \varphi(z)=y=\varphi(Z) $, by lemma \ref{14-2} we get $ \lbrace 0 \rbrace= Z $.
+\end{proof}
+\begin{definition}[Dimension of Varieties]
+	Let $ X $ be a variety, $ \emptyset\neq X_0\subsetneqq X_1\subsetneqq\dots\subsetneqq X_n=X $ be a chain of irreducible closed subsets on $ X $, we call it a chain in $ X $, $ n $ is called length of the chain. The dimension of $ X $ is the maximal $ n $ such that there exists a chain of length $ n $ in $ X $ or $ \infty $ if this maximum does not exist.
+\end{definition}
+\begin{lemma}
+	\begin{enumerate}
+		\item Let $ Y\subset X $ be a closed subvariety, then $ \text{dim}Y\leq \text{dim}X $. If $ Y\subsetneqq X $ and $ \text{dim}Y <\infty$, then $ \text{dim} Y<\text{dim}X $.
+		\item Let $ f:X\to Y $ be a surjective closd morphism, then $ \text{dim}X\geq \text{dim}Y $.
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	\begin{enumerate}
+		\item Let $ Y_0\subsetneqq Y_1\subsetneqq\dots\subsetneqq Y_k $ be a chain in $ Y $, it is also a chain in $ X $, thus $ \text{dim}X\supset \text{dim}Y $. If $ Y\subsetneqq X $, then $ Y_0\subsetneqq Y_1\subsetneqq \dots\subsetneqq Y_k\subsetneqq X $ is a chain in $ X $, hence if the dimension of  $ Y $ is finite, we get $ \text{dim}Y<\text{dim}X $.
+		\item Let $ Y_0\subsetneqq \dots\subsetneqq Y_n $ be a chain in $ Y $, we need to show that there exists a chain $ X_0\subsetneqq X_1\subsetneqq \dots\subsetneqq X_n $ in $ X $ such that $ \varphi(X_i)=Y_i $ for all $ i $. Use induction on $ n $, it is obvious for $ n=0 $. Let $ Z_1,\dots,Z_r $ be irreducible components of $ f^{-1}(Y_{n-1}) $, then $ \mathop{\cup}\limits_{i=1}^{r}\varphi(Z_i)=Y_{n-1} $,$ f(Z_i) $ are closed, $ Y_{n-1} $ is irreducible. Thus one of the $ f(Z_i) $ is equal to $ Y_{n-1} $.  Since $ \varphi :Z_i\to Y_{n-1} $ is a surjective closed morphism, by induction we get a chain $ X_0\subsetneqq X_1\subsetneqq \dots\subsetneqq X_{n-1}=Z_i $ in $ X $ with $ f(X_i)=Y_i $ for $ i=0,\dots,n-1 $, then $ X_0\subsetneqq X_1\subsetneqq \dots\subsetneqq X_{n-1}\subsetneqq X_n=X $ is a chian with $ f(X_i)=Y_i $ for all $ i $.
+	\end{enumerate}
+\end{proof}
+\begin{theorem}
+	Let $ \varphi:X\to Y $ be a finite surjective morphism of varieties, then $ \text{dim}X=\text{dim}Y $.
+\end{theorem}
+\begin{proof}
+	We already know $ \text{dim}X\geq \text{dim}Y $ because $ \varphi $ is surjective and closed. To show $ \text{dim}Y\geq \text{dim}X $, let $ X_0\subsetneqq \dots,\subsetneqq X_n $ be a chain in $ X $, for $ i $ let $ Y_i=f(X_i) $, then by lemma \ref{14-2} $ Y_0\subsetneqq Y_1\subsetneqq \dots\subsetneqq Y_n $ is also a chain in $ Y $.
+\end{proof}
+\begin{theorem}\label{14-3}
+	\begin{enumerate}
+		\item $ \text{dim}\mathbb{A}^n=n $.
+		\item Let $ F\in k[x_1,\dots,x_n]\backslash k $ be a irreducible polynomial, then $ \text{dim}Z(F)=n-1 $.
+		\item Conversely any subvariety $ X\subset \mathbb{A}^n $ of dimension $ n-1 $ is a hypersurface, i.e. $ X=Z(F) $ with $ F $ irreducible.
+ 	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	We first prove $ \text{dim} Z(F)=\text{dim}\mathbb{A}^{n-1} $ for $ F\in k[x_1,\dots,x_n]\backslash k $. By theorem \ref{14-1} we know therre exists a surjective finite morphism from $ Z(F) $ to $ \mathbb{A}^{n-1} $, thus $ \text{dim}Z(F)=\text{dim}\mathbb{A}^{n-1}$.  
+	\begin{enumerate}
+		\item Let $ Z_i=Z(x_{i+1},\dots, x_{n})\subset \mathbb{A}^{n} $, then $ Z_i\simeq \mathbb{A}^i $ and thus 
+		$$
+		Z_0\subsetneqq Z_1\subsetneqq Z_2\subsetneqq \dots\subsetneqq Z_n=\mathbb{A}^n
+		$$
+		is a chain in $ \mathbb{A}^n $ of length $ n $, it implies $ \text{dim}\mathbb{A}^n\geq n $. Now we prove the opposite inequality by induction on $ n $. For $ n=0 $, it is true, let $ X_0\subsetneqq X_1\subsetneqq \dots\subsetneqq X_{k-1}=X\subsetneqq \mathbb{A}^n $ be a chain in $ \mathbb{A}^n $. Then $ X\subsetneqq \mathbb{A}^{n} $ is a closed subvariety, we can choose $ F\in I(X) $ and $ F $ is irreducible, then $ X\subset Z(F) $. Thus $ k-1\leq \text{dim}Z(F)=\text{dim}\mathbb{A}^{n-1}=n-1 $ by induction. Since the chain we choose is arbitrary, we get $ \text{dim}\mathbb{A}^{n}\leq n $. Hence $ \text{dim}\mathbb{A}^n=n $.
+		\item It follows from (1) immediately.
+		\item Let $ \emptyset \neq X\subsetneqq \mathbb{A}^n $ and $ \text{dim}X=n-1 $, then there exists $ F\in I(X)\backslash k $ being irreducible, thus $ X\subset Z(F) $, $ X $ and $ Z(F) $ are both irreducible of the same dimension, hence $ X=Z(F) $.
+	\end{enumerate}
+\end{proof}
+% \begin{thebibliography}{9}
+ %    \bibitem{a} bibitem
+% \end{thebibliography}
+\end{document}

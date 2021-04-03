@@ -1,0 +1,134 @@
+\documentclass{amsart}
+\usepackage{amssymb,latexsym}
+\usepackage{color}
+ \definecolor{MyDarkBlue}{rgb}{0,0.08,0.45}\definecolor{yellow}{rgb}{0.99,0.99,0.70}\definecolor{white}{rgb}{1.0,1.0,1.0}\definecolor{black}{rgb}{0.00,0.00,0.00}
+ %\pagecolor{yellow}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem*{main}{Main~Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{notation}{Notation}
+\newtheorem*{proofofnullstellensatz}{Proof of Nullstellensatz}
+\newtheorem*{proofofproductsofaffinevarieties}{Proof of Theorem \ref{15}}
+\numberwithin{equation}{section}
+\begin{document}
+\title[Complete-simple distributive lattices]
+{Algebraic Geometry - Lothar G\"{o}ttsche \\
+	Lecture 05}
+\author{Wang Yunlei}
+%\address{Harbin Institute of Technology\\
+%	Harbin}
+\email{wcghdpwyl@126.com}
+%\urladdr{http://math.uwinnebago.edu/menuhin/}
+%\thanks{Research supported by the NSF under grant number
+%	23466.}
+%\keywords{Complete lattice, distributive lattice,
+%	complete congruence, congruence lattice}
+%\subjclass[2010]{Primary: 06B10; Secondary: 06D05}
+\date{June 19, 2017}
+ 
+\maketitle
+ \begin{definition}
+ 	Let $ X\subset \mathbb{A}^n $ be an affine algebraic set, the affine coordinate ring of $ X $ is
+ 	\begin{equation}
+ 	A(X):=k[x_0,\dots,x_n]/I(X).
+ 	\end{equation}
+ 	It is a ring, also a $ k $-algebra.
+ \end{definition}
+ \begin{definition}
+ 	A polynomial function on $ X $ is a function $ f:X\to k $ s.t. $ f=F|_X $ for $ F\in k[x_0,\dots,x_n] $. This is the ring with pointwise addition and multiplication:
+ 	$$
+ 	(f+g)(p)=f(p)+g(p), fg(p)=f(p)g(p),\forall p\in X.
+ 	$$
+ 	There is a ring homomorphism:
+ 	\begin{center}
+ 		$ k[x_0,\dots,x_n] \to $ \{polynomial functions on $ X $\}\\
+ 		$ F\to F|_X $
+ 	\end{center}
+ 	It is surjective and its kernel is $ I(X) $. Thus we have the isomorphism:
+ 	\begin{center}
+ 		$ A(X)\cong \{ \text{polynomial functions on } X \} $.
+ 	\end{center}
+ 	We will not distinguish them.
+ \end{definition}
+ \begin{remark}
+ 	The zero set of a polynomial function is closed.Let $ X $ be an affine algebraic set, $ f\in A(X) $, then
+ 	\begin{equation}
+ 	Z(f)=\{ p\in X|f(p)=0 \}
+ 	\end{equation}
+ 	is closed in $ X $. $ f\in A(X) $ means $ f=F|_X $ for some $ F\in k[x_1,\dots,x_n] $, then
+ 	\begin{equation}
+ 	Z(f)=\{ p\in X|F(p)=0 \}=X\cap Z(F)
+ 	\end{equation}
+ 	so it is closed.
+ \end{remark}
+ \begin{definition}
+ 	Let $ X $ be an affine variety, then $ I(X) $ is prime, then $ A(X) $ is integral.
+ 	The quotient field $ Q(A(X)) $ is a field of rational functions on $ X $ and denoted by $ K(X) $. Let $ V\subset X $ be a quasi-affine variety, since $ I(V)=I(X) $, we can denote its field of rational functions by $ K(V):=K(X) $.
+ \end{definition}
+ \begin{definition}
+ 	Let $ p\in V $, the local ring of $ V $ at $ p $ is
+ 	\begin{equation}
+ 	\mathcal{O}_{V,p}:=\{h \in K(V)|\exists f,g\in A(V), \text{ s.t. } h=\frac{f}{g} \text{ and } g(p)\neq 0 \}
+ 	\end{equation}
+ 	For simplicity in future we can write this:
+ 	\begin{equation}
+ 	\mathcal{O}_{V,p}=\{ \frac{f}{g}\in K(V)|g(p)\neq 0 \}.
+ 	\end{equation}
+ 	If $ U\subset V $ is an open subset, the regular functions on $ U $ are defined by
+ 	\begin{equation}
+ 	\mathcal{O}_V(U)=\mathop{\cap}\limits_{V,p}\subset K(V).
+ 	\end{equation}
+ \end{definition}
+ \begin{proposition}
+ 	We have an injective ring homomorphism:\begin{center}
+ 		$ \mathcal{O}_V(U) $ $ \to $ $ \{ \text{functions from }U \text{ to } k \} $.
+ 	\end{center}
+ 	For $ h\in \mathcal{O}_V(U),p\in U $, there exists an open subset $ W $ and $ p\in W\subset U $, s.t. $ h=\frac{f}{g} $ with $ g(p)\neq 0 $. We define the homomorphism by setting $ h(p)=\frac{f(p)}{g(p)} $, the homomorphism is
+ 	\begin{center}
+ 		$ h\in \mathcal{O}_V(U)\to h(p)=\frac{f(p)}{g(p)}, p\in U $.
+ 	\end{center}
+ \end{proposition}
+ \begin{proof}
+ 	It is well defined: if $ h=\frac{f}{g}=\frac{f'}{g'} $ with $ g(p)\neq 0,g'(p)\neq 0 $.Then $ fg'=f'g \Rightarrow f(p)g'(p)=f'(p)g(p)$ $ \Rightarrow \frac{f(p)}{g(p)}=\frac{f'(p)}{g'(p)} $.
+ 	
+ 	Injective: Let $ h,h'\in \mathcal{O}_V(U) $ such that $ h(p)=h'(p) \forall p\in U$.
+ 	Define $ l=h-h'\in \mathcal{O}_V(U) $, then $ l(p)=0 ,\forall p\in U$. There exists an open subset $ W $, s.t. $ l=\frac{f}{g} $ with $ g(p)\neq 0 \forall p\in W $. For $ p\in W $, $ l(p)=\frac{f(p)}{g(p)}=0\Rightarrow f(p)=0 \forall p\in W $.As zero set $ Z(f) $ of $ f $ is closed, we get $ f=0\in A(V) $, then $ l=0 $ and hence $ h=h' $.
+ \end{proof}
+ \begin{remark}
+ 	We had called $ \mathcal{O}_{V,p} $ a local ring of $ V $ at $ p $. The maximal ideal at $ p $ is $ \mathfrak{m}(p):=\{ h\in \mathcal{O}_{V,p}|h(p)=0 \} $, this is a maximal ideal in $ \mathcal{O}_{V,p} $. It is easy to verify that the local ring of a variety is alocal ring.
+ \end{remark}
+ \begin{proposition}\label{10}
+ 	For an affine variety $ X $, functions which are regular functions everywhere are polynomial functions, i.e., $ \mathcal{O}_X(X)=A(X) $.
+ \end{proposition}
+ \begin{proof}
+ 	Obviously, $ A(X)\subset \mathcal{O}_X(X) $. We have to show the other inclusion. Let $ h\in \mathcal{O}_X(X) $, $ \forall p\in X $, $ \exists F_p,G_p\in k[x_1,\dots,x_n] $ s.t.
+ 	$ h=\frac{[F_p]}{[G_p]} $ and $ G_p(p)\neq 0 $. It is equivalent to: $ \forall p\in X $, $ \exists G_p\in k[x_1,\dots,x_n] $ s.t. $ h\cdot [G_p] \in A(X)$ and $ [G_p(p)]\neq 0 $. Let
+ 	\begin{equation}
+ 	\mathcal{G}:=\{ G\in k[x_1,\dots,x_n]|h\cdot [G_p]\in A(X) \}
+ 	\end{equation}
+ 	$ \mathcal{G} $ is an ideal and $ \mathcal{G}\supset I(X) $, so $ Z(\mathcal{G})\subset X $. But $ Z(\mathcal{G})\cap X=\emptyset $, so $ Z(\mathcal{G})=\emptyset $. By Nullstellensatz $ 1\in\mathcal{G} $, so $ h=h\cdot 1\in A(X) $.
+ \end{proof}
+ 
+ \begin{definition}
+ 	Let $ X\subset\mathbb{P}^n $ be a projective algebraic set. The homogeneous coordinate ring of $ X $ is defined as
+ 	\begin{equation}
+ 	S(X):=k[x_0,\dots,x_n]/I_H(X)
+ 	\end{equation}
+ 	If $ X $ is irreducible, then $ S(X) $ is an integral domain, $ Q(S(X)) $ is its quotient field.
+ \end{definition}
+ \begin{remark}
+ 	$ X\subset \mathbb{P}^n$ is a quasi-projective variety, then polynomial $ F\in k[x_0,\dots,x_n] $ will not define a function $ X\to k $. But we can take quotients of homogeneous polynomials of the same degree and get a well defined function.
+ \end{remark}
+% \begin{thebibliography}{9}
+ %    \bibitem{a} bibitem
+% \end{thebibliography}
+\end{document}

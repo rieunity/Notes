@@ -1,0 +1,78 @@
+
+<p>
+
+<blockquote class="thm"><b>Lemma 1</b>  	Let $latex { X,Y }$ be varieties and $latex { Y }$ be affine, let $latex { \varphi:X\rightarrow Y }$ is a morphism. Then $latex { \varphi(X) }$ is dense in $latex { Y }$ if and only if $latex { \varphi^\ast }$ is injective. </blockquote>
+
+<p>
+
+<a name="21"></a> <em>Proof:</em>  	If $latex { \varphi }$ is not dense, then there exists a closed subset $latex { W\subsetneqq Y }$ and $latex { \varphi(X)\subset W }$. We can write $latex { W=Z(f_1,\dots,f_r) }$ for $latex { f_1,\dots,f_r\in A(X)\subset K(X) }$. By possibly taking a bigger $latex { W }$ we can write $latex { W=Z(f) }$ for some none zero element $latex { f\in A(X) }$. Now we find $latex { \varphi^\ast f=f\circ\varphi =0 }$, so $latex { \varphi^\ast }$ is not injective. Conversely, if some $latex { f\neq 0 \in K(X) }$ satisfies $latex { \varphi^\ast f=0 }$, then $latex { \varphi(X)\subset Z(f)\subsetneqq Y }$ is not dense. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Theorem 2</b> <a name="22"></a> 	Let $latex { X,Y }$ be varieties, there is a bijection 	<p align=center>$latex \displaystyle  	\left\lbrace\begin{array}{c} 	\text{dominant rational maps} \\ 	\varphi:X \rightarrow Y 	\end{array}\right\rbrace\longleftrightarrow\left\lbrace\begin{array}{c} 	k-\text{algebra homomorphisms}\\ 	\varphi^\ast:K(Y)\rightarrow K(X) 	\end{array}\right\rbrace. 	$</p>
+ 	In particular, $latex { X }$ and $latex { Y }$ are birational if and only if $latex { K(Y)\simeq K(X) }$. </blockquote>
+
+<p>
+
+ <em>Proof:</em>  	We only need to construct the inverse map to $latex { \varphi\rightarrow \varphi^\ast }$. Let $latex { \phi:K(Y)\rightarrow K(X) }$ be a $latex { k }$-algebra homomorphism, we want to construct a rational map $latex { \varphi:X\rightarrow Y }$ such that $latex { \varphi^\ast=\phi }$. Replacing $latex { Y }$ by an open affine subset, we can now assume $latex { Y\subset \mathbb{A}^n }$ is closed. Let $latex { y_1,\dots,y_n\in A(Y) }$ be coordinate functions, then $latex { \phi(y_1),\dots,\phi(y_n)\in K(X) }$. We can find a nonempty open subset $latex { U\subset X }$ such that $latex { \phi(y_i)\in\mathcal{O}_X(U) }$ for all $latex { i=1,\dots,n }$. Then the map $latex { x\rightarrow (\phi(y_1)(x),\dots,\phi(y_n)(x)) }$ is a morphism from $latex { U }$ to $latex { Y }$. In fact, we restrict $latex { \phi }$ to $latex { A(Y) }$, then $latex { \phi }$ defines an injective homomorphism from $latex { A(Y) }$ to $latex { \mathcal{O}_X(U) }$. Then by theorem <a href="#12">4</a>, we get a morphism $latex { \varphi:U\rightarrow Y }$ and by lemma <a href="#21">0</a> its image is dense in $latex { Y }$. Thus we find $latex { \varphi:X\dashrightarrow Y }$ which is dominant and $latex { \varphi^\ast=\phi }$. $latex \Box$
+
+ 
+<blockquote class="thm"><b>Corollary 3</b>  	Let $latex { X,Y }$ be varieties, the following statements are equivalent 	
+
+<ol> 		<li> $latex { X,Y }$ are birational; 		<li> $latex { X,Y }$ contain open subsets isomorphic to each other; 		<li> $latex { K(X)\simeq K(Y) }$ as $latex { k }$-algebras. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ <em>Proof:</em>  (1) $latex { \Rightarrow }$ (2): Let $latex { \varphi:X\dashrightarrow Y }$ be a birational map with inverse $latex { \psi :Y\dashrightarrow X }$. We can check that $latex { \psi\circ\varphi }$ is the identity on $latex { U= \mathrm{dom}\varphi\cap \varphi^{-1}(\rm{dom}\psi) }$ and $latex { \varphi\circ\psi }$ is the identity on $latex { V= \mathrm{dom}\psi\cap\psi^{-1}(\mathrm{dom}\varphi) }$. Thus $latex { U }$ is isomorphic to $latex { V }$ by restrict $latex { \varphi }$ on $latex { U }$.
+<p>
+(2) $latex { \Rightarrow }$ (3): $latex { K(X)\simeq K(U) }$, $latex { K(Y)\simeq K(V) }$, and we know $latex { K(U)\simeq K(V) }$, thus $latex { K(X)\simeq K(Y) }$.
+<p>
+(3) $latex { \Rightarrow }$ (1): Just the conclusion of theorem <a href="#22">2</a>. $latex \Box$
+
+
+<p>
+
+<p align=center><b> &mdash;  1. Conclusions We Need From Previous Lectures   &mdash; </b></p>
+
+ 
+<blockquote class="thm"><b>Theorem 4</b> <a name="12"></a> 	Let $latex { X,Y }$ be varieties, assume $latex { Y\subset \mathbb{A}^m }$ be a closed affine variety. Then there is a bijection between morphisms $latex { X\rightarrow Y }$ and $latex { k }$-algebra homomorphisms $latex { A(Y)\rightarrow \mathcal{O}_X(X) }$: 	<p align=center>$latex \displaystyle \begin{array}{ccc} 	\{ \text{morphisms } X\rightarrow Y \} & \xrightarrow{bijection} & \{ \text{homomorphisms }A(Y)\rightarrow \mathcal{O}_X(X) \} \\ 	\varphi & \xrightarrow{\qquad\quad} & \varphi^\ast 	\end{array}$</p>
+ </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 5</b>  	Take coordinates $latex { x_1,x_2 }$ on $latex { \mathbb{A}^2 }$ and coordinates $latex { y_0,y_1 }$ on $latex { \mathbb{P}^1 }$, the blowup $latex { \hat{\mathbb{A}^2} }$ of $latex { \mathbb{A}^2 }$ at $latex { 0 }$ is $latex { \hat{\mathbb{A}^2}=Z(x_1y_1-x_2y_0)\subset\mathbb{A}^2\times \mathbb{P}^1 }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Remark 1</b>  	$latex { \hat{\mathbb{A}^2} }$ is closed in $latex { \mathbb{A}^2\times\mathbb{P}^1 }$. Closed subsets of $latex { \mathbb{A}^n\times\mathbb{P}^m }$ are zero sets $latex { Z(F_1,\dots,F_r) }$ where $latex { F_i\in k[x_1,\dots,x_n,y_0,\dots,y_m] }$ are homogeneous in $latex { y_i }$. </blockquote>
+
+<p>
+
+ 
+<blockquote class="thm"><b>Definition 6</b>  	Let $latex { \Pi=p_1:\hat{\mathbb{A}^2}\rightarrow \mathbb{A}^2 }$, $latex { E:=\Pi^{-1}(0) }$ is called the exceptional divisor. </blockquote>
+
+<p>
+
+ 	We can see that $latex { \Pi }$ is a birational morphism because $latex { \Pi|_{\hat{\mathbb{A}^2}\backslash E}:\mathbb{A}^2\backslash E\rightarrow \mathbb{A}^2\backslash \{ 0 \} }$ is an isomorphism. In fact $latex { E=\{ 0 \}\times \mathbb{P}^1 }$. 
+<blockquote class="thm"><b>Remark 2</b>  	
+
+<ol> 		<li> Let $latex { ((x_1,x_2),[y_0,y_1])\in \hat{\mathbb{A}^2}\backslash E }$, assume $latex { x_1\neq 0 }$, then we get $latex { x_2=\frac{y_1}{y_0}x_1 }$. It is equivalent to $latex { (x_1,x_2)\in [y_0,y_1] }$. So $latex { \hat{\mathbb{A}^2} }$ is the graph of the canonical morphism 		<p align=center>$latex \displaystyle  		\begin{array}{ccc} 		\mathbb{A}^2\backslash \{0\} & \rightarrow & \mathbb{P}^1\\ 		(x_1,x_2) & \rightarrow & [x_1,x_2]. 		\end{array} 		$</p>
+ 		<li> $latex { U_{y_0}:=\hat{\mathbb{A}^2}\backslash Z(y_0)=\{((x_1,x_2),[1,u])\in\mathbb{A}^2\times \mathbb{P}^1|x_2=ux_1 \} }$ is isomorphic to $latex { \mathbb{A}^2 }$ by the morphism $latex { ((x_1,x_2),[1,u])\rightarrow (x_1,u) }$ with inverse $latex { (x_1,u)\rightarrow ((x_1,ux_1),[1,u]) }$. In the same way $latex { U_{y_1}:=\hat{\mathbb{A}^2}\backslash Z(y_1)=\{ ((x_1,x_2),[t,1])\in \mathbb{A}^2\times\mathbb{P}^1|x_1=tx_2 \}}$ is isomorphic to $latex { \mathbb{A}^2 }$. Then we get $latex { \hat{\mathbb{A}^2}=U_{y_0}\cup U_{y_1} }$, the union of irreducible open cover, so $latex { \hat{\mathbb{A}^2} }$ itself is also irreducible. 	
+</ol>
+
+ </blockquote>
+
+<p>
+
+ In $latex { U_{y_0} }$ the exceptional divisor $latex { E }$ is $latex { Z(x_1) }$, and in $latex { U_{y_1} }$ the exceptional divisor $latex { E }$ is $latex { Z(x_2) }$. 
+<blockquote class="thm"><b>Example 1</b>  	What does the blowup do to a curve $latex { C\subset \mathbb{A}^2 }$ through $latex { 0 }$? Let $latex { C\subset \mathbb{A}^2 }$ be a curve, the strict transform of $latex { C }$ is <p align=center>$latex \displaystyle  	 \hat{C}=\text{ closure of } \Pi^{-1}(C\backslash\{ 0 \}) 	$</p>
+ 	in $latex { \hat{\mathbb{A}^2} }$. For example, let $latex { C=Z(F) }$, where $latex { F=x_2^2-x_1^2(x_1+1) }$. In the chart $latex { y_1\neq 0 }$, i.e. $latex { U_{y_0} }$, we have 	<p align=center>$latex \displaystyle  	\Pi^{-1}(C)=Z(x_1^2(u^2-(x_1+1)))=Z(x_1^2)\cup Z(u^2-(x+1)) 	$</p>
+ 	(Note that we talk about this in $latex { U_{y_0} }$, so the exact equation is $latex { \Pi^{-1}(C)= Z(x_1^2(u^2-(x_1+1)))\cap U_{y_0} }$. But we ignore it for simplicity). 	Since $latex { Z(x_1^2) }$ is exactly the exceptional divisor $latex { E }$, we get $latex { \hat{C}=Z(u^2-(x+1)) }$, and it is isomorphic to $latex { \mathbb{A}^1 }$ by mapping $latex { ((x_1,x_2),[1,u])\rightarrow u }$. The inverse of the map is $latex { u\rightarrow ((u^2-1,u^3-u),[1,u]) }$. We can see $latex { C }$ and $latex { \hat{C} }$ in the real axes condition Now we can find that there is no singular point after blowing up. </blockquote>
+
+<p>
+
+ 

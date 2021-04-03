@@ -1,0 +1,165 @@
+\documentclass{amsart}
+\usepackage{amssymb,latexsym}
+\usepackage{color}
+ \definecolor{MyDarkBlue}{rgb}{0,0.08,0.45}\definecolor{yellow}{rgb}{0.99,0.99,0.70}\definecolor{white}{rgb}{1.0,1.0,1.0}\definecolor{black}{rgb}{0.00,0.00,0.00}
+ %\pagecolor{yellow}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem*{main}{Main~Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{notation}{Notation}
+\newtheorem*{proofofnullstellensatz}{Proof of Nullstellensatz}
+\newtheorem*{proofofproductsofaffinevarieties}{Proof of Theorem \ref{15}}
+\numberwithin{equation}{section}
+\begin{document}
+\title[Complete-simple distributive lattices]
+{Algebraic Geometry - Lothar G\"{o}ttsche \\
+	Lecture 10}
+\author{Wang Yunlei}
+%\address{Harbin Institute of Technology\\
+%	Harbin}
+\email{wcghdpwyl@126.com}
+%\urladdr{http://math.uwinnebago.edu/menuhin/}
+%\thanks{Research supported by the NSF under grant number
+%	23466.}
+%\keywords{Complete lattice, distributive lattice,
+%	complete congruence, congruence lattice}
+%\subjclass[2010]{Primary: 06B10; Secondary: 06D05}
+\date{June 19, 2017}
+ 
+\maketitle
+
+ \begin{lemma}
+ 	The closed subset in $ \mathbb{P}^n\times \mathbb{P}^m $ is the zero set of sets of polynomials of $ f_k(x_0,\dots,x_n,y_0,\dots,y_m) $ for $ k=1,\dots,r $ which are homogeneous in  $ x_i $ and $ y_j $, and the degree in $ x_i $ is equal to the degree in $ y_j $, we called it behomogeneous.
+ \end{lemma}
+ \begin{proof}
+ 	Let $ W\subset \mathbb{P}^n\times \mathbb{P}^m $ be closed. $ W=\sigma^{-1}(A) $, for $ A\subset \mathbb{P}^N $ closed.
+ 	Then $ A $ is the zero set of homogeneous polynomials in $ z_{ij} $, write it as $ A=(f_1(z_{ij}),\dots,f_r(z_{ij}) $. Then we get $ W=(f_1(x_iy_j),\dots,f_r(x_iy_j)) $.  For $ k=1,\dots,r $, $ f_k(x_iy_j) $ are bihomogeneous. Conversely, assume $$ W=Z( g_1(x_0,\dots,x_n,y_0,\dots,y_m),  \dots,g_l(x_0,\dots,x_n,y_0,\dots,y_m )) $$
+ 	where $ g_{k} $ are bihomogeneous. Then
+ 	$$
+ 	\begin{array}{cc}
+ 	 	{} & (\varphi_i\times\varphi_j)(W\cap (U_i\times U_j))=Z( g_1(x_0,\dots,x_i=1,\dots,x_n,y_0,\dots,y_j=1,\dots,y_m),\\
+ 	 	{} & \dots,g_l(x_0,\dots,x_i=1,\dots,x_n,y_0,\dots,y_j=1,\dots,y_m) )
+ 	\end{array}
+ 	$$
+ 	are closed in $\mathbb{A}^{n+m}  $. So $ W\cap (U_i\times U_j) $ are closed in $ U_i\times U_j $. $ U_i\times U_j $ form a finite open cover of $ \mathbb{P}^n\times \mathbb{P}^m $, so $ W $ is closed.
+ \end{proof}
+ \begin{definition}
+ 	Let $ X $ be a variety, the diagonal is
+ 	$$
+ 	\Delta_X:=\{ (p,p)\in X\times X|p\in X \}\subset X\times X.
+ 	$$
+ 	The diagonal morphism is
+ 	$$\begin{array}{cc}
+ 	\delta_X:X & \to \Delta_X\subset X\times X\\
+ 	p &\to (p,p).
+ 	\end{array}$$
+ \end{definition}
+ \begin{lemma}\label{20}
+ 	$ \Delta_X $ is closed in $ X\times X $ and $ \delta_X:X\to \Delta_X $ is an isomorphism.
+ \end{lemma}
+ \begin{proof}
+ 	Any variety $ X $ is isomorphic to a locally closed subvariety of some projective space, so we can assume $ X\subset\mathbb{P}^n $ is locally closed, then
+ 	$$
+ 	\Delta_X=\Delta_{\mathbb{P}^n}\cap (X\times X).
+ 	$$
+ 	Thus we know if $ \Delta_{\mathbb{P}^n} $ is closed then $ \Delta_X $ is closed in $ X\times X $.
+ 	In fact $ \Delta_{\mathbb{P}^n}=Z\left( \left\lbrace x_iy_j-x_jy_i|i,j=0,\dots,n \right\rbrace \right) $ is closed.
+ 	
+ 	$ \delta_X:X\to \Delta_X $ is isomorphic because $ p_1:\Delta_X\to X $ is its inverse morphism.
+ \end{proof}
+ \begin{remark}
+ 	The fact that $ \Delta_X\subset X\times X $ is closed replaces for us the Hausdorff property in topology.
+ \end{remark}
+ \begin{definition}
+ 	A variety is called separated if $ \Delta_X\subset X\times X $ is closed. By the lemma \ref{20} all varieties are separated.
+ \end{definition}
+ \begin{corollary}
+ 	Let $ \varphi,\psi:X\to Y $ be morphisms of varieties, then $ W=\{ p\in X|\varphi(p)=\psi(p) \} $ is closed in $ X $. In particular, if $ \varphi|_U=\psi|_U $ for an open subset of $ X $, then $ \varphi=\psi $.
+ \end{corollary}
+ \begin{proof}
+ 	See the following chain
+ 	$$
+ 	X\xrightarrow{\delta_X} \Delta_X\xrightarrow{\varphi\times\psi} Y\times Y.
+ 	$$
+ 	So $ W=\delta^{-1}( (\varphi\times\psi)^{-1}(\Delta_Y) ) $ is closed. Because varieties are irreducible, the open set $ U $ is dense in $ X $, let $ \omega = \varphi-\psi $ and we get $ l(x)=0 $ in $ U $, hence $ l=0 $ in $ X $ because of the continuity of $ l $, hence $ \varphi=\psi $.
+ \end{proof}
+ \begin{definition}
+ 	Let $ \varphi :X\to Y $ be a morphism of varieties. The graph of $ \varphi $ is defined as
+ 	\begin{equation}
+ 	\Gamma_{\varphi}:=\{ \left(p,\varphi\left(p\right)\right)| p\in X \}\subset X\times Y.
+ 	\end{equation}
+ \end{definition}
+ \begin{corollary}
+ 	$ \Gamma_\varphi $ is closed in $ X\times Y $.
+ \end{corollary}
+ \begin{proof}
+ 	Define the map
+ 	$$\begin{array}{cc}
+ 	\varphi\times\text{id}_Y : X\times Y & \to Y\times Y\\
+ 	(p,q) & \to (\varphi(p),q).
+ 	\end{array}$$
+ 	Then we have $ \Gamma_\varphi = (\varphi\times\text{id}_Y)^{-1}(\Delta Y) $, so it is closed. In fact $ \Gamma_\varphi $ is isomorphic to $ X $.
+ \end{proof}
+ \begin{definition}
+ 	A map $ \varphi:X\to Y $ of topological spaces is called closed if $ \varphi(Z) $ is closed in $ Y $ for all closed subsets $ Z\subset X $.
+ \end{definition}
+ \begin{definition}
+ 	A variety complete if the projection $ p_2:X\times Y\to Y $ is a closed map for all varieties $ Y $.
+ \end{definition}
+ \begin{remark}
+ 	Completeness replaces for us compactness in topology.
+ \end{remark}
+ \begin{example}
+ 	$ \mathbb{A}^1 $ is not complete. Let $ Z=Z(x_1y_1-1)\subset \mathbb{A}^2=\mathbb{A}^1\times \mathbb{A}^1 $, then $ p_2(Z)=\mathbb{A}^1\backslash\{ 0 \} $ is not closed in $ \mathbb{A}^1 $.
+ \end{example}
+ \begin{proposition}
+ 	Let $ X $ be a complete variety, $ \varphi:X\to Y $ be a morphism of varieties. Then $ \varphi(X) $ is closed in $ Y $.
+ \end{proposition}
+ \begin{proof}
+ 	Since $ \Gamma_\varphi\subset X\times Y $ is closed and $ \varphi(X)=p_2(\Gamma_\varphi) $, thus if $ X $ is complete, $ \varphi(X) $ is closed in $ Y $.
+ \end{proof}
+ \begin{theorem}
+ 	All projective varieties are complete.
+ \end{theorem}
+ \begin{proof}
+ 	We finish the proof by two steps.
+ 	
+ 	(1) Main step to show $ p_2:\mathbb{P}^n\times \mathbb{P}^m\to \mathbb{P}^m $ is closed. Let $ X\subset\mathbb{P}^n\times\mathbb{P}^m $ be closed, we can write it as
+ 	$$
+ 	X=Z(f_1(x,y),\dots,f_r(x,y))
+ 	$$
+ 	where $ f_i $ isbihomogeneous, $ x=(x_0,\dots,x_n),y=(y_0,\dots,y_m) $. We can assume all $ f_i $ have the same degree $ d $ in $ y $. If $ f_j $ has a lower degree $ l $, we can replace it by polynomials $ y_0^{d-l}f_j,y_1^{d-l}f_j,\dots,y_n^{d-l}f_j $. Fix a point $ q\in\mathbb{P}^m $, then $ q\in p_2(X) $ $ \Leftrightarrow $ $ Z(f_1(x,q),\dots,f_r(x,q))\neq \emptyset $. By the projective Nullstellensatz, this is equivalent to:
+ 	\begin{center}
+ 		$ \forall s>0 $, $ (\ast) $ $ \mathfrak{a}:=\langle f_1(x,q),\dots,f_r(x,q)\rangle $ does not contain\\
+ 		all monomials of degree $ s $ in $ x $.
+ 	\end{center}
+ 	It is trival for $ s<d $, so it is enough to show:
+ 	\begin{center}
+ 		$ \forall s\geq d $, the set $X_s:= \{ q\in\mathbb{P}^m|q \text{ satisfies the condition } (\ast) \} $ \\
+ 		is closed in $ \mathbb{P}^m $.
+ 		Hence $ p_2(X)=\mathop{\cap}\limits_{s\geq d} X_s $ is closed in $ \mathbb{P}^m $.
+ 	\end{center}
+ 	Denote monomials in $ x $ of degree $ s $ with $ M_i(x) $, $ i=1,\dots,\binom{n+s}{n} $. Denote monomials in $ x $ of degree $ s-d $ with $ N_j(x) $, $ j=1,\dots,\binom{n+s-d}{n} $. The elements of degree $ s $ in $ \mathfrak{a} $ are the linear span of $ \{N_i(x)f_j(x,q)|i=1,\dots,\binom{n+s-d}{n},j=0,\dots,r\} $. Define all  $ \{N_i(x)f_j(x,y)\} $ by $ \{ G_k(x,y),k=1,\dots,t \} $. The condition $ (\ast) $ is equivalent to:
+ 	\begin{center}
+ 		$ \{ G_k(x,q) \} $ does not equal to the whole space of degree $ s $ in $ x $.
+ 	\end{center}
+ 	We can write $ G_k(x,y)=\sum\limits_{i=1}^{\binom{n+s}{n}} A_{ik}(y)M_i(x) $. The dimension of the linear span of $ \{G_k(x,q),k=1,\dots,t \}$ is the rank of the matrix $ A:=(A_{ik}(q)) $. Thus the condition $ (\ast) $ is equivalent to $ \text{rank}(A)<\binom{n+s}{n} $. Thus
+ 	$$
+ 	\{q\in\mathbb{P}^m|q \text{ satisfies the condition } (\ast) \}=\text{ zero set of all } \binom{n+s}{n}\times \binom{n+s}{n} \text{ minors of } A.
+ 	$$
+ 	Thus $ p_2(X) $ is closed in $ \mathbb{P}^m $.\\
+ 	(2) General case. First show $ \mathbb{P}^n $ is completed. Let $ Y $ be a variety, we can assume $ Y\subset \mathbb{P}^m $ is locally closed subvariety. Let $ Z\subset \mathbb{P}^n\times Y $ be closed in $ \mathbb{P}\times Y $, $ \bar{Z} $ be the closure of $ Z $ in $ \mathbb{P}^n\times\mathbb{P}^m $. Then $ p_2(\bar{Z}) $ is closed in $ \mathbb{P}^m $, hence $ p_2(Z)=p_2(\bar{Z}\cap (\mathbb{P}^n\times Y))=p_2(\bar{Z})\cap Y $ is closed in $ Y $. Finally, let $ X\subset \mathbb{P}^n $ be closed subvariety, $ Z\subset X\times Y $  be closed, it follows that $ Z $ is also closed in $ \mathbb{P}^n\times Y $, therefore by trival step $ p_2(Z) $ is closed in Y.
+ \end{proof}
+% \begin{thebibliography}{9}
+ %    \bibitem{a} bibitem
+% \end{thebibliography}
+\end{document}

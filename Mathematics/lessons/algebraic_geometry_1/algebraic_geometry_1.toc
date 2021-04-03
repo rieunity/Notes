@@ -1,0 +1,13 @@
+\contentsline {section}{\numberline {1}Zariski topology, noetherian and irreducibility}{3}{section.1}% 
+\contentsline {section}{\numberline {2}Nullstallensatz}{8}{section.2}% 
+\contentsline {section}{\numberline {3}Projective algebraic sets and varieties}{10}{section.3}% 
+\contentsline {section}{\numberline {4}Projective Nullstellensatz}{13}{section.4}% 
+\contentsline {section}{\numberline {5}Functions and morphisms}{15}{section.5}% 
+\contentsline {section}{\numberline {6}Morphisms of quasi-projective varieties}{23}{section.6}% 
+\contentsline {section}{\numberline {7}Products of varieties}{27}{section.7}% 
+\contentsline {section}{\numberline {8}Rational maps}{38}{section.8}% 
+\contentsline {section}{\numberline {9}Finite morphisms}{41}{section.9}% 
+\contentsline {section}{\numberline {10}Noether Normalization}{45}{section.10}% 
+\contentsline {section}{\numberline {11}Dimension theory}{47}{section.11}% 
+\contentsline {section}{\numberline {12}Tangent Space, Singular and Nonsingular Points}{55}{section.12}% 
+\contentsline {section}{\numberline {13}Divisors and Riemann-Roch Theorem}{64}{section.13}% 

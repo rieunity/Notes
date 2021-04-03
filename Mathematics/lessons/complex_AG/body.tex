@@ -44,7 +44,7 @@ Recall some concepts / theorems from one complex variable. Let   $\mathcal{U}\su
 
 Let's introduce the differential operators:
 \[
-  \partial_z=\frac{\partial ~}{\partial z} =\frac{1}{2}=\left( \partial_x-i\partial_y \right) ,\partial_{\overline{z}}=\frac{\partial ~}{\partial \overline{z}} =\frac{1}{2}\left( \partial_x+i\partial_y \right) .
+  \partial_z=\frac{\partial ~}{\partial z} =\frac{1}{2}\left( \partial_x-i\partial_y \right) ,\partial_{\overline{z}}=\frac{\partial ~}{\partial \overline{z}} =\frac{1}{2}\left( \partial_x+i\partial_y \right) .
 \] 	
 Then $\partial_z z=1=\partial_{\overline{z}}\overline{z},\partial_z\overline{z}=0=\partial_{\overline{z}}z$. In these terms Cauchy-Riemann equations are $\partial_{\overline{z}}f=0$.
 
@@ -83,7 +83,7 @@ Holomorphic functions of one variable satisfy some important theorems:
 
 
 \begin{definition}
-  $U\subset \C^{n}$ open, $f:U\to \C$ continuously differentiable,  then $f$ is holomorphic at $a\in U$ if for all $j\in \left\{1,\cdots ,n\right\} $ the function of one variable 
+  $\mathcal{U}\subset \C^{n}$ open, $f:\mathcal{U}\to \C$ continuously differentiable,  then $f$ is holomorphic at $a\in \mathcal{U}$ if for all $j\in \left\{1,\cdots ,n\right\} $ the function of one variable 
   \[
     z_j\mapsto f(a_1,\cdots ,a_{j-1}, z_j, a_{j+1},\cdots ,a_n)
   \] is holomorphic. i.e., $\partial_{\overline{z_j}}f=0,\forall j \in \left\{1,\cdots ,n\right\} $.
@@ -99,9 +99,9 @@ Denote the first term $\partial f$ and the second $\overline{\partial}f$, then $
 \end{definition}
 Repeatedly applying the Cauchy formula in $1$-variable, we obtain the following theorem:
 \begin{theorem}
-  $f:D(w,\varepsilon )\to \C$ hilomorphic and $z\in D(w,\varepsilon )$ then 
+  $f:D(w,\varepsilon )\to \C$ holomorphic and $z\in D(w,\varepsilon )$ then 
   \[
-    f(z)=\frac{1}{\left( 2\pi i \right) ^{n}}\int_{\partial D(w,\varepsilon )}\frac{f(\xi_1,\cdots ,\xi_n)}{(\xi-z_1)\cdots (\xi_n-z_n)}\,\mathrm{d}\xi_1\cdots \mathrm{d}\xi_n.
+    f(z)=\frac{1}{\left( 2\pi i \right) ^{n}}\int_{\partial D(w,\varepsilon )}\frac{f(\zeta_1,\cdots ,\zeta_n)}{(\zeta-z_1)\cdots (\zeta_n-z_n)}\,\mathrm{d}\zeta_1\cdots \mathrm{d}\zeta_n.
   \] 
 \end{theorem}
 Using this we can show that for any point $w\in U$, $\exists $ multi disc $D(w,\varepsilon )$ inside $U$ such that for all $z\in D(w,\varepsilon )$, $f(z)=\sum_{|\alpha|=0}^{\infty} \frac{\partial^{\alpha}_z f}{\alpha!}(z-w)^{\alpha}$. Here $\alpha$ is a multi-index $\alpha \in \left( \N_0 \right) ^{n}$, and 
@@ -110,11 +110,194 @@ Using this we can show that for any point $w\in U$, $\exists $ multi disc $D(w,\
   \alpha! &= \alpha_1!\cdots \alpha_n! \\
   \partial^{\alpha}_{z}f=\partial_{z_1}^{\alpha_1}\cdots \partial_{z_n}^{\alpha_n}f
 .\end{align*}
-From the list above, the maximum principle, the identity theorem and Liouville's theorem generaliz easily.
+From the list above, the maximum principle, the identity theorem and Liouville's theorem generalize easily.
 Riemann extension theorem holds but is harder to prove and Riemann mapping definitely fails. There are also phenomenon that do not have analogues in one complex variable. 
-\begin{theorem}[Hartog Extension Theorem]
+\begin{theorem}[Hartogs Extension Theorem]
   $n\ge 2$, $f:U \backslash  K\to \C$ holomorphic with $U \subset  \C^{n}$ open, $K\subset U$ compact. If $U \backslash  K$ is connected, then $\exists ! F:U\to \C$ holomorphic extending $f$.
 \end{theorem}
 
 \section{Solving $\partial u = f$}
+This section, we will talk about how severable complex variable holomorphic funcitons are NOT like one complex variable holomorphic functions.
 
+\begin{example}
+  Consider $H=\left\{(z,w)\in \C^2:|z|<1, \frac{1}{2}<|w|<1\right\}\cup \left\{|z|<\frac{1}{2},|w|<1\right\}  $
+
+\begin{figure}[ht]
+    \centering
+    \incfig{fig1}
+    \caption{}
+    \label{fig:fig1}
+\end{figure}
+Let $f$ be holomorphic function on $H$, then we claim: $\exists F$ holomorphic  on $\mathbb{D}=\left\{|z|<1,|w|<1\right\} $ such that $F|_{H}=f$.
+In fact 
+\[
+  F(z,w)=\frac{1}{2\pi i }\int_{|\zeta|=r} \frac{f(z,\zeta)}{\zeta-w}\,\mathrm{d}\zeta.\quad  \frac{1}{2}<r<1
+\] 
+is holomorphic. Indeed, 
+\[
+  \partial_{\overline{z}}\left( \frac{f(z,\zeta)}{\zeta-w} \right) =0. 
+\] 
+For any fixed $z$ with $|z|<\frac{1}{2}$, $w\mapsto f(z,w)$ is holomorhic on all of $\left\{|w|<1\right\} $ and so we have $F(z,w)=f(z,w)$ for any $|z|<\frac{1}{2},|w|<r$ by the Cauchy integral formula. Hence $F=f$ on all $H$.
+
+The region $H=\mathbb{D}\backslash \text{some closed subset of }\mathbb{D}$ may not use Hartogs extension theorem directly since $\mathbb{D}\backslash H$ is not compact. We provide it here just to give some intuition of the difference betweend several variables and one variable condition.
+\end{example}
+Before the proof of Hartogs extension theorem, we do some preparations.
+\begin{lemma}
+  Let $f\in C^1(\overline{\Omega})$, then 
+  \[
+  \int_{\partial \Omega}f\,\mathrm{d}z=\int_{\Omega}\frac{\partial f}{\partial \overline{z}} \,\mathrm{d}\overline{z}\mathrm{d}z=2 i \int_{\Omega}\frac{\partial f}{\partial \overline{z}} \,\mathrm{d}x\mathrm{d}y.
+  \] 
+\end{lemma}
+Note: When we write $\mathrm{d}\overline{z}\mathrm{d}z$, it means $\mathrm{d}\overline{z}\wedge \mathrm{d}z=2 i \mathrm{d}x\wedge \mathrm{d}y$, the same for $\mathrm{d}x\mathrm{d}y$, hence not the usual one.
+\begin{proposition}
+  Let $u\in C^{1}(\overline{\Omega})$, then 
+  \[
+    u(\zeta)=\frac{1}{2\pi i}\int_{\partial \Omega} \frac{u(z)}{z-\zeta}\,\mathrm{d}z-\frac{1}{\pi}\int_{\Omega}\frac{\frac{\partial u}{\partial \overline{z}} (z)}{z-\zeta}\,\mathrm{d}x\mathrm{d}y.
+  \] 
+\end{proposition}
+\begin{proof}
+  Fix $\zeta$, let $\varepsilon <d\left( \zeta,\partial \overline{\Omega} \right) $ and let $\Omega_\varepsilon =\left\{z\in  \Omega:|z-\zeta|\ge\varepsilon \right\} $. Applying Lemma to $f(z)=\frac{u(z)}{z-\zeta}$, we obtain
+  \[
+    \int_{\partial \Omega_\varepsilon } \frac{u(z)}{z-\zeta}\,\mathrm{d}z=2i \int_{\Omega_\varepsilon }\frac{\partial_{\overline{z}}u}{z-\zeta}\,\mathrm{d}x\mathrm{d}y.
+  \] 
+  As $\varepsilon \to 0$, the LHS converges to $\int_{\partial \Omega} \frac{u(z)}{z-\zeta}\,\mathrm{d}z-2\pi i u(\zeta)$.
+\end{proof}
+\begin{theorem}
+  Let $\phi \in C^{\infty}_c\left( \C \right) $. let $u(\zeta)=\frac{1}{\pi}\int_{\C}\frac{\phi(z)}{z-\zeta}\,\mathrm{d}x\mathrm{d}y$. Then $u$ is an analytic function outside of the $\mathrm{supp}\phi$ and $u$ is smooth on $\C$ and $\partial_{\overline{z}}u=\phi$.
+\end{theorem}
+\begin{proof}
+  Interchanging derivatives and the integral, we see that $u\in C^{\infty}(\C)$ and by a change variables we have
+  \[
+    u(\zeta)=-\frac{1}{\pi}\int_{\C}\frac{\phi(\zeta-z)}{z}\,\mathrm{d}x\mathrm{d}y.
+  \] 
+  So \[
+    \partial_{\overline{\zeta}}u(\zeta)=-\frac{1}{\pi}\int_{\C}\frac{\partial_{\overline{\zeta}}\phi(\zeta-z)}{z}\,\mathrm{d}x\mathrm{d}y=\frac{1}{\pi}\int_{\C}\frac{\partial_{\overline{z}}u(z)}{\zeta-z}\,\mathrm{d}x\mathrm{d}y.
+  \] 
+  Applyng the proposition to any disc containing $\mathrm{supp}\phi$, we get that this equals $\phi(\zeta)$, i.e., $\partial_{\overline{\zeta}}u=\phi$.
+\end{proof}
+\begin{remark}
+  Even though $\phi$ has compact support, no solution of $\partial_{\overline{z}}u=\phi$ can have compact support if $\int_{\C}\phi(z)\,\mathrm{d}x\mathrm{d}y\neq 0$. Indeed, if $u(\zeta)=0\forall|\zeta|>R$ for $R$ sufficiently large, then 
+  \[
+    0=\int_{|z|=R} u(z)\,\mathrm{d}z=\int_{|z|<R}\partial_{\overline{z}}u\,\mathrm{d}x\mathrm{d}y=2i \int_{|z|<R}\phi \, \mathrm{d}x\mathrm{d}y.
+  \] 
+\end{remark}
+\begin{theorem}
+  Suppose $f_j\in C_C^{\infty}(\C^{n})$, $ j\in \left\{1,\cdots ,n\right\} ,n>1$ satisfy $\partial_{\overline{z}_j}f_k=\partial_{\overline{z}_k}f_j,\forall j,k \in \left\{1,\cdots ,n\right\} $, then there exists a $u\in C_C^{\infty}(\C^{n})$ such that $\partial_{\overline{z}_j}u=f_j,\forall j$.
+\end{theorem}
+\begin{proof}
+  Define $$u(z)=\frac{1}{2\pi i}\int_{\C} \frac{f_1(\zeta,z_2,\cdots ,z_n)}{\zeta-z_1}\,\mathrm{d} \overline{\zeta} \mathrm{d}\zeta=\frac{-1}{2\pi i}\int_{\C}\frac{f_1\left( z_1-\zeta,z_2,\cdots ,z_n \right) }{\zeta}\, \mathrm{d}\overline{\zeta}\mathrm{d}\zeta.$$
+  We note that $u\in C^{\infty}(\C)$ and since $f_1$ has compact suport, $u$ vanishes if $|z_2|+\cdots +|z_n|$ large enough.
+  By the previous theorem, $\partial_{\overline{z}_1}u=f_1$. Also differentiating, 
+  \[
+    \partial_{\overline{z}_j}u=\frac{1}{2\pi i}\int_{\C}\frac{\partial_{\overline{z}_1}f_j\left(\zeta,z_2,\cdots ,z_n  \right) }{\zeta-z_1}\,\mathrm{d}\overline{\zeta}\mathrm{d}\zeta=f_j.
+  \]
+  Hence $u$ solve the system of equations. Let $K=\bigcup_{j=} ^{n}\mathrm{supp}f_j$, $u$ is holomorphic on $\C^{n}\backslash  K$ and we know that $u$ is zero if $|z_2|+\cdots +|z_n|$ sufficiently large. So by the identity theorem $u$ must vanish on the component of $\C^{n}\backslash  K$ $\Rightarrow$ $u\in C_c^{\infty}(\C^{n})$.
+\end{proof}
+
+\section{Proof of Hartogs theorem}
+\begin{theorem}
+  Let $\mathcal{U}$ be a domain in $\C^{n}$,$n>1$ (domain is nonempty connected open set). Let $K$ be a compact subset of $\mathcal{U}$ s.t. $\mathcal{U}\backslash K$ is connected. Then every holomorophic function on $\mathcal{U}\backslash  K$ extends to a holomorphic function on $\mathcal{U}$.
+\end{theorem}
+\begin{proof}
+  Given $f$ analytic on $\mathcal{U}\backslash  K$, choose $\theta \in  C_c^{\infty}(\mathcal{U})$ s.t. $\theta|_K\equiv 1$. Define $f_0\in C^{\infty}\left( \mathcal{U} \right) $ by setting 
+  \[
+    f_0(z)=\begin{cases}
+      0,&z\in K\\
+      (1-\theta)f, z \in U.
+    \end{cases}
+  \]
+  We shall construct $v \in C^{\infty}(\C^{n})$ s.t.  $f_0+v$ is the required holomorphic extension of $f$. In order for $f_0+v$ to be holomorphic we need $\partial_{\overline{z}_j}(f_0+v)=0=\partial_{\overline{z}_j}(1-\theta)f+\partial_{\overline{z}_j}v=-(\partial_{\overline{z}_j}\theta )f+\partial_{\overline{z}_j}v$. That is, we need 
+  \[
+    \partial_{\overline{z}_j}v=\left( \partial_{\overline{z}_j}\theta \right) f,\quad \forall j\in \left\{1,\cdots ,n\right\} .
+  \]
+
+  We know from last section that we can find $v\in C_c^{\infty}(\mathcal{U})$ solving this system of equations.
+  Since $v$ has compact support and is holomorphic outside of the support of $\theta$, it must vanish on the unbounded component of $\C^{n}\backslash \mathrm{supp}\theta$. Since $\mathrm{supp}\theta\subset \mathcal{U}$, there is an open set $W$ in $\mathcal{U}\backslash  K$ where $v\equiv 0$ and so $f_0+v= f_0=f$ in $W$. But $\mathcal{U}\backslash K$ is connected and $f,f_0+v$ are holomorphic, so they must coincide on all of $\mathcal{U}\backslash K$. Thus $f_0+v$ is the desired holomorphic extension of $f$.
+\end{proof}
+\begin{corollary}
+  Let $\mathcal{U}\subset \C^{n}$ domain, $n>1$, $f$ holomorphic function in $\mathcal{U}$. The zero set $f^{-1}(0)$ of $f$ is never a compact subset of $\mathcal{U}$.
+\end{corollary}
+\begin{proof}
+  First assume $\mathcal{U}\backslash K$ connected. If $f^{-1}(0)=K$ were a compact subset of $\mathcal{U}$, then we could extend $\frac{1}{f}$ from $\mathcal{U} \backslash K$ to $\mathcal{U}$ holomorphically. In particular, we would get some nonzero value at  $K$ for $\frac{1}{f}$, which is a contradiction. 
+
+  Without knowing that $\mathcal{U}\backslash K$ is connected, the previous proof gives us $g_0+v$ holomorphic with $v\equiv 0$ on a connected component of $\mathcal{U}\backslash K$. It may not agree with $g$ on all of $\mathcal{U}\backslash K$, but this is enough to say that $\frac{1}{f}$ is bounded on some sequence approaching $f^{-1}(0)$ and that's a contradiction.
+\end{proof}
+
+Heuristically, we might expect that the zero set of nontrivial holomorphic function  $f:\mathcal{U}\subset \C^{n}\to \C$ will have complex codimension $1$, i.e., complex dimension $n-1$. If $f$ is a polynomial of degree  $1$, then its zero set is an affine subspace of complex dimension $n-1$. If $D_p f:\C^{n}\to \C$ is nonzero at each point $p\in f^{-1}(0)$, then $f$ is ``well-approciamted'' by its linear approximation and $f^{-1}(0)$ should be locally modelled by open subset of $\C^{n-1}$. Indeed, the complex version of the implicit function theorem holds and shows that $f^{-1}(0)$ in this case is a smooth submanifold of complex dimension $n-1$.(Just like in the $\R$ setting)
+
+Things are more complicated if the derivative vanishes. In one complex variable, we know that if  $f(z)=0$ and $f\not\equiv 0$, then $0$ is a root of a finite order, say $p$, meaning that there is a holomorphic function $g$ s.t. $g(0)\neq 0$ and $f(z)=z^{p}g(z)$.
+
+In several complex variables, after a change of coordinates, assume that $F(z_n)=f(0',z_n),0' \in \C^{n-1}$ is non-trivial. So it has a zero of finite order, say $p$, $F(z_n)=z_n^{p}g_{0'}(z_n)$. Using the continuity of $f$ we can apply Rouche's theorem from one complex variable and conclude that there is a polydisc  $D(0',\varepsilon ') \subset \C^{n-1}$ such that for all $z' \in D(0',\varepsilon ')$ the function $z\mapsto f(z',z)$ has exactly $p$ zeros in $D(0,\varepsilon _n)\subset \C$. In particular, we see again that the zeros of a holomorphic function of several variables are not isolated.
+
+\section{Weierstrass preparation theorem}
+What does a holomorphic function look like near a zero? In one variable case, we know that if $f(z)=0$, then $f(z)=z^{p}g(z),p \in  \N$, $g$ holomorphic $g(z)\neq 0$ or $g\equiv 0$.
+
+Suppose we're given a function $f(z_1,\cdots ,z_{n-1},w)$ holomorphic near $0\in \C^{n}$, $f(0,\cdots ,0)=0$ and $w$-axis not contained in $f^{-1}(0)$. That is to say, if $f_{z'}(w)=f(z',w),z' \in  \C^{n-1}$, then $f_{0'}(w)$ is not identically zero. We know that $f_{0'}(w)=w^{p}g(w)$, $g(0)\neq 0,p \in \N$. Hence there exists $r>0$ s.t. $|f_{0'}(w)|>\delta>0$ whenever $|w|=r$, so $\exists \varepsilon >0$ s.t. $|z'|<\varepsilon $, $|w|=r$ then $|f_{z'}(w)|>\frac{\delta}{2}$. 
+
+Recall: $h(w)=\widetilde{h}(w)\prod_i (w-a_i)$, then $\frac{h'(w)}{h(w)}=\frac{\widetilde{h}'(w)}{\widetilde{h}(w)}+\sum_{i}^{} \frac{1}{w-a_i}$, so 
+\[
+  \frac{1}{2\pi i}\int_{\gamma}b(w) \frac{h'(w)}{h(w)}\,\mathrm{d}w=\sum_{i}b(a_i).
+\]
+Writing $f_{z'}(w)=\widetilde{f}_{z'}(w)\prod_{i=1}^{p}\left( w-a_i(z') \right) $, we see that
+\[
+  \sum a_i(z')^{q}=\frac{1}{2\pi i}\int_{|w|=r}w^{q}\frac{f'_{z'}(w)}{f_{z'}(w)}\,\mathrm{d}w.
+\]
+This shows that the LHS is a holomorphic functin of $z'$. Hence the elementary symmetric functions of the  $a_i(z')$ are holomorphic functions of  $z'$. Hence $g_{z'}(w)=w^{p}-\sigma_1(z')w^{p-1}+\cdots +(-1)^{d}\sigma_{d}(z')=\prod_{i}(w-a_i(z'))$ is also a holomorphic function of $z'$. That is, $g(z',w)=g_{z'}(w)$ is holomorphic on $\left\{|z'|<\varepsilon ,|w|<r\right\} $ and on this set it has the same zeros as $f(z',w)$. So lets define 
+\[
+  h(z',w)=\frac{f(z',w)}{g(z',w)}.
+\] 
+Clearly it is well-defined and holomorphic off the zero set. Also, for fixed $z'$, $h_{z'}(w)$ has only removable singularities, so it extends to a function on $D(0',\varepsilon ')\times D(0,r)$ which is holomorphic in $w$ for each $z'$ and holomorphic off the zero set. Writing $h(z',w)=\frac{1}{2\pi i}\int_{|u|=r}\frac{h(z',u)}{u-w}\,\mathrm{d}u$, we see that $h$ is holomorphic in $z'$.
+
+A Weierstrass polynomial in $w$ is a polynomial of the form
+\[
+  w^{p}+\alpha_1(z')w^{p-1}+\cdots +\alpha_p(z'),\quad \alpha_j(0)=0,  \alpha_j \text{ holomorphic},j=1,\cdots ,p.
+\]
+\begin{theorem}[Weierstrass Preparation Theorem]
+  If  $f$ is holomorphic near the origin in $\C^{n}$ such that $f(0)=0$ and not identically zero on the  $w$-axis, then there is a neighborhood of  zero in which $f$ can be written uniquely as 
+  \[
+  f=g\cdot h
+  \] 
+  where $g$ is a Weierstrass polynomial of degree $p$ and $h$ doesn't vanish at the origin.
+\end{theorem}
+
+\begin{theorem}[Riemann Extension Theorem]
+  Suppose $f(z',w)$ not indentically zero is holomorphic in a ball $\mathbb{B}\subset \C^{n}$, and $g(z',w)$ is holomorphic on $\overline{\mathbb{B}} \backslash  f^{-1}(0)$ and bounded. Then $g$ extends to a holomorphic function on $\mathbb{B}$.
+\end{theorem}
+
+\begin{proof}
+  WLOG, assume that $w$-axis is not contained in  $f^{-1}(0)$. As before, there are $r,\varepsilon $ s.t. $|f(z',w)|>\delta>0$ whenever $|z'|<\varepsilon ,|w|<r$. The $1$-variable Riemann extension theorem applies to each $g_{z'}$ and the extension $\widetilde{g}_{z'}(w)=\frac{1}{2\pi i}\int_{|w|=r}\frac{g_z'(\theta)}{w-\theta}\,\mathrm{d}\theta$. Hence $\widetilde{g}(z',w)=\widetilde{g}_{z'}(w)$ is holomorphic in $(z',w)$ for all $|z'|<\varepsilon ,|w|<r$. 
+\end{proof}
+
+ The theorem says A locally bounded holomorphic function on the complement of a ``thin'' set can be uniquely extended.
+
+ Finally, let's discuss the failure of the Riemann mapping theorem in several complex variables.
+\begin{example}
+  Consider $H=\left\{z\in \C^{n}: \Im z_1> 0\right\} $ and $\mathbb{B}^{n}=\left\{z\in \C^{n}:|z|<1\right\} $. If $\varphi :H\to \mathbb{B}^{n}$ is holomorphic, then for each $z_1$ with $\Im z_1>0$ the function $(z_2,\cdots ,z_n)\mapsto \varphi(z_1,z_2,\cdots ,z_n)$ is holomorphic and bounded on $\C^{n-1}$, hence by Liouville's theorem it's constant.
+\end{example}
+
+\begin{theorem}[Poincar\'{e}]
+ For $n>1$, the unit polydisc $\mathbb{D}^{n}$ and the unit ball $\mathbb{B}^{n}$ are not biholomorphic. 
+\end{theorem}
+\begin{proof}
+  (Simha, Indian mathematician) Assume $\varphi:\mathbb{D}^{n}\to \mathbb{B}^{n}$ is a biholomorphic with $\varphi(0)=0$. Let $\psi:\mathbb{B}^{n}\to \mathbb{D}^{n}$ be the inverse map. 
+
+  Claim: We must have $D_0\varphi(\mathbb{D}^{n})\subset \mathbb{B}^{n}$ and $D_0 \psi(\mathbb{B}^{n})\subset \mathbb{D}^{n}$. 
+  
+  Given the claim we have $D_0\varphi(\mathbb{D}^{n})=\mathbb{B}^{n}$. In particular $D_0\varphi(\partial \mathbb{D}^{n})=\partial \mathbb{B}^{n}$, but this is impossible since $D_0\varphi$ is linear, $\partial \mathbb{D}^{n}$ contains linear pieces of positive dimension and $\partial B=\mathbb{B}^{n}$ does not.
+
+  Proof of the claim: 
+  \begin{enumerate}
+    \item $D_0\varphi(\mathbb{D}^{n})\subset  \mathbb{B}^{n}$. Write $\varphi=\left( \varphi_1,\cdots ,\varphi_n \right) $, $v\in \mathbb{D}^{n}$, $u=(u_1,\cdots ,u_n)\in  \mathbb{B}^{n}$. Applying Schwarz's Lemma to the function
+      \[
+	t\mapsto u_j\varphi_{j}(tv).
+      \] 
+      We see that $|\ipd{\overline{u}}{\left( D_0\varphi \right)(v) }|\le 1$. As this holds for all $u \in \mathbb{B}^{n}$, we must have $|D_0 \varphi|\le 1$.
+    \item $D_0 \psi(\mathbb{B}^{n})\subset \mathbb{D}^{n}$. Write $\psi=\left( \psi_1,\cdots ,\psi_n \right) $, $u=\left( u_1,\cdots ,u_n \right) \in \mathbb{B}^{n}$. Applying Schwarz's Lemma to the function 
+      \[
+	t\mapsto \psi_j\left( tu_1,\cdots ,tu_n \right) .
+      \] 
+      We see that $|\sum_{}^{} u_k \partial_{z_k}\psi_j(0)|\le 1$ for $1\le j\le n$, hence $D_0\psi(\mathbb{B}^{n})\subset \mathbb{D}^{n}$.
+  \end{enumerate}
+\end{proof}
+
+\section{Complex manifolds}

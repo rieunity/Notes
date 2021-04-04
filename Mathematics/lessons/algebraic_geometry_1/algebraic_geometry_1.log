@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.10.24)  4 APR 2021 17:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.10.24)  4 APR 2021 22:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -470,11 +470,6 @@ Overfull \hbox (30.34787pt too wide) in paragraph at lines 163--164
 []\OT1/cmr/m/it/12 Let $\U/euf/m/n/12 a \U/msb/m/n/12 $ \OML/cmm/m/it/12 k\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 x[]; []  ; x[]\OT1/cmr/m/n/12 ]$
  []
 
-
-Overfull \hbox (38.78339pt too wide) in paragraph at lines 200--203
-\OT1/cmr/m/n/12 Now we prove the Null-stel-len-satz: \OT1/cmr/m/it/12 Proof\OT1/cmr/m/n/12 .[Proof of Null-stel-len-satz] Let $\U/euf/m/n/12 a \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 h\OML/cmm/m/it/12 f[]; []  ; f[]\OMS/cmsy/m/n/12 i\OML/cmm/m/it/12 ; f[] \OMS/cmsy/m/n/12 2
- []
-
 [8
 
 ] [9]
@@ -560,46 +555,51 @@ Overfull \hbox (1.00446pt too wide) in paragraph at lines 1464--1466
 [43] [44] [45
 
 ]
-Overfull \hbox (2.35165pt too wide) in paragraph at lines 1550--1552
+Overfull \hbox (2.35165pt too wide) in paragraph at lines 1549--1551
 \OT1/cmr/m/n/12 with $\OML/cmm/m/it/12 a[] \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 A\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 Y\OT1/cmr/m/n/12 )$. Take the one with the small-est de-gree $\OML/cmm/m/it/12 n$\OT1/cmr/m/n/12 , then $\OML/cmm/m/it/12 '[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 a[]\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 6\OT1/cmr/m/n/12 = 0$(otherwise
  []
 
 [46] [47
 
 ] [48] [49]
-Overfull \hbox (6.58344pt too wide) in paragraph at lines 1661--1662
+Overfull \hbox (6.58344pt too wide) in paragraph at lines 1660--1661
 \OML/cmm/m/it/12 Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 F\OT1/cmr/m/n/12 (1\OML/cmm/m/it/12 ; x[]; []  ; x[]\OT1/cmr/m/n/12 ))$. It has di-men-sion $\OML/cmm/m/it/12 n \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 1$ and is open in $\OML/cmm/m/it/12 Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 F\OT1/cmr/m/n/12 )$, so $[]\OML/cmm/m/it/12 Z\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 F\OT1/cmr/m/n/12 ) =
  []
 
 [50] [51]
-Overfull \hbox (27.75041pt too wide) in paragraph at lines 1738--1739
+Overfull \hbox (27.75041pt too wide) in paragraph at lines 1737--1738
 []
  []
 
 [52]
-Overfull \hbox (3.78879pt too wide) in paragraph at lines 1768--1769
+Overfull \hbox (23.47116pt too wide) in paragraph at lines 1763--1765
+\OMS/cmsy/m/n/12 h\OML/cmm/m/it/12 F\OMS/cmsy/m/n/12 i$\OT1/cmr/m/n/12 . But it is im-pos-si-ble be-cause $\OML/cmm/m/it/12 F$ \OT1/cmr/m/n/12 con-tains $\OML/cmm/m/it/12 x[]$ $\OMS/cmsy/m/n/12 )$ $\OML/cmm/m/it/12 G$ \OT1/cmr/m/n/12 con-tains $\OML/cmm/m/it/12 x[]$\OT1/cmr/m/n/12 . Thus $[]\OML/cmm/m/it/12 K\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 X\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 =k \OT1/cmr/m/n/12 =
+ []
+
+
+Overfull \hbox (3.78879pt too wide) in paragraph at lines 1767--1768
 []\OT1/cmr/m/it/12 Let $\OML/cmm/m/it/12 k$ \OT1/cmr/m/it/12 be a field of char-
  []
 
 
-Overfull \hbox (4.29004pt too wide) in paragraph at lines 1777--1778
+Overfull \hbox (3.51218pt too wide) in paragraph at lines 1776--1777
 \OML/cmm/m/it/12 Q\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 k\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 x[]; []  ; x[]; x\OT1/cmr/m/n/12 ]\OML/cmm/m/it/12 =\OMS/cmsy/m/n/12 h\OML/cmm/m/it/12 f\OMS/cmsy/m/n/12 i\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ' \OML/cmm/m/it/12 Q\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 k\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 a[]; []  ; a[]; x\OT1/cmr/m/n/12 ]\OML/cmm/m/it/12 =\OMS/cmsy/m/n/12 h\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )\OMS/cmsy/m/n/12 i\OT1/cmr/m/n/12 )$ $\OMS/cmsy/m/n/12 ' \OML/cmm/m/it/12 k\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 a[]; []  ; a[]\OT1/cmr/m/n/12 )[\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ]\OML/cmm/m/it/12 =\OMS/cmsy/m/n/12 h\OML/cmm/m/it/12 f\OMS/cmsy/m/n/12 i$ $' \OML/cmm/m/it/12 k\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 a[];$
  []
 
 [53] [54]
-Overfull \hbox (22.78403pt too wide) in paragraph at lines 1781--1781
+Overfull \hbox (22.78403pt too wide) in paragraph at lines 1780--1780
 |[]\OT1/cmr/bx/n/17.28 Tangent Space, Sin-gu-lar and Non-sin-gu-lar Points| 
  []
 
 [55
 
 ]
-Overfull \hbox (57.77931pt too wide) in paragraph at lines 1852--1853
-\OT1/cmr/m/it/12 One can ver-ify that $\OT1/cmr/m/n/12 d[]\OML/cmm/m/it/12 '$ \OT1/cmr/m/it/12 maps $\OML/cmm/m/it/12 T[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 X\OT1/cmr/m/n/12 )$ \OT1/cmr/m/it/12 into $\OML/cmm/m/it/12 T[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 Y\OT1/cmr/m/n/12 )$\OT1/cmr/m/it/12 . We can write $\OML/cmm/m/it/12 T[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 X\OT1/cmr/m/n/12 ) = [](\OML/cmm/m/it/12 J\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 f[]; []  ; f[]\OT1/cmr/m/n/12 )(\OML/cmm/m/it/12 p\OT1/cmr/m/n/12 ))$\OT1/cmr/m/it/12 .
+Overfull \hbox (54.65758pt too wide) in paragraph at lines 1851--1852
+\OT1/cmr/m/n/12 One can ver-ify that $d[]\OML/cmm/m/it/12 '$ \OT1/cmr/m/n/12 maps $\OML/cmm/m/it/12 T[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 X\OT1/cmr/m/n/12 )$ into $\OML/cmm/m/it/12 T[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 Y\OT1/cmr/m/n/12 )$. We can write $\OML/cmm/m/it/12 T[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 X\OT1/cmr/m/n/12 ) = [](\OML/cmm/m/it/12 J\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 f[]; []  ; f[]\OT1/cmr/m/n/12 )(\OML/cmm/m/it/12 p\OT1/cmr/m/n/12 ))$.
  []
 
 [56] [57] [58] [59] [60]
-Package hyperref Info: bookmark level for unknown exercise defaults to 0 on input line 2036.
+Package hyperref Info: bookmark level for unknown exercise defaults to 0 on input line 2035.
  [61] [62] [63] [64
 
 ] [65] [66])
@@ -629,7 +629,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  31i,16n,45p,1334b,498s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on algebraic_geometry_1.pdf (67 pages, 435945 bytes).
+Output written on algebraic_geometry_1.pdf (67 pages, 435259 bytes).
 PDF statistics:
  984 PDF objects out of 1000 (max. 8388607)
  888 compressed objects within 9 object streams

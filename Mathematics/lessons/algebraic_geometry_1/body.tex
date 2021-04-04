@@ -197,8 +197,8 @@
 \begin{remark}
 	$ Q(R) $ is a field. We always identify $ r\in R $ with $ \frac{r}{1}\in Q(R) $, then we can say $ R $ is the subring of $ Q(R) $. $ Q(k[x_1,\cdots,x_n]):=k(x_1,\cdots,x_n) $ is called the \textit{field of rational functions} in $ x_1,x_2,\cdots,x_n $.
 \end{remark}
-Now we prove the Nullstellensatz:
-\begin{proof}[Proof of Nullstellensatz]
+Now we prove the Nullstellensatz:\\
+\noindent{\itshape Proof of Nullstellensatz.}
 	Let $ \mathfrak{a} = \langle f_1,\cdots, f_r\rangle, f_i\in \mathfrak{a} $. Then $ I(Z(\mathfrak{a}))  $ is a radical ideal containing $ \mathfrak{a} $, so we get
 	$$
 		I(Z(\mathfrak{a}))\supset \sqrt{\mathfrak{a}}.
@@ -232,7 +232,7 @@ Now we prove the Nullstellensatz:
 	\begin{equation}
 		f^N=\sum\limits_{i=1}^{r}G_if^{N-n_i}\cdot f_i\in \mathfrak{a}
 	\end{equation}
-\end{proof}
+\hfill $\square$\par
 \begin{corollary}{}
   \noindent
 	\begin{enumerate}
@@ -1475,7 +1475,7 @@ Before we prove this theorem, we need to prove two lemmas we need to use.
 	$$
 	with $ c_l\in I $, it implies $ 1\in I $ and hence $ I $ is not a proper ideal in $ A $. By this contradiction we know $ IB\neq B $.
 \end{proof}
-\begin{proof}[Proof of theorem \ref{13-3}]
+\noindent{\itshape Proof of Theorem \ref{13-3}.}
 	Let $ \varphi :X\to Y $ be a finite morphism of affine varieties, and let $ W $ be a closed subvariety of $ X $. We need  to show $ \varphi(W) $ closed in $ Y $. Let $ Z $ be the closure of $ \varphi(W) $ in $ Y $, then we have to show $ Z=\varphi(W) $. Replacing $ X $ by $ W $ and $ Y $ by $ Z $, then our aim has changed to show a finite morphism $ \varphi:X\to Y $ of varieties with dense image is surjective.
 	As $ \varphi (X) $ is dense in $ Y $, we have that
 	$$
@@ -1492,7 +1492,7 @@ Before we prove this theorem, we need to prove two lemmas we need to use.
 		{ }             & =  Z(A(X)\cdot M).
 	\end{align*}
 	Thus by lemma \ref{13-1} we only need to show $ A(X)\cdot M \subsetneqq A(X)$, this is done by lemma \ref{13-2}, hence we finish the proof.
-\end{proof}
+\hfill $\square $ \par
 
 \section{Noether Normalization}
 
@@ -1518,7 +1518,7 @@ Before we prove this theorem, we need to prove two lemmas we need to use.
 \begin{proof}
 	Prove it by induction. For $ n=0 $ and $ n=1 $, it is obvious. Now assume $ n-1 $ is true , for $ f\in k[x_1,\cdots,x_n] $ we can write $ f=\sum\limits_{i}f_ix_1^i $ with $ f_i\in k[x_2,\cdots,x_{n}] $. There exists $ j $ such that $ f_j\neq 0$, by induction on $ n-1 $, there exists $ (b_2,\cdots,b_{n-1},1)\in \mathbb{A}^{n-1} $ such that $ f_j(b_2,\cdots,b_{n-1},1)\neq 0 $. Then we get $ g(x):=f(x,b_2,\cdots,b_{n-1},1) $ in $ k[x]\backslash\lbrace 0 \rbrace $. Of course there exists  $ b_1 $ such that $ g(b_1)\neq 0 $, i.e. $ f(b_1,b_2,\cdots,b_{n-1},1)\neq 0 $.
 \end{proof}
-\begin{proof}[Proof of Theorem \ref{14-1}]
+\noindent{\itshape Proof of Theorem \ref{14-1}.}
 	(1) Let $ F^{(d)} $ be the homogeneous part of $ F $ with the top degree, then $ F^{(d)}(x_1,\cdots,x_{n-1},1)\neq 0 $. Thus there exists $ (b_1,\cdots,b_{n-1})\in \mathbb{A}^{n-1} $ such that $ F^{(d)}(b_1,\cdots,b_{n-1},1)\neq 0 $. By change of coordinates and multiplying $ F $ by a constant, we can get $ F^{(d)}(0,\cdots,0,1)=1 $, it is equivalent to say the coefficient of $ x_n^d $ in $ F $ is $ 1 $. Let $ \Pi=(x_1,\cdots,x_{n-1}):Z(F)\to \mathbb{A}^{n-1} $ and $ [x_n]\in A(Z(F)) $ be the class of the last variable $ x_n $. Then we have
 	$$
 		A(Z(F))=\Pi^\ast (k[x_1,\cdots,x_{n-1}])[x_n].
@@ -1538,8 +1538,7 @@ Before we prove this theorem, we need to prove two lemmas we need to use.
 		\Pi:Z(F)\to \mathbb{A}^{n-1}
 	$$
 	where $ X\subset Z(F) $ is closed. The embedding of $ i:X\to Z(F) $ is finite, so $ \tilde{\Pi}=\Pi\circ i:X\to \mathbb{A}^{n-1} $ is a finite morphism. Let $ Y\subset \mathbb{A}^{n-1} $ be the image of $ X $. By induction on $ n $ there is a finite surjective morphism $ \varphi:Y\to \mathbb{A}^{k} $ for some $ k $, then $ \varphi\circ\Pi\circ i $ is a finite surjective morphism from $ X\to \mathbb{A}^{k} $ for some $ k $.
-
-\end{proof}
+\hfill $\square $ \par
 \begin{lemma}\label{14-2}
 	Let $ \varphi:X\to Y $ be a finite surjective morphism, let $ Z,W $ be closed subvarieties of $ X $ and $ Z\subsetneqq W $, then $ \varphi(Z)\subsetneqq \varphi(W) $.
 \end{lemma}
@@ -1713,7 +1712,7 @@ Before we prove this theorem, we need to prove two lemmas we need to use.
 \begin{remark}
 	The fact that $ X\cap Y\neq \emptyset $ if $\mathrm{dim}X+\mathrm{dim}Y\geq n $ is special for projective space. This can be used to prove that $ \mathbb{P}^1\times\mathbb{P}^1 $ is not isomorphic to $ \mathbb{P}^2 $. If $ \mathbb{P}^1\times\mathbb{P}^1 \simeq \mathbb{P}^2$, then for any $ 1 $-dimension subvarieties $ X,Y \subset \mathbb{P}^1\times \mathbb{P}^1$, we have $ X\cap Y \neq \emptyset $. But for $ X=\lbrace p\rbrace\times \mathbb{P}^1$ and $ Y=\lbrace q\rbrace \times \mathbb{P}^1 $ such that $ p\neq q $, we have $ X\cap Y=\emptyset $, which contradicts to the theorem, so $ \mathbb{P}^1\times\mathbb{P}^1 $ is not isomorphic to $ \mathbb{P}^2 $.
 \end{remark}
-\itshape{Proof of Theorem \ref{16-1}.}
+\noindent{\itshape Proof of Theorem \ref{16-1}.}
 	\begin{enumerate}
 		\item Trick: take the diagonal to reduce to the intersection with hyperplanes
 		      $$
@@ -1767,7 +1766,7 @@ This theorem may be proved soon after.
 \begin{theorem}[Existence of a Primitive Element]\label{17-1}
 	Let $ k $ be a field of characteristic $ 0 $, $ L/k $ is a finite field extension. Then $ \exists b\in L $ such that $ L=k(b) $.
 \end{theorem}
-\begin{proof}[Proof of Theorem \ref{16-2}]
+\noindent{\itshape Proof of Theorem \ref{16-2}.}
 	$ K(X) $ is function field of $ X $, let $ a_1,\cdots,a_r $ be a transcendence basis of $ K(X)/k $, then $ K(X)/k(a_1,\cdots,a_r) $ is a finite algebraic extension. By theorem  \ref{17-1}, there exists a primitive element $ b\in K(X) $ such that  $ K(X)=k(a_,\cdots,a_r)(b) $ and $ b $ is algebraic over $ k(a_1,\cdots,a_r) $. Since $ b $ is algebraic, there exists a polynomial $ F\in k(a_1,\cdots,a_r)[x] $ such that $ F(b)=0 $. Write
 	$$
 		F=\sum\limits_{l}\frac{G_l(a_1,\cdots,a_r)}{H_l(a_1,\cdots,a_r)}x^l
@@ -1775,7 +1774,7 @@ This theorem may be proved soon after.
 	where $ G_l(x_1,\cdots,x_r),H_l(x_1,\cdots,x_r)\in k[x_1,\cdots,x_r] $.
 
 	Now we view it as $ F(x_1,\cdots,x_r,x)\in k(x_1,\cdots,x_r,x) $. Multiply $ F $ by producting $ H_l $'s and then  divide it by the greatest common devisor of the new coefficients. We get $ f=\tilde{h}F\in k[x_1,\cdots,x_r,x] $, it is a primitive polynomial. Let $ Y=Z(f)\subset \mathbb{A}^{r+1} $, it is a irreducible hypersurface. Then $ A(Y)=k[x_1,\cdots,x_r,x]/\langle f\rangle $, $ K(Y)=Q(k[x_1,\cdots,x_r,x]/\langle f\rangle)\simeq Q(k[a_1,\cdots,a_r,x]/\langle f(x) \rangle) $ $ \simeq k(a_1,\cdots,a_r)[x]/\langle f\rangle$ $\simeq k(a_1,$ $\cdots,a_r)(b) $ $ \simeq $ $ K(X) $. Then $ X $ is birational to $ Y $.
-\end{proof}
+\hfill $\square$\par
 This proof also implies $ \mathrm{dim}X=\mathrm{trdeg}K(X) $.
 
 \section{Tangent Space, Singular and Nonsingular Points}

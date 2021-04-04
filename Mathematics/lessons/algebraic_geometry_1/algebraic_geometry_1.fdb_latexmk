@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1617484699 "algebraic_geometry_1.tex" "algebraic_geometry_1.pdf" "algebraic_geometry_1" 1617484699
+["pdflatex"] 1617527754 "algebraic_geometry_1.tex" "algebraic_geometry_1.pdf" "algebraic_geometry_1" 1617527764
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1246382020 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy8.tfm" 1246382020 1120 200be8b775682cdf80acad4be5ef57e4 ""
@@ -107,15 +107,15 @@
   "/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1571853559 4705182 bf438df4defcee09e6df4a733f75ef18 ""
   "/usr/local/texlive/2019/texmf-var/web2c/pdftex/pdflatex.fmt" 1571853578 4293312 e72b3702436da6adf09c22ca4cc5ca32 ""
   "/usr/local/texlive/2019/texmf.cnf" 1571853555 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "algebraic_geometry_1.aux" 1617484605 28850 704a9293d454a35a3f8178e513ff2bcf "pdflatex"
-  "algebraic_geometry_1.out" 1617484605 818 e84a723f1bb82637f39a3dacbd3ee5df "pdflatex"
-  "algebraic_geometry_1.tex" 1617484698 2174 fba28d78f0b0d78ab6ff918998a3a04a ""
-  "algebraic_geometry_1.toc" 1617484605 1115 3f66788459d15439bd562c48518b670b "pdflatex"
+  "algebraic_geometry_1.aux" 1617527755 28850 704a9293d454a35a3f8178e513ff2bcf "pdflatex"
+  "algebraic_geometry_1.out" 1617527755 818 e84a723f1bb82637f39a3dacbd3ee5df "pdflatex"
+  "algebraic_geometry_1.tex" 1617527761 2198 10a7843576b82563310c909cb993dfd4 ""
+  "algebraic_geometry_1.toc" 1617527755 1115 3f66788459d15439bd562c48518b670b "pdflatex"
   "body.tex" 1617483851 152041 8b460159c09025c1489a85da8ed8954e ""
   (generated)
-  "algebraic_geometry_1.toc"
-  "algebraic_geometry_1.out"
-  "algebraic_geometry_1.thm"
   "algebraic_geometry_1.log"
   "algebraic_geometry_1.pdf"
+  "algebraic_geometry_1.out"
   "algebraic_geometry_1.aux"
+  "algebraic_geometry_1.thm"
+  "algebraic_geometry_1.toc"

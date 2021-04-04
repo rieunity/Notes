@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.10.24)  4 APR 2021 05:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.10.24)  4 APR 2021 17:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -325,20 +325,20 @@ LaTeX Warning: Label `13-2' multiply defined.
 )
 \openout1 = `algebraic_geometry_1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -375,7 +375,7 @@ LaTeX Font Info:    ... okay on input line 40.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box30
-Package hyperref Info: Link coloring ON on input line 40.
+Package hyperref Info: Link coloring ON on input line 41.
 (/usr/local/texlive/2019/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
  (/usr/local/texlive/2019/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
@@ -383,9 +383,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count119
 )
-LaTeX Info: Redefining \ref on input line 40.
-LaTeX Info: Redefining \pageref on input line 40.
-LaTeX Info: Redefining \nameref on input line 40.
+LaTeX Info: Redefining \ref on input line 41.
+LaTeX Info: Redefining \pageref on input line 41.
+LaTeX Info: Redefining \nameref on input line 41.
  (./algebraic_geometry_1.out) (./algebraic_geometry_1.out)
 \@outlinefile=\write3
 \openout3 = `algebraic_geometry_1.out'.
@@ -415,15 +415,15 @@ Package grfext Info: Graphics extension search list:
  (/usr/local/texlive/2019/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 55.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 56.
  (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 55.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 56.
  (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 55.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 56.
  (/usr/local/texlive/2019/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 ) [1
@@ -459,14 +459,14 @@ Overfull \hbox (9.96143pt too wide) in paragraph at lines 19--21
 Package hyperref Info: bookmark level for unknown theorem defaults to 0 on input line 46.
 Package hyperref Info: bookmark level for unknown corollary defaults to 0 on input line 70.
  [4]
-Overfull \hbox (18.70988pt too wide) in paragraph at lines 90--91
+Overfull \hbox (22.45988pt too wide) in paragraph at lines 90--91
 []\OT1/cmr/m/n/12 A topo-log-i-cal space is called \OT1/cmr/m/it/12 noethe-rian \OT1/cmr/m/n/12 if ev-ery de-scend-ing chain:$\OML/cmm/m/it/12 X \OMS/cmsy/m/n/12 ^^[
  []
 
 [5]
 Package hyperref Info: bookmark level for unknown example defaults to 0 on input line 138.
  [6] [7]
-Overfull \hbox (26.59787pt too wide) in paragraph at lines 163--164
+Overfull \hbox (30.34787pt too wide) in paragraph at lines 163--164
 []\OT1/cmr/m/it/12 Let $\U/euf/m/n/12 a \U/msb/m/n/12 $ \OML/cmm/m/it/12 k\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 x[]; []  ; x[]\OT1/cmr/m/n/12 ]$
  []
 
@@ -478,7 +478,7 @@ Overfull \hbox (38.78339pt too wide) in paragraph at lines 200--203
 [8
 
 ] [9]
-Overfull \hbox (2.80266pt too wide) in paragraph at lines 262--263
+Overfull \hbox (6.55266pt too wide) in paragraph at lines 262--263
 []\OT1/cmr/m/n/12 Let $\OML/cmm/m/it/12 U[] \OT1/cmr/m/n/12 := \OMS/cmsy/m/n/12 f\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 a[]; []  ; a[]\OT1/cmr/m/n/12 ] \OMS/cmsy/m/n/12 2 \U/msb/m/n/12 P[]\OMS/cmsy/m/n/12 j\OML/cmm/m/it/12 a[] \OMS/cmsy/m/n/12 6\OT1/cmr/m/n/12 = 0\OMS/cmsy/m/n/12 g$\OT1/cmr/m/n/12 . $\OML/cmm/m/it/12 '[] \OT1/cmr/m/n/12 : \OML/cmm/m/it/12 U[] \OMS/cmsy/m/n/12 ! \U/msb/m/n/12 A[]$\OT1/cmr/m/n/12 , $[\OML/cmm/m/it/12 a[]; []  ; a[]\OT1/cmr/m/n/12 ] \OMS/cmsy/m/n/12 !
  []
 
@@ -493,7 +493,7 @@ Overfull \hbox (6.95947pt too wide) in paragraph at lines 264--265
  []
 
 
-Overfull \hbox (13.12373pt too wide) in paragraph at lines 271--272
+Overfull \hbox (16.87373pt too wide) in paragraph at lines 271--272
 []\OT1/cmr/m/n/12 Define pro-jec-tive al-ge-braic sets are zero sets of poly-no-mi-als in $\OML/cmm/m/it/12 k\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 x[]; []  ; x[]\OT1/cmr/m/n/12 ]$,
  []
 
@@ -504,7 +504,7 @@ Package hyperref Info: bookmark level for unknown lemma defaults to 0 on input l
  [13
 
 ]
-Overfull \hbox (16.04414pt too wide) in paragraph at lines 428--429
+Overfull \hbox (19.79414pt too wide) in paragraph at lines 428--429
 []$\OMS/cmsy/m/n/12 h\OML/cmm/m/it/12 x[]; []  ; x[]\OMS/cmsy/m/n/12 i$ \OT1/cmr/m/n/12 is called the ir-rel-e-vant ideal, an ideal dif-fer-ent from $\OMS/cmsy/m/n/12 h\OML/cmm/m/it/12 x[]; []  ; x[]\OMS/cmsy/m/n/12 i$
  []
 
@@ -529,18 +529,28 @@ Overfull \hbox (14.47314pt too wide) detected at line 1091
  []
 
 [32] [33] [34]
-Overfull \hbox (1.49431pt too wide) in paragraph at lines 1219--1220
+Overfull \hbox (5.24431pt too wide) in paragraph at lines 1219--1220
 []\OT1/cmr/m/n/12 Given fixed in-te-ger $\OML/cmm/m/it/12 d; n > \OT1/cmr/m/n/12 0$ and $\OML/cmm/m/it/12 N \OT1/cmr/m/n/12 :=
  []
 
-[35] [36] [37] [38
+[35]
+Overfull \hbox (2.66722pt too wide) in paragraph at lines 1260--1261
+[]\OT1/cmr/m/n/12 Let $\OML/cmm/m/it/12 F \OT1/cmr/m/n/12 = [] \OML/cmm/m/it/12 a[]M[]$ \OT1/cmr/m/n/12 be a ho-mo-ge-neous poly-no-mial of de-gree $\OML/cmm/m/it/12 d$ \OT1/cmr/m/n/12 in $\OML/cmm/m/it/12 x[]; []  ; x[]$\OT1/cmr/m/n/12 ,
+ []
+
+[36] [37] [38
 
 ] [39] [40]
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 1384.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
 (Font)              Font shape `U/lasy/m/n' tried instead on input line 1384.
- [41
+
+Overfull \hbox (2.72937pt too wide) in paragraph at lines 1392--1393
+[]\OT1/cmr/m/n/12 An $\OML/cmm/m/it/12 R$\OT1/cmr/m/n/12 -module $\OML/cmm/m/it/12 B$ \OT1/cmr/m/n/12 is called \OT1/cmr/m/it/12 finitely
+ []
+
+[41
 
 ] [42]
 Overfull \hbox (1.00446pt too wide) in paragraph at lines 1464--1466
@@ -562,16 +572,16 @@ Overfull \hbox (6.58344pt too wide) in paragraph at lines 1661--1662
  []
 
 [50] [51]
-Overfull \hbox (24.00041pt too wide) in paragraph at lines 1738--1739
+Overfull \hbox (27.75041pt too wide) in paragraph at lines 1738--1739
 []
  []
 
-
-Overfull \hbox (6.41443pt too wide) in paragraph at lines 1741--1742
-[]\OT1/cmr/m/n/12 Let $\OML/cmm/m/it/12 K=k$ \OT1/cmr/m/n/12 be a finitely gen-
+[52]
+Overfull \hbox (3.78879pt too wide) in paragraph at lines 1768--1769
+[]\OT1/cmr/m/it/12 Let $\OML/cmm/m/it/12 k$ \OT1/cmr/m/it/12 be a field of char-
  []
 
-[52]
+
 Overfull \hbox (4.29004pt too wide) in paragraph at lines 1777--1778
 \OML/cmm/m/it/12 Q\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 k\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 x[]; []  ; x[]; x\OT1/cmr/m/n/12 ]\OML/cmm/m/it/12 =\OMS/cmsy/m/n/12 h\OML/cmm/m/it/12 f\OMS/cmsy/m/n/12 i\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ' \OML/cmm/m/it/12 Q\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 k\OT1/cmr/m/n/12 [\OML/cmm/m/it/12 a[]; []  ; a[]; x\OT1/cmr/m/n/12 ]\OML/cmm/m/it/12 =\OMS/cmsy/m/n/12 h\OML/cmm/m/it/12 f\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 )\OMS/cmsy/m/n/12 i\OT1/cmr/m/n/12 )$ $\OMS/cmsy/m/n/12 ' \OML/cmm/m/it/12 k\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 a[]; []  ; a[]\OT1/cmr/m/n/12 )[\OML/cmm/m/it/12 x\OT1/cmr/m/n/12 ]\OML/cmm/m/it/12 =\OMS/cmsy/m/n/12 h\OML/cmm/m/it/12 f\OMS/cmsy/m/n/12 i$ $' \OML/cmm/m/it/12 k\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 a[];$
  []
@@ -596,30 +606,30 @@ Package hyperref Info: bookmark level for unknown exercise defaults to 0 on inpu
 \tf@thm=\write5
 \openout5 = `algebraic_geometry_1.thm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 60.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 61.
  [67]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 60.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 61.
  (./algebraic_geometry_1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 60.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 60.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 61.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 61.
 Package rerunfilecheck Info: File `algebraic_geometry_1.out' has not changed.
 (rerunfilecheck)             Checksum: E84A723F1BB82637F39A3DACBD3EE5DF;818.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 60.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 61.
  ) 
 Here is how much of TeX's memory you used:
  8180 strings out of 492167
  114273 string characters out of 6125373
- 219313 words of memory out of 5000000
+ 219339 words of memory out of 5000000
  11945 multiletter control sequences out of 15000+600000
  17356 words of font info for 69 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  31i,16n,45p,1334b,498s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on algebraic_geometry_1.pdf (67 pages, 435950 bytes).
+Output written on algebraic_geometry_1.pdf (67 pages, 435945 bytes).
 PDF statistics:
  984 PDF objects out of 1000 (max. 8388607)
  888 compressed objects within 9 object streams

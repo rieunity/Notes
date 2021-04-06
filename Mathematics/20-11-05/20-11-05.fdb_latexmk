@@ -1,17 +1,17 @@
 # Fdb version 3
-["bibtex 20-11-05"] 1605068230 "20-11-05.aux" "20-11-05.bbl" "20-11-05" 1605148924
+["bibtex 20-11-05"] 1605068230 "20-11-05.aux" "20-11-05.bbl" "20-11-05" 1617592922
   "/usr/local/texlive/2019/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "20-11-05.aux" 1605148923 2613 d6561a7905f6e816335661117dd02627 "xelatex"
   "mybib.bib" 1605016553 1069 425e06a9efcba4e84c376ac15deeb08a ""
   (generated)
   "20-11-05.bbl"
   "20-11-05.blg"
-["xdvipdfmx"] 1605148924 "20-11-05.xdv" "20-11-05.pdf" "20-11-05" 1605148924
+["xdvipdfmx"] 1605148924 "20-11-05.xdv" "20-11-05.pdf" "20-11-05" 1617592922
   "20-11-05.xdv" 1605148923 69292 051e1b5cedbc16839b88d28b76e5fe27 "xelatex"
   (generated)
   "20-11-05.pdf"
-["xelatex"] 1605148922 "20-11-05.tex" "20-11-05.xdv" "20-11-05" 1605148924
-  "/dev/null" 1605084498 0 d41d8cd98f00b204e9800998ecf8427e ""
+["xelatex"] 1605148922 "20-11-05.tex" "20-11-05.xdv" "20-11-05" 1617592922
+  "/dev/null" 1617575910 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/home/rieunity/texmf/tex/latex/tensor/tensor.sty" 1571488674 4258 177d16e71f50eb48389533ac9bd9cd26 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1136768653 1408 5937f58aa508ea2cea4901c07d10f5fe ""
@@ -259,10 +259,10 @@
   "body.tex" 1605148920 8612 71867aead1abc44424e6cf9f0996fd66 ""
   "figures/cug.jpeg" 1590582705 17294 64d120b0fdc713afbaad177c4f993b71 ""
   (generated)
-  "20-11-05.snm"
   "20-11-05.out"
-  "20-11-05.aux"
-  "20-11-05.toc"
   "20-11-05.xdv"
-  "20-11-05.log"
   "20-11-05.nav"
+  "20-11-05.toc"
+  "20-11-05.aux"
+  "20-11-05.log"
+  "20-11-05.snm"

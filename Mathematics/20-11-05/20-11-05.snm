@@ -1,6 +1,9 @@
-\beamer@slide {unc}{2}
-\beamer@slide {sch}{3}
-\beamer@slide {obsch}{4}
-\beamer@slide {kdv}{5}
-\beamer@slide {obkdv}{6}
-\beamer@slide {rel}{7}
+\beamer@slide {obs}{2}
+\beamer@slide {sch}{5}
+\beamer@slide {obsch}{5}
+\beamer@slide {unc}{6}
+\beamer@slide {kdv}{8}
+\beamer@slide {kdv-obs-old}{10}
+\beamer@slide {obkdv}{11}
+\beamer@slide {rel}{12}
+\beamer@slide {fig1}{18}

@@ -1,10 +1,10 @@
 # Fdb version 3
-["biber riemannian_geometry"] 1617482926 "riemannian_geometry.bcf" "riemannian_geometry.bbl" "riemannian_geometry" 1617527678
-  "riemannian_geometry.bcf" 1617527678 99041 fd165d5c91466655abc165140470ca8d "pdflatex"
+["biber riemannian_geometry"] 1617482926 "riemannian_geometry.bcf" "riemannian_geometry.bbl" "riemannian_geometry" 1617950645
+  "riemannian_geometry.bcf" 1617950645 99041 fd165d5c91466655abc165140470ca8d "pdflatex"
   (generated)
-  "riemannian_geometry.bbl"
   "riemannian_geometry.blg"
-["pdflatex"] 1617527677 "riemannian_geometry.tex" "riemannian_geometry.pdf" "riemannian_geometry" 1617527678
+  "riemannian_geometry.bbl"
+["pdflatex"] 1617950644 "riemannian_geometry.tex" "riemannian_geometry.pdf" "riemannian_geometry" 1617950645
   "/home/rieunity/texmf/tex/latex/tensor/tensor.sty" 1571488674 4258 177d16e71f50eb48389533ac9bd9cd26 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
@@ -228,18 +228,18 @@
   "figures/the-function.pdf_tex" 1616793427 2536 3ee0aef1dded89316c4826dc848cf008 ""
   "figures/totally-normal-neighborhood.pdf" 1616569433 6554 b611b3fc356691b8fbf0b8f9601dcfd0 ""
   "figures/totally-normal-neighborhood.pdf_tex" 1616569433 3397 308df9b7e05a1a83761bc64d7107e7c0 ""
-  "riemannian_geometry.aux" 1617527678 19505 f1d3c191ee20a2d2dd8c911167b6c95a "pdflatex"
+  "riemannian_geometry.aux" 1617950645 19505 f1d3c191ee20a2d2dd8c911167b6c95a "pdflatex"
   "riemannian_geometry.bbl" 1617482927 466 f7f239c736cf01ac6ce7bd829f9b3c7b "biber riemannian_geometry"
-  "riemannian_geometry.out" 1617527678 476 cc970cfca07c30c6626b1483c83cb029 "pdflatex"
-  "riemannian_geometry.run.xml" 1617527678 2405 ad204eb580f70ea7584a0f3a82e2a2ee "pdflatex"
-  "riemannian_geometry.tex" 1617527675 3768 c727c54e6f6f8579b7da63286835a799 ""
-  "riemannian_geometry.toc" 1617527678 1042 def3c36b0c5d6904fbd5deef3c47c064 "pdflatex"
+  "riemannian_geometry.out" 1617950645 476 cc970cfca07c30c6626b1483c83cb029 "pdflatex"
+  "riemannian_geometry.run.xml" 1617950645 2405 ad204eb580f70ea7584a0f3a82e2a2ee "pdflatex"
+  "riemannian_geometry.tex" 1617950643 3771 e9724635606ee4acee2e77cf35ad26cc ""
+  "riemannian_geometry.toc" 1617950645 1042 def3c36b0c5d6904fbd5deef3c47c064 "pdflatex"
   (generated)
   "riemannian_geometry.toc"
-  "riemannian_geometry.run.xml"
   "riemannian_geometry.thm"
-  "riemannian_geometry.out"
-  "riemannian_geometry.log"
-  "riemannian_geometry.aux"
-  "riemannian_geometry.pdf"
   "riemannian_geometry.bcf"
+  "riemannian_geometry.aux"
+  "riemannian_geometry.out"
+  "riemannian_geometry.pdf"
+  "riemannian_geometry.log"
+  "riemannian_geometry.run.xml"

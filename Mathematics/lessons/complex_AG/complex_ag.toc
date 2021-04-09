@@ -11,3 +11,5 @@
 \contentsline {section}{\numberline {5}Weierstrass preparation theorem}{12}{section.5}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {6}Complex manifolds}{14}{section.6}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7}More examples of complex manifods}{17}{section.7}% 

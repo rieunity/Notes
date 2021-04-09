@@ -301,3 +301,74 @@ A Weierstrass polynomial in $w$ is a polynomial of the form
 \end{proof}
 
 \section{Complex manifolds}
+\begin{definition}
+  Let $M$ be a metrizable topological space. A real (complex) coordinate chart is a homeomorphism $\varphi:\mathcal{U}\to \mathcal{V}$ between an open subset $\mathcal{U}\subset M$ and an open subset $\mathcal{V}\subset \R^{n}$ (or $\C^{n}$). A smooth (holomorphic) atlas is a collection of charts $\left\{\varphi_\alpha:\mathcal{U}\to \mathcal{V}_\alpha\right\} $ s.t. $M=\bigcup_{\alpha} \mathcal{U}_\alpha$ and whenever $\mathcal{U}_\alpha \cap \mathcal{U}_{\alpha'}\neq \O$ the 'transition map' $\varphi_\alpha\circ \varphi_{\alpha'}^{-1}:\varphi_{\alpha'}\left( \mathcal{U}_\alpha \cap \mathcal{U}_{\alpha'} \right) \to \varphi_\alpha \left( \mathcal{U}_\alpha \cap \mathcal{U}_{\alpha'} \right) $ between open subsets of $\R^{n}$ (or $\C^{n}$) is smooth (or holomorphic). 
+\end{definition}
+Two atlases are equivalent if their union is again an atlas. A smooth (or complex) manifold is a metrizable space $M$ together with an equivalence class of atlases.  
+
+We'll assume that all charts use the same dimensional Euclidean space and refer to $n$ as the real dimension of $M$ (or $m$ as the complex dimension of $M$).
+
+\begin{example}
+  \begin{enumerate}
+    \item Any open subset of $\R^{n}$ is an $n$-dimensional manifold with a single chart and sinimilarly any open subset of $\C^{m}$ is an  $m$-dimensional complex manifold with a single chart.
+    \item The sphere $\Sph^2$ is a $2$-dimensional real manifold and a $1$-dimensional complex manifold.
+
+\begin{figure}[ht]
+    \centering
+    \incfig{sphere}
+    \caption{$\Sph^2$ and its chart $\phi_N,\phi_S$ }
+    \label{fig:sphere}
+\end{figure}
+The real charts $\phi_N$ and $\phi_S$ are (See Figure \ref{fig:sphere})
+      \begin{align*}
+        \phi_N: \Sph^2 \backslash \left\{N\right\}  &\longrightarrow \R^2 \\
+	(x,y,z) &\longmapsto \phi_N(	(x,y,z)) = \left( \frac{x}{1-z},\frac{y}{1-z} \right) 
+      ,\end{align*}
+      \begin{align*}
+        \phi_S: \Sph^2 \backslash \left\{S\right\}  &\longrightarrow \R^2 \\
+	(x,y,z) &\longmapsto \phi_S(	(x,y,z)) = \left( \frac{x}{1+z},\frac{y}{1+z} \right) 
+      .\end{align*}
+  What is $\phi_N^{-1}$?
+  
+  $(u,v)=\left( \frac{x}{1-z},\frac{y}{1-z} \right) $, $u^2+v^2=\frac{x^2}{(1-z)^2}+\frac{y^2}{(1-z)^2}=\frac{1-z^2}{(1-z)^2}$, so $z= \frac{u^2+v^2-1}{u^2+v^2+1}$. Then 
+  \[
+    \phi_{N}^{-1}(u,v)=\left( \frac{2u}{1+u^2+v^2}, \frac{2v}{1+u^2+v^2}, \frac{u^2+v^2-1}{u^2+v^2+1} \right) .
+  \] 
+  So 
+  \[
+    \phi_S\circ \phi_{N}^{-1}(u,v)=\left( \frac{u}{u^2+v^2},\frac{v}{u^2+v^2} \right) .
+  \]
+  This is a smooth atlas.
+
+  Note that if we use $\phi_N:\Sph^2 \backslash  \left\{N\right\} \to \C,(x,y,z)\mapsto \frac{x+iy}{1-z}$ and $\phi_S:\Sph^2\backslash \left\{S\right\} \to \C,(x,y,z)\mapsto \frac{x+iy}{1+z}$, then
+  \[
+    \phi_S\circ \phi_N^{-1}(u+iv)= \frac{u+iv}{u^2+v^2}=\frac{1}{u-iv},
+  \] 
+  i.e., $w\mapsto \frac{1}{\overline{w} }$ and this map is not holomorphic. Simple fix: replace $\phi_S$ with $\widetilde{\phi}_S:\Sph^2 \backslash \left\{S\right\} \to \C, (x,y,z)\mapsto \frac{x-iy}{1+z}$. Then $\widetilde{\phi}_S\circ \phi^{-1}_N(w)=\frac{1}{w}:\C \backslash \left\{0\right\} \to \C\backslash \left\{0\right\} $ and this map is holomorphic. $\Sph^2$ together with the equivalence class of the atlas $\left\{\phi_N:\Sph^2\backslash \left\{N\right\} \to \C,\phi_S:\Sph^2\backslash \left\{S\right\} \to \C\right\} $ is a complex manifold called the Riemann sphere.
+\end{enumerate}
+\end{example}
+
+\begin{definition}
+  If $M$ is a smooth (complex) manifold, a function $M\to \R$ (or $M\to \C$)is smooth at $\zeta \in M$ (holomorphic at $\zeta \in M$) if there is a chart $\varphi:\mathcal{U}\to \mathcal{V}$ with $\mathcal{U}$ a neighborhood s.t. $f\circ \varphi^{-1}:\mathcal{V}\to \R$ is smooth ($f\circ \varphi^{-1}:\mathcal{V}\to \C$ is holomorphic). 
+
+  If $N$ is another smooth (complex) manifold, then a function $f:M\to N$ is smooth (or holomorphic) at $\zeta \in M$ if there are charts $\varphi:\mathcal{U}\to \mathcal{V},\varphi':\mathcal{U}'\to \mathcal{V}'$ with $\mathcal{U}$ a neighborhood of $\zeta$ in $M$ and $\mathcal{U'}$ a neighborhood of $f(\zeta)$ in $M'$ and $\varphi'\circ f\circ \varphi^{-1}:\mathcal{V}\to \mathcal{V}'$is smooth at $\varphi(\zeta)$ (or holomorphic at $\varphi(\zeta)$).
+\end{definition}
+
+
+\begin{example}
+  $\mathbb{CP}^{n}=$ the space of all complex lines in $\C^{n+1}$ through the origin = $\left( \C^{n+1}\backslash \left\{0\right\}  \right) / \C^{\times }$. There is a natrual surjective map $\pi:\C^{n+1}\backslash  \left\{0\right\} \to \mathbb{CP}^{n}, z\mapsto [z]$. Here $[z]$ is the equivalence class of $\left\{\lambda z:\lambda \in \C^{\times }\right\} $. Topologize $\mathbb{CP}^{n}$ through $\pi$, i.e., we declare $\pi(\mathcal{U})\subset \mathbb{CP}^{n}$ open for all $\mathcal{U}\subset \C^{n+1}\backslash \left\{0\right\} $ open. For any point $z=\left( z_0,z_1,\cdots ,z_n \right) $, we denote $\pi(z)$ by $(z_0:z_1:\cdots :z_n)$, and call these ``homogeneous coordinates''. Note $(z_0:z_1:\cdots :z_n)=\left( \lambda z_0:\lambda z_1:\cdots :\lambda z_n \right) \forall \lambda \in  \C^{\times }$.
+
+  For $0\le j\le n$, denote $\mathcal{U}_j=\left\{\left( z_0:z_1:\cdots :z_n \right) \in \mathbb{CP}^{n}:z_j\neq 0\right\} $. These form the ``standard open cover of $\mathbb{CP}^{n}$ ''. Define coordinate charts $\varphi_j:\mathcal{U}_j\to \C^{n},(z_0:z_1:\cdots :z_n)\mapsto \frac{1}{z_j}(z_0,\cdots ,\hat{z}_j,\cdots ,z_n).$ These are homeomorphisms with $\varphi_j^{-1}:\C^{n}\to \mathcal{U}_j, (w_1,\cdots ,w_n)\mapsto (w_1:\cdots :1:\cdots :w_n)$ by putting  $1$ in the $j$ spot.
+  $\varphi_j\left( \mathcal{U}_j\cap \mathcal{U}_k \right) =\left\{(w_1,\cdots ,w_n) \in \C^{n}: w_k\neq 0 \text{ if }j<k \text{ or } w_{k+1}\neq 0 \text{ if }j>k\right\} $. Assume $j<k$, then 
+  \begin{align*}
+    \varphi_k\circ \varphi_j^{-1}: \mathcal{U}_j\cap \mathcal{U}_k &\longrightarrow \varphi_k(\mathcal{U}_j\cap \mathcal{U}_k) \\
+    (w_1,\cdots ,w_n) &\longmapsto  \frac{1}{w_k}\left( w_1,\cdots ,w_{j-1},1,w_j,\cdots ,\widehat{w}_k,\cdots ,w_n \right) 			
+  .\end{align*}
+  This is holomorphic, so the atlas of $\left\{\varphi_j:\mathcal{U}_j\to \C^{n}\right\} $ gives $\mathbb{CP}^{n}$ the structure of a complex manifold of complex dimension $n$.
+
+  As smooth manifolds, $\mathbb{CP}^{n}\simeq \Sph^{2n+1} /\Sph^1$, $\Sph^{2n+1}\subset \C^{n+1},\Sph^{1}\subset \C$.
+  Hence $\mathbb{CP}^{n+1}$ is compact.
+\end{example}
+
+\section{More examples of complex manifods}
+

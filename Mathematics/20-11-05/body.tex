@@ -88,7 +88,7 @@ Gengsheng Wang, Ming Wang, Yubiao Zhang[JEMS, 2019]证明了下述定理
 
 \begin{frame}[t]{两点能观测不等式的特点}
   \begin{itemize}
-    \item 该不等式一改之前时间上必须是开区间的限制,把一段时间改进到了两点时刻.在此之前,全空间情形下的结果只有Rosier-Zhang[JDE, 2009]证明的在一段时间上有界区域外的能观测不等式.
+    \item 该不等式一改之前时间上必须是开区间的限制,把一段时间改进到了两点时刻.在此之前,全空间情形下的结果只有在一段时间上有界区域外的能观测不等式,该结果由Rosier-Zhang[JDE, 2009]证明.
     \item 建立了能观测不等式和不确定性原理的等价性.
     \item 常数关于$r_1,r_2$的依赖关系是最优估计,相应的两点时刻也是最优.
   \end{itemize}
@@ -139,6 +139,11 @@ Gengsheng Wang, Ming Wang, Yubiao Zhang[JEMS, 2019]证明了下述定理
   \begin{alertblock}{}
     集合$|S|,|\Sigma|$比上一情形更广泛.后者必须满足$S\subset B_{r_1}(0),\Sigma\subset B_{r_2}(0),r_1,r_2>0$.
   \end{alertblock}
+  例如,对于集合$S=\Sigma=\bigcup_{n=1}^\infty \left(n,n+\frac{1}{n^2}\right)$,显然它们都是有限可测集,但是它
+\end{frame}
+
+\begin{frame}[t]
+  们是无界的,即不包含在任何有界区域内.所以对于无界有限测度集合,Ze Li和Ming Wang证明的(\ref{kdv-obs-old})就无能为力,而新的KdV能观测不等式则成立.代价是失去了精确的常数估计.
 \end{frame}
 
 
@@ -237,7 +242,7 @@ Gengsheng Wang, Ming Wang, Yubiao Zhang[JEMS, 2019]证明了下述定理
 
   我们需要引入下述定义
   \begin{block}{$|x|^{-\alpha}$密度集}
-    如果一个可测集$A$称为具有$|x|^{-\alpha}$密度,如果其满足:对于一个给定的$\alpha>0$,有下式成立
+    一个可测集$A$称为具有$|x|^{-\alpha}$密度,如果其满足:对于一个给定的$\alpha>0$,有下式成立
     \begin{equation}
       \varlimsup_{x\to \infty}|A\cap [x,x+1]|\lesssim|x|^{-\alpha}.
     \end{equation}
@@ -255,7 +260,7 @@ Gengsheng Wang, Ming Wang, Yubiao Zhang[JEMS, 2019]证明了下述定理
 \begin{frame}[t]{举例与讨论}
   为了满足定理的密度条件,我们可以设集合
   \begin{equation}
-    S=\Sigma=\bigcup_{n=1}^{\infty}[n,n+\frac{1}{n^{\frac{5}{6}}}].
+    S=\Sigma=\bigcup_{n=1}^{\infty}[n,n+\frac{1}{n^{\frac{5.1}{6}}}].
   \end{equation}
   显然$S$和$\Sigma$都满足定理的条件,并且测度无限,所以这是和之前所有能观测不等式都不一样的新结果.
 
@@ -285,11 +290,11 @@ Gengsheng Wang, Ming Wang, Yubiao Zhang[JEMS, 2019]证明了下述定理
 
   例如,对于著名地Hilbert算子
   \begin{equation}
-    Hf(x)\equiv \mathrm{p.v.}\frac{1}{\pi}\int_{\R}\frac{f(x-t)}{t}\d t,
+    Hf(x)\equiv \mathrm{p.v.}\frac{1}{\pi}\int_{\R}\frac{f(x-t)}{t}\,\mathrm{d} t,
   \end{equation}
   集合其在任意有限测度上的反局部性,利用上述的证明方法便可得到不等式
   \begin{equation}
-    \int_{\R}|f|^2\,\mathrm{d} x\le C\left(\int_{A^c} |f|^2\d x+\int_{B^c}|Hf|^2\,\mathrm{d} x\right).
+    \int_{\R}|f|^2\,\mathrm{d} x\le C\left(\int_{A^c} |f|^2\mathrm{d} x+\int_{B^c}|Hf|^2\,\mathrm{d} x\right).
   \end{equation}
 \end{frame}
 

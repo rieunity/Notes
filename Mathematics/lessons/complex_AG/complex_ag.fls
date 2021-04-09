@@ -320,6 +320,11 @@ INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm1
 INPUT ./figures/fig1.pdf_tex
 INPUT ./figures/fig1.pdf_tex
 INPUT ./figures/fig1.pdf
+INPUT ./figures/sphere.pdf_tex
+INPUT ./figures/sphere.pdf_tex
+INPUT ./figures/sphere.pdf
+INPUT ./figures/sphere.pdf
+INPUT ./figures/sphere.pdf
 OUTPUT complex_ag.thm
 INPUT complex_ag.aux
 INPUT ./complex_ag.out

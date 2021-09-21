@@ -22,22 +22,22 @@ Here $v$ is a random variable equidistributed on the interval $(1,2)$. The serie
   \] 
 \end{definition}
 By definition, we compute the Fourier coefficients of $g$
-\begin{equation*}
-  \begin{aligned}
-    \hat{g}_m & =  \lim_{n\to \infty}\int_{-n}^{n}g(t)e^{-2\pi i m t }\mathrm{d}t\\
-    & = \lim_{n \to \infty} \int_{-n}^{n}\frac{1}{\sqrt{\varepsilon v} }\sum_{k\in \Z}^{} f\left( \frac{k+t}{\varepsilon  v} \right) e^{-2\pi i m t}\mathrm{d}t.\\
-    & \overset{t=\varepsilon v\lambda}{=} \lim_{n\to \infty}\sqrt{\varepsilon  v} \sum_{k\in \Z}^{} \int_{-n / (\varepsilon v)}^{n / (\varepsilon v)} f\left( \frac{k}{\varepsilon v}+\lambda \right) e^{-2\pi i m \varepsilon v\lambda}\mathrm{d}\lambda\\
-    & = \lim_{n \to \infty} \sqrt{\varepsilon v} \sum_{k\in \Z}^{} \int_{(-n+k) / (\varepsilon v)}^{(n+k) / (\varepsilon  v)} f\left( \lambda \right) e^{-2\pi i m\varepsilon  v\lambda}\mathrm{d}\lambda\\
-    & = \sqrt{\varepsilon v} \hat{f}\left( m\varepsilon v \right) .
-  \end{aligned}
-\end{equation*}
+\begin{align*}
+  \hat{g}_m &= \int_0^{1}g(t)e^{-2\pi i mt}\,\mathrm{d}t\\
+  &= \int_0^{1}\frac{1}{\sqrt{\varepsilon v} }\sum_{k\in \Z}^{} f\left( \frac{k+t}{\varepsilon v} \right) e^{-2\pi imt}\,\mathrm{d}t\\
+  &= \frac{1}{\sqrt{\varepsilon v} }\sum_{k\in \Z}^{} \int_0^{1}f\left( \frac{k+t}{\varepsilon v} \right) e^{-2\pi i mt}\,\mathrm{d}t\\
+  &\overset{t=\varepsilon v\lambda}{=}\sqrt{\varepsilon v}  \sum_{k\in \Z}^{} \int_0^{\frac{1}{\varepsilon v}}f\left( \frac{k}{\varepsilon v}+\lambda \right) e^{-2\pi im\varepsilon v\lambda}\,\mathrm{d}\lambda\\
+  &=\sqrt{\varepsilon v} \sum_{k\in \Z}^{} \int_{\frac{k}{\varepsilon v}}^{\frac{k+1}{\varepsilon v}}f\left( \lambda \right) e^{-2\pi im\varepsilon v \lambda}\,\mathrm{d}\lambda\\
+  &=\sqrt{\varepsilon v} \int_{-\infty}^{\infty}f(\lambda)e^{-2\pi im\varepsilon v\lambda}\,\mathrm{d}\lambda\\
+  &=\sqrt{\varepsilon v} \hat{f}\left( m\varepsilon v \right) 
+.\end{align*}
 \begin{proposition}
   \begin{enumerate}
     \item []
-    \item [(a)] $\mu\left( \left\{ t\in (0,1):g(t)\neq 0 \right\}  \right) \le 2\varepsilon \mu(E)$;
+    \item [(a)] $\mu\left( \left\{ t\in (0,1):g(t)\neq 0 \right\}  \right) \le 2\varepsilon \mu(E)$.
     \item [(b)] $\mathbf{E}\|g\|^2_{L^2(0,1)}\le 2\varepsilon | \hat{f}(0) |^2+2\|f\|^2_{L^2(\R)}\le 2\left( \varepsilon \mu(E)+1 \right) \|f\|^2_{L^2(\R)}$. 
     \item [] Let $\Sigma \subset \R$ be measurable, $0\in \Sigma$. We consider a random lattice $\Lambda=\Lambda(\varepsilon ,v)\overset{\mathrm{def}}{=}\left\{ s\varepsilon v:s\in \Z \right\} $ and denote $\mathfrak{M}=\left\{ s\in \Z: s\varepsilon v\in \Sigma \right\} $.
-    \item [(c)]$\mathbf{E}\left( \mathrm{card}\mathfrak{M}-1 \right)\le  \frac{\mu\left( \Sigma \right) }{\varepsilon } $;
+    \item [(c)]$\mathbf{E}\left( \mathrm{card}\mathfrak{M}-1 \right)\le  \frac{\mu\left( \Sigma \right) }{\varepsilon } $.
     \item [(d)] $\mathbf{E}\Sigma_{m\in \Z\backslash \mathfrak{M}}\left| \hat{g}_m \right| ^2\le 2\int_{\R\backslash \Sigma}|\hat{f} | ^2$.
   \end{enumerate}
 \end{proposition}
@@ -61,7 +61,7 @@ By definition, we compute the Fourier coefficients of $g$
   \end{equation*}
   It remains to notice that 
   \[
-    |\hat{f}(0)|^2=|\int_E f|^2\le \mu(E)\int_E|f|^2=\mu(E)\|f\|^2_{L^2(\R)}.
+    |\hat{f}(0)|^2=\left|\int_E f\right|^2\le \mu(E)\int_E|f|^2=\mu(E)\|f\|^2_{L^2(\R)}.
   \]
 \item  [(c)] Since $\mathrm{card}\mathfrak{M}=1+\sum_{k\in \Z\backslash \{0\} }^{} \chi_{\Sigma}(k\varepsilon v)$, we have
   \[
@@ -85,19 +85,19 @@ Let $E$ and $\Sigma$ be two measurable subsets of $\R$. Borrrowing the terminolo
     (*)  & &  \|f\|^2_{L^2(\R)}\le C\left( \int_{\R\backslash E}|f|^2+\int_{\R\backslash \Sigma}|\hat{f}|^2 \right) 
   \end{aligned}
 \end{equation*}
-holds for every function $f\in L^2(\R)$. The strong annihilation condition can be written in a form which is less symmetric but more convenient to verify: $E$ and $\Sigma$ strongly annihilate if and only if 
+holds for every function $f\in L^2(\R)$. The strong annihilation condition can be written in a form which is less symmetric but more convenient to verify: $E$ and $\Sigma$ strongly annihilate if and only if there exists a constant $C>0$ such that 
   \begin{equation*}
     \begin{aligned}
       (**) & & \int_{\Sigma}|\hat{f}|^2\le C'\int_{\R\backslash \Sigma}|\hat{f}|^2
     \end{aligned}
   \end{equation*}
-  for every $f\in L^2(\R)$ supported on $E$.
+  holds for every $f\in L^2(\R)$ supported on $E$.
 
   There is a relationship between the best possible constants  $C$ and $C'$ :
   \[
     C'=\mathrm{ctg}^2\alpha, \qquad C=\frac{1}{2\sin^2 \frac{\alpha}{2}}=\frac{1}{1-\cos\alpha},
   \] 
-  where $\alpha$ is the angle between the subspaces $L^2(E)\overset{\mathrm{def}}{=}\left\{ f\in L^2(\R):\mathrm{supp}f \subset  E \right\} $ and $L^2\left( \hat{\Sigma} \right) \overset{\mathrm{def}}{=}\left\{ f\in L^2(\R):\mathrm{spec}f\subset \Sigma \right\} $ of the Hilbert space $L^2(\R)$. The proof of this statement is a simple exercise in geometry. Denote g by $P_{E}$ and $P_{\hat{\Sigma}}$ the orthogonal projection onto $L^2(E)$ and $L^2(\hat{\Sigma})$, repectively, we have:
+  where $\alpha$ is the angle between the subspaces $L^2(E)\overset{\mathrm{def}}{=}\left\{ f\in L^2(\R):\mathrm{supp}f \subset  E \right\} $ and $L^2\left( \hat{\Sigma} \right) \overset{\mathrm{def}}{=}\left\{ f\in L^2(\R):\mathrm{spec}f\subset \Sigma \right\} $ of the Hilbert space $L^2(\R)$. The proof of this statement is a simple exercise in geometry. Denoting by $P_{E}$ and $P_{\hat{\Sigma}}$ the orthogonal projection onto $L^2(E)$ and $L^2(\hat{\Sigma})$ repectively, we have:
   \begin{equation*}
     \begin{aligned}
       \cos \alpha = & \sup\left\{ |(f,g)|:f\in L^2(E),g\in L^2\left( \hat{\Sigma} \right), \|f\|^2_{L^2(\R)}=\|g\|^2_{L^2(\R)}=1  \right\}\\
@@ -147,7 +147,7 @@ Now we state the main theorem of this section.
     \[
       \int_{\Sigma}|\hat{f}|^2\le 64e^{\mu(E)\mu(\Sigma)}\int_{\R\backslash \Sigma}|\hat{f}|^2
     \] 
-    for every function $f\in L^2(E)$. We set $\varepsilon =\frac{1}{4\mu(E)}$ and introduce the random periodiztion $g$ of the function $f$. By (a), 
+    for every function $f\in L^2(E)$. We set $\varepsilon =\frac{1}{4\mu(E)}$ and introduce the random periodization $g$ of the function $f$. By (a), 
     \[
       \mu\left( \left\{ t\in (0,1):g(t)=0 \right\}  \right) \overset{\mathrm{def}}{=}\mu(F)\ge 1-2\varepsilon \mu(E)=\frac{1}{2}.
     \] 

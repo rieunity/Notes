@@ -1,0 +1,50 @@
+\section{Lecture 1 Motivation and goals}
+\begin{example}
+  Let $k$ be a field and $R=k[x,y,z]$, $I=(y-x^2,z)$, $J=(x)$, then $\sfrac{R}{I}\otimes \sfrac{R}{J}=\sfrac{R}{I+J}=\sfrac{R}{(x,y,z)}$. Now we are pretending that we know what $\Tor $ means, we have 
+  \[
+  \mathrm{codim}I\cap \mathrm{codim}J=3=\mathrm{codim}I+\mathrm{codim}J,
+  \] 
+  and
+  \[
+    \Tor_1^{R}\left( \sfrac{R}{I},\sfrac{R}{J} \right) =0.
+  \]
+ 
+  For $J'=(y)$, we have $\sfrac{R}{I}\otimes \sfrac{R}{J'}=\sfrac{R}{I+J'}=\sfrac{R}{(x^2,y,z)}\neq \sfrac{R}{(x,y,z)}$.
+\[
+  \Tor_1^{R}(\sfrac{R}{I},\sfrac{R}{J'})=0.
+\] 
+  For $K=(x,y)$, not transverse! $\sfrac{R}{I}\otimes \sfrac{R}{K}=\sfrac{R}{I+K}=\sfrac{R}{(x,y,z)}$. We have
+  \[
+  \mathrm{codim}I\cap \mathrm{codim}K=3<4=\mathrm{codim}I+\mathrm{codim}K,
+  \] 
+  \[
+    \Tor_1^{R}\left( \sfrac{R}{I},\sfrac{R}{K} \right) =\sfrac{R}{(x,y,z)},
+  \] 
+  and 
+  \[
+  \Tor_2=0.
+  \] 
+  $\sfrac{R}{K}\otimes \sfrac{R}{K}=\sfrac{R}{K}$, 
+  \[
+    \Tor_1\left( \sfrac{R}{K},\sfrac{R}{K} \right) =\left( \sfrac{R}{K} \right) ^2,
+  \] 
+  \[
+  \Tor_2=\sfrac{R}{K},
+  \] 
+  and
+  \[
+  \Tor_3=0.
+  \] 
+\end{example}
+In general, if $I,J\subset \C[x_1,\cdots ,x_n]$, cut-out $X,Y\subset \C^{n}$ (smooth), we know $\mathrm{codim}(X\cap Y)\le \mathrm{codim}X+\mathrm{codim}Y$, difference tells the last non-zero $\Tor_i\left( \sfrac{R}{I},\sfrac{R}{J} \right) $.
+
+\begin{example}
+  Let $R$ be a Noetherian commutative ring and $M$ a finitely genrated module. 
+  \[
+    \mathrm{projdim}(M)=\text{ length of shortest projective resolution},
+  \] 
+  \[
+    \mathrm{globdim}(R)=\max\left(\mathrm{projdim}\left( \text{ finitely generated modules} \right)   \right) 
+  \] 
+  Serre: The global dimension is finite if and only if $R$ is regular. If $k=\overline{k}$ and $R=\sfrac{k[x_1,\cdots ,x_n}{I}$, then regular $\Leftrightarrow$ smooth. But $\Z$ is also regular and we will see it's one dimensional, $\Z[\sqrt{-5} ]$ is regular, $\Z[\sqrt{-3} ]$ is not, $\Z\left[ \frac{1+\sqrt{-3} }{2} \right] $ is regular.
+\end{example}

@@ -1,1 +1,865 @@
-$$
+\thispagestyle{empty}
+The learning notes are a collection of some notions and important theorems about category theory. I learned it from the note \textit{Basic Category Theory} written by Tom Leinster. Most of the content is from this note, others are from the Stack Project and \textit{The Rising Sea: Fundations of Algebraic Geometry}. 
+\tableofcontents
+\section{Basic notions}
+\begin{definition}
+  A \textit{category} $\mathscr{A}$ consists of:
+  \begin{itemize}
+    \item a collection $\mathrm{ob}(\mathscr{A})$ of objects;
+    \item for each $A,B \in \mathrm{ob}(\mathscr{A})$, a collection $\mathscr{A}(A,B)$ of \textit{maps} or \textit{arrows} or \textit{morphisms} from $A$ to $B$ ;
+    \item for each $A,B,C \in \mathrm{ob}(\mathscr{A})$, a function
+      \begin{align*}
+	\mathscr{A}(B,C)\times \mathscr{A}(A,B) & \to \mathscr{A}(A,C)\\
+	(g,f)&\mapsto g\circ f,
+      \end{align*}
+      called \textit{composition};
+    \item for each $A\in \mathrm{ob}(\mathscr{A})$, an element $1_A$ of $\mathscr{A}(A,A)$, called the \textit{identity} on $A$ 
+    \end{itemize}
+    satisfying the following axioms:
+    \begin{itemize}
+      \item \textbf{associativity}: for each $f\in \mathscr{A}(A,B)$, $g\in \mathscr{A}(B,C)$ and $h\in \mathscr{A}(C,D)$, we have $\left( h\circ g \right) \circ f=h\circ (g\circ f)$;
+      \item \textbf{identity laws}: for each $f\in \mathscr{A}(A,B)$, we have $f\circ 1_A=f=1_B\circ f$.
+  \end{itemize}
+\end{definition}
+
+\begin{remark}
+  We often writ $A\in \mathscr{A}$ to mean $A\in \mathrm{ob}(\mathscr{A})$, $f:A\to B$ or $A\xrightarrow{f}B$ to mean $f\in \mathscr{A}(A,B)$, and $gf$ to mean $g\circ f$.
+\end{remark}
+
+\begin{definition}
+  Let $\mathscr{A}$ and $\mathscr{B}$ be categories. A \textit{functor} $F:\mathscr{A}\to \mathscr{B}$ consists of:
+  \begin{itemize}
+    \item a function 
+      \[
+	\mathrm{ob}(\mathscr{A})\to \mathrm{ob}(\mathscr{B}),
+      \] written as $A\mapsto F(A)$ ;
+    \item for each $A,A' \in \mathscr{A}$, a function
+      \[
+	\mathscr{A}(A,A')\to \mathscr{B}(F(A),F(A')),
+      \] written as $f\mapsto F(f)$,
+  \end{itemize}
+  satisfying the following axioms:
+  \begin{itemize}
+    \item $F(f'\circ f)=F(f')\circ F(f)$ whenever $A\xrightarrow{f}A'\xrightarrow{f'}A''$ in $\mathscr{A}$ ;
+    \item $F(1_{A})=1_{F(A)}$ whenever $A\in \mathscr{A}$.
+  \end{itemize}
+\end{definition}
+
+Here are two ways of constructing new categories from old.
+\begin{definition}
+  Every category $\mathscr{A}$ has an \textit{opposite} or \textit{dual} category $\mathscr{A}^{\mathrm{op}}$, defined by reversing tha arrows. Formally, $\mathrm{ob}(\mathscr{A}^{\mathrm{op}})=\mathrm{ob}(\mathscr{A})$ and $\mathscr{A}^{\mathrm{op}}(B,A)=\mathscr{A}(A,B)$ for all objects $A$ and $B$.
+\end{definition}
+
+\begin{definition}
+  Given categories $\mathscr{A}$ and $\mathscr{B}$, A \textit{product category} $\mathscr{A}\times \mathscr{B}$ is a category in which
+  \begin{align*}
+    \mathrm{ob}(\mathscr{A}\times \mathscr{B})&=\mathrm{ob}(\mathscr{A})\times \mathrm{ob}\mathscr{B},\\
+    \left( \mathscr{A}\times \mathscr{B} \right) \left( (A,B),(A',B') \right) &=\mathscr{A}(A,A')\times \mathscr{B}(B,B').
+  .\end{align*}
+\end{definition}
+
+Since we have the notion of dual category, we also have the notion of dual functor, which is formally called contravariant functor.
+\begin{definition}
+  Let $\mathscr{A}$ and $\mathscr{B}$ be categories. A \textit{contravariant functor} from $\mathscr{A}$ to $\mathscr{B}$ is a functor $\mathscr{A}^{\mathrm{op}}\to \mathscr{B}$.
+\end{definition}
+\begin{definition}
+  A functor $F:\mathscr{A}\to \mathscr{B}$ is \textit{faithful} (respectively, \textit{full}) if for each $A,A' \in \mathscr{A}$, the function
+  \begin{align*}
+    \mathscr{A}(A,A')  &\longrightarrow \mathscr{B}(F(A),F(A')) \\
+    f &\longmapsto F(f)
+   .\end{align*}
+  is injective (respectively, surjective).
+\end{definition}
+
+\section{Natural transformations}
+
+\begin{definition}
+  Let $\mathscr{A}$ and $\mathscr{B}$ be categories and let $
+  \begin{tikzcd}
+    \mathscr{A}\arrow[r, shift left, "F"] \arrow[r, shift right, "G"']&\mathscr{B}  
+  \end{tikzcd}
+  $ be functors.
+  A \textit{natural transformation} $\alpha:F\to G$ is a family $\left( F(A)\xrightarrow{\alpha_A} G(A) \right) _{A\in \mathscr{A}}$ of morphisms in $\mathscr{B}$ for every map $A\xrightarrow{f} A'$ in  $\mathscr{A}$, the square
+  \begin{equation}
+    \begin{tikzcd}
+      F(A)\arrow[r, "F(f)"] \arrow[d, "\alpha_{A}"']  & F(A') \arrow[d, "\alpha_{A'}" ]\\
+      G(A)\arrow[r, "G(f)"'] & G(A') 
+    \end{tikzcd}
+  \end{equation}
+  commutes. The morphisms $\alpha_A$ are called the components of $\alpha$. We also write
+  \[
+  \begin{tikzcd}
+    \mathscr{A}\arrow[r, bend left=50, "F",""{name=U, below}]\arrow[r, bend right=50, "G"', ""{name=D}]& \mathscr{B} \arrow[Rightarrow, "\alpha", from=U, to=D]   
+  \end{tikzcd}
+  \] 
+  to mean that $\alpha$ is a natural transformation from $F$ to $G$.
+\end{definition}
+
+Given natural transformations
+\[
+\begin{tikzcd}
+  \mathscr{A}\arrow[r, bend left=100, "F", ""{name=U,below}]\arrow[r, "G" description, ""{name=M},""{name=MD,below}]\arrow[r, bend right=100, "H"', ""{name=D}]  & \mathscr{B}\arrow[Rightarrow, "\alpha", from=U, to=M] \arrow[Rightarrow, "\beta", from=MD,to=D]   
+\end{tikzcd}
+\]
+There is a composite natural transformation
+  \[
+  \begin{tikzcd}
+    \mathscr{A}\arrow[r, bend left=50, "F",""{name=U, below}]\arrow[r, bend right=50, "H"', ""{name=D}]& \mathscr{B} \arrow[Rightarrow, "\beta\circ\alpha", from=U, to=D]   
+  \end{tikzcd}
+  \] 
+  defined by $(\beta\circ\alpha)_{A}=\beta_{A}\circ \alpha_A$ for all $A \in \mathscr{A}$. It is sometimes called \textit{vertical composition}. 
+
+  There is also an identity natural transformation
+  \[
+  \begin{tikzcd}
+    \mathscr{A}\arrow[r, bend left=50, "F",""{name=U, below}]\arrow[r, bend right=50, "F"', ""{name=D}]& \mathscr{B} \arrow[Rightarrow, "1_F", from=U, to=D]   
+  \end{tikzcd}
+  \] 
+  on any functor $F$, defined by $(1_F)_A=1_{F(A)}$. 
+  \begin{definition}
+    For any two categories $\mathscr{A}$ and $\mathscr{B}$, there is a category whose objects are the functors between $\mathscr{A}$ and $\mathscr{B}$ and whose morphisms are the natural transformation between thenm. The composition law and identity morphism are defined and shown above. This is called the \textit{functor category} from $\mathscr{A}$ to $\mathscr{B}$ and written as $[\mathscr{A},\mathscr{B}]$.
+  \end{definition}
+
+
+  \begin{definition}
+    Let $\mathscr{A}$ and $\mathscr{B}$ be categories. A \textit{natural isomorphism} between functors from $\mathscr{A}$ to $\mathscr{B}$ is an isomorphism in $\left[ \mathscr{A},\mathscr{B} \right] $. In other words, let  $\alpha$ be a natural transformation from $F$ to $G$ where $F$ and $G$ are functors from $\mathscr{A}$ to $\mathscr{B}$, then $\alpha$ is a natural isomorphism if and only if $\alpha_A:F(A)\to G(A)$ is an isomorphism for all $A\in \mathscr{A}$.
+  \end{definition}
+
+  Since natural isomorphism is just isomorphism in a particular category $\left[ \mathscr{A},\mathscr{B} \right] $, we already have notation for this: 
+  \[
+  F\cong G.
+  \] 
+
+  \begin{definition}
+    Let $F,G$ be two functors from $\mathscr{A}$ to $\mathscr{B}$, we say that 
+    \[
+      F(A)\cong G(A) \text{ naturally in }A
+    \] if $F$ and $G$ are naturally isomorphic.
+  \end{definition}
+
+  \begin{definition}
+    An \textit{equivalence } between categories $\mathscr{A}$ and $\mathscr{B}$ consists of a pair of functiors $ 
+  \begin{tikzcd} 
+    \mathscr{A}\arrow[r, shift left, "F"] \arrow[r, leftarrow, shift right, "G"']&\mathscr{B}  
+  \end{tikzcd}
+  $
+  such that 
+  \begin{equation}
+  G\circ F \cong 1_{\mathscr{A}} \text{ and }F\circ G \cong 1_{\mathscr{B}}.
+\end{equation} 
+  We say that $\mathscr{A}$ and $\mathscr{B}$ are equivalent if there is an equivalence between them and write $\mathscr{A}\simeq \mathscr{B}$. The functors $F$ and $G$ are equivalences.
+  \end{definition}
+
+  \begin{remark}
+    Consider the category of all finite sets $\mathbf{FinSet}$ (and mappings between those). That's a huge category. However in a sense it should not be so huge, since essentially there only as many finite sets as they are natural numbers. Consider annother category $\mathscr{A}$, which is only the finite sets of the form $\left\{1,\cdots ,n\right\} $. Now for every $n\in \N$, $\mathscr{A}$ has one set-representative of that size while $\mathbf{FinSet}$ has many, but in $\mathbf{FinSet}$ all these sets of the same size are isomorphic and we should not treat isomorphic sets as being different.
+
+    Hence it doesn't make any real difference if we use $\mathbf{FinSet}$ or  $\mathscr{A}$ to deal with finite sets. So they ought to be the same. And they are equivalent but not isomorphic.\footnote{This remark is from \href{https://math.stackechange.com/questions/2761653/why-is-equivalence-of-functiors-defined-differently-from-the-equivalence-of-categ}{here}.}
+  \end{remark}
+
+  \begin{definition}
+    Let $F:\mathscr{A}\to \mathscr{B}$ be a functor, we say $F$ is \textit{essentially surjective on objects} if for all $B \in \mathscr{B}$, there exists $A \in \mathscr{A}$ such that $F(A)\cong B$.
+  \end{definition}
+  
+  \begin{proposition}
+    A functor $F:\mathscr{A}\to \mathscr{B}$ is an equivalence if and only if it is full, faithfull and essentially surjective on objects.
+  \end{proposition}
+  \begin{proof}
+    First assume two natural isomorphisms
+    \[
+    \eta :G\circ F\to 1_{\mathscr{A}},\quad \varepsilon :F\circ G\to 1_{\mathscr{B}}.
+    \] 
+    Let $f,f':A\to A'$ and $F(f)=F(f'):F(A)\to F(A')$, then  $G\circ F(f)=G(F(f))=G(F(f'))=G\circ F(f'):G(F(A))\to G\left( F(A') \right) $. Then $\eta\circ \left( G\circ F(f) \right)=\eta\circ \left( G\circ F (f') \right) \Rightarrow f=f' $. Hence $F$ is faithuful. 
+    Let $g \in \mor \left( F(A),F(A') \right) $, then $g= \left( F\circ G \right)\circ \left(\varepsilon (g)\right) $. Then there exists $f=G\circ \varepsilon (g)$ s.t. $F(f)=g$, hence $F$ is full. Given any $B \in \mathscr{B}$, let $A=G(B)$, then $F(A)=F\circ G(B)\cong B$. The converse is to construct natural isomorphisms  $\eta$ and $\varepsilon $ by reversing the deduction above.
+  \end{proof}
+
+  Recall vertical composition introduced previously, there is also \textit{horizontal composition}, which takes natural transformations
+  \[
+  \begin{tikzcd}
+    \mathscr{A}\arrow[r, bend left=50, "F",""{name=U,below}] \arrow[r, bend right=50, "G"',""{name=D}]&\mathscr{A}' \arrow[Rightarrow, from=U,to=D] \arrow[r, bend left=50, "F'",""{name=L,below}]\arrow[r, bend right=50, "G'"',""{name=R}]  &\mathscr{A}'' \arrow[Rightarrow, from=L,to=R]  
+  \end{tikzcd}
+  \] 
+  and produces a natural transformation 
+  \[
+    \begin{tikzcd}[column sep=large]
+    \mathscr{A} \arrow[r, bend left = 50, "F'\circ F",""{name=U,below}]\arrow[r,bend right=50,"G'\circ G"',""{name=D}]&\mathscr{A}'\arrow[Rightarrow, "\alpha'*\alpha",from=U,to=D].   
+  \end{tikzcd}
+  \] 
+  The component of $\alpha'*\alpha$ at $A\in \mathscr{A}$ is defined to be the diagonal of the naturality square
+  \[
+  \begin{tikzcd}
+    F'\left( F(A) \right) \arrow[r,"F'(\alpha_A)"] \arrow[d,"\alpha'_{F(A)}"'] & F'\left( G(A) \right) \arrow[d,"\alpha'_{G(A)}"]  \\
+    G'\left( F(A) \right) \arrow[r,"G'\left( \alpha_A \right) "'] & G'\left( G(A) \right) .
+  \end{tikzcd} 
+  \] 
+  That is
+  \[
+    \left( \alpha'*\alpha \right) _{A}=\alpha'_{G(A)}\circ F'(\alpha_A)=G'\left( \alpha_A \right) \circ \alpha'_{F(A)}.
+  \]
+
+  \section{Adjoints}
+  \begin{definition}
+   Let $
+   \begin{tikzcd}
+     \mathscr{A}\arrow[r, shift left,"F"] & \arrow[l, shift left, "G"]  \mathscr{B}
+   \end{tikzcd}$ be categories and functors. We say that $F$ is a \textit{left adjoint} of $G$, or that $G$ is a \textit{right adjoint} of $F$ if there are bijections 
+   \begin{equation}
+     {\mathscr{B}}\left( F(A),B \right) \to {\mathscr{A}}\left( A,G(B) \right) 
+   \end{equation}
+   functorial in $A \in \mathscr{A}$ and $B \in \mathscr{B}$. In other words, this means that there is a given isomorphism of functors $\mathscr{A}^{\mathrm{op}}\times \mathscr{B}\to \mathbf{Set}$ from $\mathscr{B}\left( F(- ),-  \right) $ to $\mathscr{A}\left( - ,G(- ) \right) $.
+ \end{definition}
+
+ \begin{remark}
+   Here are two understandings:
+   \begin{enumerate}
+     \item
+ Given $(A,B)$ and $(A',B') \in \mathrm{ob}\left( \mathscr{A}^{\mathrm{op}}\times \mathscr{B} \right) $, $f:A'\to A, g:B\to B'$, then we have
+ \[
+   \begin{tikzcd}[row sep = large, column sep =large]
+   \mathscr{B}(F(A),B)\arrow[d,"\alpha_{(A,B)}"'] \arrow[r] & \mathscr{B}(F(A'),B')\arrow[d,"\alpha_{(A',B')}"]\\
+   \mathscr{A}(A,G(B))\arrow[r] & \mathscr{A}(A',G(B')). 
+ \end{tikzcd}
+ \] 
+
+ Let $B=F(A)$, we obtain
+ \[
+   \begin{tikzcd}[row sep = large, column sep =large]
+     \mathscr{B}(F(A),F(A))\arrow[d,"\alpha_{(A,F(A))}"'] \arrow[r] & \mathscr{B}(F(A'),B')\arrow[d,"\alpha_{(A',B')}"]\\
+     \mathscr{A}(A,G(F(A)))\arrow[r] & \mathscr{A}(A',G(B')). 
+ \end{tikzcd}
+ \]
+
+ Hence for any object $A$ of $\mathscr{A}$ we obtain a morphism $\eta _A:A\to G(F(A))$ corresponding to $1_{F(A)}$. Similarly, for any object $B$ of $\mathscr{B}$ we obtain a morphism $\epsilon _B:F(G(B))\to B$ corresponding to $1_{G(B)}$. These maps are called  \textit{adjunction maps}. The adjunction maps are functorial in $A$ and $B$, hence we obtain morphisms of functors
+\[
+  \eta:1_{\mathscr{A}}\to G\circ F\quad \text{(unit)} \quad \text{and}\quad \epsilon :F\circ G\to 1_{\mathscr{B}}\quad \text{(counit)}.
+\] 
+\item
+Given objects  $A\in \mathscr{A}$ and $B\in \mathscr{B}$, the correspondence between $F(A)\to B$ and $A\to G(B)$ is denoted by a horizontal bar, in both directions:
+\begin{align*}
+  \left( F(A)\overset{g}{\to }B \right) &\mapsto \left( A\overset{\bar{g}}{\to }G(B) \right) ,\\
+  \left( A\overset{f}{\to }G(B) \right) &\mapsto \left( F(A)\overset{\bar{f}}{\to }B \right) .\end{align*}
+  So $\bar{\bar{f}}=f$ and $\bar{\bar{g}}=g$. We call  $\bar{f}$ the  \textit{transpose} of $f$, and similarly for $g$. Then ``functorial in $A\in \mathscr{A}$ and $B\in \mathscr{B}$ is equivalent to 
+  \begin{equation}
+    \overline{\left( F(A)\xrightarrow{g}B\xrightarrow{q}B' \right) }=\left( A\xrightarrow{\bar{g}}G(B)\xrightarrow{G(q)}G(B') \right) \label{adj-1}
+  \end{equation}
+  and 
+  \begin{equation}
+    \overline{\left( A'\xrightarrow{p}A\xrightarrow{f}G(B) \right) }=\left( F(A')\xrightarrow{F(p)}F(A)\xrightarrow{\bar{f}}B \right). \label{adj-2}
+  \end{equation}
+  The above two identities can also be written as
+  \begin{equation}
+    \overline{q\circ g}=G(q)\circ \bar{g}
+  \end{equation}
+  and
+  \begin{equation}
+    \overline{f\circ p}=\bar{f}\circ F(p).
+  \end{equation}
+  In fact, the bijection that satisfies the above two conditions are equivalent to the definition of adjoint functors.
+\end{enumerate}
+\end{remark}
+
+\begin{lemma}
+  Given an adjunction $F\dashv G$ with unit $\eta $ and $\epsilon $, the triangles
+  \[
+  \begin{tikzcd}
+    F \arrow[r,"F\eta "] \arrow[rd,"1_{F}"'] &FGF \arrow[d,"\epsilon F"] \\
+					     & F
+  \end{tikzcd} \quad\text{ and } \quad
+  \begin{tikzcd}
+    G \arrow[r,"\eta G"]\arrow[rd,"1_G"']  & GFG \arrow[d,"G\epsilon "] \\
+					   & G
+  \end{tikzcd}
+  \] 
+  commute. These are called \textit{triangle identities}. They are commmutative diagrams in the functor categories $\left[ \mathscr{A},\mathscr{B} \right] $ and $[\mathscr{B},\mathscr{A}]$, respectively.
+\end{lemma}
+
+\begin{proof}
+  An equivalent statement is that the triangles
+  \[
+  \begin{tikzcd}
+    F(A)\arrow[r,"F(\eta_{A})"] \arrow[rd,"1_{F(A)}"'] & FGF(A)\arrow[d,"\epsilon _{F(A)}"] \\
+    & F(A)
+  \end{tikzcd}\quad \text{ and }\quad 
+  \begin{tikzcd}
+    G(B)\arrow[r,"\eta_{G(B)}"] \arrow[rd, "1_{G(B)}"'] & GFG(B)\arrow[d,"G(\epsilon _B)"] \\
+    & G(B)
+  \end{tikzcd}
+  \] commute for all $A\in \mathscr{A}$ and $B\in \mathscr{B}$.
+  Since $\overline{1_{GF(A)}}=\epsilon _{F(A)}$, equation (\ref{adj-2}) gives
+  \[
+    \overline{\left(A\xrightarrow{\eta_A} GF(A) \xrightarrow{1}GF(A)\right)}=\left( F(A)\xrightarrow{F(\eta_A)}FGF(A)\xrightarrow{\epsilon_{F(A)}}F(A) \right) .
+  \] 
+  But the left-hand side is $\overline{\eta_A}=\overline{\overline{1_{F(A)}}}=1_{F(A)}$, proving the first triangle identity. The second follows by duality.
+\end{proof}
+
+\begin{lemma}
+  Let$
+  \begin{tikzcd}\mathscr{A}\arrow[r, shift left=2, "F"]  \arrow[r, shift right=2,"\bot", "G"'] &\mathscr{B}
+  \end{tikzcd}$ be an adjunction, with unit $\eta $ and counit $\epsilon $. Then
+  \[
+    \overline{g}=G(g)\circ \eta_A
+  \] for any $g:F(A)\to B$, and 
+  \[
+    \overline{f}=\epsilon _B\circ F(f)
+  \] for any $f:A\to G(B)$.
+\end{lemma}
+
+\begin{theorem}
+  Take categories and functors $
+  \begin{tikzcd}\mathscr{A}\arrow[r, shift left=2, "F"]  \arrow[r, shift right=2,"\bot", "G"'] &\mathscr{B}
+  \end{tikzcd}$. There is a one-to-one correspondence between:
+  \begin{enumerate}
+    \item[\rm{(a)}] adjunctions between $F$ and $G$ (with $F$ on the left and $G$ on the right);
+    \item[\rm{(b)}] pairs $\left( 1_{\mathscr{A}}\xrightarrow{\eta}GF,FG\xrightarrow{\epsilon }1_{\mathscr{B}} \right)$ of natural transformations satisfying the triangle identities.
+  \end{enumerate}
+\end{theorem}
+$(\rm{a})\Rightarrow (\rm{b})$ direction has been proved and the proof of converse is a direct calculate.
+\begin{definition}
+  Given categories and functors
+  \[
+    \begin{tikzcd}[row sep=large]
+    & \mathscr{B}\arrow[d,"Q"] \\
+    \mathscr{A} \arrow[r,"P"'] & \mathscr{C},
+  \end{tikzcd}
+  \] 
+  the \textit{comma category} ($P\Rightarrow Q$) (often written as $(P\downarrow Q)$) is the category defined as follows:
+  \begin{itemize}
+    \item objects are triples $(A,h,B)$ with $A\in \mathscr{A}$, $B\in \mathscr{B}$, and $h:P(A)\to Q(B)$ in $\mathscr{C}$ ;
+    \item maps $\left( A,h,B \right) \to (A',h',B')$ are pairs $\left( f:A\to A',g:B\to B' \right) $ of maps such that the square
+      \[
+      \begin{tikzcd}
+	P(A)\arrow[r,"P(f)"]\arrow[d,"h"']  &P(A')\arrow[d,"h'"] \\
+	Q(B)\arrow[r,"Q(g)"'] & Q(B')
+      \end{tikzcd}
+      \]
+      commutes.
+  \end{itemize}
+\end{definition}
+
+\begin{remark}
+  Given $\mathscr{A},\mathscr{B},\mathscr{C}$, $P$ and $Q$ as above, there are canonical functors and a canonical natural transformations as shown:
+  \[
+    \begin{tikzcd}[row sep=large]
+    (P\Rightarrow Q)\arrow[r]\arrow[d]  &\mathscr{B}\arrow[d,"Q"] \\
+    \mathscr{A}\arrow[r,"P"']\arrow[ru,Rightarrow]   & \mathscr{C}
+  \end{tikzcd}
+  \] 
+  in a suitable $2$-categorical sense, $(P\Rightarrow Q)$ is universal with this property.
+\end{remark}
+\begin{definition}
+  Let $\mathscr{A}$ be a category and $A\in \mathscr{A}$. The \textit{slice category} of $\mathscr{A}$ over $A$, denoted by $\sfrac{\mathscr{A}}{A}$, is the category whose objects are maps into $A$ and whose maps are commutative triangles. More precisely, an object is a pair $(X,h)$ with $X\in \mathscr{A}$ and $h:X\to A$ in $\mathscr{A}$, and a map $(X,h)\to (X',h')$ in $\sfrac{\mathscr{A}}{A}$ is a map $f:X\to X'$ in $\mathscr{A}$ making the triangle
+  \[
+    \begin{tikzcd}[column sep=tiny]
+    X \arrow[rr,"f"] \arrow[rd,"h"']  & &X'\arrow[ld,"h'"] \\
+				      &A&
+  \end{tikzcd}
+  \]
+  commute.
+\end{definition}
+
+Slice categories are a special case of comma categories $\left( 1_{\mathscr{A}}\Rightarrow A \right) $:
+  \[
+    \begin{tikzcd}[row sep=large]
+    & \mathscr{\mathbf{1}}\arrow[d,"A"] \\
+    \mathscr{A} \arrow[r,"1_{\mathscr{A}}"'] & \mathscr{A}.
+  \end{tikzcd}
+  \] 
+  
+  Dually, there is a \textit{coslice category} $\sfrac{A}{\mathscr{A}}\cong (A\Rightarrow 1_{\mathscr{A}})$, whose objects are the maps out of $A$. 
+
+\begin{lemma}
+  Take an adjunction $
+  \begin{tikzcd}
+    \mathscr{A}\arrow[r, shift left=2, "F"]  \arrow[r, shift right=2,"\bot", "G"'] &\mathscr{B}
+  \end{tikzcd}$ and an object $A\in \mathscr{A}$. Then the unit map $\eta_A:A\to GF(A)$ is an initial object of $(A\Rightarrow G)$. 
+\end{lemma}
+
+\begin{theorem}
+  Take categories and functors $
+  \begin{tikzcd}
+    \mathscr{A}\arrow[r,shift left,"F"] &\mathscr{B}\arrow[l,shift left,"G"] 
+  \end{tikzcd}$. There is a one-to-one correspondence between:
+  \begin{enumerate}
+    \item [\rm{(a)}] adjunctions between $F$ and $G$ (with $F$ on the left and $G$ on the right);
+    \item [\rm{(b)}] natural transformations $\eta:1_{\mathscr{A}}\to GF$ such that $\eta_A:A\to GF(A)$ is initial in $(A\Rightarrow G)$ for every $A\in \mathscr{A}$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{corollary}
+  Let $G:\mathscr{B}\to \mathscr{A}$ be a functor. Then $G$ has a left adjoint if and only if for each $A\in \mathscr{A}$, the category $(A\Rightarrow G)$ has an intial object.
+\end{corollary}
+
+ 
+
+\section{Yoneda lemma}
+ 
+\begin{definition}
+  Let $\mathscr{A}$ be a locally small category and $A \in \mathscr{A}$. We define a functor 
+  \[
+    H^{A}=\mathscr{A}(A,- ):\mathscr{A}\to \mathbf{Set}
+  \] 
+  as follows:
+  \begin{itemize}
+    \item for objects $B \in \mathscr{A}$, put $H^{A}(B)=\mathscr{A}(A,B)$;
+    \item for maps $
+      \begin{tikzcd}
+	B\arrow[r,"g"] &B' 
+      \end{tikzcd}$ in $\mathscr{A}$, define
+      \[
+	H^{A}(g)=\mathscr{A}(A,g)=g_{*}=g\circ -:\mathscr{A}(A,B)\to \mathscr{A}(A,B')
+      \] by 
+      \[
+      p\mapsto g\circ p
+      \] for all $p:A\to B$.
+  \end{itemize}
+\end{definition}
+
+\begin{definition}
+  Let $\mathscr{A}$ be a locally small category. A functor $X:\mathscr{A}\to \mathbf{Set}$ is \textit{representable} if $X\cong H^{A}$ for some $A\in \mathscr{A}$. A \textit{representation} of $X$ is a choice of an object $A \in \mathscr{A}$ and an isomorphism between $H^{A}$ and $X$.
+\end{definition}
+
+ Any map $
+ \begin{tikzcd}
+   A' \arrow[r,"f"] &A
+ \end{tikzcd}$ induces a natural transformation
+ \[
+   \begin{tikzcd}[column sep=large]
+     \mathscr{A}\arrow[r, bend left=50,"H^{A}",""{name=U,below}] \arrow[r, bend right=50, "H^{A'}"',""{name=D}] & \mathbf{Set} \arrow[Rightarrow, "H^{f}",from=U,to=D]  
+ \end{tikzcd}
+   \](also called $\mathscr{A}(f,-)$, $f^{*}$ or $-\circ f$), whose $B$-component (for $B \in \mathscr{A}$ ) is the function
+   \begin{align*}
+     H^{A}(B)=\mathscr{A}(A,B)&\to  H^{A'}(B)=\mathscr{A}(A',B)\\
+     p&\mapsto  p\circ f
+   .\end{align*} 
+Each $H^{A}$ is covariant, but they come together to form a contravariant functor, as in the following definition.
+
+\begin{definition}
+  Let $\mathscr{A}$ be a locally small category. The functor 
+  \[
+    H^{\bullet}:\mathscr{A}^{\mathrm{op}}\to \left[ \mathscr{A},\mathbf{Set} \right] 		
+  \] is defined on objects $A$ by $H^{\bullet}(A)=H^{A}$ and on maps $f$ by $H^{\bullet}(f)=H^{f}$.
+\end{definition}
+
+\begin{definition}
+  Let $\mathscr{A}$ be a locally small category and $A\in \mathscr{A}$. We define a functor 
+  \[
+    H_A=\mathscr{A}(-,A):\mathscr{A}^{\mathrm{op}}\to \mathbf{Set}
+  \] 
+  as follows:
+  \begin{itemize}
+    \item for objects $B\in \mathscr{A}$, put $H_A(B)=\mathscr{A}(B,A)$;
+    \item for maps  $
+      \begin{tikzcd}
+	B'\arrow[r,"g"] &B
+      \end{tikzcd}$ in $\mathscr{A}$, define
+      \[
+	H_A(g)=\mathscr{A}(g,A)=g^{*}=-\circ g:\mathscr{A}(B,A)\to \mathscr{A}(B',A)
+      \] by 
+      \[
+      p\mapsto p\circ g
+      \] for all $p:B\to A$
+  \end{itemize}
+\end{definition}
+
+\begin{definition}
+  Let $\mathscr{A}$ be a locally small category. A functor $X:\mathscr{A}^{\mathrm{op}}\to \mathbf{Set}$ is \textit{representable} if $X\cong H_A$ for some $A\in \mathscr{A}$. A \textit{representation} of $X$ is a choice of an object $A\in \mathscr{A}$ and an isomorphism between $H_A$ and $X$.
+\end{definition}
+
+Any map $
+\begin{tikzcd}
+  A\arrow[r,"f"] &A'
+\end{tikzcd}$ in $\mathscr{A}$ induces a natural transformation
+\[
+  \begin{tikzcd}[column sep=large]
+    \mathscr{A}^{\mathrm{op}} \arrow[r, bend left=50, "H_A",""{name=U,below}]\arrow[r,bend right=50,"H_{A'}"',""{name=D}] & \mathscr{A}' \arrow[Rightarrow,"H_f", from=U,to=D]  
+\end{tikzcd}
+  \](also called $\mathscr{A}(-,f)$, $f_{*}$ or $f\circ p$), whose $B$-component (for $B\in \mathscr{A}$) is the function 
+  \begin{align*}
+    H_A(B)=\mathscr{A}(B,A)&\to H_{A'}(B)=\mathscr{A}(B,A')\\
+    p&\mapsto f\circ p
+  .\end{align*}
+
+\begin{definition}
+  Let $\mathscr{A}$ be a locally small category. The \textit{Yoneda embedding} of $\mathscr{A}$ is the functor
+  \[
+  H_{\bullet}:\mathscr{A}\to \left[ \mathscr{A}^{\mathrm{op}},\mathbf{Set} \right] 
+\] defined on objects $A$ by $H_{\bullet}(A)=H_{A}$ and on maps $f$ by $H_{\bullet}(f)=H_{f}$.
+\end{definition}
+
+\begin{proposition}
+  Let $\mathscr{A}$ be a locally small category, and let $A,A'\in \mathscr{A}$ with $H_A\cong H_{A'}$. Then we have $A\cong A'$.
+\end{proposition}
+\begin{proof}
+  By definition, we have a natural isomorphism $\alpha$  such that for any $B,B' \in \mathscr{A}$ and any map $f:B'\to B$, the square
+  \[
+    \begin{tikzcd}[row sep=large]
+    \mathscr{A}(B,A)\arrow[r,"H_A(f)"] \arrow[d,"\alpha_{B}"'] & \mathscr{A}(B',A)\arrow[d,"\alpha_{B'}"] \\
+    \mathscr{A}(B,A')\arrow[r,"H_{A'}(f)"'] & \mathscr{A}(B',A')
+  \end{tikzcd}
+  \] 
+  commutes. Let $B=A$ and $B'=A'$, then for any $g\in \mathscr{A}(A,A)$ and $f:A'\to A$, we have
+  \[
+    \alpha_A(g)\circ f=\alpha_{A'}\left( g\circ f \right) 
+  \] for any $g:A\to A$. Then $\alpha_A(g)\circ f \in \mathscr{A}(A',A')$. Let $f=\alpha ^{-1}_{A'}(1_{A'})$ and $g=1_{A}$, we obtain
+  \[
+    \alpha_A(1_A)\circ \alpha ^{-1}_{A'}(1_{A'})=1_{A'}.
+  \]
+  Similarly, we have
+  \[
+    \alpha_{A'}(1_{A'})\circ \alpha_A^{-1}(1_A)=1_{A}.
+  \] 
+\end{proof}
+
+
+\begin{definition}
+  Let $\mathscr{A}$ be a locally small category. The functor 
+  \[
+  \mathrm{Hom}_{\mathscr{A}}:\mathscr{A}^{\mathrm{op}}\times \mathscr{A}\to \mathbf{Set}
+  \] 
+  is defined by
+  \[
+  \begin{tikzcd}
+    (A,B)\arrow[dd,"g", shift left] &\mapsto &\mathscr{A}(A,B)\arrow[dd,"g\circ-\circ f"]\\
+    & \mapsto &\\
+    (A',B')\arrow[uu,"f",shift left] &\mapsto &\mathscr{A}(A',B'). 
+  \end{tikzcd}
+  \] 
+  In other words, $\mathrm{Hom}_{\mathscr{A}}(A,B)=\mathscr{A}(A,B)$ and $\left( \mathrm{Hom}_{\mathscr{A}}(f,g) \right) (p)=g\circ p\circ f$, whenever $A'\xrightarrow{f}A\xrightarrow{p}B\xrightarrow{g}B'$.
+\end{definition}
+
+\begin{remark}
+  \begin{enumerate}
+    \item[(a)]  Given sets $A$ and $B$, we have product $A\times B$ and the set $B^{A}$ (or $\mathbf{Set}(A,B)$) of functions from $A$ to $B$. Fix a set $B$, taking the product with $B$ defines a functor 
+      \begin{align*}
+        -\times B: \mathbf{Set} &\longrightarrow \mathbf{Set} \\
+        A &\longmapsto A\times B
+      .\end{align*}
+      There is also a functor
+      \begin{align*}
+	(-)^{B}: \mathbf{Set} &\longrightarrow \mathbf{Set} \\
+        C &\longmapsto C^{B}
+      .\end{align*}
+Moreover, there is an adjunction between them, i.e.,
+      \[
+	\mathbf{Set}(A\times B,C)\cong \mathbf{Set}(A,C^{B})
+      \] for any sets $A$ and $C$.
+    \item[(b)] Similarly, for any category $\mathscr{B}$, there is an adjunction $(-\times \mathscr{B})\dashv [\mathscr{B},-]$ of functors $\mathbf{CAT}\to \mathbf{CAT}$, that is, there is a canonical bijection
+      \[
+	\mathbf{CAT}\left( \mathscr{A}\times \mathscr{B},\mathscr{C} \right) \cong \mathbf{CAT}\left( \mathscr{A},[\mathscr{B},\mathscr{C}] \right) 
+      \] for $\mathscr{A},\mathscr{B},\mathscr{C}\in \mathbf{CAT}$. Under this bijection, the functors
+      \[
+	\mathrm{Hom}_{\mathscr{A}}:\mathscr{A}^{\mathrm{op}}\times \mathscr{A}\to \mathbf{Set} \quad \text{ and }\quad H^{\bullet}:\mathscr{A}^{\mathrm{op}}\to [\mathscr{A},\mathbf{Set}]
+      \] correspond to one another and carries the same information.
+    \item[(c)] Now we can use this bijection to explain naturality in the definition of adjunction. Take categories $
+  \begin{tikzcd}\mathscr{A}\arrow[r, shift left=2, "F"]  \arrow[r, shift right=2,"\bot", "G"'] &\mathscr{B}
+  \end{tikzcd}$, then we have
+  \[
+  \begin{tikzcd}
+    \mathscr{A}^{\mathrm{op}}\times \mathscr{B}\arrow[r,"1\times G"] \arrow[d,"F^{\mathrm{op}}\times 1"'] & \mathscr{A}^{\mathrm{op}}\times \mathscr{A} \arrow[d,"\mathrm{Hom}_{\mathscr{A}}"] \\
+    \mathscr{B}^{\mathrm{op}}\times \mathscr{B}\arrow[r,"\mathrm{Hom}_{\mathscr{B}}"'] & \mathbf{Set}.
+  \end{tikzcd}
+  \] 
+  \end{enumerate}
+\end{remark}
+
+\begin{definition}
+  Let $A$ be an object of a category. A \textit{generalized element} of $A$ is a map with codomain $A$. A map $S\to A$ is a generalized element of $A$ of  \textit{shape} $S$.
+\end{definition}
+
+\begin{definition}
+  Let $\mathscr{A}$ be a category. A \textit{presheaf} on $\mathscr{A}$ is a functor $\mathscr{A}^{\mathrm{op}}\to \mathbf{Set}$.
+\end{definition}
+
+For each $A\in \mathscr{A}$ we have a representable presheaf $H_A$, and we are asking how the rest of the presheaf category $\left[ \mathscr{A}^{\mathrm{op}},\mathbf{Set} \right] $ looks from the viewpoint of $H_A$. In other words, if $X$ is another presheaf, what are the maps $H_A\to X$?
+
+\begin{theorem}[Yoneda]
+  Let $\mathscr{A}$ be a locally small category. Then
+  \begin{equation}
+    \left[ \mathscr{A}^{\mathrm{op}},\mathbf{Set} \right] (H_A,X)\cong X(A)
+  \end{equation}
+  naturally in $A\in \mathscr{A}$ and $X \in \left[ \mathscr{A}^{\mathrm{op}},\mathbf{Set} \right] $.
+\end{theorem}
+
+
+\section{Limits}
+
+\begin{definition}
+  Let $\mathscr{A}$ be a category and $X,Y\in \mathscr{A}$. A \textit{product} of $X$ and $Y$ consists of an object $P$ and maps
+  \[
+    \begin{tikzcd}[row sep =large]
+    & P \arrow[ld, "p_1"'] \arrow[rd,"p_2"] &\\
+    X & & Y
+  \end{tikzcd}
+  \] 
+  with the property that for all objects and maps
+  \begin{equation}
+    \begin{tikzcd}[row sep=large]
+      &A \arrow[ld, "f_1"'] \arrow[rd,"f_2"] &\\
+      X&&Y
+    \end{tikzcd}
+  \end{equation}
+  in $\mathscr{A}$, there exists a unique map $\bar{f}:A\to P$ such that 
+  \begin{equation}
+    \begin{tikzcd}[row sep=large]
+      &A \arrow[ldd,"f_1"'] \arrow[rdd,"f_2"] \arrow[d,dotted ,"\bar{f}" description] &\\
+      &P\arrow[ld,"p_1"] \arrow[rd,"p_2"'] &\\
+      X & & Y
+    \end{tikzcd}
+  \end{equation}
+  commutes. The maps $p_1$ and $p_2$ are called \textit{projections}.
+\end{definition}
+
+
+
+\begin{definition}
+  Let $\mathscr{A}$ be a category, $I$ a set, and $(X_i)_{i\in I}$ a family of objects of $\mathscr{A}$. A \textit{product} of $\left( X_i \right) _{i\in I}$ consists of an object $P$ and a family of maps
+  \[
+    \left( P\xrightarrow{p_i}X_i \right) _{i\in I}
+  \] with the property that for all objects $A$ and families of maps
+  \begin{equation}
+    \left( A\xrightarrow{f_i} X_i\right) _{i\in I}
+  \end{equation}there exists a unique map $\bar{f}:A\to P$ such that $p_i\circ \bar{f}=f_i$ for all $i \in I$.
+\end{definition}
+
+\begin{definition}
+  A \textit{fork} in a category consists of objects and maps
+  \begin{equation}
+    \begin{tikzcd}
+      A\arrow[r,"f"] &X\arrow[r,shift left,"s"] \arrow[r,shift right, "t"'] &Y\label{fork}
+    \end{tikzcd}
+  \end{equation}such that $sf=tf$.
+  Let $\mathscr{A}$ be a category and let $
+  \begin{tikzcd}
+    X \arrow[r,shift left,"s"] \arrow[r,shift right,"t"']& Y
+  \end{tikzcd}$ 
+  be objects and maps in $\mathscr{A}$. An \textit{equalizer} of $s$ and $t$ is an object $E$ together with a map $E\xrightarrow{i}X$ such that 
+  \[
+  \begin{tikzcd}
+    E\arrow[r,"i"] &X\arrow[r,shift left,"s"] \arrow[r,shift right,"t"'] &Y
+  \end{tikzcd}
+\] is a fork, and with the property that for any fork (\ref{fork}), there exists a unique map $\bar{f}:A\to E$ such that 
+\begin{equation}
+  \begin{tikzcd}
+    A\arrow[d,dotted,"\bar{f}"' ] \arrow[rd,"f"]&\\
+    E \arrow[r,"i"'] &X 
+  \end{tikzcd}
+\end{equation}
+commutes.
+\end{definition}
+
+\begin{definition}
+  Let $\mathscr{A}$ be a category, and take objects and maps
+  \begin{equation}
+    \begin{tikzcd}
+      & Y \arrow[d,"t"] \\
+      X\arrow[r,"s"'] &Z 
+    \end{tikzcd}
+  \end{equation}
+  in $\mathscr{A}$. A \textit{pullback} of this diagram is an object $P\in \mathscr{A}$ together with maps $p_1:P\to X$ and $p_2:P\to Y$ such that
+  \begin{equation}
+    \begin{tikzcd}
+      P\arrow[r,"p_2"] \arrow[d,"p_1"'] &Y\arrow[d,"t"] \\
+      X\arrow[r,"s"'] &Z
+    \end{tikzcd}
+  \end{equation}commutes, and with the property that for any commutative squar
+  \begin{equation}
+    \begin{tikzcd}
+      A \arrow[d,"f_1"'] \arrow[r,"f_2"] &Y\arrow[d,"t"] \\
+      X\arrow[r,"s"'] &Z
+    \end{tikzcd}\label{pullback}
+  \end{equation}in $\mathscr{A}$, there is a unique map $\bar{f}:A\to P$ such that
+\begin{equation}
+  \begin{tikzcd}
+    A \arrow[rrd, bend left, "f_2"] \arrow[rd,dotted, "\bar{f}" description] \arrow[rdd, bend right, "f_1"'] & & \\
+				    & P \arrow[r,"p_2"]\arrow[d,"p_1"']   & Y \arrow[d,"t"] \\
+				    & X\arrow[r,"s"'] &Z
+  \end{tikzcd}
+\end{equation}
+commutes. 
+\end{definition}
+
+\begin{definition}
+  Let $\mathscr{A}$ be a category and $\mathbf{I}$ a small category. A functor $\mathbf{I}\to \mathscr{A}$ is called a \textit{diagram} in $\mathscr{A}$ of \textit{shape} $\mathbf{I}$.
+\end{definition}
+\begin{definition}
+  Let $\mathscr{A}$ be a category, $\mathbf{I}$ a small category, and $D:\mathbf{I}\to \mathscr{A}$ a diagram in $\mathscr{A}$.
+  \begin{enumerate}
+    \item [(a)] A \textit{cone} on $D$ is an object $A\in \mathscr{A}$ (the vertex of the cone) together with a family
+      \begin{equation}
+	\left( A\xrightarrow{f_I}D(I) \right) _{I\in \mathbf{I}}\label{cone}
+      \end{equation}
+      of maps in $\mathscr{A}$ such that for all maps $I\xrightarrow{u}J$ in $\mathbf{I}$, the triangle
+      \[
+	\begin{tikzcd}[row sep=tiny]
+	& D(I)\arrow[dd, "Du"] \\
+	A\arrow[ru,"f_I"]\arrow[rd,"f_J"]  & \\
+					   & D(J)
+      \end{tikzcd}
+      \] commutes.
+    \item [(b)] A \textit{limit} of $D$ is a cone $\left( L\xrightarrow{p_I}D(I) \right)_{I\in \mathbf{I}} $ with the property that for any cone (\ref{cone}) on $D$, there exists a unique map $\bar{f}:A\to L$ such that $p_{I}\circ \bar{f}=f_I$ for all $I\in \mathbf{I}$. The maps $p_I$ are called the \textit{projections} of the limit. We write $L=\mathop{\lim}\limits_{\gets I}D$. 
+  \end{enumerate}
+\end{definition}
+
+
+\begin{example}
+Let categories  $\mathbf{T}$, $\mathbf{E}$ and $\mathbf{P}$ be
+\begin{equation}
+  \mathbf{T}={\bullet \quad \bullet},\quad \mathbf{E}=
+  \begin{tikzcd}
+    \bullet\arrow[r,shift left]\arrow[r,shift right]   &\bullet
+  \end{tikzcd},\quad \mathbf{P}=
+  \begin{tikzcd}[row sep =large]
+    & \bullet \arrow[d]\\
+    \bullet \arrow[r] & \bullet
+  \end{tikzcd}
+\end{equation}
+Let $\mathscr{A}$ be any category.
+  \begin{enumerate}
+    \item [(a)] A diagram $D$ of shape $\mathbf{T}$ in $\mathscr{A}$ is a pair $(X,Y)$ of objects of $\mathscr{A}$. A cone on  $D$ is an object $A$ together with maps $f_1:A\to X$ and $f_2:A\to Y$, and a limit of $D$ is a product of $X$ and $Y$. 
+
+      More generally, let  $I$ be a set and write  $\mathbf{I}$ for the discrete category on $I$. A functor $D:\mathbf{I}\to \mathscr{A}$ is an $I$-indexed family $(X_i)_{i \in I}$ of objects of $\mathscr{A}$, and a limit of $D$ is exactly a product of the family $(X_i)_{i\in I}$. 
+    \item [(b)] A diagram $D$ of shape $\mathbf{E}$ in $\mathscr{A}$ is a parallel pair $
+      \begin{tikzcd}
+	X\arrow[r, shift left,"s"]\arrow[r,shift right, "t"']& Y  
+      \end{tikzcd}$ of maps in $\mathscr{A}$. A cone on  $D$ consists of objects and maps
+      \[
+      \begin{tikzcd}
+	&A\arrow[ld,"f"']\arrow[rd,"g"]  &\\
+	X\arrow[rr,shift left, "s"]\arrow[rr,shift right,"t"]  &&Y
+      \end{tikzcd}
+      \] 
+      such that $s\circ f=g$ and $t\circ f=g$. But since $g$ is determined by $f$, it is equivalent to say that a cone on $D$ consists of an object $A$ and a map $f:A\to X$ such that 
+      \[
+      \begin{tikzcd}
+	A\arrow[r,"f"] &X\arrow[r,shift left,"s"] \arrow[r,shift right, "t"'] &Y
+      \end{tikzcd}
+      \] 
+      is a fork. A limit of $D$ is a universal fork on $s$ and $t$, that is, an equalizer of $s$ and $t$.
+    \item [(c)] A diagram $D$ of shape $\mathbf{P}$ in $\mathscr{A}$ consists of objects and maps \[
+	\begin{tikzcd}[row sep =large]
+      & Y\arrow[d,"t"]\\
+      X\arrow[r,"s"]& Z 
+    \end{tikzcd}
+  \] in $\mathscr{A}$. Performing a simplification similar to that in (b), we see that a cone on  $D$ is a commutative square (\ref{pullback}).
+\item [(d)] Let $\mathbf{I}=(\N,\le)^{\mathrm{op}}$. A diagram $D:\mathbf{I}\to \mathscr{A}$ consists of objects and maps
+  \[
+  \begin{tikzcd}
+    \cdots \arrow[r,"s_3"] &X_2\arrow[r,"s_2"] &X_1\arrow[r,"s_1"] &X_0.  
+  \end{tikzcd}
+  \] 
+  For example, suppose that we have a set $X_0$ and a chain of subsets
+  \[
+  \cdots \subset X_2\subset X_1\subset X_0. 
+  \] 
+  The inclusion maps form a diagram in $\mathbf{Set}$ of the type above, and its limit is $\bigcap_{i\in \N} X_i$.
+  \end{enumerate}
+\end{example}
+
+\begin{definition}
+  \begin{enumerate}
+    \item [(a)] Let $\mathbf{I}$ be a small category. A category $\mathscr{A}$ \textit{has limits of shape} $\mathbf{I}$ if for every diagram $D$ of shape $\mathbf{I}$ in $\mathscr{A}$, a limit of $D$ exists.
+    \item [(b)] A category \textit{has all limits} (or properly, \textit{has small limits} ) if it has limits of shape $\mathbf{I}$ for all small categories.
+  \end{enumerate}
+\end{definition}
+
+\begin{definition}
+  A category is \textit{finite} if it contains only finitely many maps (in which case it also contains only finitely many objects). A \textit{finite limit} is a limit of shape $\mathbf{I}$ for some finite category $\mathbf{I}$. 
+\end{definition}
+
+\begin{proposition}
+  Let $\mathscr{A}$ be a category.
+  \begin{enumerate}
+    \item [\rm{(a)}] If $\mathscr{A}$ has all products and equalizers then $\mathscr{A}$ has all limits.
+    \item [\rm{(b)}] If $\mathscr{A}$ has binary products, a terminal object and equalizers then $\mathscr{A}$ has finite limits.
+  \end{enumerate}
+\end{proposition}
+
+\begin{definition}
+  Let $\mathscr{A}$ be a category. A map $X\xrightarrow{f} Y$ in $\mathscr{A}$ is \textit{monic} (or a \textit{monomorphism}) if for all objects $A$ and maps $
+  \begin{tikzcd}
+    A\arrow[r,shift left,"x"] \arrow[r,shift right, "x'"'] &X
+  \end{tikzcd}$,
+  \[
+  f\circ x=f\circ x'\quad \Longrightarrow\quad x=x'.
+  \] 
+\end{definition}
+
+\begin{definition}
+  Let $\mathscr{A}$ be a category and $\mathbf{I}$ a small category. Let $D:\mathbf{I}\to \mathscr{A}$ be a diagram in $\mathscr{A}$, and write $D^{\mathrm{op}}$ for the corresponding functor $\mathbf{I}^{\mathrm{op}}\to \mathscr{A}^{\mathrm{op}}$. A \textit{cocone} on $D$ is a cone on $D^{\mathrm{op}}$, and a \textit{colimit} of $D$ is a limit of $D^{\mathrm{op}}$.
+\end{definition}
+
+Explicitly, a cocone on $D$ is an object $A\in \mathscr{A}$ together with a family
+\begin{equation}
+  \left( D(I)\xrightarrow{f_I} A\right) _{I\in \mathbf{I}}\label{cocone}
+\end{equation}of maps in $\mathscr{A}$ such that for all maps $I\xrightarrow{u}J$ in $\mathbf{I}$, the diagram
+\[
+  \begin{tikzcd}[row sep=small]
+  D(I)\arrow[dd, "Du"'] \arrow[rd,"f_I"] &\\
+					 & A\\
+					 D(J) \arrow[ru,"f_J"'] 
+\end{tikzcd}
+\] 
+commutes. A colimit of $D$ is a cocone
+\[
+  \left( D(I)\xrightarrow{p_I}C \right) _{I\in \mathbf{I}}
+\] with the property that for any cocone (\ref{cocone}) on $D$, there is a unique map $\bar{f}:C\to A$ such that $\bar{f}\circ p_I=f_I$ for all  $I\in \mathbf{I}$. 
+
+\begin{definition}
+  A \textit{sum} or \textit{coproduct} is a colimit over a discrete category. 
+\end{definition}
+
+Let $(X_i)_{i\in I}$ be a family of objects of a category. Their sum (if it exists) is written as $\sum_{i\in I}^{} X_i$ or $\coprod_{i \in I}X_i $.
+
+\begin{definition}
+  A \textit{coeualizer} is a colimit of shape $\mathbf{E}$.
+\end{definition}
+
+In other words, given a diagram $
+\begin{tikzcd}
+  X\arrow[r,shift left,"s"] \arrow[r,shift right,"t"'] &Y
+\end{tikzcd}$, a coequalizer of $s$ and $t$ is a map $Y\xrightarrow{p}C$ satisfying $p\circ s=p\circ t$ and universal with this property.
+
+\begin{definition}
+  A \textit{pushout} is a colimit of shape
+  \[
+    \mathbf{P}^{\mathrm{op}}=\begin{tikzcd}
+    \bullet \arrow[r] \arrow[d] &\bullet\\
+    \bullet & .
+  \end{tikzcd}
+  \] 
+\end{definition}
+
+In other words, the pushout of a diagram
+\begin{equation}
+  \begin{tikzcd}
+    X\arrow[r,"s"]\arrow[d,"t"']  &Y\\
+    Z &
+  \end{tikzcd}
+\end{equation}
+is (if it exists) a commutative square
+\[
+\begin{tikzcd}
+  X \arrow[r,"s"] \arrow[d,"t"'] &Y\arrow[d] \\
+  Z \arrow[r] &\cdot  
+\end{tikzcd}
+\] 
+that is universal as such. In other words still, a pushout in a category $\mathscr{A}$ is a pullback in $\mathscr{A}^{\mathrm{op}}$.
+
+ \begin{example}
+   A diagram $D:(\N,\le)\to \mathscr{A}$ consists of objects and maps
+   \[
+   \begin{tikzcd}
+     X_0\arrow[r,"s_1"] &X_1\arrow[r,"s_2"] &X_2 \arrow[r,"s_3"] &\cdots 
+   \end{tikzcd}
+   \] in $\mathscr{A}$. Colimits of such diagrams are traditionally called  \textit{direct limits}.
+ \end{example} 
+
+\begin{definition}
+  Let $\mathscr{A}$ be a category. A map $X\xrightarrow{f}Y$ in $\mathscr{A}$ is \textit{epic} (or an \textit{epimorphism}) if for all objects $Z$ and maps $
+  \begin{tikzcd}
+    Y\arrow[r,shift left, "g"] \arrow[r, shift right, "g'"'] &Z
+  \end{tikzcd}$,
+  \[
+  g\circ f=g'\circ f\quad \Longrightarrow \quad g=g'.
+  \] 
+\end{definition}
+

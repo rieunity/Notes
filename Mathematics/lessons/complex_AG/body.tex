@@ -1,3 +1,7 @@
+\thispagestyle{empty}
+
+
+\tableofcontents
 \section{Introduction}
 Let $f_i(x_1,\cdots ,x_n),i\in \left\{1,\cdots ,k\right\} $ be polynomials with coefficient in $\R$ or $\C$. An \textit{affine algebraic variety} is the common zero of $X=X(f_1,\cdots ,f_k)=\left\{x:f_i(x)=0\forall i\right\} $. We incorporate the field into the notation 
 \[
@@ -20,7 +24,7 @@ Given homogeneous polynomials $F_i(x_0,\cdots ,x_n)$ we obtain a ``projective va
 
 We can ask about the relation between the topology and geometry of $X\left( \R \right) ,X(\C)$ and the algebraic properties of $X$. For example, say $X$ is the zero set of a single homogeneous polynomial of degree $d$ called $F$, can we recover $d$ from looking at $X(\C),X(\R)$?(Only a sensible question for $F$ irreducible.) It turns out that $X_F(\C)$ determines a homology class $\left[ X_F(\C) \right] \in H_{2n-2}\left( \CP^{n};\Z \right) $, and this group is cyclic with generator $\left[ H \right] $ induced by $\CP^{n-1}\hookrightarrow \CP^{n}$, and $\left[ X_F(\C) \right] =d\cdot \left[ H \right] $.
 
-We can recover $d$ from the intrinsic geometry of $X_F\left( \C \right) $ using the ``Chern classes'' in $H^{*}\left( ? \right) $. Over the real numbers, $H_{n-1}\left( \mathrm{RP}^{n;\Z_2} \right) $ is cyclic with generator $\left[ H \right] $ and $\left[ X_F\left( \R \right)  \right] =d\cdot \left[ H \right] $, so we recover $d \mod 2$. 
+We can recover $d$ from the intrinsic geometry of $X_F\left( \C \right) $ using the ``Chern classes'' in $H^{*}\left( X_F(\C) \right) $. Over the real numbers, $H_{n-1}\left( \mathbb{RP}^{n};\Z_2 \right) $ is cyclic with generator $\left[ H \right] $ and $\left[ X_F\left( \R \right)  \right] =d\cdot \left[ H \right] $, so we recover $d \mod 2$. 
 It is possible to show that $X_F(\R)$ does not provide an upper bound for $d$.
 
 From a different point of view, the Nash embedding theorem shows that any smooth manifold over $\R$ is diffeomorphic to $X(R)$ for some real smooth projective variety.
@@ -304,6 +308,8 @@ A Weierstrass polynomial in $w$ is a polynomial of the form
 \begin{definition}
   Let $M$ be a metrizable topological space. A real (complex) coordinate chart is a homeomorphism $\varphi:\mathcal{U}\to \mathcal{V}$ between an open subset $\mathcal{U}\subset M$ and an open subset $\mathcal{V}\subset \R^{n}$ (or $\C^{n}$). A smooth (holomorphic) atlas is a collection of charts $\left\{\varphi_\alpha:\mathcal{U}\to \mathcal{V}_\alpha\right\} $ s.t. $M=\bigcup_{\alpha} \mathcal{U}_\alpha$ and whenever $\mathcal{U}_\alpha \cap \mathcal{U}_{\alpha'}\neq \O$ the 'transition map' $\varphi_\alpha\circ \varphi_{\alpha'}^{-1}:\varphi_{\alpha'}\left( \mathcal{U}_\alpha \cap \mathcal{U}_{\alpha'} \right) \to \varphi_\alpha \left( \mathcal{U}_\alpha \cap \mathcal{U}_{\alpha'} \right) $ between open subsets of $\R^{n}$ (or $\C^{n}$) is smooth (or holomorphic). 
 \end{definition}
+
+
 Two atlases are equivalent if their union is again an atlas. A smooth (or complex) manifold is a metrizable space $M$ together with an equivalence class of atlases.  
 
 We'll assume that all charts use the same dimensional Euclidean space and refer to $n$ as the real dimension of $M$ (or $m$ as the complex dimension of $M$).
@@ -371,4 +377,347 @@ The real charts $\phi_N$ and $\phi_S$ are (See Figure \ref{fig:sphere})
 \end{example}
 
 \section{More examples of complex manifods}
+Recall the implicit function theorem: Let $\mathcal{U}\subset \R^{n}_\zeta\times \R^{n}_\eta$ be an opens set containing the origin. Suppose $\Phi:\mathcal{U}\to \R^{n}$ is a smooth map, $\Phi(0,0)=0$. If the $k\times k$ matrix $\left( \frac{\partial \Phi_i}{\partial \eta_j} (0,0)\right) $ is invertible, then there exists a neighborhood $V_0 \subset  \R^{n}$ of $0$ and $W_0 \subset  \R^{n}$ of $0$ and a smooth map $F:V_0\to W_0$ s.t. $\mathrm{graph}(F)=\Phi^{-1}(0) \cap  V_0 \times W_0$, i.e., $\Phi(\zeta,\eta)=0$ for $(\zeta,\eta)\in  V_0\times W_0$ iff $\eta=F(\zeta)$.
 
+Usse the implicit function, it is easy to see that there's an implicit function theorem where we replace $\R$ with $\C$ and smooth with holomorphic.
+The inverse function theorem gives a coordinate chart on $V(\Phi)=\left\{(\zeta,\eta):\Phi(\zeta,\eta)=0\right\} $. If the rank of $J(\Phi)$ is always $k$ on $\Phi^{-1}(0)$, thn these charts give $\Phi^{-1}(0)$ the structure of a complex manifold of complex dimension $n$.
+
+Since the inverse function theorem is local, it applies to maps between complex maniflds.
+
+\begin{example}
+  \begin{enumerate}
+    \item $\mathcal{M}_{m\times n}(\C)\simeq \C^{nm}$ is a complex manifold.
+    \item $\mathrm{GL}_n(\C)$ is an open subset of $\C^{n^2}$ so a complex manifold.
+    \item $\SL_n(\C)=\left\{A \in \mathcal{M}_n(\C):\mathrm{det}A=1\right\}=\mathrm{det}^{-1}(1) $.
+      Claim: $1$ is a regular value of $\det:\mathcal{M}_n(\C)\to \C$, i.e., $D_A \det $ is not zero at all $A \in \SL_n(\C)$. Indeet, $D_A \det(A)=\partial_t|_{t=0}\det(A+tA)=\partial_t|_{t=0}(1+t)^{n}\det A=n\neq 0$. Hence by inverse function theorem, $\SL_n(\C)$ is a complex manifold.
+    \item Suppose we're given a bilinear form on $\C^{n}$ : $(v,w)\mapsto w^{T}Qv$, $Q=Q^{T}$ or $Q=-Q^{T}$, $Q\in \GL_n(\C)$. Let 
+      \begin{align*}
+	\mathrm{Or}(Q)&=\left\{A\in \mathcal{M}_n(\C):w^{T}Qv =(Aw)^{T}Q(Av),\forall v,w \in \C^{n}\right\}\\
+	&=\left\{A\in \mathcal{M}_n(\C):A^{T}QA=Q\right\}. 
+      \end{align*}
+      Let $F(A)=A^{T}QA$, $\mathrm{Or}(Q)=F^{-1}(Q)$.
+      \begin{align*}
+        F: \C^{n^2} &\longrightarrow \text{Symmetric /anti-symmetric} \\
+        A &\longmapsto A^{T}QA
+      .\end{align*}
+	$D_A F(B)=\partial_t|_{t=0}F(A+tB)=B^{T}QA+A^{T}QB$. Because $Q$ is invertible, this maps onto the symmetric or anti-symmetric matrices. Thus $\mathrm{Or}(Q)$ is a complex manifold. If $Q=\begin{bmatrix} 0 & -I_n\\ I_n & 0 \end{bmatrix} $ then $\mathrm{Or}(Q)=\text{Sp}(2n,\C)$. 
+  \end{enumerate} 
+  These are examples of complex Lie groups. A (complex) Lie group is a (complex) manifold $G$ that is also   a group s.t. the group operations are smooth (holomorphic).
+
+  If in the last example we had used sesquilinear forms so $(v,w)\mapsto w^*Qv$ then the map $F(A)=A^*QA$ is no longer holomorphic. For example, $\mathcal{U}_n=\left\{A\in \mathcal{M}_n(\C):A^*A=I_n\right\} $. $\mathcal{U}\simeq \Sph^{1}$, it is not even even dimensional over $\R$.
+\end{example}
+
+\begin{example}[Complex tori]
+ Let $X$ be the quotient $\C^{n} / \Z^{2n}$, where $\Z^{2n}\subset \R^{2n}\simeq \C^{n}$ is the natural inclusion. Endow $X$ with the quotient topology $\pi:\C^{n}\to \C^{n} /\Z^{2n}$. If $\mathcal{U}\subset C^{n}$ is a small open subset s.t. 
+ \[
+   (\mathcal{U}+\gamma)\cap \mathcal{U}=\O,\forall  \gamma \in \Z^{2n},
+ \] 
+ then $\pi|_{\mathcal{U}}:\mathcal{U}\to \pi (\mathcal{U})$ is a bijection and covering $X$ with these provides a holomorphic atlas. The transition maps are translations by vectors in $\Z^{2n}$. More generally if $V$ is a complex vector space, and $\gamma_1,\cdots ,\gamma_n$ is a real basis over $\R$, then let $\Gamma=\left\{a_1\gamma_1+\cdots a_n\gamma_n:a_i \in \Z\right\} $ $= \text{free abelian group }(\gamma_1,\cdots ,\gamma_n)$, then $X=V / \Gamma$ is a complex manifold. As smooth manifolds, these are diffeomorphic to $(\Sph^{1})^{n}$ but in general they wil not be equivalen as complex manifolds.
+
+ If $n=2$. $\Gamma \subset \C$ is of the form $\gamma_1\Z+\gamma_2\Z$. By multiplying $\C$ by $\pm \frac{1}{\gamma_1}$ we can arrange $\Gamma =\Z+\tau \Z$ with $\Im(\tau )> 0$. It turns out that $\Gamma_1=\Z+\tau_1 \Z$, $\Gamma_2=\Z+\tau _2\Z$ define the same complex manifold if and only if $\exists A\in \SL_2(\Z)=\left\{A\in \mathcal{M}_2(\Z):\det(A)=1\right\} $ s.t. $\tau_1=A(\tau_2)$.  
+\end{example}
+
+\begin{definition}
+  When $X$ is a topological space with an action of a group $G$, we define the orbit space $X / G$ to be the equivalent classes of the relation $x\sim y\Leftrightarrow \exists g\in G$ s.t. $x=g\cdot y$ and we endow it with the quotient topology from $\pi :X\to X /G$ (need not be ``nice'' topology, e.g., $\C^\times $ acting on $\C$).
+  
+  Say that the action is ``free'' if $g\cdot x=x \Rightarrow g=I$ and that the action is ``proper'' if $G\times  X\to X \times X,(g,x)\mapsto (g\cdot x,x)$ is a proper map.
+\end{definition}
+\begin{theorem}
+  Given a smooth (holomorphic) free, proper action of a (complex) Lie group  $G$ on a smooth (complex) manifold $X$, the orbit space $X /G$ is naturally a (complex) manifold.
+\end{theorem}
+
+\begin{example}
+  $\mathbb{CP}^{n}$ and complex tori are examples of this theorem.
+\end{example}
+
+\begin{example}[Grassmannian manifolds]
+  Let $V$ be a complex vector space of complex dimension  $n+1$. Define  
+  \[
+    \mathrm{Gr}_k(V)=\left\{W\subset V \text{ subspaces }:\mathrm{dim}W=k\right\}.
+  \] 
+  So $\mathrm{Gr}_k(\C^{n+1})=\mathbb{CP}^{n}$.
+
+  To show that $\mathrm{Gr}_k(\C^{n+1})$ is a complex manifold, note that $W\in \mathrm{Gr}_k(\C^{n+1})$ is generated by the rows of a $k\times (n+1)$ matrix $A$. Denote these matrices by $\mathcal{A}_{k\times (n+1)}$. This is an open subset of $\mathcal{M}_{k\times (n+1)}$, hence a complex manifold. We obtain a natural surjection $\pi:\mathcal{A}_{k\times (n+1)}\to \mathrm{Gr}_k(\C^{n+1})$ which is the quotient by the natural action of $\GL_k(\C)$ on $\mathcal{A}_{k\times (n+1)}$. 
+\end{example}
+
+\section{Vector bundles}
+
+\begin{definition}
+  A vector bundle over a manifold is a collection of vector spaces parametrized by the manifold.
+\end{definition}
+\begin{example}  
+Over the circle, we have two rank $1$ real vector bundles.
+\begin{enumerate}
+  \item The trivial bundle, $E=\Sph^{1}\times \R\to \Sph^{1}$.
+  \item The infinite M\"{o}bius band $E=\text{M\"{o}bius}\to \Sph^{1}$.
+\end{enumerate}
+Both of them are ``locally trivial'' in that every point has a neighborhood $\mathcal{U}$ where the bundle looks like $\mathcal{U}\times \R\to \mathcal{U}$. But while the first bundle is globally trivial, the second one is not.
+
+Similarly, $\Sph^2\subset \R^3$ has a tangent bundle.
+\end{example}
+
+\begin{definition}
+  Let $M$ be a smooth manifold, $\mathbb{F}\in \left\{\R,\C\right\} $. A rank $k$ $\mathbb{F}$-vector bundle over $M$ consists of 
+  \begin{enumerate}
+    \item A smooth manifold $E$ together with surjective map $E\xrightarrow{\pi}M$.
+    \item For each $\zeta\in M$, the fiber $E_{\zeta}=\pi ^{-1}(\zeta)$ is an $\mathbb{F}$-vector space of dimension $k$.
+    \item Every $\zeta \in M$ has a neighborhood $\mathcal{U}$ and a differmorphism $h:\pi^{-1}(\mathcal{U})\to \mathcal{U}\times  \mathbb{F}^{k}$ such that the diagram 
+      \[
+	\begin{tikzcd}[column sep=tiny]
+	\pi^{-1}(\mathcal{U})\arrow[rr,"h"] \arrow[rd,"\pi"']  & & \mathcal{U}\times \mathbb{F}^{k}\arrow[ld, "p"] \\
+	& \mathcal{U} &  
+      \end{tikzcd}
+      \] 
+      commute and $h|_{\pi^{-1}(\zeta)}:E_{\zeta }\to \mathbb{F}^{k}$ is an isomorphism. 
+  \end{enumerate}
+  $M$ is called the base, $E$ the total space, $\mathbb{F}^{k}$ the fiber of the vector bundle; often denote this by $\mathbb{F}^{k}- E\to M$. The data in (c) is called a local trivialization. The trivial rank $k$ $\mathbb{F}$-vector bundle over $M$ is $M\times \mathbb{F}^{k}\xrightarrow{p} M$. I'll denote this the total space of this bundle by $\underline{\mathbb{F}}^{k}$. 
+  
+\end{definition}
+Another way of thinking about a vector bundle comes from looking at the transitions between different local trivializations. If $\left( \mathcal{U}_{\alpha},h_{\alpha} \right) $ and $\left( \mathcal{U}_{\beta},h_{\beta } \right) $ are local trivializations such that $\mathcal{U}_{\alpha}\cap \mathcal{U}_\beta \neq \O$, then we have the map  
+\begin{align*}
+  h_{\alpha}\circ h^{-1}_{\beta }: \mathcal{U}_\alpha \cap \mathcal{U}_\beta \times \mathbb{F}^{k} &\longrightarrow \mathcal{U}_{\alpha}\cap \mathcal{U}_\beta \times \mathbb{F}^{k} \\
+  (\zeta,v) &\longmapsto (\zeta,g_{\alpha \beta }(\zeta)v)
+\end{align*}
+and so is equivalent to a map $g_{\alpha \beta }:\mathcal{U}_\alpha \cap \mathcal{U}_\beta \to \GL_n(\mathbb{F})$. We call these maps the transition maps. The transition maps $\left( \mathcal{U}_\alpha, g_{\alpha \beta }:\mathcal{U}_{\alpha}\cap \mathcal{U}_{\beta }\to \GL_k(\mathbb{F}) \right) $ make up a (\v{C}ech) cocycle meaning:
+$g_{\alpha \alpha}=\mathrm{Id}\forall \alpha$ and $g_{\alpha \beta }\circ g_{\beta \gamma}\circ g_{\gamma \alpha}=\mathrm{Id}$ whenever $\mathcal{U}\cap \mathcal{U}_\beta \cap \mathcal{U}_\gamma\neq \O$. This data determines a rank $k$ $\mathbb{F}$-vector bundle over $M$ and is determined from a rank $k$ $\mathbb{F}$-vector bundle over $M$. 
+\begin{definition}
+  On a complex manifold $M$,
+a $\C$-vector bundle over $M$ is holomorphic if its transition maps are holomorphic maps $\mathcal{U}_\alpha \cap  \mathcal{U}_\beta \to \GL_k(\C)$.
+\end{definition}
+
+An $\mathbb{F}$-line bundle is a rank $1$ $\mathbb{F}$-vector bundle. A verctor bundle morphism between $E\to M$ and $E'\to M'$ is a smooth map $E\xrightarrow{\Phi}E'$ s.t. 
+\[
+\begin{tikzcd}
+  E\arrow[r, "\Phi"]\arrow[d] &  E'\arrow[d] \\
+  M\arrow[r,"F"]  & M'
+\end{tikzcd}
+\] 
+commute for some smooth map $F:M\to M'$ and the restrictions $\Phi|_{\pi^{-1}(\zeta)}:E_{\zeta }\to E'_{F(\zeta)}$ are linear. A vector bundle isomorphism is a bijective vector bundle morphism. 
+
+A section of a vector bundle $E\xrightarrow{\pi}M$ is a map $M\xrightarrow{s}E$ such that $\pi\left( s(\zeta) \right) =\zeta \forall \zeta \in M$, i.e.,
+\[
+  \begin{tikzcd}[column sep=tiny]
+  & E\arrow[rd,"\pi"]  & \\
+  M \arrow[ur,"s"]\arrow[rr,"\mathrm{Id}"]& & M  
+\end{tikzcd}
+\]
+We denote the set of section by $C^{\infty}(M;E)$ ($C^{\infty}(M;E)\subsetneq C^{\infty}(M,E)$).
+
+\begin{example}[Tangent bundle, first definition]
+  Let $M$ be an $\mathbb{F}$-manifold of dimension $n$ and let $\left( \mathcal{U}_\alpha,\phi_\alpha:\mathcal{U}_\alpha\to \mathcal{V}_\alpha \right) $ be an atlas, so $\mathcal{U}\subset M$, $\mathcal{V}_{\alpha}\subset \mathbb{F}^{n}$ and $\mathcal{U}_\alpha$ forms a cover of $M$.
+
+  The tansition map on overlaps 
+  \[
+    \phi_{\alpha}\circ \phi_{\beta }^{-1}:\phi_{\beta }\left( \mathcal{U}_\alpha \cap \mathcal{U}_\beta  \right) \to \phi_\alpha\left( \mathcal{U}_\alpha \cap  \mathcal{U}_\beta  \right) 
+  \] 
+  are diffeomorphisms (biholomorphisms). If we take derivatives we get
+  \[
+    D\left( \phi_\alpha\circ \phi_{\beta }^{-1} \right) :\phi_\beta\left( \mathcal{U}\cap \mathcal{U}_\beta  \right) \times \mathbb{F}^{n}\to \phi_\alpha \left( \mathcal{U}_\alpha \cap  \mathcal{U}_\beta  \right) \times \mathbb{F}^{n}.
+  \] 
+Define 
+\[
+  TM= \sfrac{\bigsqcup \mathcal{U}_\alpha \times \mathbb{F}^{n}}{(u,v)\sim (u',v') \begin{matrix}\text{ if } u,u' \in \mathcal{U}_\alpha \cap \mathcal{U}_{\beta }& \\ \text{ and } D\left( \phi_{\alpha}\circ \phi_{\beta}^{-1} \right)\left( \phi_\beta (u),v \right) =\left( \phi_\alpha (u'),v' \right)&\end{matrix}  } .
+\]
+That is, we take tangent vectors in each coordinate charts and identify them if they correspond to each other under the chain rule.
+\end{example}
+
+Meta-Theorem:  Any canonical construction in linear algebra gives rise to a geometric version for smooth / holomorphic vector bundles.
+\begin{example}
+  Let $E$ and $F$ be vector bundles over a manifold $M$, then
+  \begin{enumerate}
+    \item $E\oplus F\to M$ is the vector bundle whose fiber $(E\oplus F)_{\zeta }$ is canonical isomorphic to $E_\zeta \oplus E_\zeta $.
+    \item $E\otimes F\to M$ is the vector bundle whose fiber $(E\otimes F)_{\zeta}$ is canonical isomorphic to $E_{\zeta }\otimes E_{\zeta}$.
+    \item Taking alternating /symmetric parts of $\mathop{\otimes}\limits_{j=1}^{m} E\to M$ produces $\wedge ^{m}E\to M$( $k$-th exterior power) or  $S^{k}E\to M$ ($k$-th symmetric power).
+    \item  $\mathrm{Hom}(E,F)\to M$ with fiber cannonically isomorphic to $\mathrm{Hom} (E_\zeta,F_\zeta)$.
+    \item $E^* \to M$ is the vector bundle $\mathrm{Hom}(E,\underline{\mathbb{F}})$.
+  \end{enumerate}
+  For example, if $E$ has transition maps $g_{\alpha \beta }$ and $F$ has transition maps $h_{\alpha \beta}$, then $E\oplus F$ is the vector bundle with transition maps $\begin{bmatrix} g_{\alpha\beta }&0\\0&h_{\alpha\beta } \end{bmatrix} $ and $E^{*}$ is the vector bundle with transition maps $f_{\alpha\beta }=\left( g_{\beta \alpha}^{-1} \right)^t $.
+\end{example}
+
+\section{Geometric structures}
+Another way of thinking about manifolds, real or complex, in line with modern algebraic geometry is through ``geometric structures''.
+\begin{definition}
+  Let $\mathbb{F}\in \left\{\R,\C\right\} $, $X$ a topological space. For any open set $\mathcal{U}\subset X$ open, let $C(\mathcal{U})=C^{0}(\mathcal{U})$ denote the continuous functions $\mathcal{U}\to \mathbb{F}$. A geometric structure $\mathcal{A}$ on $X$ is a collection of subrings $\mathcal{A}(\mathcal{U})\subset C(\mathcal{U})$,$\forall \mathcal{U}\subset X$ open, satisfying:
+  \begin{enumerate}
+    \item The constant functions are in $\mathcal{A}(\mathcal{U})$;
+    \item If $f \in \mathcal{A}\left( \mathcal{U} \right) $ and $\mathcal{V}\subset \mathcal{U}$, then $f|_{\mathcal{V}}\in \mathcal{A}\left( \mathcal{V} \right) $ ;
+    \item If $\left\{\mathcal{U}_i\right\} $ is a collection of open subsets of $X$, $\mathcal{U}=\bigcup_{i} \mathcal{U}_i$ and we are given $f_i \in \mathcal{A}\left( \mathcal{U}_i \right) $ s.t. $f_i|_{\mathcal{U}_j}=f_j|_{\mathcal{U}_i}$ whenever $\mathcal{U}_i\cap \mathcal{U}_j\neq \O$,then $\exists ! f \in \mathcal{A}\left( \mathcal{U} \right) $ s.t. $f|_{\mathcal{U}_i}=f_i\forall i$.
+  \end{enumerate}
+  The pair $(X,\mathcal{A})$ is called a geometric space and functions in $\mathcal{A}\left( \mathcal{U} \right) $ will sometimes be called distinguished. (b) and (c) tells us that being distinguished is an open property. Typical examples are differentiability and analyticity.
+\end{definition}
+In the language of sheaves (which we will discuss later): $\mathcal{A}$ is a subsheaf of the sheaf of continuous functions.
+\begin{example}
+  \begin{enumerate}
+    \item If $\mathcal{U}\subset \R^{n}$ open and let  $C^{\infty}$ be the geometric structure $\mathcal{V}\mapsto C^{\infty}\left( \mathcal{V} \right) $ then $\left( \mathcal{U},C^{\infty} \right) $ is a geometric space.
+    \item If $\mathcal{U}\subset \C^{n}$ open and let $\theta $ be the geometric structure $\mathcal{V}\mapsto\theta (\mathcal{V})=$ holomorphic functions from $\mathcal{V}$ to $\C$, then $(\mathcal{V},\theta )$ is a geometric space.
+  \end{enumerate}
+\end{example}
+\begin{definition}  
+A morphism of geometric spaces $f:(X,\mathcal{A}_X)\to \left( Y,\mathcal{A}_Y \right) $is a continuous map $f:X\to Y$ with the property that if $g\in \mathcal{A}_Y(\mathcal{U})$ then $g\circ f\in \mathcal{A}_X\left( f^{-1}\left( \mathcal{U} \right)  \right) $(we write this map as $f^{*}:\mathcal{A}_Y(\mathcal{U})\to \mathcal{A}_X\left( f^{-1}(\mathcal{U}) \right) $). $f$ is an isomorphism if there is an inverse morphism.
+\end{definition}
+
+\begin{example}
+\begin{enumerate}
+  \item Morphism $f:\left( \mathcal{U},C_{\mathcal{U}}^{\infty} \right) \to \left( \mathcal{V},C_{\mathcal{V}}^{\infty} \right) $ is the same as $f \in C^{\infty}\left( \mathcal{U},\mathcal{V} \right) $.
+  \item Morphism $f:\left( \mathcal{U},\theta _{\mathcal{U}} \right) \to \left( \mathcal{V},\theta _{\mathcal{V}} \right) $ is the same as $f:\mathcal{U}\to \mathcal{V}$ holomorphic.
+  \item If $\mathcal{U}\subset X$ open, then $\left( \mathcal{U}, \mathcal{A}|_{\mathcal{U}} \right)\to \left( X,\mathcal{A} \right)  $ is a morphism.
+  \item If  $X$ is a real (complex) manifold  with atlas $\left\{\varphi_{\alpha}:\mathcal{U}_{\alpha}\to \mathcal{V}_{\alpha}\right\},\mathcal{U}_\alpha \subset X,\mathcal{V}_{\alpha}\subset \mathbb{F}^{n}$. We define a geometric structure $C_{X}^{\alpha}$ ($\theta _{X}$ resp.) as follows: For $\mathcal{U}\subset X$ open, define
+    \begin{align*}
+      C_X^{\infty}\left( \mathcal{U} \right) &:=\left\{f\in C(\mathcal{U}):(f|_{\mathcal{U}\cap \mathcal{U}_\alpha})\circ \varphi_\alpha ^{-1}:\varphi_\alpha\left( \mathcal{U}\cap \mathcal{U}_\alpha  \right) \to \R \text{ smooth }\forall \mathcal{U}\cap \mathcal{U}_\alpha\neq \O\right\}\\
+      \theta _X\left( \mathcal{U} \right) &:=\left\{\cdots \C \text{ holomorphic }\cdots \right\}
+    .\end{align*}
+\end{enumerate}  
+\end{example}
+\begin{definition}[Equivalent definition]
+  A smooth (complex) manifold of $\mathbb{F}$-dimension $n$ is a geometric structure $\left( X,\mathcal{A} \right) $ in which every point $\zeta\in X$ has a neighborhood $\mathcal{U}$ s.t. $\left( \mathcal{U},\mathcal{A}|_{\mathcal{U}} \right) \cong \left( \Omega,C^{\infty}_{\Omega} \right) $, $\Omega\subset \R^{n}$ open (or s.t.  $\left( \mathcal{U},\mathcal{A}|_{\mathcal{U}} \right) \cong \left( \Omega, \theta _{\mathcal{U}} \right) $, $\Omega\subset \C^{n}$ open).
+\end{definition}
+Given a geometric space $\left( X,\mathcal{A} \right) $ and a point $\zeta \in X$ we localize $\mathcal{A}$ to $\zeta $ :
+\begin{enumerate}
+  \item We define $\mathcal{A}_\zeta $ as a ring of equivalence classes of functions. Each $[f]=\left[ f \right] _\zeta \in \mathcal{A}_\zeta $ is represented by $f\in \mathcal{A}(\mathcal{U})$, $\zeta\in \mathcal{U}$ open and two representatives $f_1 \in \mathcal{A}\left( \mathcal{U}_1 \right) $, $f_2 \in  \mathcal{A}(\mathcal{U}_2)$ are equivalent if there is an open $\mathcal{W}$, $\zeta \in \mathcal{W}$ s.t. $f_1|_{\mathcal{W}}=f_2|_{\mathcal{W}}$. 
+  \item We call $\mathcal{A}_\zeta $ the stalk of $\mathcal{A}$ at $\zeta $ and $\left[ f \right] _{\zeta }$ the germ of $f$ at $\zeta $.
+\end{enumerate}
+A derivation of the algebra $\mathcal{A}_{\zeta }$ is an $\mathbb{F}$-linear map 
+$D:\mathcal{A}_\zeta \to \mathbb{F}$ that satisfies the Leibnize rule at $\zeta$:
+\[
+  D\left( [f]\left[ g \right]  \right) =f(\zeta)D\left( \left[ g \right]  \right) +D\left( \left[ f \right]  \right) g(\zeta) \quad \forall  \left[ f \right],\left[ g \right] \in \mathcal{A}_{\zeta}. 
+\]
+The real tangent sapce of $X$ at $\zeta $ is the $\R$-vector spaces of derivations of $C_{X,\zeta }^{\infty}$ and the complex tangent space of $X$ at $\zeta $ is the $\C$-vector spaces of derivations of $\theta _{X,\zeta }$.
+
+\begin{example}
+  \begin{enumerate}
+    \item For $\mathcal{U}\subset \R^{n}$ open, $D_j:\C_{\zeta }^{n}\to \mathbb{F},D_j\left( \left[ f \right]  \right) =\frac{\partial f}{\partial x_j} (\zeta)$ is a derivation.
+    \item For $\mathcal{U}\subset \C^{n}$ open, $D_j:\theta _\zeta \to \mathbb{F}, D_j\left( \left[ f \right]  \right) =\frac{\partial f}{\partial z_j} (\zeta)$ is a derivation.
+  \end{enumerate}
+\end{example}
+Notice that for a manifold, the stalk of $\mathcal{A}$ is the same as the stalk of $\mathcal{A}|_{\mathcal{U}}$, $\mathcal{U}$ coordinate chart containing $\zeta$.
+
+Let $\mathcal{J}_{\zeta }\subset \mathcal{A}$ be the ideal of germs that vanish at $\zeta$ and then define $\mathcal{J}_{\zeta}^2$ an ideal generated by $\left\{[f]\in \mathcal{A}_\zeta:\left[ f \right] =\left[ g \right] \left[ h \right] \text{ for some }\left[ g \right] ,\left[ h \right] \in \mathcal{J}_{\zeta }\right\} $.
+
+The map
+\begin{align*}
+   \mathcal{A}_\zeta  &\longrightarrow \sfrac{\mathcal{A}_{\zeta }}{\mathcal{J}_{\zeta }} \\
+   \left[ f \right]  &\longmapsto f(\zeta)
+\end{align*}is evaluation at $\zeta$.
+The map 
+$\mathcal{J}_{\zeta } \longrightarrow  \sfrac{\mathcal{J}_{\zeta }}{\mathcal{J}_{\zeta }^2}$, for a manifold, is the ``total derivative'' (exterior derivative).
+Given a function $f\in \mathcal{A}(\mathcal{U})$, $\mathcal{U}\subset \mathbb{F}^{n}$, we can write 
+\[
+  f(w)=f(\zeta)+\left( \partial_{w_1}f \right) (\zeta)(w_1-\zeta_1)+\cdots \left( \partial_{w_n }f \right) (\zeta)(w_n-\zeta_n)+\text{ things that vanish to 2nd order at }\zeta.
+\] 
+If $\left[ f \right] \in \mathcal{J}_{\zeta }$ then $f(\zeta)=0$ while the remainder is in $\mathcal{J}_\zeta^2$ so the class of $\left[ f \right] $ in $\sfrac{\mathcal{J}_\zeta }{\mathcal{J}_{\zeta }^2}$ is the class of $\left[ \left( \partial_{w_1 }f \right) (\zeta)(w_1-\zeta_1)+\cdots +\left( \partial_{w_n }f \right)\left( w_n-\zeta_n \right)   \right]=: \sum_{j=1}^{n} \left( \partial_{w_j}f \right) (\zeta) \,\mathrm{d} w_j$. Thus $\sfrac{\mathcal{J}_{\zeta }}{\mathcal{J}_{\zeta }^2}\cong \mathbb{F}^{n}$ with each choice of coordinates inducing a basis o f $\sfrac{\mathcal{J}_{\zeta }}{\mathcal{J}_{\zeta }^2}$.
+
+\begin{claim} $\mathrm{Der}\left( \mathcal{A}_\zeta  \right) \cong \left( \sfrac{\mathcal{J}_{\zeta }}{\mathcal{J}^2_{\zeta }} \right) ^{*}= \text{ annihilator of }$ $\mathcal{J}_{\zeta }^2$ in $\mathcal{J}_\zeta ^{*}$.
+\end{claim}
+\begin{proof}
+  There is an obvious map $\mathrm{Der}\left( \mathcal{A}_\zeta  \right) \to \mathcal{J}^{*}_{\zeta }$ by restriction, by the Leibnitz rule elements in the image vanish on $\mathcal{J}^2_{\zeta }$. Conversely, given $\phi \in J_{\zeta }^{*}$ s.t. $\phi|_{\mathcal{J}^2_{\zeta }}\equiv 0$, define $D:\mathcal{A}_{\zeta }\to \mathbb{F}$ by $D\left( \left[ f \right]  \right) =\phi \left( \left[ f \right] -\left[ f(\zeta) \right]  \right) $. Note 
+  \begin{align*}
+    D\left( \left[ f \right] \left[ g \right]  \right) &=\phi\left( \left[ fg \right] -\left[ fg(\zeta) \right]  \right) \\
+						       &= \phi \left( \left[ f-f(\zeta) \right] \left[ g-g(\zeta) \right] +\left[ f(\zeta)(g-g(\zeta)) \right] +\left[ g(\zeta)\left( f-f(\zeta) \right)  \right]  \right) \\
+						       &= f(\zeta) \phi\left( \left[ g-g(\zeta) \right]  \right) +g(\zeta)\phi\left( \left[ f-f(\zeta) \right]  \right)\\
+						       &= f(\zeta)D\left( \left[ g \right]  \right) +g(\zeta) D\left( \left[ f \right]  \right)
+  .\end{align*}
+\end{proof}
+
+\section{Paths and Tangents}
+
+Last section we defined $t_pM$ at $p \in M$ to be the derivations of $\mathcal{A}_p$. These fit together to form $tM=\bigcup t_pM $. Over any coordinate chart $\varphi:\mathcal{U}\to \mathcal{V}$ we can form $t_p\mathcal{U}=t_pM$ for $p \in \mathcal{U}$, and then use what we established last time to see that there is an induced map $D\varphi:t\mathcal{U}\to t\mathcal{V}=\mathcal{V}\times \R^{n}$ and see that it coincides with the usual $D\varphi$. Hence we see that $tM$ is naturally identified with $TM$. 
+
+An alternative way of thinking about a tangent vector to $M$ at $p \in M$ is as an equivalence class of paths through $p$. We can do this both in the settings of the tangent bundle of a smooth manifold or the holomorphic tangent bundle of a complex manifold.
+
+For $\mathbb{F}\in \left\{\R,\C\right\} $ apath through $p \in M$ will refer to a pair $\left( \mathcal{U},\gamma \right) $ with $\mathcal{U}\subset \mathbb{F}$ a neighborhood of the origin and $\gamma:\mathcal{U}\to \mathcal{M}$ smooth if $\mathbb{F}=\R$ (holomorphic if $\mathbb{F}=\C$) s.t. $\gamma(0)=p$.
+
+Two paths through $p$ are equivalent if there is a coordinate chart $\varphi:\mathcal{W}\to \mathcal{V}$ with $p \in W$ such that 
+\[
+\partial_t|_{t=0}\varphi\circ \gamma_1=\partial_t|_{t=0}\varphi circ \gamma_2,\quad  \mathbb{F}=\R
+\] 
+or 
+\[
+\partial_t|_{z=0}\varphi\circ \gamma_1=\partial_t|_{z=0}\varphi\circ \gamma_2,\quad \mathbb{F}=\C.
+\] 
+It's easy to see that these tangent vectors can be identified with the vector space of derivatives in the coordinate directions in any local coordinates at $p$. This allows us to identify this notion of tangent vector and the corresponding vector bundle with the tangent bundle.
+
+Given a smooth (holomorphic) map between smooth (complex) manifolds $F:M\to N$, its derivative is a smooth (holomorphic) map $DF:TM\to TN$:
+ \begin{align*}
+   D_p F: T_p M &\longrightarrow T_{F(p)}N \\
+  \left[ \gamma \right]  &\longmapsto \left[ F\circ \gamma \right] 
+.\end{align*}
+The chain rule says that the tangent space is ``functorial'':
+$
+\begin{tikzcd}[column sep= tiny]
+  L\arrow[rr,"F"] \arrow[rd,"G\circ F"]  & & M \arrow[ld,"G"] \\
+  & N &
+\end{tikzcd}
+$ 
+imples $
+\begin{tikzcd}[column sep= tiny]
+  TL\arrow[rr,"DF"] \arrow[rd,"DG\circ DF"'] & & TM \arrow[ld,"DG"] \\
+			  &TN&
+\end{tikzcd}$, that is, $D\left( G\circ F \right) =DG\circ DF$.
+
+A section of the tangent bundle is a map $M\to TM$ that assigns to each point a tangent vector at that point. Sctions of the tangent bundle are called vector fields.
+\begin{example}
+  $\mathcal{U}\subset M$ open, given $\mathbf{V}\in C^{\infty}\left( \mathcal{U};TM|_{\mathcal{U}} \right) $ we can think of $\mathbf{V}$ as assigning to each $p\in \mathcal{U}$ a derivation of $C^{\infty}_{M,p}$ or $\theta _{M,p}$ and we can put these together to define the Lie derivative of the vector field:
+  \begin{align*}
+    \mathcal{L}_{\mathbf{V}}: \mathcal{A}(\mathcal{U}) &\longrightarrow \mathcal{A}(\mathcal{U}) \\
+    f &\longmapsto \mathcal{L}_{\mathbf{V}}(f)(\zeta )=\mathbf{V}(\zeta )\left[ f \right] _{\zeta }
+  .\end{align*}
+  This defines a derivation of $\mathcal{A}(\mathcal{U})$ with Leibnitz rule 
+  \[
+    \mathcal{L}_{\mathbf{V}}\left( fg \right) =f\mathcal{L}_{\mathbf{V}}(g)+g\mathcal{L}_{\mathbf{V}}(f)
+  \] 
+  and every derivation of $\mathcal{A}(\mathcal{U})$ arises in this way. Often $\mathcal{L}_{\mathbf{V}}(f)$ is denoted $\mathbf{V}(f)$. 
+  
+  We can use this to define the Lie bracket of vector fields. Given $\mathbf{V}_1,\mathbf{V}_2 \in C^{\infty}\left( \mathcal{U};TM|_{\mathcal{U}} \right) $, let 
+  \begin{align*}
+    \left[ \mathbf{V}_1,\mathbf{V}_2 \right] : \mathcal{A}\left( \mathcal{U} \right)  &\longrightarrow \mathcal{A}\left( \mathcal{U} \right)  \\
+    f &\longmapsto \left[ \mathbf{V}_1,\mathbf{V}_2 \right] (f)=\mathcal{L}_{\mathbf{V}_1}\left( \mathcal{L}_{\mathbf{V}_2}(f) \right) -\mathcal{L}_{\mathbf{V}_2}\left( \mathcal{L}_{\mathbf{V}_1}(f) \right) 
+  .\end{align*}
+  This is a derivation:
+  \begin{align*}
+    \left[ \mathbf{V}_1,\mathbf{V}_{2} \right] (fg)&= \mathcal{L}_{\mathbf{V}_1}\left( \mathcal{L}_{\mathbf{V}_2}(fg) \right) -\mathcal{L}_{\mathbf{V}_2}\left( \mathcal{L}_{\mathbf{V}_1}(fg) \right) \\
+    &= \mathcal{L}_{\mathbf{V}_1}\left( f\mathcal{L}_{\mathbf{V}_2}(g)+g\mathcal{L}_{\mathbf{V}_2}(f) \right) -\mathcal{L}_{\mathbf{V}_2}\left( f\mathcal{L}_{\mathbf{V}_1}(g)+g\mathcal{L}_{\mathbf{V}_1}(f) \right) \\
+    &=\mathcal{L}_{\mathbf{V}_1}(f)\mathcal{L}_{\mathbf{V}_2}(g)+f\mathcal{L}_{\mathbf{V}_1}\mathcal{L}_{\mathbf{V}_2}(g)+\mathcal{L}_{\mathbf{V}_1}(g)\mathcal{L}_{\mathbf{V}_2}(f)+g\mathcal{L}_{\mathbf{V}_1}\mathcal{L}_{\mathbf{V}_2}(f)\\
+    &-\mathcal{L}_{\mathbf{V}_2}(f)\mathcal{L}_{\mathbf{V}_1}(g)-f\mathcal{L}_{\mathbf{V}_2}\mathcal{L}_{\mathbf{V}_1}(g)-\mathcal{L}_{\mathbf{V}_2}(g)\mathcal{L}_{\mathbf{V}_1}(f)-g\mathcal{L}_{\mathbf{V}_2}\mathcal{L}_{\mathbf{V}_1}(f)\\
+    &=f\left[ \mathbf{V}_1,\mathbf{V}_2 \right](g) +g\left[ \mathbf{V}_1,\mathbf{V}_2 \right](f) 
+  .\end{align*}
+  Hence it is the Lie derivative of a vector field which we denote $\left[ \mathbf{V}_1,\mathbf{V}_2 \right] $. So this map could better be denoted $\mathcal{L}_{\left[ \mathbf{V}_1,\mathbf{V}_2 \right] }$. In local coordinates, if $\mathbf{V}_1=\sum_{}^{} a_j\partial_{\zeta _j}$, $\mathbf{V}_2=\sum b_j \partial_{\zeta _j}$, then 
+  \[
+    \left[ \mathbf{V}_1,\mathbf{V}_2 \right] =\sum_{j}^{k} \left( a_k\partial_{\zeta _k}b_j-b_k\partial_{\zeta _k}a_j \right) \partial_{\zeta _j}.
+  \] 
+\end{example}
+
+\begin{definition}
+  Given a smooth (holomorphic) map $F:M\to N$ between smooth (complex) manifolds and a smooth (holomorphic) vector bundles $E\overset{\pi}{\to}N$, we get a smooth (holomorphic) vector bundle $F^{*}E\to M$ known as the \textit{pull-back} vector bundle together with a vector bundle morphism $F^{*}E\to M$, i.e., we have a commutative diagram 
+  \[
+  \begin{tikzcd}
+    F^{*}E\arrow[r] \arrow[d] &E\arrow[d,"\pi"]\\
+    M \arrow[r,"F"]& N
+  \end{tikzcd}.
+\]
+In fact, $F^{*}E=\left\{(m,\mathbf{v})\in M\times E:F(m)=\pi(\mathbf{v})\right\} $ and the maps are $
+  \begin{tikzcd}
+    (m,\mathbf{v})\arrow[d,mapsto] \arrow[r,mapsto]&\mathbf{v}\\
+    m &
+  \end{tikzcd}$.
+\end{definition}
+
+This satisfies a ``universal property'': It is the smallest vector bundle over $M$ with a vector bundle map to $E$ covering $F$ in that, given
+ \[
+\begin{tikzcd}
+  \mathscr{E}\arrow[r] \arrow[d] &E\arrow[d,"\pi"] \\
+  M\arrow[r,"F"] &N
+\end{tikzcd}
+\] 
+there exists a unique vector bundle morphism $\mathscr{E}\to F^{*}E$ such that 
+\[
+\begin{tikzcd}
+  \mathscr{E}\arrow[rdd, bend right]\arrow[rd, dashed]  \arrow[rrd, bend left] & &\\
+   & F^{*}E \arrow[r]\arrow[d]  &E\arrow[d,"\pi"] \\
+   & M\arrow[r,"F"]&N 
+\end{tikzcd}
+\] 
+commutes.
+
+Notice that the pull-back of a trivial bundle $N\times \mathbb{F}^{k}$ is the trivial bundle $M\times \mathbb{F}^{k}$. We obtain local trivializations of $F^{*}E$ by pulling-back local trivializations of $E$.
+
+\section{Covariant derivatives}

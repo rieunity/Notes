@@ -1,0 +1,105 @@
+%TEX program = xelatex
+\documentclass[12pt]{amsart}
+\usepackage[colorlinks,
+	linkcolor=red,
+	anchorcolor=blue,
+	citecolor=green
+]
+{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{amsmath, amssymb,mathrsfs}
+\usepackage{mathtools}
+\usepackage{mathbbol}
+
+% A symbol for the quotient of two objects
+%\usepackage{xfrac}
+%\usepackage{faktor}
+\newcommand{\sfrac}[2]{{\left.\raisebox{.2em}{$#1$}\middle/\raisebox{-.2em}{$#2$}\right.}}
+\newcommand{\bsfrac}[2]{{\left.\raisebox{-.2em}{$#1$}\middle\backslash\raisebox{.2em}{$#2$}\right.}}
+\usepackage{tikz-cd}
+
+\oddsidemargin=-.0cm
+\evensidemargin=-.0cm
+\textwidth=16cm
+\textheight=22cm
+\topmargin=0cm
+
+% integral vraiable
+\renewcommand{\d}{\,\mathrm{d}}
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\newcommand{\incfig}[1]{%
+  \def\svgwidth{\columnwidth}
+  \import{./figures/}{#1.pdf_tex}
+}
+% Some shortcuts
+\newcommand\N{\ensuremath{\mathbb{N}}}
+\newcommand\R{\ensuremath{\mathbb{R}}}
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+\renewcommand\O{\ensuremath{\emptyset}}
+\newcommand\Q{\ensuremath{\mathbb{Q}}}
+\renewcommand\C{\ensuremath{\mathbb{C}}}
+\newcommand\CP{\ensuremath{\mathbb{CP}}}
+\newcommand\CR{\ensuremath{\mathbb{CR}}}
+\newcommand\Sph{\ensuremath{\mathbb{S}}}
+
+% Some theorem environment settings
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem*{remark}{Remark}
+\newtheorem*{question}{Question}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{exercise}{Exercise}[section]
+\newtheorem*{solution}{Solution}
+\newtheorem*{claim}{Claim}
+\newtheorem{example}{Example}[section]
+% Enumerate Style
+\renewcommand{\labelenumi}{{\normalfont\alph{enumi}. }}
+
+% Tensor
+\usepackage{tensor}
+
+\DeclareMathOperator{\order}{ord}
+% bracket notations 
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
+
+% Notations in differential geometry
+% inner product
+\DeclarePairedDelimiterX\ipd[2]{\langle}{\rangle}{#1\delimsize , #2}
+
+% Notations in quantum field theory
+% normal ordering
+\newcommand{\normord}[1]{:\mathrel{#1}:}
+
+% Real and imaginary parts
+\DeclareMathOperator{\Realpart}{Re}
+\renewcommand{\Re}{\Realpart}
+
+\DeclareMathOperator{\Impart}{Im}
+\renewcommand{\Im}{\Impart}
+
+
+\DeclareMathOperator{\ddet}{det}
+\renewcommand{\det}{\ddet}
+
+% Groups
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+
+\begin{document}
+\title{Exact Control for Schr\"{o}dinger Equations on Tori}
+\author{Yunlei Wang}
+\date{May 14, 2021} 
+\maketitle
+\input{body}
+
+\end{document}

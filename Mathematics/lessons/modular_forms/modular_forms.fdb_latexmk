@@ -1,10 +1,10 @@
 # Fdb version 3
-["biber modular_forms"] 1590131239 "modular_forms.bcf" "modular_forms.bbl" "modular_forms" 1590139545
-  "modular_forms.bcf" 1590139545 99041 fd165d5c91466655abc165140470ca8d "pdflatex"
+["biber modular_forms"] 1590131239 "modular_forms.bcf" "modular_forms.bbl" "modular_forms" 1631870523
+  "modular_forms.bcf" 1631870523 99041 fd165d5c91466655abc165140470ca8d "pdflatex"
   (generated)
-  "modular_forms.blg"
   "modular_forms.bbl"
-["pdflatex"] 1590139544 "modular_forms.tex" "modular_forms.pdf" "modular_forms" 1590139545
+  "modular_forms.blg"
+["pdflatex"] 1631870522 "modular_forms.tex" "modular_forms.pdf" "modular_forms" 1631870523
   "/home/rieunity/texmf/tex/latex/tensor/tensor.sty" 1571488674 4258 177d16e71f50eb48389533ac9bd9cd26 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
@@ -215,7 +215,7 @@
   "/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1571853559 4705182 bf438df4defcee09e6df4a733f75ef18 ""
   "/usr/local/texlive/2019/texmf-var/web2c/pdftex/pdflatex.fmt" 1571853578 4293312 e72b3702436da6adf09c22ca4cc5ca32 ""
   "/usr/local/texlive/2019/texmf.cnf" 1571853555 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "body.tex" 1590139543 53087 af941bb1b785283d7c3a2c1fa7129f92 ""
+  "body.tex" 1590147780 53087 af941bb1b785283d7c3a2c1fa7129f92 ""
   "figures/area-of-the-domain.pdf" 1590131228 1843 2a4c71e1c3895122ecb9d5dead7ee402 ""
   "figures/area-of-the-domain.pdf_tex" 1590131228 2430 95e8db84c22c430cc4dc2a2a752acdd5 ""
   "figures/argument-principle.pdf" 1589169018 3053 ef580304046be0d827524af272625e65 ""
@@ -236,18 +236,18 @@
   "figures/relation-between-two-numbers.pdf_tex" 1589173958 2622 a96adacd926d0cab95af05f179238e42 ""
   "figures/transform-of-circles.pdf" 1590125935 1640 19efafca1593119fd605cbae188092ed ""
   "figures/transform-of-circles.pdf_tex" 1590125935 2211 b4845289cccc291e127dc8972c2dd8da ""
-  "modular_forms.aux" 1590139545 12990 70b23251b39455f296552890867858f2 "pdflatex"
+  "modular_forms.aux" 1631870523 12990 70b23251b39455f296552890867858f2 "pdflatex"
   "modular_forms.bbl" 1590131240 466 f7f239c736cf01ac6ce7bd829f9b3c7b "biber modular_forms"
-  "modular_forms.out" 1590139545 506 574c75ef2733970069600f87120f6f0f "pdflatex"
-  "modular_forms.run.xml" 1590139545 2363 563d722f030753c9cc5a011daf91e43d "pdflatex"
-  "modular_forms.tex" 1589548551 2900 7fcdd82197a73e14dca4b3151ceb959d ""
-  "modular_forms.toc" 1590139545 967 6b9036686bb85c7cf276f775bbbdbb55 "pdflatex"
+  "modular_forms.out" 1631870523 506 574c75ef2733970069600f87120f6f0f "pdflatex"
+  "modular_forms.run.xml" 1631870523 2363 563d722f030753c9cc5a011daf91e43d "pdflatex"
+  "modular_forms.tex" 1631870397 2901 d3129f75a693ec9cb438b9b2d4774cb1 ""
+  "modular_forms.toc" 1631870523 967 6b9036686bb85c7cf276f775bbbdbb55 "pdflatex"
   (generated)
   "modular_forms.pdf"
-  "modular_forms.toc"
+  "modular_forms.thm"
+  "modular_forms.out"
   "modular_forms.aux"
   "modular_forms.bcf"
-  "modular_forms.out"
-  "modular_forms.log"
   "modular_forms.run.xml"
-  "modular_forms.thm"
+  "modular_forms.toc"
+  "modular_forms.log"

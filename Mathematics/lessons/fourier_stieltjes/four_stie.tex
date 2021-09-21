@@ -1,22 +1,29 @@
-%EX program = xelatex
+%TEX program = xelatex
 \documentclass[a4paper,12pt]{article}
 \usepackage{geometry}
 \geometry{a4paper,scale=0.7}
 %\usepackage{ctex}
  \usepackage[colorlinks,
-           linkcolor=red,
+           linkcolor=black,
            anchorcolor=blue,
            citecolor=green
-           ]{hyperref} 
+           ]{hyperref}
+
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\lhead{\emph{\nouppercase{\leftmark}}}
+\rhead{Fourier-Stieltjes}
 %少量中文时使用
 %\usepackage{xeCJK}
-\usepackage[center]{titlesec}
+\usepackage{titlesec}
+\newcommand{\sectionbreak}{\clearpage}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
 %\usepackage[english]{babel}
 \usepackage{amsmath, amssymb}
 \usepackage{mathtools}
+\usepackage{mathrsfs}
 
 % A symbol for the quotient of two objects
 %\usepackage{xfrac}
@@ -50,20 +57,23 @@
 \newcommand\Z{\ensuremath{\mathbb{Z}}}
 \renewcommand\O{\ensuremath{\emptyset}}
 \newcommand\Q{\ensuremath{\mathbb{Q}}}
-\newcommand\C{\ensuremath{\mathbb{C}}}
+\renewcommand\C{\ensuremath{\mathbb{C}}}
+\newcommand\CP{\ensuremath{\mathbb{CP}}}
+\newcommand\CR{\ensuremath{\mathbb{CR}}}
+\newcommand\Sph{\ensuremath{\mathbb{S}}}
 
 % Some theorem environment settings
 \usepackage{ntheorem}
 \theoremseparator{.}
 \newtheorem{theorem}{Theorem}[section]
 \newenvironment{proof}{{\noindent\itshape Proof}.}{\hfill $\square$\par}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
 \theorembodyfont{\upshape}
 \newtheorem*{remark}{Remark}
 \newtheorem*{question}{Question}
 \newtheorem{definition}[theorem]{Definition}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{exercise}{Exercise}[section]
 \newtheorem*{solution}{Solution}
 \newtheorem{example}{Example}[section]
@@ -79,12 +89,17 @@
 \DeclarePairedDelimiter\ket{\lvert}{\rangle}
 \DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
 
-% Normal ordering
+% Notations in differential geometry
+% inner product
+\DeclarePairedDelimiterX\ipd[2]{\langle}{\rangle}{#1\delimsize , #2}
+
+% Notations in quantum field theory
+% normal ordering
 \newcommand{\normord}[1]{:\mathrel{#1}:}
 
-% notations on modular forms
-\DeclareMathOperator{\SSLL}{SL}
-\newcommand{\SL}{\SSLL_2(\Z)}
+% notations in modular forms
+\DeclareMathOperator{\SWL}{SL}
+\newcommand{\SL}{\SWL_2(\Z)}
 
 % Real and imaginary parts
 \DeclareMathOperator{\Realpart}{Re}
@@ -93,18 +108,21 @@
 \DeclareMathOperator{\Impart}{Im}
 \renewcommand{\Im}{\Impart}
 
-%General linear group
+% General linear group 
 \DeclareMathOperator{\GL}{GL}
 
+% Category theory
+\DeclareMathOperator{\ob}{ob}
+\DeclareMathOperator{\mor}{Mor}
+
 \begin{document}
-\title{Modular Forms}
-\author{\large Notes taken by 89hao}
-\date{May 8, 2020 --- May ?, 2020}  
+\title{Fourier-Stieltjes Transforms on the Line}
+\author{{Based on the book by Yitzhak Katznelson}\\
+\small Notes taken by Rieunity}
+\date{September 15, 2021}  
 \maketitle
-\begin{abstract}
-  {This is a learning note about Zhang Yitang's lectures on modular forms. }
-\end{abstract}
-\tableofcontents
+\thispagestyle{empty}
+These notes are an introduction to Fourier-Stieltjes transforms on the line, which is based on Yitzhak Katznelson's book \textit{An Introduction to Harmonic Analysis}.
 \input{body}
 
 %\bibliographystyle{plain}

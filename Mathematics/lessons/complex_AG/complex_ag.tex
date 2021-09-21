@@ -21,7 +21,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
 %\usepackage[english]{babel}
-\usepackage{amsmath, amssymb}
+\usepackage{amsmath, amssymb,mathrsfs}
 \usepackage{mathtools}
 
 % A symbol for the quotient of two objects
@@ -34,11 +34,13 @@
 
 \usepackage{tikz-cd}
 
+
 %cite
 \usepackage{biblatex}
 \addbibresource{mybib.bib}
 
-
+% integral vraiable
+\renewcommand{\d}{\,\mathrm{d}}
 
 % figure support
 \usepackage{import}
@@ -75,6 +77,7 @@
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{exercise}{Exercise}[section]
 \newtheorem*{solution}{Solution}
+\newtheorem*{claim}{Claim}
 \newtheorem{example}{Example}[section]
 % Enumerate Style
 \renewcommand{\labelenumi}{{\normalfont\alph{enumi}. }}
@@ -96,10 +99,6 @@
 % normal ordering
 \newcommand{\normord}[1]{:\mathrel{#1}:}
 
-% notations in modular forms
-\DeclareMathOperator{\SWL}{SL}
-\newcommand{\SL}{\SWL_2(\Z)}
-
 % Real and imaginary parts
 \DeclareMathOperator{\Realpart}{Re}
 \renewcommand{\Re}{\Realpart}
@@ -107,8 +106,13 @@
 \DeclareMathOperator{\Impart}{Im}
 \renewcommand{\Im}{\Impart}
 
-%General linear group
+
+\DeclareMathOperator{\ddet}{det}
+\renewcommand{\det}{\ddet}
+
+% Groups
 \DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
 
 \begin{document}
 \title{Complex Algebraic Geometry}
@@ -116,10 +120,6 @@
 \small Notes taken by Rieunity}
 \date{March 28, 2021 --- ?, 2020}  
 \maketitle
-\begin{abstract}
-%  This is learning notes about Riemannian geometry. The learning resources I used are videos of a course: MIT18.965, Geometry of Manifolds, 2020 Fall. As an introduction course, the last 4 classes introduce some comparison geometry and geometric analysis which I omitted in my notes because of too much equations to type for humanity. Except this part, the notes arrange most topics the same order as the class did. Most part of the last section and some definitions come from Do Carmo's \textit{Riemannian Geometry}.
-\end{abstract}
-\tableofcontents
 \input{body}
 
 %\bibliographystyle{plain}

@@ -1,0 +1,311 @@
+\tableofcontents
+\section{Basic definitions}
+Denote by $M(\R)$ the space of all finite Borel measures on $\R$. $M(\R)$ is identified with the dual space of $C_0(\R)$ by means of 
+\begin{equation}
+  \ipd{f}{\mu}=\int f \overline{\mathrm{d}\mu}\quad f\in C_0(\R),\mu \in M(\R).
+\end{equation}
+The \textit{norm}  on $M(\R)$ is defined by $\|\mu\|_{M(\R)}:=\int \left| \mathrm{d}\mu \right| $. 
+\begin{definition}
+  The \textit{Fourier-Stieltjes transform} of a measure $\mu \in M(\R)$ is defined by:
+  \begin{equation}
+    \hat{\mu}(\xi)=\int e^{-i\xi x}\mathrm{d}\mu(x)\quad \xi \in \hat{\R}.
+  \end{equation}
+\end{definition}
+It is easy to check that the transform defined above satisfies the following properties:
+\begin{proposition}
+  Let $\hat{\mu}(\xi)$ be the Fourier-Stieltjes transform of a measure $\mu \in M(\R)$. Then
+  \begin{enumerate}
+    \item $\hat{\mu}(\xi)$ is bounded, i.e.,
+      \begin{equation}
+	\left| \hat{\mu}(\xi) \right| \le \|\mu\|_{M(\R)};
+      \end{equation}
+    \item $\hat{\mu}(\xi)$ is uniformly continuous.
+    \item If $\mathrm{d}\mu=f\mathrm{d}x$ for $f \in L^1(\R)$, then 
+      \begin{equation}
+	\hat{\mu}(\xi)=\hat{f}(\xi).
+      \end{equation}
+  \end{enumerate}
+\end{proposition}
+
+\begin{definition}
+  Let $\mu \in M(\R)$ and $f \in C_0(\R)$, then the \textit{convolution} is defined by 
+  \begin{equation}
+    \left( \mu * f \right)(x)=\int f(x-y)\mathrm{d}\mu(y). 
+  \end{equation}
+  Furthermore, we can define the convolution of two measures $\mu,\nu \in M\left( \R \right) $ by the duality
+  \begin{equation}
+    \ipd{f}{\mu*\nu}:=\ipd{\overline{\mu}* f}{\nu}.
+  \end{equation}
+  It is equivalent to define
+  \begin{equation}
+    \left( \mu*\nu \right) (E)=\int \mu(E-y)\mathrm{d}\nu (y)
+  \end{equation}
+  for every Borel set $E$. 
+\end{definition}
+It is easy to check that $\widehat{\mu *\nu}(\xi)=\widehat{\mu}(\xi)\widehat{\nu}(\xi)$.
+\begin{remark}
+  Consider the delta function $\delta(x) \in M(\R)$, this implies $L^1(\R)\subsetneq M(\R)$ and the failing of the Riemann-Lebesgue lemma.
+\end{remark}
+\section{Characterizing Fourier-Stieltjes transforms}
+
+\begin{theorem}[Parseval's formula]
+  Let $\nu \in M(\R)$ and let $f$ be a continuous function in $L^1(\R)$ such that $\hat{f}\in L^1\left( \hat{\R} \right) $. Then
+  \begin{equation}
+    \int f(x)\mathrm{d}\mu(x)=\frac{1}{2\pi}\int \hat{f}(\xi)\hat{\mu}(-\xi).\label{1}
+  \end{equation}
+\end{theorem}
+
+\begin{proof}
+  By the theory of usual fourier transform and $\hat{f}\in L^1(\hat{\R})$, we have
+  \[
+    f(x)=\frac{1}{2\pi}\int\hat{f}(\xi) e^{i\xi x}\mathrm{d}\xi.
+  \]
+  Hence
+  \[
+    \int f(x)\mathrm{d}\mu(x)=\frac{1}{2\pi}\int\int \hat{f}(\xi)e^{i\xi x}\mathrm{d}\mu(x)\mathrm{d}\xi=\frac{1}{2\pi}\int \hat{f}(\xi)\hat{\mu}(-\xi).
+  \] 
+\end{proof}
+The condition $\hat{f}\in L^1\left( \hat{\R} \right) $ is used to change the order of intergration (by Fubini's theorem).
+Formula (\ref{1}) is valid under the weaker assumption $\hat{f}(\xi)\hat{\mu}(-\xi) \in L^1(\hat{\R})$:
+\begin{align*}
+  \int f(x) \mathrm{d}\mu(x)&=\int\left(\lim_{\lambda\to \infty} \frac{1}{2\pi}\int_{-\lambda}^{\lambda}\left( 1-\frac{|\xi|}{\lambda} \right) \hat{f}(\xi) e^{i\xi x}\mathrm{d}\xi\right)\mathrm{d}\mu(x)\\
+  &=\lim_{\lambda\to \infty}\frac{1}{2\pi}\int \int_{-\lambda}^{\lambda}\left( 1-\frac{|\xi|}{\lambda} \right) \hat{f}(\xi)e^{i\xi x}\mathrm{d}\xi \mathrm{d}\mu(x)\\
+  &= \lim_{\lambda\to \infty}\frac{1}{2\pi}\int_{-\lambda}^{\lambda}\left( 1-\frac{|\xi|}{\lambda} \right)\hat{f}(\xi)\hat{\mu}(-\xi)\\
+  &= \frac{1}{2\pi}\int \hat{f}(\xi)\hat{\mu}(-\xi)
+.\end{align*}
+The third identity use the assumption to change the order of integration.
+
+\begin{corollary}
+  If $\hat{\mu}(\xi)=0$ for all $\xi$, then $\mu=0$.
+\end{corollary}
+\begin{proposition}\label{prp-1}
+  Let $f$ be bounded and continuous on $\R$ and let $\left\{k_\lambda\right\} $ be a summability kernel. Then $k_\lambda * f= \int k_\lambda(x-y)f(y)\mathrm{d}y$ converges to $f$ uniformly on compact sets on $\R$.
+\end{proposition}
+Using this property, we obtain the gneralized Parseval's formula:
+\begin{corollary}
+  Let $\mu \in  M(\R)$ and let $f$ be a bounded continuous function in $L^1(\R)$. Then
+  \begin{equation}
+    \int f(x)\mathrm{d}\mu(x)=\lim_{\lambda\to \infty}\frac{1}{2\pi}\int_{-\lambda}^{\lambda}\left( 1-\frac{|\xi|}{\lambda} \right) \hat{f}(\xi)\hat{\mu}(-\xi).
+  \end{equation}
+\end{corollary}
+
+We have known that the Fourier-Stieltjes transform of any $\mu \in M(\R)$ is bounded and continuous. But the converse is false.
+\begin{theorem}
+  Let $\varphi$ be continuous on $\hat{\R}$, define $\Phi_\lambda$ by:
+  \[
+    \Phi_\lambda(x)=\frac{1}{2\pi}\int_{-\lambda}^{\lambda}\left( 1-\frac{|\xi|}{\lambda}\right)\varphi(\xi)e^{i\xi x} \mathrm{d}\xi.
+  \] 
+  Then $\varphi$ is a Fourier-Stieltjes transform if and only if $\Phi_\lambda \in L^{1}(\R)$ for all $\lambda>0$, and $\|\Phi_\lambda\|_{L^{1}(\R)}$ is bounded as $\lambda\to \infty$.
+\end{theorem}
+\begin{proof}
+  If $\varphi=\hat{\mu}$ with $\mu \in M(\R)$, then $\Phi_\lambda=\mu*K_\lambda$ where $\widehat{K_\lambda}=\chi_{[-\lambda,\lambda]}\left( 1-\frac{|\xi|}{\lambda} \right) $ (by Proposition \ref{prp-1}). It follows that for all $\lambda>0$, $\Phi_\lambda \in L^1(\R)$ and $\|\Phi_\lambda\|_{L^{1}(\R)}\le \|\nu\|_{M(\R)}$.
+
+  Conversely, assuming that $\Phi_\lambda \in  L^{1}(\R)$ with uniformly bounded norms, we consider measures $\Phi_{\lambda}(x) \mathrm{d}x$ and denote by $\mu$ a weak-star limit point of $\Phi_\lambda(x) \mathrm{d}x$ ad $\lambda\to \infty$. This $\mu$ exists, because we can define
+  \[
+    \ipd{f}{\mu}=\int f \overline{\mathrm{d}\mu}=\lim_{\lambda\to \infty} \int f(x)\overline{\Phi_\lambda(x)\mathrm{d}x}=\lim_{\lambda\to \infty}\frac{1}{2\pi} \int_{-\lambda}^{\lambda}\hat{f}(\xi)\overline{\left( 1-\frac{|\xi|}{\lambda} \right) \varphi(\xi)}.
+  \]
+  We claim that $\varphi=\hat{\mu}$ and since both functions are continuous, this will follow if we show that 
+  \[
+    \int\varphi(-\xi)g(\xi)\mathrm{d}\xi=\int \hat{\mu}(-\xi)g(\xi)\mathrm{d}\xi
+  \] for every twice continuously differentiable $g$ with compact support. For such $g$ we define
+  \[
+    G(x)=\frac{1}{2\pi}\int g(\xi)e^{i\xi x}\mathrm{d}\xi.
+  \] 
+  Then by the assumption we have $G(x) \in L^{1}(\R)\cap C_0(\R)$, hence $g=\hat{G}$. Then 
+  \begin{align*}
+    \int g(\xi)\varphi(-\xi)\mathrm{d}\xi &= \lim_{\lambda\to \infty}\int_{-\lambda}^{\lambda}g(\xi)\varphi(-\xi)\left( 1-\frac{|\xi|}{\lambda} \right) \mathrm{d}\xi\\
+    &= \lim_{\lambda\to \infty}2\pi \int G(x) \Phi_{\lambda}(x)\mathrm{d}x\\
+    &=2\pi \int G(x)\mathrm{d}\mu(x)\\
+    &= \int g(\xi)\hat{\mu}(-\xi)\mathrm{d}\xi
+  ,\end{align*}
+  where the second identity use the Parseval's formula and the third identity is the definition of $\mu$.
+\end{proof}
+
+\begin{remark}
+  Denote $\mathrm{d}\mu_\lambda=\Phi_{\lambda}(x)\mathrm{d}x$, what we have done above is proving $\varphi(\xi)=\hat{\mu}(\xi)$. But it is not necessary that $\hat{\mu}(\xi)=\lim_{\lambda\to \infty}\hat{\mu}_n(\xi)$ pointwisely. In the case of $M(\mathbb{T})$, the weak-star convergence implies pointwise convergence of the Fourier-Stieltjes coefficients because $e^{i\xi x}\in C(\mathbb{T})$. The exponentials on $\R$ do not belong to $C_0(\R)$ and it is false that weak-star convergence in $M(\R)$ implies pointwise convergence of the Fourier-Stieltjes transforms. We give an example below to show this phenominon.
+\end{remark}
+
+\begin{example}
+  Denote by $\delta_n=\delta(x-n)$ the dirac measure on $\R$ concentrated at $x=n$. It is easy to see that $\lim_{n\to \infty}\delta_n=0$ in the weak-star topology of $M(\R)$, but $\hat{\delta_n}=e^{-i\xi n}$ do not converge pointwisely.
+\end{example}
+According the argument in the above remark, we have:
+\begin{lemma}
+  Let $\mu_n \in M(\R)$ and assume that $\mu_n\to \mu$ in the weeak-star topology. Assume also that $\hat{\mu}_n(\xi)\to \varphi(\xi)$ pointwise, $\varphi$ being continuous on $\hat{\R}$. Then $\hat{\mu}=\varphi$.
+\end{lemma}
+\begin{proof}
+  For every twice continuously differentiable $g$ with compact support, we have
+  \begin{align*}
+    \int g(\xi)\varphi(-\xi)\mathrm{d}\xi &= \int g(\xi)\left( \lim_{n\to \infty}\hat{\mu}_n(-\xi) \right)\mathrm{d}\xi\\
+    &= \lim_{n\to \infty} \int g(\xi)\hat{\mu}_n(-\xi)\mathrm{d}\xi\\
+    &=2\pi\int G(x)\mathrm{d}\mu_n(x)\\
+    &=2\pi \int G(x) \mathrm{d}\mu(x)\\
+    &= \int g(\xi)\hat{\mu}(-\xi)\mathrm{d}\xi
+  .\end{align*}
+\end{proof}
+\begin{theorem}\label{thm-1}
+  A function $\varphi$ defined and continuous on $\hat{\R}$, is a Fourier-Stieltjes transform if and only if there exists a constant $C$ such that 
+  \begin{equation}
+    \left| \frac{1}{2\pi}\int \hat{f}(\xi)\varphi(-\xi)\mathrm{d}\xi \right| \le C\sup_x\left| f(x) \right| \label{2}
+  \end{equation}for every continuous $f\in L^{1}(\R)$ such that $\hat{f}$ has compact support.
+\end{theorem}
+\begin{proof}
+  If $\varphi=\hat{\mu}$, (\ref{2}) follows from Parseval's formula (\ref{1}) with $C=\|\mu\|_{M(\R)}$.
+
+  Conversely, if (\ref{2}) holds, 
+   \[
+     f \mapsto \frac{1}{2\pi}\int \hat{f}(\xi)\varphi(-\xi)\mathrm{d}\xi
+   \] defines a bounded linear functional on a dense subspace of $C_0(\R)$, which by the Riesz representation theorem, has the form $f\mapsto \int f(x)\mathrm{d}\mu(x)$. Moreover, $\|\mu\|\le C$. Using (\ref{1}) again we see that $\hat{mu}-\varphi$ is orthogonal to all the continuous, compactly supported functions $\hat{f}$ with $f\in L^{1}(\R)$, hence $\varphi=\hat{\mu}$.
+\end{proof}
+
+\begin{definition}
+  Let $\mu \in M(\R)$, set $E_n=E+2\pi n$ and write $\widetilde{E}=\bigcup_{n\in \Z} E_n$. Define 
+  \[
+    \mu_{\mathbb{T}}(E)=\mu(\widetilde{E}).
+  \] 
+  Then $\mu_{\mathbb{T}}$ is a measure on $\mathbb{T}$ and identifies continuous functions on $\mathbb{T}$ with $2\pi$-periodic functions on $\R$ 
+  \begin{equation}
+    \int_{\R}\sum_{n \in \Z}f(x-n)\mathrm{d}x= \int_{\mathbb{T}}f(t)\mathrm{d}t.
+  \end{equation}
+\end{definition}
+
+\begin{theorem}\label{thm-2}
+ A function $\varphi$ defined and continuous on $\hat{\R}$, is a Fourier-Stieltjes transform if and only if there exists a constant $C>0$ such that for all $\lambda>0$, $\left\{\varphi(\lambda n)\right\} _{n=-\infty}^{\infty}$ are the Fourier-Stieltjes coefficients of a measure of norm $\le C$ on $\mathbb{T}$.
+\end{theorem}
+\begin{proof}
+  If $\varphi=\hat{\mu}$ with $\mu \in M(\R)$, we have $\varphi(n)=\hat{\mu}(n)=\hat{\mu}_{\mathbb{T}}(n)$ and $\|\mu_{\mathbb{T}}\|\le \|\mu\|$. Writing $\mathrm{d}\mu (x /\lambda)$ for the measure satisfying
+  \[
+    \int f(x)\mathrm{d}\mu \left( \frac{x}{\lambda} \right) =\int f(\lambda x)\mathrm{d}\mu(x)
+  \]
+  we have $\|\mu(x /\lambda)\|_{M(\R)}=\|\mu\|_{M(\R)}$ and $\widehat{\mu\left( x /\lambda \right) }(\xi)=\hat{\mu}(\xi \lambda)$. This implies $\varphi(\lambda n)=\widehat{\mu(x / \lambda)}_{\mathbb{T}}(n)$ and the "only if" part is established.
+
+  Conversely we use Theorem \ref{thm-1}. Let $f$ be continuous and integrable on $\R$ and assume that $\hat{f}$ is infinitely differentiable and compactly supported. We need to estimate the integral $\frac{1}{2\pi}\int \hat{f}(\xi)\varphi(-\xi)\mathrm{d}\xi$. Since the integrand is continuous and compactly supported, we can approximate the integral by its Riemann sums. Thus for aritrary $\varepsilon >0$, if $\lambda$ is small enough:
+  \begin{equation}
+    \left| \frac{1}{2\pi}\int \hat{f}(\xi)\varphi(-\xi)\mathrm{d}\xi \right| <\left| \frac{\lambda}{2\pi}\sum_{}^{} \hat{f}(\lambda n)\varphi(-\lambda n) \right| +\varepsilon .\label{3}
+  \end{equation}
+  Now, $(\lambda / 2\pi )\hat{f}(\lambda n)$ are the Fourier coefficients of the function
+$\psi_{\lambda}(t)=\sum_{m \in \Z}^{}f\left( (t+2\pi m) /\lambda \right)  $ on $\mathbb{T}$, and since the infinite differentiability of $\hat{f}$ implies a very fast decrease of $f(x)$ as $|x|\to \infty$, we see that if $\lambda$ is sufficiently small
+\begin{equation}
+  \sup |\psi_{\lambda}(t)|\le \sup|f(x)|+\varepsilon.\label{4}
+\end{equation}
+Assuming that $\varphi(\lambda n)=\hat{\mu}_{\lambda}(n)$, $\mu_{\lambda}\in M(\mathbb{T})$ and $\|\mu_\lambda\|_{M(\mathbb{T})}\le C$, we obtain from Parseval's formula
+
+\[
+  \left| \frac{\lambda}{2\pi}\sum \hat{f}(\lambda n)\varphi(-\lambda n) \right| =\left| \sum \hat{\psi}_\lambda (n) \hat{\mu}_{\lambda}(-n) \right| \le C \sup |\psi_\lambda(t)|.
+\] 
+By (\ref{3}) and (\ref{4})
+\[
+  \left| \frac{1}{2\pi}\int \hat{f}(\xi)\varphi(-\xi)\mathrm{d}\xi \right| \le C\sup |f(x)|+(C+1)\varepsilon 
+\] and since $\varepsilon >0$ is arbitrary, (\ref{2}) is satisfied.
+
+\end{proof}
+
+\begin{theorem}
+  Let $\varphi$ be a bounded and continuous function on $\hat{\R}$. Then $\varphi$ is the Fourier-Stieltjes transform of a positive measure on $\R$ if and only if 
+  \begin{equation}
+    \int \hat{f}(\xi)\varphi(-\xi)\ge 0 \label{5}
+  \end{equation}for every nonnegative function $f$ which is infinitely differentiable and compactly supported.
+\end{theorem}
+\begin{proof}
+  The "only if" part is obvious by Parseval's formula. To complete the proof we only need to show that (\ref{5}) implies (\ref{2}) with $C=\varphi(0)$ for every real-valued, compactly suppported infinitely differentiable $f$.
+
+  As usual, we denote the Fej\'{e}r kernel
+  \[
+    K_\lambda(x)=\lambda K(\lambda x)=\frac{\lambda}{2\pi}\left( \frac{\sin \lambda x/2}{\lambda x /2} \right) ^2 .
+  \] 
+  Note that $\frac{1}{2\pi}\left( \frac{\sin \lambda x /2}{\lambda x /2} \right) ^2\to \frac{1}{2\pi}$ and nonnegative as $\lambda\to 0$, uniformly on compact subsets of $\R$. The Fourier transform of $\lambda^{-1}K_\lambda(x)$ is $\lambda^{-1}\max\left( 1-|\xi| /\lambda, 0 \right) $ and, as $\varphi(\xi)$ is continuous at $\xi=0$,
+  \begin{equation}
+    \lim_{\lambda\to 0}\int \frac{1}{\lambda}\hat{K}_\lambda(\xi)\varphi(-\xi)\mathrm{d}\xi=\varphi(0).\label{6}
+  \end{equation}
+If $f$ is real-valued and compactly supported and $\varepsilon >0$, then, for sufficiently small $\lambda$ and all $x$,
+\begin{equation}
+  2\pi (\varepsilon +\sup |f|)K(\lambda x)-f(x)\ge 0.\label{7}
+\end{equation}
+Hence by (\ref{5}),(\ref{6}) and (\ref{7}) (replace $f$ in (\ref{5}) by the left hand side of (\ref{7})), if $\hat{f}\in L^{1}(\hat{\R})$,
+\begin{equation}
+  \frac{1}{2\pi} \int \hat{f}(\xi)\varphi(-\xi)\mathrm{d}\xi\le \varphi(0)\left( 2\varepsilon +\sup|f| \right).\label{8} 
+\end{equation} 
+Rewritting (\ref{8}) for $-f$ and letting $\varepsilon \to 0$ we obtain
+\begin{equation}
+  \left| \frac{1}{2\pi}\int \hat{f}(\xi)\varphi(-\xi)\mathrm{d}\xi \right| \le \varphi(0)\sup|f|.
+\end{equation}
+\end{proof}
+
+The analog to Theorem \ref{thm-2} is:
+\begin{theorem}\label{thm-3}
+  A function $\varphi$ defined and continuous on $\hat{\R}$, is the Fourier-Stieltjes transform of a positive measure if and only if for all $\lambda>0$, $\left\{\varphi(\lambda n)\right\} _{n=-\infty}^{\infty}$ are the Fourier-Stieltjes coefficients of a positive measure on $\mathbb{T}$.
+\end{theorem}
+
+
+\begin{definition}
+  A function $\varphi$ defined on $\hat{\R}$ is said to be \textit{positive definite} if, for every choice of $\xi_1,\cdots ,\xi_N \in \hat{\R}$ and complex numbers $z_1,\cdots ,z_N$, we have
+  \begin{equation}
+    \sum_{j,k=1}^{N} \varphi(\xi_j-\xi_k)z_j \overline{z_k}\ge 0.\label{9}
+  \end{equation}
+\end{definition}
+
+Let $N=2,z_1=1,z_2=z$, then (\ref{9}) reads
+\[
+  \varphi(0)(1+|z|^2)+\varphi(\xi)z+\varphi(-\xi)\overline{z}\ge 0.
+\] 
+Set $z=1$, we get $\varphi(\xi)+\varphi(-\xi)$ real. Set $z=1$, we get $i(\varphi(\xi)-\varphi(-\xi))$ real, hence 
+\begin{equation}
+  \varphi(-\xi)=\overline{\varphi(\xi)}.
+\end{equation}
+If we take $z$ such that $z\varphi(\xi)=-|\varphi(\xi)|$, we obtain
+\begin{equation}
+  |\varphi(\xi)|\le \varphi(0).
+\end{equation}
+
+\begin{theorem}[Bochner]
+  A function $\varphi$ defined on $\hat{\R}$, is a Fourier-Stieltjes transform of a positive measure if and only if it is positive definite and cntinuous.
+\end{theorem}
+\begin{proof}
+  Assume first $\varphi=\hat{\mu}$ with $\mu\ge 0$. Let $\xi_1,\cdots ,\xi_N\in \hat{\R}$ and $z_1,\cdots ,z_N$ be complex numbers. Then
+  \begin{align*}
+    \sum_{j,k}^{} \varphi(\xi_i-\xi_j)z_j \overline{z_k}&= \int \sum e^{-i\xi_jx}z_je^{i\xi_kx}\overline{z_k}\mathrm{d}\mu(x)\\
+    &=\int \left| \sum_{1}^{N} z_j e^{-i\xi_jx} \right| ^2\mathrm{d}\mu(x)\ge 0
+  .\end{align*}
+  So the Fourier-Stieltjes transform of a positive measure is positive definite.
+
+  Conversely, we assume that $\varphi$ is positive definite, it follows that for all $\lambda>0$, $\left\{\varphi(\lambda n)\right\} $ is a positive definite sequence (cf. I.7.6). By Herglotz' theorem I.7.6, $\varphi(\lambda n)=\hat{\mu}_\lambda(n)$ for some positive measure $\mu_\lambda$ on $\mathbb{T}$, and by Theorem \ref{thm-3}, $\varphi=\hat{\mu}$ for some positive $\mu \in M(\R)$.
+\end{proof}
+
+\begin{lemma}
+  Let $\varphi=\hat{\mu}$ for some $\mu \in M(\R)$. Assume that $\varphi$ is twice differentiable at $\xi =0$ or just that $2\varphi(0)-\varphi(h)-\varphi(-h)=O(h^2)$. Then $\int x^2 \mathrm{d}\mu <\infty$, and $\varphi$ has a uniformly continuous second derivative on $\hat{\R}$.
+\end{lemma}
+\begin{proof}
+   The assumption is that for some constant $C$,
+   \[
+     h^{-2}\left( 2\varphi(0)-\varphi(h)-\varphi(-h) \right) =\int 2h^{-2}\left( 1-\cos hx \right) \mathrm{d}\mu(x)\le C.
+   \] Since the integrand is nonnegative, for every $a>0$,
+   \[
+     \int_{-a}^{a}x^2\mathrm{d}\mu(x)\le\mathop{\underline{\lim}}_{h\to 0}\int 2h^{-2}\left( 1-\cos hx \right) \mathrm{d}\mu(x)\le C.
+   \]
+   Now,$\nu=x^2\mu \in M(\R)$ and $\varphi''=-\hat{\nu}$.
+\end{proof}
+
+If $2\varphi(0)-\varphi(h)-\varphi(-h)=o(h^2)$, then $\varphi''(0)=0$ and hence we have $\mu=\varphi(0)\delta_0$. By induction on $m$ we obtain
+
+\begin{proposition}
+  Let $\varphi=\hat{\mu}$ for some positive $\mu \in M(\R)$. Assume that $\varphi$ is $2m$-times differentiable at $\xi=0$, then $\int x^{2m}\mathrm{d}\mu <\infty$, and $\varphi$ has a uniformly continuous derivative of order $2m$ on  $\hat{\R}$. If $\varphi^{(2m)}(0)=0$, then $\mu=\varphi(0)\delta_0$.
+\end{proposition}
+
+Positiv definite functions which are analytic at $\xi =0$ are automatically analytic in a strip $\left\{\zeta :\zeta =\xi+i\eta,|\eta|<a\right\} $, with $a>0$.
+
+\begin{lemma}
+  Let $\mu$ be a positive measure on $\R$. Assume that $F(\xi)=\hat{\mu}(\xi)$ is analytic at $\xi=0$. Then there exists $b>0$ such that  $\int e^{b|x|}\mathrm{d}\mu <\infty$ and $\hat{\mu}$ is the restriction to $\hat{\R}$ of the function
+  \begin{equation}
+    F(\zeta )=\int e^{-i\zeta x}\mathrm{d}\mu(x).
+  \end{equation}
+\end{lemma}
+\begin{proof}
+  The assumption is: for some $a>0$, $F(\xi)=\sum_{n=0}^{\infty} \frac{F^{(n)}(0)}{n!}\xi^{n}$ in $|\xi|\le a$. This implies $|F^{(n)}(0)|\le Cn!a^{-n}$, and in particular that $\int x^{2m}\mathrm{d}\mu \le C(2m)!a^{-2m}$. Since $|x|^{2m+1}\le x^{2m}+x^{2m+2}$, we have
+  \[
+    \int |x|^{2m+1}\mathrm{d}\mu \le \left( 2+a^2 \right) C(2m+2)!a^{-2m+2}
+  \] and
+  \begin{equation}
+    \int e^{\eta|x|}\mathrm{d}\mu =\sum \int \frac{\eta^{n}|x|^{n}}{n!}\mathrm{d}\mu=\sum \eta^{n}\frac{\int |x|^{n}\mathrm{d}\mu}{n!}<\infty
+  \end{equation}for all $\eta<a$.
+\end{proof}
+
+

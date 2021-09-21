@@ -1,0 +1,244 @@
+\begin{abstract}
+  We prove an observability inequality for free Schr\"{o}dinger equations on tori $\mathbb{T}^{1}$ and give an exact controllability constant.
+\end{abstract}
+
+\section{Introduction}
+We consider the following system 
+\begin{equation}\label{equation}
+  \begin{cases}
+    u_t+iu_{x x}=0 & \text{in }\R\times (0,2\pi)\\
+    u(t,0)=u(t,2\pi) & \text{ for }t\in \R\\
+    u_x(t,0)=u_x(t,2\pi) &\text{for }t\in \R\\
+    u(0,x)=u_0(x) &\text{for }x\in (0,2\pi).
+  \end{cases}
+\end{equation}
+Setting $L^2:=L^2(0,2\pi)$ for brevity and introducing the Sobolev space
+\[
+  H_p^2:=\left\{v\in H^2(0,2\pi):v(0)=v(1)\text{ and }v_x(0)=v_x(1)\right\}, 
+\] 
+for each intial datum $u_0 \in H^2_p$ there is a unique weak solution
+\[
+  u\in C(\R,H^2_p)\cap C^{1}(\R,L^2).
+\] 
+Furthermore, $u$ has a Fourier series representation
+\begin{equation}
+  u(t,x)=\sum_{k\in \Z} c_k e^{ i \left( k^2t+kx \right) }
+\end{equation}
+where the $c_k $'s are the Fourier coefficients of $u_0$ :
+\[
+  u_0(x)=\sum_{k\in \Z} c_ke ^{ikx}.
+\]
+Note that $u(t,x)$ periodical in $t$, we consider $u(t,x)$ in torus  $\mathbb{T}^2={\R} /{2\pi\Z}\times {\R} /{2\pi\Z}$.
+We want to prove
+\begin{theorem}\label{thm-0}
+  Fix $(t_1,x_1) \in \mathbb{T}^2$, $a\in \R$ and $T>0$ arbitrarily, and consider the solutions of (\ref{equation}). 
+  \begin{enumerate}
+    \item [(i)]The inequality
+      \begin{equation}
+	\int_0^{T}\left| u(t_1+t,x_1+at) \right| ^2\d t\le C_2 \sum_{k\in \Z}^{} |c_k|^2
+      \end{equation}
+      always holds.
+    \item [(ii)] If $a\notin  \Z$, then the inequality
+      \begin{equation}
+	C_1\sum_{k\in \Z}^{} |c_k|^2\le \int_0^{T}\left| u(t_1+t,x_1+at) \right| ^2\d t \le C_2 \sum_{k\in \Z}^{} |c_k|^2
+      \end{equation}
+      also holds and $C_1^{-1}$ can be chosen as $C_1e^{\frac{C_2}{T}}$.
+  \end{enumerate}
+\end{theorem}
+\begin{remark}
+  Theorem \ref{thm-0} has been proven in \cite{Jaming} \textbf{EXCEPT} the estimate of constants $C_1$ and $C_2$. 
+\end{remark}
+\section{Ingham Inequality}
+\begin{definition}
+  A set $\Lambda$ of a real numbers is called \textit{uniformly separated} if 
+  \begin{equation}
+    \gamma(\Lambda):=\inf \left\{|\lambda_1-\lambda_2|:\lambda_1,\lambda_2\in \Lambda \text{ and }\lambda_1\neq \lambda_2\right\} >0.
+  \end{equation}
+  Then $\gamma(\Lambda)$ is called the \textit{uniform gap} of $\Lambda$.
+\end{definition}
+
+The following three theorems are from \cite{Jaffard}.
+% Ingham 1
+\begin{theorem}\label{thm-1}
+  Let $f(t)=\sum_{k\in \Z} a_k e^{i\lambda_k t}$ where $\Lambda:=\left\{\lambda_n\right\} _{n\in \Z}$ is a uniformly separated set with $\gamma(\Lambda)=\gamma_0>0$. Let $I=[0,T]$ with $T>0$. Then, there exists a positive constant $C_1^{0}=C_1^{0}(|I|,\gamma_0)=\frac{2\left( |I|\gamma_0-2\pi \right) \left( |I|\gamma_0+2\pi \right) }{\pi(I\gamma_0)^2}|I| $ such that for all $\left\{\lambda_n\right\} _{n\in \Z}\in \ell^2$,
+\begin{equation}
+  C_1^{0}\sum_{k\in \Z}^{} |a_k|^2\le \int_{I}|f(t)|^2\d t.
+\end{equation}
+\end{theorem}
+\begin{proof}
+  s
+\end{proof}
+% Ingham 2
+\begin{theorem}\label{thm-2}
+  Let $f(t)=\sum_{k\in \Z}a_k e^{i \lambda_kt}$ where $\Lambda:=\left\{\lambda_n\right\} _{n\in \Z}$ is a uniformly separated set with $\gamma(\Lambda)=\gamma_0>0$. Let $I=[0,T]$ with  $T>0$. Then, there exists a positive constant $C_2^0=C_2^0(\gamma_0,|I|)=\frac{10}{\min \left\{\pi,|I|\gamma_0\right\} }|I|$ such that for all $\left\{a_n\right\} _{n\in \Z}\in \ell^2$,
+  \begin{equation}
+    \int_{I}|f(t)|^2\d t\le C_2^0 \sum_{n\ge 1}^{} |a_n^2|.
+  \end{equation}
+\end{theorem}
+
+% Ingham 3
+\begin{theorem}\label{thm-3}
+  Let $f(t)=\sum_{k\in \Z}^{} a_ke^{ i\lambda_k t}$ where $\Lambda=\left\{\lambda_n\right\} _{n\in \Z}$ is a uniformly separated set with $\gamma:=\gamma(\Lambda)>0$. We assume that there exist $N\ge 1$ and $\gamma_{\infty}>0$ such that 
+  \begin{equation}
+    \gamma(\Lambda\backslash \left\{\lambda_{1},\cdots ,\lambda_{N}\right\}\ge \gamma_{\infty}.  
+  \end{equation}
+  Let $I=(0,T)\subset \R$ be a finite interval with $|I|>\frac{2\pi}{\gamma_{\infty}}$. Then there exist two positive constants $C_1,C_2>0$ such that for all  $(a_n)_{n\in \Z} \in \ell^2$,
+  \begin{equation}\label{ingham}
+    C_1 \sum_{k\in \Z} |a_k|^2\le \int_{I}|f(t)|^2\d t\le C_2 \sum_{k\in \Z}^{} |a_k|^2.
+  \end{equation}
+  More precisely $C_2=C_2(\gamma)= \frac{10 |I|}{\min \left\{\pi,|I|\gamma \right\} }$ and $C_1=C_1(N)$ is given by the following recurrent formula:
+  \begin{equation}\label{recurrent}
+    C_1(j)=\left[ \left( \frac{2C_2(r_j)}{|I|}+1 \right) \frac{4}{C_1(j-1)p_j}+\frac{2}{|I|} \right] ^{-1},\quad 1\le j \le N.
+  \end{equation}
+  where $r_j=\min \left\{|\lambda-\lambda'|:\lambda,\lambda' \in \Lambda \backslash \left\{\lambda_1,\cdots ,\lambda_{N-j}\right\} \right\} $, $p_j=\min \left\{1, \frac{4r_j^2}{\pi^4}\left( |I|-\frac{2\pi}{\gamma_{\infty}} \right) ^2\right\} $ with $0\le j\le N$.
+\end{theorem}
+\iffalse
+\begin{proof}
+  To prove (\ref{ingham}) we follow the ideas of Haraux \cite{Haraux}. The second inequality of (\ref{ingham}) results immediately by using Theorem \ref{thm-2} with $\gamma_0=\gamma$. We remark that $C_2=C_2(r_N)=\frac{10|I|}{\min \left\{\pi,Tr_N\right\} }$ depends only on $r_N$, the gap of the family $\left\{\lambda_n\right\} _{n\in \Z}$ and the length $ |I|$ of the interval $I$.
+
+  We pass now to prove the first inequality of \ref{ingham}.
+  
+  We begin with the function $f_0=\sum_{|k|>N}a_k e^{i\lambda_k t}$. Since $\gamma=\gamma(\Lambda)>0$, it follows by Theorem \ref{thm-1} and \ref{thm-2} that 
+  \begin{equation}
+    C_1^0 \sum_{|k|>N}^{} |a_k|^2\le \int_{I}|f_0(t)|^2\d t\le C_2^{0}\sum_{|k|>N}^{} |a_k|^2.
+  \end{equation}
+
+  Let now $f_1(t)=f_0(t)+a_N e^{i\lambda_N t}$. Define $g_1(t)=e^{-i \lambda_N t}f_1(t)$ and $g_0(t)=e^{-i \lambda_N t}f_0(t)$. Then we obtain $g_1(t)=g_0(t)+a_N$ and $g_0(t)=\sum_{|k|>N}^{} e^{i\mu_k t}$ where $\mu_k=\lambda_k-N$.
+
+  Let $\varepsilon >0$ be such that $T'=T-\varepsilon >\frac{2\pi}{\gamma_{\infty}}$. We have
+  \[
+    \int_{0}^{\varepsilon }\left( g_1(t+\eta)-g_1(t) \right) \d \eta=\sum_{|k|>N}^{} a_k\left( \frac{e^{i\mu_k \varepsilon }-1}{i\mu_k}-\varepsilon  \right) e^{i\mu_k t},\quad \forall t \in [0,T'].
+  \]
+
+  Applying Theorem \ref{thm-1} to the function $h(t)=\int_{0}^{\varepsilon }\left( g_1(t+\eta)-g_1(t) \right) \d \eta $ we obtain 
+  \begin{equation}
+    C_1^{0}\sum_{|k|>N}^{} \left| \frac{e^{i \mu_k \varepsilon }-1}{i\mu_k}-\varepsilon  \right| ^2|a_k|^2\le \int_0^{T'}\left| \int_0^{\varepsilon }\left( g_1(t+\eta)-g_1(t) \right) \d \eta  \right| ^2\d t.
+  \end{equation}
+  
+  We evaluate now the coefficients $\frac{e^{i\mu_k\varepsilon }-1}{i\mu_k}-\varepsilon $. We have
+  \begin{align*}
+    \left| e^{i\mu_k \varepsilon }-1-i\mu_k\varepsilon  \right| ^2 &= \left| \cos(\mu_k\varepsilon )-1 \right| ^2+\left| \sin(\mu_k\varepsilon )-\mu_k\varepsilon  \right| ^2\\
+								   &= 4\sin ^{4}\left( \frac{\mu_k\varepsilon }{2} \right) +\left( \sin\left( \mu_k\varepsilon  \right) -\mu_k\varepsilon  \right) ^2\\
+								   &\ge \begin{cases}
+								     4\left( \frac{\mu_k\varepsilon }{\pi} \right) ^{4}, & \text{if }|\mu_k|\varepsilon \le \pi,\\
+								     \left( \mu_k\varepsilon  \right) ^2, & \text{if }|\mu_k|\varepsilon >\pi.
+								   \end{cases}
+  \end{align*}
+
+  Finally, taking into account that $|\mu_k|\ge r_1$, we obtain that
+  \[
+  \left| \frac{e^{i\mu_k\varepsilon }-1}{i\mu_k}-\varepsilon  \right| ^2\ge p_1\varepsilon ^2.
+  \] 
+\end{proof}
+\fi
+
+\section{Estimates}
+Consider $f(t)=u(t_1+t,x_1+ at)=\sum_{k\in \Z}^{} c_k e^{i k^2t_1+kx_1}e^{i\left( k^2+ak \right) t}=\sum_{k\in \Z}^{} a_k e^{i\left( k^2+ak \right) t}$, where we use the notaions $a_k=e^{ik^2t_1+kx_1}$, $k\in \Z$.
+
+(ii) If $a\notin \Z$, then the set $\left\{k^2+ak:k\in \Z\right\} $ itself is uniformly separated. Indeed, if $k$ and $m$ are different integers, then
+\[
+  \left| (k^2+ak)-(m^2+am) \right| =\left| k-m \right| \left| k+m+a \right| \ge d(a,\Z):=\max\left( a-[a],[a]+1-a \right) 
+\] 
+where $[a]$ is the integer part of $a$. For some positive integer  $N$, $k\neq m$ and $k,m\notin  \left\{-N,\cdots ,N\right\} $, then, using again the identity
+\[
+  (k^2+ak)-(m^2+am)=(k-m)(k+m+a),
+\] 
+
+For simplicity, we assume $0<a<1 $, then we have
+\[
+  \left| (k^2+ak)+(m^2+am) \right| \ge \begin{cases}
+    2N+a & \text{if }k>m\ge N,\\
+    2N-a & \text{if }k<m\le -N,\\
+    2Nd(a,\Z) & \text{if }km<0.
+  \end{cases}
+\] 
+It follows that 
+\[
+  \gamma(\Lambda\backslash \left\{-N,\cdots ,N\right\} )\ge Nd(a,\Z)
+\] 
+for all integers. 
+
+In order to apply Theorem \ref{thm-3}, we set $\lambda_1=0,\lambda_2=1,\lambda_3=-1,\cdots ,\lambda_{2N}=N,\lambda_{2N+1}=-N$. Then we have
+\begin{align*}
+  &r_0=\gamma\left( \Lambda\backslash \left\{-N,\cdots ,N\right\}  \right)\ge Nd(a,\Z),\\ 
+  &r_1= \gamma\left( \Lambda \backslash \left\{-N+1,\cdots ,-N\right\}  \right)\ge (N-1)d(a,\Z),\\
+  &r_2=\gamma\left( \Lambda\backslash \left\{-N+1,\cdots ,N-1\right\}  \right) \ge (N-1)d(a,\Z),\\
+  &\cdots \\
+  &r_{2N-2}=\gamma\left( \Lambda\backslash \left\{-1,0,1\right\}  \right) \ge d(a,\Z),\\
+  &r_{2N-1}=\gamma\left( \Lambda\backslash \left\{0,1\right\}  \right) \ge d(a,\Z),\\
+  &r_{2N}=\gamma(\Lambda \backslash \left\{0\right\}\ge d(a,\Z),\\
+  &r_{2N+1}=\gamma\left( \Lambda \right) =d(a,\Z)
+.\end{align*}
+In fact, for $N$ large enough, we have $\gamma_0\sim N$.
+By (\ref{recurrent}), we have
+\begin{align*}
+  \left( C_1(N) \right) ^{-1}&\le \frac{2C_2(N)}{T}\frac{4}{p_N}\left( C_1(N-1) \right) ^{-1}\le \cdots \\
+  &\le \left( \frac{8}{T} \right) ^{N}\left( \prod_{1\le n\le N}\frac{C_{2}(n-1)}{p_n} \right)(C_1(0))^{-1} 
+,\end{align*}
+where $C_1(0):=C_1^{0}$ and $C_2(0):=C_2^{0}$ in Theorem \ref{thm-1} and \ref{thm-2} with $\gamma_0=\gamma_{\infty}$.
+Besides, we have
+\begin{equation}
+  C_2(n)=C_2(r_n)=\frac{10T}{\min \left\{\pi,Tr_n\right\} }\le 10\left( \frac{T}{\pi}+\frac{1}{r_n} \right)\le 10 \frac{Tr_n+\pi}{\pi r_n}  ,
+\end{equation}
+and
+\begin{equation}
+  p_n=\min \left\{1, \frac{4r_n^2}{\pi^4}\left( T-\frac{2\pi}{\gamma_{\infty}} \right) \right\}.
+\end{equation}
+
+In our case, we observe that 
+\[
+  r_0>r_2>\cdots >r_{2N}.
+\] 
+Choose the smallest $N$ such that $T>2\frac{2\pi}{r_0}$, then we have
+\begin{equation}
+  2\frac{2\pi}{r_0}< T\le 2 \frac{2\pi}{r_1}.
+\end{equation}
+This implies $T\sim \frac{1}{N}$.
+We now use $C_1(N)$ to denote the previous $2N+1$'th term and $C_1(k)$ to denote the  $2k+1$'s term, and other notations the same way.  Then we have
+\begin{align*}
+  (C_1(N)^{-1}\le \left( \frac{8}{T} \right) ^{2N}\left( \prod_{1\le n\le N}\frac{C_2(n-1)}{p_n} \right) ^2\left( C_1(0) \right) ^{-1}
+.\end{align*}
+
+Since $C_2(n)\le 10\frac{Tr_n+\pi}{\pi r_n}\le 10 \frac{Tr_0+\frac{Tr_0}{4}}{\pi r_n}=\frac{25}{2\pi}\frac{Tr_0}{r_n}$ and $p_n=\frac{4r_n^2}{\pi^4}\left( T-\frac{2\pi}{r_0} \right)\ge \frac{8}{\pi^3}\frac{r_n^2}{r_0}$ for $r_n\le c\sqrt{N} $ where $c$ is a numerical constant, we have
+\begin{align*}
+  &(C_1(N))^{-1}\\
+  \le & \left( \frac{8}{T} \right) ^{2N}\left( \frac{25T}{2\pi} \right) ^{2N}r_0^{2N}\left(\prod_{1\le n\le N}\frac{1}{r_n^2}\right) \left( \prod_{1\le n\le c\sqrt{N} } \frac{1}{r_n^2} \right) ^2 r_0^{2c\sqrt{N} }  \left( \frac{\pi^3}{8} \right)^{2c\sqrt{N} } \frac{\pi T}{2\left( T-\frac{2\pi}{r_0} \right) \left( T+\frac{2\pi}{r_0} \right) }\\
+  \lesssim & \left( \frac{100}{\pi} \right) ^{2N} N^{2N} \left( \frac{e^{2N}}{N^{2N}2\pi N} \right) \left( \frac{e^{2c\sqrt{N} }}{\left( c\sqrt{N}  \right) ^{2c\sqrt{N} }2\pi c\sqrt{N} } \right)^2  \left( \frac{\pi^3}{8} \right) ^{2c\sqrt{N} }N^{2c\sqrt{N} } \frac{\pi T}{\left(\frac{4\pi}{r_0}\right)^2}\\
+  \lesssim & C_1e^{\frac{C_2}{T}}  
+,\end{align*}
+where $C_1,C_2$ are two numerical constants depending on the choice of $a$.
+For a ball $B_r(t_1,x_1)$ with $r$ small enough, choose $a=\frac{\sqrt{2} }{2}$, then we have (imagine an  oblique  inscribed square with slope $a$) 
+\begin{equation}
+  \int_{0}^{2\pi}|u_0|^2\d x\le \frac{C_1'e^{\frac{C_2'}{T}}}{T}\int_{B_{r}}|u|^2\,\mathrm{d}x \mathrm{d}t.\label{ballcondition}
+\end{equation}
+
+\begin{theorem}
+  Let $u(t,x)$ be the solution of (\ref{equation}), and $\Omega=\left[ t_0,t_0+T \right]\times \left[ x_0,x_0+l \right]  $ for any fixed $(t_0,x_0)\in \mathbb{T}^2$ and any  $T,L>0$. Then we have
+  \begin{equation}
+    \int_0^{2\pi}|u_0|^2\d x\le \frac{C_1' e^{\frac{C_2'}{L}}}{T}\int_{\Omega}|u|^2\d x\mathrm{d}t.
+  \end{equation}
+\end{theorem}
+\iffalse
+\begin{proof}
+  By compairing $T$ and $L$, we have three cases:
+  \begin{itemize}
+    \item[(1).] $T\asymp L$, this case is the same as (\ref{ballcondition}) given the ball condition.
+    \item[(2).] $T\gg L$, it the domain can be drawn as
+      \begin{figure}[htpb]
+        \centering
+        \begin{tikzpicture}
+	  \fill[gray!30] (1,1) -- (5,1) -- (5,3) -- (1,3) -- cycle;
+        \end{tikzpicture}
+        \caption{$T\gg L$}
+        \label{fig:1}
+      \end{figure}
+    \end{itemize}
+\end{proof}
+\fi
+\begin{thebibliography}{999}
+  {\scriptsize
+    \bibitem{Haraux} Haraux A . Séries lacunaires et contrle semi-interne des vibrations d'une plaque rectangulaire. (Lacunary series and semi-internal control of vibrations of a rectangular plate). Journal de Mathématiques Pures et Appliqués, 1989, 68(4).
+  \bibitem{Jaming} Jaming P ,  Komornik V . Moving and oblique observations of beams and plates. Evolution Equations and Control Theory, 2019.
+  \bibitem{Jaffard}  Jaffard S ,  Micu S . Estimates of the constants in generalized Ingham's inequality and applications to the control of the wave equation. Asymptotic Analysis, 2001, 28(3):181-214(34).
+ }
+\end{thebibliography}

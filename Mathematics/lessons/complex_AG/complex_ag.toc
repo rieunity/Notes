@@ -13,3 +13,11 @@
 \contentsline {section}{\numberline {6}Complex manifolds}{14}{section.6}% 
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {7}More examples of complex manifods}{17}{section.7}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {8}Vector bundles}{19}{section.8}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {9}Geometric structures}{22}{section.9}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {10}Paths and Tangents}{25}{section.10}% 
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {11}Covariant derivatives}{28}{section.11}% 

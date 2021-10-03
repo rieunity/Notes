@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.10.24)  26 SEP 2021 19:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.10.24)  3 OCT 2021 10:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**cv.tex
-(./cv.tex
+**cv-master.tex
+(./cv-master.tex
 LaTeX2e <2019-10-01> patch level 1
 (/usr/local/texlive/2019/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2019/08/27 v1.4j Standard LaTeX document class
@@ -188,8 +188,8 @@ Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 282.
 )
 \Hy@SectionHShift=\skip43
-)) (./cv.aux)
-\openout1 = `cv.aux'.
+)) (./cv-master.aux)
+\openout1 = `cv-master.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
 LaTeX Font Info:    ... okay on input line 33.
@@ -277,9 +277,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 33.
 LaTeX Info: Redefining \pageref on input line 33.
 LaTeX Info: Redefining \nameref on input line 33.
- (./cv.out) (./cv.out)
+ (./cv-master.out) (./cv-master.out)
 \@outlinefile=\write3
-\openout3 = `cv.out'.
+\openout3 = `cv-master.out'.
 
 Package marginnote Info: Margin note 1.1 is on absolute page 1 on input line 65.
 Package marginnote Info: right page because not two side mode on input line 65.
@@ -296,45 +296,40 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 70.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 70.
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 81.
- (/usr/local/texlive/2019/texmf-dist/tex/latex/base/t1cmtt.fd
-File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-Package marginnote Info: Margin note 1.4 is on absolute page 1 on input line 84.
+Package marginnote Info: Margin note 1.4 is on absolute page 1 on input line 82.
+Package marginnote Info: right page because not two side mode on input line 82.
+Package marginnote Info: xpos seems to be 99.58464pt on input line 82.
+Package marginnote Info: Margin note 1.5 is on absolute page 1 on input line 83.
+Package marginnote Info: right page because not two side mode on input line 83.
+Package marginnote Info: xpos seems to be 99.58464pt on input line 83.
+Package marginnote Info: Margin note 1.6 is on absolute page 1 on input line 84.
 Package marginnote Info: right page because not two side mode on input line 84.
 Package marginnote Info: xpos seems to be 99.58464pt on input line 84.
-Package marginnote Info: Margin note 1.5 is on absolute page 1 on input line 85.
-Package marginnote Info: right page because not two side mode on input line 85.
-Package marginnote Info: xpos seems to be 99.58464pt on input line 85.
-Package marginnote Info: Margin note 1.6 is on absolute page 1 on input line 86.
-Package marginnote Info: right page because not two side mode on input line 86.
-Package marginnote Info: xpos seems to be 99.58464pt on input line 86.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 155.
  [1
 
 {/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 157.
- [2]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 157.
- (./cv.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 157.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 157.
-Package rerunfilecheck Info: File `cv.out' has not changed.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 155.
+ (./cv-master.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 155.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 155.
+Package rerunfilecheck Info: File `cv-master.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 157.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 155.
  ) 
 Here is how much of TeX's memory you used:
- 6309 strings out of 492167
- 91508 string characters out of 6125373
+ 6289 strings out of 492167
+ 90994 string characters out of 6125373
  199465 words of memory out of 5000000
- 10613 multiletter control sequences out of 15000+600000
- 12679 words of font info for 32 fonts, out of 8000000 for 9000
+ 10598 multiletter control sequences out of 15000+600000
+ 12365 words of font info for 31 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,9n,39p,916b,310s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfcc1095.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on cv.pdf (2 pages, 173501 bytes).
+ 34i,9n,39p,277b,308s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2019/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfcc1095.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
+Output written on cv-master.pdf (1 page, 144821 bytes).
 PDF statistics:
- 82 PDF objects out of 1000 (max. 8388607)
- 64 compressed objects within 1 object stream
- 9 named destinations out of 1000 (max. 500000)
+ 72 PDF objects out of 1000 (max. 8388607)
+ 56 compressed objects within 1 object stream
+ 8 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

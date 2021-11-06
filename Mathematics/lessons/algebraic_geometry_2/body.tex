@@ -1,0 +1,130 @@
+\thispagestyle{empty}
+The learning notes are based on Andreas Gathmann's \textit{Algebraic Geometry}.
+\tableofcontents
+\section{Scheme}
+\begin{definition}
+  Let  $R$ be a ring. The set of all prime ideals of $R$ is called the \textit{spectrum} of $R$ or the \textit{affine scheme} associated to $R$. We denote it by $\Spec R$.	
+\end{definition}
+\begin{definition}
+  Let $R$ be a ring, and let $P\in \Spec R$ be a point in the corresponding affine scheme, i.e. aprime ideal $P\unlhd R$.
+  \begin{enumerate}
+    \item We denote by $K(P)$ the quotient field of the integral $R /P$. It is called the \textit{residue field} of $\Spec R$ at $P$.
+    \item For any $f\in R$ we define the \textit{value} of $f$ at $P$, written as $f(P)$, to be the image of $f$ under the composite ring homomorphism $R\to R /P\to K(P)$. In particular, we have $f(P)=0$ if and only if $f\in P$.
+  \end{enumerate}
+\end{definition}
+\begin{definition}
+  Let $R$ be a ring.
+  \begin{enumerate}
+    \item For a subset $S\subset R$, we define the \textit{zero locus} of $S$ to be the set 
+      \[
+	V(S):=\left\{P \in \Spec R: f(P)=0 \text{ for all }f\in S\right\} \subset \Spec R.
+      \] As usual, if $S=\left\{f_1,\cdots ,f_k\right\} $ is a finite set, we will write $V(S)$ also as $V(f_1,\cdots ,f_k)$.
+    \item For a subset $X\subset \Spec R$, we define the \textit{ideal} of $X$ to be 
+      \[
+	I(X):=\left\{f\in R:f(P)=0 \text{ for all }P \in X\right\} \unlhd R.
+      \] 
+  \end{enumerate}
+\end{definition}
+\begin{definition}
+  We define the  \textit{Zariski topology} on an affine scheme $\Spec R$ to be the topology whose closed sets are exactly the sets of the form $V(S)=\left\{P\in \Spec R:P\supset S\right\} $ for some $S\subset R$.
+\end{definition}
+\begin{remark}
+  Compare to the case of affine varieties, points are not necessarily closed in affime schemes. In fact, for a point $P$ in an affine scheme $\Spec R$ we have
+  \[
+    \overline{\left\{P\right\} }=V(P)=\left\{Q\in \Spec R:Q\supset P\right\} ,
+  \] 
+  so that $\left\{P\right\} $ is closed if and only if $P$ is a maximal ideal.\\
+  For an affine scheme $\Spec A(X)$ associated to an affine variety $X$, this means that the closed points of $\Spec A(X)$ correspond exactly to the minimal subvarieties of $X$, i.e. to the points of the variety $X$ in the usual sense. The other non-closed points of $\Spec A(X)$ are of the form $I(Y) \in \Spec A(X)$is usually called the \textit{generic} or \textit{general point} of $Y$. One motivation for this name is that evaluation at $Y$ takes values in the function field $K(Y)$ of $Y$, which encodes \textit{rational} functions on $Y$, i.e. regular functions that functions that are not necessarily defined on all of $Y$, but only at a "general point" of $Y$.
+\end{remark}
+
+\begin{proposition}
+  Let $R$ be a ring.
+  \begin{enumerate}
+    \item For any closed subset $X\subset \Spec R$ we have $V\left( I\left( X \right)  \right) =X$.
+    \item For any ideal $J\unlhd R$ we have $I\left( V\left( J \right)  \right) =\sqrt{J} $.
+    \item For any two ideals $J_1,J_2$ in a ring $R$ we have 
+      \[
+	V(J_1)\cup V(J_2)=V(J_1J_2)=V(J_1\cap J_2)
+      \] and
+      \[
+	V(J_1)\cap V(J_2)=V(J_1+J_2)
+      \] 
+      in $\Spec R$.
+    \item For any two closed subsets $X_1,X_2$ of $\Spec R$ we have 
+      \[
+	I(X_1\cup X_2)=I(X_1)\cap I(X_2)
+      \] and
+      \[
+	I(X_1\cap X_2)=\sqrt{I(X_1)+I(X_2)} 
+      .\]
+  \end{enumerate}
+\end{proposition}
+
+\begin{definition}
+  For a ring $R$ and an element $f\in R$, we call
+  \[
+    D(f):=\Spec R \backslash V(f)=\left\{P\in \Spec R:f \notin P\right\} 
+  \] the \textit{distinguished open subset } of $f$ in $\Spec R$.
+\end{definition}
+\begin{remark}
+  The distinguished open subsets form a basis of the topology of an affine scheme $\Spec R$ :
+  \[
+    U=\Spec R\backslash \bigcap_{f\in S} V(f)=\bigcup_{f\in S} \left( \Spec R\backslash  V(f) \right) =\bigcup_{f\in S} D(f).
+  \] 
+\end{remark}
+
+\begin{definition}
+  Let $R$ be a ring, and let $U$ be an open subset of the affine scheme $\Spec R$. A \textit{regular function} on $U$ is a family $\varphi=\left( \varphi_P \right) _{P \in U}$ with $\varphi_P \in R_P$ for all $P \in U$, such that the following propertiy holds: For every $P \in U$ there are $f,g \in R$ with $f\notin Q$ and 
+  \[
+  \varphi_Q=\frac{g}{f}\in R_Q
+  \] for all $Q$ in an open subset $U_P$ with $P\in U_P\subset U$.\\
+  The set of all such regular functions on $U$ is clearly a ring; we will denote it by $\mathcal{O}_{\Spec R}(U)$. $\mathcal{O}_{\Spec R}$ is a sheaf and called the \textit{structure sheaf} of $\Spec R$.
+\end{definition}
+
+\begin{remark}
+  For a prime ideal $P$ in a ring $R$, the quotient $R_P /P_P$ of the local ring $R_P$ by its maximal ideal $P_P$ is just the residue field  $K(P)$. Hence any regular function $\varphi \in \mathcal{O}_{\Spec R}(U)$ has a well-defined valued $\varphi(P) \in K(P)$ for all $P\in U$. However, in contrast to the case of affine varieties, a regular function on an affine scheme is not determined by its values.
+\end{remark}
+
+\begin{lemma}
+  Let $R$ be a ring. Then for any point $P\in \Spec R$ the stalk $\mathcal{O}_{\Spec R,P}$ of the structure sheaf $\mathcal{O}_{\Spec R}$ at $P$ is isomorphic to the localization $R_P$.
+\end{lemma}
+
+\begin{proposition}
+  Let $R$ be a ring and $f\in R$. Then $\mathcal{O}_{\Spec R}(D(f))$ is isomorphic to the localization $R_f$.
+\end{proposition}
+
+\begin{definition}
+  A \textit{locally ringed space} is a ringed space $(X,\mathcal{O}_X)$ such that each stalk $\mathcal{O}_{X,P}$ for $P\in X$ is a local ring.
+\end{definition}
+
+\begin{definition}
+  A \textit{morphism} of locally ringed spaces from $\left( X,\mathcal{O}_{X} \right) $ to $\left( Y,\mathcal{O}_{Y} \right) $ is given by the following data:
+  \begin{enumerate}
+    \item a continuous map $f:X\to Y$ ;
+    \item for every open subset $U\subset Y$ a ring homomorphism $f^*_{U}:\mathcal{O}_{Y}(U)\to \mathcal{O}_{X}\left( f^{-1}(U) \right) $ called \textit{pullback} on $U$ ; 
+  \end{enumerate}
+  such that the following two conditions hold
+  \begin{enumerate}
+    \item The pull-back maps are compatible with restrictions, i.e. we have $f^*_U(\varphi |_{U})=\left( f^{*}_V \varphi \right) |_{f^{-1}(U)}$ for all $U\subset V\subset Y$ and $\varphi \in \mathcal{O}_{Y}(V)$. In particular, this implies that there are induced ring homomorphisms $f^{*}_P:\mathcal{O}_{Y,f(P)}\to \mathcal{O}_{X,P}$ on the stalks for all $P \in X$.
+    \item For all $P\in  X$, we have $(f^{*}_{P})^{-1}(I_P)=I_{f(P)}$, where $I_P$ and $I_{f(P)}$ denote the maximal ideals in the local rings $\mathcal{O}_{X,P}$ and $\mathcal{O}_{Y,f(P)}$,respectively.
+  \end{enumerate}
+\end{definition}
+
+\begin{proposition}
+  For any two rings $R$ and $S$ there is a bijection
+  \begin{align*}
+    \left\{\text{morphisms }\Spec R \to \Spec S\right\} &\xleftrightarrow{1:1} \left\{\text{ring homorphisms } S\to R\right\}\\
+    f &\mapsto  f^{*}
+  .\end{align*}
+  In particular, this means that there is a natural bijection
+  \[
+    \left\{\text{affine schemes}\right\} / \text{isomorphisms}\xleftrightarrow{1:1}\left\{\text{rings}\right\} /\text{isomorphisms}.
+  \] 
+\end{proposition}
+\begin{proposition}
+  Let $R$ be a ring, and let $f\in R$. Then the distinguished open subset $D(f)\subset \Spec R$is isomorphic to the affine scheme $\Spec R_f$.
+\end{proposition}
+
+\begin{definition}
+  A \textit{scheme} is a locally ringed space that has an open cover by affine schemes. Morphisms of schemes are just morphisms as locally ringed spaces.
+\end{definition}

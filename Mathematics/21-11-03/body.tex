@@ -1,7 +1,7 @@
 
 
-\begin{frame}[t]{选题来源}
-  在偏微分方程中,对演化方程建立能观测不等式一直是非常重要的课题.考虑薛定谔方程
+\begin{frame}[t]{介绍:能观测不等式}
+  在偏微分方程中,对演化方程建立能观测不等式一直是非常重要的课题.例如,考虑薛定谔方程
   \begin{equation}
     i\partial_t u-\Delta u=0,\quad u(0,x)=u_0(x)\in L^2(\Omega),
   \end{equation}
@@ -33,12 +33,12 @@
 
 
 
-\begin{frame}[t]{能观测不等式的新思路}
+\begin{frame}[t]{两点能观测不等式}
   前面提到的结果中,观测时间总是一个开区间,即在时间轴上的一个正测度集上稠密.
   
   那么观测时间可以取某种意义上更小的集合吗?
 
-  可以.考虑下述薛定谔方程
+  这在某些方程某些情形下是可以的.考虑下述薛定谔方程
   \begin{equation}
     i\partial_t u-\Delta u=0,\quad u(0,x)=u_0(x)\in L^2(\R^n).\label{sch}
   \end{equation}
@@ -66,7 +66,7 @@ Gengsheng Wang, Ming Wang, Yubiao Zhang[JEMS, 2019]证明了下述定理
  不确定性原理有许多不同控制区域的版本,而之前提到的定理完整版其实就是建立了不确定性原理和两点能观测不等式的等价关系.
 \end{frame}
 
-\begin{frame}[t]{两点能观测不等式的特点}
+\begin{frame}[t]{薛定谔方程两点能观测不等式的特点}
   \begin{itemize}
     \item 该不等式一改之前时间上必须是开区间的限制,把一段时间改进到了两点时刻.在此之前,全空间情形下的结果只有在一段时间上有界区域外的能观测不等式,该结果由Rosier-Zhang[JDE, 2009]证明.
     \item 建立了能观测不等式和不确定性原理的等价性.
@@ -76,7 +76,7 @@ Gengsheng Wang, Ming Wang, Yubiao Zhang[JEMS, 2019]证明了下述定理
 \end{frame}
 
 
-\begin{frame}[t]{KdV方程的定性唯一延拓性}
+\begin{frame}[t]{KdV方程两点能观测不等式}
   考虑下述线性 Korteweg-de Vries (KdV) 方程
   \begin{equation}\label{kdv}
     \partial_t u +\partial_x^3u=0,\quad u(0,x)=u_0(x)\in L^2(\R).
@@ -92,38 +92,46 @@ Gengsheng Wang, Ming Wang, Yubiao Zhang[JEMS, 2019]证明了下述定理
     \item {}[Kenig et.al., JFA, 2007; Bull. AMS, 2012] 当$u$在 $t_0,t_1$处指数衰减,则$u\equiv 0$.
   \end{itemize}
 \end{frame}
-\begin{frame}[t]{KdV方程两点能观测不等式}
-  Ze Li, Ming Wang[SIAM J. Math. Anal., to appear]证明了下述两点能观测不等式:
-  \begin{alertblock}{KdV方程两点时刻能观测不等式} 
+\begin{frame}[t]{相关进展}
+  设$B_r=[-r,r]$, $B_r^c$表示 $B_r$在全空间 $\R$上的补集,也就是$B_r^c=(-\infty,-r)\cup (r,\infty)$.
+  \begin{alertblock}{KdV方程两点时刻能观测不等式(Ze Li, Ming Wang[SIMA, 2021])} 
     对所有满足方程(\ref{kdv})的$u(t,x)$都有
   \begin{equation}
-    \int_{\R^{n}}|u_0(x)|^2\,\mathrm{d}x\le Ce^{Ct ^{-\frac{4}{3}}\left(r_1^4+r_2^4\right)}\left( \int_{B_{r_1}^c}|u_0(x)|^2\,\mathrm{d}x+\int_{B_{r_2}^c}|u(t,x)|^2 \,\mathrm{d}x \right).\label{kdv-obs-old}
+    \int_{\R}|u_0(x)|^2\,\mathrm{d}x\le Ce^{Ct ^{-\frac{4}{3}}\left(r_1^4+r_2^4\right)}\left( \int_{B_{r_1}^c}|u_0(x)|^2\,\mathrm{d}x+\int_{B_{r_2}^c}|u(t,x)|^2 \,\mathrm{d}x \right).\label{kdv-obs-old}
   \end{equation}
 \end{alertblock}
-  该不等式与之前的两点能观测不等式一样,具有相同的形式,但是这个结果无法说明对所有的可测集外都成立,只能对有界可测集区域外成立.
+  该不等式与之前的两点能观测不等式一样,具有相同的形式,但是这个结果只是对$B_{r_1}$ 和$B_{r_2}$ 这类有界集成立.
   
-  我们的研究方向就是突破$B_{r_1}$和$B_{r_2}$这种有界的限制,甚至突破有限测度的限制. 
 \end{frame}
+
+\begin{frame}[t]{研究方向}
+  正如前面所提到的,已有的KdV方程两点能观测不等式仅仅对观测区域为有界集外成立,我们的目标是放宽有界的限制,主要集中在下面两个方面:
+  \begin{enumerate}
+    \item 突破有界限制,将观测区域推广到一般的测度有限集合外.
+    \item 突破$B_{r_1}$ 和$B_{r_2}$ 这类集合的测度有限的限制,使得观测区域可以是某些测度无限的集合外.
+  \end{enumerate}
+根据这两个方向,我们相应得到了两个主要结果.
+\end{frame}
+
 \begin{frame}[t]{主要结果I}
   \begin{alertblock}{KdV上两点时刻可测集外能观测不等式}
-    若$|S|,|\Sigma|<\infty$,对于任意的$t>0$,存在常数 $C=C(t,S,\Sigma)>0$使得
+    设$S,\Sigma$为可测集且测度有限,即$|S|,|\Sigma|<\infty$.则对于任意的$t>0$,存在常数 $C=C(t,S,\Sigma)>0$使得满足
     \[ 
     \partial_t u +\partial_x^3u=0,\quad u(0,x)=u_0(x)\in L^2(\R).
     \] 
-    所有解$u(t,x)$ 满足
+    的所有解$u(t,x)$ 都如下的两点能观测不等式成立
   \begin{equation}\label{obkdv}
     \int_{\R}|u_0(x)|^2\,\mathrm{d}x\le C \left( \int_{\R\setminus S}|u_0(x)|^2\,\mathrm{d}x + \int_{\R\setminus \Sigma} |u(t,x)|^2\,\mathrm{d}x  \right). 
   \end{equation}
+  其中$C=C(t,|S|,|\Sigma|)$是一个仅与 $t,|S|,|\Sigma|$相关的常数.
   \end{alertblock}
-  对比上一个KdV能观测不等式的结果,它们的区别是:
-  \begin{alertblock}{}
-    集合$|S|,|\Sigma|$比上一情形更广泛.后者必须满足$S\subset B_{r_1}(0),\Sigma\subset B_{r_2}(0),r_1,r_2>0$.
-  \end{alertblock}
-  例如,对于集合$S=\Sigma=\bigcup_{n=1}^\infty \left(n,n+\frac{1}{n^2}\right)$,显然它们都是有限可测集,但是它
 \end{frame}
-
-\begin{frame}[t]
-  们是无界的,即不包含在任何有界区域内.所以对于无界有限测度集合,Ze Li和Ming Wang证明的(\ref{kdv-obs-old})就无能为力,而新的KdV能观测不等式则成立.代价是失去了精确的常数估计.
+\begin{frame}[t]{举例与讨论}
+  对比Ze Li, Ming Wang的KdV能观测不等式的结果,它们的区别是:
+  \begin{alertblock}{}
+    集合$|S|,|\Sigma|$更广泛, 而Ze Li, Ming Wang的观测区域外必须满足$S\subset B_{r_1}(0),\Sigma\subset B_{r_2}(0),r_1,r_2>0$.
+  \end{alertblock}
+  例如,对于集合$S=\Sigma=\bigcup_{n=1}^\infty \left(n,n+\frac{1}{n^2}\right)$,显然它们都是有限可测集,但是它们是无界的,即不包含在任何有界区域内.对于无界有限测度集合,Ze Li和Ming Wang证明方法无能为力.
 \end{frame}
 
 
@@ -178,11 +186,12 @@ Gengsheng Wang, Ming Wang, Yubiao Zhang[JEMS, 2019]证明了下述定理
 \fi
 
 \begin{frame}[t]{主要难点}
-  在我们的主要结果中I中,取消了有界性这一限制,这使得我们不得不放弃运用解析性质的思路,另辟蹊径.我们最终选择了更加一般化的算子方法,从而去除了有界的限制.
+  在我们的主要结果I中,取消了有界性这一限制,这使得我们不得不放弃运用解析性质的思路,另辟蹊径.我们最终选择了更加一般化的算子方法,从而去除了有界的限制.
 
   但是另一方面,我们也牺牲了精确的常数依赖关系.
 \end{frame}
 
+\iffalse
 \begin{frame}[t]{证明思路}
 
 \begin{enumerate}
@@ -199,6 +208,7 @@ Gengsheng Wang, Ming Wang, Yubiao Zhang[JEMS, 2019]证明了下述定理
 \item [(4)]  证明两点能观测不等式,由(3)以及KdV的守恒律得到.
 \end{enumerate} 
 \end{frame}
+\fi
 
 \begin{frame}[t]{常数估计}
   前面提到我们的方法限制,从而无法计算出相应的常数,但是实际上,如果两个集合的测度足够小,比如
@@ -233,23 +243,21 @@ Gengsheng Wang, Ming Wang, Yubiao Zhang[JEMS, 2019]证明了下述定理
 %  By the conservation law, we have $\|S(t)\|_{L^2}=1$, Hence $\|T\|\le 1$. Hilbert-Schmidt norm of $T$ is finite. It follows that $T$ is a compact operator.
 %\end{frame}
 \begin{frame}[t]{集合密度}
-  接下来我们想在原有的方法基础上,突破测度有限的限制.
-
-  我们需要引入下述定义
-  \begin{block}{$|x|^{-\alpha}$密度集}
+  接下来我们想在原有的方法基础上,突破测度有限的限制.在介绍我们的主要结果II之前,我们需要引入一个概念:
+  \begin{block}{$\alpha$密度集}
     一个可测集$A$称为具有$|x|^{-\alpha}$密度,如果其满足:对于一个给定的$\alpha>0$,有下式成立
     \begin{equation}
       \varlimsup_{x\to \infty}|A\cap [x,x+1]|\lesssim|x|^{-\alpha}.
     \end{equation}
   \end{block}
+  粗略地说,一个$\alpha$ 密度集就是一个密度随空间变量$x$呈$|x|^{-\alpha}$衰减的可测集.
 \end{frame}
 
 \begin{frame}[t]{主要结果II}
   有了集合密度的定义,我们就可以用它来表述我们第二个结果:
   \begin{alertblock}{测度可能无限的能观测不等式}
-    设$S$和$\Sigma$均为密度$\alpha>\frac{5}{6}$,并且$S,\Sigma \subset (c,\infty)$或者$S,\Sigma\subset (-\infty,c)$,其中$c\in \R$为一个常数.则对任意的$t>0$,存在常数$C=C(t,\alpha)>0$使得能观测不等式(\ref{obkdv})仍然成立.
+    设$S$和$\Sigma$均为密度$\alpha>\frac{5}{6}$的可测集,并且$S,\Sigma \subset (c,\infty)$或者$S,\Sigma\subset (-\infty,c)$,其中$c\in \R$为一个常数.则对任意的$t>0$,存在常数$C=C(t,\alpha)>0$使得能观测不等式(\ref{obkdv})仍然成立.
   \end{alertblock}
-  该结果的证明需要对之前证明中的第三步进行修改,需要结合B. Y. Zhang[SIAM J. Math. Anal., 1992]在半轴上的唯一延拓性结论.
 \end{frame}
 
 \begin{frame}[t]{举例与讨论}
@@ -304,7 +312,7 @@ Gengsheng Wang, Ming Wang, Yubiao Zhang[JEMS, 2019]证明了下述定理
        \draw (-1/5,1.1) node[below left]{\tiny $\alpha+3\beta=3$};
        \draw[dashed] (-1/5,28/15) node[below left]{\tiny $\alpha+\beta=\frac{5}{3}$}-- (28/15,-1/5);
     \end{tikzpicture}
-    \caption{保证$\int _{\R^2}K^2\,\,\mathrm{d}x \mathrm{d}y<\infty$的区域}
+    \caption{保证$\int _{\R^2}K^2\,\mathrm{d}x \mathrm{d}y<\infty$的区域}
     \label{fig1}
     \end{figure}
 \end{frame}
@@ -329,6 +337,25 @@ Gengsheng Wang, Ming Wang, Yubiao Zhang[JEMS, 2019]证明了下述定理
   \end{center}
 \end{frame}
 \fi
+
+\begin{frame}[t]{总结与展望}
+  我们的主要工作是得到了关于KdV方程两个新的能观测不等式,它们与已有的结果互不包含:
+  对于$S,\Sigma$两个可测集,为了让两点能观测不等式
+   \[
+     \int_{\R}|u_0(x)|^2 \,\mathrm{d}xi\le C\left( \int_{\R\backslash S}|u_0(x)|^2\,\mathrm{d}x+\int_{\R\backslash  \Sigma}|u(t,x)|^2\,\mathrm{d}x \right) 
+  \] 
+  成立,可以
+  \begin{enumerate}
+    \item 取$S,\Sigma$为测度有限的可测集.
+    \item 取 $S,\Sigma$为密度满足一定条件的可测集,并且可以适当选取密度使得集合测度无限.
+  \end{enumerate}
+  末尾,我们也提及了方法的一般性,对于能观测不等式的探索远未停止,主要集中在:
+  \begin{enumerate}
+    \item 充分利用方法的一般性,得到其它线性算子的类似不等式.
+    \item 尝试得到常数 $C$和 $t,S,\Sigma$之间更加精确的依赖关系.
+  \end{enumerate}
+\end{frame}
+
 \begin{frame}
   \begin{center}
     \Huge\bf 谢谢!

@@ -1,17 +1,17 @@
 # Fdb version 3
-["bibtex 21-11-03"] 1636442562 "21-11-03.aux" "21-11-03.bbl" "21-11-03" 1636442564
+["bibtex 21-11-03"] 1637549882 "21-11-03.aux" "21-11-03.bbl" "21-11-03" 1637549885
   "/usr/local/texlive/2019/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "21-11-03.aux" 1636442564 4493 0e7a9b1c93cfd63daa270747ee3f17ef "xelatex"
+  "21-11-03.aux" 1637549884 4650 bce7a0bdb9e6332267d73389d564f2c7 "xelatex"
   "mybib.bib" 0 -1 0 ""
   (generated)
-  "21-11-03.blg"
   "21-11-03.bbl"
-["xdvipdfmx"] 1636442564 "21-11-03.xdv" "21-11-03.pdf" "21-11-03" 1636442564
-  "21-11-03.xdv" 1636442564 150540 e007eab84e90f75a12ab65c5a4903fc5 "xelatex"
+  "21-11-03.blg"
+["xdvipdfmx"] 1637549885 "21-11-03.xdv" "21-11-03.pdf" "21-11-03" 1637549885
+  "21-11-03.xdv" 1637549884 164020 c17f1aca8446c990ced3f9a8fe6a759b "xelatex"
   (generated)
   "21-11-03.pdf"
-["xelatex"] 1636442562 "21-11-03.tex" "21-11-03.xdv" "21-11-03" 1636442564
-  "/dev/null" 1636470817 0 d41d8cd98f00b204e9800998ecf8427e ""
+["xelatex"] 1637549882 "21-11-03.tex" "21-11-03.xdv" "21-11-03" 1637549885
+  "/dev/null" 1637514683 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/home/rieunity/texmf/tex/latex/tensor/tensor.sty" 1571488674 4258 177d16e71f50eb48389533ac9bd9cd26 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1136768653 1408 5937f58aa508ea2cea4901c07d10f5fe ""
@@ -262,18 +262,18 @@
   "/usr/local/texlive/2019/texmf-dist/web2c/texmf.cnf" 1570742662 39452 758acee3f2beaeeedff570c5f5d76d98 ""
   "/usr/local/texlive/2019/texmf-var/web2c/xetex/xelatex.fmt" 1571853579 3765666 62de793a3e398af58254cb198b8b0b2d ""
   "/usr/local/texlive/2019/texmf.cnf" 1571853555 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "21-11-03.aux" 1636442564 4493 0e7a9b1c93cfd63daa270747ee3f17ef "xelatex"
+  "21-11-03.aux" 1637549884 4650 bce7a0bdb9e6332267d73389d564f2c7 "xelatex"
   "21-11-03.bbl" 0 -1 0 "bibtex 21-11-03"
-  "21-11-03.nav" 1636442564 1946 cc1d57bc897673374b837eab8153475a "xelatex"
-  "21-11-03.out" 1636442563 0 d41d8cd98f00b204e9800998ecf8427e "xelatex"
-  "21-11-03.tex" 1636193193 6896 9c90490b18969679639a64f74d908f6d ""
-  "body.tex" 1636442556 15853 4985d0c779e78988b367a9bc1f4667c7 ""
+  "21-11-03.nav" 1637549884 2039 5a4196ea47006e239fc20568aaec1af6 "xelatex"
+  "21-11-03.out" 1637549884 0 d41d8cd98f00b204e9800998ecf8427e "xelatex"
+  "21-11-03.tex" 1637546270 6928 94fccc6a2162fb60a3e24266bd18776e ""
+  "body.tex" 1637549880 17407 b8ebe7da0d3d37f7c2679c9038b1f671 ""
   "figures/cug.jpeg" 1590582705 17294 64d120b0fdc713afbaad177c4f993b71 ""
   (generated)
-  "21-11-03.log"
-  "21-11-03.nav"
-  "21-11-03.toc"
-  "21-11-03.out"
-  "21-11-03.aux"
   "21-11-03.xdv"
+  "21-11-03.aux"
+  "21-11-03.nav"
   "21-11-03.snm"
+  "21-11-03.out"
+  "21-11-03.log"
+  "21-11-03.toc"

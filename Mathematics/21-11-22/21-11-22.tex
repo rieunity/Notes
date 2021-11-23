@@ -1,0 +1,118 @@
+%!TEX program = xelatex
+\documentclass[aspectratio=169,xcolor=svgnames,serif,table,11pt]{beamer}
+\definecolor{UBCblue}{rgb}{0.04706,0.13725,0.26667}
+\usecolortheme[named=UBCblue]{structure}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{navigation symbols}{}
+\useoutertheme{miniframes}
+\useinnertheme{circles}
+\usetheme{Madrid}
+
+%\setbeamertemplate{blocks}[rounded][shadow=true]
+%\setbeamercovered{transparent}
+
+
+
+
+\usepackage{graphics}
+\usepackage{xcolor}
+\usepackage[BoldFont,SlantFont,CJKchecksingle]{xeCJK}%---------------------------使用xeCJK宏包
+%================================== 设置中文字体 ================================%
+%\setCJKmainfont{Adobe Heiti Std}%------------------------------------------------设置正文为黑体
+%\setCJKmonofont{Adobe Song Std}%-------------------------------------------------设置等距字体
+%\setCJKsansfont{Adobe Kaiti Std}%------------------------------------------------设置无衬线字体
+%\setCJKfamilyfont{zxzt}{FZShouJinShu-S10S}
+%\setCJKfamilyfont{FZDH}{FZDaHei-B02S}
+%================================== 设置中文字体 ================================%
+%
+%================================== 设置英文字体 ================================%
+%\setmainfont[Mapping=tex-text]{TeX Gyre Pagella}%--------------------------------英文衬线字体
+%\setsansfont[Mapping=tex-text]{Trebuchet MS}%------------------------------------英文无衬线字体
+%\setmonofont[Mapping=tex-text]{Courier New}%-------------------------------------英文等宽字体
+%\newfontfamily\Arial{Arial}
+%================================== 设置英文字体 ================================%
+
+%================================== 设置数学字体 ================================%
+%\setmathsfont(Digits,Latin,Greek)[Numbers={Lining,Proportional}]{Minion Pro}
+%================================== 设置数学字体 ================================%
+\punctstyle{kaiming}%------------------------------------------------------------开明式标点格式
+\usepackage{tikz}
+\usepackage{pifont}
+
+\usepackage{amsmath,amssymb}
+\usepackage{mathtools}
+\graphicspath{{./images/}}\usepackage{graphicx}
+\graphicspath{{./images/}}
+%=================================== 数学符号 =================================%
+% Some shortcuts
+\newcommand\N{\ensuremath{\mathbb{N}}}
+\newcommand\R{\ensuremath{\mathbb{R}}}
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+\renewcommand\O{\ensuremath{\emptyset}}
+\newcommand\Q{\ensuremath{\mathbb{Q}}}
+
+
+% Tensor
+\usepackage{tensor}
+
+\DeclareMathOperator{\order}{ord}
+% bracket notations 
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
+
+% Normal ordering
+\newcommand{\normord}[1]{:\mathrel{#1}:}
+
+% notations on modular forms
+\DeclareMathOperator{\SSLL}{SL}
+\newcommand{\SL}{\SSLL_2(\Z)}
+
+% Real and imaginary parts
+\DeclareMathOperator{\Realpart}{Re}
+\renewcommand{\Re}{\Realpart}
+
+\DeclareMathOperator{\Impart}{Im}
+\renewcommand{\Im}{\Impart}
+
+% General linear group
+\DeclareMathOperator{\GL}{GL}
+
+% Category theory
+\DeclareMathOperator{\Ob}{Ob}
+\DeclareMathOperator{\Hom}{Hom}
+%=================================== 数学符号 =================================%
+
+\graphicspath{{figures/}}
+
+\title{KdV方程在可测集上的两点时刻能观测不等式}
+
+\institute[CUG]{\includegraphics[width=2cm]{cug.jpeg}}
+\author[王允磊]
+{汇报人:王允磊\\
+  指导老师:王明\\
+学院:数学与物理学院}
+
+
+\date{\tiny 2021-11-22}
+
+\setlength{\baselineskip}{22pt}
+\renewcommand{\baselinestretch}{1.4}
+
+% Correct math font
+\usepackage[T1]{fontenc}
+\begin{document}
+
+\setlength{\abovedisplayskip}{1ex}%------------------------------------------ 公式前的距离
+\setlength{\belowdisplayskip}{1ex}%------------------------------------------ 公式后的距离
+
+%\includeonlyframes{Brown}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\input{body}
+\bibliographystyle{plain}
+\bibliography{mybib}
+\end{document}

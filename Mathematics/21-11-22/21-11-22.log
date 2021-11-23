@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.10.24)  23 NOV 2021 16:16
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2019.10.24)  23 NOV 2021 20:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1133,19 +1133,27 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
  (./21-11-22.nav)
 File: figures/cug.jpeg Graphic file (type bmp)
 <figures/cug.jpeg>
- [1
 
-] (./body.tex [2
+Overfull \vbox (8.00531pt too high) detected at line 113
+ []
 
-]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 32.
+[1
+
+] (./body.tex
+LaTeX Font Info:    Trying to load font information for U+msa on input line 26.
  (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 32.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 26.
  (/usr/local/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [3
+)
+Overfull \vbox (3.70743pt too high) detected at line 26
+ []
+
+[2
+
+] [3
 
 ] [4
 
@@ -1185,12 +1193,12 @@ Package rerunfilecheck Info: File `21-11-22.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E.
  ) 
 Here is how much of TeX's memory you used:
- 38181 strings out of 492483
- 783030 string characters out of 6129482
- 908403 words of memory out of 5000000
- 42083 multiletter control sequences out of 15000+600000
- 611268 words of font info for 101 fonts, out of 8000000 for 9000
+ 38219 strings out of 492483
+ 783834 string characters out of 6129482
+ 907404 words of memory out of 5000000
+ 42112 multiletter control sequences out of 15000+600000
+ 620089 words of font info for 111 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 54i,16n,64p,826b,744s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 54i,15n,64p,826b,740s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on 21-11-22.xdv (12 pages, 124148 bytes).
+Output written on 21-11-22.xdv (12 pages, 126848 bytes).

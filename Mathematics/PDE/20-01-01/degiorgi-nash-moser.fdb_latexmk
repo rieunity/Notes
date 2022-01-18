@@ -1,9 +1,9 @@
 # Fdb version 3
-["xdvipdfmx"] 1606516794 "degiorgi-nash-moser.xdv" "degiorgi-nash-moser.pdf" "degiorgi-nash-moser" 1606516794
+["xdvipdfmx"] 1606516794 "degiorgi-nash-moser.xdv" "degiorgi-nash-moser.pdf" "degiorgi-nash-moser" 1638681149
   "degiorgi-nash-moser.xdv" 1606516794 36812 f646f621a95154a808f4a6ddbf4ea09a "xelatex"
   (generated)
   "degiorgi-nash-moser.pdf"
-["xelatex"] 1606516793 "degiorgi-nash-moser.tex" "degiorgi-nash-moser.xdv" "degiorgi-nash-moser" 1606516794
+["xelatex"] 1606516793 "degiorgi-nash-moser.tex" "degiorgi-nash-moser.xdv" "degiorgi-nash-moser" 1638681149
   "/home/rieunity/texmf/tex/latex/tensor/tensor.sty" 1571488674 4258 177d16e71f50eb48389533ac9bd9cd26 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -91,13 +91,13 @@
   "/usr/local/texlive/2019/texmf-dist/web2c/texmf.cnf" 1570742662 39452 758acee3f2beaeeedff570c5f5d76d98 ""
   "/usr/local/texlive/2019/texmf-var/web2c/xetex/xelatex.fmt" 1571853579 3765666 62de793a3e398af58254cb198b8b0b2d ""
   "/usr/local/texlive/2019/texmf.cnf" 1571853555 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "body.tex" 1606516792 16408 66a1e7233a9080d1e75d0b81cb4ab6fb ""
+  "body.tex" 1606570891 16408 66a1e7233a9080d1e75d0b81cb4ab6fb ""
   "degiorgi-nash-moser.aux" 1606516794 767 ce66d1b79d4a4cb922d1083c13a0de85 "xelatex"
   "degiorgi-nash-moser.out" 1606516794 0 d41d8cd98f00b204e9800998ecf8427e "xelatex"
   "degiorgi-nash-moser.tex" 1606463554 1899 a1e6eb3283096876fae370669d6d78c7 ""
   (generated)
+  "degiorgi-nash-moser.log"
+  "degiorgi-nash-moser.out"
+  "degiorgi-nash-moser.aux"
   "degiorgi-nash-moser.thm"
   "degiorgi-nash-moser.xdv"
-  "degiorgi-nash-moser.log"
-  "degiorgi-nash-moser.aux"
-  "degiorgi-nash-moser.out"

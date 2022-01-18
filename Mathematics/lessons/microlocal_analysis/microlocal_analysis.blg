@@ -1,0 +1,9 @@
+[0] Config.pm:304> INFO - This is Biber 2.13
+[0] Config.pm:307> INFO - Logfile is 'microlocal_analysis.blg'
+[19] biber:315> INFO - === Sun Dec  5, 2021, 13:48:54
+[31] Biber.pm:375> INFO - Reading 'microlocal_analysis.bcf'
+[80] Biber.pm:905> INFO - Found 0 citekeys in bib section 0
+[84] Utils.pm:300> WARN - The file 'microlocal_analysis.bcf' does not contain any citations!
+[90] bbl.pm:648> INFO - Writing 'microlocal_analysis.bbl' with encoding 'UTF-8'
+[90] bbl.pm:751> INFO - Output to microlocal_analysis.bbl
+[90] Biber.pm:110> INFO - WARNINGS: 1

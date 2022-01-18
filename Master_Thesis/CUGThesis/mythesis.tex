@@ -1,0 +1,155 @@
+%!TEX TS-program = xelatex
+% vim: set fenc=utf-8
+
+% -*- coding: UTF-8; -*-
+%!TEX encoding = UTF-8 Unicode 
+\documentclass[master]{cugthesis}
+
+
+ % Some shortcuts
+\newcommand\N{\ensuremath{\mathbb{N}}}
+\newcommand\R{\ensuremath{\mathbb{R}}}
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+\renewcommand\O{\ensuremath{\emptyset}}
+\renewcommand\d{\ensuremath{\,\mathrm{d}}}
+\newcommand\Q{\ensuremath{\mathbb{Q}}}
+\renewcommand\C{\ensuremath{\mathbb{C}}}
+
+% Some theorem environment settings
+\usepackage{ntheorem}
+\theoremseparator{.}
+\newtheorem{theorem}{定理}[section]
+\newenvironment{proof}{{\noindent\itshape Proof}.}{\hfill $\square$\par}
+\theorembodyfont{\upshape}
+\newtheorem*{remark}{注}
+\newtheorem*{question}{Question}
+\newtheorem{definition}[theorem]{定义}
+\newtheorem{proposition}[theorem]{性质}
+\newtheorem{corollary}[theorem]{推论}
+\newtheorem{lemma}[theorem]{引理}
+\newtheorem{exercise}{Exercise}[section]
+\newtheorem*{solution}{Solution}
+\newtheorem{example}{Example}[section]
+
+
+
+\cugthesistitle{中国地质大学研究生学位论文 \LaTeXe{} 模板}{\cugthesis\ \LaTeXe{} 模板}
+\cugthesisauthor{王允磊}{Yunlei Wang}
+\studentid{1201910835}
+\cugthesismajor{数学}{Mathematics}
+\cugthesisteacher{王明}{Ming Wang}
+\educatingunit{数学与物理学院}
+\cugthesisdate{2022}{3}
+
+\cugabstract{中文摘要}{English Abstract}
+\cugkeywords{关键字}{Keywords} 
+\begin{document}
+    \makefrontpages 
+    % 你的正文
+    \chapter{引言}
+    
+    唯一延拓性是偏微分方程研究中的一个重要课题, 它刻画了一个方程的解在多大程度上由它的局部信息所确定. 对于这类问题, 人们首先聚焦于薛定谔方程的研究并得到了丰富多样的结果.
+    \section{能观测不等式}
+    考虑薛定谔方程
+    \begin{equation}
+      i\partial_t u+\Delta u=0, \quad (x,t) \in  \Omega \times (0,1)\label{sch}
+    \end{equation}
+    的解$u(x,t)$, 我们由 $u(x,t)$在 $\hat{\omega}\times I$ 上为零可以推出$u(x,t)$ 本身恒为零\cite{Lebeau1992}, 即
+    \[
+      \text{当}u(x,t)\text{在} \hat{\omega}\times I\text{上为零时},  u\equiv 0, 
+    \] 
+    这里$I=(a,b)\subset (0,1)$ 是包含在$(0,1)$ 中的任意非空的子区间, $\Omega$ 为$\R^{n}$ 中具有解析边界$\partial \Omega$ 的有界区域, $\hat{\omega}$ 是边界 $\partial\Omega$上满足几何控制条件的子集, $n\in \N^{+}:=\left\{1,2,\cdots \right\} $. 这种唯一延拓性也可以等价地表述为:
+    \begin{center}
+      当$u(x,t)$ 在$\hat{\omega}\times I$ 上给定时, 解函数$u(x,t)$ 在全空间和时间轴上唯一确定.
+    \end{center} 
+    对于$\Omega=\R^{n}$ 的情形, 我们不仅能建立开子集$\omega\subset \R^{n}$ 上的唯一延拓性, 还能进一步得到这一性质的定量描述:
+    \begin{equation}
+      \int_{\R^{n}}|u(x,0)|^2\d x\le C \int_0^{T}\int_{\omega}|u(x,t)|^2\d x \mathrm{d}t,\label{obs}
+    \end{equation}
+    其中$C$ 是仅仅依赖于$T$和 $\omega$的正常数. 形如(\ref{obs})的不等式便称为能观测不等式.
+
+
+    更一般地, 对于满足薛定谔方程
+    \begin{equation}
+      i\partial_t u+\Delta u +Vu=0 \quad (x,t)\in  \R^{n}\times (0,1)\label{sch-v}
+    \end{equation}
+    (其中 $V$ 是依赖时间和空间变量的满足一定条件的势函数, $n\in  \N^{+}:=\left\{1,2,\cdots \right\} $)的解$u(x,t)$, 我们由$u(x,t)$ 在$B^{c}_R(0)\times \left\{0,1\right\}$ 为零可以推出$u(x,t)$本身恒为零\cite{IONESCU200690}, 即
+    \[
+      \text{当}(x,t) \in B^{c}_R(0)\times \left\{0,1\right\} \text{时},u(x,t)=0 \Rightarrow u\equiv 0.
+    \] 
+    这里$R>0$,  $B_R(0)$表示 $\R^{n}$ 里半径为$R$球心为原点的闭球, 并且$B_R^{c}(0)$ 表示$B_R(0)$ 在全空间$\R^{n}$ 中的补空间. Escauriaza, Kenig 和 Ponce证明了\cite{Esca2010}, 如果方程 (\ref{sch-v}) 的解$u(x,t)$在给定某些位势条件下满足
+    \[
+      \|e^{|x|^2 /\alpha^2}u(x,0)\|_{L^2(\R^{n};\C)}+\|e^{|x|^2 /\beta^2}u(x,1)\|_{L^2\left( \R^{n};\C \right) }<\infty,
+    \] 
+    并且$\alpha,\beta $ 是满足$\alpha \beta<4$ 的正常数, 则有$u\equiv 0$. 上述结论在 $\alpha \beta=4$时并不成立. 对于没有外势的自由薛定谔方程, 同样的结果亦可见于\cite{Esca2010}. 从已有的结果可以看到, 对于两点时刻的唯一延拓性我们知有定性的描述, 一个自然而然的问题便是: 我们能否得到像 (\ref{obs}) 式那样关于两点时刻的唯一延拓性的定量描述,即所谓的两点时刻能观测不等式.
+
+    王更生, 王明和张与彪三位在2019年发表的文章中\cite{Geng2019}考虑了全空间自由薛定谔方程
+\begin{align}
+  \left\{\begin{array}{lc} i\partial_t u + \Delta u=0, &\quad (x,t)\in \R^{n}\times (0,\infty),\\
+    u(x,0)=u_0(x) \in L^2\left( \R^{n};\C \right), & 
+  \end{array}
+\right.\label{sch-f}
+\end{align}
+并对其建立了如下的两点时刻能观测不等式
+    \begin{equation}
+      \int_{\R^{n}}|u_0(x)|^2\d x\le Ce^{Cr_1r_2 \frac{1}{T-S}}\left( \int_{B^{c}_{r_1}(x')}|u(x,S)|^2 \d x+\int_{B^{c}_{r_2}(x'')}|u(x,T)|^2\d x \right), 
+    \end{equation}
+    其中$x',x'' \in \R^{n},0<S<T<\infty,r_1>0,r_2>0,$ $C$是不依赖于任何变量的正常数. 这一结果有着突破性的意义. 在此之前, 人们并没有意识到对于两点时刻的唯一延拓性可以建立定量的描述,即能观测不等式. 不仅如此, 该不等式中的常数估计对于全空间上的自由薛定谔方程是最优的. 
+ 
+    为了便于后续的说明, 我们给出全空间傅立叶变换的符号以及定义式
+    \[
+      \widehat{f}(\xi)=(2\pi)^{- \frac{n}{2}}\int_{\R^{n}}e^{-ix\cdot \xi}f(x)\d x.
+    \] 
+
+    对于薛定谔方程, 不论是定性的唯一延拓性还是定量的能观测不等式, 它们的证明都依赖于全空间自由薛定谔方程解满足的关系式\cite{Esca2008convexity}
+    \begin{equation}
+      \left( 2it \right) ^{\frac{n}{2}}e^{-i|x|^2 /4t} u(x,t)= \left( e^{i|\cdot |^2 /4t} u_0 \right) ^{\wedge}\left(\frac{x}{2t}\right).\label{relation}
+    \end{equation}
+    上面的(\ref{relation})式说明 $e^{-i |x|^2 / 4t} u(x,t)$ 是经过缩放后的函数$e^{i|y|^2 /4t}u_0(y)$的傅立叶变换, 这让我们可以将薛定谔方程的两点能观测不等式转换为调和分析中的不确定性原理. 实际上, 定性的两点唯一延拓性利用了与哈代不确定性原理的等价性, 而能观测不等式则利用了与另一种不确定性原理, 即与定理\ref{thm-uncertainty}的等价性\cite{JAMING200730}.
+    \begin{theorem}\label{thm-uncertainty}
+      给定$\R^{n}$ 上测度有限的可测子集$S,\Sigma$, 则对于任意的函数$f\in L^2\left( \R^{n};\C \right) $我们有不等式
+      \[
+	\int_{\R^{n}_x}|f(x)|^2\d x\le C\left( n,S,\Sigma \right) \left( \int_{\R^{n}_x\backslash  S}|f(x)|^2\d x+\int_{\R^{n}_{\xi} \backslash  \Sigma}|\widehat{f}(\xi)|^2\d \xi \right) 
+      \] 
+      成立, 其中$C=C(n)$并且
+       \begin{equation}
+	 C(n,S,\Sigma):= Ce^{C\min \left\{|S| |\Sigma|^{1 /n} w(\Sigma),|\Sigma|^{1 /n}w(S)\right\} }. 
+       \end{equation}这里$w(\cdot )$表示平均宽度.
+    \end{theorem}
+
+    \section{KdV方程能观测不等式} 
+
+    因为Korteweg-de Vries方程 (以下均简称KdV方程) 也是一种重要的色散方程,  所以一个自然的想法是寻找KdV方程的两点时刻能观测不等式. 遗憾的是, 对于KdV方程, 我们无法找到类似薛定谔方程(\ref{relation})式那样简洁的变换关系式, 从而无法使用类似的方法将其等价为某种不确定性原理. 考虑线性KdV方程
+    \begin{equation}
+      \partial_t u+\partial_{x x x} u=0,\quad u(x,0)=u_0(x) \in L^2(\R).\label{lkdv}
+    \end{equation}
+
+
+黎泽和王明在2021年用解析的方法证明了线性KdV方程的两点能观测不等式\cite{Ming2021},即定理\ref{thm-2}.
+    \begin{theorem}\label{thm-2}
+      存在一个常数$C>0$, 使得对于任意的$r_1,r_2,t>0$ 以及所有关于方程(\ref{lkdv})的解$u(x,t)\in C\left( [0,\infty);L^2(\R) \right) $ 都有
+      \begin{equation}
+	\int_{\R}|u_0(x)|^2\d x\le C e^{Ct ^{- \frac{4}{3}}(r_1^{4}+r_2^{4})}\left( \int_{|x|\ge r_1}|u_0(x)|^2 \d x+ \int_{|x|\ge r_2}|u(x,t)|^2\d x \right). 
+      \end{equation}
+    \end{theorem}
+该定理的证明依赖于具有紧支集初值函数在KdV方程下定量的解析光滑效应以及关于解析函数的一个定量唯一延拓不等式.
+
+\begin{remark}
+ iii 
+\end{remark}
+
+    % 更多内容
+    \section{这是一级标题}
+    % 更多内容
+    \subsection{这是二级标题}
+    % 更多内容
+
+    \backmatter
+    \chapter{致谢}
+    % 致谢内容
+    \cugthesisbib{refs}
+
+    \appendix
+    \chapter{这是附录A}
+    % 这里是附录内容
+\end{document}

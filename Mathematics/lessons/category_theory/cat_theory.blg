@@ -1,9 +1,0 @@
-[0] Config.pm:304> INFO - This is Biber 2.13
-[0] Config.pm:307> INFO - Logfile is 'cat_theory.blg'
-[26] biber:315> INFO - === Sun Apr 11, 2021, 22:19:07
-[42] Biber.pm:375> INFO - Reading 'cat_theory.bcf'
-[115] Biber.pm:905> INFO - Found 0 citekeys in bib section 0
-[121] Utils.pm:300> WARN - The file 'cat_theory.bcf' does not contain any citations!
-[129] bbl.pm:648> INFO - Writing 'cat_theory.bbl' with encoding 'UTF-8'
-[129] bbl.pm:751> INFO - Output to cat_theory.bbl
-[129] Biber.pm:110> INFO - WARNINGS: 1

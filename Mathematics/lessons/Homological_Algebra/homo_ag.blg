@@ -1,9 +1,0 @@
-[0] Config.pm:304> INFO - This is Biber 2.13
-[0] Config.pm:307> INFO - Logfile is 'homo_ag.blg'
-[21] biber:315> INFO - === Thu May 20, 2021, 19:23:13
-[33] Biber.pm:375> INFO - Reading 'homo_ag.bcf'
-[84] Biber.pm:905> INFO - Found 0 citekeys in bib section 0
-[88] Utils.pm:300> WARN - The file 'homo_ag.bcf' does not contain any citations!
-[94] bbl.pm:648> INFO - Writing 'homo_ag.bbl' with encoding 'UTF-8'
-[94] bbl.pm:751> INFO - Output to homo_ag.bbl
-[94] Biber.pm:110> INFO - WARNINGS: 1

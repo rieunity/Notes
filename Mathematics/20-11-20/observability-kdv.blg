@@ -1,9 +1,0 @@
-[0] Config.pm:304> INFO - This is Biber 2.13
-[0] Config.pm:307> INFO - Logfile is 'observability-kdv.blg'
-[21] biber:315> INFO - === Fri Nov 20, 2020, 21:27:24
-[33] Biber.pm:375> INFO - Reading 'observability-kdv.bcf'
-[83] Biber.pm:905> INFO - Found 0 citekeys in bib section 0
-[87] Utils.pm:300> WARN - The file 'observability-kdv.bcf' does not contain any citations!
-[93] bbl.pm:648> INFO - Writing 'observability-kdv.bbl' with encoding 'UTF-8'
-[93] bbl.pm:751> INFO - Output to observability-kdv.bbl
-[93] Biber.pm:110> INFO - WARNINGS: 1

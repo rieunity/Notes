@@ -1,17 +1,17 @@
 # Fdb version 3
-["bibtex 21-11-22"] 1637672030 "21-11-22.aux" "21-11-22.bbl" "21-11-22" 1637672032
+["bibtex 21-11-22"] 1652435367 "21-11-22.aux" "21-11-22.bbl" "21-11-22" 1652435368
   "/usr/local/texlive/2019/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
   "21-11-22.aux" 1637672031 2748 efbe3784baa19bd07579270fb1cd450d "xelatex"
   "mybib.bib" 0 -1 0 ""
   (generated)
   "21-11-22.bbl"
   "21-11-22.blg"
-["xdvipdfmx"] 1637672032 "21-11-22.xdv" "21-11-22.pdf" "21-11-22" 1637672032
+["xdvipdfmx"] 1637672032 "21-11-22.xdv" "21-11-22.pdf" "21-11-22" 1652435368
   "21-11-22.xdv" 1637672031 126848 d2ee3235e6bbe35e72918ddd5df6c99c "xelatex"
   (generated)
   "21-11-22.pdf"
-["xelatex"] 1637672030 "21-11-22.tex" "21-11-22.xdv" "21-11-22" 1637672032
-  "/dev/null" 1637695349 0 d41d8cd98f00b204e9800998ecf8427e ""
+["xelatex"] 1637672030 "21-11-22.tex" "21-11-22.xdv" "21-11-22" 1652435368
+  "/dev/null" 1652463988 0 d41d8cd98f00b204e9800998ecf8427e ""
   "/home/rieunity/texmf/tex/latex/tensor/tensor.sty" 1571488674 4258 177d16e71f50eb48389533ac9bd9cd26 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/map/fontname/texfonts.map" 1511824771 3332 103109f5612ad95229751940c61aada0 ""
   "/usr/local/texlive/2019/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1136768653 1408 5937f58aa508ea2cea4901c07d10f5fe ""
@@ -251,13 +251,13 @@
   "21-11-22.nav" 1637672031 1295 ef040a83926d85743749b42a2275f515 "xelatex"
   "21-11-22.out" 1637672031 0 d41d8cd98f00b204e9800998ecf8427e "xelatex"
   "21-11-22.tex" 1637671439 4121 2289d84d83a6f9be15c6862d50f0d8df ""
-  "body.tex" 1637672029 11641 1ab8816ab1776b6596d0eedfb8192188 ""
+  "body.tex" 1637672051 11641 1ab8816ab1776b6596d0eedfb8192188 ""
   "figures/cug.jpeg" 1590582705 17294 64d120b0fdc713afbaad177c4f993b71 ""
   (generated)
-  "21-11-22.nav"
-  "21-11-22.toc"
-  "21-11-22.snm"
-  "21-11-22.aux"
-  "21-11-22.log"
   "21-11-22.out"
+  "21-11-22.toc"
+  "21-11-22.aux"
+  "21-11-22.snm"
+  "21-11-22.nav"
   "21-11-22.xdv"
+  "21-11-22.log"

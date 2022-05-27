@@ -33,14 +33,14 @@ For complex manifolds the analogue statement is false. To be diffeomorphic to a 
 \section{Holomorphic functions}
 This section we want to talk about holomorphic functions.
 
-Recall some concepts / theorems from one complex variable. Let   $\mathcal{U}\subset \C, f:\mathcal{U}\to \C, \mathcal{U}$ open,
+Recall some concepts/theorems from one complex variable. Let   $\mathcal{U}\subset \C, f:\mathcal{U}\to \C, \mathcal{U}$ open,
 \begin{enumerate}
   \item $f$ is holomophic $\Leftrightarrow$ f is analytic: $\forall  z_0 \in  u, \exists \varepsilon >0$ s.t. $f(z)=\sum_{n=0}^{\infty} a_n (z-z_0)^n,\forall z\in B_{\varepsilon }(z_0)$.
   \item  $f$ is holomorphic $\Leftrightarrow$ $f$ satisfies Cauchy integral formula: $f\in \C^{1}$ and $\forall z_0 \in  \mathcal{U}$, $\varepsilon $ small enough 
     \[
       f(z_0)=\frac{1}{2\pi i}\int_{\partial B_\varepsilon (z_0)}\frac{ f(z)}{z-z_0}\,\mathrm{d}z.
     \] 
-  \item $f$ is holomorphic $\Leftrightarrow$ $f$ satisfies Cauchy-Riemann equations. Writing $z=x+iy,x,y\in \R$, $f(x,y)=u(x,y)+iv(x,y), u,v$ real values, $u,v$ are continuous differentiable and satisfy
+  \item $f$ is holomorphic $\Leftrightarrow$ $f$ satisfies Cauchy-Riemann equations. Writing $z=x+iy,x,y\in \R$, $f(x,y)=u(x,y)+iv(x,y), u,v$ real values, $u,v$ are continuously differentiable and satisfy
     \[
     \frac{\partial u}{\partial x} =\frac{\partial v}{\partial y},  \frac{\partial u}{\partial y} =-\frac{\partial v}{\partial x} . 
     \] 
@@ -78,7 +78,7 @@ Holomorphic functions of one variable satisfy some important theorems:
   \item Identity theorem: $f,g:\mathcal{U}\to \C$ holomoprhic and $\mathcal{U}$ connected. If $$\left\{z\in \mathcal{U}:f(z)=g(z)\right\} $$ contains an open set then it is all of $\mathcal{U}$.
   \item Extension theorem: $f:B_\varepsilon (z_0) \backslash  \left\{z_0\right\} \to \C$ is holomorphic and bounded, then it extends to a holomorphic function $B_{\varepsilon }(z_0)\to \C$.
   \item Liouville's theorem: $f:\C\to \C$ holomorphic and bounded implies $f$ is constant.
-  \item Riemann mapping theorem: If $\mathcal{U}\subset \C$is a simply connected, proper open set, then $\mathcal{U}$ is biholomorphic to the unit ball $B_1(0)$.
+  \item Riemann mapping theorem: If $\mathcal{U}\subset \C$ is a simply connected, proper open set, then $\mathcal{U}$ is biholomorphic to the unit ball $B_1(0)$.
   \item Residue theorem: If $f:B_\varepsilon (0) \backslash  \left\{0\right\} \to \C$ is holomorphic and $f(z)=\sum_{j\in \Z}^{} a_jz^{j}$ is its Laurent series. Then
     \[
       a_{-1}=\frac{1}{2\pi i}\int_{\partial B_{\varepsilon  /2}(0)}f(z)\,\mathrm{d}z.
@@ -87,7 +87,7 @@ Holomorphic functions of one variable satisfy some important theorems:
 
 
 \begin{definition}
-  $\mathcal{U}\subset \C^{n}$ open, $f:\mathcal{U}\to \C$ continuously differentiable,  then $f$ is holomorphic at $a\in \mathcal{U}$ if for all $j\in \left\{1,\cdots ,n\right\} $ the function of one variable 
+  Let $\mathcal{U}\subset \C^{n}$ be open, $f:\mathcal{U}\to \C$ be a continuously differentiable function,  then $f$ is holomorphic at $a\in \mathcal{U}$ if for all $j\in \left\{1,\cdots ,n\right\} $ the function of one variable 
   \[
     z_j\mapsto f(a_1,\cdots ,a_{j-1}, z_j, a_{j+1},\cdots ,a_n)
   \] is holomorphic. i.e., $\partial_{\overline{z_j}}f=0,\forall j \in \left\{1,\cdots ,n\right\} $.
@@ -99,32 +99,35 @@ If we write
 Denote the first term $\partial f$ and the second $\overline{\partial}f$, then $f$ is holomorphic iff $\overline{\partial}f=0$.
 
 \begin{definition}
-  For $a\in \C^{n}, R\in \left( \R^{+} \right) ^{n}$, the polydisc around $a$ with multindices $R$ is the set $D(a,R)=\left\{z\in \C^{n}:|z_j-a_j|<R_j,\\forall j\in \left\{1,\cdots ,n\right\} \right\} $. If $R=(1,\cdots ,1)$ and $a=0$ we abbreviate $D(0,1)$ by $\mathbb{D}$ and refer to it as the unit disc in $\C^{n}$. 
+  For $a\in \C^{n}, R\in \left( \R^{+} \right) ^{n}$, the polydisc around $a$ with multindices $R$ is the set $D(a,R)=\left\{z\in \C^{n}:|z_j-a_j|<R_j,\forall j\in \left\{1,\cdots ,n\right\} \right\} $. If $R=(1,\cdots ,1)$ and $a=0$ we abbreviate $D(0,1)$ by $\mathbb{D}$ and refer to it as the unit disc in $\C^{n}$. 
 \end{definition}
 Repeatedly applying the Cauchy formula in $1$-variable, we obtain the following theorem:
 \begin{theorem}
-  $f:D(w,\varepsilon )\to \C$ holomorphic and $z\in D(w,\varepsilon )$ then 
+ Given $f:D(w,\varepsilon )\to \C$ holomorphic and $z\in D(w,\varepsilon )$, then 
   \[
     f(z)=\frac{1}{\left( 2\pi i \right) ^{n}}\int_{\partial D(w,\varepsilon )}\frac{f(\zeta_1,\cdots ,\zeta_n)}{(\zeta-z_1)\cdots (\zeta_n-z_n)}\,\mathrm{d}\zeta_1\cdots \mathrm{d}\zeta_n.
   \] 
 \end{theorem}
-Using this we can show that for any point $w\in U$, $\exists $ multi disc $D(w,\varepsilon )$ inside $U$ such that for all $z\in D(w,\varepsilon )$, $f(z)=\sum_{|\alpha|=0}^{\infty} \frac{\partial^{\alpha}_z f}{\alpha!}(z-w)^{\alpha}$. Here $\alpha$ is a multi-index $\alpha \in \left( \N_0 \right) ^{n}$, and 
-\begin{align*}
-  (z-w)^{\alpha}&= (z_1-w_1)^{\alpha_1}\cdots (z_n-w_n)^{\alpha_n} \\
-  \alpha! &= \alpha_1!\cdots \alpha_n! \\
-  \partial^{\alpha}_{z}f=\partial_{z_1}^{\alpha_1}\cdots \partial_{z_n}^{\alpha_n}f
+Using this we can show that for any point $w\in U$, there exists a multi disc $D(w,\varepsilon )$ inside $U$ such that for all $z\in D(w,\varepsilon )$, $f(z)=\sum_{|\alpha|=0}^{\infty} \frac{\partial^{\alpha}_z f}{\alpha!}(z-w)^{\alpha}$. Here $\alpha$ is a multi-index $\alpha \in \left( \N_0 \right) ^{n}$, and 
+\begin{align*}{}
+  (z-w)^{\alpha}&= (z_1-w_1)^{\alpha_1}\cdots (z_n-w_n)^{\alpha_n}, \\
+  \alpha! &= \alpha_1!\cdots \alpha_n!, \\
+  \partial^{\alpha}_{z}f&=\partial_{z_1}^{\alpha_1}\cdots \partial_{z_n}^{\alpha_n}f
 .\end{align*}
 From the list above, the maximum principle, the identity theorem and Liouville's theorem generalize easily.
 Riemann extension theorem holds but is harder to prove and Riemann mapping definitely fails. There are also phenomenon that do not have analogues in one complex variable. 
 \begin{theorem}[Hartogs Extension Theorem]
-  $n\ge 2$, $f:U \backslash  K\to \C$ holomorphic with $U \subset  \C^{n}$ open, $K\subset U$ compact. If $U \backslash  K$ is connected, then $\exists ! F:U\to \C$ holomorphic extending $f$.
+  $n\ge 2$, $f:U \backslash  K\to \C$ holomorphic with $U \subset  \C^{n}$ open, $K\subset U$ compact. If $U \backslash  K$ is connected, then there exists a unique holomorphic function $F:U\to \C$ such that $F$ extends $f$.
 \end{theorem}
 
 \section{Solving $\partial u = f$}
 This section, we will talk about how severable complex variable holomorphic funcitons are NOT like one complex variable holomorphic functions.
 
 \begin{example}
-  Consider $H=\left\{(z,w)\in \C^2:|z|<1, \frac{1}{2}<|w|<1\right\}\cup \left\{|z|<\frac{1}{2},|w|<1\right\}  $
+  Consider 
+  \[
+    H=\left\{(z,w)\in \C^2:|z|<1, \frac{1}{2}<|w|<1\right\}\cup \left\{|z|<\frac{1}{2},|w|<1\right\}.  
+  \]
 
 \begin{figure}[ht]
     \centering
@@ -167,7 +170,7 @@ Note: When we write $\mathrm{d}\overline{z}\mathrm{d}z$, it means $\mathrm{d}\ov
   As $\varepsilon \to 0$, the LHS converges to $\int_{\partial \Omega} \frac{u(z)}{z-\zeta}\,\mathrm{d}z-2\pi i u(\zeta)$.
 \end{proof}
 \begin{theorem}
-  Let $\phi \in C^{\infty}_c\left( \C \right) $. let $u(\zeta)=\frac{1}{\pi}\int_{\C}\frac{\phi(z)}{z-\zeta}\,\mathrm{d}x\mathrm{d}y$. Then $u$ is an analytic function outside of the $\mathrm{supp}\phi$ and $u$ is smooth on $\C$ and $\partial_{\overline{z}}u=\phi$.
+  Let $\phi \in C^{\infty}_c\left( \C \right) $. let $u(\zeta)=\frac{1}{\pi}\int_{\C}\frac{\phi(z)}{z-\zeta}\,\mathrm{d}x\mathrm{d}y$. Then $u$ is an analytic function outside of the $\mathrm{supp}\,\phi$ and $u$ is smooth on $\C$ and $\partial_{\overline{z}}u=\phi$.
 \end{theorem}
 \begin{proof}
   Interchanging derivatives and the integral, we see that $u\in C^{\infty}(\C)$ and by a change variables we have
@@ -177,7 +180,7 @@ Note: When we write $\mathrm{d}\overline{z}\mathrm{d}z$, it means $\mathrm{d}\ov
   So \[
     \partial_{\overline{\zeta}}u(\zeta)=-\frac{1}{\pi}\int_{\C}\frac{\partial_{\overline{\zeta}}\phi(\zeta-z)}{z}\,\mathrm{d}x\mathrm{d}y=\frac{1}{\pi}\int_{\C}\frac{\partial_{\overline{z}}u(z)}{\zeta-z}\,\mathrm{d}x\mathrm{d}y.
   \] 
-  Applyng the proposition to any disc containing $\mathrm{supp}\phi$, we get that this equals $\phi(\zeta)$, i.e., $\partial_{\overline{\zeta}}u=\phi$.
+  Applyng the proposition to any disc containing $\mathrm{supp}\,\phi$, we get that this equals $\phi(\zeta)$, i.e., $\partial_{\overline{\zeta}}u=\phi$.
 \end{proof}
 \begin{remark}
   Even though $\phi$ has compact support, no solution of $\partial_{\overline{z}}u=\phi$ can have compact support if $\int_{\C}\phi(z)\,\mathrm{d}x\mathrm{d}y\neq 0$. Indeed, if $u(\zeta)=0\forall|\zeta|>R$ for $R$ sufficiently large, then 
@@ -195,28 +198,28 @@ Note: When we write $\mathrm{d}\overline{z}\mathrm{d}z$, it means $\mathrm{d}\ov
   \[
     \partial_{\overline{z}_j}u=\frac{1}{2\pi i}\int_{\C}\frac{\partial_{\overline{z}_1}f_j\left(\zeta,z_2,\cdots ,z_n  \right) }{\zeta-z_1}\,\mathrm{d}\overline{\zeta}\mathrm{d}\zeta=f_j.
   \]
-  Hence $u$ solve the system of equations. Let $K=\bigcup_{j=} ^{n}\mathrm{supp}f_j$, $u$ is holomorphic on $\C^{n}\backslash  K$ and we know that $u$ is zero if $|z_2|+\cdots +|z_n|$ sufficiently large. So by the identity theorem $u$ must vanish on the component of $\C^{n}\backslash  K$ $\Rightarrow$ $u\in C_c^{\infty}(\C^{n})$.
+  Hence $u$ solve the system of equations. Let $K=\bigcup_{j=1} ^{n}\mathrm{supp}\,f_j$, $u$ is holomorphic on $\C^{n}\backslash  K$ and we know that $u$ is zero if $|z_2|+\cdots +|z_n|$ sufficiently large. So by the identity theorem $u$ must vanish on the component of $\C^{n}\backslash  K$ $\Rightarrow$ $u\in C_c^{\infty}(\C^{n})$.
 \end{proof}
 
 \section{Proof of Hartogs theorem}
 \begin{theorem}
-  Let $\mathcal{U}$ be a domain in $\C^{n}$,$n>1$ (domain is nonempty connected open set). Let $K$ be a compact subset of $\mathcal{U}$ s.t. $\mathcal{U}\backslash K$ is connected. Then every holomorophic function on $\mathcal{U}\backslash  K$ extends to a holomorphic function on $\mathcal{U}$.
+  Let $\mathcal{U}$ be a domain in $\C^{n}$,$n>1$ (domain is nonempty connected open set). Let $K$ be a compact subset of $\mathcal{U}$ such that $\mathcal{U}\backslash K$ is connected. Then every holomorophic function on $\mathcal{U}\backslash  K$ extends to a holomorphic function on $\mathcal{U}$.
 \end{theorem}
 \begin{proof}
   Given $f$ analytic on $\mathcal{U}\backslash  K$, choose $\theta \in  C_c^{\infty}(\mathcal{U})$ s.t. $\theta|_K\equiv 1$. Define $f_0\in C^{\infty}\left( \mathcal{U} \right) $ by setting 
   \[
     f_0(z)=\begin{cases}
       0,&z\in K\\
-      (1-\theta)f, z \in U.
+      (1-\theta)f, &z \in U.
     \end{cases}
   \]
   We shall construct $v \in C^{\infty}(\C^{n})$ s.t.  $f_0+v$ is the required holomorphic extension of $f$. In order for $f_0+v$ to be holomorphic we need $\partial_{\overline{z}_j}(f_0+v)=0=\partial_{\overline{z}_j}(1-\theta)f+\partial_{\overline{z}_j}v=-(\partial_{\overline{z}_j}\theta )f+\partial_{\overline{z}_j}v$. That is, we need 
   \[
-    \partial_{\overline{z}_j}v=\left( \partial_{\overline{z}_j}\theta \right) f,\quad \forall j\in \left\{1,\cdots ,n\right\} .
+    \partial_{\overline{z}_j}v=\left( \partial_{\overline{z}_j}\theta \right) f,\quad \forall z\in K, j\in \left\{1,\cdots ,n\right\} .
   \]
 
   We know from last section that we can find $v\in C_c^{\infty}(\mathcal{U})$ solving this system of equations.
-  Since $v$ has compact support and is holomorphic outside of the support of $\theta$, it must vanish on the unbounded component of $\C^{n}\backslash \mathrm{supp}\theta$. Since $\mathrm{supp}\theta\subset \mathcal{U}$, there is an open set $W$ in $\mathcal{U}\backslash  K$ where $v\equiv 0$ and so $f_0+v= f_0=f$ in $W$. But $\mathcal{U}\backslash K$ is connected and $f,f_0+v$ are holomorphic, so they must coincide on all of $\mathcal{U}\backslash K$. Thus $f_0+v$ is the desired holomorphic extension of $f$.
+  Since $v$ has compact support and is holomorphic outside of the support of $\theta$, it must vanish on the unbounded component of $\C^{n}\backslash \mathrm{supp}\,\theta$. Since $\mathrm{supp}\,\theta\subset \mathcal{U}$, there is an open set $W$ in $\mathcal{U}\backslash  K$ where $v\equiv 0$ and so $f_0+v= f_0=f$ in $W$. But $\mathcal{U}\backslash K$ is connected and $f,f_0+v$ are holomorphic, so they must coincide on all of $\mathcal{U}\backslash K$. Thus $f_0+v$ is the desired holomorphic extension of $f$.
 \end{proof}
 \begin{corollary}
   Let $\mathcal{U}\subset \C^{n}$ domain, $n>1$, $f$ holomorphic function in $\mathcal{U}$. The zero set $f^{-1}(0)$ of $f$ is never a compact subset of $\mathcal{U}$.
@@ -227,7 +230,7 @@ Note: When we write $\mathrm{d}\overline{z}\mathrm{d}z$, it means $\mathrm{d}\ov
   Without knowing that $\mathcal{U}\backslash K$ is connected, the previous proof gives us $g_0+v$ holomorphic with $v\equiv 0$ on a connected component of $\mathcal{U}\backslash K$. It may not agree with $g$ on all of $\mathcal{U}\backslash K$, but this is enough to say that $\frac{1}{f}$ is bounded on some sequence approaching $f^{-1}(0)$ and that's a contradiction.
 \end{proof}
 
-Heuristically, we might expect that the zero set of nontrivial holomorphic function  $f:\mathcal{U}\subset \C^{n}\to \C$ will have complex codimension $1$, i.e., complex dimension $n-1$. If $f$ is a polynomial of degree  $1$, then its zero set is an affine subspace of complex dimension $n-1$. If $D_p f:\C^{n}\to \C$ is nonzero at each point $p\in f^{-1}(0)$, then $f$ is ``well-approciamted'' by its linear approximation and $f^{-1}(0)$ should be locally modelled by open subset of $\C^{n-1}$. Indeed, the complex version of the implicit function theorem holds and shows that $f^{-1}(0)$ in this case is a smooth submanifold of complex dimension $n-1$.(Just like in the $\R$ setting)
+Heuristically, we might expect that the zero set of nontrivial holomorphic function  $f:\mathcal{U}\subset \C^{n}\to \C$ will have complex codimension $1$, i.e., complex dimension $n-1$. If $f$ is a polynomial of degree  $1$, then its zero set is an affine subspace of complex dimension $n-1$. If $D_p f:\C^{n}\to \C$ is nonzero at each point $p\in f^{-1}(0)$, then $f$ is ``well-approxiamted'' by its linear approximation and $f^{-1}(0)$ should be locally modelled by open subset of $\C^{n-1}$. Indeed, the complex version of the implicit function theorem holds and shows that $f^{-1}(0)$ in this case is a smooth submanifold of complex dimension $n-1$ (just like in the $\R$ setting).
 
 Things are more complicated if the derivative vanishes. In one complex variable, we know that if  $f(z)=0$ and $f\not\equiv 0$, then $0$ is a root of a finite order, say $p$, meaning that there is a holomorphic function $g$ s.t. $g(0)\neq 0$ and $f(z)=z^{p}g(z)$.
 
@@ -601,9 +604,10 @@ The map
 The map 
 $\mathcal{J}_{\zeta } \longrightarrow  \sfrac{\mathcal{J}_{\zeta }}{\mathcal{J}_{\zeta }^2}$, for a manifold, is the ``total derivative'' (exterior derivative).
 Given a function $f\in \mathcal{A}(\mathcal{U})$, $\mathcal{U}\subset \mathbb{F}^{n}$, we can write 
-\[
-  f(w)=f(\zeta)+\left( \partial_{w_1}f \right) (\zeta)(w_1-\zeta_1)+\cdots \left( \partial_{w_n }f \right) (\zeta)(w_n-\zeta_n)+\text{ things that vanish to 2nd order at }\zeta.
-\] 
+\begin{align*}
+  f(w)&=f(\zeta)+\left( \partial_{w_1}f \right) (\zeta)(w_1-\zeta_1)+\cdots \left( \partial_{w_n }f \right) (\zeta)(w_n-\zeta_n)\\
+  &+\text{ things that vanish to 2nd order at }\zeta.
+\end{align*}
 If $\left[ f \right] \in \mathcal{J}_{\zeta }$ then $f(\zeta)=0$ while the remainder is in $\mathcal{J}_\zeta^2$ so the class of $\left[ f \right] $ in $\sfrac{\mathcal{J}_\zeta }{\mathcal{J}_{\zeta }^2}$ is the class of $\left[ \left( \partial_{w_1 }f \right) (\zeta)(w_1-\zeta_1)+\cdots +\left( \partial_{w_n }f \right)\left( w_n-\zeta_n \right)   \right]=: \sum_{j=1}^{n} \left( \partial_{w_j}f \right) (\zeta) \,\mathrm{d} w_j$. Thus $\sfrac{\mathcal{J}_{\zeta }}{\mathcal{J}_{\zeta }^2}\cong \mathbb{F}^{n}$ with each choice of coordinates inducing a basis o f $\sfrac{\mathcal{J}_{\zeta }}{\mathcal{J}_{\zeta }^2}$.
 
 \begin{claim} $\mathrm{Der}\left( \mathcal{A}_\zeta  \right) \cong \left( \sfrac{\mathcal{J}_{\zeta }}{\mathcal{J}^2_{\zeta }} \right) ^{*}= \text{ annihilator of }$ $\mathcal{J}_{\zeta }^2$ in $\mathcal{J}_\zeta ^{*}$.

@@ -1,0 +1,360 @@
+\tableofcontents
+\section{Introduction}
+We define the generalized Grushin operator as
+\begin{equation}
+	H_G:=-\Delta_x - V(x)\Delta _y,\quad x\in \R^{n},y\in \R^{n},
+\end{equation}
+where the potential $V$ satisfy the following assumption:
+\begin{assumption}\label{assump}
+Assume $V\in L_{\mathrm{loc}}^{\infty}(\R^{n})$ satisfies the following	two conditions:
+\begin{enumerate}
+	\item There exist positive constants $c_1$ and $\beta_1$ such that for all $x\in \R^{n}$,
+		\begin{equation}
+			c_1 |x|^{\beta_1}\le V(x).
+		\end{equation}
+	\item We can write $V=V_1+V_2$ such that there exists positive constants $c_2$ and $\beta_2$ such that 
+		\begin{equation}
+			|V_1(x)|+|DV_1(x)|+|V_2(x)|^{\frac{4}{3}}\le c_2(|x|+1)^{\beta_2}.
+		\end{equation}
+\end{enumerate}
+Consider the Schrödinger operator
+\begin{equation}
+	H:=-\Delta+V(x).
+\end{equation}
+Let $\phi_k,k\in \N$ be the eigenfunctions of $H$, i.e.,
+ \begin{equation}
+	H \phi_k=\lambda_k \phi_k.
+\end{equation}
+
+\end{assumption}
+
+Denote by $\Lambda_L=\left( - \frac{L}{2},\frac{L}{2} \right)^{n} $ the cube with side length $L>0$. Let $d>0, \gamma\in (0,1)$ and $\sigma \in [0,1)$. We consider the measurable sensor sets $\omega \subset  \R^{n}$ satisfying the following property: there exists an equidistributed sequence $\left\{z_k:k\in \Z^{n}\right\} $ such that
+\begin{equation}\label{eqn:1.6}
+	\omega \cap (dk+\Lambda_d)\supset \mathcal{B}_{\gamma^{1+|kd|^{\sigma}}d}(z_k)
+\end{equation}
+for all $k\in \Z^{n}$. We call it \textit{$(d,\gamma,\sigma)$-distributed}. 
+
+\begin{theorem}[{\cite[Theorem~1]{zhu2023spectral}}]
+	Let $H=-\Delta +V(x)$. Assume that $V$ satisfies \cref{assump} and $\Omega$ satisfies \eqref{eqn:1.6} with $d=1,\sigma \in [0,\infty)$ and $\gamma \in  (0,\frac{1}{2})$. Then there exists a constant $C$ depending only on $\beta_1,\beta_2,c_1,c_2,\sigma$ and $n$ such that 
+	\begin{equation}
+		\|\phi\|_{L^2(\R^{n})}\le \left( \frac{1}{\gamma} \right) ^{C\lambda^{\frac{\sigma}{\beta_1}+\frac{\beta_2}{2\beta_1}}}\|\phi\|_{L^2(\Omega)},\quad \forall \phi \in \textit{Ran} \left( P_\lambda (H) \right). 
+	\end{equation}
+\end{theorem}
+
+
+
+\iffalse
+\section{Decay Property of eigenfunctions}
+
+\begin{lemma}[{\cite[Proposition~2.3]{dicke2022spectral}}]\label{lma3.1}
+	Let $H=-\Delta +V(x)$ and assume that $V$ satisfies \cref{assump}. Then for $R$ satisfying $R^{\beta _1}>\max \left\{ \left( \lambda_k+2 \right) /c_1,1\right\} $,
+	\begin{equation}
+		\|e^{\frac{|x|}{2}}\phi_k\|_{L^2(\R^{n})}\le 7 e^{R+1} \|\phi_k\|_{L^2(\R^{n})}^2.
+	\end{equation}
+\end{lemma}
+
+\begin{lemma}[{\cite[Remark~1]{zhu2023spectral}}]\label{lma3.2}
+	Let $H=-\Delta +V(x)$ and assume that $V$ satisfies \cref{assump2}. Then for $R$ satisfying $R^{\beta _1}> \max \left\{(\lambda_k+2) /c_1,1\right\} $, there exists a constant $C$ depending only on $n,c_1,c_2,\beta_1$ and $\beta _2$ such that
+	 \begin{equation}
+		\|e^{\frac{|x|}{2}}D\phi_k\|^2_{L^2\left( \R^{n} \right) }\le C\left( 1+c_1 R^{\beta _2} \right)e^{2\left( R+1 \right) } \|\phi_k\|^2_{L^2(\R^{n})},
+	\end{equation}
+\end{lemma}
+
+\begin{proof}
+Given any $\mathcal{B}_{1}(z) \subset \R^{n}$, the Caccioppoli inequality implies
+\begin{equation}
+	\begin{aligned}
+		\|D\phi_k\|^2_{L^2\left( \mathcal{B}_1(z) \right) }&\le C\left( 1+\lambda_k \right) \|\phi_k\|^2_{L^2\left( \mathcal{B_2(z)} \right) }+\| |V|^{\frac{1}{2}}\phi_k\|^2_{L^2\left( \mathcal{B}_2(z) \right) }\\
+	&\le C\left( 1+c_3 R^{\beta } \right) \|\phi_k\|^2_{L^2\left( \mathcal{B}_{2}(z) \right) }+C\|c_4|\cdot |^{\frac{\beta}{2}}\phi_k \|^2_{L^2\left( \mathcal{B}_2(z) \right) }. 
+	\end{aligned} 
+\end{equation}
+Multiplying the inequality by $e^{|z|}$ and using the fact $e^{|z|}\approx e^{|x|}$ for any $x\in \mathcal{B}_2(z)$, we have
+\begin{equation}
+	\begin{aligned}
+		\|e^{\frac{|x|}{2}}D\phi_k\|^2_{L^2\left( \mathcal{B}_2(z) \right) }\le & 
+	\end{aligned} 
+\end{equation}
+\end{proof}
+
+\begin{proposition}[{\cite[Theorem~1.4]{dicke2022spectral}}]
+	There exists a constant $\widehat{C}$ depending only on $n,c_1,c_2,\beta _1$ and $\beta _2$ such that for all $\lambda\ge \lambda_0$ and $\phi \in Ran\left( P_\lambda(H) \right) $, we have
+	\begin{equation}
+		\|\phi\|^2_{H^{1}\left( \R^{n}\backslash  \mathcal{B}_{\widehat{C}\lambda^{1 /\beta _1}} \right) }\le \frac{1}{2}\|\phi\|^2_{L^2(\R^{n})}.
+	\end{equation}
+\end{proposition}	 
+\begin{proof}
+	For every $r>0$, we have
+	\begin{equation*}
+		\begin{aligned}
+			\|\phi\|_{H^{1}\left( \R^{n}\backslash \mathcal{B}_{r} \right) }&= \|\phi\|_{L^2\left( \R^{n}\backslash  \mathcal{B}_{r} \right) }^2+ \|\nabla \phi\|_{L^2\left( \R^{n}\backslash  \mathcal{B}_{r} \right) }\\					&\le e^{-r}\left( \|e^{\frac{|x|}{2}}\phi\|^2_{L^2(\R^{n})}+ \|e^{\frac{|x|}{2}}\nabla \phi\|_{L^2(\R^{n})}^2 \right) 
+		.\end{aligned}
+	\end{equation*}
+	Then by \cref{lma3.1} and \cref{lma3.2} we obtain
+	\[
+	\|\phi\|^2_{H^{1}(\R^{n}\backslash \mathcal{B}_r)}\le e^{-r} \left( 7e^{R+1}+C\left( 1+c_1 R^{\beta _2} \right) e^{2(R+1)} \right)  \sum_{\lambda_k\le \lambda} \|\phi_k\|_{L^2\left( \R^{n} \right) }^2. 
+	\] 
+	Remember $R^{\beta _1}> \max \left\{\left( \lambda_k+2 \right) /c_1,2\right\} $,if $\displaystyle \lambda \ge \max\left\{ c_1, \left(\frac{1}{c_1}\right)^{\beta _1 /\beta _2}-2,1\right\}$, we obtain
+	\[
+	\|\phi\|^2_{H^{1}(\R^{n}\backslash \mathcal{B}_r)}\le e^{-r}  2c_1 \left( \frac{2\lambda}{c_1} \right) ^{\frac{\beta _2}{\beta _1}}e^{\left( \frac{2\lambda}{c_1} \right) ^{\frac{1}{\beta _1}}}\|\phi\|^2_{L^2(\R^{n})}.
+	\] 
+To finish the proof, we need to choose $r$ large enough such that
+\[
+r\ge\log 2+\log 2 c_1 \left( \frac{2\lambda}{c_1} \right)^{\frac{\beta _2}{\beta _1}}+ \left( \frac{2\lambda}{c_1} \right) ^{\frac{1}{\beta _1}}. 
+\]
+Choose $\displaystyle r=\widehat{C}\lambda ^{\frac{1}{\beta _1}} $ with $\widehat{C}$ large enough and depending only on $c_1$.
+\end{proof}
+\fi
+
+
+
+\section{Uniform lower bound of lowest eigenvalue}
+
+We denote $\lambda_0(V)$ the lowest eigenvalue of the operator $H$.
+
+For all $a>0$, we define
+\begin{equation}
+	I_V(a)=\int_{\R^{n}}e^{-a V(x)}\d x.
+\end{equation}
+
+\begin{theorem}[{\cite{barnes1976lower}}]
+	Under the condition for every $a>0$ such that $I_V(a)<+\infty$. Then we have
+	\begin{equation}
+		\lambda_0(V)\ge \sup_{t>0}t\left[ n +\frac{n}{2}\ln \frac{\pi}{t}-\ln I_V\left( \frac{1}{t} \right)  \right].
+	\end{equation}
+\end{theorem}
+In the particular case of $V(x)=c|x|^{\beta}$, a change into polar coordinates and then a chenge of variable $s=ar^{\beta _1}$ shows that 
+\[
+I_{c|x|^{\beta}}(a)= \int_{\R^{n}}e^{-ac|x|^{\beta}}\d x= \frac{\sigma _n}{\beta (a c) ^{n / \beta}}\Gamma\left( \frac{n}{\beta} \right) 
+\] 
+where $\displaystyle \sigma _n= \frac{2 \pi^{ n /2}}{\Gamma\left( n /2 \right) }$ is the surface measure of the unit ball in $\R^{n}$. It follows that 
+\[
+\lambda_0\left( c|x|^{\beta} \right)\ge \sup_{t>0}t\left[ n-\ln \frac{2}{\beta} \frac{\Gamma\left( \frac{n}{\beta} \right) }{\Gamma\left( \frac{n}{2} \right) }-n\left( \frac{1}{\beta}+\frac{1}{2} \right) \ln t + \frac{n}{\beta}\ln c\right].  
+\]
+The maximum is attained when
+\[
+n-\ln \frac{2}{\beta}\frac{\Gamma\left( \frac{n}{\beta} \right) }{\Gamma\left( \frac{n}{2} \right) }-n\left( \frac{1}{\beta}+\frac{1}{2} \right) \ln t + \frac{n}{\beta}\ln c =n \left( \frac{1}{\beta}+\frac{1}{2} \right) 
+\] 
+so that
+\[
+\lambda_0(c|x|^{\beta}) \ge n \frac{\beta+2}{2\beta}\exp \left( \frac{\beta-2}{\beta+2} \right) \left( \frac{\beta }{2} \frac{\Gamma\left( \frac{n}{2} \right) }{\Gamma\left( \frac{n}{\beta} \right) } \right) ^{ \frac{2\beta}{n\left( \beta+2 \right) }}c^{\frac{\beta+2}{\beta}}:= \widetilde{\lambda}_0>0.
+\]
+Geiven $V(x)\ge c|x|^{\beta}$, it is obvious that $I_V(a)\le I_{c_1|x|^{\beta}}(a)$. Hence we obtain
+\[
+\lambda_0(V)\ge \lambda_0(c|x|^{\beta})=\widetilde{\lambda}_0>0.
+\]
+
+This implies that given any $V(x)\ge c|x|^{\beta}$, their first eigenvalues have a uniform lower bound $\widetilde{\lambda}_0>0$.
+\section{Generalized Grushin operator}
+
+In this section, due to some techinical reasons we need more restrictive assumptions:
+
+\begin{assumption}\label{assump2}
+	Assume $V \in W^{1,\infty}_{\mathrm{loc}}\left( \R^{n} \right) $ satisfies the following two conditions
+	\begin{enumerate}
+		\item There exist positive constants $c_3,c_4$ and $\beta>1 $ such that for all $x\in \R^{n}$
+			\begin{equation}
+				c_3|x|^{\beta }\le V(x)\le c_4|x|^{\beta }. 
+			\end{equation}
+		\item There exist a positive constant $c_5$ such that for all $x\in \R^{n}$ 
+			\begin{equation}
+				|DV(x)|\le c_5 |x|^{\beta -1}.
+			\end{equation}
+	\end{enumerate}
+\end{assumption}
+It can be verified that \cref{assump2} satisfies \cref{assump} by setting $\beta _1=\beta _2=\beta $, $c_1=c_3$,  $c_2=c_4+c_5$ and  $V_2=0$.
+
+
+Applying the partial Fourier transform with respect to the $y\in \R^{n}$ variable, the Grushin operator $H_G$ is transformed to 
+\begin{equation}
+	H_{\eta}:=-\Delta_x+|\eta|^2V(x),
+\end{equation}
+where $\eta \in \R^{d}$ denotes the dual variable of $y\in \R^{n}$. Then we have
+\begin{equation}
+	\left( e^{-tH_G} g\right)(x,y)=\int_{\R^{n}}e^{i y\cdot \eta }\left( e^{-t H_\eta }g_\eta  \right) (x)\d \eta,\quad g\in L^2(\R^{2n}), (x,y) \in \R^{2n},
+\end{equation}
+where
+\[
+g_{\eta }:=\int_{\R^{d}}e^{-iy\cdot \eta }g\left( \cdot ,y \right) \d y.
+\]
+
+Indeed, we can consider more general operator
+\begin{equation}
+	{H}_{\beta}:=- \Delta_x + V(x)\left( -\Delta_y \right)^{\frac{\frac{2}{\beta}+1}{2}} 
+\end{equation}
+and its partial Fourier transform
+\begin{equation}
+	{H}_{\beta ,\eta} :=-\Delta_x+|\eta |^{\frac{2}{\beta}+1 } V(x).
+\end{equation}
+
+Let us introduce for $\eta \in \R^{n}\backslash \left\{0\right\} $ the isometry $M_\eta $ on $L^2(\R^{n})$ by
+\[
+M_{\eta }g= |\eta |^{\frac{n}{2 \beta }}f\left( |\eta |^{\frac{1}{\beta}}\cdot  \right),\quad \forall f\in L^2(\R^{n}). 
+\]
+Then 
+\begin{equation*}
+	\begin{aligned}
+		M_{\eta }^{*}{H}_{\beta ,\eta }M_{\eta }f(x)=& M_{\eta }^{*}H_{\eta }\left( |\eta |^{ \frac{n}{2 \beta_1}}f\left( |\eta |^{\frac{1}{\beta_1 }}x  \right)  \right) \\
+		=& M_{\eta }^{*}\left( -\Delta_x+|\eta |^{\frac{2}{\beta }+1} V(x) \right) \left( |\eta     |^{ \frac{n}{2 \beta_1}}f\left( |\eta |^{\frac{1}{\beta_1 }}x  \right)  \right)\\
+		=&|\eta |^{\frac{n}{2\beta }} M_{\eta }^{*} \left( - |\eta |^{\frac{2}{\beta }} f''\left( |\eta |^{\frac{1}{\beta }}x \right) +|\eta |^{\frac{2}{\beta }+1} V(x) f\left( |\eta |^{\frac{1}{\beta }}x \right)  \right)\\
+		=& -|\eta |^{\frac{2}{\beta }} \Delta_x f(x)+|\eta |^{\frac{2}{\beta }+1} V\left( |\eta |^{-\frac{1}{\beta }} x\right) f(x)\\
+		=& |\eta |^{\frac{2}{\beta }} \left( -\Delta_x+ |\eta | V\left( |\eta |^{-\frac{1}{\beta }}x \right) \right) f(x)\\
+		=& |\eta |^{\frac{2}{\beta }}\widetilde{H}_{\beta ,\eta } f(x)
+	.\end{aligned}
+\end{equation*}
+Here we define the new operator
+\[
+\widetilde{H}_{\beta ,\eta }:=-\Delta_x+V_{\eta }(x)
+\] 
+with
+\[
+V_\eta (x)=|\eta |V\left( |\eta |^{-\frac{1}{\beta }}x \right). 
+\] 
+
+
+Note that the new potential $V_{\eta }(x)$ still satisfies  $V_\eta (x)\ge c|x|^{\beta }$ if $V(x)$ does. This ensures that for any $\eta \in \R^{n}$, the new potentials have a uniform lower bound of first eigenvalues.
+
+In general, we can assume 
+\begin{equation}
+	H_\beta :=-\Delta_x+V(x)\left( -\Delta_y \right) ^{\frac{\alpha }{2}}
+\end{equation}
+with $\alpha >\frac{2}{\beta }$, then 
+\[
+\widetilde{H}_{\beta ,\eta }:=-\Delta_x+V_\eta (x)
+\] 	
+with 
+\[
+V_{\eta }=|\eta |^{\alpha - \frac{2}{\beta }} V\left( |\eta |^{-\frac{1}{\beta }}x \right) 
+\]
+, this generalization would be useful in $y\in \T ^{n}$, since in this case $|\eta |>1$.
+
+\section{Spectral inequality for the Schrödinger operator}
+In this section, we consider 
+\begin{equation}\label{A.1}
+	-\Delta v+Vv=0 \quad \text{in } \R^{n+1}.
+\end{equation}
+
+Define the sets
+\begin{equation*}
+	\begin{aligned}
+		W_1&= \left\{y \in \R^{n+1}_{+}\lvert |y-b|\le \frac{1}{4}\delta\right\}, \\
+		W_2&= \left\{y\in \R_{+}^{n+1}\lvert |y-b|\le \frac{1}{2} \delta\right\}, \\
+		W_3&=\left\{y\in \R^{n+1}_{+}\lvert |y-b|\le \frac{2}{3}\delta\right\} ,
+	\end{aligned}
+\end{equation*}where $0<\delta<\frac{1}{2}$. Note that $W_1\subset W_2\subset \mathbb{B}_{\delta}\subset \R^{n+1}$.
+
+\begin{lemma}[{\cite[Lemma~1]{zhu2023spectral}}]\label{lma4.1}
+	Let $ \delta \in \left( 0,\frac{1}{2} \right) $. Let $v$ be the solution of \cref{A.1} with $v(y)=0$ on the hyperplane $\left\{y|y_{n+1}=0\right\} $. There exist $0<\alpha <1$ and $C>0$, depending only on $n$ such that
+	\begin{equation}\label{4.2}
+		\|v\|_{H^{1}\left( P_1(L) \right) }\le \delta^{-\alpha }\exp \left( C\left( 1+\mathcal{G}\left( V_1,V_2,9\sqrt{n} L \right)  \right)  \right) \|v\|^{\alpha }_{H^{1}\left( P_3(L) \right) }\|\frac{\partial v}{\partial y_{n+1}}\|^{1-\alpha }_{L^2\left( D_\delta\left( L \right)  \right) },
+	\end{equation}
+	where
+	\begin{equation}
+		\mathcal{G}\left( V_1,V_2,L \right) =\|V_1\|_{W^{1,\infty}\left( \Lambda_L \right) }^{\frac{1}{2}}+\|V_2\|^{\frac{2}{3}}_{L^{\infty}\left( \Lambda_L \right) }.
+	\end{equation}
+\end{lemma}
+Now we want to rescale it to the case of $d \delta$, with $d>0$ a scaling constant. To do it, assume $\widetilde{v}$ satisfies \cref{lma4.1} and define
+\[
+v(x)=\widetilde{v}(dx),
+\] 
+then we have
+\[
+\widetilde{v}(x)= v\left( \frac{x}{d} \right). 
+\] 
+Substituting $\widetilde{v}=v\left( \frac{x}{d} \right) $ into \cref{4.2} and we get
+
+
+\section{Observability inequality for the Generalized Grushin operator}
+
+\begin{definition}[Exact observability]
+	Let $\tau>0$, and let  $\Omega\subset \R^{n}$ and $\omega\subset \Omega$ be measurable. A strongly continuous semigroup $\left( T(t) \right)_{t\ge 0} $ on $L^2(\Omega)$ is said to be exactly observable from the set $\omega$ in time $\tau $ if there exists a positive constant $C_{\omega,\tau }>0$ such that for all $g\in L^2(\Omega)$, we have
+	\[
+	\|T(\tau)g\|^2_{L^2(\Omega)}\le C_{\omega,\tau }\int_0^{\tau }\|T(t)g\|^2_{L^2(\omega)}\d t.
+	\] 
+\end{definition}
+
+\begin{theorem}[{\cite[Theorem~2.8]{nakic2020sharp}}]
+	Let $A$ be a non-negative selfadjoint operator on $L^2(\R^{b})$, and $\omega \subset  \R^{n}$ be measurable. Suppose that there are $d_0>0$ and $d_1\ge 0$, and $\zeta \in (0,1)$ such that for all $\lambda\ge 0$ and $f \in \textit{Ran} (P_\lambda(A))$,
+	\[
+	\|f\|_{L^2(\R^{n})}^2\le d_0 e^{d_1 \lambda^{\zeta }}\|f\|_{L^2(\omega)}^2.
+	\]
+	Then, there exist positive constants $c_1,c_2,c_3>0$, only depending on $\zeta $, such that for all $T>0$ and $g\in L^2(\R^{n})$ we have the observability estimate
+	\[
+	\|e^{-tA}g\|^2_{L^2(\R^{n})}\le \frac{C_{\mathrm{obs}}}{T}\int_0^{T}\|e^{-tA}g\|^2_{L^2(\omega)}\d t,
+	\] 
+	where the positive constant $C_{\mathrm{obs}}>0$ is given by
+	\begin{equation}
+		 C_{\mathrm{obs}}=c_1d_0 (2d_0+1)^{c_2}\exp \left( c_3 \left( \frac{d_1}{T^{\zeta }} \right) ^{\frac{1}{1-\zeta }} \right). 
+	\end{equation}
+\end{theorem}
+
+\begin{proposition}
+	There exists a constant $K>0$, depending only on $\beta_1,\beta_2,c_1,c_2,\sigma$ and $n$ such that for all $(1,\gamma,\sigma)$-distributed sets $\omega\subset \R^{n}$, $r>0,T>0,$ and $g\in L^2(\R^{n})$ we have
+	\begin{equation}
+		\| e^{-TH_r}g\|^2_{L^2(\R^{n})}\le \frac{C_{\mathrm{obs}}}{T}\int_0^{T}\|e^{-tH_r}g\|_{L^2(\omega)}^2\d t,
+	\end{equation}
+	where the positive constant $C_{\mathrm{obs}}>0$ is given by 
+	\begin{equation}
+		C_{\mathrm{obs}}=
+	\end{equation}
+\end{proposition}
+\begin{proof}
+	Recall
+\end{proof}
+
+
+\iffalse
+\appendix
+\section{Carleman estimates and three ball-inequalities}
+
+In this section, we consider 
+\begin{equation}\label{A.1}
+	-\Delta v+Vv=0 \quad \text{in } \R^{n+1}.
+\end{equation}
+
+Step by Step check, we may guess
+\[
+	\left( \frac{1}{\gamma} \right) ^{C \left( d^2 \lambda^{\frac{\sigma}{\beta _1}+\frac{1}{2}}+d \lambda^{\frac{\beta _2}{2\beta _1}} \right) }
+\]
+
+We choose the weight function
+\[
+\psi(\widehat{r})=e^{-s\widehat{r}(y)}
+\] 
+with $\widehat{r}=\widehat{r}(y)=|y-b|$ where $b=\left( 0,\cdots ,0,-b_{n+1} \right) $ with some small positive $b_{n+1}>0$. Let $\delta \in (0,\frac{1}{2}$ be a scale parameter. We fix $b_{n+1}= \frac{\delta}{100}$.
+
+\begin{proposition}
+	Let $ \delta \in \left(0,\frac{1}{2}\right)$. There exist positive constants $C_0,C_1$ and  $C_2$ depending only on $n$ such that for any $u\in C_0^{\infty}\left( \mathbb{B}_{\delta}^{+} \cup \left\{y_{n+1}=0\right\}  \right) $, $\displaystyle s= \frac{C_2}{\delta}$ and 
+	\[
+	\tau \ge C_1 \left( 1+\|V_1\|_{W^{1,\infty}\left( \mathbb{B}_{\delta}^{+} \right) } +\|V_2\|^{\frac{2}{3}}_{L^{\infty}\left( \mathbb{B}_{\delta}^{+} \right) } \right), 
+	\] 
+	one has
+	\begin{equation}
+		\begin{aligned}
+			\|e^{\tau \psi}\left( -\Delta u+Vu \right) \|_{L^2\left( \mathbb{B}_{\delta}^{+} \right) }+&\tau^{\frac{1}{2}} s\|\psi^{\frac{1}{2}}e^{\tau \psi} \frac{\partial u}{\partial y_{n+1}}\|_{L^2\left( \partial \left( \mathbb{B}_{\delta}^{+}\cap \left\{y_{n+1}=0\right\}  \right)  \right) }\\
+			\ge & C_0\tau^{\frac{3}{2}}s^2\|\psi^{\frac{3}{2}}e^{\tau \psi}u\|_{L^2\left( \mathbb{B}_{\delta}^{+} \right) }+C_0\tau^{\frac{1}{2}}s \| \psi ^{\frac{1}{2}}e^{\tau \psi}Du\|_{L^2\left( \mathbb{B}_{\delta}^{+} \right) }
+		.\end{aligned}
+	\end{equation}
+\end{proposition}
+
+Define the sets
+\begin{equation*}
+	\begin{aligned}
+		W_1&= \left\{y \in \R^{n+1}_{+}\lvert |y-b|\le \frac{1}{4}d \delta\right\}, \\
+		W_2&= \left\{y\in \R_{+}^{n+1}\lvert |y-b|\le \frac{1}{2} d \delta\right\}, \\
+		W_3&=\left\{y\in \R^{n+1}_{+}\lvert |y-b|\le \frac{2}{3}d \delta\right\} ,
+	\end{aligned}
+\end{equation*}where $0<\delta<\frac{1}{2}$. Note that $W_1\subset W_2\subset \mathbb{B}_{\delta}\subset \R^{n+1}$.
+
+\begin{lemma}
+	Let $ \delta \in \left( 0,\frac{1}{2} \right) $. Let $v$ be the solution of \cref{A.1} with $v(y)=0$ on the hyperplane $\left\{y|y_{n+1}=0\right\} $. There exist $0<\alpha <1$ and $C>0$, depending only on $n$ such that
+	\begin{equation}
+		\|v\|_{H^{1}\left( P_1(L) \right) }\le \delta^{-\alpha }\exp \left( C\left( 1+\mathcal{G}\left( V_1,V_2,9\sqrt{n} L \right)  \right)  \right) \|v\|^{\alpha }_{H^{1}\left( P_3(L) \right) }\|\frac{\partial v}{\partial y_{n+1}}\|^{1-\alpha }_{L^2\left( D_\delta\left( L \right)  \right) },
+	\end{equation}
+	where
+	\begin{equation}
+		\mathcal{G}\left( V_1,V_2,L \right) =\|V_1\|_{W^{1,\infty}\left( \Lambda_L \right) }^{\frac{1}{2}}+\|V_2\|^{\frac{2}{3}}_{L^{\infty}\left( \Lambda_L \right) }.
+	\end{equation}
+\end{lemma}
+\fi
+
+

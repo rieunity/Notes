@@ -1,0 +1,132 @@
+\begin{abstract}
+	By giving some conditions in heat kernel  $p(t,x,y)$, we can get Logvinenko-Sereda Theorem on manifolds.
+\end{abstract}
+\tableofcontents
+\section{Poisson kernel}
+Given an arbitrary smooth connected Riemannian manifold $M$, the Laplace-Beltrami operator is defined by 
+\[
+\Delta_g:=\frac{1}{\sqrt{g} }\sum_{i,j}^{} \frac{\partial}{\partial{x^i}}\left( \sqrt{g}g^{ij} \frac{\partial f}{\partial {x^{j}}}  \right) 
+\]
+where $g:=\det\, (g_{ij})$ and $(g^{ij})=(g_{ij})^{-1}$.
+
+From now on, we further assume $M$ is compact, then  the spectrum of the Laplacian is discrete and there is a sequence of eigenvalues
+\[
+\lambda_1\le \lambda_2\le \cdots \to \infty
+\] 
+and an orthonormal basis $\left\{\phi_i\right\}_{i\in \N} $ of smooth real eigenfunctions of the Laplacian, i.e., 
+\[
+\Delta_g \phi_i=-\lambda_i \phi_i.
+\] 
+%Indeed, we can generalize the condition to compact self-adjoint operators on any smooth connected Riemannian manifolds with the first constant eigenfunction.
+
+Let
+\[
+	p(t,x,y)=\sum_{i=1}^{\infty} e^{-\sqrt{ \lambda_i} t}\phi_i(x)\phi_{i}(y),
+\] 
+this is called the Poisson kernel.
+
+We considering the following spaces of $L^2(M)$
+\[
+E_L:=\left\{f\in L^2(M):f=\sum_{i=1}^{n}\beta_i \phi_i,\lambda_i \le L,\forall i =1,2,\cdots ,n\right\} 
+\] 
+and define $k_L:=\mathrm{dim}\, E_L$.
+
+\section{Jensen's Inequality}
+
+We define the Poisson transform
+\begin{equation}
+	\d \Pi_{t,x}:= p(t,x,y)\d y\label{eqn:poisson-transform}
+\end{equation}
+and
+\[
+	P(f)(x):=\int_M p(t,x,y) f(y)\d y=\int_{M}f\d \Pi_{t,x},\quad \forall f\in L^2(M).
+\]
+Without loss of generality, we can choose a volume form such that
+\begin{equation}
+	\int_{M}\d x=1.
+\end{equation}
+\begin{definition}
+	Given a fixed $t>0$, we call a set $S\subset M$ $\gamma$-thick (at time $t$) if for some constant $\gamma>0$ it satisfy
+	\begin{equation}
+		\int_S \d \Pi_{t,x} = \int_S p(t,x,y)\d y\ge \gamma,\quad  \forall x\in M.\label{eqn:thick}
+	\end{equation}
+\end{definition}
+
+\begin{definition}
+	Given a fixed $t>0$, if there exists constants $a:=a(t,L)$ and $b:=b(t,L)$ such that for any $L\ge 1$, the inequality 
+	 \begin{equation}
+		 \log \left| P(f)(x) \right| \le a P(\log|f|)+b, \quad \forall f\in E_L, \label{eqn:general} 
+	\end{equation}
+	holds, we call $P$ satisfy the Jensen's condition w.r.t. $a$ and $b$ at time $t$, and \cref{eqn:general} the Jensen's inequality w.r.t. $a$ and $b$ at time $t$. 
+\end{definition}
+
+
+\begin{theorem}
+	Given a fixed $t>0$, a $\gamma$-thick set $S$, if the Poisson transform $P$ defined in \cref{eqn:poisson-transform} satisfies \cref{eqn:thick} and \cref{eqn:general}, then we have 
+\begin{equation}
+	\|f\|_{L^2}^2\le  \left(e^{a\log 2+2b}\right)^{\frac{1}{1-a+a\gamma} }\left( \int_S|f(x)|^2\d x \right) ^{\frac{a \gamma}{1-a+a\gamma}}, \quad \forall f\in E_L,\forall L \in \N.
+\end{equation}
+\end{theorem}
+\begin{proof}
+It is known that
+\[
+p(t,x,y)>0,\quad, \forall (t,x,y)\in (0,\infty)\times M\times M.
+\] 
+For simplicity in the following proof, we define
+\[
+k:= \int_{S}\d\Pi_{t,x},\quad k':= \int_{S'}\d\Pi_{t,x}
+\] 
+and
+\[
+\d\lambda:=\frac{1}{k}\d \Pi_{t,x},\quad \d \lambda':= \frac{1}{k'}\d\Pi_{t,x}.
+\]
+Then we have $\displaystyle k+k'=\int_{M} \d \Pi_{t,x}=\int_{M} p(t,x,y)\d y=1$. For a possible generalization, we assume
+\begin{equation}
+	c_{t,x}:=\int_{M}p(t,x,y)\d y.
+\end{equation} 
+\begin{align*}
+	&2 \log |P(f)(x)|\le 2a P(\log|f|)+2b\\
+	=&2a \left( \int_S \log|f(y)|\d \Pi_{t,x}+\int_{S'}\log|f(y)|\d \Pi_{t,x} \right) +2b\\
+	=& a\left(k \int_S\log |f(y)|^2\d \lambda+k' \int_{S'} \log|f(y)|^2\d \lambda'  \right) +2b\\
+	\le & a \left( k \log \int_S|f(y)|^2\d \lambda+k' \log_{S'}|f(y)|^2\d \lambda' \right)+2b\\
+	=& a\left( k\log \frac{1}{k}+k' \log \frac{1}{k'}+k\log \int_S|f(y)|^2\d \Pi_{t,x}+k'\log \int_{S'}|f(y)|^2 \d \Pi_{t,x} \right)+2b\\
+	\le& a \left( c_{t,x} \log \frac{2}{c_{t,x}} + \gamma \log \int_S|f(y)|^2\d\Pi_{t,x}+\left( k-\gamma \right) \log \int_S|f(y)|^2\d\Pi_{t,x}\right.\\
+	   &\left.+k' \log \int_{S'}|f(y)|^2\d\Pi_{t,x}  \right)+2b\\
+	\le & a\left( c_{t,x} \log \frac{2}{c_{t,x}}+\gamma \log \int_{S}|f(y)|^2\d\Pi_{t,x}+\left( c_{t,x}-\gamma \right) \log \int_{M}|f(y)|^2\d \Pi_{t,x} \right)+2b
+.\end{align*}
+This implies
+\begin{equation}
+	|P(f)(x)|^2\le e^{ac_{t,x} \log \frac{2}{c_{t,x}}+2b}\left(\int_S|f(y)|^2\d\Pi_{t,x}\right)^{a\gamma}\left( \int_{M}|f(y)|^2\d\Pi_{t,x} \right) ^{a\left( c_{t,x}-\gamma \right) }
+\end{equation}
+Then we integrate both sides and use Hölder's inequality with index $\displaystyle \frac{1}{c_{t,x} /\gamma}+\frac{1}{c_{t,x} /\left( c_{t,x}-\gamma \right) }=1$ 
+\begin{equation}
+\begin{aligned}
+	&\int_{M}|P(f)(x)|^2\d x\\
+		\le & e^{ac_{t,x} \log \frac{2}{c_{t,x}}+2b}\left(\int_{M}\left( \int_{S}|f(y)|^2 \d\Pi_{t,x} \right)^{ac_{t,x}}\d x\right)^{\frac{\gamma}{c_{t,x}}}\\
+		    &\times\left( \int_M\left( \int_{M}|f(y)|^2\d \Pi_{t,x} \right) ^{ac_{t,x}}\d x\right)^{\frac{c_{t,x}-\gamma}{c_{t,x}}.}
+\end{aligned}
+\end{equation}
+Remember that $c_{t,x}=1$ for all $(t,x)\in (0,+\infty)\times M$, we have
+\begin{equation}
+	\int_{M}|P(f)(x)|^2\d x\le e^{a\log 2+2b}\left( \int_{M}\left( \int_S|f(y)|^2\d\Pi_{t,x} \right) ^{a}\d x \right) ^{\gamma}\left( \int_M \left( \int_M|f(y)|^2\d\Pi_{t,x} \right) ^{a} \d x\right) ^{1-\gamma}.
+\end{equation}
+If $a\le 1$, by assumption $\int_M\d x=1$ we have
+\begin{equation}
+	\|f\|_{L^{a}}\le \|f\|_{L^{1}},\quad \forall f\in L^1(M).
+\end{equation}
+Since $\displaystyle\int_S|f(y)|^2\d\Pi_{t,x}=\sum_{i=1}^{k_L} \phi_i(x)\int_S|f(y)|^2\phi_i(y)\d y \in E_L$ for arbitrary $S\subset M$, we obtain
+\begin{equation}
+\|P(f)\|_{L^2}^2\le e^{a\log 2+2b} \left( \int_S|f(x)|^2\d x \right) ^{a\gamma} \|f\|_{L^2}^{2a\left( 1-\gamma \right) }.
+\end{equation}
+Since
+\[
+f=\sum_{i=1}^{k_L} e^{\sqrt{\lambda_i} t}P(f),\quad \forall f\in E_L,
+\] 
+we obtain
+\begin{equation*}
+	\|f\|_{L^2}^2\le  \left(e^{a\log 2+2b}\right)^{\frac{1}{1-a+a\gamma} }\left( \int_S|f(x)|^2\d x \right) ^{\frac{a \gamma}{1-a+a\gamma}}.
+\end{equation*} 
+\end{proof}
+\bibliographystyle{plain}
+\bibliography{mybib}
+

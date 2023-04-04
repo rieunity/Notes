@@ -1,0 +1,46 @@
+\tableofcontents
+\section{Lecture 1}
+\begin{enumerate}
+	\item [Part I] pseudodifferential operators (ps.d.o.s) on $\R^{n}$ 
+		 \[
+		 \Delta_{\R^{n}}:= \sum_{j=1}^{n} D_{x_j}^2,\quad D_{x_j}:= \frac{1}{i}\frac{\partial V}{\partial x_j}. 
+		 \] 
+		 \[
+		 L:=\Delta_{\R^{n}}+1,
+		 \] 
+		 $L:\mathcal{S}\left( \R^{n} \right) \to \mathcal{S}(\R^{n})$ is inverse. What is inverse:
+		 \begin{itemize}
+		 	\item $L\circ L^{-1}=I \in Diff^{0}(\R^{n})$.
+			\item $L^{-1}\in \Psi^{-2}\left( \R^{n} \right) $.
+		 \end{itemize}
+		 Can write
+		 \[
+			 \left( L^{-1}u \right) (x)=(2\pi)^{-n}\iint e^{i(x-y) \xi} \left( 1+|\xi |^{2} \right) ^{-1}u(y)\d y \mathrm{d}\xi\sim \mathcal{F}^{-1}\left( \left( 1+|\xi |^2 \right) ^{-1}\left( \mathcal{F}u \right) (\xi ) \right).  
+		 \] 
+	 Define $\Psi ^{m}(\R^{n})$ by such integrals with $\left( 1+|\xi |^{-1} \right) $ replaced by more general ``symbols'' $a(x,\xi )\sim |\xi|^{m}$. E.g.,
+	 \[
+	 \Psi^{m}\left( \R^{n} \right) \circ \Psi^{m'}\left( \R^{n} \right) \subset \Psi^{m+m'}\left( \R^{n} \right). 
+	 \]
+	 Highlight: Elliptic operators $L:C^{\infty}(M)\to C^{\infty}(M)$ with $M$ compact without boundary are Fredholm: $\mathrm{dim}ker L<\infty,\mathrm{dim}coker L<oo,Ran(L) $ is closed.
+ \item [Part II] Microlocalization. Main notion: $\mathrm{WF}(u)-$ wave front set of distribution, $u \in \mathscr{D}'\left( \R^{n} \right) $. $\mathrm{WF}(u) \subset \R^{n}_x \times \left( \R^{n}_{\xi }\backslash \left\{0\right\}  \right) $ or $\R^{n}_x\times \mathbb{S}_\xi ^{n-1}$. Measure where($x$ ) and in what ``direction''($\xi $) $u$ is singular. Ex. $u=\delta_0$, $\mathrm{F}(\delta)=\left\{(x,\xi ):x=0,\xi \neq 0\right\} $. Ex. $u=1_{\Omega}$, $\Omega=$smoothly bounded domain, $\mathrm{WF}(u)=\left\{(x,\xi ):x \in \partial\Omega, \xi \in N_x^{*}\partial \Omega\right\} $. \\
+	 Application to PDE. $L\in \mathrm{Diff}^2(\R^{n})$, say $L=-D_{t}^2+D_x^2$ on $\R^2_{t,x}$, if $u\in \mathscr{D}'\left( \R^2 \right) $ solves $Lu=0$, then $\mathrm{WF}(u)\subset \mathrm{char}(L):=\left\{(t,x,\sigma ,\xi ):\sigma (L)(t,x,\sigma ,\xi )=-\sigma ^2+\xi ^2=0\right\} $ \\
+	 Theorem: $\mathrm{WF}(u)=$ union of integral curves of the Hamiltonian vector field of the principal symbol of $L$. Proof uses ps.d.o.s as tools.
+ \item [Part III] Applications to long time wave asymptotics de Sitter space (General Relativity).
+\end{enumerate}
+\begin{definition}
+	The space $\mathcal{S}(\R^{n})$ consists of all $\varphi \in C^{\infty}(\R^{n})$ s.t. for all $k \in \N_0$,
+	\[
+	\|\varphi\|_k:=\sup_{|\alpha |+|\beta |\le k}\left| x^{\alpha }D^{\beta } \right| <\infty.
+	\] 
+	Here 
+	\begin{equation*}
+		\begin{aligned}
+			\alpha &=(\alpha _1,\cdots ,\alpha _n)\in \N_0^{n},\\
+			|\alpha |&=\sum_{}^{} \alpha _j,\\
+			x^{\alpha }&=\prod x_j^{\alpha _j},\\
+			D^{\alpha }&=D_{x_1}^{\alpha _1}\cdots D_{x_n}^{\alpha _n}\in \mathrm{Diff}^{|\alpha |}(\R^{n}).
+		\end{aligned} 
+	\end{equation*}
+\end{definition}
+Fact: $\left( \mathcal{S}\left( \R^{n} \right) , \left\{\|\cdot \|_0,\|\cdot \|_1,\cdots \right\}  \right) $ is a Fréchet space. \\
+

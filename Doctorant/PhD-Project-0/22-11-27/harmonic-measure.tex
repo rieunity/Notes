@@ -1,26 +1,15 @@
 %TEX program = xelatex
-\documentclass[a4paper,12pt]{article}
-\usepackage{geometry}
-\geometry{a4paper,scale=0.7}
-%\usepackage{ctex}
- \usepackage[colorlinks,
-           linkcolor=black,
-           anchorcolor=blue,
-           citecolor=green
-           ]{hyperref}
-
-\usepackage{fancyhdr}
-\pagestyle{fancyplain}
-\lhead{\emph{\nouppercase{\leftmark}}}
-\rhead{Complex Algebraic Geometry}
-%少量中文时使用
-%\usepackage{xeCJK}
-\usepackage{titlesec}
-\newcommand{\sectionbreak}{\clearpage}
+\documentclass[12pt,reqno]{amsart}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[colorlinks,
+	linkcolor=Red,
+	anchorcolor=blue,
+	citecolor=ForestGreen
+]
+{hyperref}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
-%\usepackage[english]{babel}
 \usepackage{amsmath, amssymb,mathrsfs}
 \usepackage{mathtools}
 
@@ -29,15 +18,43 @@
 %\usepackage{faktor}
 \newcommand{\sfrac}[2]{{\left.\raisebox{.2em}{$#1$}\middle/\raisebox{-.2em}{$#2$}\right.}}
 \newcommand{\bsfrac}[2]{{\left.\raisebox{-.2em}{$#1$}\middle\backslash\raisebox{.2em}{$#2$}\right.}}
-%appendices
-\usepackage[titletoc]{appendix}
-
 \usepackage{tikz-cd}
+\usetikzlibrary{decorations.pathreplacing}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{tkz-berge}
 
+\usepackage[capitalize,nameinlink]{cleveref}[0.19]
+ 
+\crefname{section}{section}{sections}
+\crefname{subsection}{subsection}{subsections}
+\Crefname{section}{Section}{Sections}
+\Crefname{subsection}{Subsection}{Subsections}
+ 
+\Crefname{figure}{Figure}{Figures}
 
-%cite
-\usepackage{biblatex}
-\addbibresource{mybib.bib}
+ 
+\crefformat{equation}{\textup{#2(#1)#3}}
+\crefrangeformat{equation}{\textup{#3(#1)#4--#5(#2)#6}}
+\crefmultiformat{equation}{\textup{#2(#1)#3}}{ and \textup{#2(#1)#3}}
+{, \textup{#2(#1)#3}}{, and \textup{#2(#1)#3}}
+\crefrangemultiformat{equation}{\textup{#3(#1)#4--#5(#2)#6}}%
+{ and \textup{#3(#1)#4--#5(#2)#6}}{, \textup{#3(#1)#4--#5(#2)#6}}{, and \textup{#3(#1)#4--#5(#2)#6}}
+
+ 
+\Crefformat{equation}{#2Equation~\textup{(#1)}#3}
+\Crefrangeformat{equation}{Equations~\textup{#3(#1)#4--#5(#2)#6}}
+\Crefmultiformat{equation}{Equations~\textup{#2(#1)#3}}{ and \textup{#2(#1)#3}}
+{, \textup{#2(#1)#3}}{, and \textup{#2(#1)#3}}
+\Crefrangemultiformat{equation}{Equations~\textup{#3(#1)#4--#5(#2)#6}}%
+{ and \textup{#3(#1)#4--#5(#2)#6}}{, \textup{#3(#1)#4--#5(#2)#6}}{, and \textup{#3(#1)#4--#5(#2)#6}}
+
+%\oddsidemargin=-.0cm
+%\evensidemargin=-.0cm
+\textwidth=15cm
+%\textheight=22cm
+%\topmargin=0cm
+\calclayout
 
 % integral vraiable
 \renewcommand{\d}{\,\mathrm{d}}
@@ -49,13 +66,11 @@
   \def\svgwidth{\columnwidth}
   \import{./figures/}{#1.pdf_tex}
 }
-
-
-
 % Some shortcuts
 \newcommand\N{\ensuremath{\mathbb{N}}}
 \newcommand\R{\ensuremath{\mathbb{R}}}
 \newcommand\Z{\ensuremath{\mathbb{Z}}}
+\newcommand\T{\ensuremath{\mathbb{T}}}
 \renewcommand\O{\ensuremath{\emptyset}}
 \newcommand\Q{\ensuremath{\mathbb{Q}}}
 \newcommand\C{\ensuremath{\mathbb{C}}}
@@ -64,23 +79,20 @@
 \newcommand\Sph{\ensuremath{\mathbb{S}}}
 
 % Some theorem environment settings
-\usepackage{ntheorem}
-\theoremseparator{.}
 \newtheorem{theorem}{Theorem}[section]
-\newenvironment{proof}{{\noindent\itshape Proof}.}{\hfill $\square$\par}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{lemma}[theorem]{Lemma}
-\theorembodyfont{\upshape}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem*{remark}{Remark}
-\newtheorem{exercise}{Exercise}[section]
+\theoremstyle{definition}
+\newtheorem{remark}{Remark}[section]
 \newtheorem*{question}{Question}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{exercise}{Exercise}[section]
 \newtheorem*{solution}{Solution}
 \newtheorem*{claim}{Claim}
 \newtheorem{example}{Example}[section]
 % Enumerate Style
-\renewcommand{\labelenumi}{{\normalfont\alph{enumi}. }}
+\renewcommand{\labelenumi}{{\normalfont(\roman{enumi})}}
 
 % Tensor
 \usepackage{tensor}
@@ -114,16 +126,19 @@
 \DeclareMathOperator{\GL}{GL}
 \DeclareMathOperator{\SL}{SL}
 
+\usepackage[foot]{amsaddr}
+\numberwithin{equation}{section}
+
 \begin{document}
-\title{Complex Algebraic Geometry}
-\author{{Based on lectures by Pierre Albin}\\
-\small Notes taken by Rieunity}
-\date{March 28, 2021 --- ?, 2020}  
+\title[Subharmonic Functions and Harmonic Measures]{Subharmonic Functions and Harmonic Measures}
+\author[Y. Wang]{Yunlei Wang}
+\email{wcghdwyl@gmail.com}
+
+%\address{Bureau 381, Institut de Mathématiques de Bordeaux, Université de Bordeaux 351, cours de la Libération, F 33405 TALENCE cedex}
+
 \maketitle
+
 \input{body}
 
-%\bibliographystyle{plain}
-%\bibliography{mybib}
-%\printbibliography
-
 \end{document}
+

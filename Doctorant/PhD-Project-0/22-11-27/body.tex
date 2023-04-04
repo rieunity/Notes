@@ -1,0 +1,188 @@
+\tableofcontents
+\section{Subharmonic Functions}
+\begin{definition}[Semi-continuous functions]
+	A real function $f(x)$ defined in a set $E\subset \R^{m}$ is said to be upper semi-continuous (u.s.c) on $E$ if
+	\begin{enumerate}
+		\item $-\infty\le f(x)<\infty,\forall x\in E$.
+		\item The sets $\left\{x:x\in E,f(x)<a\right\} $ are open in $E$ for $-\infty<a<\infty$. 
+	\end{enumerate}
+	A function $f(x)$ is said to be lower semi-continuous (l.s.c.) in $E$ if $-f(x)$ is u.s.c in $E$. If $f(x)$ is both u.s.c. and l.s.c. then $f(x)$ is a continuous function.
+\end{definition}
+
+\begin{theorem}
+	If $f_n(x)$ is a decreasing sequence of u.s.c. functions defined on a set $E$, then $\displaystyle f(x)=\lim_{n\to \infty}f(x)$ is u.s.c. on $E$.
+\end{theorem}
+
+\begin{theorem}
+	If $f(x)$ is u.s.c. on a set $E$ then there exists a decreasing sequence $f_n(x)$ of functions continuous on $E$ such that 
+	\[
+	f_n(x)\to f(x) \quad \text{as}\quad n\to \infty.
+	\] 
+\end{theorem}
+
+\begin{definition}
+	If $u\in C^2(D)$ and $\nabla ^2 u=0$ in $D$, then $u$ is said to be harmonic in $D$.
+\end{definition}
+
+\begin{definition}[Subharmonic functions]\label{def:subharmonic}
+	A function $u(x)$ defined in a domain $D\subset \R^{m}$ is said to be subharmonic (s.h.) in $D$ if 
+	\begin{enumerate}
+		\item $-\infty\le u(x)<\infty,\forall x \in D$.
+		\item $u(x)$ is u.s.c. in $D$. 
+		\item  Given any point $x_0 \in D$, there exist arbitrarily small positive values of $r$ such that\footnote{Here and subsequently $c_m=2\pi^{m /2} /\Gamma(m /2)$.}
+			\[
+			u(x_0)\le \frac{1}{c_m r^{m-1}}\int_{S(x_0,r)}u(x)\d \sigma(x)
+			\] where $\mathrm{d}\sigma(x)$ denotes surface area on $S(x_0,r)$.
+	\end{enumerate}
+\end{definition}
+
+\section{The Maximum Principle}
+
+\begin{lemma}\label{lma:2-1}
+	If $u(x)$ is s.h.  and $u(x)\le 0$ in $D(x_0,r)$ and $u(x_0)=0$, then $u(x)\equiv 0$ in $S(x_0,\rho)$ for some arbitrarily small $\rho$.
+\end{lemma}
+\begin{proof}
+	It follows from property (iii) of \cref{def:subharmonic} that we can find $\rho$ as small as we please such that 
+	 \[
+	u(x_0)=0\le \frac{1}{c_m\rho^{m-1}}\int_{S(x_0,\rho)}u(x)\d \sigma(x).
+	\] Since $u(x)\le 0$, we deduce that
+	\[
+	\int_{S(x_0,\rho)}u(x)\d \sigma(x)=0.
+\] Suppose that there exists $x_1$ in $S(x_0,\rho)$ such that $u(x_1)<0$. Then by (ii) of \cref{def:subharmonic} we can find a neighborhood $N_1$ of $x_1$ such that $u(x)<-\eta $ in $N_1$, where $\eta>0$. If $N_2$ is the intersection of $N_1$ and $S(x_0,\rho)$ and $E_2$ is the complement of $N_2$ on $S(x_0,\rho)$ then
+\[
+\int_{S(x_0,\rho)}u(x)\d \sigma(x)=\int_{N_2}+\int_{E_2}\le \int_{N_2}u(x)\d \sigma(x)\le -\eta\int_{N_2}\d \sigma(x)<0,
+\] giving a contradiction. Thus $u(x)\equiv 0$ in $S(x_0,\rho)$.
+\end{proof}
+
+\begin{theorem}
+	Suppose that $u(x)$ is s.h. in a domain $D$ of $\R^{m}$ and that, if $\xi$ is any boundary point of $D$ and $\varepsilon >0$, we can find a neighbourhood $N$ of $\xi$ such that 
+	\begin{equation}\label{eqn:small}
+		u(x)<\varepsilon  \quad \text{in}\quad N \cap D.
+	\end{equation}
+	Then $u(x)<0$ in $D$ or $u(x)\equiv 0$. If $D$ is unbounded we consider $\xi=\infty$ to be a boundary point of $D$ and assume that \cref{eqn:small} holds when $N$ is the exterior of some hyperball $|x|>R$. 
+\end{theorem}
+
+\begin{proof}
+	Let 
+	\[
+	M=\sup_{x \in D}u(x).
+	\] If $M<0$ there is nothing to prove. Suppose $M>0$, let $x_n$ be a sequence of points in $D$ such that 
+	\[
+	u(x_n)\to M.
+	\] By taking a subsequence if necessary, we may assume that $x_n\to \xi$. Since $M>0$ this contradicts our basis hypothesis with $\varepsilon =M /2$ if $\xi \in \partial D$. Thus $\xi$ is a point of $D$. Also since $u(x)$ is u.s.c. we obtain a contradiction of $u(\xi)<M$. Hence we must have $u(\xi)=M$. 
+
+	Thus if  $E$ is the set of all points of $D$ for which $u(x)=M$, we see that $E$ is not empty. If $M=0$ and $u<0$ in $D$ there is again nothing to prove. So we may assume in all cases that $M\ge 0$ and the set $E$ where $u(x)=M$ is not empty. Since $u$ is u.s.c., $E$ is closed. We proceed to prove that $E$ contains the whole of $D$.
+
+	Suppose that $x_1,x_2$ are points of $D$ such that $u(x_1)<M=u(x_2)$. Then we can join $x_1,x_2$ by a polygonal path $x_1=\xi_1,\xi_2,\ldots,\xi_n=x_2$ in $D$, so that each straight line segment $\xi_j\xi_{j+1}\in D$ for $j=1$ to $n-1$. Let $j$ be the last integer so that $u\left( \xi_j \right) <M$. Then $u(\xi_{j+1})=M$. Let 
+	\[
+	x(t)=(1-t)\xi_j+t\xi_{j+1}
+\] and let $t_0$ be the lower bound of all $t$ in $0<t<1$ such that $x(t)\in E$. Since $E$ is closed $x_0=x(t_0)\in E$. We now apply \cref{lma:2-1} to $u(x)-M$ and deduce that there exists $\rho$, such that $0<\rho<|x_0-\xi_j|$ and $S(x_0,\rho)\subset E$. Also $S(x_0,\rho)$ meets the segment $[\xi_j,x_0]$, whch contradicts the definition of $t_0$. Thus $E$ contains the whole of $D$ and $u(x)\equiv M$ in $D$.
+
+If $D$ is bounded, $\partial D$ contains at least one finite point $\xi$ and if $M>0$, we obtain a contradiction. If $D$ is unbounded, $D$ contains the point $\xi=\infty$, and we again obtain a contradiction. Thus $M\le 0$, and $u\equiv M$ in $D$ or $u<M$ in $D$.
+\end{proof}
+We can deduce immediately the following:
+\begin{theorem}
+	Suppose that $u(x)$ is s.h. and $v(x)$ is harmonic in a bounded domain $D$ and that 
+	\[
+	 \overline{\lim_{x\to\xi}}\left( u(x)-v(x) \right) \le 0
+	\] as $x$ approaches any point of $\partial D$ from inside $D$. Then $u(x)<v(x)$ in $D$ or $u(x)\equiv v(x)$ in $D$.
+\end{theorem}
+	
+
+\section{Boundary Behavior and Regular Domain}
+
+\begin{definition}
+	Let $D$ be a domain in $\R^{m}$ and $f(\xi)$ be a bounded function defined on $\partial D$. We define the class $U(f)$ of functions $u$ with the following properties
+	\begin{enumerate}
+		\item $u$ is s.h. in $D$.
+		\item $\overline{\lim}u(x)\le f(\xi)$ as $x$ approaches any point $\xi$ of $S$ from inside $D$.
+	\end{enumerate}
+	We define
+	\begin{equation}
+		v(x):=\sup_{u\in U(f)}u(x).
+	\end{equation}
+
+\end{definition}
+
+\begin{lemma}
+	The function $v(x)$ is harmonic in $D$ and if $m\le f(\xi)\le M$ on $\partial D$, then we have $m\le v(x)\le M$ in $D$.
+\end{lemma}
+
+\begin{proof}
+	Suppose that $m\le f(\xi)\le M$. Then $u=m$ is in $U(f)$ and so
+	\[
+	v(x)\ge u(x)=m.
+	\] Again supoose that $u\in  U(f)$. Then it follows from the maximaum principle
+\end{proof}
+
+
+
+\section{Harmonic Extensions}
+
+\begin{definition}
+	Suppose that $D$ is a bounded regular domain in $\R^{m}$. Let $f(\zeta )$ be a continuous function defined on the  boundary $\partial D$ of $D$. Then if $u(x)$ is continuous in $\overline{D}$, harmonic in $D$ and $u(\zeta )=f(\zeta )$ in $\partial D$, we say that $u(x)$ is the harmonic extension of $f$ from $\partial D$ into $D$.
+\end{definition}
+\begin{theorem}\label{thm:harmonic-extension-general}
+	Suppose that $f(\zeta )$ is u.s.c. in $\partial D$, $-\infty\le f<\infty$ and that $f_n(\zeta )$ is a sequence of continuous functions, monotonically decreasing to $f(\zeta )$ as $n\to \infty$ for each $\zeta $ in $\partial D$. Let $u_n(x)$ be the harmonic extension of $f_n$ from $\partial D$ into $D$. Then $u_n(x)$ decreases to a limit $u(x)$ as $n\to \infty$ which is independent of the choice of the sequence $f_n$ and is either harmonic or identically $-\infty$ in $D$.
+\end{theorem}	
+\begin{definition}
+	The function $u(x)$ in the above theorem will be called the harmonic extension of $f$ from $\partial D$ into $D$. If $f$ is l.s.c., the harmonic extension of $f$ from $\partial D$ into $D$ is defined to be $u(x)$, where $-u(x)$ is the harmonic extension of $-f(x)$ from $\partial D$ into $D$.
+\end{definition}
+\section{Harmonic Measure}
+\begin{theorem}
+	Suppose that $D$ is a bounded regular domain in $\R^{m}$. Then for every $x$ in $D$ and Borel set $e\subset \partial D$ there exists a number $\omega(x,e)$ with the following properties
+\begin{enumerate}
+	\item For fixed $x\in D$, $\omega(x,e)$ is a Borel measure on $\partial D$ and $\omega(x,\partial D)=1$.
+	\item For fixed $e\subset \partial D$, $\omega(x,e)$ is a harmonic function of $x$ in $D$.
+	\item If $f(\xi )$ is a semi-continuous function defined on $\partial D$, then 
+		\begin{equation}\label{eqn:harmonic-measure}
+			u(x)=\int_{\partial D}f\left( \xi \right) \d \omega(x,e_\xi) 
+		\end{equation}
+		is the harmonic extension of $f(\xi)$ to $D$. 
+\end{enumerate}
+The measure $\omega(x,e)=\omega(x,e,D)$ will be called the harmonic measure of $e$ at $x$ with respect to $D$.
+\end{theorem}
+\begin{proof}
+	We define $L_x(f)$ as the harmonic extension of $f$ to the point $x$ in $D$. Then for fixed $x$, $L_x(f)$ is a positive linear functional on the class of continuous functions $f$ on $\partial D$. Hence by Riesz Representation Theorem there exists a measure $\omega(x,e)$ uniquely determined by $\partial D$, $x$ and $D$ such that (iii) holds for continuous  $f$. By \cref{thm:harmonic-extension-general} and the property
+	\[
+	L(f_n)\to L(f)\quad \text{as}\quad n\to \infty
+	\] 
+	of linear functionals it follows that $u(x)=L_x(f)$ is still the harmonic extension of $f$ to $D$ when $f$ is semi-continuous. Also for any bounded Borel measurable function $f$ on $\partial D$ we define the harmonic extension of $f$ from $\partial D$ onto $D$ to be given by \cref{eqn:harmonic-measure}. 
+
+	Let $f=\chi_{\partial D}$ then use \cref{eqn:harmonic-measure} we obtain $\omega(x,\partial D)=1$, which proves (i).
+
+	It remains to show that (ii) holds. We prove more generally that when $f$ is bounded and Borel measurable, $u(x)$ defined by \cref{eqn:harmonic-measure} is harmonic in $x$. Then for any Borel set $e\subset \partial D$ we may then take $f=\chi_{e}$ and deduce (ii).
+
+	If $f$ is upper semi-continuous it follows from \cref{thm:harmonic-extension-general} that $u(x)$ is harmonic or identically $-\infty$ and similarly if $f$ is lower semi-continuous $u(x)$ is harmonic or identically $+\infty$. The infinite case is excluded if $f$ is bounded since in this case $u(x)$ also lies between the same bounds for each $x$. Suppose finally that $f$ is bounded and Borel measurable. Let $x_0$ be a fixed point of $D$. Then $f$ is integrable with respect to $\omega(x_0,e)$ and so we can find u.s.c. functions $f_n(\xi)$ on $\partial D$ such that
+	\begin{equation}\label{eqn:1-1}
+		L_{x_0}(f_n)>L_{x_0}(f)-\frac{1}{n}
+	\end{equation}and $f_n\le f$ on $E$. We may suppose further that the sequence $f_n$ is monotone increasing since otherwise we may replace $f_n$ by
+	\[
+	g_n=\max_{\nu =1 \text{ to } n}f_\nu.
+\] Let $u_n$ be the harmonic extension of $f_n$ from $\partial D$ to $D$. Since $f_n$ is u.s.c., it follows from \cref{thm:harmonic-extension-general} that $u_n(x)$ is harmonic in $x$ and, since $u_n(x)=L_x(f_n)$ is a positive linear functional, $u_n(x)$ increases with $n$ for each fixed $x$ in $D$. Thus by Harnack's Theorem $u_n(x)$ converges to a harmonic function $u(x)$ in $D$ and in view of \cref{eqn:1-1} we have 
+\[
+L_{x_0}(f)=u(x_0).
+\] Also since $f_n\le f$ on $\partial D$ it follows that for $x\in D$ 
+\[
+u_n(x)=L_x(f_n)\le L_x(f)
+\] and so
+\[
+u(x)\le L_x(f),\quad x\in D
+\]
+Similarly, we choose a decreasing sequence of lower semi-continuous functions $g_n(\xi)$, such that $g_n(\xi)\ge f(\xi)$ on $\partial D$ and that 
+\[
+L_{x_0}(g_n)\ge f(\xi)
+\] on $\partial D$ and that
+\[
+L_{x_0}(g_n)\to L_{x_0}(f) \quad \text{as}\quad n\to \infty.
+\] Then if $v_n(x)$ is the harmonic extension of $g_n$ into $D$ it follows that $v_n(x)$ decreases to a harmonic limit $v(x)$ in $D$, such that $v(x_0)=L_{x_0}(f)$ and 
+\[
+v(x)\ge L_x(f),\quad x\in D.
+\] Thus 
+\[
+v(x)-u(x)\ge 0
+\] in $D$ with equality at $x=x_0$ and hence we deduce from the maximum principle that $v(x)=u(x)$ in $D$ and so that 
+\[
+u(x)=L_x(f)=v(x)
+\] so that $L_x(f)$ is harmonic in $D$ as a function of $x$.
+\end{proof}

@@ -1,0 +1,153 @@
+%TEX program = xelatex
+\documentclass[12pt]{amsart}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[colorlinks,
+	linkcolor=Red,
+	anchorcolor=blue,
+	citecolor=ForestGreen
+]
+{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{amsmath, amssymb,mathrsfs}
+\usepackage{mathtools}
+
+% A symbol for the quotient of two objects
+%\usepackage{xfrac}
+%\usepackage{faktor}
+\newcommand{\sfrac}[2]{{\left.\raisebox{.2em}{$#1$}\middle/\raisebox{-.2em}{$#2$}\right.}}
+\newcommand{\bsfrac}[2]{{\left.\raisebox{-.2em}{$#1$}\middle\backslash\raisebox{.2em}{$#2$}\right.}}
+\usepackage{tikz-cd}
+\usetikzlibrary{decorations.pathreplacing}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{tkz-berge}
+
+\usepackage[capitalize,nameinlink]{cleveref}[0.19]
+
+
+\crefname{section}{section}{sections}
+\crefname{subsection}{subsection}{subsections}
+\Crefname{section}{Section}{Sections}
+\Crefname{subsection}{Subsection}{Subsections}
+ 
+\Crefname{figure}{Figure}{Figures}
+
+
+\crefformat{equation}{\textup{#2(#1)#3}}
+\crefrangeformat{equation}{\textup{#3(#1)#4--#5(#2)#6}}
+\crefmultiformat{equation}{\textup{#2(#1)#3}}{ and \textup{#2(#1)#3}}
+{, \textup{#2(#1)#3}}{, and \textup{#2(#1)#3}}
+\crefrangemultiformat{equation}{\textup{#3(#1)#4--#5(#2)#6}}%
+{ and \textup{#3(#1)#4--#5(#2)#6}}{, \textup{#3(#1)#4--#5(#2)#6}}{, and \textup{#3(#1)#4--#5(#2)#6}}
+
+ 
+\Crefformat{equation}{#2Equation~\textup{(#1)}#3}
+\Crefrangeformat{equation}{Equations~\textup{#3(#1)#4--#5(#2)#6}}
+\Crefmultiformat{equation}{Equations~\textup{#2(#1)#3}}{ and \textup{#2(#1)#3}}
+{, \textup{#2(#1)#3}}{, and \textup{#2(#1)#3}}
+\Crefrangemultiformat{equation}{Equations~\textup{#3(#1)#4--#5(#2)#6}}%
+{ and \textup{#3(#1)#4--#5(#2)#6}}{, \textup{#3(#1)#4--#5(#2)#6}}{, and \textup{#3(#1)#4--#5(#2)#6}}
+
+%\oddsidemargin=-.0cm
+%\evensidemargin=-.0cm
+\textwidth=15cm
+%\textheight=22cm
+%\topmargin=0cm
+\calclayout
+
+% integral vraiable
+\renewcommand{\d}{\,\mathrm{d}}
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\newcommand{\incfig}[1]{%
+  \def\svgwidth{\columnwidth}
+  \import{./figures/}{#1.pdf_tex}
+}
+
+
+\usepackage[notref,notcite]{showkeys}
+
+% Some shortcuts
+\newcommand\N{\ensuremath{\mathbb{N}}}
+\newcommand\R{\ensuremath{\mathbb{R}}}
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+\newcommand\T{\ensuremath{\mathbb{T}}}
+\renewcommand\O{\ensuremath{\emptyset}}
+\newcommand\Q{\ensuremath{\mathbb{Q}}}
+\newcommand\C{\ensuremath{\mathbb{C}}}
+\newcommand\CP{\ensuremath{\mathbb{CP}}}
+\newcommand\CR{\ensuremath{\mathbb{CR}}}
+\newcommand\Sph{\ensuremath{\mathbb{S}}}
+
+% Some theorem environment settings
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{remark}{Remark}[section]
+\newtheorem*{question}{Question}
+\newtheorem{definition}{Definition}
+\newtheorem{exercise}{Exercise}
+\newtheorem*{solution}{Solution}
+\newtheorem*{claim}{Claim}
+\newtheorem{example}{Example}[section]
+\newtheorem{assumption}{Assumption}
+
+\crefname{assumption}{Assumption}{Assumptions}
+% Enumerate Style
+\renewcommand{\labelenumi}{{\normalfont(\roman{enumi})}}
+
+% Tensor
+\usepackage{tensor}
+
+\DeclareMathOperator{\order}{ord}
+% bracket notations 
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
+
+% Notations in differential geometry
+% inner product
+\DeclarePairedDelimiterX\ipd[2]{\langle}{\rangle}{#1\delimsize , #2}
+
+% Notations in quantum field theory
+% normal ordering
+\newcommand{\normord}[1]{:\mathrel{#1}:}
+
+% Real and imaginary parts
+\DeclareMathOperator{\Realpart}{Re}
+\renewcommand{\Re}{\Realpart}
+
+\DeclareMathOperator{\Impart}{Im}
+\renewcommand{\Im}{\Impart}
+
+
+\DeclareMathOperator{\ddet}{det}
+\renewcommand{\det}{\ddet}
+
+% Groups
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+
+\usepackage[foot]{amsaddr}
+\numberwithin{equation}{section}
+
+\begin{document}
+\title[Spectral Inequalities of the Generalized Grushin Operator]{Spectral Inequalities of the Generalized Grushin Operator}
+\author[Y. Wang]{Yunlei Wang}
+\email{yunlei.wang@math.u-bordeaux.fr}
+\date{\today}
+%\address{Institut de Mathématiques de Bordeaux, Université de Bordeaux 351, cours de la Libération, F 33405 TALENCE cedex}
+
+\maketitle
+
+\input{body}
+\bibliographystyle{plain}
+\bibliography{mybib}
+\end{document}
+

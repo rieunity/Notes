@@ -1,0 +1,102 @@
+Consider a Graph $G:=G(V,E)$ with $M$ vertices, and assume that given any $k$ vertices in $G$ there are two adjacent vertices, then we can define
+\[
+\mathcal{S}(k,M,G):=\mathcal{S}(k,M):= \text{ number of edges in } G.
+\]
+Then we have the following:
+\begin{theorem}
+	Given the definition above, we have
+	\begin{equation}
+		\mathcal{S}(k,M)\ge \frac{M^2-4k^2M}{(2k)^{4}(2k-1)}.
+	\end{equation}
+\end{theorem}
+
+\begin{proof}
+	First for simplicity, we prove it for $M=k^{m}$ and $k=2^{l}$ with $k,l \in \N$. In this case it is sufficient to prove
+	\begin{equation}\label{eqn:2}
+	S(k,k^{m})\ge \frac{k^{m}(k^{m}-1)}{k^2(k-1)}.
+\end{equation}
+We prove \cref{eqn:2} by induction on $m$. For $m=1$, it is true obviously. Now assume \cref{eqn:2} is true for $M=k^{m}=2^{lm}$, we need to prove the case $M=k^{m+1}=2^{l(m+1)}$. Divide $M=k^{m+1}$ into $k=2^{l}$ parts  $M_1,M_2,\cdots ,M_k$ such that each part has $k^{m}=2^{lm}$ vertices. For convenience, we use both $k$ and  $2^{l}$, although they are in essential the same thing. Then we have
+\[
+\mathcal{S}(k,M)=\sum_{j=1}^{k} S(k,M_j)+ \mathcal{L}\ge \frac{k^{m}(k^{m}-1)}{k(k-1)}+\mathcal{L}
+\] where $L$ is defined to be the number of edges whose endpoints belong to distinct $M_j$'s.
+
+To estimate  $\mathcal{L}$, we denote the vertices in each $M_j$ by 
+\[
+a_{j,l},\quad, l=1,2,\cdots ,k^{m}. 
+\]
+First consider the following $k$ subgraphs of $G$
+%\begin{equation*}
+%	\begin{aligned}
+%	N_{1,1} \text{ who has vertices }&\left\{a_{1,1}, a_{2,1},a_{3,1}\cdots ,a_{k-1,1},a_{k,1}\right\},\\
+%	N_{1,2}\text{ who has vertices }&\left\{a_{1,1}, a_{2,2},a_{3,2}\cdots ,a_{k-1,2},a_{k,2}\right\},\\
+%	N_{1,3}\text{ who has vertices }&\left\{a_{1,1}, a_{2,3},a_{3,3}\cdots ,a_{k-1,3},a_{k,3}\right\},\\
+%	 &\qquad\qquad\qquad \cdots, \\
+%	N_{1,k}\text{ who has vertices }&\left\{a_{1,1}, a_{2,k},a_{3,k}\cdots ,a_{k-1,k},a_{k,k}\right\}. 
+%	\end{aligned}
+%\end{equation*}
+%Each subgraph has exactly $1$ vertex from each $M_j,j=1,\cdots ,k$. By the assumption, each $N_{1,j},j=1,\cdots ,k$ contains at least one edge, says $e_{1,j},j=1,\cdots ,k$. These $k$ edges are totally different and has to be counted in  $\mathcal{L}$. 
+Define the permutation $\sigma$ of set $\left\{1,2,\cdots ,k^{m}\right\} $ by
+\begin{equation}
+	\sigma(i)=\begin{cases}
+		i+1,& 1\le i\le k^{m}-1,\\
+		1,& i=k^{m}.
+	\end{cases}
+\end{equation}
+Now, we define new subgraphs $N_{i,j}$ by
+\begin{equation*}
+	\begin{aligned}
+		&N_{i,j}:= \text{ the subgraph who contains vertices }&\\
+						    &\left\{a_{1,i},a_{2,\sigma^{1j}(i)}, a_{3,\sigma^{2j}(i)},\cdots,a_{s,\sigma^{(s-1)j}(i)},\cdots,a_{k-1,\sigma^{(k-2)j}(i)},a_{k,\sigma^{(k-1)j}(i)}\right\}&
+	\end{aligned}
+\end{equation*}
+where $i \in \left\{1,2,\cdots ,k^{m}\right\} $ and $j \in \left\{1,2,\cdots ,k^{m-1}\right\} $. We claim that for distinct $N_{i,j}$ and $N_{i',j'}$, they can have at most $1$ common point. Indeed, if they have two common points, then there exist $1\le s<s'\le k-1$ such that
+\begin{equation*}
+	\begin{aligned}
+		a_{s,\sigma^{(s-1)j}(i)}=a_{s,\sigma^{(s-1)j'}(i')}\\
+		a_{s',\sigma^{(s'-1)j}(i)}=a_{s',\sigma^{(s'-1)j'}(i')}.
+	\end{aligned}
+\end{equation*}
+The above equations imply
+\begin{equation}\label{eqn:3}
+	\begin{aligned}
+		\sigma^{(s-1)j}(i)=\sigma^{(s-1)j'}(i')\\
+		\sigma^{(s'-1)j}(i)=\sigma^{(s'-1)j'}(i').
+	\end{aligned}
+\end{equation}
+Let $i'=\sigma^{\lambda}(i),\lambda \in \left\{1,2,\cdots ,k^{m}\right\} $. Then we obtain
+\begin{equation*}
+	\begin{aligned}
+		(s-1)(j-j')-\lambda\equiv 0\pmod{k^{m}},\\
+		(s'-1)(j-j')-\lambda\equiv 0\pmod{k^{m}}.
+	\end{aligned}
+\end{equation*}
+Extracting the second one from the first one, we obtain
+\[
+	k^{m}\lvert (s-s')(j-j').
+\]
+Remember $|s-s'|\le k-1=2^{l}-1$, we must have $k^{m-1}\lvert j-j'$. Again remember that $|j-j'|\le k^{m-1}-1$, hence we can only have $j=j'$, and then we have  $i=i'$ by \cref{eqn:3}. Hence any two of $N_{i,j}$s cannot have more than one common vertices. 
+
+Now we can estimate $\mathcal{L}$: there are $k^{2m-1}$ distinct $N_{ij}$s, hence 
+\[
+\mathcal{L}\ge k^{2m-1}.
+\]
+Then we have
+\begin{equation*}
+	\mathcal{S}(k,M)\ge \frac{k^{m}(k^{m}-1)}{k(k-1)}+k^{2m-1}= \frac{k^{m+1}(k^{m+1}-1)}{k^2(k-1)}.
+\end{equation*}
+Hence we complete the proof for the regular case $M=k^{m}$ and $k=2^{l}$.
+
+For a general integer $k\ge 3$, there exists a unique integer $l$ such that $2^{l-1}\le k<2^l$ (or equivalently $l:= \left\lceil \log_2 k \right\rceil $). We define $k'=2^{l}$. Similarly, for a general integer $M$, there exists a unique integer  $m$ such that  $k'^{m}\le M<k'^{m+1}$. We define $M'=k'^{m}$. Obviously we have
+\[
+\mathcal{S}(k,M)\ge \mathcal{S}(k',M'),
+\] 
+and for the later one, we have proved that
+\[
+\mathcal{S}(k',M')\ge \frac{k'^{m}(k'^{m}-1)}{k'^2(k'-1)}.
+\]
+Since $k'^{m+1}>M$ and $k'\le 2 k$, we have $\displaystyle k'^{m}>\frac{M}{k'}\ge \frac{M}{2k}$. Then we obtain
+ \[
+\mathcal{S}(k',M')\ge \frac{\frac{M}{2k}\left( \frac{M}{2k}-1 \right) }{(2k)^2(2k-1)}= \frac{M^2-4k^2M}{(2k)^{4}(2k-1)},
+\] 
+and complete the proof.
+\end{proof}

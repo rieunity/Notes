@@ -1,0 +1,71 @@
+Given a polydisc $\mathbb{D}^{n}$, its distinguished boundary is $\mathbb{T}^{n}$.
+
+\begin{definition}
+	We say a u.s.c. function $-\infty\le f<\infty$ defined in $\mathbb{D}^{n}$ is $n$-subharmonic if $f$ is subharmonc in each variable separately.
+\end{definition}
+Using the subharmonicity successively in each variable, we obtain
+\begin{equation}
+	\begin{aligned}
+	f(z_1,z_2)&\le \int_{\T}P(z_1,w_1)f(w_1,z_2)\d m_1(w_1)\\
+		  &\le \int_{\T}P(z_1,w_1)\left( \int_{\T}P(z_2,w_2)f(w_1,w_2)\d m_2(w_2) \right) \d m_1(w_1)\\
+		  &=\int_{\T^2}P^{(2)}(z,w)f(w)\d m.
+        \end{aligned}
+\end{equation}
+Here $P(z,w)$ is the poisson kernel in $\mathbb{D}$ and $P^{(2)}$ is the Poisson kernel in $\mathbb{D}^{2}$ w.r.t. the distinguished boudary $\T^{2}$. Thus in general, we have the inequality in $\mathbb{D}^{n}$ 
+\begin{equation}
+	f(z)\le \int_{\T^{n}}P(z,w)f(w)\d m
+\end{equation}
+for any $n$-subharmonic function $f\in \mathbb{D}^{n}$. 
+
+Now, given a holomorphic function $f\in \mathbb{D}^{n}$, since $\log|f|$ is $n$-subharmonic, we obtain
+\begin{equation}
+	\log|f(z)|\le \int_{\T ^{n}}P(z,w)\log|f(w)|\d m.
+\end{equation}
+Choose $z=0$ and observe that $f(0)=\int_{\T^{n}}f(w)\d m$ we obtain
+\begin{equation}
+	\log \left|\int_{\T^{n}} f(w)\d m\right|\le \int_{\T ^{n}}\log|f(w)|\d m. 
+\end{equation}
+To transform the integral from $\T^{n} $ to $\R^{n}$, we need to do the transform from $\mathbb{D}^{n}$ to $\mathbb{H}^{n}$. Define $H^{1}(\R,m)$ the class of functions $f\in L^{1}(\R,m)$ and  $\mathrm{supp}\,\widehat{f}\subset (0,\infty)$.
+
+In the following, we define
+\[
+\d \Pi= \frac{1}{\pi(1+x^2)}\d x
+\] 
+in $\R$ and the higher dimension is just the product of one dimension and uses the same notation.
+
+
+\begin{lemma}
+	Let $f\in H^{1}(\R,m)$, $\omega:= \frac{x-i}{x+i}$. Then
+	\begin{equation}
+		\int_{\R}f\omega^{n}\d \Pi=0\label{key}
+	\end{equation}holds for all $n\in \N_{+}$.
+\end{lemma}
+
+\begin{lemma}
+	Let $f\in H^{1}(\R,\Pi)$. Then \cref{key} still holds for all $n\in \N_{+}$.
+\end{lemma}
+
+Now we can transform the polydisc case to $\mathbb{H}^{n}$ (here $\mathbb{H}^{n}:=\mathbb{H}\times \cdots \times \mathbb{H} $) case. Define 
+\[
+F(e^{i \theta }):=F(e^{i\theta _1},e^{i\theta _2},\cdots ,e^{i\theta _n})=f\left( -\cot \frac{\theta_1}{2}, -\cot \frac{\theta_2}{2},\cdots ,-\cot \frac{\theta _n}{2} \right) 
+\] 
+for all $\theta _i \in  (0,2\pi),i=1,2,\cdots ,n$. The variable $\theta _i$ and $x_i=-\cot \frac{\theta_i}{2}$ are connected by the following formula
+\[
+x_i=-i \frac{e^{i\theta_i }+1}{e^{i\theta_i }-1},\quad \d \theta_i =\frac{2\d x_i}{1+x_i^2}.
+\]
+Then by the preceding lemma we obtain
+\[
+\widehat{F}(-n_{i})=\frac{1}{2\pi} \int_{\T}F(e^{i\theta _i})e^{i n\theta _i}\d \theta _i = \int_{\R}f\left( x_1,x_2,\cdots ,x_i \right) \left( \frac{x_i-i}{x_i+i} \right) ^{n}\d \Pi_i=0.
+\]
+This implies that $F$ is holomorphic in $\mathbb{D}^{n}$. Hence we have
+\[
+\log \left| \int_{\T^{n}}F(w)\d m \right|\le \int_{\T^{n}}\log|F(w)|\d m. 
+\]
+This is equivalent to 
+\begin{equation}
+	\log \left| \int_{\R^{n}}f(x)\d\Pi \right|\le \int_{\R^{n}} \log|f(x)|\d \Pi. 
+\end{equation}
+
+In general , I think this proof is very rigid and cannot be modified, because it is relied on conformal transformation and hence the relation \cref{key}. The reason we first consider in polydiscs not in $\mathbb{H}^{n}$ directly is that Poisson-Jensen's Formula is always established in bounded domain. Though in principle, we can give the assumption that the formula can be established in unbounded domain directly, for example in $\mathbb{H}^{n}$ domain. However, we finally need to use the property of subharmonicity of $\log|f|$ which $f$ is holomorphic.
+
+

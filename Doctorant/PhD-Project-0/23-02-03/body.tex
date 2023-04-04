@@ -1,0 +1,62 @@
+Let $D^{n}:=\left\{\sum_{j=1}^{n} |z_j|^2\le 1:\, z_1,z_2,\cdots ,z_n\in \C\right\} $ be a unit ball in $\C^{n}$. We also write $z=(z_1,z_2,\cdots ,z_n)\in \C^{n}$.
+By Poisson-Jensen's Formula, we know that given any subharmonic function $u(z)$ defined on $D^{n}$, we have for $z\in D^{n}$
+\[
+u(z)\le \int_{\partial D^{n}}u(\xi)\d \omega(z,e_\xi)
+\] 
+where $\omega(z,e)$ is the harmonic measure of $e\subset \partial D^{n}$ at $z$. 
+
+The harmonic measure $\omega(z,e)$ on $D^{n}$ is 
+\[
+\omega(z,e)=\int_e \frac{1-|z|^2}{|z-\xi|^2}\frac{\d m(e_\xi)}{\sigma_{2n-1}}
+\] 
+where $m(e)$ denotes the surface measure on $\partial D^{n}$ and $\sigma_{2n-1}=m(\partial D^{n-1})$.
+
+Let $z=0$, we obtain
+\[
+u(0)\le \int_{\partial D^{n}}u(\xi) \frac{\d m(e_\xi)}{\sigma_{2n-1}}.
+\]
+
+Consider holomorphic function $f(z_1,z_2,\cdots ,z_n) \in D^{n}$, then $\log |f|=\Re\,\log f$ is harmonic for $f(z)\neq 0$, hence $\log|f|$ is subharmonic. Let $u=\log|f|$, we obtain
+\[
+	\log |f(0)|\le \int_{\partial D^{n}}u(\xi) \frac{\d m\left( e_{\xi} \right) }{\sigma_{2n-1}}.
+\]
+Now we change $m(e)$ to the normalized measure for simplicity, then the above inequality is equivalent to 
+\[
+\log\left| \int_{\partial D^{n}}f(\xi) \d m(e_{\xi}) \right| \le \int_{\partial D^{n}}\log|f(\xi)| \d m(e_{\xi}).
+\] 
+
+\begin{comment}
+Now we can use the conformal mapping  $\phi:D^{n}\to \mathbb{H}^{2n}:=\left\{\left( x_1,y_1,\cdots ,x_n,y_n \right)\in \R^{2n} :y_n>0\right\} $
+\begin{equation*}
+	\begin{aligned}
+		\phi:z \mapsto \eta =& \left( \frac{2z_1}{\sum_{j=1}^{n-1} |z_j|^2+|x_n|^2+\left( 1-|y_n|^2 \right) },\cdots , \frac{2z_{n-1}}{\sum_{j=1}^{n-1} |z_j|^2+|x_n|^2+\left( 1-|y_n|^2 \right) },\right.\\
+			       &\left.\frac{2x_n}{\sum_{j=1}^{n-1} |z_j|^2+|x_n|^2+\left( 1-|y_n|^2 \right) }, \frac{1-\sum_{j=1}^{n} |z_j|^2}{\sum_{j=1}^{n-1} |z_j|^2+|x_n|^2+\left( 1-|y_n|^2 \right) } \right) 
+\end{aligned}
+\end{equation*}
+\end{comment}
+
+Denote $z\in \partial D^{n}=S^{2n-1}$ by spherical coordinate
+\[
+z=\left( \varphi,\Theta \right) 
+\] 
+with $\varphi \in [0,\pi)$ and $\Theta \in S^{2n-2}$. Then the stereographic map from  $\R^{2n-1}$ (we use polar coordinates $(r,\theta )$) to $S^{2n-1}$ is
+\[
+\begin{cases}
+	\varphi=2 \arctan \frac{1}{r},\\
+	\Theta=\theta. 
+\end{cases}
+\] 
+Rewrite the integral (we omit the exact constant in the integral)
+\begin{equation*}
+	\begin{aligned}
+		\int_{\partial D^{n}}=&\int_{S^{2n-1}}=\int_0^{\pi}\d\varphi  \left( \sin \varphi \right) ^{2n-2}\int_{S^{2n-2}}\d \Theta\\
+		=& \int_{\R^{2n-1}}\frac{1}{(1+r^2)^{2n-1}}r^{2n-2}\d r \mathrm{d}\theta=\int_{\R^{2n-1}}\frac{1}{(1+r^2)^{2n-1}}\d x.
+\end{aligned}
+\end{equation*}
+Here $r=\sum_{j=1}^{n-1} |z_j|^2+|x_n|^2$. Indeed, by this transformation, our inequality becomes
+\[
+\log \left|\int_{\R^{2n-1}}f(y)P^{2n-1}_1(y)d y\right|\le \int_{\R^{2n-1}} \log|f(y)|P^{2n-1}_1(y)\d y.
+\]
+Thus we finish the proof of Jensen's inequality on $\R^{2n-1}$ by using holomorphic property of function $f$.
+
+For Jensen's inequality on $\R^{2n}$, we can not do this becasue $\sum_{j=1}^{2n+1} |x_j|^2\le 1, x \in  \R^{2n+1}$ can not be viewed as a complex domain. 

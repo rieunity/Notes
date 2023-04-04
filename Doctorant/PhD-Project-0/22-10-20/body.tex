@@ -1,0 +1,327 @@
+\begin{abstract}
+	This note is an introduction of Logvinenko-Sereda Theorem. 
+\end{abstract}
+\tableofcontents
+\section{Introduction}
+Before we introduce the Logvinenko-Sereda Theorem, we first give some definitions.
+
+\begin{definition}
+	 Let $\Sigma$ be a measurable set and $\mathscr{E}$ be a subspace of $L^2(\R)$. A measurable set $S$ is called $\mathscr{E}$-determining if there is a positive number $c$ such that 
+	 \begin{equation}\label{eqn:def}
+	 	f \in \mathscr{E} \Rightarrow c\|f\|_2^2\le \int_S|f|^2\d x.
+	 \end{equation}
+	 Furthermore, if $S$ is $\mathscr{E}(\widehat{\Sigma})$-determining for any bounded $\Sigma \subset \R$, we say $S$ is determining. Here $\mathscr{E}(\widehat{\Sigma})$ denotes the subspace of all functions with spectrum contained in $\Sigma$.
+\end{definition}
+
+
+\begin{definition}\label{def:thick}
+	Let $S$ be a measurable set on $\R$. We say $S$ is $\gamma$-thick if there exists an interval $K=[-L,L]$ and a constant $\gamma>0$ such that:
+	\[
+	\forall h\in \R \implies |S\cap (K+h)|\ge \gamma. 
+	\] 
+	We call $S$ thick if the exact value of  $\gamma$ is not concerned.
+\end{definition}
+
+Now we can state the theorem as following:
+\begin{theorem} \label{thm:main}
+	Let $S$ be a measurable set on $\R$. Then the following two assertions are equivalent:
+	\begin{itemize}
+		\item[(a)] $S$ is determining;
+		\item[(b)] $S$ is thick.
+	\end{itemize}
+\end{theorem}
+
+The proof of $(\mathrm{a})\Rightarrow (\mathrm{b})$ is much easier than the converse.
+
+\noindent{\itshape Proof of $(\mathrm{a})\Rightarrow(\mathrm{b})$.} Given bounded set $\Sigma$, then $\mathscr{E}(\widehat{\Sigma})$ is a shift invariant subspace of $L^2(\R)$. Hence we only need to prove: If $\mathscr{E}$ is a shift invariant non-trivial subspace of $L^2(\R)$, then any $\mathscr{E}$-determining set is thick. Assume $f\in \mathscr{E}$ and define $\omega_f(\delta):=\sup \bigl\{ \int_e|f|^2\d x: |e|\le \delta \bigr\}$. Let $K=[-L,L]$ large enough so that 
+$$\int_{K'}|f|^2\d x\le \frac{c}{2},$$ where $c$ is the constant from \cref{eqn:def}. Set $f_h(x):=f(x-h),\forall h\in \R$ and we have
+\[
+	\int_{(K+h)'}|f_h|^2\d x \le \frac{c}{2}.
+\]
+Then 
+\begin{align*}
+	c&= c\int |f_h|^2\d x\le \int_S|f_h|^2\d x=\bigl(\int_{S\cap (K+h)}|f_h|^2\d x+\int_{S\cap (K+h)'}|f_h|^2\d x\bigr)\\
+	 &\le \omega_f\bigl(|S\cap(K+h)|\bigr)+\frac{c}{2}
+.\end{align*}
+Then we obtain $\omega_f\bigl(|S\cap(K+h)|\bigr)\ge \frac{c}{2}$, and this implies $|S\cap (K+h)|$ is bounded off zero for any  $h\in \R$. \hfill $\square$
+\begin{definition}
+	The Poisson measure is defined by
+	\[
+	\Pi:=\frac{1}{\pi (1+x^{2})}m
+	\] 
+	where $m$ is the Lebesgue measure on $\R$.
+
+	Furthermore, we define the probability measure with respect to $x$ 
+	\[
+	\Pi_x(A) :=\Pi(x-A)=\frac{1}{\pi}\int_A \frac{1}{1+(x-t)^2}\d t,\quad \forall A\subset \R.
+	\] 
+\end{definition} 
+
+Then we have the following property:
+\begin{proposition} \label{prp:equiv}
+	Let $S$ be a measurable set on $\R$. Then $S$ is thick if and only if $\inf_{x\in \R}\Pi_x(S)>0$.
+\end{proposition}
+\begin{proof}
+	$\Rightarrow$: Assume $S$ is $\gamma$-thick for some $\gamma>0$ and $K=[-L,L]$ defined in \cref{def:thick}. Then for all $x\in\R$, we obtain
+	\begin{align*}
+		\Pi_x(S)&=\int_{S}\,\mathrm{d}\Pi_x\ge \int_{(K+x)\cap S}\,\mathrm{d}\Pi_x=\frac{1}{\pi}\int_{x-L}^{x+L}\chi_S(t) \frac{\mathrm{d} t}{1+(x-t)^2}\\
+			&= \frac{1}{\pi}\int_L^L\chi_S(t+x) \frac{\mathrm{d} t}{1+t^2}\ge \frac{1}{\pi}\bigl( 1+L^2\bigr)^{-1}\left|S\cap(K+x)\right|\ge \pi^{-1}\bigl(1+L^2\bigr)^{-1}\gamma
+	.\end{align*}
+
+	$\Leftarrow$: Assume $\Pi_x(S)\ge \sigma>0$ for all $x\in\R$. Let $K=[-L,L]$ and $L$ is defined later. We have
+	\begin{align*}
+		\pi \sigma \le & \pi \Pi_x(S) = \int_{\R} \chi_S(t) \frac{1}{1+(x-t)^2}\d t\\
+		= & \int_{x-L}^{x+L} \chi_S(t) \frac{1}{1+(x-t)^2}\d t+\int_{|x-t|>L}\chi_{S}(t) \frac{1}{1+(x-t)^2}\d t\\
+		\le & \left|S\cap (K+x)\right|+2\int_{L}^{\infty} \frac{1}{1+t^2}\d t\\
+		\le &\left| S\cap (K+x)\right|+2\left(\frac{\pi}{2}-\arctan L\right)
+	.\end{align*}
+	Choose $L$ large enough so that  $\gamma=\pi \sigma -2\left(\frac{\pi}{2}-\arctan L\right)>0 $, then we have $\left| S\cap (K+x)\right|\ge \gamma>0$.
+\end{proof}
+
+\section{Jensen's Inequalities and Poisson Operator} 
+
+\begin{definition}
+	We call a distribution $f \in S'(\R)$ a plus-function (resp. a minus-function) if $\widehat{f}\lvert_{(-\infty,0)}=0$ (resp. $\widehat{f}\lvert_{(0,\infty)}=0$). A distribution $f\in S'(\T)(=D'(\T)$ is called a plus-function (resp. a minus-function) if $\widehat{f}\lvert_{\Z\cap(-\infty,0)}=0$ (resp. $\widehat{f}\lvert_{\Z\cap [0,\infty)}=0$).
+\end{definition}
+
+\begin{definition}
+	The set of all plus-functions $f\in L^{p}(X,m)$ where $p \in [1,\infty)$ is denoted by the symbol $H^{p}(X)$ and is called the Hardy class (with the index $p$).
+\end{definition}
+
+\subsection{Jensen's Inequality for Plus-Functions on $\T$} 
+
+For Jensen's inequality, we are most familiar with
+\[
+\exp \int \log |f| \d \mu\le \int |f|\d \mu,
+\] 
+where $\mu$ is any probability measure and $f\in L^{1}(\mu)$.
+Now we introduce another Jensen's inequality:
+\begin{equation}\label{eqn:jt}
+	f \in H^{1}(\T)\Rightarrow \log \bigl| \widehat{f}(0) \bigr| \le \int_{\T}\log |f|\d m.\tag{$J_{\T}$}
+\end{equation}
+Here $m$ is the normalized Lebesgue measure on $\T$. Compaired with the trivial estimate $\bigl| \int f \d m \bigr|\le \int |f|\d m$, \cref{eqn:jt} is an essential refinement.
+
+Let $C_{+}:=H^{1}(\T)\cap C(\T)$. We first have the following lemma:
+\begin{lemma}
+	Any function in $C_{+}$ satisfies \cref{eqn:jt}.
+\end{lemma}
+\begin{proof}
+	Take $f\in C_{+}$ and $\varepsilon >0$. By density of trigonometric polynomials in $C(\T)$, there is a real trigonometric polynomial $t$ such that 
+	 \[
+	t(\zeta )-\varepsilon <\log\left( |f(\zeta )|+\varepsilon  \right) <t(\zeta )+\varepsilon, \quad \forall \zeta  \in  \T.
+	\] 
+	Put $s:= t+i \widetilde{t}$, where $\widetilde{t}:=\frac{1}{i}\sum_{k\in \Z}^{} \mathrm{sgn} k\cdot \widehat{t}(k)z^{k}$ and $\widetilde{t}$ is also real. Then $s \in C_{+}$. Then we obtain
+	\[
+	\bigl| f(\zeta )e^{-s(\zeta )}\bigr|=|f(\zeta )|e^{-t(\zeta )}< e^{\log(|f(\zeta )|+\varepsilon )-t(\zeta )}<e^{\varepsilon },\quad \forall \zeta \in \T. 
+	\]
+	Hence
+	\[
+	\bigl|\widehat{f e^{-s}}(0)\bigr|=\Bigl| \int_{\T} fe^{-s}\d m \Bigr|\le e^{\varepsilon }.
+	\] 
+	On the other hand, $\bigl|\widehat{fe^{-s}}(0)\bigr|=|\widehat{f}(0)|\bigl|e^{-\widehat{s}(0)}\bigr|=|\widehat{f}(0)|e^{-\widehat{t}(0)}$, hence
+	\[
+		|\widehat{f}(0)|\le e^{\varepsilon +\widehat{t}(0)} =e^{\varepsilon +\int t\d m}\le e^{2\varepsilon +\int \log(|f|+\varepsilon )\d m}. 
+	\] 
+	The right hand side tends to $\exp \int \log |f|\d m$ as $\varepsilon \to 0$, then we obtain \cref{eqn:jt}.
+\end{proof}
+
+Now we can give the proof of \cref{eqn:jt} for any $f\in H^{1}(\T)$.
+
+\noindent{\itshape Proof of \cref{eqn:jt}.} If $f \in H^{1}(\T)$ m then $f=\lim_{j \to \infty} f_j$ (in $L^{1}(\T)$) for a sequence $(f_j)$ of plus-polynomials. Thus, for any $\varepsilon >0$,
+\[
+\int_{\T}\log(|f|+\varepsilon )\d m =\lim_{j \to \infty} \int_{\T}\log(|f_j|+\varepsilon )\d m,
+\] 
+since $\bigl|\log(|f|+\varepsilon )-\log(|f_j|+\varepsilon )\bigr|\le \frac{1}{\varepsilon }\bigl| \mid f|-|f_j|\bigr|$. Since \cref{eqn:jt} is valid for $f\in C_{+}$, we obtain
+\[
+\log |\widehat{f_j}(0)|\le \int_{\T}\log (|f_j|+\varepsilon )\d m,
+\] 
+and then passing to the limit we obtain
+\[
+\log |\widehat{f}(0)|\le \int_{\T}\log(|f|+\varepsilon )\d m.
+\] 
+Now using the Monotone Convergence Theorem we obtain
+\[
+\lim_{\varepsilon  \to +0} \int_{\T}\log(|f|+\varepsilon )\d m=\int_{\T}\log|f|\d m.
+\]\hfill $\square$ 
+
+\subsection{Jensen's Inequality for Plus-Functions on $\R$} We have an analogue of \cref{eqn:jt} for plus-functions on $\R$:
+\begin{equation}\label{eqn:jr}
+	f\in H^{1}(\R,\Pi)\Rightarrow \log \Bigl|\int_{\R}f\d \Pi\Bigr|\le \int_{\R} \log|f|\d \Pi.\tag{$J_{\R}$}
+\end{equation}
+Here we define $H^{p}\left( \R,\Pi \right) :=\left\{f \in L^{p}\left( \R,\Pi \right) : f \text{ is a plus-function} \right\} $ for $p \in [1,\infty)$.
+
+
+ 
+\begin{lemma}
+	Let $f \in H^{1}(\R,m)$, $\displaystyle \omega:=\frac{x-i}{x+i}$. Then 
+	\begin{equation}\label{eqn:wn}
+		\int_{\R} f \omega^{n}\d \Pi=0
+	\end{equation}
+	holds for all $n\in \N_{+}$
+\end{lemma}
+
+\begin{lemma}\label{lma:h1}
+	Let $f \in H^{1}\left( \R,\Pi \right) $. Then \cref{eqn:wn} still holds for all $n\in \N_{+}$. 
+\end{lemma}
+
+
+
+\noindent{\itshape Proof of \cref{eqn:jr}.} Suppose $f\in H^{1}(\R,\Pi)$. Define
+\[
+F(e^{i\theta }):=f\left( -\cot \frac{\theta }{2} \right), \quad \theta \in (0,2\pi).
+\] 
+The variables $\theta $ and $x=-\cot \frac{\theta }{2}$ are connected by the following equalities:
+\[
+x=-i \frac{e^{i\theta }+1}{e^{i\theta }-1}, \quad \mathrm{d}\theta =\frac{2\mathrm{d}x}{1+x^2}.
+\] 
+Hence 
+\[
+\int_0^{2\pi}\bigl|F(e^{i\theta })\bigr|\d \theta =2 \int_{\R}|f(t)| \frac{1}{1+t^2}\d t<\infty.
+\] 
+Then by \cref{lma:h1} we have
+\[
+\widehat{F}(-n)=\frac{1}{2\pi}\int_0^{2\pi}F(e^{i\theta })e^{i n \theta  }\d \theta  = \int_{\R}f\omega^{n}\d \Pi =0.
+\]
+Thus $F\in H^{1}(\T)$ and hence satisfies \cref{eqn:jt}, which is equivalent to \cref{eqn:jr}.
+\hfill $\square$
+
+\begin{remark}
+	Indeed, the transformation $\displaystyle F(e^{i\theta })=f\left( -\cot \frac{\theta }{2} \right) $ comes from conformal maping between the upper half plane and the disk:
+	\[
+	\eta = -i \frac{z+1}{z-1}.
+	\]
+	So \cref{eqn:jr} and \cref{eqn:jt} are essentially the same inequality.
+\end{remark}
+
+\subsection{Poisson Operator}
+	We define an operator on $L^1(\R,\Pi)$ by
+	\[
+	P(f)(x):=\int_{\R}f\d \Pi_x=\int_{\R}f(x+t)\d \Pi(t),\quad x\in \R.
+	\] 
+	The operator $P$ is called Poisson transformation.
+
+
+If $f\in H^{1}\left( \R,\Pi \right) $, then the same is true for the function $t\mapsto f(x+t)$. Hence we can rewrite the inequality in \cref{eqn:jr} as
+\begin{equation}\label{eqn:jr'}
+	 \log |P(f)(x) | \le P\left( \log |f| \right) (x). \tag{$J_{\R}'$} 
+\end{equation}
+
+If $f\ge 0$, then 
+\begin{equation}\label{eqn:1}
+\int_{\R}P(f)(x) \d x=\int_{\R}\left[ \int_{\R}f(x+t)\d x \right] \d \Pi(t)=\int_{\R}f(x) \d x.
+\end{equation}
+In particular, for any measurable $S\subset \R$, we have
+\begin{equation}\label{eqn:2}
+\int_{\R}\left( \int_{S}f\d \Pi_x \right) \d x= \int_{\R}P\left( \chi_S f \right) (x)\d x=\int_{S}f(x)\d x.
+\end{equation} 
+
+
+\begin{lemma} \label{lma:key}
+	Let $p \in [1,+\infty)$, $\gamma>0$. Let $S\subset \R$ be a measurable set and $\Pi_x(S)\ge \gamma$ for all $x\in \R$ and a constant $\gamma>0$. If $f\in H^{p}(\R)$, then
+	\begin{equation}\label{eqn:key}
+		\int_{\R}|P(f)|^{p}\d x\le 2\left(\int_S|f|^{p}\d x\right)^{\gamma}\|f\|_p^{p\left( 1-\gamma \right) }.
+	\end{equation}
+\end{lemma}
+
+\begin{proof}
+	Fix $x\in \R$ and define
+	\[
+	k:=\Pi_x(S), k':=\Pi_x(S'), \]
+	\[\lambda(A):=k^{-1}\Pi_x(A\cap S), \lambda'(A):=(k')^{-1}\Pi_x(A\cap S'), \forall A\subset \R.
+	\] 
+	Then we obtain
+	\begin{align*}
+		& p \log |P(f)(x)|\le p P\left( \log |f| \right) (x) \\
+		= & p \int_S  \log|f|\d \Pi_x + p \int_{S'} \log|f|\d \Pi_x\\
+		\le & k \log \Bigl( \int_S |f|^{p}\d \lambda \Bigr)+  k' \log \Bigl( \int_{S'}|f|^{p}\d \lambda \Bigr)\\
+		= & k \log \frac{1}{k}+ k' \log \frac{1}{k'}+k\log \int_{S}|f|^{p} \d \Pi_x +k' \log \int_{S'}|f|^{p}\d \Pi_x\\
+		\le & \log 2 +\gamma \log \int_S |f|^{p}\d \Pi_x +(k-\gamma)\log\int_{S}|f|^{p}\d \Pi_x+k' \log \int_{S'}|f|^{p}\d \Pi_x\\
+		\le & \log 2+ \gamma \log \int_S |f|^{p}\d \Pi_x+ (k-\gamma+k') \log \int_{\R}|f|^{p}\d \Pi_x \\
+		= & \log 2 +\gamma \log \int_S|f|^{p}\d \Pi_x+ (1-\gamma) \log \int _{\R}|f|^{p}\d \Pi_x
+	.\end{align*}
+Hence we obtain
+\[
+|P(f)(x)|^{p}\le 2\left( \int_S|f|^{p}\d \Pi_x\right)^{\gamma}\left( \int_{\R} |f|^{p}\d \Pi_x \right)^{1-\gamma}. 
+\] 
+Integrating both sides together with \cref{eqn:1,eqn:2} we obtain \cref{eqn:key}. 
+\end{proof}
+
+\section{End of the Proof}
+
+Let $f \in L^{p}\left( \R \right) $, Poissson transformation $P(f)$ can be rewritten as convolution
+\[
+P(f)=f * k,
+\] 
+where $\displaystyle k:= \frac{1}{\pi (1+x^2)}$. Since $\displaystyle \widehat{k}(\xi)=e^{-|\xi|} /2\pi, \xi \in \R$, we have $\widehat{P(f)}(\xi)=e^{-|\xi|}\widehat{f}(\xi)$.
+
+We introduce a lemma below, which is used in $L^{p}$-version ($p \in [1,\infty)$) of the Logvinenko-Sereda Theorem:
+\begin{lemma} \label{lma:p}
+	Let $p \in [1,\infty], f \in L^{p}(\R)$, then $P(f) \in L^{p}(\R)$ and 
+	\[
+	\|P(f)\|_p\le \|f\|_p.
+	\] 
+\end{lemma}
+
+\begin{proof}
+	The case $p=1$ or $\infty$ is simple, hence we suppose $1<p<\infty$ and $q:=p /(p-1)$. Then
+	 \begin{align*}
+		&|P(f)(x)|^{p}\le \left(\int \left( k(x-t) \right)^{1 /p}|f(t)|\left( k(x-t) \right) ^{1 /q}\d t \right)^{p}\\
+		 \le & \left( \int k(x-t)|f(t)|^{p}\d t \right) \cdot \left( \int k(x-t) \d t \right) ^{p /q}=P(|f|^{p})(x)
+	.\end{align*}
+	Integrating this estimate with respect to $x$ and use the equality $\int P(|f|^{p})=\int |f|^{p}$, we obtain the desired result.
+\end{proof}
+\begin{lemma}\label{lma:inverse-control}
+	If $f\in H^2\left( \R \right) $ and $\mathrm{ess}\,\mathrm{spec} f\subset (0,l)$, then
+	\begin{equation}
+		\|f\|_2\le e^{l}\|P(f)\|_2.
+	\end{equation}
+\end{lemma} 
+
+\begin{proof}
+	Since $f\in H^2(\R)$, we have $\widehat{P(f)}(\xi)=e^{-\xi}\widehat{f}(\xi)$. Hence
+	\begin{equation}
+		|\widehat{f}(\xi)|=e^{\xi}|\widehat{P(f)}(\xi)|\le e^{l}|\widehat{P(f)}(\xi)|,\quad \xi \in \R.
+	\end{equation}
+	Then use the Plancherel Theorem we obtain the desired inequality.
+\end{proof}
+
+
+
+Now we finish the proof of \cref{thm:main}.
+
+\noindent{\itshape Proof of $(\mathrm{b})\Rightarrow (\mathrm{a})$.} Suppose $f\in  L^2(\R)$ and $\mathrm{ess}\,\mathrm{spec} f \subset (a,b),l=b-a$. We transform $f$ into a plus-function by
+\[
+\varphi:=f e^{-i a x}.
+\] 
+Then $\varphi \in H^2(\R)$ and $\mathrm{ess}\,\mathrm{spec}\varphi \subset (0,l)$, $|\varphi|\equiv |f|$. By \cref{lma:inverse-control},
+\begin{equation}\label{eqn:mid}
+\int_{\R}|f|^2\d x=\int_{\R}|\varphi|^2\d x \le e^{2l}\int_{\R}|P(\varphi)|^2. 
+\end{equation}
+Then by \cref{prp:equiv}  we know $\Pi_x(S)\ge \sigma$ for any $x\in \R$, where $\sigma>0$ does not depend on $x$. Hence we can apply \cref{lma:key} and obtain
+\[
+\|P(\varphi)\|_2^2\le 2\left( \int_S|\varphi|^2 \right) ^{\sigma}\|\varphi\|_2^{2(1-\sigma)}=2\left( \int_S|f|^2 \right) ^{\sigma} \|f\|_2^{2(1-\sigma)}.
+\]
+This estimate combined with \cref{eqn:mid} gives 
+\[
+\|f\|_{2}^{2\sigma}\le 2 e^{2l}\left( \int_S |f|^2 \right) ^{\sigma} \,\Rightarrow \, \|f\|_2^2\le (2e^{2l})^{1 /\sigma}\int_S|f|^2 \d x.
+\] \hfill $\square$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

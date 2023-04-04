@@ -1,0 +1,486 @@
+%TEX program = xelatex
+\documentclass[12pt]{amsart}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[colorlinks,
+	linkcolor=Red,
+	anchorcolor=blue,
+	citecolor=ForestGreen
+]
+{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{amsmath, amssymb,mathrsfs}
+\usepackage{mathtools}
+
+% A symbol for the quotient of two objects
+%\usepackage{xfrac}
+%\usepackage{faktor}
+\newcommand{\sfrac}[2]{{\left.\raisebox{.2em}{$#1$}\middle/\raisebox{-.2em}{$#2$}\right.}}
+\newcommand{\bsfrac}[2]{{\left.\raisebox{-.2em}{$#1$}\middle\backslash\raisebox{.2em}{$#2$}\right.}}
+\usepackage{tikz-cd}
+\usetikzlibrary{decorations.pathreplacing}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{tkz-berge}
+
+\usepackage[capitalize,nameinlink]{cleveref}[0.19]
+ 
+\crefname{section}{section}{sections}
+\crefname{subsection}{subsection}{subsections}
+\Crefname{section}{Section}{Sections}
+\Crefname{subsection}{Subsection}{Subsections}
+ 
+\Crefname{figure}{Figure}{Figures}
+
+ 
+\crefformat{equation}{\textup{#2(#1)#3}}
+\crefrangeformat{equation}{\textup{#3(#1)#4--#5(#2)#6}}
+\crefmultiformat{equation}{\textup{#2(#1)#3}}{ and \textup{#2(#1)#3}}
+{, \textup{#2(#1)#3}}{, and \textup{#2(#1)#3}}
+\crefrangemultiformat{equation}{\textup{#3(#1)#4--#5(#2)#6}}%
+{ and \textup{#3(#1)#4--#5(#2)#6}}{, \textup{#3(#1)#4--#5(#2)#6}}{, and \textup{#3(#1)#4--#5(#2)#6}}
+
+ 
+\Crefformat{equation}{#2Equation~\textup{(#1)}#3}
+\Crefrangeformat{equation}{Equations~\textup{#3(#1)#4--#5(#2)#6}}
+\Crefmultiformat{equation}{Equations~\textup{#2(#1)#3}}{ and \textup{#2(#1)#3}}
+{, \textup{#2(#1)#3}}{, and \textup{#2(#1)#3}}
+\Crefrangemultiformat{equation}{Equations~\textup{#3(#1)#4--#5(#2)#6}}%
+{ and \textup{#3(#1)#4--#5(#2)#6}}{, \textup{#3(#1)#4--#5(#2)#6}}{, and \textup{#3(#1)#4--#5(#2)#6}}
+
+%\oddsidemargin=-.0cm
+%\evensidemargin=-.0cm
+\textwidth=15cm
+%\textheight=22cm
+%\topmargin=0cm
+\calclayout
+
+% integral vraiable
+\renewcommand{\d}{\,\mathrm{d}}
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\newcommand{\incfig}[1]{%
+  \def\svgwidth{\columnwidth}
+  \import{./figures/}{#1.pdf_tex}
+}
+% Some shortcuts
+\newcommand\N{\ensuremath{\mathbb{N}}}
+\newcommand\R{\ensuremath{\mathbb{R}}}
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+\newcommand\T{\ensuremath{\mathbb{T}}}
+\renewcommand\O{\ensuremath{\emptyset}}
+\newcommand\Q{\ensuremath{\mathbb{Q}}}
+\newcommand\C{\ensuremath{\mathbb{C}}}
+\newcommand\CP{\ensuremath{\mathbb{CP}}}
+\newcommand\CR{\ensuremath{\mathbb{CR}}}
+\newcommand\Sph{\ensuremath{\mathbb{S}}}
+
+% Some theorem environment settings
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{remark}{Remark}
+\newtheorem*{question}{Question}
+\newtheorem{definition}{Definition}
+\newtheorem{exercise}{Exercise}
+\newtheorem*{solution}{Solution}
+\newtheorem*{claim}{Claim}
+\newtheorem{example}{Example}
+% Enumerate Style
+\renewcommand{\labelenumi}{{\normalfont(\roman{enumi})}}
+
+% Tensor
+\usepackage{tensor}
+
+\DeclareMathOperator{\order}{ord}
+% bracket notations 
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
+
+% Notations in differential geometry
+% inner product
+\DeclarePairedDelimiterX\ipd[2]{\langle}{\rangle}{#1\delimsize , #2}
+
+% Notations in quantum field theory
+% normal ordering
+\newcommand{\normord}[1]{:\mathrel{#1}:}
+
+% Real and imaginary parts
+\DeclareMathOperator{\Realpart}{Re}
+\renewcommand{\Re}{\Realpart}
+
+\DeclareMathOperator{\Impart}{Im}
+\renewcommand{\Im}{\Impart}
+
+
+\DeclareMathOperator{\ddet}{det}
+\renewcommand{\det}{\ddet}
+
+% Groups
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+
+% Make a box
+\newcommand{\makeabox}[2]{\textcolor{#1}{\fbox{\parbox{\textwidth}{#2}}}}
+\newcommand{\makeredbox}[1]{\textcolor{Red}{\boxed{#1}}}
+
+\usepackage[foot]{amsaddr}
+%\numberwithin{equation}{section}
+%\usepackage[notref,notcite]{showkeys}
+\begin{document}
+\title[Spectral inequality with explicit dependence on the scale]{Spectral inequality with explicit dependence on the scale}
+\author[Y. Wang]{Yunlei Wang}
+\email{yunlei.wang@math.u-bordeaux.fr}
+
+%\address{Institut de Mathématiques de Bordeaux, Université de Bordeaux 351, cours de la Libération, F 33405 TALENCE cedex}
+
+\maketitle
+
+
+
+\begin{abstract}
+	In this note, under more restrictive assumption of the potential, we give the spectral inequality with explicit dependence on the scale $l>0$ in the region $\Omega$ who satisfies some density conditions.
+\end{abstract}
+\tableofcontents
+\section{Assumption and notation}
+In this note, we always assume the potential  
+\begin{equation}\label{assump}
+V(x)=c|x|^{\beta },\quad x \in \R^{n}
+\end{equation}
+and $\beta >1$ for simplicity.\\
+\textcolor{Gray}{ \fbox{\parbox{\textwidth}{In \cite{zhu2023spectral}, it has the following general assumption: Assume $V\in L^{\infty}_{\mathrm{loc}}\left( \R^{n} \right) $ satisfies the following two conditions:
+\begin{enumerate}
+	\item There exist positive constant $c_1$ and $\beta_1$ such that for all $x \in \R^{n}$,
+		\begin{equation}
+			c_1\left( |x|-1 \right) ^{\beta_1}\le V(x),
+		\end{equation}
+	\item We can write $V=V_1+V_2$ such that there exist positive constants $c_2$ and $\beta_2$ such that 
+		\begin{equation}
+			|V_1(x)|+|DV_1(x)|+|V_2(x)|^{\frac{4}{3}}\le c_2\left( |x|+1 \right) ^{\beta_2}.
+		\end{equation}
+\end{enumerate}}
+}
+}
+
+Given $L>0$, we denote
+ \[
+\Lambda_L:= \left[ -\frac{L}{2},\frac{L}{2} \right] ^{n}.
+\] 
+Denote $\mathcal{B}_{r}(x) \subset \R^{n}$ be a ball with radius $r$ and center $x$. Denote  $\mathbb{B}_r(x)$ be a ball in $\R^{n+1}$.
+
+There two kinds of sensor sets $\Omega$ which we should be careful about:
+\begin{enumerate}
+	\item let $l>0,\gamma \in (0,1)$ and  $\sigma >0$, the set $\Omega$ is said to be $(l,\gamma,\sigma )$-distributed if there exists a set of points $\left\{z_k: k\in \Z^{n}\right\} $ such that
+		\begin{equation}\label{density-1}
+			\Omega \cap (lk+\Lambda_l) \supset \mathcal{B}_{\gamma^{1+|k|^{\sigma }}l}(z _k)\tag{Type 1}
+		\end{equation}
+	\item sometimes the density condition \eqref{density-1} can be modified to the following form
+		\begin{equation}
+			\Omega \cap (lk+\Lambda_l) \supset \mathcal{B}_{\gamma^{1+|lk|^{\sigma }}l}(z_k).\label{density-2}\tag{Type 2}
+		\end{equation} 
+\end{enumerate}
+
+In this note, we always use the type 1 density condition, i.e., the sensor set $\Omega$ who satisfies \eqref{density-1}. 
+
+
+\section{Scaling}
+
+
+We consider the solutions of
+\begin{equation}
+	-\Delta v+V v=0, \text{ in }\R^{n+1}.\label{eqn-4}
+\end{equation}
+Define the scaling function 
+\[
+       g(x)=lx, \quad x \in \R^{n+1}.
+\] 
+Then for any solution $v$ of \eqref{eqn-4} we define 
+\begin{equation}
+\widetilde{v}(x):=(v\circ g_{n+1})(x)=v(lx).
+\end{equation}
+Then
+\begin{gather*}
+	-\left( \Delta v \right) \circ g + \left( Vv \right) \circ g =0,\\
+	-\frac{1}{l^2} \Delta \left( v\circ g \right) +\left( V\circ g \right) \left( v\circ g \right) =0,
+\end{gather*}
+\begin{equation}
+	-\Delta \widetilde{v}+\widetilde{V}\widetilde{v}=0.\label{eqn-5}
+\end{equation}
+here we denote $\widetilde{V}(x)= l^2 V(lx)$. Then
+\begin{equation}
+	\widetilde{V}(x)= cl^{2+\beta }|x|^{\beta }
+\end{equation}
+by assumption.
+
+
+Let $\delta \in (0,\frac{1}{2})$, $b=(0,\cdots ,0,-b_{n+1})$ and $b_{n+1}= \frac{\delta}{100}$. Define
+\begin{equation*}
+	\begin{aligned}
+		W_1=&\left\{y \in \R^{n+1}_+\lvert |y-b|\le \frac{1}{4}\delta\right\}, \\
+		W_2=& \left\{y \in \R^{n+1}_+\lvert |y-b|\le \frac{1}{2}\delta\right\}, \\
+		W_3=& \left\{y \in \R^{n+1}_+\lvert |y-b|\le \frac{2}{3}\delta\right\}.
+	\end{aligned} 
+\end{equation*}
+Then $W_1\subset W_2\subset W_3\subset \mathbb{B}_{\delta}$. Define
+\[
+W_j(z_i):=(z_i,0)+W_j, \quad  j=1,2,3,
+\]
+with $Q_L:= \Lambda_L \cap \Z^{n}$,
+and
+\[
+P_j(L)= \bigcup_{i\in Q_{L}} W_j\left( z_i \right) \text{ and } D_{\delta}(L)=\bigcup_{i\in Q_L} \mathcal{B}_{\delta}(z_i).
+\] 
+
+\begin{lemma}\label{lma-1}
+	Let  $\delta \in (0,\frac{1}{2})$. Let $v$ be the solution of \eqref{eqn-4} with $v(y)=0$ on the hyperplane $\left\{y\left| y_{n+1}=0\right.\right\} $. There exist $0<\alpha <1$ and $C>0$, depending only on $n$ such that
+	\begin{equation}\label{eqn-7}
+		\|v\|_{H^{1}\left( P_1(L) \right) }\le \delta^{-\alpha }\exp \left( C\left( 1+\mathcal{G}(V_1,V_2,9\sqrt{n} L \right)  \right) \|v\|^{\alpha }_{H^{1}\left( P_3(L) \right) }\|\frac{\partial v}{\partial y_{n+1}}\|^{1-\alpha }_{L^2\left( D_\delta(L) \right) }, 
+	\end{equation}
+	where 
+	\begin{equation}\label{eqn-8}
+		\mathcal{G}\left( V_1,V_2,L \right) =\|V_1\|^{\frac{1}{2}}_{W^{1,\infty}(\Lambda_L)}+\|V_2\|^{\frac{2}{3}}_{L^{\infty}(\Lambda_L)}.
+	\end{equation}
+\end{lemma}
+Since $\widetilde{v}$ satisfy \eqref{eqn-8}, we substitute $\widetilde{v}$ into \eqref{eqn-7} and get
+\begin{equation}\label{inq-1}	
+	\|\widetilde{v}\|_{H^{1}\left( P_1(L) \right) }\le \delta^{-\alpha }\exp \left( C\left( 1+\mathcal{G}(\widetilde{V}_1,\widetilde{V}_2,9\sqrt{n} L \right)  \right) \|\widetilde{v}\|^{\alpha }_{H^{1}\left( P_3(L) \right) }\|\frac{\partial \widetilde{v}}{\partial y_{n+1}}\|^{1-\alpha }_{L^2\left( D_\delta(L) \right) } 
+\end{equation}
+with
+\begin{equation}\label{eqn-10}
+	\mathcal{G}(\widetilde{V}_1,\widetilde{V}_2,9\sqrt{n} L)=\|\widetilde{V}_1\|^{\frac{1}{2}}_{W^{1,\infty}(\Lambda_{9\sqrt{n} L})}+ \|\widetilde{V}_2\|^{\frac{2}{3}}_{\Lambda_{9\sqrt{n} L}}.
+\end{equation}
+Now we compute each term in \eqref{inq-1}:
+\begin{equation}\label{term-1}
+	\begin{aligned}
+		\|\widetilde{v}\|_{H^{1}(P_1(L))}^2&= \int_{P_1(L)}|\widetilde{v}|^2\d x+ \int_{P_1(L)} \left| D_x \widetilde{v} \right| ^2\d x \\
+						   &= \int_{P_1(L)}|v(lx)|^2\d x+ \int_{P_1(L)}\left| l (D_{x} v)(lx) \right|^2\d x\\
+						   &= \frac{1}{l^{n+1}}\int_{lP_1(L)}|v(x)|^2\d x+ \frac{1}{l^{n-1}}\int_{lP_1(L)} \left| D_x v \right| ^2\d x\\
+						   &\textcolor{Red}{\boxed{= \frac{1}{l^{n+1}}\|v\|^2_{L^2\left( lP_1(L) \right) }+\frac{1}{l^{n-1}}\|Dv\|^2_{L^2\left( lP_1(L) \right) }},} 
+	\end{aligned} 
+\end{equation}
+\begin{equation}\label{term-2}
+	\begin{aligned}
+		\|\widetilde{v}\|^2_{H^{1}(P_3(L))}&= \frac{1}{l^{n+1}} \int_{lP_1(L)} |v(x)|^2\d x+ \frac{1}{l^{n-1}}\int_{lP_3(L)} |D_xv|^2\d x\\
+						   &\textcolor{Red}{\boxed{= \frac{1}{l^{n+1}}\|v\|^2_{L^2(l P_1(L))}+\frac{1}{l^{n-1}}\|Dv\|^2_{L^2(lP_3(L))}},}
+	\end{aligned}
+\end{equation}
+and
+\begin{equation}\label{term-3}
+	\begin{aligned}
+		\|\frac{\partial \widetilde{v}}{\partial y_{n+1}} \|^2_{L^2\left( D_{\delta}(L) \right) }&= \int_{D_\delta(L)}\left| \frac{\partial \widetilde{v}}{\partial y_{n+1}}  \right| ^2\d x\\
+													 &= \int_{D_{\delta}(L)}l^2\left| \frac{\partial v}{\partial y_{n+1}} (lx) \right|^2\d x\\
+													 &= \frac{1}{l^{n-1}}\int_{lD_\delta(L)}\left| \frac{\partial v}{\partial y_{n+1}} (x) \right| ^2\d x\\
+													 &\textcolor{Red}{\boxed{= \frac{1}{l^{n-1}}\|\frac{\partial v}{\partial y_{n+1}} \|^2_{L^2(lD_\delta(L)}}}.
+	\end{aligned} 
+\end{equation}
+Similarly, we have
+\begin{equation}\label{potential-1}
+	\|\widetilde{V}_1\|_{W^{1,\infty}\left( \Lambda_{9 \sqrt{n} L} \right) }= \|V_1\|_{L^{\infty}(\Lambda_{9\sqrt{n} lL})}+l \|DV_1\|_{L^{\infty}\left( \Lambda_{9\sqrt{n} lL} \right) }
+\end{equation}
+and
+\begin{equation}\label{potential-2}
+	\|\widetilde{V}_2\|_{L^{\infty}(\Lambda_{9\sqrt{n} L})}= \|V_2\|_{L^{\infty}\left( \Lambda_{9\sqrt{n} lL} \right) }.
+\end{equation}
+
+Let $\delta\in (0,\frac{1}{2})$ and
+\begin{equation*}
+	\begin{aligned}
+		R_1=\frac{1}{16}\delta & \text{ and }r_1=\frac{1}{32}\delta, \\
+		R_2=3\sqrt{n} & \text{ and } r_2=\frac{1}{2},\\
+		R_3=9\sqrt{n} & \text{ and } r_3=6\sqrt{n}.
+	\end{aligned} 
+\end{equation*}
+Choose $R=2R_3=18\sqrt{n} $. Define
+\begin{equation}
+	X_1=\Lambda_L\times [-1,1] \text{ and }\widetilde{X}_{R_3}=\Lambda_{L+R_3}\times [-R_3,R_3].
+\end{equation}
+\begin{lemma}\label{lma-2}
+	Let $\delta \in (0,\frac{1}{2})$. Let $v$ be the solution of \eqref{eqn-4} which is odd with repect to $y_{n+1}$. There exist $C>0$ depending only on $n$, $0<\alpha <1$ depending on $\delta$ and $n$ such that
+	\begin{equation}\label{eqn-17}
+		\|v\|_{H^{1}(X_1)}\le \delta^{-2\alpha _1}\exp\left( C\left( 1+\mathcal{G}\left( V_1,V_2,9\sqrt{n} L \right)  \right)  \right) \|v\|^{1-\alpha _1}_{H^{1}\left( \widetilde{X}_{R_3} \right) }\|v\|^{\alpha_1}_{H^{1}\left( P_1(L) \right) },
+	\end{equation}
+	where $\mathcal{G}(V_1,V_2,L)$ is given by \eqref{eqn-10}. 
+\end{lemma}
+To explicitly denote $\alpha _1$, we define $\psi(\widehat{r})=e^{-s\widehat{r}}$ and then
+\begin{equation}
+	\kappa_1= \log \frac{96 \sqrt{n} }{\delta} \text{  and }\kappa_2= \psi\left( \frac{r_0}{3} \right) -\psi\left( \frac{r_0}{6} \right).
+\end{equation}
+Now we have
+\begin{equation}
+	0<\alpha_1= \frac{|\kappa_2|}{|\log \delta|+\log (96\sqrt{n})+|\kappa_2| }<1.
+\end{equation}
+The same as in Lemma \ref{lma-1}, substitute $\widetilde{v}$ into \eqref{eqn-17} and get
+\begin{equation}
+	\|\widetilde{v}\|_{H^{1}(X_1)}\le \delta^{-2\alpha _1}\exp\left( C\left( 1+\mathcal{G}\left( \widetilde{V}_1,\widetilde{V}_2,9\sqrt{n} L \right)  \right)  \right) \|\widetilde{v}\|^{1-\alpha _1}_{H^{1}\left( \widetilde{X}_{R_3} \right) }\|\widetilde{v}\|^{\alpha_1}_{H^{1}\left( P_1(L) \right) }.\label{inq-2}
+\end{equation}
+Now we compute each term in \eqref{inq-2}:
+\begin{equation}\label{term-4}
+	\makeredbox{\|\widetilde{v}\|_{H^{1}(X_1)}^2=\frac{1}{l^{n+1}}\|v\|^2_{L^2(lX_1)}+\frac{1}{l^{n-1}}\|Dv\|^2_{L^2(lX_1)},}
+\end{equation}
+\begin{equation}
+	\makeredbox{\|\widetilde{v}\|^2_{H^{1}\left( \widetilde{X}_{R_3} \right) }= \frac{1}{l^{n+1}}\|v\|^2_{L^2(l\widetilde{X}_{R_3})}+\frac{1}{l^{n-1}}\|v\|^2_{L^2\left( l\widetilde{X}_{R_3} \right) },}
+\end{equation}
+and
+\begin{equation}
+	\makeredbox{\|\widetilde{v}\|^2_{H^{1}\left( P_1(L) \right) }=\frac{1}{l^{n+1}}\|v\|^2_{L^2(lP_1(L))}+\frac{1}{l^{n-1}}\|v\|^2_{L^2\left( lP_1(L) \right) }.}
+\end{equation}
+
+\section{Ghost dimension}
+We denote $H=-\Delta+V$ and let $\phi \in \mathcal{E}_\lambda(H) $ satisfying
+\begin{equation}
+	\phi=\sum_{\lambda_k\le \lambda} \alpha _k\phi_k.
+\end{equation}
+Define
+\begin{equation}\label{eqn-28}
+	\Phi(x,x_{n+1})=\sum_{0<\alpha _k\le \lambda} \alpha _k \phi_k(x) \frac{\sinh \left( \sqrt{\lambda_k} x_{n+1} \right) }{\sqrt{\lambda_k} }.
+\end{equation}
+Then $\Phi(x,x_{n+1})$ satisfies \eqref{eqn-4}.
+
+\begin{proposition}\label{prop-3}
+	There exists a constant $\widehat{C}$ depending on $\beta_1,c_1,\beta_2,c_2$ such that for all $\lambda\ge \lambda_1$ and $\phi \in \mathcal{E}_\lambda(H) $, we have
+	\begin{equation}
+		\|\phi\|^2_{H^{1}\left( \R^{n}\backslash \mathcal{B}_{\widehat{C}\lambda^{1 /\beta_1}} \right) }\le \frac{1}{2}\|\phi\|_{L^2(\R^{n})}.
+	\end{equation}
+\end{proposition}
+According to this proposition, we have
+\begin{equation}\label{eqn-30}
+	\|\Phi\|^2_{H^{1}\left( \R^{n}\times (-l,l) \right) }\le 2 \|\Phi\|^2_{H^{1}\left( \mathcal{B}_{\widehat{C}\lambda^{1 /\beta_1}} \times (-l,l)\right) }.
+\end{equation}
+
+\begin{lemma}\label{lma-4}
+	Let $\phi \in \mathcal{E}_\lambda(H) $ and $\Phi$ be given in \eqref{eqn-28}. For any $\rho >0$, we have 
+	\begin{equation}
+		2\rho \|\phi\|^2_{L^2\left( \R^{n} \right) }\le \|\Phi\|^2_{H^{1}\left( \R^{n}\times (-\rho,\rho ) \right) }\le 2\rho \left( 1+\frac{\rho ^2}{3}(1+\lambda) \right) e^{2\rho \sqrt{\lambda} }\|\phi\|^2_{L^2(\R^{n})}.
+	\end{equation}
+\end{lemma}
+
+
+\section{Large scale}
+In this section, we try to prove the spectral inequality in the large scale, i.e., $l\ge1$.
+
+From \eqref{term-1} and \eqref{term-2}, we obtain
+\begin{equation}\label{term-1'}
+	\|\widetilde{v}\|^2_{H^{1}\left( P_1(L) \right) }\ge \frac{1}{l^{n+1}} \|v\|^2_{H^{1}\left( lP_1(L) \right) }
+\end{equation}
+and
+\begin{equation}\label{term-2'}
+	\|\widetilde{v}\|^2_{H^{1}(P_3(L))} \le  \frac{1}{l^{n-1}}\|v\|^2_{H^{1}(P_3(L))}.
+\end{equation}
+Substituting \eqref{term-1'}, \eqref{term-2'} and \eqref{term-3} into \eqref{inq-1}, we obtain
+\begin{equation}\label{inq-1'}
+	\|v\|_{H^{1}\left( lP_1(L) \right) }\le l  \delta^{-\alpha }\exp \left( C\left( 1+\mathcal{G}\left( \widetilde{V}_1,\widetilde{V}_2,9\sqrt{n} L \right)  \right)  \right) \|v\|^{\alpha }_{H^{1}\left( lP_3(L) \right) }\|\frac{\partial v}{\partial y_{n+1}}\|^{1-\alpha }_{L^2\left( lD_\delta(L) \right) }. 
+\end{equation}
+Here we need to esitmate $\mathcal{G}\left( \widetilde{V}_1,\widetilde{V}_2,9\sqrt{n} L \right) $, by \eqref{potential-1} and \eqref{potential-2} we obtain
+\begin{equation}\label{potential'}
+	\mathcal{G}\left( \widetilde{V}_1,\widetilde{V}_2,9\sqrt{n} L \right) \le l^{\frac{1}{2}} \left( \|V_1\|^{\frac{1}{2}}_{W^{1,\infty}\left( \Lambda_{9\sqrt{n} lL} \right) }+\|V_2\|^{\frac{2}{3}}_{L^{\infty}\left( \Lambda_{9\sqrt{n} lL} \right) } \right) . 
+\end{equation}
+Similarly, we can derive the following from \eqref{inq-2}
+\begin{equation}\label{inq-2'}
+	\|v\|_{H^{1}(lX_1)}\le l \delta^{-2\alpha_1}\exp\left( C\left( 1+\mathcal{G}\left( \widetilde{V}_1,\widetilde{V}_2,9\sqrt{n}L  \right)  \right)  \right) \|v\|^{1-\alpha_1}_{H^{1}\left( l\widetilde{X}_{R_3} \right) } \|v\|^{\alpha _1}_{H^{1}(lP_1(L)}.
+\end{equation}
+
+We assume the potential $V$ satisfy \eqref{assump},  $V_1=V$ and $V_2=0$.
+
+\noindent \textit{Proof of the case $l>1$.}
+Let $lL=2 \left\lceil \widehat{C}\lambda^{1 /\beta } \right\rceil +1$, then it is easy to see that $\mathcal{B}_{\widehat{C}\lambda ^{1 /\beta _1}}\subset \Lambda_{lL}=l\Lambda_{L}$. Now we decompose $\Lambda_{lL}$ as
+\begin{equation}
+	\Lambda_{lL}=\bigcup_{k\in \Lambda_{L}\cap \Z^{n}} \left( lk+\left[ -\frac{l}{2},\frac{l}{2} \right]  \right).
+\end{equation}
+Observe that $l|k|\le \sqrt{n} \left\lceil \widehat{C} \lambda ^{1 /\beta } \right\rceil $ for each $k\in \Lambda_{L}\cap \Z^{n}$. Let $\gamma \in (0,\frac{1}{2})$ be as in \eqref{density-1} and
+\begin{equation}
+	\delta:= \gamma ^{1+\left( \frac{1}{l}\sqrt{n} \left\lceil \widehat{C}\lambda^{\frac{1}{\beta }} \right\rceil  \right) ^{\sigma }}\le \gamma^{1+|k|^{\sigma }} \text{ for all }k \in \Lambda_L \cap \Z^{n}.
+\end{equation}
+
+Now we show an interpolation inequality using (\ref{inq-1'},~\ref{potential'},~\ref{inq-2'})
+\begin{equation}
+	\begin{aligned}
+		\|\Phi\|_{H^{1}(lX_1)}\le & \delta^{-2\alpha_1} \exp \left( C\left( 1+l^{\frac{1}{2}}\|V\|_{W^{1,\infty}\left( \Lambda_{9\sqrt{n} lL} \right) }^{\frac{1}{2}} \right)  \right)\|\Phi\|^{1-\alpha _1}_{H^{1}\left( l\widetilde{X}_{R_3} \right) } \|\Phi\|^{\alpha_1}_{H^{1}\left( lP_1(L) \right) }\\
+		\le & \delta^{-2 \alpha_1-\alpha \alpha_1}\exp\left( C\left( 1+l^{\frac{1}{2}}\|V\|^{\frac{1}{2}}_{W^{1,\infty}(\Lambda_{9\sqrt{n} lL})} \right)  \right)\|\Phi\|^{\alpha \alpha_1}_{H^{1}\left( lP_3(L) \right) }\|\frac{\partial \Phi}{\partial y_{n+1}} \|^{\alpha_1(1-\alpha)}_{L^2\left( lD_{\delta}(L) \right) }\|\Phi\|^{1-\alpha_1}_{H^{1}\left( l \widetilde{X}_{R_3} \right) } \\
+		\le& \delta^{-3\alpha_1}\exp \left( C\left( 1+ l^{\frac{1}{2}}\|V\|^{\frac{1}{2}}_{W^{1,\infty}\left( \Lambda_{9\sqrt{n} lL} \right) } \right)    \right) \|\phi\|^{\widehat{\alpha}}_{L^2\left( lD_\delta(L) \right) }\|\Phi\|^{1-\widehat{\alpha}}_{H^{1}\left( l\widetilde{X}_{R_3} \right) }
+	\end{aligned} 
+\end{equation}
+where $\widehat{\alpha}=\alpha_1(1-\alpha)$ and we have used the facts $lP_3(L)\subset l \widetilde{X}_{R_3}$ and $\frac{\partial \Phi}{\partial y_{n+1}}(\cdot ,0)=\phi$, and absorbed the polynomial factor $l$ by taking $C$ large enough (which is not dependent on $l$). Since $\alpha_1\approx \widehat{\alpha}\approx \frac{1}{|\log \delta|}$ for any $\delta \in (0,\frac{1}{2})$ and then $\delta ^{-3\alpha_1}\le C$, we obtain
+\begin{equation}
+	\|\Phi\|_{H^{1}(lX_1)}\le \exp \left( C\left( 1+l^{\frac{1}{2}}\|V\|^{\frac{1}{2}}_{W^{1,\infty}\left( \Lambda_{9\sqrt{n} lL} \right) } \right)  \right) \|\phi\|^{\widehat{\alpha }}_{L^2\left( \Omega \cap \Lambda_{lL} \right) }\|\Phi\|^{1-\widehat{\alpha }}_{H^{1}\left( l \widetilde{X}_{R_3} \right) }
+\end{equation}
+where we have also used the fact $lD_{\delta}(L)\subset \Omega \cap \Lambda_{lL}$.
+
+Remember we assume $V=c|x|^{\beta}$, hence we have
+\begin{equation}
+	C\left( 1+l^{\frac{1}{2}}\|V\|^{\frac{1}{2}}_{W^{1,\infty}\left( \Lambda_{9\sqrt{n} lL} \right) } \right) \le C\left( 1+l^{\frac{1}{2}} \left( 9\sqrt{n} lL \right) ^{\frac{\beta }{2}} \right)\le C_* l^{\frac{1}{2}} \lambda ^{\frac{1}{2}}. 
+\end{equation}
+\makeabox{Gray}{
+		If we do not assume $V=c|x|^{\beta }$ and just use the general assumption, then the above estimate should be derived from \eqref{potential'} and becomes
+\begin{equation}
+	\mathcal{G}\left( \widetilde{V}_1,\widetilde{V}_2,9\sqrt{n} L \right) \le C_*l^{\frac{1}{2}} \lambda ^{\frac{\beta_2}{\beta_1}}.
+\end{equation}
+But the constant $C_{*}$ now depends on  $l$ also. The reason is we do not give the explicit dependence relation of $\widehat{C}$ with respect to $c_1,c_2,\beta_1,\beta_2$.
+}
+Then we have
+\begin{equation}\label{eqn-42}
+	\|\Phi\|_{H^{1}(lX_1)}\le \exp\left( C_* l^{\frac{1}{2}}\lambda^{\frac{1}{2}} \right) \|\phi\|^{\widehat{\alpha }}_{L^2\left( \Omega \cap \Lambda_{lL} \right) }\|\Phi\|^{1-\widehat{\alpha }}_{H^{1}\left( l \widetilde{X}_{R_3} \right) }.
+\end{equation}
+
+Applying $\rho =lR_3$ and $\rho =l$ in Lemma \ref{lma-4} for upper and lower bounds, respectively, we obtain
+\begin{equation}
+	\frac{\|\Phi\|^2_{H^{1}\left( \R^{n}\times (-lR_3,lR_3) \right) }}{\|\Phi\|^2_{H^{1}\left( \R^{n}\times (-l,l) \right) }}\le \frac{2l R_3 \left( 1+ \frac{(lR_3)^2}{3}(1+\lambda) \right) \exp(2lR_3\sqrt{\lambda} )}{2l}\le \exp\left(C_2 l \sqrt{\lambda}   \right).  
+\end{equation}
+With the aid of \eqref{eqn-30} and the fact $\mathcal{B}_{\widehat{C}\lambda ^{1 /\beta }}\subset \Lambda_{lL}$, we get
+\begin{equation}
+	\|\Phi\|_{H^{1}\left( \R^{n}\times (-lR_3,lR_3) \right) }\le \exp\left( \frac{1}{2}C_2 \sqrt{\lambda}  \right) \|\Phi\|_{H^{1}\left( \R^{n}\times (-l,l) \right) }\le \sqrt{2}  \exp \left( \frac{1}{2}C_2 \sqrt{\lambda}  \right) \|\Phi\|_{H^{1}\left( \Lambda_{lL}\times (-l,l) \right) }.
+\end{equation}
+Note that $lX_1=\Lambda_{lL}\times (-l,l)$, by \eqref{eqn-42} we obtain
+\begin{equation}	
+	\|\Phi\|_{H^{1}(\R^{n}\times (-lR_3,lR_3))}\le \exp\left( C_3 l^{\frac{1}{2}}\lambda^{\frac{1}{2}} \right) \|\phi\|^{\widehat{\alpha }}_{L^2\left( \Omega \cap \Lambda_{lL} \right) }\|\Phi\|^{1-\widehat{\alpha }}_{H^{1}\left( l \widetilde{X}_{R_3} \right) }.
+\end{equation}
+Since $l \widetilde{X}_{R_3}\subset \R^{n}\times \left( -l R_3,lR_3 \right) $, it follows that
+\begin{equation}
+	\|\Phi\|_{\R^{n}\times (-lR_3,lR_3)}\le \exp \left( \widehat{\alpha }^{-1}C_3 l^{\frac{1}{2}}\lambda^{\frac{1}{2}} \right). 
+\end{equation}
+Recall $\widehat{\alpha }^{-1}\approx \alpha ^{-1}_1\approx |\log \delta |\approx \frac{1}{l^{\sigma }}|\log \gamma|\lambda ^{\frac{\sigma }{\beta }}$. It follows that
+\begin{equation}
+	\|\Phi\|_{H^{1}\left( \R^{n}\times (-lR_3,lR_3) \right) }\le \left( \frac{1}{\gamma} \right) ^{C l^{\frac{1}{2}}\lambda^{\frac{\sigma }{\beta }+\frac{1}{2}}}\|\phi\|_{L^2\left( \Omega \cap \Lambda_{lL} \right) }.
+\end{equation}
+Finally, using the lower bound in Lemma~\ref{lma-4} with $\rho =lR_3$, we obtain
+\begin{equation}
+	\|\phi\|_{L^2\left( \R^{n} \right) }\le \left( \frac{1}{2lR_3} \right) ^{\frac{1}{2}}\|\Phi\|_{H^{1}\left( \R^{n}\times (-lR_3,lR_3) \right) }\le \left( \frac{1}{\gamma} \right) ^{C l^{\frac{1}{2}}\lambda^{\frac{\sigma }{\beta }+\frac{1}{2}}}\|\phi\|_{L^2\left( \Omega \cap \Lambda_{lL} \right) }.
+\end{equation}
+This complets the proof of case $l\ge 1$.\hfill  $\square$
+
+\section{Small scale}
+In this section, we try to prove the spectral inequality in the small scale, i.e., $l<1$.
+
+From \eqref{term-1} and \eqref{term-2}, we obtain
+\begin{equation}\label{eqn-32}
+	\|\widetilde{v}\|^2_{H^{1}\left( P_1(L) \right) }\ge \frac{1}{l^{n-1}}\|v\|^2_{H^{1}\left( lP_1(L) \right) }
+\end{equation}
+and
+\begin{equation}\label{eqn-33}
+	\|\widetilde{v}\|^2_{H^{1}\left( P_3(L) \right) }\le \frac{1}{l^{n+1}}\|v\|^2_{H^{1}\left( lP_3(L) \right) }.
+\end{equation}
+Substituting \eqref{eqn-32}, \eqref{eqn-33} and \eqref{term-3} into \eqref{inq-1}, we obtain
+\begin{equation}
+	\|v\|_{H^{1}\left( lP_1(L) \right) } \le\frac{1}{l^{1-\alpha}} \delta^{-\alpha }\exp \left( C\left(     1+\mathcal{G}\left( \widetilde{V}_1,\widetilde{V}_2,9\sqrt{n} L \right)  \right)  \right    ) \|v\|^{\alpha }_{H^{1}\left( lP_3(L) \right) }\|\frac{\partial v}{\partial y_{n+1}}\|^    {1-\alpha }_{L^2\left( lD_\delta(L) \right) }.   
+\end{equation}
+Similarly, we obtain the variance of \eqref{inq-2}
+\begin{equation}
+	\|\widetilde{v}\|_{H_1\left( lX_1 \right) }\le \frac{1}{l}\cdots .
+\end{equation}
+\begin{remark}
+These two inequalities with the polynomial factors of $\frac{1}{l}$ in the cost constants are bad for our final purpose. The reason is that we choose the density condition \eqref{density-1}. This implies that we can only consider the Generalized Grushin operator under for $y \in \T^{m}$ case. 
+
+The same situation appears if we use the density condition \eqref{density-2}. In my opinion, it is due to the cutoff property which Carleman estimates used. More precisely, if $l\to 0$, then the cutoff function must be sharper and leads to a large deviation, hence the carleman estimates fails.
+
+Hence for $y\in \R^{m}$ case, we must change the method of the proof. 
+\end{remark}
+\bibliographystyle{plain}
+\bibliography{mybib}
+\end{document}
+
+

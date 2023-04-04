@@ -1,0 +1,156 @@
+\tableofcontents
+
+
+\section{Poisson kernel for higher dimensions}
+Consider the steady-state heat equation in the upper half-space $\left\{x\in \R^{d},y>0\right\} $ 
+\[
+\sum_{j=1}^{d} \frac{\partial^2 u}{\partial x_j^2} +\frac{\partial^2 u}{\partial y}=0
+\] 
+with the Dirichlet boundary condition $u(x,0)=f(x)$. A solutioon to this problem is given by the convolution 
+\begin{equation}
+u(x,y)=\left( f*P_y^{(d)}(x) \right) 
+\end{equation} where $P_y^{(d)}(x)$ is the $d$-dimensional Poisson kernel
+\begin{equation}
+P_y^{(d)}(x):=\int_{\R^{d}}e^{2\pi i x \cdot \xi}e^{-2\pi |\xi|y}\d \xi.
+\end{equation}
+By using the subordination principle and the $d$-dimensional heat kernel, we obtain
+\begin{equation}
+P_y^{(d)}(x)= \frac{\Gamma \left( \left( d+1 \right) /2 \right) }{\pi ^{(d+1) /2}} \frac{y}{(|x|^2+y^2)^{(d+1) /2}}.
+\end{equation}
+
+\section{Poisson-Jensen Formula in general form}
+
+\begin{definition}
+	The function $g(x,\xi,D)$ is said to be a Green's function of  $x$ with respect to the bounded domain $D$ in $\R^{m}$ and the point $\xi$ of $D $, if 
+	\begin{enumerate}
+		\item $g$ is a harmonic function of $x$ in $D$ except at the point $x=\xi$;
+		\item $g$ is continuous in $\overline{D}$ except at $x=\xi$ and $g=0$ on the boundary of $D$;
+		\item $g+\log|x-\xi|$ remains harmonic at $x=\xi$ if $m=2$, $g-|x-\xi|^{2-m}$ remains harmonic at $x=\xi$ if $m>2$..
+	\end{enumerate}
+\end{definition}
+
+\begin{theorem}
+	Suppose that $D$ is a bounded regular domain in $\R^{m}$ with boundary $\partial D$. Then for every $x$ in $D$ and Borel set $e$ on $\partial D$ there exists a number $\omega(x,e)$ with the following properties
+	\begin{enumerate}
+		\item For fixed $x\in D$, $\omega(x,e)$ is a Borel measure on $\partial D$ and $\omega(x,\partial D)=1$.
+		\item For fixed $e\subset \partial D$, $\omega(x,e)$ is a harmonic function of $x$ in $D$.
+		\item If $f(\xi)$ is a semi-continuous function defined on $\partial D$ then 
+			\begin{equation}
+				 u(x)=\int_{\partial D}f(\xi)\d \omega(x,e_\xi)
+			\end{equation}is the harmonic extension of $f(\xi)$ to $D$. The measure $\omega(x,e)=\omega(x,e,D)$ will be called the harmonic measure of $e$ at $x$ with respect to $D$.
+	\end{enumerate}
+\end{theorem}
+
+\begin{theorem}\label{thm:poisson-jensen}
+	Suppose that $D$ is a bounded regular domain in $\R^{m}$ whose boundary  $\partial D$ has zero $m$-dimensional Lebesgue measure, and that $u(x)$ is s.h. and not identically $-\infty$ on $D \cup \partial D$. Then we have for $x\in D$ 
+	\begin{equation}
+		u(x)=\int_{\partial D}u(\xi)\d \omega(x,e_{\xi})-\int_D g(x,\xi,D)\d \mu e_{\xi},
+	\end{equation}
+	where $\omega(x,e)$ is the harmonic measure of $e$ at $x$, $g(x,\xi,D)$ is the Green's function of $D$ and $\mathrm{d} \mu$ is the Riesz measure of $u$ in $D$.
+\end{theorem}
+In particular, we can set $D$ as the upper half-space 
+\[
+\mathbb{H}^{d+1}:=\left\{x\in \R^{d},y>0\right\}. 
+\] The boundary is 
+\[
+\partial \mathbb{H}^{d+1}=\left\{x\in \R^{d},y=0\right\} =\R^{d}.
+\]
+And the harmonic measure $P^{(d)}_y:=\omega(x,y,e_{\xi})$ is
+\begin{equation}
+	P^{(d)}_y(x)=c_{d} \frac{y}{\left( |x|^2+y^2 \right) ^{(d+1) /2}}
+\end{equation}
+with $c_{d}= \frac{\Gamma\left( (d+1) /2 \right) }{\pi ^{(d+1) /2}}$.
+
+\section{Logvinenko-Sereda Theorem in higher dimension spaces}
+
+\begin{theorem}[Logvinenko-Sereda]
+	Given any function $f\in L^2\left( \R^{d} \right),d\ge 2 $ and $\mathrm{spec}f \subset [-R,R]^{d} $, then we have 
+	\begin{equation}
+		\int_{\R^{d}}|f|^2\d x\le C\int_{S}|f|^2\d x
+	\end{equation}
+	where $S$ is a $\gamma$-thick set and $C$ depends only on $\gamma,R$ and $d$.
+\end{theorem}
+\begin{proof}
+From now on, we always consider  functions $f$ of the space
+\[
+	H^2(\R^{d}):=\left\{f(x):=\int_{\R^{d}}e^{2\pi ix\cdot \xi}F(\xi)\d \xi: \mathrm{supp}F(\xi)\subset [0,\infty)^{d} \text{ and } \|F\|_{L^2(\R^{d})}<\infty\right\}.
+\]
+To prove the Logvinenko-Sereda Theorem in $\R^{d},d\ge 2$, we can view the function $f$ as a multivariable holomorphic function  $f(z_1,z_2,\cdots ,z_d)$. For example, in 2-dimensional case, we consider function $f(z_1,z_2)$ in domain $\mathbb{H}\times \mathbb{H}$, or a function in domain $\mathbb{D}\times \mathbb{D}$ by conformal transformation. Indeed, the key step in the proof of the theorem in $\R$ is the following inequality for all $f\in H^2(\R)$
+\begin{equation}\label{eqn:key-inequality-1}
+\log |(P_1^{(1)}*f)(x)|\le \left( P_1^{(1)}*\log|f| \right) (x).
+\end{equation}
+Now consider any function $f\in {H}^2(\R^2)$, then we have the multivariable holomorphic function
+\[
+f(z_1,z_2)=\int_{\R^2}e^{2\pi iz_1\xi_1}e^{2\pi i z_2\xi_2}F(\xi_1,\xi_2).
+\] 
+Then by using \cref{eqn:key-inequality-1} twice we obtain
+\begin{align*}
+	&\log |\left(P_1^{(1)}(x_2)*\left( P_1^{(1)}(x_1)*f \right) \right)(x) |\le \left( P_1^{(1)}(x_2)*\left( \log| P_1^{(1)}(x_1)*f| \right)  \right) (x) \\
+	\le & \left( P_1^{(1)}(x_2)*\left( P_1^{(1)}(x_1)*\log|f| \right)  \right) (x).
+\end{align*}
+Here, the term  $ P(f)(x):=\left(P_1^{(1)}(x_2)*\left( P_1^{(1)}(x_1)*f \right) \right)(x)$ can be written as
+\begin{equation}
+	 P(f)(x)=\frac{1}{\pi^2}\int_{\R}\frac{\mathrm{d}t_2}{1+(x_2-t_2)^2}\int_{\R}f(t_1,t_2)\frac{\mathrm{d}t_1}{1+(x_1-t_1)^2}.
+\end{equation}
+Then we have the similar inequality
+\begin{equation}
+	\log |P(f)(x)|\le \left( P(\log|f|) \right) (x).
+\end{equation}
+And the rest is to prove that 
+\[
+S \text{ is a }\gamma\text{-thick set if and only if } P(\chi_S)\left( x \right)\ge \gamma'>0 \text{ for any }x\in \R^{d}. 
+\]
+The proof is exactly the same as $1$-dimensional case.
+
+\end{proof}
+
+We have mentioned that in 1-dimension, we need the inequality 
+\begin{equation}\label{eqn:key}
+\log |P(f)(x)|\le \left( P\left( \log|f| \right)  \right) (x).
+\end{equation}
+This inequality can be derived from the Poisson-Jensen's Formula, since $u(z)=\log |f(z)|$ is a subharmonic function given $f(z)$ in hardy space. However, the key step \cref{eqn:key} of the proof of the Logvinenko-Sereda Theorem for $d\ge 2$ is established by reducing the inequality to $1$-dimensional case.
+
+If we can prove that the harmonic extension $u$ of any $f \in H^2(\R^{d})$ is log-subharmonic (i.e., $\log|u|$ is subharmonic), then we can establish the inequality
+\[
+\log|\left(P_y^{(d)}*f\right)|(x)\le \left( P_y^{(d)}*\log|f| \right) (x)
+\] 
+directly through the Poisson-Jensen's Formula. Hence the L-S Theorem can be achieved if the following conjecture is true:
+
+\begin{conjecture}
+	The harmonic extension of any $f\in H^2(\R^{d})$ is log-subharmonic.
+\end{conjecture}
+
+
+\section{Logvinenko-Sereda Theorem in manifolds}
+
+To generalize the proof of the L-S Theorem in a Riemannian manifold $(M,g)$, we need to 
+\begin{enumerate}
+	\item Define the Paley-Wiener space. For example, in closed manifolds, use  $X_L:= \mathrm{span}\left\{\phi_i:\Delta_g \phi_i=-\lambda_i \phi_i,\lambda_i \le L\right\} $ to replace $H^2(\R^{d})$.
+	\item Define the harmonic extension $u$ of $f\in  X_L$ in manifold $N:=M\times \R_{\ge 0}$, $\partial N=M$. For closed manifolds, let $k_L=\mathrm{dim}X_L$ and $f=\sum_{i=1}^{k_L} \beta_i \phi_i$, then we can define the harmonic extension
+		\begin{equation}
+			u(x,t)= \sum_{i=1}^{k_L} \beta_i\phi_i e^{-\sqrt{\lambda_i} t}.
+		\end{equation}
+	Then we need to give a similar Poisson-Jensen's Formula
+		\begin{equation}
+			u(x)=\int_{M} u(\xi)\d \omega(x,e_{\xi})-\int_{N}g(x,\xi,N)\d\mu e_{\xi}
+		\end{equation}
+		for any subharmonic function $u$.
+	\item Prove that the harmonic extension $u$ of $f$ is log-subharmonic. This step, together with the Poisson-Jensen's Formula, is not necessary if we can get the inequality \cref{eqn:key} by other ways.
+	\item Give the definition of L-S thick set.
+\end{enumerate}
+
+
+\begin{remark}
+	(1) The symbol $P(f)$ in \cref{eqn:key} now represents the harmonic extension of $f$ with respect to some fixed point. (2) The condition of bounded spectrum is necessary for the theorem since we need $\|f\|_{L^2(M)}\le C\|P(f)\|_{L^2(M)}$.
+\end{remark}
+
+For closed manifolds, the paper \cite{ortega2013carleson} gives the definition of L-S thick set and L-S Theorem. However, the proof of the theorem is based on a contradiction argument, hence cannot give an explicit constant.
+
+In particular, for sphere $\mathbb{S}^{d}$, the paper \cite{dicke2022spherical} gives an explicit constant based on the fact that the eigenfunctions are spherical polynomials.  
+
+
+
+
+
+
+

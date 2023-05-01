@@ -1,0 +1,1291 @@
+%TEX program = xelatex
+\documentclass{article}
+\usepackage[dvipsnames,table]{xcolor}
+\usepackage[top=3cm, bottom=2cm, left=3cm, right=3cm]{geometry}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{amsmath, amssymb,mathrsfs,amsthm}
+\usepackage{mathtools}
+\usepackage{bbm}
+\usepackage{multirow}
+
+\usepackage[scr]{rsfso}
+
+\usepackage[linktocpage]{hyperref}
+\hypersetup{	
+  colorlinks=true,
+  breaklinks=true,
+  urlcolor= red,
+  linkcolor= red,
+  citecolor=ForestGreen
+}
+
+\numberwithin{equation}{section}
+%\mathtoolsset{showonlyrefs}
+
+% Show the labels of the citation during typing
+\usepackage[notcite]{showkeys}
+
+
+% A symbol for the quotient of two objects
+%\usepackage{xfrac}
+%\usepackage{faktor}
+%\newcommand{\sfrac}[2]{{\left.\raisebox{.2em}{$#1$}\middle/\raisebox{-.2em}{$#2$}\right.}}
+%\newcommand{\bsfrac}[2]{{\left.\raisebox{-.2em}{$#1$}\middle\backslash\raisebox{.2em}{$#2$}\right.}}
+
+% package showonlyrefs not compatable with cleveref
+% \usepackage[capitalize,nameinlink]{cleveref}[0.19]
+ 
+%\crefname{section}{section}{sections}
+%\crefname{subsection}{subsection}{subsections}
+%\Crefname{section}{Section}{Sections}
+%\Crefname{subsection}{Subsection}{Subsections}
+ 
+%\Crefname{figure}{Figure}{Figures}
+
+ 
+%\crefformat{equation}{\textup{#2(#1)#3}}
+%\crefrangeformat{equation}{\textup{#3(#1)#4--#5(#2)#6}}
+%\crefmultiformat{equation}{\textup{#2(#1)#3}}{ and \textup{#2(#1)#3}}
+%{, \textup{#2(#1)#3}}{, and \textup{#2(#1)#3}}
+%\crefrangemultiformat{equation}{\textup{#3(#1)#4--#5(#2)#6}}%
+%{ and \textup{#3(#1)#4--#5(#2)#6}}{, \textup{#3(#1)#4--#5(#2)#6}}{, and \textup{#3(#1)#4--#5(#2)#6}}
+
+ 
+%\Crefformat{equation}{#2Equation~\textup{(#1)}#3}
+%\Crefrangeformat{equation}{Equations~\textup{#3(#1)#4--#5(#2)#6}}
+%\Crefmultiformat{equation}{Equations~\textup{#2(#1)#3}}{ and \textup{#2(#1)#3}}
+%{, \textup{#2(#1)#3}}{, and \textup{#2(#1)#3}}
+%\Crefrangemultiformat{equation}{Equations~\textup{#3(#1)#4--#5(#2)#6}}%
+%{ and \textup{#3(#1)#4--#5(#2)#6}}{, \textup{#3(#1)#4--#5(#2)#6}}{, and \textup{#3(#1)#4--#5(#2)#6}}
+
+
+
+
+%\oddsidemargin=-.0cm
+%\evensidemargin=-.0cm
+%\textwidth=15cm
+%\textheight=22cm
+%\topmargin=0cm
+%\calclayout
+
+% integral vraiable
+\renewcommand{\d}{\,\mathrm{d}}
+
+% Some shortcuts
+\newcommand\N{\ensuremath{\mathbb{N}}}
+\newcommand\R{\ensuremath{\mathbb{R}}}
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+\newcommand\T{\ensuremath{\mathbb{T}}}
+\renewcommand\O{\ensuremath{\emptyset}}
+\newcommand\Q{\ensuremath{\mathbb{Q}}}
+\newcommand\C{\ensuremath{\mathbb{C}}}
+\newcommand\CP{\ensuremath{\mathbb{CP}}}
+\newcommand\CR{\ensuremath{\mathbb{CR}}}
+\newcommand\Sph{\ensuremath{\mathbb{S}}}
+
+% Some theorem environment settings
+%\newtheorem{theorem}{Theorem}[section]
+%\newtheorem{proposition}[theorem]{Proposition}
+%\newtheorem{corollary}[theorem]{Corollary}
+%\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{theorema}{Theorem~A}
+%\theoremstyle{definition}
+%\newtheorem{remark}{Remark}
+%\newtheorem*{question}{Question}
+%\newtheorem{definition}{Definition}[section]
+%\newtheorem{exercise}{Exercise}[section]
+%\newtheorem*{solution}{Solution}
+%\newtheorem*{claim}{Claim}
+%\newtheorem{example}{Example}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{exemple}[theorem]{Example}
+\newtheorem{corollary}[theorem]{Corollary}
+\numberwithin{equation}{section}
+\newtheorem{taggedtheoremx}{Assumption}
+\newenvironment{taggedtheorem}[1]
+ {\renewcommand\thetaggedtheoremx{#1}\taggedtheoremx}
+ {\endtaggedtheoremx}
+ \theoremstyle{definition}
+ \newtheorem{remark}{Remark}[section]
+ \newtheorem{definition}{Definition}[section]
+% Enumerate Style
+\renewcommand{\labelenumi}{{\normalfont(\roman{enumi})}}
+
+% Tensor
+\usepackage{tensor}
+
+\DeclareMathOperator{\order}{ord}
+% bracket notations 
+\DeclarePairedDelimiter\bra{\langle}{\rvert}
+\DeclarePairedDelimiter\ket{\lvert}{\rangle}
+\DeclarePairedDelimiterX\braket[2]{\langle}{\rangle}{#1 \delimsize\vert #2}
+
+% Notations in differential geometry
+% inner product
+\DeclarePairedDelimiterX\ipd[2]{\langle}{\rangle}{#1\delimsize , #2}
+
+% Notations in quantum field theory
+% normal ordering
+\newcommand{\normord}[1]{:\mathrel{#1}:}
+
+% Real and imaginary parts
+\DeclareMathOperator{\Realpart}{Re}
+\renewcommand{\Re}{\Realpart}
+
+\DeclareMathOperator{\Impart}{Im}
+\renewcommand{\Im}{\Impart}
+
+
+\DeclareMathOperator{\ddet}{det}
+\renewcommand{\det}{\ddet}
+
+% Groups
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SL}{SL}
+
+\usepackage{authblk}
+
+\begin{document}
+\title{Null-controllability of the Generalized Baouendi-Grushin heat like equations}
+
+\author{Philippe Jaming and Yunlei Wang}
+%\author{Yunlei Wang}
+%\affil[1,2]{Institut de Mathématiques de Bordeaux UMR 5251,
+%Cours de la Libération, 33405 Talence Cedex, France}
+%\email{yunlei.wang@math.u-bordeaux.fr}
+
+%\address{Institut de Mathématiques de Bordeaux, Université de Bordeaux 351, cours de la Libération, F 33405 TALENCE cedex}
+
+\maketitle
+
+
+\begin{abstract}
+	In this article, we study Zhu-Zhuge's spectral inequality for Schrödinger operators with power growth potentials, and give a precised form of it, i.e., the spectral inequality with explicit form of the constant. Based on this precised form of the spectral inequality, we study a generalized form of Baouendi-Grushin operators and prove the exact null-controllability results associated with it.
+\end{abstract}
+\tableofcontents
+\section{Introduction}
+\subsection{Spectral inequalities for Schrödinger operators}
+In control theory, a spectral inequality for a nonnegative selfadjoint operator $H$ in $L^2(\R^{n})$ take the form
+\begin{equation}\label{1a}
+\|\phi\|_{L^2(\R^{n})}^2\le d_0 e^{d_1 \lambda^{ \zeta}}\|\phi\|^2_{L^2(\omega)},\quad \forall \phi \in \mathcal{E}_H(\lambda),\,\lambda\ge 0,
+\end{equation}
+where $\omega$ is a measurable subset of $\R^{n}$, $\mathcal{E}_H(\lambda)=\mathbbm{1}_{(-\infty,\lambda)}(H)$ is the resolution of identity associated to $H$, and $d_0$, $d_1$, $\zeta$ are constants. Such an inequality is a quantitative version of a unique continuation property (i.e., $f=0$ on $\omega$ implies $f=0$ on $\R^{n}$). Due to the famous Lebeau-Robbiano method introduced in \cite{lebeau1995controle} (see also \cite{tenenbaum2011null,beauchard2018null,nakic2020sharp,gallaun2020sufficient}), it can be applied to observability or null-controllability results from $\omega$ of the abstract Cauchy problem
+\begin{equation}\label{1.2a}
+	\partial_t u+Hu=0.
+\end{equation}
+
+
+
+In particular, for the Schröidnger operator
+\[
+H=-\Delta_x +V(x),\quad  x \in \R^{n},
+\] 
+a wealth of results have been established under several assumptions on $V$ and  $\omega$. For the special case $V=0$, the spectral inequality from thick sets (see \cite{wang2019observable,kovrijkine2001some} for the definition of thick sets) was proven in \cite{wang2019observable} and independently in \cite{egidi2018sharp}.  For $V=|x|^2$, $H$ is the harmonic oscillator and spectral inequalities from different kinds of $\omega$ were established, see \cite{beauchard2018null,beauchard2021spectral,egidi2021abstract,martin2022spectral,dicke2023uncertainty}. For $V=|x|^{2k}$, the spectral inequalities were established in \cite{alphonse2023quantitative,alphonse2020null,martin2022spectral}. 
+
+The results we mentioned above consider different kinds of restrictions on $\omega$. Here we introduce one restriction, wich will be useful in presenting our main results:
+\begin{definition}
+	Let $l>0$, $\gamma \in (0,1)$ and $\sigma >0$, the set $\omega$ is said to be $(l,\gamma,\sigma)$-distributed if there exists a set of points $\left\{z_k\lvert k\in \Z^{n}\right\} $ such that
+	\begin{equation}\label{1.3a}
+		\omega \cap (lk+\Lambda_l)\supset \mathcal{B}_{\gamma^{1+|lk|^{\sigma }}}(z_k),
+	\end{equation}
+	where $\Lambda_l:= \left[ -l /2,l /2 \right]^{n} $ denotes a cube of length $l$ centered on the origin and  $\mathcal{B}_r(z)$ denote a ball with radius $r$ centered on $z$.
+\end{definition}
+If $\sigma =0$, the set $\omega$ satisfying \eqref{1.3a} is called $(l,\gamma)$-equidistributed set or simply equidistributed set, which was introduced in \cite{rojas2013scale}.
+
+Recently, Dicke, Seelmann and Veseli\'{c} \cite{dicke2022spectral} consider the Schrödinger operator with power growth potentials and $\omega$ who is $(1,\gamma,\sigma)$-distributed. Precisely speaking, they establish the spectral inequality \eqref{1a} for $\zeta = \frac{\sigma }{\beta_1}+\frac{2\beta_2}{3\beta_1}$ with suitable power growth potentials $V\in W_{\mathrm{loc}}^{1,\infty}(\R^{n})$.
+%\begin{enumerate}
+%	\item for some $c_1,c_2>0$ and some $0<\beta_1 \le  \beta_2$, the inequality
+%		\[
+%		c_1|x|^{\beta_1}\le V(x)\le c_2|x|^{\beta_2}
+%		\] 
+%		holds for all $ x \in \R^{n}$;
+%	\item for some $\nu>0$, 
+%		\[
+%		M_\nu:=\|e^{-\nu |x|}\nabla V\|_{L^{\infty}\left( \R^{n}\backslash B(0,1) \right) }<\infty.
+%		\] 
+%\end{enumerate}
+Shortly after, Zhu and Zhuge \cite{zhu2023spectral} optimize the exponent of $\lambda$ in \eqref{1a} to $\zeta =\frac{\sigma }{\beta_1}+\frac{\beta_2}{\beta_1}$ under more general assumption, which can be stated as the following: 
+\begin{enumerate}
+	\item there exist positive constants $c_1$ and $\beta_1$ such that for all $x\in \R^{n}$,
+		\begin{equation}
+			c_1 (|x|-1)_+^{\beta_1}\le V(x).\label{1.1}
+		\end{equation}
+		where $(a)_+ :=\max \left\{a,0\right\} $;
+	\item we can write $V=V_1+V_2$ such that there exists positive constants $c_2$ and $\beta_2$ such that 
+		\begin{equation}
+			|V_1(x)|+|DV_1(x)|+|V_2(x)|^{\frac{4}{3}}\le c_2(|x|+1)^{\beta_2}.
+		\end{equation}
+\end{enumerate}
+However, both results do not give the explicit form of the constant $d_0$ and  $d_1$ with respect to $c_1$ and $c_2$, which is necessary for our main results in this article.   
+
+\subsection{Generalized Baouendi-Grushin operator}
+
+
+%In this article, we study the spectral inequality given in \cite{zhu2023spectral} in detail, and give a explicit representation of $d_0$ and  $d_1$ in the inequality. Based on this more accurate version of the spectral inequality, we prove the exact controllability of the evolution equation
+
+
+
+We consider the evolution equation
+\begin{equation}
+	\partial_t u + Hu=0\label{1.5b}
+\end{equation}
+either for a generalized form of Baouendi-Grushin operator 
+\begin{equation}\label{1.5a}
+	H_{G}=-\Delta_x-V(x)\Delta_y,\quad x \in \R^{n}, y\in \R^{m}
+\end{equation}
+or a generalized form of Baouendi-Grushin operator
+\begin{equation}\label{1.6a}
+	H_{G_p}=-\Delta_x-V(x)\Delta_y,\quad  x \in \R^{n},y \in \T^{m}
+\end{equation}
+where $\alpha >0$, $\T=\R /2 \pi\Z$ and the potential $V$ satisfies some general assumptions stated later. These two kinds of operators generalize the Grushin operator
+\begin{equation*}
+	\Delta_G:=\Delta_x+|x|^{2}\Delta_y
+\end{equation*}
+and the Baouendi-Grushin operator
+\begin{equation*}
+	\Delta_k:=\Delta_x+|x|^{2k}\Delta_y.
+\end{equation*}
+
+
+In this article, we consider general potentials $V$ in \eqref{1.5a} and \eqref{1.6a} satisfy the following assumption.
+\begin{taggedtheorem}{A1}\label{A1}
+	There exist positive constants $c_1,c_2,\beta_1,\beta_2$ such that $V\in L^{\infty}_{\mathrm{loc}}(\R^{n})$ satisfies
+	\begin{equation}
+		c_1|x|^{\beta_1}\le V(x) \,\text{ and } \,|V(x)|+|DV(x)|\le c_2|x|^{\beta_2}.
+	\end{equation}
+\end{taggedtheorem}
+
+We also consider the following more general assumption.
+\begin{taggedtheorem}{A2}\label{A2}
+Assume $V\in L_{\mathrm{loc}}^{\infty}(\R^{n})$ satisfies the following	two conditions:
+\begin{enumerate}
+	\item There exist positive constants $c_1$ and $\beta_1$ such that for all $x\in \R^{n}$,
+		\begin{equation}
+			c_1 |x|^{\beta_1}\le V(x).\label{1.1}
+		\end{equation}
+	\item We can write $V=V_1+V_2$ such that there exists positive constants $c_2$ and $\beta_2$ such that 
+		\begin{equation}
+			|V_1(x)|+|DV_1(x)|+|V_2(x)|^{\frac{4}{3}}\le c_2(|x|+1)^{\beta_2}.
+		\end{equation}
+\end{enumerate}
+\end{taggedtheorem}
+\begin{remark}It should be noted that in \cite{zhu2023spectral} the original assumption is different from this one only in \eqref{1.1}, in which the lower bound is $c_1\left( |x|-1 \right)_+^{\beta_1}$ instead of $c_1|x|^{\beta_1}$. Here we use the later for simple calculating of the lower bound of the first eigenvalue (see Subsection~\ref{subsec3.1} in detail). Indeed, it gives a relation of the lowest eigenvalue $\lambda_0\ge c^{\frac{2}{\beta_1+2}}\lambda_*$, which is vital for us (see the proofs in Section \ref{sec2d} for more details).
+\end{remark}
+
+\begin{remark}\label{r1.2}
+The standard case $V=|x|^{\beta}$ satisfies Assumption \ref{A1} only for $\beta \ge 1$. However, the case $V=|x|^{\beta}$ with $\beta >0$ is included in Assumption~\ref{A2}. Indeed, for $\beta \ge 1$ it is obvious. For $0<\beta <1$, we can choose a smooth cut-off function such that $\eta =1$ in $\mathcal{B}_1$ and $\eta =0$ in $\R^{n} \backslash \mathcal{B}_2$. Then we just choose $V_1=|x|^{\beta}(1-\eta (x))$ and $V_2(x)=|x|^{\beta}\eta (x)$ (see \cite[Corollary~1]{zhu2023spectral}). 
+\end{remark}
+
+\subsection{State of the main results}
+% In this article, our first main result (Theorem \ref{thm1.1}) is to prove the spectral inequality for $H=-\Delta+V(x)$ with $V$ satisfies Assumption~\ref{A1}, which gives a more accurate constant compared with \cite[Theorem~1]{zhu2023spectral}. 
+
+% We denote
+%\[
+%	\widetilde{\lambda}_0:=n \frac{\beta_1+2}{2\beta_1}\exp \left( \frac{\beta_1-2}{\beta_1+2} \right) \left( \frac{\beta_1 }{2\pi^{\frac{n}{2}}} \frac{\Gamma\left( \frac{n}{2\pi^{\frac{n}{2}}} \right) }{\Gamma\left( \frac{n}{\beta_1} \right) } \right) ^{ \frac{2\beta_1}{n\left( \beta_1+2 \right) }}c^{\frac{2}{\beta_1+2}}.
+%\] 
+%The meaning of $\widetilde{\lambda}_0$ will be clear in Subection~\ref{subsec3.1}.
+
+%\begin{theorem}\label{thm1.1}
+%	Assume that $V$ satisfies Assumption \ref{A1} and $\omega$ satisfies \eqref{1.3a} with $l=1,\sigma  \in [0,\infty)$ and $\gamma\in (0, 1 /2)$. Then there exists a constant $C$ depending only on $\beta_1,\beta_2,\sigma$ and $n$ such that
+%	\begin{equation}\label{1.11d}
+%		\|\phi\|_{L^2(\R^{n})}\le \left( \frac{1}{\gamma} \right) ^{C \mathcal{J}}\|\phi\|_{L^2(\omega)},\quad \forall\phi \in  \mathcal{E}_\lambda(H),\,\lambda\ge 0,
+%	\end{equation}
+%	where $\mathcal{J}=\mathcal{J}_1^{2\sigma /\beta_2}\left( \lambda^{1 /2}+c_2^{\frac{1}{2}}\mathcal{J}_1 \right) $ and 
+%	\begin{equation}
+%	\mathcal{J}_1(c_1,c_2,\lambda)= \left( \frac{n+4}{2\beta_1}\log_+ \frac{\lambda+1}{c_1}+\left( \frac{\lambda+2}{c_1} \right)^{1 / \beta_1} +1 \right)^{\frac{\beta_2}{2}}. 
+%	\end{equation}
+%	Here $\log_+ u:=\max\left\{u,0\right\} $.
+%\end{theorem}
+%Compared with the spectral inequality given in \cite{zhu2023spectral}, we gave the explicit control constant, i.e., the explicit form of $\mathcal{J}$ in \eqref{1.11d}. To obtain this more accurate version, we need a more accurate decay property for the eigenfunctions.
+
+In this article, we give a precised form of the spectral inequality in \cite[Theorem~1]{zhu2023spectral}. Based on it, we obtain our main results, Theorem~\ref{thm1.3} and Theorem~\ref{thm1.4} under Assumption~\ref{A1}, Theorem~\ref{thm1.4g} and Theorem~\ref{thm1.5g} under Assumption~\ref{A2}, which give the exactly null-controllability of two kinds of the evolution equations.
+
+Firstly, consider the fractional heat-like evolution equation associated with the generalized Baouendi-Grushin operator for $y\in \R^{m}$
+\begin{equation}\label{eg}
+	\begin{cases}
+		\partial_t u(t,x,y)+ H_{G}^s u(t,x,y)=h(t,x,y) \mathbbm{1}_{\omega}(x,y), \quad t>0,\,\, (x,y)\in \R^{n}\times \R^{m},\\
+		u(0,\cdot ,\cdot )=u_0 \in L^2(\R^{n+m}).
+	\end{cases}\tag{$E_{G,s}$}
+\end{equation}
+Now we present our results about the exactly null-controllability of equation~\eqref{eg}. 
+\begin{theorem}\label{thm1.3}
+	Assume that $V$ satisfies Assumption \ref{A1} with $\beta_1=\beta_2=\beta >0$. Let $\gamma \in (0,1 /2)$, $\sigma = 0$. Then
+	\begin{enumerate}
+		\item for all $s>(\beta+2) /4$, the equation \eqref{eg} is exactly null-controllable in every positive time $T>0$ and from every control support of the form $\omega \times \R^{m}$ with a $(1,\gamma)$-equidistributed set $\omega\subset \R^{n}$;
+		\item for $s= (\beta+2) /4$ and all $(1,\gamma)$-equidistributed sets $\omega \subset \R^{n}$, there exists a positive constant $K$ depending only on  $n$, $\beta$, $c_1$ and $c_2$, such that the equation \eqref{eg} is exactly null-controllable from the control support $\omega\times \R^{m}$ in every positive time $T\ge K \log(1 /\gamma)$.
+	\end{enumerate}
+\end{theorem}
+
+
+% In \cite[Corollary~2.16]{alphonse2023quantitative}, the authors proved the exactly null-controllability result for the evolution equation associated with the Grushin operator
+%\[
+%\Delta_G=\Delta_x+|x|^2\Delta_y.
+%\]
+%The evolution equation associated with it can be written as
+%\begin{equation}\label{original}
+%	\begin{cases}
+%		\partial_t u(t,x,y)+(-\Delta_G)^{s}u(t,x,y)=h(t,x,y)\mathbbm{1}_\omega(x,y),\quad  t>0,\,\, (x,y)\in \R^{n}\times \R^{m},\\
+%		u(0,\cdot ,\cdot )=u_0 \in L^2(\R^{n+m}).
+%	\end{cases}
+%\end{equation}
+%It is a special case in \eqref{eg}. 
+%We list their result here for comparision.
+%\begin{theorema}[{\cite{alphonse2023quantitative}}]
+%	There exists a constant $K>0$, only depending on the dimension  $n$, such that for every $(\gamma,L)$-thick set $\omega \subset \R^{n}$ with $L>0$ and $\gamma \in (0,1]$, the equation \eqref{original} is exactly null-controllable from the control support $\omega\times \R^{m}$ in every positive time $T>0$ satisfying $T\ge K L^2 \log(K /\gamma)$.
+%\end{theorema}
+%To identify \eqref{egb} with \eqref{original}, we need to set $V=|x|^2$, $s=1$, $\alpha =1$ in \eqref{egb}. Then the set $\omega$ is $(1,\gamma)$-equidistributed. This implies that our result in this particular case are a bit weaker in the sense we assume $\omega$ includes a ball with radius $\gamma$ in each cube $[-1 /2+k,1 /2+k]$,  $k\in \Z$. However, Theorem~\ref{thm1.3} allows much more general potentials $V$. It is worthy to mention that in \cite[Theorem~1.2]{lissy2022non} the author considers the case of dimension $n=m=1$ and $s=1$ and proved the equation \eqref{eg} is never exactly null-controllable from any control support of the form  $\R\times \omega$ whenever $\overline{\omega}\neq \R$.
+
+Secondly, we consider the fractional heat-like evolution equation associated with the generalized Bauendi-Grushin operator for $y \in \T^{m}$
+\begin{equation}\label{egb}
+	\begin{cases}
+		\partial_t u(t,x,y)+H^{s}_{G_p} u(t,x,y)=h(t,x,y)\mathbbm{1}_{\omega}(x,y),\quad t>0,\,\, (x,y)\in \R^{n}\times \T^{m},\\
+		u(0,\cdot ,\cdot )=u_0\in L^2(\R^{n}\times \T^{m}).
+	\end{cases}\tag{$E_{G_p,s}$}
+\end{equation}
+We are ready to present our second exactly null-controllability result.
+\begin{theorem}\label{thm1.4}
+	Assume that $V$ satisfies Assumption \ref{A1}. Let $\gamma \in (0,1 /2)$, $\sigma = 0$ and $\omega$ be a $(1,\gamma)$-equidistributed set. Then 
+\begin{enumerate}
+	\item for all $ s> (\beta_1+2) /{4} $, the equation \eqref{egb} is exactly null-controllable from the control support $\omega\times \T^{m}$ in every positive time $T>0$;
+	\item for $s =(\beta_1+2) /{4} $, there exists a positive constant $K$ depending only on $n$, $\beta_1$, $\beta_2$, $c_1$ and $c_2$, such that the equation \eqref{egb} is exactly null-controllable from the control support $\omega\times \T^{m}$ in every positive time $T\ge K \log(1 /\gamma)$.
+\end{enumerate}
+\end{theorem}
+%Compared with the result in \cite{alphonse2023quantitative}, Theorem \ref{thm1.4} takes a more general assmption on $V$ instead of assuming only $V=|x|^{2k}$ with $k \in \N$ and with a bit more restrictive set $\omega$. 
+
+% Besides the work of Alphonse and Seelmann in \cite{alphonse2023quantitative}, there are bunch of articles devoted to the study of null-controllability for the Grushin type heat like equations.
+
+%We say a function $u(x,y) \in L^2(\R^{n}\times \T^{m})$ satisfies the locally observable condition on $\omega\subset \R^{n}$ if and only if
+%\begin{equation}\label{1.18f}
+%	\|\cdot \|_{L^2(\R^{n})}\asymp \|\cdot \|_{L^2(\omega)} \text{ in } \mathrm{span}\left\{\int_\T u(x,y)\d y \lvert x \in \R^{n}\right\}. 
+%\end{equation}
+
+Both Theorem~\ref{thm1.3} and Theorem~\ref{thm1.4} are under the condition $\sigma =0$. This means that the set $\omega$ is equidistributed. The reason for $\sigma =0$ is the appearance (or an approximate form) of the semigroup $e^{t\Delta}$ when we do the partial Fourier transform with respect to the variable $y$. To release the condition $\sigma = 0$ to $\sigma \ge 0$, a simple way is to change $H_{G}$ to  
+\[
+H_{G}':= -\Delta_x+V(x)\left( -\Delta_y+1 \right),\quad y \in \R^{m} 
+\] 
+in \eqref{eg} and change $H_{G_p}$ to 
+\[
+H_{G_p}':=-\Delta_x+V(x)\left( -\Delta_y+1 \right),\quad y\in \T ^{m} 
+\] in \eqref{egb}. 
+
+Then we obtain the following result directly from the proof of Theorem \ref{thm1.3} and Theorem~\ref{thm1.4}.
+\begin{corollary}\label{crc1.5}
+	Assume that $V$ satisfies Assumption~\ref{A1}, $\gamma \in (0,1 /2)$, $\sigma >0$ and $\omega$ is a $(1,\gamma,\sigma )$-distributed set. Then 
+	\begin{enumerate}
+		\item for all $s>\frac{\sigma }{\beta_1}+\frac{\beta_2}{2\beta_1}$ and  $s > (\beta_1+2)/4$, the modified equations \eqref{eg} (replace $H_{G}$ with  $H_{G}'$) and \eqref{egb} (replace $H_{G_p}$ with $H_{G_p}'$) are exactly null-controllabile from the control support $\omega \times \T^{m}$ in every positive time $T>0$;
+		\item for all $s> \frac{\sigma }{\beta_1}+\frac{\beta_2}{2\beta_1}$ and $ s=(\beta_1+2) /4$, there exists a positive constant $K$ depending only on $n$, $\beta_1$, $\beta_2$, $c_1$ and $c_2$ such that the modified equations \eqref{eg} (replace $H_{G}$ with $H_{G}'$) and \eqref{egb} (replace $H_{G_p}$ with $H_{G_p}'$) are exactly null-controllable from the control support $\omega\times \T^{m}$ in every positive time $T\ge K \log(1 /\gamma)$.
+	\end{enumerate}
+\end{corollary}
+
+As we have mentioned in Remark~\ref{r1.2}, the standard case $V=|x|^{\beta}$ with $\beta \in (0,1)$ does not satisfy Assumption~\ref{A1}. With the same strategy, we obtain the following two results under Assumption~\ref{A2} with some loss of accuracy in the critical value of $s$.
+
+\begin{theorem}\label{thm1.4g}
+	Assume that $V$ satisfies Assumption~\ref{A2} with $\beta_1=\beta_2=\beta >0$. Let $\gamma \in (0,1 /2)$, $\sigma = 0$. Then
+	\begin{enumerate}
+		\item for all $s>(\beta+2) /3$, the equation \eqref{eg} is exactly null-controllable in every positive time $T>0$ and from every control support of the form $\omega \times \R^{m}$ with a $(1,\gamma)$-equidistributed set $\omega\subset \R^{n}$;
+		\item for all $s= (\beta+2) /3$ and all $(1,\gamma)$-equidistributed sets $\omega \subset \R^{n}$, there exists a positive constant $K$ depending only on  $n$, $\beta$, $c_1$ and $c_2$, such that the equation \eqref{eg} is exactly null-controllable from the control support $\omega\times \R^{m}$ in every positive time $T\ge K \log(1 /\gamma)$.
+	\end{enumerate}
+\end{theorem}
+
+\begin{theorem}\label{thm1.5g}
+	Assume that $V$ satisfies Assumption \ref{A2}. Let $\gamma \in (0,1 /2)$, $\sigma = 0$ and $\omega$ be a $(1,\gamma)$-equidistributed set. Then 
+\begin{enumerate}
+	\item for all $s> \frac{\beta_2}{2 \beta_1}$ and $s> (\beta_1+2) /{3} $, the equation \eqref{egb} is exactly null-controllable from the control support $\omega\times \T^{m}$ in every positive time $T>0$;
+	\item for all $s> \frac{\beta_2}{2\beta_1}$ and $s=(\beta_1+2) /{3} $, there exists a positive constant $K$ depending only on $n$, $\beta_1$, $\beta_2$, $c_1$ and $c_2$, such that the equation \eqref{egb} is exactly null-controllable from the control support $\omega\times \T^{m}$ in every positive time $T\ge K \log(1 /\gamma)$.
+\end{enumerate}
+\end{theorem}
+
+
+Now we go back to the standard case ($V=|x|^{\beta},\beta >0$ )
+\[
+	-\Delta_{G,\beta}:=-\Delta_x-|x|^{\beta}\Delta_y
+\] 
+where $y \in \R^{m}$ or $\T^{m}$. As we have mentioned in Remark~\ref{r1.2}, only Assumption~\ref{A2} includes the case for $0<\beta <1$.
+
+Consider the evolution equation
+\begin{equation}\label{std.1}
+	\begin{cases}
+		\partial_t u(t,x,y)+(-\Delta_{G,\beta})^{s}u(t,x,y)=h(t,x,y)\mathbbm{1}_\omega(x,y),\quad  t>0,\,\, x \in \R^{n}, y \in \R^{m}\text{ or }\T^{m},\\
+		u(0,\cdot ,\cdot )=u_0 \in L^2(\R^{n+m}).
+	\end{cases}\tag{$E_{\beta,s}$}
+\end{equation} 
+%Then the following Corollary can be obtained from Theorem~\ref{thm1.3} and Theorem~\ref{thm1.4g} directlly.
+%\begin{corollary}
+%	Consider the solution $u$ of \eqref{std.1}. Let $y \in \R^{m}$, then
+%	\begin{enumerate}
+%		\item If $\beta \ge 1$,
+%			\begin{enumerate}
+%				\item for all $s>\left( \beta +2 \right) /4 $, the equation \eqref{std.1} is exactly null-controllable in every positive time $T>0$ and from every control support of the form $\omega\times \R^{m}$ with a $(1,\gamma)$-equidistributed set $\omega\subset \R^{n}$ ;
+%				\item for $s= (\beta +2)/4$ and all $(1,\gamma)$-equidistributed set $\omega\subset \R^{n}$, there exists a positive constant $K$ depending only on $n,\beta$ such that the equation~\eqref{std.1} is exactly null-controllable from the control support $\omega\times \R^{m}$ in every positive time $T\ge K \log(1 /\gamma)$. 
+%			\end{enumerate}
+%		\item If $\beta \in (0,1)$,
+%			\begin{enumerate}
+%				\item for all $s>(\beta+2) /3$, the equation~\eqref{std.1} is exactly null-controllable in every positive time $T>0$ and from every control support of the form $\omega\times \R^{m}$ with a  $(1,\gamma)$-equidistributed set $\omega\subset \R^{n}$ ;
+%				\item for $s=(\beta +2) /3$ and all $(1,\gamma)$-equidistributed set $\omega\subset \R^{n}$, there exists a positive constant $K$ depending only on $n, \beta $ such that the equation \eqref{std.1} is exactly null-controllable from the control support $\omega\times \R^{m}$ in every positive time $T\ge K \log(1 /\gamma)$.
+%			\end{enumerate}
+%	\end{enumerate}
+%Let $y \in \T^{m}$, then 
+%\begin{enumerate}
+%	\item for all $\beta \ge 1$,
+%	\item for all $\beta \in (0,1)$,
+%\end{enumerate}
+%\end{corollary}
+Then by Theorem~\ref{thm1.3}, \ref{thm1.4}, \ref{thm1.4g} and \ref{thm1.5g}, we may obtain the null-controllability results associated to equation~\eqref{std.1}, see Table~\ref{table.1} for details. 
+\begin{table}[h!]
+	\centering
+\begin{tabular}{|c|c|c|}
+	\hline
+	& $0<\beta <1$ & $\beta \ge 1$\\
+	\hline
+	\multirow{6}{7em}{$s> (\beta+2)/4 $} & $s>(\beta +2) /3$, exactly null-controllable &  \\
+						    & for any $T>0$ & exactly null-controllable \\
+	\cline{2-2}
+						 & $s= (\beta+2) /3$, exactly null-controllable & for any $T>0$\\
+						 & for $T\ge T^{*}$ & \\
+						 \cline{2-2}
+						 &  & \\
+						 &  & \\
+						 \cline{1-1} \cline{3-3}
+	\multirow{2}{7em}{$ s= (\beta +2) /4 $} & not known under Assumption~\ref{A2} & exactly null-controllable \\
+						& not known even for the standard case & for $T\ge T^{*}$\\
+						\cline{1-1}\cline{3-3}
+	\multirow{2}{7em}{$ s< (\beta +2) /4 $} & & not known under Assumption~\ref{A1} \\
+						& & see Remark~\ref{r1h} for the standard case\\
+	\hline
+\end{tabular}
+\caption{The exactly null-controllability results of equation~\eqref{std.1} obtained. In general, the results in middle column can be achieved under Assumption~\ref{A2} with $\beta =\beta_1$, the results in the right column can be achieved under Assumption~\ref{A1} with $\beta =\beta_1$. For the case $y\in \R^{m}$, we need to assume $\beta =\beta_1=\beta_2$.}
+\label{table.1}
+\end{table}
+
+\begin{remark}
+	Compaired with exactly null-controllability results in \cite{alphonse2023quantitative}, we allow more general potentials, i.e., do not need to restrict $V=|x|^{\beta}$ with $\beta =2k,k \in \N$ anymore, and assume a bit more restrictive support condtion.
+\end{remark}
+
+\begin{remark}\label{r1h}
+	For the standard case $-\Delta_{G,k}:=-\Delta_x-|x|^{2k}\Delta_y$ defined in $\R^{n}\times \T^{m}$ and $k\in \N$, Alphonse and Seelmann \cite[Theorem~2.17]{alphonse2023quantitative} shows that the evolution equation is never exactly null-controllable from any control support $\omega \subset \R^{n}\times \T^{m}$ satisfying $\overline{\omega}\cap \left\{x=0\right\} =\emptyset$. This implies $s= (\beta +2) /4$ is the critical value for $\beta=2k \ge 2$. Based on our results, it is reasonable to conjecture that it is the critical value for all  $\beta \ge 1$ under Assumption~\ref{A1} and $\beta=\beta_1=\beta_2$.
+
+
+	For the case $0<\beta <1$, it seems that the critical value may be a little worse (we only obtain exactly null-controllability results up to $s=(\beta +2) /3$, which is strictly larger than $(\beta +2) /4$). One of the possible reason may be the wild behavior of $V=|x|^{\beta}$ around $0$. 
+\end{remark}
+
+\begin{remark}
+	Though we follow the strategy of Alphonse and Seelmann's work in \cite{alphonse2023quantitative} to prove the main theorems, there are two key differences here:
+	\begin{enumerate}
+		\item We use a different kind of spectral inequality, which we call Zhu-Zhuge's inequality given in \cite[Theorem~1]{zhu2023spectral}. However, the original form cannot be used directly, since the loss of the explicit dependence relation between the cost constant and the parameters. This forces us to establish a more detailed decaying property of eigenfunctions, see Proposition~\ref{prp2.1} in Subsection~\ref{subsec2.2h}. Finally, we give the explicit form of the cost constant in the spectral inequality, which is vital for our proofs of exactly null-controllability results.
+		\item The lowest eigenvalue of the Schrödinger operator is easily obtained in the case $V=|x|^{2k},k \in \N$ by the rescaling approach. It does not work for our general potentials under Assumption~\ref{A1}and \ref{A2}. To overcome this difficulty, we do not calculate the exact number of the lowest eigenvalue, instead we just calculate a lower bound which satisfies our needs. This is a more general way if we would like to replace the standard case $V=|x|^{2k}$ with a general potential.
+	\end{enumerate}
+\end{remark}
+\subsection{Outline of the work}
+
+In Section \ref{sec3d}, we prove the lowest bound of eigenvalues and our assumptions and decaying properties of eigenfunctions for the Schrödinger operators. In Section~\ref{sec4d}, we follow the method in \cite{zhu2023spectral} to prove the spectral inequality with the precised form of the constant. In this section, we also give Corollary~\ref{crc1.2} and \ref{crc1.3h}, which can be directly used later. In Section \ref{sec2d}, we prove the exact null-controllability results, i.e., Theorem~\ref{thm1.3}, \ref{thm1.4}, \ref{crc1.5}, \ref{thm1.4g} and \ref{thm1.5g}.  
+
+\section{Eigenfunctions of the Schrödinger operator}\label{sec3d}
+In this section, we first try to find a lower bound of the lowest eigenvalue for a given potential $V(x)=c|x|^{\beta}$, named $\widetilde{\lambda}_0$. Then we give a detailed decaying property of eigenfunctions for the Schrödinger operator with potential $V$ under Assumption~\ref{A1}. 
+
+We denote $\{\phi_k\}_{k \in \N}$ the set of eigenfunctions of the Schrödinger operator, namely,
+\begin{equation}
+	-\Delta_x \phi_k+V(x)\phi_k=\lambda_k \phi_k,\quad x \in \R^{n},
+\end{equation}
+where $\lambda_k$ is the eigenvalue of $\phi_k$.
+\subsection{Lower bound of eigenvalues}\label{subsec3.1}
+
+\begin{proposition}\label{prp2.2c}
+	Let $V\ge c|x|^{\beta}$ and $\lambda_0(V)$ be the lowest eigenvalue of the operator $H=-\Delta_x+V(x)$. Then we have 
+	\begin{equation}
+		\lambda_0(V)\ge c^{\frac{2}{\beta+2}} \lambda_{*}
+	\end{equation}
+	where $\lambda_{*}$ depends only $\beta$ and $n$.
+\end{proposition}
+We denote $\lambda_0(V)$ the lowest eigenvalue of the operator $H=-\Delta_x+V(x)$. For all $a>0$, we define
+\begin{equation*}
+	I_V(a)=\int_{\R^{n}}e^{-a V(x)}\d x.
+\end{equation*}
+
+\begin{theorem}[{\cite{barnes1976lower}}]
+	Under the condition for every $a>0$ such that $I_V(a)<+\infty$. Then we have
+	\begin{equation*}
+		\lambda_0(V)\ge \sup_{t>0}t\left[ n +\frac{n}{2}\ln \frac{\pi}{t}-\ln I_V\left( \frac{1}{t} \right)  \right].
+	\end{equation*}
+\end{theorem}
+Now we finish the proof of Proposition~\ref{prp2.2c}.
+\begin{proof}[Proof of Proposition \ref{prp2.2c}]
+In the case of $V(x)=c|x|^{\beta}$, a change into polar coordinates and then a chenge of variable $s=acr^{\beta _1}$ shows that 
+\[
+I_{c|x|^{\beta}}(a)= \int_{\R^{n}}e^{-ac|x|^{\beta}}\d x= \frac{\sigma _n}{\beta (a c) ^{n / \beta}}\Gamma\left( \frac{n}{\beta} \right) 
+\] 
+where $\displaystyle \sigma _n= \frac{2 \pi^{ n /2}}{\Gamma\left( n /2 \right) }$ is the surface measure of the unit ball in $\R^{n}$, and $\displaystyle\Gamma (z)=\int_0^{\infty}t ^{z-1}e^{-t}\d t$ is the gamma function. It follows that 
+\[
+\lambda_0\left( c|x|^{\beta} \right)\ge \sup_{t>0}t\left[ n-\ln \frac{2}{\beta} \frac{\Gamma\left( \frac{n}{\beta} \right) }{\Gamma\left( \frac{n}{2} \right) }-n\left( \frac{1}{\beta}+\frac{1}{2} \right) \ln t + \frac{n}{\beta}\ln c\right].  
+\]
+The maximum is attained when
+\[
+n-\ln \frac{2\pi^{\frac{n}{2}}}{\beta}\frac{\Gamma\left( \frac{n}{\beta} \right) }{\Gamma\left( \frac{n}{2} \right) }-n\left( \frac{1}{\beta}+\frac{1}{2} \right) \ln t + \frac{n}{\beta}\ln c =n \left( \frac{1}{\beta}+\frac{1}{2} \right) 
+\] 
+so that
+\[
+\lambda_0(c|x|^{\beta}) \ge n \frac{\beta+2}{2\beta}\exp \left( \frac{\beta-2}{\beta+2} \right) \left( \frac{\beta }{2 \pi^{\frac{n}{2}}} \frac{\Gamma\left( \frac{n}{2\pi^{\frac{n}{2}}} \right) }{\Gamma\left( \frac{n}{\beta} \right) } \right) ^{ \frac{2\beta}{n\left( \beta+2 \right) }}c^{\frac{2}{\beta+2}}:= \widetilde{\lambda}_0>0.
+\]
+Geiven $V(x)\ge c|x|^{\beta}$, it is obvious that $I_V(a)\le I_{c_1|x|^{\beta}}(a)$. Hence we obtain
+\[
+\lambda_0(V)\ge \lambda_0(c|x|^{\beta})\ge \widetilde{\lambda}_0>0.
+\]
+
+This implies that given any $V(x)\ge c|x|^{\beta}$, their first eigenvalues have a uniform lower bound $\widetilde{\lambda}_0>0$. Let $\lambda_*$ denote the value of $\widetilde{\lambda}_0$ when $c=1$, then  $\lambda_0(V)\ge c ^{\frac{2}{ \beta+2}}\lambda_*$. By definition, $\lambda_*>0$ and depends only on $\beta$ and $n$.
+\end{proof}
+
+
+\subsection{Decaying property of eigenfunctions}\label{subsec2.2h}
+
+In this section we prove the following decay property of eigenfunctions:
+\begin{proposition}\label{prp2.1}
+	There exists a constant $\hat{C}$ depending only on $n$, such that 
+	\begin{equation*}
+		\|\phi\|_{H^1(\R^{n})}\le 2 \|\phi\|_{L^2\left( \mathcal{B}_r(0) \right) }
+	\end{equation*}
+	with 
+	\begin{equation*}
+		r=\hat{C}\left(  \frac{n+4}{2\beta_1}\log_+ \frac{\lambda+1}{c_1}+\left( \frac{\lambda+2}{c_1} \right) ^{1 /\beta_1}+1 \right). 
+	\end{equation*}
+\end{proposition}
+Before the proof of Proposition~\ref{prp2.1}, we give several lemmas.
+\begin{lemma}[{\cite[Proposition~2.3]{dicke2022spectral}}]\label{lma2.1}
+	Let $R ^{ \beta_1}= \max \left\{ (\lambda_k+2) /c_1,1\right\} $, then we have
+	\begin{equation}\label{2.1}
+		\|e^{|\cdot | /2}\phi_k\|^2_{L^2(\R^{n})}\le 7e^{R+1}\|\phi_k\|^2_{L^2\left( \R^{n} \right) }. 
+	\end{equation}
+\end{lemma}
+
+\begin{lemma}\label{lma2.2}
+	Let $R^{\beta_1}= \max \left\{(\lambda_k+2) /c_1,1\right\} $, then there exists a constatn $C$ depending only on $n$ such that 
+	\begin{equation}\label{2.2}
+		\|e^{|\cdot | /2}\nabla \phi_k\|^2_{L^2(\R^{n})}\le C e^{3R} \|\phi_k\|^2_{L^2(\mathcal{B}_2(z))}.
+	\end{equation}
+\end{lemma}
+ 
+To prove Lemma \ref{lma2.2}, we first prove a local Caccioppoli inequality:
+\begin{lemma}
+	There exists a constant $C(r)$ depending on $r$ such that
+	\begin{equation}
+		\|\nabla \phi_k\|_{\mathcal{B}_r(z)}\le C(r)\left( 1+\lambda_k \right) \|\phi_k\|^2_{L^2(\mathcal{B}_{2r}(z))}.
+	\end{equation}
+\end{lemma}
+\begin{proof}
+	Choose the cutoff function $\eta \in C_c^{\infty}\left( \mathcal{B}_{2r}(z) \right) $ and $\eta =1$ in $\mathcal{B}_r(z)$ and $|\nabla \eta |< \frac{2}{r}$. Let $\psi_k= \eta^2 \phi_k$, then
+	\begin{gather*}
+		\int_{\mathcal{B}_{2r}(z)}\nabla \phi_k \cdot \nabla \psi_k=-\int_{\mathcal{B}_{2r}(z)}\psi_k \Delta \phi_k,\\
+		\int_{\mathcal{B}_{2r}(z)}\nabla \phi_k\cdot \nabla \psi_k=-\int_{\mathcal{B}_{2r}(z)}\psi_k \left( V-\lambda_k \right)\phi_k,\\
+		\int_{\mathcal{B}_{2r}(z)} \eta^2 \nabla \phi_k \cdot \nabla \phi_k= - \int_{\mathcal{B}_{2r}(z)} 2 \eta (\nabla  \eta \cdot \nabla \phi_k) \phi_k- \int_{\mathcal{B}_{2r}(z)}\eta^2 \left( V-\lambda_k \right) \phi_k^2,\\
+		\int_{\mathcal{B}_{2r}(z)}|\eta \nabla \phi_k|^2\le \int_{\mathcal{B}_{2r}(z)}\frac{4}{r} |\eta\nabla \phi_k| \cdot |\phi_k|-\int_{\mathcal{B}_{2r}(z)}V|\eta\phi_k|^2+ \lambda_k \|\phi_k\|_{L^2(\mathcal{B}_{2r}(z))} ^2,\\
+	\end{gather*}
+	Note that $$\int_{\mathcal{B}_{2r}(z)}\frac{4}{r}|\eta \nabla \phi_k|\cdot |\phi_k|\le \frac{1}{2}\int_{\mathcal{B}_{2r}(z)}|\eta \nabla \phi_k|^2+\frac{32}{r^2}\int_{\mathcal{B}_{2r}(z)}|\phi_k|^2,$$ we obtain 
+	\begin{gather*}
+		\int_{\mathcal{B}_{2r}(z)}|\eta \nabla \phi_k|^2\le \frac{1}{2}\int_{\mathcal{B}_{2r}(z)}|\eta \nabla \phi_k|^2 + \frac{32}{r^2}\int_{\mathcal{B}_{2r}(z)} |\phi_k|^2+\lambda_k \|\phi_k\|^2_{L^2(\mathcal{B}_{2r}(z))}, \\
+		\int_{\mathcal{B}_r(z)}(1+V)|\nabla \phi_k|^2\le \frac{1}{2}\int_{\mathcal{B}_{2r}(z)}|\eta\nabla\phi_k|^2+ \frac{32}{r^2}\int_{\mathcal{B}_{2r}(z)}|\phi_k|^2+\lambda_k\|\phi_k\|^2_{L^2(\mathcal{B}_{2r}(z))},\\
+		\|\nabla \phi_k\|^2_{L^2(\mathcal{B}_{r}(z))}\le C(r)(1+\lambda_k)\|\phi_k\|^2_{L^2(\mathcal{B}_{2r}(z))},
+	\end{gather*}
+	where $C(r):= \max \left\{ 64 /r^2, 2\right\} $.
+This completes the proof.
+\end{proof}
+Now we go back to the proof of Lemma \ref{lma2.2}.
+\begin{proof}[Proof of Lemma \ref{lma2.2}] 
+	Taking $r=1$ and using Lemma \ref{lma2.1}, we obtain
+\begin{equation}
+	\|e^{|\cdot | /2} \nabla \phi_k\|^2_{L^2(\mathcal{B}_1(z))}\le C (1+\lambda_k)e^{2R}\|\phi_k\|^2_{L^2(\mathcal{B}_2(z))}\le C e^{3R} \|\phi_k\|^2_{L^2(\mathcal{B}_2(z))}.  
+\end{equation}
+Covering $\R^{n}$ by $\left\{\mathcal{B}_1(z_i)\right\}_{i \in \N}$ with finite overlaps, summing over $z_i$ we obtain
+\eqref{2.2}.
+\end{proof}
+
+Define
+\begin{equation}
+	N(\lambda):=\# \left\{\lambda_k\lvert \lambda_k\le \lambda\right\}. 
+\end{equation}
+Note that 
+\begin{equation}
+	N(\lambda)\le \sum_{k=1}^{N(\lambda)} (\lambda+1-\lambda_k)
+\end{equation}
+and the lower bound $V(x)\ge c_1|x|^{\beta_1}$ on the potential of Assumption \ref{A1}, the right hand side can be estimated explicitly by means of the classic Lieb-Thirring bound from \cite[Theorem 1]{lieb2001inequalities}. More precisely, for $\lambda >0$
+we have
+\begin{equation}\label{2.8}
+	\begin{aligned}
+		\sum_{k=1}^{N(\lambda)} (\lambda+1-\lambda_k)&\lesssim_n \int_{\R^{n}}\max \left\{\lambda+1-V(x),0\right\} ^{n /2+1}\d x\\
+							     &\le \int_{\mathcal{B}_0\left( ((\lambda+1) /c_1)^{1 /\beta_1}  \right) }|x|^{n /2+1}\d x\\
+							     &\lesssim_n \left( \frac{\lambda+1}{c_1} \right) ^{ \frac{n+4}{2 \beta_1} }. 
+	\end{aligned} 
+\end{equation}
+We are now in position to prove the main result of this section.
+\begin{proof}[Proof of Proposition \ref{prp2.1}]
+	For every $r>0$, we have
+	\begin{equation}\label{2.8b}
+		\begin{aligned}
+			\|\phi\|^2_{H^{1}\left( \R^{n}\backslash \mathcal{B}_0(r) \right) }&= \|\phi\|^2_{L^2\left( \R^{n}\backslash \mathcal{B}_0(r) \right) }+\|\nabla \phi\|^2_{L^2\left( \R^{n}\backslash \mathcal{B}_0(r) \right) }\\
+										   &\le e^{-r}\left( \|e^{|\cdot | /2}\phi\|^2_{L^2\left( \R^{n} \right) }+\|e^{|\cdot | /2}\nabla \phi\|^2_{L^2\left( \R^{n} \right) } \right). 
+		\end{aligned} 
+	\end{equation}
+	Moreover, using the expansion \eqref{2.8} and H Cauchy-Schwartz inequality, we obtain
+	\begin{equation}\label{2.8a}
+		\|e^{|\cdot | /2}\phi\|^2_{L^2(\R^{n})}\le \left( \sum_{k=1}^{N(\lambda)} \|e^{|\cdot | /2}\phi_k\|_{L^2(\R^{n})} \right) ^2\le N(\lambda) \sum_{k=1}^{N(\lambda)} \|e^{|\cdot | /2}\phi_k\|^2_{L^2\left( \R^{n} \right) }. 
+	\end{equation}
+Similarly,
+\begin{equation}\label{2.9}
+	\|e^{|\cdot | /2}\nabla \phi\|^2_{L^2\left( \R^{n} \right) }\le N(\lambda)\sum_{k=1}^{N(\lambda)} \|e^{|\cdot | /2}\nabla \phi_k\|^2_{L^2(\R^{n})}.
+\end{equation}
+Taking \eqref{2.8a} and \eqref{2.9} into \eqref{2.8b}, we obtan
+\begin{equation}\label{2.11}
+	\|\phi\|^2_{H^{1}(\R^{n}\backslash  \mathcal{B}_0(r))} \le e^{-r}N(\lambda) \left( \sum_{k=1}^{N(\lambda)} \|e^{|\cdot | /2}\phi_k\|^2_{L^2(\R^{n})}+\sum_{k=1}^{N(\lambda)} \|e^{|\cdot |}\nabla \phi_k\|^2_{L^2(\R^{n})} \right) 
+\end{equation}
+Taking \eqref{2.1}, \eqref{2.2} and \eqref{2.8} into \eqref{2.11} we obtain
+\begin{equation}
+	\begin{aligned}
+		\|\phi\|^2_{H^{1}(\R^{n}\backslash \mathcal{B}_0(r))}&\le C e^{-r} \left( \frac{\lambda+1}{c_1} \right) ^{ \frac{n+4}{2\beta_1}} e^{3R} \|\phi\|_{L^2\left( \R^{n} \right) }^2 
+	\end{aligned} 
+\end{equation}
+where $C$ is a constant depending only on $n$.
+Choose $r$ so that it satisfies
+\begin{equation}\label{2.13}
+	r \ge \log 2 + \log C + \frac{n+4}{2\beta_1}\log \frac{\lambda+1}{c_1}+3R.
+\end{equation}
+In particular, we choose
+\begin{equation}\label{2.16}
+	r= \hat{C}\left( \frac{n+4}{2\beta_1} \log_+ \frac{\lambda+1}{c_1}+ \left( \frac{\lambda+2}{c_1} \right) ^{1 /\beta_1}+1\right) 
+\end{equation}
+with $\hat{C}$ large enough so that  \eqref{2.13} is satisfied, here $\hat{C}$ is dependent only on $n$.
+\end{proof}
+
+\section{Spectral inequality for the Schrödinger operator}\label{sec4d}
+In this section, equipped with Proposition~\ref{prp2.1}, we follow the approach in \cite{zhu2023spectral} step by step to obtain the spectral inequality whose constant in the exponent has explicit dependence on $c_1$ and $c_2$.
+
+We present Zhu-Zhuge's spectral inequality in the following.
+\begin{theorem}\label{thm1.1}
+	Assume that $V$ satisfies Assumption \ref{A1} and $\omega$ satisfies \eqref{1.3a} with $l=1,\sigma  \in [0,\infty)$ and $\gamma\in (0, 1 /2)$. Then there exists a constant $C$ depending only on $n$ such that
+	\begin{equation}\label{1.11d}
+		\|\phi\|_{L^2(\R^{n})}\le \left( \frac{1}{\gamma} \right) ^{C \mathcal{J}}\|\phi\|_{L^2(\omega)},\quad \forall\phi \in  \mathcal{E}_\lambda(H),\,\lambda\ge 0,
+	\end{equation}
+	where $\mathcal{J}:=\mathcal{J}(c_1,c_2,\lambda):=\mathcal{J}_1^{2\sigma /\beta_2}\left( \lambda^{1 /2}+c_2^{\frac{1}{2}}\mathcal{J}_1 \right) $ and 
+	\begin{equation}
+	\mathcal{J}_1(c_1,\lambda):= \left( \frac{n+4}{2\beta_1}\log_+ \frac{\lambda+1}{c_1}+\left( \frac{\lambda+2}{c_1} \right)^{1 / \beta_1} +1 \right)^{\frac{\beta_2}{2}}. 
+	\end{equation}
+	Here we use the notation $\log_+ u:=\max\left\{u,0\right\} $.
+\end{theorem}
+There are two main difference between this theorem and \cite[Theorem~1]{zhu2023spectral}:
+\begin{enumerate}
+	\item we replace the lower bound $V(x)\ge (|x|-1)_{+}^{\beta_1}$ in \cite{zhu2023spectral} to $V(x)\ge |x|^{\beta_1}$ ;
+	\item we give an explicit form of the constant in the exponent of $1 /\gamma$.
+\end{enumerate}
+\subsection{Precised form of Zhu-Zhuge's spectral inequality}
+We consider the solutions of 
+\begin{equation}\label{3.1}
+	-\Delta v+V v=0, \quad  x \in \R^{n+1},
+\end{equation}
+and give two kinds of $3$-ball inequalities from \cite{zhu2023spectral}. Then, we follow the strategy in \cite{dicke2022spectral,zhu2023spectral} to prove the spectral inequality.
+
+Given $L>0$, we denote
+ \[
+\Lambda_L:= \left[ -\frac{L}{2},\frac{L}{2} \right] ^{n}.
+\] 
+Denote $\mathcal{B}_{r}(x) \subset \R^{n}$ be a ball with radius $r$ and center $x$. Denote  $\mathbb{B}_r(x)$ be a ball in $\R^{n+1}$.
+
+
+Let $\delta \in (0,\frac{1}{2})$, $b=(0,\cdots ,0,-b_{n+1})$ and $b_{n+1}= \frac{\delta}{100}$. Define
+\begin{equation*}
+	\begin{aligned}
+		W_1=&\left\{y \in \R^{n+1}_+\lvert |y-b|\le \frac{1}{4}\delta\right\}, \\
+		W_2=& \left\{y \in \R^{n+1}_+\lvert |y-b|\le \frac{2}{3}\delta\right\}.
+	\end{aligned} 
+\end{equation*}
+Then $W_1\subset W_2\subset \mathbb{B}_{\delta}$. Define
+\[
+W_j(z_i):=(z_i,0)+W_j, \quad  j=1,2,
+\]
+with $Q_L:= \Lambda_L \cap \Z^{n}$,
+and
+\[
+P_j(L)= \bigcup_{i\in Q_{L}} W_j\left( z_i \right) \text{ and } D_{\delta}(L)=\bigcup_{i\in Q_L} \mathcal{B}_{\delta}(z_i), \quad j=1,2.
+\] 
+Define $R=9 \sqrt{n} $ and
+\begin{equation}
+	X_1=\Lambda_L\times [-1,1] \text{ and }\widetilde{X}_{R}=\Lambda_{L+R}\times [-R,R].
+\end{equation}
+
+Now we present two kinds of 3-ball inequalities.
+\begin{lemma}[{\cite[Lemma~1]{zhu2023spectral}}]\label{lma3.1}
+	Let  $\delta \in (0,\frac{1}{2})$. Let $v$ be the solution of \eqref{3.1} with $v(y)=0$ on the hyperplane $\left\{y\left| y_{n+1}=0\right.\right\} $. There exist $0<\alpha <1$ and $C>0$, depending only on $n$ such that
+	\begin{equation}\label{3.2}
+		\|v\|_{H^{1}\left( P_1(L) \right) }\le \delta^{-\alpha }\exp \left( C\left( 1+\mathcal{G}(V_1,V_2,9\sqrt{n} L \right)  \right) \|v\|^{\alpha }_{H^{1}\left( P_2(L) \right) }\|\frac{\partial v}{\partial y_{n+1}}\|^{1-\alpha }_{L^2\left( D_\delta(L) \right) }, 
+	\end{equation}
+	where 
+	\begin{equation}\label{3.3}
+		\mathcal{G}\left( V_1,V_2,L \right) =\|V_1\|^{\frac{1}{2}}_{W^{1,\infty}(\Lambda_L)}+\|V_2\|^{\frac{2}{3}}_{L^{\infty}(\Lambda_L)}.
+	\end{equation}
+\end{lemma}
+
+\begin{lemma}[{\cite[Lemma~2]{zhu2023spectral}}]\label{lma3.2}
+	Let $\delta \in (0,\frac{1}{2})$. Let $v$ be the solution of \eqref{3.1} which is odd with repect to $y_{n+1}$. There exist $C>0$ depending only on $n$, $0<\alpha <1$ depending on $\delta$ and $n$ such that
+	\begin{equation}\label{3.5}
+		\|v\|_{H^{1}(X_1)}\le \delta^{-2\alpha _1}\exp\left( C\left( 1+\mathcal{G}\left( V_1,V_2,9\sqrt{n} L \right)  \right)  \right) \|v\|^{1-\alpha _1}_{H^{1}\left( \widetilde{X}_{R} \right) }\|v\|^{\alpha_1}_{H^{1}\left( P_1(L) \right) },
+	\end{equation}
+	where $\mathcal{G}(V_1,V_2,L)$ is given by \eqref{3.3}. Indeed, $\alpha_1$ can be given in the form
+\begin{equation}\label{3.7}
+	0<\alpha_1= \frac{\epsilon_1}{|\log \delta|+\epsilon_2}<1
+\end{equation}
+with positive constants $\epsilon_1$ and $\epsilon_2$ depending only on  $n$.
+\end{lemma}
+Let $\phi \in \mathcal{E}_\lambda(H)$ as before, define
+\begin{equation}\label{3.8}
+	\Phi(x,x_{n+1})=\sum_{0<\lambda_k\le \lambda} \alpha_k \phi_k(x) \frac{\sinh (\sqrt{\lambda_k} x_{n+1})}{\sqrt{\lambda_k} }.
+\end{equation}
+Then $\Phi(x,x_{n+1})$ satisfies the equation 
+\begin{equation}\label{3.9}
+	-\Delta \Phi+V(x)\Phi=0,\quad (x,x_{n+1}) \in \R^{n+1}.
+\end{equation}
+We need to mention that $\Delta=\sum_{j=1}^{n+1} D^2_{j}$ in \eqref{3.9}, which is not the same as $\Delta_x=\sum_{j=1}^{n} D^2_{j}$.
+It is easy to check that $D_{n+1}\Phi(x,0)=\phi(x)$ and $\Phi(x,0)=0$ where $\Delta \Phi=\sum_{j=1}^{n+1} D_j^2\Phi$.
+
+The following estimate for $\Phi$ is standard and can be found in \cite[Lemma~3]{zhu2023spectral}.
+\begin{lemma}\label{lma3.3}
+	Let $\phi \in  \mathcal{E}_\lambda(H)$ and $\Phi$ be given in \eqref{3.9}. For any $\rho >0$, we have
+	\begin{equation}
+		2\rho \|\phi\|^2_{L^2(\R^{n})}\le \|\Phi\|^2_{H^{1}\left( \R^{n}\times (-\rho,\rho \right) }\le 2\rho \left( 1+ \frac{\rho^2}{3}(1+\lambda)e^{2\rho \sqrt{\lambda} } \right) \|\phi\|^2_{L^2(\R^{n})}.
+	\end{equation}
+\end{lemma}
+
+To use Proposition \ref{prp2.1}, we need to extend it from $\phi$ to $\Phi$. Indeed, we have the following corollary:
+\begin{corollary}\label{crc3.4}
+	Given the same condition as Proposition \ref{prp2.1}, we have
+	\begin{equation}\label{3.11}
+		\|\Phi\|^2_{H^{1}\left( \R^{n}\times (-1,1) \right) }\le 2\|\Phi\|^2_{H^{1}(\mathcal{B}_r \times (-1,1))}.
+	\end{equation}
+\end{corollary}
+\begin{proof}
+	Since $\Phi(\cdot ,x_{n+1})\in \mathcal{E}_{\lambda}(H)$, by Proposition \ref{prp2.1} we obtain
+	\begin{equation}\label{3.12}
+		\|\Phi(\cdot ,x_{n+1})\|^2_{H^{1}(\R^{n})}\le 2\|\Phi(\cdot ,x_{n+1})\|^2_{L^2\left( \mathcal{B}_r(0) \right) }\le 2 \|\Phi(\cdot ,x_{n+1})\|^2_{H^1\left( \mathcal{B}_r(0) \right) }.
+	\end{equation}
+	Since $D_{n+1}\Phi(\cdot ,x_{n+1})\in \mathcal{E}_{\lambda}(H)$, we obtain
+	\begin{equation}\label{3.13}
+		\|D_{n+1}\Phi(\cdot ,x_{n+1})\|^2_{L^2(\R^{n})}\le \|D_{n+1}\Phi(\cdot ,x_{n+1})\|^2_{H^{1}(\R^{n})}\le 2 \|D_{n+1}\Phi\|^2_{L^2\left( \mathcal{B}_r(0) \right) }.
+	\end{equation}
+Then we have
+\begin{equation}
+	\begin{aligned}
+		&\|\Phi\|^2_{H^{1}(\R^{n}\times (-1,1))}\\
+		=& \int_{-1}^{1}\int_{\R^{n}}|\Phi|^2 \d x\mathrm{d}x_{n+1}+ \int_{-1}^{1} \int_{\R^{n}}\sum_{j=1}^{n+1} |D_j\Phi|^2\d x\mathrm{d}x_{n+1}\\
+		=& \int_{-1}^{1}\|\Phi(\cdot ,x_{n+1})\|^2_{L^2(\R^{n})}\d x_{n+1}+ \int_{-1}^{1}\sum_{j=1}^{n} \|D_j \Phi(\cdot ,x_{n+1})\|^2_{L^2(\R^{n})}\d x_{n+1}\\
+		 &+ \int_{-1}^{1}\|D_{n+1}\Phi(\cdot ,x_{n+1})\|^2_{L^2(\R^{n})}\d x_{n+1}\\
+		\overset{\eqref{3.13}}{\le}& \int_{-1}^{1}\|\Phi(\cdot ,x_{n+1})\|^2_{H^{1}(\R^{n})}\d x_{n+1} + \int_{-1}^{1}2\|D_{n+1}\Phi(\cdot ,x_{n+1})\|^2_{L^2(\mathcal{B}_r(0))}\d x_{n+1}\\
+		\overset{\eqref{3.12}}{\le} & \int_{1}^{1}2 \|\Phi(\cdot ,x_{n+1}\|^2_{H^{1}(\mathcal{B}_r(0))}\d x_{n+1}+\int_{-1}^{1}2\|D_{n+1}\Phi(\cdot ,x_{n+1})\|^2_{L^2(\mathcal{B}_r(0))}\d x_{n+1}\\
+		=& \|\Phi\|^2_{H^{1}\left( \mathcal{B}_r(0) \right) }.
+	\end{aligned} 
+\end{equation}
+\end{proof}
+Now we give the proof of Theorem~\ref{thm1.1}
+\begin{proof}[Proof of Theorem \ref{thm1.1}]
+	Let $L=2\left\lceil r \right\rceil +1$, where $r$ is given in Proposition \ref{prp2.1} and $\left\lceil a \right\rceil $ means the largest integer smaller than $a+1$.  Then we have $\mathcal{B}_r(0)\subset \Lambda_L$ with $\Lambda_L=\left[ -L /2,L /2 \right] $. Moreover, we can decompose  $\Lambda_L$ as
+	\begin{equation}
+		\Lambda_L= \bigcup_{k\in \Lambda_L \cap \Z^{n}} \left( k+\left[ -\frac{1}{2},\frac{1}{2} \right]^{n}  \right). 
+	\end{equation}
+	For each $k \in \Lambda_L\cap \Z^{n}$, we have $|k|\le \sqrt{n} \left\lceil r \right\rceil $. Let $\gamma\in (0,\frac{1}{2})$ be as in the theorem and
+	\begin{equation}
+		\delta:= \gamma ^{1+ \left( \sqrt{n} \left\lceil r \right\rceil  \right) ^{\sigma } }\le \gamma^{1+|k|^{\sigma }}, \quad  \forall k \in \Lambda_L \cap \Z^{n}.
+	\end{equation}
+
+	Now we show an interpolation inequality. We replace $v$ in \eqref{3.1} by $\Phi$ in \eqref{3.8}. Note that $\Phi$ is odd in $x_{n+1}$, we combine \eqref{3.2} in Lemma~\ref{lma3.1} and \eqref{3.5} in Lemma~\ref{lma3.2} with $\delta$ and $L$ defined above to get
+	\begin{equation}
+		\begin{aligned}
+			&\|\Phi\|_{H^{1}(X_1)}\le \delta^{-2 \alpha_1}\exp\left( C\left( 1+\mathcal{G}\left( V_1,V_2,9 \sqrt{n} L \right)  \right)  \right) \|\Phi\|^{1-\alpha_1}_{H^{1}(\widetilde{X}_{R})}\|\Phi\|^{\alpha_1}_{H^{1}\left( P_1(L) \right) }\\
+					     &\le \delta ^{-2 \alpha_1-\alpha \alpha_1}\exp\left( C\left( 1+\mathcal{G}\left( V_1,V_2,9 \sqrt{n} L \right)  \right)  \right) \|\Phi\|^{\alpha \alpha_1}_{H^{1}(P_2(L))}\|\frac{\partial \Phi}{\partial y_{n+1}}\|^{\alpha_1  (1-\alpha )}_{L^2(D_\delta(L))}\|\Phi\|^{1-\alpha_1}_{H^{1}(\widetilde{X}_{R})}\\
+					     & \le \delta^{-3 \alpha_1}\exp \left( C\left( 1+\mathcal{G}\left( V_1,V_2,9 \sqrt{n} L \right)  \right)  \right) \|\phi\|^{\hat{\alpha}}_{L^2(D_\delta(L))}\|\Phi\|^{1-\hat{\alpha}}_{H^{1}\left( \widetilde{X}_{R} \right) },
+		\end{aligned} 
+	\end{equation}
+	where $\hat{\alpha}=\alpha_1 (1-\alpha )$ and we have used the facts $P_2(L) \subset \widetilde{X}_{R}$ and $\frac{\partial \Phi}{\partial y_{n+1}}(\cdot ,0)=\phi$. Here and below, the symbol $C$ may represent different positive constants depending on $n$.
+
+	Recall $\alpha_1$ in \eqref{3.7}, we have $\alpha_1 \approx \hat{\alpha}\approx \frac{1}{|\log \delta|}$ for any $\delta \in (0, \frac{1}{2})$. Hence $\delta ^{-3 \alpha_1}\le C$ and then
+	\begin{equation}\label{3.18}
+		\|\Phi\|_{H^{1}\left( X_1 \right) }\le \exp \left( C\left( 1+\mathcal{G}\left( V_1,V_2,9 \sqrt{n} L \right)  \right)  \right) \|\phi\|^{\hat{\alpha}}_{L^2\left( \omega \cap \Lambda_L \right) }\|\Phi\|^{1-\hat{\alpha}}_{H^{1}(\widetilde{X}_{R})},
+	\end{equation}
+where we have also used the fact $D_\delta (L)\subset \omega \cap \Lambda_L$.
+
+Substituting $L=2\left\lceil r \right\rceil +1$ and \eqref{2.16} into $\mathcal{G}(V_1,V_2,L)$ and by Assumption \ref{A1}, we have
+\begin{equation}
+	\mathcal{G}(V_1,V_2,9 \sqrt{n} L)\le c_2^{\frac{1}{2}} \left( 2\left\lceil r \right\rceil +2 \right) ^{\frac{\beta_2}{2}}\le C c_2^{\frac{1}{2}} \left( \frac{n+4}{2\beta_1}\log \frac{\lambda+1}{c_1}+\left( \frac{\lambda+2}{c_1} \right) ^{1 /\beta_1} +1 \right) ^{\frac{\beta_2}{2}}. 
+\end{equation}
+Define
+\begin{equation}\label{j.1}
+	\mathcal{J}_1(c_1,\lambda)= \left( \frac{n+4}{2\beta_1}\log_+ \frac{\lambda+1}{c_1}+\left( \frac{\lambda+2}{c_1} \right)^{1 / \beta_1} +1 \right)^{\frac{\beta_2}{2}}, 
+\end{equation}
+then we can write \eqref{3.18} as 
+\begin{equation}\label{3.20}
+	\|\Phi\|_{H^{1}\left( X_1 \right) }\le \exp \left( C c_2^{\frac{1}{2}} \mathcal{J}_1(c_1,c_2,\lambda) \right) \|\phi\|^{\hat{\alpha}}_{L^2\left( \omega \cap \Lambda_L \right) }\|\Phi\|^{1- \hat{\alpha}}_{H^{1}\left( \widetilde{X}_{R} \right) }. 
+\end{equation}
+
+Applying $\rho =R$ and $\rho =1$ in Lemma \ref{lma3.3} for upper and lower bounds, respectively, we obtain
+\begin{equation}
+	\frac{\|\Phi\|^2_{H^{1}\left( \R^{n}\times (-R,R) \right) }}{\|\Phi\|^2_{H^{1}\left( \R^{n}\times (-1,1) \right) }}\le R \left( 1+\frac{R^2}{3}\left( 1+\lambda \right)  \right) \exp \left( 2 R \sqrt{\lambda}  \right) \le \exp \left( C_2 \sqrt{\lambda}  \right). 
+\end{equation}
+With the aid of \eqref{3.11} and the fact $\mathcal{B}_r(0)\subset \Lambda_L$, we get
+\begin{equation}\label{3.22}
+	\begin{aligned}
+		\|\Phi\|_{H^{1}\left( \R^{n}\times (-R,R) \right) } &\le \exp\left( \frac{1}{2}C_2 \sqrt{\lambda}  \right) \|\Phi\|_{H^{1}\left( \R^{n}\times (-1,1) \right) }\\
+									&\le \sqrt{2} \exp \left( \frac{1}{2}C_2 \sqrt{\lambda}  \right) \|\Phi\|_{H^{1}\left( \Lambda_L\times (-1,1) \right) }.
+	\end{aligned} 
+\end{equation}
+Recall that $X_1=\Lambda_L\times (-1,1)$, substituting \eqref{3.22} into \eqref{3.20} we obtain
+\begin{equation}
+	\|\Phi\|_{H^{1}\left( \R^{n}\times (-R,R) \right) }\le \exp \left( C_3 \mathcal{J}_2(c_1,c_2,\lambda) \right) \|\phi\|^{\hat{\alpha}}_{L^2\left( \omega \cap \Lambda_L \right) }\|\Phi\|^{1- \hat{\alpha}}_{H^{1}\left( \widetilde{X}_{R} \right) }   
+\end{equation}
+with
+\begin{equation}\label{j.2}
+	\mathcal{J}_2(c_1,c_2,\lambda)=\lambda ^{\frac{1}{2}}+c_2^{\frac{1}{2}}\mathcal{J}_1(c_1,c_2,\lambda).
+\end{equation}
+Since $\widetilde{X}_{R}\subset \R^{n}\times (-R,R)$, it follows that
+\begin{equation}
+	\|\Phi\|_{H^{1}\left( \R^{n}\times (-R,R) \right) }\le \exp \left( \hat{\alpha}^{-1}C_3\mathcal{J}_2\left( c_1,c_2,\lambda \right)  \right) \|\phi\|_{L^2\left( \omega \cap \Lambda_L \right) }. 
+\end{equation}
+Recall that
+\begin{equation}
+\hat{\alpha}^{-1}\approx \alpha^{-1}_1\approx |\log \delta| \approx |\log \gamma|\mathcal{J}_1 ^{\frac{2\sigma }{\beta_2}}
+\end{equation}
+we obtain
+\begin{equation}
+	\|\Phi\|_{H^{1}\left( \R^{n}\times (-R,R) \right) }\le \left( \frac{1}{\gamma} \right) ^{C \mathcal{J}_1^{\frac{2\sigma }{ \beta_2}}\mathcal{J}_2}\|\phi\|_{L^2\left( \omega\cap \Lambda_L \right) }.
+\end{equation}
+Finally, using the lower bound in Lemma \ref{lma3.3} with $\rho =R$, we obtain
+\begin{equation}
+	\|\phi\|_{L^2(\R^{n})}\le \left( \frac{1}{2 R} \right) ^{\frac{1}{2}}\|\Phi\|_{H^{1}(\R^{n}\times (-R,R))} \le \left( \frac{1}{\gamma} \right) ^{C  \mathcal{J}_1^{\frac{2\sigma }{\beta_2}}\mathcal{J}_2}\|\phi\|_{L^2\left( \omega \right) }
+\end{equation}
+with positive constant  $C$ depending only on $n$.
+\end{proof}
+
+\subsection{Changing of the constant}\label{subsec.5}
+To make use of Theorem \ref{thm1.1}, we consider the new Schrödinger operator
+\begin{equation}\label{1.13a}
+	H_r=-\Delta_x+rV(x), \quad r>0
+\end{equation}
+and observe the influence of $r$ in $\mathcal{J}$. 
+
+First, we assume that $V$ in \eqref{1.13a} satisfies Assumption~\ref{A1}. Then the new potential $rV$ satisfies Assumption~\ref{A1} by replacing  $c_1,c_2$ with $rc_1,rc_2$ respectively. This implies $\mathcal{J}(c_1,c_2,\lambda)$ changes to $\mathcal{J}(rc_1,rc_2,\lambda)$. Now fix the constant $\beta_1,\beta_2,c_1,c_2,\sigma$ and we get the following corollary.
+ \begin{corollary}\label{crc1.2}
+Assume that $V$ satisfies Assumption \ref{A1} and $\omega$ satisfies \eqref{1.3a} with $l=1,\sigma  \in [0,\infty)$ and $\gamma \in (0,1 /2)$. Then the term $\mathcal{J}(rc_1,rc_2,\lambda)$, denote by $\mathcal{J}_r$, associated with the potential $rV$ in \eqref{1.11d} and any $\lambda>0$, have following relations: 
+	 \begin{enumerate}
+	 	\item if $r\ge 1$,
+\begin{equation}
+	\mathcal{J}_r\lesssim_{n,\beta_1,\beta_2,\sigma,c_1,c_2}\lambda^{\frac{\sigma }{\beta_1}+\frac{\beta_2}{2\beta_1}}+r^{\frac{\sigma }{\beta_2}+\frac{1}{2}}.
+\end{equation}
+		\item if $0<r<1$ and $\beta_1=\beta_2=\beta$, 
+\begin{equation}
+	\mathcal{J}_r\lesssim_{n,\beta,\sigma ,c_1,c_2}r^{-\frac{\sigma }{\beta}}\lambda^{\frac{\sigma }{\beta}+\frac{1}{2}}+r^{-\frac{\sigma }{\beta}}.
+\end{equation}
+		\item if $0<r<1$ and $\beta_1<\beta_2$, 
+			\begin{equation}
+				\mathcal{J}_r\lesssim_{n,\beta_1,\beta_2,\sigma,c_1,c_2} r^{s_1} \lambda^{s_2} +r^{s_3}
+			\end{equation}
+			where $s_1$, $s_2$ and $s_3$ are constants depending on $n,\beta_1,\beta_2,c_1,c_2,\sigma$ with $s_3<0$.
+	 \end{enumerate}
+ \end{corollary}
+
+\begin{proof}[Proof of Corollary~\ref{crc1.2}]
+Remember
+\begin{equation}
+	\mathcal{J}=\mathcal{J}(c_1,c_2,\lambda)= \mathcal{J}_1 ^{\frac{2\sigma }{\beta_2}}\mathcal{J}_2.
+\end{equation}
+By the definition of $\mathcal{J}_1$, we obtain
+\begin{equation}
+	\mathcal{J}_1(c_1,c_2,\lambda)\lesssim_{n,\beta_1,\beta_2}  \left( \frac{\lambda+2}{c_1} \right) ^{\frac{\beta_2}{2\beta_1}}+1
+\end{equation}
+Then we have
+\begin{equation}\label{4.3}
+	\begin{aligned}
+		\mathcal{J} &\lesssim_{n,\beta_1,\beta_2,\sigma }  \left( \left( \frac{\lambda+2}{c_1} \right) ^{\frac{\beta_2}{2\beta_1}}+1 \right)^{\frac{2\sigma }{\beta_2}}\!\!\!\!\! \cdot \left( \lambda ^{\frac{1}{2}}+ c_2^{\frac{1}{2}} \left( \left( \frac{\lambda+2}{c_1} \right) ^{\frac{\beta_2}{2\beta_1}}+1 \right)  \right). 
+	\end{aligned}
+\end{equation}
+Here and below we frequently use the fact that given a fixed number $\beta >0$, we have
+\begin{equation}
+	\left( \lambda+ 1 \right)^{\beta} \lesssim_\beta \lambda^{ \beta}+1,\quad \forall \lambda>0.
+\end{equation}
+We simplify \eqref{4.3} to the following 
+\begin{equation}\label{4.5}
+		\mathcal{J}\lesssim_{n,\beta_1,\beta_2,\sigma} c_1^{-\frac{\sigma }{\beta_1}}\left( \lambda^{\frac{\sigma }{\beta_1}}+c_1^{\frac{\sigma }{\beta_1}}+1 \right)\!\cdot\! \left( \lambda^{\frac{1}{2}}+ c_2 ^{\frac{1}{2}}c_1^{-\frac{\beta_2}{2\beta_1}} \lambda ^{\frac{\beta_2}{2\beta_1}}+c_2^{\frac{1}{2}}+c_2^{\frac{1}{2}}c_1^{-\frac{\beta_2}{2\beta_1}} \right).
+\end{equation}
+Recall $\mathcal{J}_r:=\mathcal{J}(rc_1,rc_2,\lambda)$.
+From now on, we fix the constant $c_1$ and $c_2$, and consider the change of $\mathcal{J}_r$ with respect to any positive real number $r$ under the condition $\lambda \ge r^{\frac{2}{\beta_1+2}}\widetilde{\lambda}_0$.
+
+To capture the change of the lower bound of $\lambda$, we define the rescaled value of $\lambda$ 
+\begin{equation}\label{5.7b}
+	\mu:= \frac{\lambda}{r^{ 2 /(\beta_1+2)}\widetilde{\lambda}_0}.
+\end{equation}
+Then $\mu \ge 1$. Substituting \eqref{5.7b} into \eqref{4.5} and replacing $c_1$ and $c_2$ by $rc_1$ and $rc_2$ respectively, we obtain
+\begin{equation}\label{5.8b}
+	\begin{aligned}
+		\mathcal{J}_r\lesssim_{n,\beta_1,\beta_2,\sigma,c_1,c_2}&r^{-\frac{\sigma }{\beta_1}}\left( r^{\frac{2\sigma}{\beta_1(\beta_1+2)}}\mu^{\frac{\sigma }{\beta_1}}+r^{\frac{\sigma }{\beta_1}}+1 \right)\\
+	&\times \left( r^{\frac{1}{\beta_1+2}}\mu^{\frac{1}{2}}+r^{\frac{1}{2}-\frac{\beta_2}{2\beta_1}+\frac{\beta_2}{\beta_1(\beta_1+2)}}\mu ^{\frac{\beta_2}{2\beta_1}} + r^{\frac{1}{2}}+r^{\frac{1}{2}-\frac{\beta_2}{2\beta_1}}\right)
+	\end{aligned}
+\end{equation}
+
+
+Now we study the relation between $\mathcal{J}_r$ and $r$ in three cases.
+
+\noindent{\bf Case $r\ge 1$.} Note that the exponent in \eqref{5.8b} has the relation
+\begin{equation}
+	\frac{1}{\beta_1+2}\ge \frac{1}{2}-\frac{\beta_2}{2\beta_1}+\frac{\beta_2}{\beta_1(\beta_1+2)}
+\end{equation}
+provided the condition $\beta_2\ge \beta_1>0$. Then we obtan
+\begin{equation}
+	\mathcal{J}_r\lesssim_{n,\beta_1,\beta_2,\sigma ,c_1,c_2}r^{-\frac{\sigma }{\beta_1}}\left( r^{\frac{2\sigma }{\beta_1(\beta_1+2)}}\mu^{\frac{\sigma }{\beta_1}}+r^{\frac{\sigma }{\beta_1}} \right) \! \cdot \! \left( r^{\frac{1}{\beta_1+2}}\mu^{\frac{\beta_2}{2\beta_1}}+r^{\frac{1}{2}} \right)
+\end{equation}
+where we used the condition $r\ge 1$ to absorb lower order terms. It can be simplified further to
+\begin{equation}
+	\mathcal{J}_r\lesssim_{n,\beta_1,\beta_2,\sigma ,c_1,c_2}r^{-\frac{\sigma }{\beta_1}+\frac{2\sigma }{\beta_1(\beta_1+2)}+\frac{1}{\beta_1+2}}\mu^{\frac{\sigma }{\beta_1}+\frac{\beta_2}{2\beta_1}}+r^{\frac{1}{2}}.
+\end{equation}
+Now we can recover the term $\lambda$ and obtain
+\begin{equation}
+	\mathcal{J}_r\lesssim_{n,\beta_1,\beta_2,\sigma,c_1,c_2}r^{-\frac{\sigma }{\beta_1}-\frac{\beta_2-\beta_1}{\beta_1(\beta_1+2)}}\lambda^{\frac{\sigma }{\beta_1}+\frac{\beta_2}{2\beta_1}}+r^{\frac{1}{2}}.
+\end{equation}
+If we do not care about the nonpositive power, we obtain
+\begin{equation}
+	\mathcal{J}_r\lesssim_{n,\beta_1,\beta_2,\sigma,c_1,c_2}\lambda^{\frac{\sigma }{\beta_1}+\frac{\beta_2}{2\beta_1}}+r^{\frac{1}{2}}.
+\end{equation}
+
+\noindent{\bf Case $0<r<1$ and  $\beta_1=\beta_2=\beta$.}
+In this case, we observe \eqref{5.8b} and obtain
+\begin{equation}
+	\mathcal{J}_r\lesssim_{n,\beta,\sigma ,c_1,c_2} r^{-\frac{\sigma }{\beta}}\left( \left(r^{\frac{2}{\beta +2}}\mu\right)^{\frac{\sigma }{\beta}}+1 \right) \!\cdot \!\left(\left( r^{\frac{2}{\beta +2}}\mu\right)^{\frac{1}{2}}+1 \right). 
+\end{equation}
+Decompose it and we obtain
+Let $s=r^{\frac{2}{\beta +2}}\mu$, then
+\begin{equation}
+	\mathcal{J}_r\lesssim_{n,\beta,\sigma ,c_1,c_2} r^{-\frac{\sigma }{\beta}}\left( s^{\frac{\sigma }{ \beta}+\frac{1}{2}}+s^{\frac{\sigma }{\beta}} +s^{\frac{1}{2}}+1\right).
+\end{equation}
+There is a competition between $s$ and $1$,
+\begin{equation}
+	\mathcal{J}_r\lesssim_{n,\beta,\sigma ,c_1,c_2}r^{-\frac{\sigma }{\beta}}\times \begin{cases}
+		1,&s\le 1,\\
+		s^{\frac{\sigma }{\beta}+\frac{1}{2}}+1,&s>1.
+	\end{cases}
+\end{equation}
+Hence we always have $\mathcal{J}_r\lesssim_{n,\beta,\sigma ,c_1,c_2}r^{-\frac{\sigma }{\beta}} s^{\frac{1}{2}+\frac{\sigma }{\beta}}+r^{-\frac{\sigma }{\beta}}$, then we recover the original term and get
+\begin{equation}
+	\mathcal{J}_r\lesssim_{n,\beta,\sigma ,c_1,c_2}r^{-\frac{\sigma }{\beta}}\lambda^{\frac{\sigma }{\beta}+\frac{1}{2}}+r^{-\frac{\sigma }{\beta}}.
+\end{equation}
+
+
+\noindent{\bf Case $0<r<1$ and $\beta_1<\beta_2$.}
+In this case, we observe \eqref{5.8b} and obtain
+\begin{equation}\label{5.18d}
+	\mathcal{J}_r\lesssim_{n,\beta_1,\beta_2,\sigma,c_1,c_2}r^{-\frac{\sigma }{\beta_1}}\left( r^{\frac{2\sigma }{\beta_1(\beta_1+2)}}\mu^{\frac{\sigma }{\beta_1}}+ 1 \right)\!\cdot \!\left( r^{\frac{1}{2}-\frac{\beta_2}{2\beta_1}+\frac{\beta_2}{\beta_1(\beta_1+2)}}\mu^{\frac{\beta_2}{2\beta_1}}+r^{\frac{1}{2}-\frac{\beta_2}{2\beta_1}} \right).  
+\end{equation}
+Note that there exists a term $r^{-\frac{\sigma }{\beta_1}+\frac{1}{2}-\frac{\beta_2}{2\beta_1}}$ with the exponent  
+\[
+-\frac{\sigma }{\beta_1}+\frac{1}{2}-\frac{\beta_2}{2\beta_1}<0.
+\]
+Hence we can write it as
+\[
+\mathcal{J}_r\lesssim_{n,\beta_1,\beta_2,\sigma,c_1,c_2} r^{s_1}\lambda^{s_2}+r^{s_3}
+\] 
+with $s_1$, $s_2$ and $s_3$ depending on $n,\beta_1,\beta_2,c_1,c_2,\sigma $ and $s_3<0$.
+\end{proof}
+
+Then we assume that $V$ in \eqref{1.13a} satisfies Assumption~\ref{A2}. For $r\ge 1$, the new potential $rV$ satisfies Assumption~\ref{A2} by replacing $c_1,c_2$ with $rc_1,r^{4 /3}c_2$ respectively. This implies $\mathcal{J}(c_1,c_2,\lambda)$ changes to 
+\begin{equation}
+	\mathcal{J}_r:=\begin{cases}
+		\mathcal{J}(rc_1,r^{\frac{4}{3}}c_2,\lambda),&r\ge 1,\\
+		\mathcal{J}(rc_1,rc_2,\lambda),&0<r<1.
+	\end{cases}
+\end{equation}
+Now fix the constant $\beta_1,\beta_2,c_1,c_2,\sigma $ and we get the following corollary.
+\begin{corollary}\label{crc1.3h}
+	Assume that $V$ satisfies Assumption~\ref{A2} and $\omega$ satisfies \eqref{1.3a} with $l=1,\sigma \in [0,\infty)$ and $\gamma \in (0,1 /2)$. Then the term $\mathcal{J}_r$ associated with the potential $rV$ in \eqref{1.11d} and any $\lambda>0$ have the following relations:
+	\begin{enumerate}
+		\item if $r\ge 1$, 
+			\begin{equation}
+				\mathcal{J}_r\lesssim \begin{cases}				
+					r^{-\frac{\sigma }{\beta_1}+\frac{2}{3}-\frac{\beta_2}{2\beta_1}}\lambda^{\frac{\sigma }{\beta_1}+\frac{\beta_2}{2\beta_1}}+r^{\frac{2}{3}},& \beta_2\le (4\beta_1+2) /3,\\
+					 \lambda^{\frac{\sigma }{\beta_1}+\frac{\beta_2}{2\beta_1}}+r^{\frac{2}{3}},& \beta_2>(4\beta_1+2) /3.	
+				\end{cases}
+			\end{equation}
+		\item if  $0<r<1$, the situation is the same as {\rm (ii)} and {\rm (iii)} in Corollary~\ref{crc1.2}.
+	\end{enumerate}
+\end{corollary}
+\begin{proof}
+	We only need to consider the case $r\ge 1$ since $\mathcal{J}_r$ has the same form under the case $0<r<1$. Then  $\mathcal{J}_r=\mathcal{J}(rc_1,r^{4 /3}c_2,\lambda)$. Replacing $c_1$ and $c_2$ by $rc_1$ and $r^{4 /3}c_2$ respectivel, and substituting \eqref{5.7b} into \eqref{4.5}, we obtain		
+	\begin{equation}\label{3.53g}
+	\begin{aligned}
+		\mathcal{J}_r\lesssim_{n,\beta_1,\beta_2,\sigma,c_1,c_2}&r^{-\frac{\sigma }{\beta_1}}\left( r^{\frac{2\sigma}{\beta_1(\beta_1+2)}}\mu^{\frac{\sigma }{\beta_1}}+r^{\frac{\sigma }{\beta_1}}+1 \right)\\
+	&\times \left( r^{\frac{1}{\beta_1+2}}\mu^{\frac{1}{2}}+r^{\frac{2}{3}-\frac{\beta_2}{2\beta_1}+\frac{\beta_2}{\beta_1(\beta_1+2)}}\mu ^{\frac{\beta_2}{2\beta_1}} + r^{\frac{2}{3}}+r^{\frac{2}{3}-\frac{\beta_2}{2\beta_1}}\right)
+	\end{aligned}
+\end{equation}
+Now we need to compare the exponent ${\frac{1}{\beta_1+2}}$ and $\frac{2}{3}-\frac{\beta_2}{2\beta_1}+\frac{\beta_2}{\beta_1(\beta_1+2)}$:
+
+\noindent{\bf Case  $\displaystyle \beta_2\le {(4 \beta_1+2)} /{3} $.} Since
+\begin{equation}\label{3.54g}
+	\beta_2\le  \frac{4\beta_1+2}{3} \,\Longleftrightarrow\,\frac{1}{\beta_1+2}\le  \frac{2}{3}-\frac{\beta_2}{2\beta_1}+\frac{\beta_2}{\beta_1(\beta_1+2)},
+\end{equation}
+hence we obtain from \eqref{3.53g}
+\begin{equation}
+	\mathcal{J}_r\lesssim_{n,\beta_1,\beta_2,\sigma,c_1,c_2} r^{-\frac{\sigma }{\beta_1}}\left( r^{\frac{2\sigma }{\beta_1(\beta_1+2)}}\mu^{\frac{\sigma }{\beta_1}}+r^{\frac{\sigma }{\beta_1}} \right) \!\cdot \! \left( r^{\frac{2}{3}-\frac{\beta_2}{2\beta_1}+ \frac{\beta_2}{\beta_1(\beta_1+2)}}\mu ^{\frac{\beta_2}{2\beta_1}}+r^{\frac{2}{3}} \right) 
+\end{equation}
+where we used the condition $r\ge 1$ to absorb lower order terms. It can be simplified further to
+\begin{equation}
+	\mathcal{J}_r\lesssim_{n,\beta_1,\beta_2,\sigma ,c_1,c_2}r^{-\frac{\sigma }{\beta_1}+{\frac{2\sigma }{\beta_1(\beta_1+2)}}+\frac{2}{3}-\frac{\beta_2}{2\beta_1}+\frac{\beta_2}{\beta_1(\beta_1+2)}}\mu^{\frac{\sigma }{\beta_1}+\frac{\beta_2}{2\beta_1}}+r^{\frac{2}{3}}.
+\end{equation}
+Recover the term $\lambda$ by \eqref{5.7b} we obtain
+\begin{equation}
+	\mathcal{J}_r\lesssim_{n,\beta_1, \beta_2,\sigma ,c_1,c_2} r^{-\frac{\sigma }{\beta_1}+\frac{2}{3}-\frac{\beta_2}{2\beta_1}}\lambda^{\frac{\sigma }{\beta_1}+\frac{\beta_2}{2\beta_1}}+r^{\frac{2}{3}}.
+\end{equation}
+\noindent{\bf Case $\beta_2>(4\beta_1+2) /3$.} Now we have the reverse inequality of \eqref{3.54g}
+\begin{equation}
+	\frac{1}{\beta_1+2}>\frac{2}{3}- \frac{\beta_2}{2\beta_1}+\frac{\beta_2}{\beta_1(\beta_1+2)}.
+\end{equation}
+Then we obtain from \eqref{3.53g}
+\begin{equation}
+	\mathcal{J}_r\lesssim_{n,\beta_1,\beta_2,\sigma ,c_1,c_2} r^{-\frac{\sigma }{\beta_1}}\left( r^{\frac{2\sigma }{\beta_1(\beta_1+2)}}\mu^{\frac{\sigma }{\beta_1}}+r^{\frac{\sigma }{\beta_1}} \right) \!\cdot \! \left( r^{\frac{1}{\beta_1+2}}\mu^{\frac{\beta_2}{2\beta_1}}+r^{\frac{2}{3}} \right).
+\end{equation}
+It can be simplified to
+\begin{equation}
+	\mathcal{J}_r\lesssim_{n,\beta_1,\beta_2,\sigma ,c_1,c_2} r^{-\frac{\sigma }{\beta_1}+\frac{2\sigma }{\beta_1(\beta_1+2)}+\frac{1}{\beta_1+2}} \mu ^{\frac{\sigma }{\beta_1}+\frac{\beta_2}{2\beta_1}}+r^{\frac{2}{3}}.
+\end{equation}
+Recover the term $\lambda$ by \eqref{5.7b} we obtain
+\begin{equation}
+	\mathcal{J}_r\lesssim_{n,\beta_1,\beta_2,\sigma,c_1,c_2} r^{-\frac{\sigma }{\beta_1}+\frac{1}{\beta_1+2}-\frac{\beta_2}{\beta_1(\beta_1+2)}}\lambda^{\frac{\sigma }{\beta_1}+\frac{\beta_2}{2\beta_1}}+r^{\frac{2}{3}}.
+\end{equation}
+Note that the exponential of the first $r$ is negative, we can obsorb it and obtain
+\begin{equation}
+\mathcal{J}_r\lesssim_{n,\beta_1,\beta_2,\sigma,c_1,c_2} \lambda^{\frac{\sigma }{\beta_1}+\frac{\beta_2}{2\beta_1}}+r^{\frac{2}{3}}.	
+\end{equation}
+The proof is finished.
+\end{proof}
+\section{Proof of the exact controllability results}\label{sec2d}
+In this section, we prove the exact null-controllability results for the evolution equations \eqref{eg} and \eqref{egb}, i.e., prove Theorem \ref{thm1.3}, \ref{thm1.4}, \ref{thm1.4g} and \ref{thm1.5g}. The proof is motivated by \cite{alphonse2023quantitative}.
+
+\subsection{Exact observability}
+Note that the operators $H_{G}^{s}$ and $H_{G_p}^{s}$ are selfadjoint in $L^2(\R^{n+m})$ and $L^2\left( \R^{n}\times \T ^{m} \right)$, respectively, then the Hilbert Uniqueness Method implies that the exact null-controllability of \eqref{eg} and \eqref{egb} is equivalent to the exact observability of the associated semigroups $(e^{-tH_{G}^{s}})_{t\ge 0}$ and $(e ^{-t H_{G_p}^s})_{t\ge 0}$. The latter is defined as follows.
+\begin{definition}[Exact observability]
+	Let $T >0$, and let $\Omega \subset \R^{n}$ and $\omega \subset \Omega$ be measurable. A strongly continuous semigroup $(S(t))_{t\ge 0}$ on $L^2(\Omega)$ is said to be exactly observable from the set $\omega$ in time $T$ if there exists a positive constant $C_{\omega,T}>0$ such that for all $g \in L^2(\Omega)$, we have
+	\[
+	\|S(T) g\|^2_{L^2(\Omega)}\le C_{\omega,T}\int_{0}^{T}\|S(t)g\|^2_{L^2(\omega)}\d t.
+	\] 
+\end{definition}
+
+The strategy of the proof relies on the exact observability with explicit form of the constant $C_{\omega,T}$, which is based on the following quatitative result.
+\begin{theorem}[{\cite[Theorem 2.8]{nakic2020sharp}}]\label{thm2.1d}
+	Let $A$ be a non-negative selfadjoint operator on $L^2\left( \R^{n} \right) $, and let $\omega \subset \R^{n}$ be measurable. Suppose that there are $d_0,d_1\ge 0$ and $\zeta \in (0,1)$ such that for all $\lambda \ge 0$ and $\phi \in \mathcal{E}_\lambda(A)$,
+	\begin{equation}\label{2.1c}
+	\|\phi\|^2_{L^2(\R^{n})}\le d_0 e^{d_1\lambda^{\zeta}}\|\phi\|^2_{L^2(\omega)}.
+	\end{equation}
+	Then there exist positve constants $\kappa_1,\kappa_2,\kappa_3>0$ only depending on $\zeta$, such that for all $T>0$ and $g \in L^2(\R^{n})$ we have the observability estimate
+	\[
+	\|e^{-tA}g\|^2_{L^2(\R^{n})}\le \frac{C_{\mathrm{obs}}}{T}\int_0^{T}\|e^{-tA}g\|^2_{L^2(\omega)}\d t,
+	\] 
+	where the positive constant $C_{\mathrm{obs}}>0$ is given by
+	\begin{equation}\label{2.2c}
+		C_{\mathrm{obs}}=\kappa_1 d_0(2d_0+1)^{\kappa_2}\exp\left( \kappa_3\left( \frac{d_1}{T^{\zeta}} \right) ^{\frac{1}{1-\zeta}} \right).
+	\end{equation}
+\end{theorem}
+	Applying the partial Fourier transformation with respect to $y\in \R^{m}$, the operator $H_{G}$ is transformed to
+	\[
+	H_\eta:= -\Delta_x+|\eta |^{2}V(x)
+	\] 
+	where $\eta \in \R^{m}$ denotes the dual variable of $y\in \R^{m}$. Then we have
+	\begin{equation}\label{2.2b}
+		(e^{-tH_{G}} g)(x,y) = \int_{\R^{n}}\left(e^{-t H_\eta}g_\eta \right)(x)\d \eta,\quad g\in L^2\left( \R^{n+m} \right), (x,y) \in \R^{n}\times \R^{m} 
+	\end{equation}
+	where
+	\[
+	g_{\eta}(x)=\int_{\R^{m}}e^{-iy\cdot \eta}g(x ,y)\d y.
+	\]
+
+By Proposition~\ref{prp2.2c}, we have $\lambda_0(rV)\ge r^{\frac{2}{ \beta+2}}\widetilde{\lambda}_0$. Hence for the operator $H_r=-\Delta+rV$ we have the following decaying property
+\begin{equation}\label{2.5c}
+	\|e^{-t H_{r}}g\|_{L^2\left( \R^{n} \right) }\le e^{-t |r|^{\frac{2}{\beta_1+2}}\widetilde{\lambda}_0} \|g\|_{L^2(\R^{n})}.
+\end{equation}
+
+
+\subsection{Proof of main theorems}
+Now we prove an exact observability estimate for the semigroups generated by $H_{r}^{s}$
+
+\begin{proposition}\label{prp2.2}
+	Let $H_r$ be given in \eqref{1.13a} with $V$ satisfying Assumption~\ref{A1} and $\sigma = 0$. Then there exists a constant $K>0$ depending only on $n,\beta,c_1,c_2$ such that for all $(1,\gamma,0)$-distributed sets $\omega\subset \R^{n}$, $r>0$, $T>0$, and  $g\in L^2(\R^{n})$ we have
+	\begin{equation*}
+		\|e^{-TH_{r}^{s}}g\|^2_{L^2\left( \R^{n} \right) }\le \frac{C_{\mathrm{obs}}}{T}\int_0^{T}\|e^{-t H_{r}^{s}}g\|^2_{L^2(\omega)}\d t
+	\end{equation*}
+	where the positive constant $C_{\mathrm{obs}}$ is given by
+	\begin{equation}\label{2.7c}
+		C_{\mathrm{obs}} = K\left( \exp \left( K \log(1 /\gamma)r^{\frac{1}{2}}+\log^{\frac{2s}{2s-1}}(1 /\gamma) /T^{\frac{1}{2s-1}} \right)  \right). 
+	\end{equation}
+\end{proposition}
+\begin{proof}
+	Given $\beta_1=\beta_2=\beta >0,\sigma =0$ and $\gamma\in (0,1 /2)$, Corollary~\ref{crc1.2}~(i)(ii) implies the spectral inequality for the operator $H_r$ defined in \eqref{1.13a}  
+	\begin{equation*}
+		\|\phi\|_{L^2\left( \R^{n} \right) }\le C_1\left( \frac{1}{\gamma} \right) ^{C_2\lambda^{\frac{1}{2}}+ r^{\frac{1}{2}}}\|\phi\|^2_{L^2(\omega)},\quad \forall \phi \in \mathcal{E}_{H_r}(\lambda),
+	\end{equation*}
+	where $C_1$ and $C _2$ depend on $\beta,c_1,c_2$ and not on $r$.
+For the fractional operator $H_{G}^{s}$, by the transformation formula for spectral measures (see \cite[Proposition~4.24]{schmudgen2012unbounded}), for all $s>0$ and $\lambda \ge 0$ we have
+\begin{equation}\label{1f}
+	\mathcal{E}_\lambda(H_{r}^{s})=\mathcal{E}_{\lambda ^{\frac{1}{s}}}(H_{r}).
+\end{equation}
+This implies that the spectral inequality for $H_{r}^{s}$ can be achieved from the spectral inequality for $H_{r}$ by simply replacing $\lambda$ by$\lambda^{1 /s}$. Then we obtain the spectral inequality for the operator $H_r^{s}$
+\[
+\|\phi\|_{L^2(\R^{n})}\le C_1 \left( \frac{1}{\gamma} \right) ^{C_2 \lambda^{\frac{1}{2s}}+r^{\frac{1}{2}}},\quad \forall \phi \in \mathcal{E}_{H_r^{s}}(\lambda).
+\] 
+
+Now we write the constant the same form as in \eqref{2.1c}, i.e.,
+	\[
+	d_0=C_1 e^{\log\left( \frac{1}{\gamma} \right)  r^{\frac{1}{2}}},\, d_1=C_2 \log\left( \frac{1}{\gamma} \right),\, \zeta =\frac{1}{2s}.
+	\]
+	Then we estimate the observability constant $C_{\mathrm{obs}}$ given in \eqref{2.2c}, 
+	\begin{equation*}
+		\kappa_1d_0(2d_0+1)^{\kappa_2}\exp \left( \kappa_3 \left( \frac{d_1}{T^{\zeta}} \right) ^{\frac{1}{1-\zeta}} \right)\le K \exp\left( K\log\left( 1 /\gamma \right) r^{\frac{1}{2}}+ \log^{\frac{2s}{2s-1}}\left( 1 /\gamma \right) /T^{\frac{1}{2s-1}}\right)  
+	\end{equation*}
+where the constant $K$ depends only on $n,\beta,c_1,c_2$. This ends the proof.
+\end{proof}
+Now we give the proof of Theorem~\ref{thm1.3}.
+\begin{proof}[Proof of Theorem~\ref{thm1.3}]
+We have to show that whenever $T>0$, there exsits a constant $C_{\omega,T}>0$ such that for all $g\in L^2(\R^{n+m})$ we have
+\begin{equation}\label{2.4b}
+	\|e^{-TH_{G}^{s}}g\|^2_{L^2\left( \R^{n+m} \right) }\le C_{\omega,T}\int_0^{T}\|e^{-tH_{G}^{s}}g\|^2_{L^2\left( \omega\times \R^{m} \right) }\d t.
+\end{equation}
+Observe from \eqref{2.2b} and Fubini's theorem that for every measurable set $\Omega \subset \R^{n}$ and all $t>0$ and $g \in L^2\left( \R^{n+m} \right) $ we have
+\begin{equation*}
+	\|e^{-tH_{G}}g\|^2_{L^2(\Omega\times \R^{m})}=\int_{\R^{m}}\|e^{-tH_{\eta}}g_\eta\|^2_{L^2(\Omega)}\d \eta.
+\end{equation*}
+Inserting the latter into both sides of \eqref{2.4b}, once with $\Omega=\R^{n}$ and $t=T$ and once with  $\Omega=\omega$, we obtain
+\begin{equation*}
+	\int_{\R^{m}}\|e^{-TH_{\eta}^{s}}g_{\eta}\|^2_{L^2\left( \R^{n} \right) } \d \eta\le C_{\omega,T} \int_{\R^{m}}\left( \int_{0}^{T}\|e^{-tH_{\eta}^{s}}g_\eta\|^2_{L^2(\omega)}\d t \right)\d \eta 
+\end{equation*}
+Then by Fubini's theorem again, it suffices to show that
+\begin{equation*}
+	\|e^{-TH_{\eta}^{s} }g\|^2_{L^2(\R^{n})}\le C_{\omega,T}\int_0^{T}\|e^{-tH_{\eta}^{s}}g\|^2_{L^2(\omega)}\d t,\quad  g\in L^2(\R^{n}),\,r>0.
+\end{equation*}
+On the one hand, we have by \eqref{2.5c} that
+\begin{equation}\label{2.12c}
+	\|e^{-TH_{\eta}^{s}}g\|^2_{L^2(\R^{n})}\le e^{-T|\eta|^{\frac{4s}{\beta+2}}\widetilde{\lambda}_0}\|e^{-(T /2)H_{\eta}^{s}}g\|^2_{L^2(\omega)}, \quad  g\in L^2(\R^{n}),\,|\eta|>0.
+\end{equation}
+On the other hand, by Proposition~\ref{prp2.2} we obtan that for all $r> 0$ and $g\in L^2(\R^{n})$
+\begin{equation}\label{2.13c}
+	\|e^{-(T /2)H_{\eta}^{s}}g\|^2_{L^2(\R^{n})}\le \frac{2 C_{\mathrm{obs}}}{T}\int_0^{T /2} \|e^{-tH_{\eta}^{s}}g\|^2_{L^2(\omega)}\d t
+\end{equation}
+where $C_{\mathrm{obs}}=C_{\mathrm{obs}}(\omega,T /2,|\eta|^2)$ is given by \eqref{2.7c} with $T$ replaced by $T /2$ and $r$ replaced by $|\eta|^2$. Combining \eqref{2.12c} and \eqref{2.13c} we obtain that for all $r>0$ and $g\in L^2(\R^{n})$ 
+\begin{equation*}
+	\begin{aligned}
+		&\quad \|e^{-TH^{s}_{\eta}}g\|^2_{L^2(\R^{n})}\le \exp\left(-T \widetilde{\lambda}_0|\eta|^{\frac{4s}{\beta+2}}\right)  \frac{2C_{\mathrm{obs}}}{T}\int_0^{T /2} \|e^{-tH^{s}_{\eta}}g\|^2_{L^2(\omega)}\d t\\
+		=& \exp\left( - T \widetilde{\lambda}_0 |\eta|^{\frac{4s}{\beta+2}} +K\log(1 /\gamma) |\eta|\right)\exp\left( \frac{\log^{\frac{2s}{2s-1}}(1 /\gamma)}{(T /2)^{\frac{1}{2s-1}}} \right)\frac{2}{T} \int_0^{T /2} \|e^{-tH_{\eta}^{s}}g\|^2_{L^2(\omega)}\d t.  
+	\end{aligned} 
+\end{equation*}
+Now we consider it in two cases
+\begin{enumerate}
+	\item $\displaystyle \frac{4s}{\beta +2}>1$, i.e., $\displaystyle s>\frac{\beta +2}{4}$. Then for any fixed $T>0$, we have
+		\begin{equation*}
+			\sup_{|\eta|>0}\exp\left(-T \widetilde{\lambda}_0 |\eta|^{\frac{4s}{\beta +2}}+K\log(1 /\gamma)|\eta|  \right) <\infty.
+		\end{equation*}
+	\item $\displaystyle \frac{4s}{\beta +2}=1$, i.e., $\displaystyle s= \frac{\beta +2}{4}$. Then
+		\[
+			\sup_{|\eta|>0}\exp\left(-T \widetilde{\lambda}_0 |\eta|^{\frac{4s}{\beta +2}}+K\log(1 /\gamma)|\eta|  \right) <\infty \quad \Longleftrightarrow \quad T\ge T^{*}:= \frac{K\log(1 /\gamma)}{\widetilde{\lambda}_0}.
+		\]
+\end{enumerate}
+Replace $K /\widetilde{\lambda}_0$ with new constant $K$ and the proof for the operator $H_{G}^{s}$ is finished. 
+\end{proof}
+
+
+Now we consider $y\in \T^{m}$ case. In this case, We also do the partial Fourier transformation with respect to $y\in \T^{m}$, the operator $H_{G_p}$ is transformed to
+\[
+	H_{k}:=-\Delta_x+|k|^2V(x)
+\] 
+where $k\in \Z^{m}$ denotes the dual variable of $y\in \T^{m}$. This implies that $|k|\ge 1$ if  $k\neq 0$. 
+Similar to Proposition~\ref{prp2.2}, we obtain an exact observability estimate for the semigroups generated by $H_r^{s}$ with  $r\ge 1$.
+\begin{proposition}\label{prp2.4e}
+	Let $H_r$ be given in \eqref{1.13a} with $V$ satisfying Assumption~\ref{A1} and $\sigma /\beta_1 +\beta_2 /2\beta_1<s$. Then there exists a constant $K>0$ depending only on $n,\beta_1,\beta_2,\sigma ,c_1,c_2$ such that for all $(1,\gamma,\sigma)$-distributed sets $\omega\subset \R^{n}$, $r\ge 1$, $T>0$, and $g\in L^2(\R^{n})$ we have
+	\begin{equation}
+		\|e^{-TH_r^{s}}g\|_{L^2(\R^{n})}^2\le \frac{C_{\mathrm{obs}}}{T}\int_0^{T}\|e^{-tH_r^{s}}g\|^2_{L^2(\omega)}\d t
+	\end{equation}
+	where the positive constant $C_{\mathrm{obs}}$ is given by
+	\begin{equation}
+	C_{\mathrm{obs}}= K\left( \exp\left( K\log(1 /\gamma) r^{ \frac{1}{2}}+\left( \log(1 /\gamma) /T^{\zeta} \right)^{\frac{1}{1-\zeta}}  \right)  \right),\quad  \zeta= \frac{1}{s}\left(\frac{\sigma }{\beta_1}+\frac{\beta_2}{2\beta_1}\right)<1. 
+	\end{equation}
+\end{proposition}
+\begin{proof}
+	Different from Proposition~\ref{prp2.2}, we only need $r\ge 1$ here. Then applying Corollary~\ref{crc1.2}~(i) we obtain the spectral inequality for the operator $H_r$ defined in \eqref{1.13a} with $r\ge 1$
+	 \begin{equation}
+		\|\phi\|_{L^2(\R^{n})}\le C_1 \left( \frac{1}{\gamma} \right) ^{C_2 \lambda ^{\frac{\sigma }{\beta_1}+\frac{\beta_2}{2\beta_1}}+r^{\frac{1}{2}}} \|\phi\|^2_{L^2(\omega)}, \quad \forall \phi \in \mathcal{E}_{H_r}(\lambda),
+	\end{equation}
+	where $C_1$ and $C_2$ depend on $\beta_1,\beta_2,c_1,c_2$ and not on $r$. Then use \eqref{1f} again we obtain the spectral inequality for the operator $H^{s}_r$ with $r\ge 1$
+	\[
+	\|\phi\|_{L^2(\R^{n})}\le C_1 \left( \frac{1}{\gamma} \right) ^{C_2\lambda^{\zeta}+r^{\frac{1}{2}}} \|\phi\|^2_{L^2(\omega)},\quad  \forall\phi \in \mathcal{E}_{H_r^{s}}(\lambda)
+	\]
+	where $\zeta =\frac{1}{s}\left( \frac{\sigma }{\beta_1}+\frac{\beta_2}{2\beta_1} \right) <1$.
+
+	Now we write the constant the same form as in \eqref{2.1c}, i.e.,
+	\begin{equation}
+		d_0=C_1e^{\log\left( \frac{1}{\gamma} \right) r^{\frac{1}{2}}},\,d_1=C_2\log\left( \frac{1}{\gamma} \right),\,\zeta =\frac{1}{s}\left( \frac{\sigma }{\beta_1}+\frac{\beta_2}{2\beta_1}\right). 
+	\end{equation}
+	Then the same as in the proof of Proposition~\ref{prp2.2}, we estimate the observability constant $C_{\mathrm{obs}}$ given in \eqref{2.2c} and obtain the desired result.
+\end{proof}
+
+Now we give the proof of Theorem~\ref{thm1.4}. 
+
+\begin{proof}[Proof of Theorem~\ref{thm1.4}]
+	The method is the same as in the proof of Theorem~\ref{thm1.3}. The key difference is that Fourier series replaces the Fourier transform. Then we need to prove
+\begin{equation}
+	\sum_{ k \in \Z^{m}} \|e^{-TH_{k,\alpha}}g\|^2_{L^2(\R^{n})}\le C_{\omega,T} \sum_{k \in \Z^{m}} \int_0^{T}\|e^{-tH_{k,\alpha}}g\|^2_{L^2(\omega)}\d t.
+\end{equation}
+It is sufficient to prove 
+\begin{equation}
+	\|e^{-TH_{k,\alpha}}g\|^2_{L^2(\R^{n})}\le C_{\omega,T}\int_0^{T}\|e^{-tH_{k,\alpha}}g\|^2_{L^2(\omega)}\d t
+\end{equation}
+for all $k \in \Z^{m}$. 
+
+For $k\neq 0$, using the same strategy as the proof of Theorem \ref{thm1.3} and equipped with Proposition~\ref{prp2.4e} we obtan
+\begin{equation}
+	\begin{aligned}
+		&\quad \|e^{-TH_{k,\alpha}}g\|^2_{L^2(\R^{n})}\le \exp\left(-T \widetilde{\lambda}_0|k|^{\frac{2\alpha}{\beta_1+2}}\right)  \frac{2C_{\mathrm{obs}}}{T}\int_0^{T /2} \|e^{-tH_{k,\alpha}}g\|^2_{L^2(\omega)}\d t\\
+		=& \exp\left( - T \widetilde{\lambda}_0 |k|^{\frac{2\alpha}{\beta_1+2}} +K\log(1 /\gamma) |k|^{\zeta}\right)\exp\left( \left(\frac{\log(1 /\gamma)}{(T /2)^{\zeta}}\right)^{\frac{1}{1-\zeta}} \right)\frac{2}{T} \int_0^{T /2} \|e^{-tH_{k,\alpha}}g\|^2_{L^2(\omega)}\d t.   
+	\end{aligned} 
+\end{equation}
+However, we also need to consider $k=0$, which we can omit in  $y \in \R^{m}$ case. This particular case is equivalent to the observability of heat equation 
+\begin{equation}
+	\partial_t u(t,x)-\Delta_x u(t,x)=0, \quad x \in \R^{n}. 
+\end{equation}
+This implies the sensor sets $\omega$ must be $(\gamma,L)$-thick sets with $\gamma>0$ and $L>0$, see \cite[Theorem~1.1]{wang2019observable}. Hence it demands $\sigma=0$, which illustrates appearance of this condition in Theorem~\ref{thm1.4}.
+	
+Under the condition $s=1$, $\sigma =0$ and $\omega\subset \R^{n}$ being $(1,\gamma,0)$-distributed, the rest of the proof and the more general case for $s\ge \frac{\beta_2}{2\beta_1}$ is the same as in Theorem \ref{thm1.3}, hence we do not repeat it here.
+\end{proof}
+
+\begin{proof}[Proof of Corollary~1.3]
+If we modify the operator $H_{G}$ to  $H_{G}'$ and  $H_{G_p}$ to $H_{G_p}'$, then we have the lower bound $r\ge 1$ in  $rV$ after the partial Fourier transformation. Hence under this assumption, we only need to care about $r\ge 1$, i.e.,  $r\ge 1$ case in Corollary~\ref{crc1.2}. Then Corollary~\ref{crc1.5} can be derived from Proposition~\ref{prp2.4e} by repeating the same strategy.
+\end{proof}
+
+
+The method to prove Theorem~\ref{thm1.4g} and Theorem~\ref{thm1.5g} is exactly the same as in the proof of Theorem~\ref{thm1.3} and Theorem~\ref{thm1.4}. We first need to prove the observability estimates like Proposition~\ref{prp2.2} and \ref{prp2.4e}. The only change is from $r^{\frac{1}{2}}$ to $r^{\frac{2}{3}}$ in the exponent of the constant in the spectral inequalities (see the difference between Corollary~\ref{crc1.2} and Corollary~\ref{crc1.3h}). Except this difference, the proofs are same hence we omit here.
+
+\bibliographystyle{alpha}
+\bibliography{mybib}
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

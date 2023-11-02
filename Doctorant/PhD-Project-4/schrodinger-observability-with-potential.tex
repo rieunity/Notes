@@ -1,0 +1,485 @@
+%TEX program = xelatex
+\documentclass{amsart}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[colorlinks,
+	linkcolor=Red,
+	anchorcolor=blue,
+	citecolor=ForestGreen
+]
+{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{amsmath, amssymb,mathrsfs}
+\usepackage{mathtools}
+
+
+% integral vraiable
+\renewcommand{\d}{\,\mathrm{d}}
+
+% Some shortcuts
+\newcommand\N{\ensuremath{\mathbb{N}}}
+\newcommand\R{\ensuremath{\mathbb{R}}}
+\newcommand\Z{\ensuremath{\mathbb{Z}}}
+\newcommand\T{\ensuremath{\mathbb{T}}}
+\renewcommand\O{\ensuremath{\emptyset}}
+\newcommand\Q{\ensuremath{\mathbb{Q}}}
+\newcommand\C{\ensuremath{\mathbb{C}}}
+\newcommand\CP{\ensuremath{\mathbb{CP}}}
+\newcommand\CR{\ensuremath{\mathbb{CR}}}
+\newcommand\Sph{\ensuremath{\mathbb{S}}}
+
+\usepackage{bbm}
+\newcommand{\un}{\ensuremath{\mathbbm{1}}}
+
+% Some theorem environment settings
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{question}{Question}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{example}[theorem]{Example}
+
+
+% inner product
+\DeclarePairedDelimiterX\ipd[2]{\langle}{\rangle}{#1\delimsize , #2}
+
+\usepackage[foot]{amsaddr}
+
+%\numberwithin{equation}{section}
+
+% Show the tag be used
+\mathtoolsset{showonlyrefs}
+% Show the labels during typing
+\usepackage[notref,notcite]{showkeys}
+
+
+\begin{document}
+\title[Null-controllability for 1D heat equation]{Null-controllability for one-dimensional heat equations with power growth potentials from measurable sets}
+\author[Y. Wang]{Yunlei Wang}
+\email{yunlei.wang@math.u-bordeaux.fr}
+
+%\address{Institut de Mathématiques de Bordeaux, Université de Bordeaux 351, cours de la Libération, F 33405 TALENCE cedex}
+
+\maketitle
+\begin{abstract}
+	We study$\ldots$
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}
+
+Consider the 1D heat equation,
+\begin{equation}
+	\begin{cases}
+	\partial_t u-\partial_x^2 u +V(x) u=h(t,x)\un_{\Omega},\quad x\in \R,\,t>0\\
+	u|_{t=0}=u_0 \in L^2(\R),\label{heat}
+	\end{cases}
+\end{equation}
+where the potential $V$ is a real-valued continuous funtion, $h(t,x)\in L^2\left( (0,T)\times \R \right) $, and $\Omega$ is a given measurable set. The equation~\eqref{heat} is said to be \textit{null-controllable} from the set $\Omega$ in time $T>0$ if, for any intial datum $u_0 \in L^2(\R)$, there exists $h(t,x)\in L^2\left( (0,T)\times \Omega \right) $ such that the mild solution to~\eqref{heat} satisfies $u(T)=0$. 
+
+
+
+In this article, we study the null-controllability of heat equation~\eqref{heat} with a potential satisfying the following assumption: 
+\begin{assumption}\label{assump1}
+	$V(x)\in C(\R)$ is a continuous real-valued potential and there exist constants $c_1> 0$, $c_2> 0$, $c_3$ and  $\beta_2\ge \beta_1> 0$ such that
+	\[
+	c_1|x|^{\beta_1}\le V(x)+c_3\le c_2|x|^{\beta_2}, \quad \forall x\in \R.
+	\] 
+\end{assumption}
+Before stating our result, we first give some definitions to describe the observable set $\Omega$ we concerned.
+
+\begin{definition}\label{def:1}
+	Let  $L>0$ and $s\ge 0$, we define the sequence $\left\{x_n\right\}_{n\in \Z}$ of real numbers as the following: set $x_0=0,x_1=L$, define $x_{n}$ for each $n\in \N=\left\{0,1,2,\cdots\right\} $ using the recurrence formula
+	\begin{equation}
+		x_{n+1}=x_n+L\left( \frac{1}{x_n} \right) ^{s}, \quad \forall n \in \N
+	\end{equation}
+	and define $x_{-n}$ for each $n \in \N$ by
+	\begin{equation}
+		x_{-n}=-x_{n}.
+	\end{equation}
+\end{definition}
+
+Define
+\begin{equation}
+	I_{n}:=I_{1n}:=\left[ x_n,x_{n+1} \right] ,\quad \forall n\in \N
+\end{equation}
+and
+\begin{equation}
+	I_{n}:=-I_{|n|},\quad \forall  n\in -\N.
+\end{equation}
+
+\begin{definition}
+	Given the sequence as in Definition~\ref{def:1} and $\gamma>0$. We call a measurable set $\Omega\subset \R$ is $\gamma$-thick of type $(L,s)$ if
+	\begin{equation}
+		|\omega_n|\ge \gamma |I_n|,\label{thick} 
+	\end{equation}
+	where $\omega_n:=\Omega\cap I_n$.
+\end{definition}
+
+\begin{remark}
+	For $s=0$, we obtain $x_{n}=|n|L$ and the thick condition \eqref{thick} becomes
+	\begin{equation}
+		|\Omega \cap [nL,n(L+1)]\ge \gamma L, \quad \forall n\in \Z,
+	\end{equation}
+	and this is just the usual definition of $\gamma$-thick set.	
+\end{remark}
+Now we can state our result as the following:
+\begin{theorem}\label{main}
+	Let $\Omega$ be a $\gamma$-thick set of type $(L,s)$, $V$ be the potential under Assumption~\ref{assump1} and  $s\ge \beta_2$. Then the equation~\eqref{heat} is exactly null-controllable from $\Omega$ in any time $T>0$. 
+\end{theorem}
+By the Hilbert uniqueness method, the null-controllability of~\eqref{heat} from the set $\Omega$ in time $T>0$ is equivalent to the inequality
+\begin{equation}
+	\|e^{-Ht}\|^2_{L^2(\R)}\le C(T,V,\Omega) \int_0^{T}\|e^{-Ht}u_0\|^2_{L^2(\Omega)}\d t, \quad \forall u_0 \in L^2(\R),\label{obs} 
+\end{equation}
+where $C(T,V,\Omega)$ is a constant which depends only on $T,V$ and $\Omega$.
+
+This result is inspired by the recent work of Su, Sun and Yuan \cite{su2023quantitative},who concerned the observability inequality of 1D Schrödinger equation for $V(x) \in  C(\R)$ and bounded, and proved for $\Omega$ being $\gamma$-thick. Here we call a set $\Omega$ is $\gamma$-thick if there exists a positive constant $L$ and $\gamma$ such that 
+\begin{equation}
+	|\Omega \cap [x,x+L]|\ge \gamma L,\quad \forall x\in \R.\label{gma-thick}.
+\end{equation}
+To prove it, they establish the spectral inequality for the Schrödinger operator $H=-\partial_x^2+V(x)$ with $V(x)\in C(\R)\cap L^{\infty}(\R)$. By the well-known Lebeau-Robbiano method, our result is also reduced to the proof of a spectral inequality.
+
+\section{Notation and Conventions}
+
+
+Let $u(t)$ be a solution of~\eqref{heat} and $\theta>0$, then $U(t):=e^{-\theta t}u$ is a solution of
+\begin{equation}
+	\partial_t U-\partial_x^2U+V(x)U+\theta U=0,\quad U\lvert_{t=0}=u_0 \in L^2(\R).
+\end{equation}
+By this transform we can reduce Assumption~\ref{assump1} in Theorem~\ref{main} to the following: 
+\begin{assumption}\label{assump2}
+	$V(x) \in C(\R)$ is a continuous real-valued potential and there exist constants $c_1> 0$, $c_2>0$ and $\beta_2\ge \beta_1>0$ such that
+	\begin{equation}
+		1\le c_1 \langle x\rangle ^{\beta_1}\le V(x)\le c_2 \langle x\rangle ^{\beta_2}. 
+	\end{equation}
+	Here we use the Japanese bracket $\langle x\rangle :=(1+|x|^2)^{\frac{1}{2}}$. Hence we only need to prove~\ref{main} under Assumption~\ref{assump2}.
+\end{assumption}
+We denote the Schrödinger operator
+\begin{equation}
+	Hf(x):=H_{V}f(x):=-\partial_x^2f(x)+V(x)f(x),\quad \forall f \in D(H) 
+\end{equation}
+where $D(H)$ denotes the domain of the operator $H$:
+\begin{equation}
+	D(H)=\left\{f\in L^2(\R): \partial_xf \in L^2(\R) \text{ and }Vf\in L^2(\R)\right\}. 
+\end{equation}
+The space of Schwartz functions, denoted by $\mathcal{S}(\R)$, is contained in $D(H)$.
+
+Note that under Assumption~\ref{assump2}, the potential $V$ satisfies
+\begin{equation}
+	\lim_{|x| \to \infty} V(x)=\infty.
+\end{equation}
+This implies that the inverse operator $H^{-1}$ is compact in $L^2(\R)$ and therefore the spectrum of $H$ are discrete and unbounded. Precisely speaking, there exists a sequence $\left\{\lambda_k\right\}_{k\in \N}$ with $0<\lambda_0\le \lambda_1\le\cdots $ and $\lambda_k\to \infty$, and a normal basis $\left\{\phi_k\right\} _{k\in \N}$ of $L^2(\R)$, such that 
+\begin{equation}
+	H\phi_k=\lambda_k \phi_k,\quad \forall k \in \N.
+\end{equation}
+We will write $\mathcal{E}_\lambda(H)$ for the spectral set associated to $H$, that is,
+\begin{equation}
+	\mathcal{E}_\lambda(H):=\mathrm{span}\left\{\phi_k: k \text{ such that }\lambda_k\le \lambda\right\}. 
+\end{equation}
+
+For future reference, we define
+\begin{equation}
+	I_{2n}:=\left[ x_{n}-|I_n|,x_{n+1}+|I_{n}| \right] ,\quad \forall  n\in \Z	
+\end{equation}
+and
+\begin{equation}
+	I_{3n}:=\left[ x_n-2|I_n|,x_{n+1}+2|I_n| \right] ,\quad \forall n\in \Z.
+\end{equation}
+Define
+\begin{equation}
+	D_{1n}:=I_{1n}\times \left[ -\frac{I_{n}}{2},\frac{I_{n}}{2} \right], \, D_{2n}:=I_{2n}\times \left[ -\frac{3I_{n}}{2},\frac{3I_{n}}{2} \right] \text{ and }D_{3n}:=I_{3n}\times \left[ -\frac{5I_{n}}{2},\frac{5I_{n}}{2} \right]. 
+\end{equation}
+We also define
+\begin{equation}
+	I_1:=[0,1],\,I_2:=[-1,2],\,I_3=[-2,3]
+\end{equation}
+and
+\begin{equation}
+	D_1:=I_1\times \left[ -\frac{I_{1n}}{2},\frac{I_{1n}}{2} \right] ,\, D_2:=I_2\times \left[ -\frac{3}{2},\frac{3}{2} \right] \,\,D_3:=I_3\times\left[ -\frac{5}{2},\frac{5}{2} \right]. 
+\end{equation}
+
+Without loss of generality, we can also assume that $L=1$ in Theorem~\ref{main}. Indeed, we may do the linear transform $x=ay$ and denote $y_n:=x_n /a$, then by choosing $\displaystyle a=L^{\frac{1}{1+s}}$ the new parameter becomes $L'=1$. 
+
+\section{Spectral inequality}
+
+\subsection{Localization property of eigenfunctions}
+Let $V$ be a real-valued nonnegative function on  $\R$ with $V\in L^{\infty}_{\mathrm{loc}}(\R)$ such that
+\begin{equation}
+	\lim_{|x| \to \infty} V(x)=\infty
+\end{equation}
+and consider the associated Schrödinger operator
+\begin{equation}
+	Hf(x):=H_{V}f(x):=-\Delta f(x)+V(x)f(x).
+\end{equation}
+
+
+%This operator is well-defined on $\mathcal{S}(\R)$ and can be extended to an unbounded self-adjoint operator on $L^2(\R)$. We have the following well-known result (see \textit{e.g.} \cite{berezin2012schrodinger}):
+
+\begin{proposition}\label{localization}
+	Assume that $V\in L^{\infty}_{\mathrm{loc}}(\R)$ satisfies $V(x)\ge c|x|^{\beta}$ with $\beta>0$. Then there exists a constant $C:=C(c,\beta)$, depending only on $c$ and $\beta$, such that for all $\lambda>0$ and $\phi \in \mathcal{E}_\lambda(H)$, we have
+	\begin{equation}
+		\|\phi\|_{L^2(\R)}\le 2\|\phi\|_{L^2\left(I_{\lambda}\right)}
+	\end{equation}
+	where $I_{\lambda}:=[-C\lambda^{1 /\beta},C\lambda^{1 /\beta}]$.
+\end{proposition}
+
+
+
+\subsection{Propagation of smallness}
+In this section, we introduce the $L^2$-propagation of smallness for $H^2_{\mathrm{loc}}$ solution of the following 2D elliptic equation in nondivergence form
+\begin{equation}
+	-\Delta \Phi(z)+V(x)\Phi(z)=0\, \text{ with }\,  \partial_y \Phi\lvert_{y=0}.\label{2d-elliptic}
+\end{equation}
+\begin{proposition}\label{propagation-prp}
+	Let $C_0>0$ be a positive constant. Then for any measurablet set $\omega\subset I$ with $|\omega|>0$, any potential $V \in C(I_3)$ with $0<V(x)\le C_0$, and any real-valued $H^2_{\mathrm{loc}}$ solution $\Phi$ of~\eqref{2d-elliptic} in $D_3$, we have
+	\begin{equation}
+		\|\Phi\|_{L^2(D_1)}\le C\|\Phi\|^{\alpha}_{L^2(\omega)}\left( \sup_{D_2}|\Phi|^{1-\alpha} \right),\label{uniform-propagation} 
+	\end{equation}
+	where $\alpha=\alpha(C_0,|\omega|)\in (0,1)$ and $C=C(C_0,|\omega|)>0$ depend only on $C_0$ and $|\omega|$. 
+\end{proposition}
+
+\begin{corollary}\label{propagation-crc}
+	Let $\gamma>0$ and $V\in C(\R)$ be the potential as in Assumption~\ref{assump2}. Let $\Omega$ be a measurable subset of $\R$ such that $|\omega_n|\ge \gamma|I_{n}|$ for every $n\in \Z$. Then for any real-valued $H^2_{\mathrm{loc}}$ solution $\Phi$ of~\eqref{2d-elliptic} in $\R^2$, we have
+	\begin{equation}
+		\|\Phi\|_{L^2(D_{1n})}\le C\|\Phi\|^{\alpha}_{L^2(\omega_n)}\left( \sup_{D_{2n}}|\Phi|^{1-\alpha} \right),\quad \forall n\in \Z, 
+	\end{equation}
+	where $\alpha=\alpha(c_2,\beta_2,\gamma)\in (0,1)$ and $C=C(c_2,\beta_2,\gamma)$ depend only on $c_2,\beta_2$ and $\gamma$. 
+\end{corollary}
+\begin{proof}
+	For each $n\in \Z$, we first reduce the inequality~\eqref{uniform-propagation} to uniformly bounded potential: define 
+	\begin{equation}
+		f(z):=\Phi\left( \frac{z}{a_n} \right), \quad \forall z\in a_nD_{3n},\, \forall n\in \Z,
+	\end{equation}
+	and substitute this into~\eqref{2d-elliptic}, then we obtain
+	\begin{equation}
+		-\Delta f(z)+\widetilde{V}(x)f(z)=0,\quad \forall z\in a_n D_{3n},\,\forall n\in \Z,\label{reduced-2d-elliptic}
+	\end{equation}
+	where $\displaystyle \widetilde{V}(x):=\frac{1}{a_n^2}V\left( \frac{x}{a_n} \right)$.
+	By Assumption~\ref{assump2}, the new potential satisfy the condition
+	\begin{equation}
+		c_1' \left( \frac{1}{a_n} \right) ^{2+\beta_1}\langle x\rangle ^{\beta_1}\le \widetilde{V}(x)\le c_2'\left( \frac{1}{a_n} \right) ^{2+\beta_2}\langle x\rangle ^{\beta_2}
+	\end{equation}
+	for all $x\in a_nI_{3n}$ and for all $n\in \Z$, where $c_1':=c_1'\left( c_1,\beta_1 \right) $ and $c_2':=c_2'(c_2,\beta_2)$ are two new constants.
+
+	Now we choose
+\begin{equation}
+	a_n=|x_n|^{s}
+\end{equation}
+for each $n\in \Z\backslash \left\{0\right\} $ and $a_0=1$.
+	Then by the assumption 
+\begin{equation}
+	s>\frac{2}{3}\beta_2 \Longrightarrow s> \frac{\beta_2}{\beta_2+2},
+\end{equation}
+	we obtain that for any $x\in I_{3n}$, there exists a constant $C'$ such that
+	\begin{equation}
+		c_2'\left( \frac{1}{a_n} \right) ^{2+\beta_2}\langle x\rangle ^{\beta_2}\le C'
+	\end{equation}
+	hold uniformly for all $n\in \Z$ and $C'=C'(c_2,\beta_2)$ depends only on $c_2$ and $\beta_2$.
+
+	Now we can use Proposition~\ref{propagation-prp} in~\eqref{reduced-2d-elliptic}, then for any $n\in \Z$ and real-valued $H^2_{\mathrm{loc}}$ solution $f$ of~\eqref{reduced-2d-elliptic} in $a_nD_{3n}$, we have
+	\begin{equation}
+		\|f\|_{L^2(a_nD_{1n})}\le C\|f\|^{\alpha}_{L^2(a_n\omega_n)}\left( \sup_{a_nD_{2n}}|f|^{1-\alpha} \right),\label{aux-propagation} 
+	\end{equation}
+	where $C:=C(c_2,\beta_2,\gamma)>0$ and $\alpha:=\alpha(c_2,\beta_2,\gamma)\in (0,1)$ depend only on $c_2,\beta_2$ and $\gamma$.
+	Note that 
+	\begin{equation}
+		\|f\|_{L^2(a_nD_{1n})}=a_n^{\frac{1}{2}}\|\phi\|_{L^2(D_{1n})},
+	\end{equation}
+	\begin{equation}
+		\|f\|^{\alpha}_{L^2(a_n \omega_n)}=a_n^{\frac{\alpha}{2}}\|\phi\|^{\alpha}_{L^2(\omega_n)},
+	\end{equation}
+	and
+	\begin{equation}
+		\sup_{a_nD_{2n}}|f|^{1-\alpha}=\sup_{D_{2n}}|\phi|^{1-\alpha}.
+	\end{equation}
+	Take the above three equations into~\eqref{aux-propagation}, then we obtain 
+	\begin{equation}\label{a-1}
+		\|\phi\|_{L^2(D_{1n})}\le C a_n^{\frac{\alpha-1}{2}}\|\phi\|^{\alpha}_{L^2(\omega_n)}\left( \sup_{D_{2n}}|\phi|^{1-\alpha} \right). 
+	\end{equation}
+	Since $\alpha\in (0,1)$ and $a_n\ge 1$, we have
+	\begin{equation}
+		a_n^{\frac{\alpha-1}{2}}\le 1,
+	\end{equation}
+	then combine this with~\eqref{a-1}, we obtain the desired inequality.
+\end{proof}
+\subsection{Spectral inequality}
+\begin{lemma}\label{spectral-inequality}
+	Let $\Omega$ be a $\gamma$-thick set of type $(1,s)$, $V$ be a potential under Assumption~\ref{assump2}. Then there exists a constant $C=C(c_1,\beta_1,c_2,\beta_2,\gamma)>0$, depending only on $c_1,\beta_1,c_2,\beta_2$ and $\gamma$, such that for any $\lambda>0$ and any $\phi \in \mathcal{E}_{\lambda}(H)$, we have
+	\begin{equation}
+		\|\phi\|_{L^2(\R)}\le C e^{C\lambda}\|\phi\|_{L^2(\Omega)}.
+	\end{equation}
+\end{lemma}
+
+
+\begin{proof}
+	Without loss of generality, we assume $\lambda>1$. For any $\lambda>1$, $\displaystyle z=(x,y) \in \R\times \left[ -\frac{5}{2},\frac{5}{2} \right] $, we assume $\phi \in \mathcal{E}_{\lambda}(H)$ and 
+	\begin{equation}
+		\phi=\sum_{\lambda_k\le \lambda} a_k \phi_k,\quad a_k \in \C.
+	\end{equation}
+	We set
+	\begin{equation}
+		\Phi(x,y):=\sum_{\lambda_k\le\lambda}a_k\cosh(\lambda_k y)\phi_k(x).\label{a-2}
+	\end{equation}
+	Taking the derivative of~\eqref{a-2} with respect to $y$ twice and using the fact that $(\cosh s)''=\cosh s$, we obtain
+	\begin{equation}
+		\partial_{y}^2 \Phi=H\Phi=\sum_{\lambda_k\le \lambda}\lambda_ka_k\cosh(\lambda_ky)\phi_k.
+	\end{equation}
+	It follows that
+	\begin{equation}
+		-\Delta \Phi+V(x)\Phi=-\partial^2_{y}\Phi+H\Phi=0.
+	\end{equation}
+	On the other hand, for the case of  $y=0$, using the fact that $(\cosh s)'=\sinh s$, we obtain
+	\begin{equation}
+		\partial_y \Phi\lvert_{y=0}=\sum_{\lambda_k\le \lambda}\lambda_ka_k\sinh(\lambda_k 0)\phi_k=0.
+	\end{equation}
+	Hence the function $\Phi$ is a $H^2_{\mathrm{loc}}$ solution for~\eqref{2d-elliptic} with $\Phi(x,0)=\phi(x)$ on $\R$.
+	Applying Corollary~\ref{propagation-crc} to $\Phi$, we obtain
+	\begin{equation}
+		\|\Phi\|_{L^2(D_{1n})}\le C\|\phi\|^{\alpha}_{L^2(\omega_n)}\left( \sup_{D_{2n}}|\Phi|^{1-\alpha} \right),\quad \forall n\in \Z, 
+	\end{equation}
+	where $C=C(c_2,\beta_2,\gamma)>0$ depends only on $c_2,\beta_2$ and $\gamma$.
+	From Young's inequality for products, {\it{i.e.}}, $\displaystyle ab\le \alpha a^{\frac{1}{\alpha}}+(1-\alpha) b^{\frac{1}{1-\alpha}}$ for any $a,b\ge 0$, we have for all $n\in \Z$
+	\begin{equation}\label{a-3}
+		\|\Phi\|^2_{L^2(D_{1n})}\le \frac{C_1\alpha}{\varepsilon }\|\phi\|^2_{L^2(\omega_n)}+C_1\varepsilon ^{\frac{\alpha}{1-\alpha}}\|\Phi\|^2_{L^{\infty}(D_{2n})},
+	\end{equation}
+	where $C_1=C_1(c_2,\beta_2,\gamma)$ depends only on $c_2,\beta_2$ and $\gamma$. 
+
+	Now we define a cut-off function $\chi:\R^2\to \R$: it is a $C^2$ function such that
+	\begin{equation}
+		\chi\equiv 1 \,\text{ on } \left[ -\frac{3}{2},\frac{3}{2} \right] ^2 \, \text{ and } \,\,\mathrm{supp}\chi \subset \left[ -\frac{5}{2},\frac{5}{2} \right] ^2.
+	\end{equation}
+	For any $n \in \Z$, we set
+	\begin{equation}
+		\chi_{n}(x,y):=\chi\left(a_n (x-x_n)+\frac{1}{2}, a_n y\right). 
+	\end{equation}
+	By this setting, for any $n\in \Z$ we have
+	\begin{equation}
+		\chi_{n}\equiv 1 \, \text{ on } D_{2n} \,\text{ and } \,\,\mathrm{supp}\chi_n \subset D_{3n}.
+	\end{equation}
+	There exists a positive constant $C_2>0$ which depends only on the choice of $\chi$, such that
+	 \begin{equation}
+		|D\chi|_{L^{\infty}(\R^2)}\le C_2 \,\text{ and }\,|\mathrm{Hess}\chi|_{L^{\infty}(\R^2)}\le C_2.
+	\end{equation}
+	Then after the rescaling, we have
+	\begin{equation}
+		|D\chi|_{L^{\infty}(\R^2)}\le C_2 a_n \,\text{ and }\, |\mathrm{Hess}|_{L^{\infty}(\R^2)}\le C_2a_n^2, 
+	\end{equation}
+	where $C_2$ still depends only on the choice of  $\chi$.
+
+	Using the 2D Sobolev embedding theorem, we obtain
+	\begin{align}
+		\|\Phi\|^2_{L^{\infty}(D_{2n})}&\le \pi \|\chi_n \Phi\|^2_{H^2(\R^2)}\\
+					     &\le \pi C_2^2  a_n^4 \|\Phi\|^2_{H^2(D_{3n})}\\
+					     &\le C_3 a_n^4(1+\lambda^{4})\|\Phi\|^2_{L^2(D_{3n})},
+	\end{align}
+	where $C_3>0$ depends only $c_2,\beta_2$ and the choice of $\chi$.
+	Combining this and~\eqref{a-3}, we have
+	\begin{equation}
+		\|\Phi\|^2_{L^2(D_{1n})}\le \frac{C_1\alpha}{\varepsilon }\|\phi\|^2_{L^2(\omega_n)}+C_1C_3\varepsilon ^{\frac{\alpha}{1-\alpha}}a_n^{4}(1+\lambda^{4})\|\Phi\|^2_{L^2(D_{3n})}. 	\label{a-4} 
+	\end{equation}
+	
+	Thanks to Proposition~\ref{localization}, we only need to consider the value of $\phi$ in $I_\lambda$. Define
+	\begin{equation}
+		\mathcal{J}:=\left\{n\in \Z: I_{n}\cap I_\lambda\neq \varnothing\right\}. 
+	\end{equation}
+	Then we have
+	\begin{equation}
+		a_n=|x_n|^{s}\le C_4\langle \lambda\rangle ^{\frac{s}{\beta_1}},\label{a-5}
+	\end{equation}
+	where $C_4=C_4(c_1,\beta_1)$ depends only on $c_1$ and $\beta_1$.
+Summing over $n \in \mathcal{J}$ for~\eqref{a-4}  and using~\eqref{a-5}, we obtain
+\begin{equation}\label{a-8}
+	\sum_{n\in \mathcal{J}}\|\Phi\|^2_{L^{2}(D_{1n})}\le \frac{C_5}{\varepsilon }\sum_{n\in \mathcal{J}}\|\phi\|^2_{L^2(\omega)}+C_5\varepsilon ^{\frac{\alpha}{1-\alpha}}\langle \lambda\rangle ^{4+\frac{4s}{\beta_1}}\sum_{n\in \mathcal{J}}\|\Phi\|^2_{L^2(D_{3n})},
+\end{equation}
+where $C_5=C_5(c_1,\beta_1,c_2,\beta_2,\gamma)$ depends $c_1,\beta_1,c_2,\beta_2$ and $\gamma$.
+
+On the other hand, 
+\begin{equation}\label{a-6}
+	\begin{aligned}
+	\sum_{n\in \mathcal{J}}\|\Phi\|^2_{L^2(D_{1n})} &\ge \int_{-|I_n| /2}^{|I_n| /2} \int_{I_{\lambda}}|\Phi(x,y)|^2 \d x\mathrm{d}y\\
+							&\ge \frac{1}{2}\int_{-|I_n| /2}^{|I_n| /2}\int_{\R}|\Phi(x,y)|^2\d x \mathrm{d}y\\
+							&=\int_0^{|I_n| /2}\int_{\R}|\sum_{\lambda_k\le \lambda}a_k\cosh(\lambda_k y)\phi_k(x)|^2\d x \mathrm{d}y\\
+							&=\int_0^{|I_n| /2} \int_{\R}\sum_{\lambda_k\le \lambda}|a_k|^2\cosh(\lambda_ky)^2|\phi_k(x)|^2\d x \mathrm{d}y\\
+							&\ge \frac{|I_n|}{2}\|\phi\|^2_{L^2(\R)}\ge \frac{1}{C_4}\langle \lambda\rangle ^{-\frac{s}{\beta_1}} \|\phi\|^2_{L^2(\R)}
+,
+\end{aligned}
+\end{equation}
+where the second line uses Proposition~\ref{localization}, the fourth line uses the orthogonality of the basis and the last line uses the relation $a_n=|I_n|^{-1}$. We also have
+\begin{equation}\label{a-7}
+	\begin{aligned}
+		\sum_{n\in \mathcal{J}}\|\Phi\|^2_{L^2(D_{3n})}&\le\int_{- \frac{5}{2}}^{\frac{5}{2}}\int_{\R} |\sum_{\lambda_k\le\lambda}a_k\cosh(\lambda_k y)\phi_k(x)|^2\d x \mathrm{d}y\\
+							       &\le\int_{-\frac{5}{2}}^{\frac{5}{2}} \int_{\R}\sum_{\lambda_k\le \lambda}|a_k|^2\cosh(\lambda_ky)^2|\phi_k(x)|^2\d x \mathrm{d}y\\ 
+							       &\le 5 e^{5 \lambda}\|\phi\|^2_{L^2(\R)}.
+	\end{aligned}
+\end{equation}
+Taking~\eqref{a-6}and~\eqref{a-7} into~\eqref{a-8}, then we obtain
+\begin{equation}
+	\|\phi\|^2_{L^2(\R)} \le \frac{C_5C_4}{\varepsilon }\langle \lambda\rangle ^{\frac{s}{\beta_1}}\|\phi\|^2_{L^2(\omega)}+C_5 \varepsilon ^{\frac{\alpha}{1-\alpha}}\langle \lambda\rangle ^{4+\frac{3s}{\beta_1}}5e^{5 \lambda}\|\phi\|_{L^2(\R)}. 
+\end{equation}
+Finally, we complete the proof of Lemma~\ref{spectral-inequality} by taking $\varepsilon $ small enough.
+\end{proof}
+
+
+\appendix
+\section{Growing estimate of the sequence}
+In this appendix, we consider the recurrence formula
+\begin{equation}
+	x_{n+1}=x_n+\frac{1}{x_n^{s}},\quad x_0=1, \,n\in \N,\label{recur}
+\end{equation}
+where $s>0$. 
+\begin{lemma}
+	Let $\left\{x_n\right\} _{n\in \N}$ be the sequence given by~\eqref{recur}, then for all $n\in \N$, we have
+	\begin{equation}
+		(n+1)^{\frac{1}{s+1}}\le x_n\le (s+1)(n+1)^{\frac{1}{s+1}}+1-s, \quad n\in \N.
+	\end{equation}
+\end{lemma}
+\begin{proof}
+	Rewrite~\eqref{recur} to
+	\begin{equation}
+		x_n^{s}(x_{n+1}-x_n)=1,\quad \forall n\in \N.
+	\end{equation}
+	Summing it up to $n \in \N_{+}$, we obtain
+	 \begin{equation}
+		\sum_{k=0}^{n} \left( x_{k}^{s}x_{k+1}-x_{k}^{s+1} \right) =n+1.
+	\end{equation}
+	Note that $x_k^{s+1}\ge x_{k-1}^{s}x_k$ since $x_k\ge x_{k-1}$ for all $k\in \N$ and $k\ge 1$, we obtain
+	 \begin{equation}
+		\begin{aligned}
+			n+1 \le & \sum_{k=1}^{n} \left( x_{k}^{s}x_{k+1}-x_{k-1}^{s}x_k \right) +x^{s}_0x_1-x_0^{s+1}\\
+			= & x^{s}_{n}x_{n+1}-1\le x_{n+1}^{s+1}-1.
+		\end{aligned} 
+	\end{equation}
+	This implies
+	\begin{equation}
+		x_{n+1} \ge (n+2)^{\frac{1}{s+1}},\quad \forall n \in \N_{+}.
+	\end{equation}
+	This combines with $x_0=1$ and $x_1=2$, we obtain 
+	\begin{equation}
+		x_{n}\ge \left( n+1 \right) ^{\frac{1}{s+1}},\quad \forall n\in \N.
+	\end{equation}
+On the other hand,
+\begin{equation}
+	x_{n+1}=x_n+\frac{1}{x_n^{s}}\le x_n+\frac{1}{(n+1)^{\frac{s}{s+1}}},\quad  n\in \N.
+\end{equation}
+Then we have
+\begin{equation}
+	x_{k+1}-x_k\le \frac{1}{(k+1)^{\frac{s}{s+1}}},\quad k=0,1,\cdots ,n.
+\end{equation}
+Summing it up we obtain for all $n\in \N$
+\begin{equation}
+	\begin{aligned}
+		x_{n+1}-1 &= \sum_{k=0}^{n} (x_{k+1}-x_k)\le \sum_{k=0}^{n} \frac{1}{(k+1)^{\frac{s}{s+1}}}\\
+			  &\le 1+\int_1^{n+1} \frac{1}{x^{\frac{s}{s+1}}}\d x=(s+1)(n+1)^{\frac{1}{s+1}}-s.
+	\end{aligned} 
+\end{equation}
+This combinning with $x_0=1,x_1=2$ finishes the proof of the upper bound. 
+\end{proof}
+\bibliographystyle{plain}
+\bibliography{mybib}
+
+\end{document}
